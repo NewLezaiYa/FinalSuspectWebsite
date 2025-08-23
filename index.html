@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
+    <title>FinalSuspect 模组文档</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.7;
+            color: #2d3748;
+            background: linear-gradient(135deg, #f0f4f9 0%, #e6edf5 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        .language-switch {
+            display: flex;
+            gap: 1rem;
+            margin: 0 0 2rem 0;
+            justify-content: center;
+        }
+
+        .language-switch button {
+            padding: 0.5rem 1.2rem;
+            background: #f0f4f9;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .language-switch button.active {
+            background: #4f6df5;
+            color: white;
+            box-shadow: 0 2px 8px rgba(79, 109, 245, 0.2);
+        }
+
+        .hero {
+            padding: 3.5rem 0 2.5rem;
+            background: white;
+            border-radius: 20px;
+            margin-bottom: 3rem;
+            box-shadow: 0 12px 36px rgba(148, 163, 184, 0.15);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #4f6df5 0%, #3a56e6 100%);
+            border-radius: 20px 20px 0 0;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .hero-logo {
+            max-width: 450px;
+            height: auto;
+            filter: drop-shadow(0 4px 8px rgba(79, 109, 245, 0.15));
+        }
+
+        .hero-name {
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            font-weight: 700;
+            color: #2d3748;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-tagline {
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
+            color: #4a5568;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .section {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 10px 30px rgba(148, 163, 184, 0.1);
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+
+        .section:hover {
+            transform: translateY(-3px);
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            font-size: clamp(1.5rem, 4vw, 1.8rem);
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .section-title i {
+            color: #4f6df5;
+            font-size: 1.4rem;
+        }
+
+        .section-content {
+            font-size: clamp(0.95rem, 3vw, 1rem);
+            color: #4a5568;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+        }
+
+        .feature-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.8rem 1.5rem;
+            background: linear-gradient(45deg, #4f6df5 0%, #3a56e6 100%);
+            color: white;
+            font-weight: 500;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 4px 12px rgba(79, 109, 245, 0.2);
+            margin: 1.5rem auto 0;
+            text-align: center;
+        }
+
+        .feature-link:hover {
+            transform: translateY(-2px) translateX(0);
+            box-shadow: 0 6px 18px rgba(79, 109, 245, 0.3);
+        }
+
+        .feature-link i {
+            transition: transform 0.3s ease;
+        }
+
+        .feature-link:hover i {
+            transform: translateX(4px);
+        }
+
+        .footer-disclaimer {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem 1.5rem;
+            margin-top: 2rem;
+            box-shadow: 0 8px 24px rgba(148, 163, 184, 0.1);
+            text-align: center;
+            color: #4a5568;
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        .footer-disclaimer strong {
+            color: #2d3748;
+            font-weight: 600;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: linear-gradient(135deg, #1a1f29 0%, #232a38 100%);
+                color: #edf2f7;
+            }
+
+            .hero, .section, .footer-disclaimer {
+                background: #2d3748;
+                box-shadow: 0 12px 36px rgba(0, 0, 0, 0.25);
+            }
+
+            .hero-tagline, .section-content, .footer-disclaimer {
+                color: #cbd5e0;
+            }
+
+            .section-title {
+                color: #edf2f7;
+            }
+
+            .feature-link {
+                background: linear-gradient(45deg, #4299e1 0%, #3182ce 100%);
+                box-shadow: 0 4px 12px rgba(66, 153, 225, 0.25);
+            }
+
+            .feature-link:hover {
+                background: linear-gradient(45deg, #3182ce 0%, #4299e1 100%);
+                box-shadow: 0 6px 18px rgba(66, 153, 225, 0.35);
+            }
+
+            .footer-disclaimer strong {
+                color: #edf2f7;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem 1rem;
+            }
+
+            .hero {
+                padding: 2.5rem 0 1.5rem;
+                margin-bottom: 2rem;
+            }
+
+            .section {
+                padding: 2rem 1.5rem;
+                margin-bottom: 2rem;
+            }
+
+            .language-switch {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 语言切换按钮 -->
+        <div class="language-switch">
+            <button id="cn-btn" class="active" aria-label="切换到中文">中文</button>
+            <button id="en-btn" aria-label="切换到英文">English</button>
+        </div>
+
+        <!-- 英雄区域 -->
+        <section class="hero">
+            <div class="hero-content">
+                <img src="FinalSuspect/images/FinalSuspect-Logo.png" 
+                     alt="FinalSuspect Logo" 
+                     class="hero-logo">
+                <h1 class="hero-name" data-zh="模组文档" data-en="Mod Documentation">模组文档</h1>
+                <p class="hero-tagline" data-zh="The Ultimate Among Us Mod for the Original Experience" 
+                   data-en="The Ultimate Among Us Mod for the Original Experience">The Ultimate Among Us Mod for the Original Experience</p>
+            </div>
+        </section>
+
+        <!-- 简介区域（中文） -->
+        <section class="section introduction" data-lang="zh">
+            <h2 class="section-title">
+                <i class="fas fa-book-open"></i>
+                <span data-zh="FinalSuspect 简介" data-en="FinalSuspect Introduction">FinalSuspect 简介</span>
+            </h2>
+            <p class="section-content" data-zh="在这里可以了解FinalSuspect有关详细信息，助你更好理解FinalSuspect模组" 
+               data-en="Get detailed information about FinalSuspect to better understand the mod">在这里可以了解FinalSuspect有关详细信息，助你更好理解FinalSuspect模组</p>
+            <a href="FinalSuspect/zh-CN/Introduction" class="feature-link">
+                <span data-zh="了解更多" data-en="Learn More">了解更多</span>
+                <i class="fas fa-chevron-right"></i>
+            </a>
+        </section>
+
+        <!-- 简介区域（英文） -->
+        <section class="section introduction" data-lang="en" style="display: none;">
+            <h2 class="section-title">
+                <i class="fas fa-book-open"></i>
+                <span data-zh="FinalSuspect 简介" data-en="FinalSuspect Introduction">FinalSuspect Introduction</span>
+            </h2>
+            <p class="section-content" data-zh="在这里可以了解FinalSuspect有关详细信息，助你更好理解FinalSuspect模组" 
+               data-en="Get detailed information about FinalSuspect to better understand the mod">Get detailed information about FinalSuspect to better understand the mod</p>
+            <a href="FinalSuspect/en-US/Introduction" class="feature-link">
+                <span data-zh="了解更多" data-en="Learn More">Learn More</span>
+                <i class="fas fa-chevron-right"></i>
+            </a>
+        </section>
+
+        <!-- 疑难解答区域（中文） -->
+        <section class="section introduction" data-lang="zh">
+            <h2 class="section-title">
+                <i class="fas fa-life-ring"></i>
+                <span data-zh="FinalSuspect 疑难解答" data-en="FinalSuspect FAQ">FinalSuspect 疑难解答</span>
+            </h2>
+            <p class="section-content" data-zh="遇到任何技术问题？这里整理了常见问题解答和解决方案，助你快速解决问题。" 
+               data-en="Encountering technical issues? Here are common Q&A and solutions to help you resolve problems quickly.">遇到任何技术问题？这里整理了常见问题解答和解决方案，助你快速解决问题。</p>
+            <a href="FinalSuspect/zh-CN/FAQ" class="feature-link">
+                <span data-zh="了解更多" data-en="Learn More">了解更多</span>
+                <i class="fas fa-chevron-right"></i>
+            </a>
+        </section>
+
+        <!-- 疑难解答区域（英文） -->
+        <section class="section introduction" data-lang="en" style="display: none;">
+            <h2 class="section-title">
+                <i class="fas fa-life-ring"></i>
+                <span data-zh="FinalSuspect 疑难解答" data-en="FinalSuspect FAQ">FinalSuspect FAQ</span>
+            </h2>
+            <p class="section-content" data-zh="遇到任何技术问题？这里整理了常见问题解答和解决方案，助你快速解决问题。" 
+               data-en="Encountering technical issues? Here are common Q&A and solutions to help you resolve problems quickly.">Encountering technical issues? Here are common Q&A and solutions to help you resolve problems quickly.</p>
+            <a href="FinalSuspect/en-US/FAQ" class="feature-link">
+                <span data-zh="了解更多" data-en="Learn More">Learn More</span>
+                <i class="fas fa-chevron-right"></i>
+            </a>
+        </section>
+
+        <!-- 选项区域（中文） -->
+        <section class="section options" data-lang="zh">
+            <h2 class="section-title">
+                <i class="fas fa-sliders-h"></i>
+                <span data-zh="FinalSuspect 选项" data-en="FinalSuspect Options">FinalSuspect 选项</span>
+            </h2>
+            <p class="section-content" data-zh="深入探索丰富的自定义配置选项，从画面设置到游戏机制，完全掌控你的游戏体验。" 
+               data-en="Dive into rich custom configuration options, from graphics settings to gameplay mechanics, taking full control of your gaming experience.">深入探索丰富的自定义配置选项，从画面设置到游戏机制，完全掌控你的游戏体验。</p>
+            <a href="FinalSuspect/zh-CN/Options/" class="feature-link">
+                <span data-zh="了解更多" data-en="Learn More">了解更多</span>
+                <i class="fas fa-chevron-right"></i>
+            </a>
+        </section>
+
+        <!-- 选项区域（英文） -->
+        <section class="section options" data-lang="en" style="display: none;">
+            <h2 class="section-title">
+                <i class="fas fa-sliders-h"></i>
+                <span data-zh="FinalSuspect 选项" data-en="FinalSuspect Options">FinalSuspect Options</span>
+            </h2>
+            <p class="section-content" data-zh="深入探索丰富的自定义配置选项，从画面设置到游戏机制，完全掌控你的游戏体验。" 
+               data-en="Dive into rich custom configuration options, from graphics settings to gameplay mechanics, taking full control of your gaming experience.">Dive into rich custom configuration options, from graphics settings to gameplay mechanics, taking full control of your gaming experience.</p>
+            <a href="FinalSuspect/en-US/Options/" class="feature-link">
+                <span data-zh="了解更多" data-en="Learn More">Learn More</span>
+                <i class="fas fa-chevron-right"></i>
+            </a>
+        </section>
+
+        <!-- 教程区域（中文） -->
+        <section class="section options" data-lang="zh">
+            <h2 class="section-title">
+                <i class="fas fa-book"></i>
+                <span data-zh="FinalSuspect 教程" data-en="FinalSuspect Guide">FinalSuspect 教程</span>
+            </h2>
+            <p class="section-content" data-zh="了解FinalSuspect有关安装和更新教程，防止你不会安装模组" 
+               data-en="Learn installation and update tutorials for FinalSuspect to prevent installation issues">了解FinalSuspect有关安装和更新教程，防止你不会安装模组</p>
+            <a href="FinalSuspect/zh-CN/Guide/" class="feature-link">
+                <span data-zh="了解更多" data-en="Learn More">了解更多</span>
+                <i class="fas fa-chevron-right"></i>
+            </a>
+        </section>
+
+        <!-- 教程区域（英文） -->
+        <section class="section options" data-lang="en" style="display: none;">
+            <h2 class="section-title">
+                <i class="fas fa-book"></i>
+                <span data-zh="FinalSuspect 教程" data-en="FinalSuspect Guide">FinalSuspect Guide</span>
+            </h2>
+            <p class="section-content" data-zh="了解FinalSuspect有关安装和更新教程，防止你不会安装模组" 
+               data-en="Learn installation and update tutorials for FinalSuspect to prevent installation issues">Learn installation and update tutorials for FinalSuspect to prevent installation issues</p>
+            <a href="FinalSuspect/en-US/Guide/" class="feature-link">
+                <span data-zh="了解更多" data-en="Learn More">Learn More</span>
+                <i class="fas fa-chevron-right"></i>
+            </a>
+        </section>
+
+        <!-- 功能区域（中文） -->
+        <section class="section options" data-lang="zh">
+            <h2 class="section-title">
+                <i class="fas fa-toolbox"></i>
+                <span data-zh="FinalSuspect 功能" data-en="FinalSuspect Features">FinalSuspect 功能</span>
+            </h2>
+            <p class="section-content" data-zh="尽情体验原版的功能且不会妨碍没有使用MOD的玩家" 
+               data-en="Fully enjoy original features without interfering with players not using the mod">尽情体验原版的功能且不会妨碍没有使用MOD的玩家</p>
+            <a href="FinalSuspect/zh-CN/Features/" class="feature-link">
+                <span data-zh="了解更多" data-en="Learn More">了解更多</span>
+                <i class="fas fa-chevron-right"></i>
+            </a>
+        </section>
+
+        <!-- 功能区域（英文） -->
+        <section class="section options" data-lang="en" style="display: none;">
+            <h2 class="section-title">
+                <i class="fas fa-toolbox"></i>
+                <span data-zh="FinalSuspect 功能" data-en="FinalSuspect Features">FinalSuspect Features</span>
+            </h2>
+            <p class="section-content" data-zh="尽情体验原版的功能且不会妨碍没有使用MOD的玩家" 
+               data-en="Fully enjoy original features without interfering with players not using the mod">Fully enjoy original features without interfering with players not using the mod</p>
+            <a href="FinalSuspect/en-US/Features/" class="feature-link">
+                <span data-zh="了解更多" data-en="Learn More">Learn More</span>
+                <i class="fas fa-chevron-right"></i>
+            </a>
+        </section>
+
+        <!-- 声明区域 -->
+        <div class="footer-disclaimer" data-lang="zh">
+            <p><strong>注意：</strong></p>
+            <p>本模组不隶属于 Among Us 或 Innersloth LLC，其包含的内容也未得到 Innersloth LLC 的认可或以其他方式赞助。</p>
+            <p>此处包含的部分材料是Innersloth LLC的财产。</p>
+            <p>© Innersloth LLC</p>
+        </div>
+        <div class="footer-disclaimer" data-lang="en" style="display: none;">
+            <p><strong>Note:</strong></p>
+            <p>This mod is not affiliated with Among Us or Innersloth LLC, and the content contained therein is not endorsed or otherwise sponsored by Innersloth LLC.</p>
+            <p>Portions of the materials contained herein are property of Innersloth LLC.</p>
+            <p>© Innersloth LLC</p>
+        </div>
+    </div>
+
+    <script>
+        // 语言切换核心逻辑
+        document.addEventListener('DOMContentLoaded', () => {
+            const cnBtn = document.getElementById('cn-btn');
+            const enBtn = document.getElementById('en-btn');
+            const allLangSections = document.querySelectorAll('[data-lang]');
+            const currentLang = localStorage.getItem('siteLang') || 'zh';
+
+            // 初始化页面语言
+            function initLanguage(lang) {
+                allLangSections.forEach(section => {
+                    section.style.display = section.dataset.lang === lang ? 'block' : 'none';
+                });
+                // 更新按钮激活状态
+                cnBtn.classList.toggle('active', lang === 'zh');
+                enBtn.classList.toggle('active', lang === 'en');
+                localStorage.setItem('siteLang', lang);
+            }
+
+            function switchLanguage(lang) {
+                initLanguage(lang);
+            }
+
+            cnBtn.addEventListener('click', () => switchLanguage('zh'));
+            enBtn.addEventListener('click', () => switchLanguage('en'));
+
+            initLanguage(currentLang);
+        });
+    </script>
+</body>
+</html>

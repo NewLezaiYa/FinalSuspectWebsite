@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
+    <title>输出日志</title>
+    <style>
+        /* 基础样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "Segoe UI", sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            line-height: 1.9;
+            color: #2d3748;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf9 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            margin: 0 0 2.5rem;
+            color: #2c3e50;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #4f6df5 0%, #3a56e6 100%);
+            border-radius: 2px;
+        }
+
+        .text {
+            margin-bottom: 2rem;
+            font-size: clamp(1rem, 3vw, 1.1rem);
+            color: #4a5568;
+            padding: 1.8rem;
+            background-color: #fff;
+            border-radius: 16px;
+            box-shadow: 0 6px 20px rgba(148, 163, 184, 0.12);
+            transition: transform 0.3s ease;
+            line-height: 1.9;
+        }
+
+        .text:hover {
+            transform: translateY(-2px);
+        }
+
+        .text ol {
+            padding-left: 1.8rem;
+            margin: 1.2rem 0;
+        }
+
+        .text li {
+            margin-bottom: 1rem;
+            position: relative;
+            padding-left: 0.5rem;
+        }
+
+        .text li::before {
+            content: '→';
+            position: absolute;
+            left: -20px;
+            top: 0;
+            color: #4f6df5;
+            font-weight: bold;
+        }
+
+        .tip {
+            margin: 2rem 0;
+            padding: 1.8rem;
+            background-color: #f1f9eb;
+            border-left: 5px solid #a3d168;
+            border-radius: 12px;
+            color: #678539;
+            font-weight: 500;
+            box-shadow: 0 4px 12px rgba(163, 209, 104, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .tip:hover {
+            transform: translateY(-2px);
+        }
+
+        pre {
+            background-color: #f8f9fa;
+            padding: 1.2rem;
+            border-radius: 8px;
+            margin: 1.2rem 0;
+            overflow-x: auto;
+            font-family: "Consolas", "Monaco", monospace;
+            font-size: clamp(0.9rem, 2.5vw, 0.95rem);
+            color: #495057;
+            line-height: 1.6;
+            border: 1px solid #e9ecef;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            background: linear-gradient(90deg, #4f6df5 0%, #3a56e6 100%);
+            color: white;
+            font-size: clamp(1rem, 3vw, 1.1rem);
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 12px rgba(79, 109, 245, 0.3);
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(79, 109, 245, 0.4);
+        }
+
+        .back-button::before {
+            content: "< ";
+            margin-right: 8px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 2rem 1.5rem;
+            }
+
+            h1 {
+                margin: 0 0 2rem;
+            }
+
+            .text {
+                font-size: 1rem;
+                padding: 1.5rem;
+                border-radius: 12px;
+            }
+
+            .text ol {
+                padding-left: 1.5rem;
+            }
+
+            .text li {
+                margin-bottom: 0.8rem;
+            }
+
+            .tip {
+                font-size: 0.95rem;
+                padding: 1.5rem;
+            }
+
+            pre {
+                font-size: 0.85rem;
+                padding: 1rem;
+            }
+
+            .back-button  {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="back-button" onclick="window.history.back()">返回上一页</div>
+
+        <!-- 输出日志 -->
+        <h1 id="dump-log">输出日志</h1>
+
+        <!-- 说明 -->
+        <div class="text">
+            <p>该功能提供简单的日志管理方案：</p>
+            <ol>
+                <li>一键导出：自动将当前`Among Us根目录\BepInEx`下的日志文件复制到模组指定的专用目录</li>
+                <li>快速访问：复制完成后立即自动打开目标文件夹窗口，方便查看日志内容</li>
+                <li>自动清理：原日志文件会在每次启动 Final Suspect 时自动清空，避免占用过多空间</li>
+            </ol>
+        </div>
+
+        <!-- 日志路径 -->
+        <div class="tip">
+            <p>日志文件夹位于下方路径：</p>
+            <pre>%APPDATA%\..\LocalLow\Innersloth\Among Us\FinalSuspect\Logs\Final Suspect-logs</pre>
+            <p>你可以按<mark>Win</mark> + <mark>R</mark>打开运行，粘贴这串地址，并确认以手动访问目录。</p>
+        </div>
+    </main>
+</body>
+</html>
