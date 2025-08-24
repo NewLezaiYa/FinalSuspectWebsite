@@ -1,3 +1,13 @@
 files:
-  - source: FinalSuspect/zh-CN
-    translation: FinalSuspect/en-US
+  - source: FinalSuspect/zh-CN/Features/ClearAutoLogs.html
+    translation: FinalSuspect/en-US/Features/ClearAutoLogs.html
+  - source: FinalSuspect/zh-CN/Features/DumpLog.html
+  translation: FinalSuspect/en-US/Features/ClearAutoLogs.html
+  - source: FinalSuspect/zh-CN/Features/index.html
+  - source: FinalSuspect/zh-CN/Features/MainMenuStyleManager.html
+  - source: FinalSuspect/zh-CN/Features/MyMusic.html
+  - source: FinalSuspect/zh-CN/Features/NameTagManager.html
+  - source: FinalSuspect/zh-CN/Features/ResourceManager.html
+  - source: FinalSuspect/zh-CN/Features/UnloadMod.html
+  - source: FinalSuspect/zh-CN/Features/ClearAutoLogs.html
+                
