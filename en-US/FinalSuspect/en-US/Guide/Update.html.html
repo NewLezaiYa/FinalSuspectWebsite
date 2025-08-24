@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
+    <title>更新</title>
+    <style>
+        /* 基础样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "Segoe UI", sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            line-height: 1.9;
+            color: #2d3748;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf9 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            margin: 0 0 2.5rem;
+            color: #2c3e50;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #4f6df5 0%, #3a56e6 100%);
+            border-radius: 2px;
+        }
+
+        h2 {
+            font-size: clamp(1.5rem, 4vw, 1.8rem);
+            margin: 2.5rem 0 1.5rem;
+            color: #2c3e50;
+            position: relative;
+            padding-left: 24px;
+        }
+
+        h2::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #4f6df5;
+            font-size: 1.2em;
+        }
+
+        .text {
+            margin-bottom: 2rem;
+            text-indent: 2em;
+            font-size: clamp(1rem, 3vw, 1.1rem);
+            color: #4a5568;
+            padding: 1.8rem;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 6px 20px rgba(148, 163, 184, 0.12);
+            transition: transform 0.3s ease;
+            line-height: 1.9;
+        }
+
+        .text:hover {
+            transform: translateY(-2px);
+        }
+
+        .text mark {
+            background-color: #fff9c4;
+            color: #e67e22;
+            font-weight: 500;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .tip {
+            margin: 2rem 0;
+            padding: 1.8rem;
+            background-color: #f1f9eb;
+            border-left: 5px solid #a3d168;
+            border-radius: 12px;
+            color: #678539;
+            font-weight: 500;
+            box-shadow: 0 4px 12px rgba(163, 209, 104, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .tip:hover {
+            transform: translateY(-2px);
+        }
+
+        .warning {
+            margin: 2rem 0;
+            padding: 1.8rem;
+            background-color: #fff5f5;
+            border-left: 5px solid #e74c3c;
+            border-radius: 12px;
+            color: #c0392b;
+            font-weight: 500;
+            box-shadow: 0 4px 12px rgba(231, 76, 60, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .warning:hover {
+            transform: translateY(-2px);
+        }
+
+        a {
+            color: #2980b9;
+            text-decoration: none;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        a:hover {
+            color: #1a5276;
+        }
+
+        a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #1a5276;
+            transition: width 0.3s;
+        }
+
+        a:hover::after {
+            width: 100%;
+        }
+
+        .update-steps {
+            padding-left: 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .update-steps li {
+            margin-bottom: 1rem;
+            font-size: clamp(1rem, 3vw, 1.1rem);
+            color: #4a5568;
+            line-height: 1.7;
+            position: relative;
+        }
+
+        .update-steps li::before {
+            content: '→';
+            position: absolute;
+            left: -20px;
+            top: 0;
+            color: #4f6df5;
+            font-weight: bold;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            background: linear-gradient(90deg, #4f6df5 0%, #3a56e6 100%);
+            color: white;
+            font-size: clamp(1rem, 3vw, 1.1rem);
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 12px rgba(79, 109, 245, 0.3);
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(79, 109, 245, 0.4);
+        }
+
+        .back-button::before {
+            content: "< ";
+            margin-right: 8px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 2rem 1.5rem;
+            }
+
+            h1 {
+                margin: 0 0 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+                margin: 2rem 0 1.2rem;
+                padding-left: 20px;
+            }
+
+            h2::before {
+                font-size: 1.1em;
+            }
+
+            .text, .tip, .warning {
+                font-size: 1rem;
+                padding: 1.5rem;
+            }
+
+            .update-steps {
+                padding-left: 1.5rem;
+            }
+
+            .update-steps li {
+                margin-bottom: 0.8rem;
+            }
+
+            .back-button  {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="back-button" onclick="window.history.back()">返回上一页</div>
+
+        <!-- 更新 -->
+        <h1 id="update">更新</h1>
+
+        <!-- 自动更新 -->
+        <h2 id="auto-update">自动更新</h2>
+        <div class="text">
+            <p>FinalSuspect已于游戏内<mark>内置更新检查</mark>，每次启动将自动检查更新。<br>
+            在有更新时会要求您更新，否则您无法继续游玩。</p>
+
+            <div class="tip">
+                <p>Release版本与OpenBeta版本的更新检查逻辑不同：<br>
+                Release不会要求您更新到Canary版本，而Canary则不会进行更新检查。</p>
+            </div>
+        </div>
+
+        <!-- 手动更新 -->
+        <h2 id="manual-update">手动更新</h2>
+        <div class="warning">
+            <p>如非必要，我们建议您优先选择自动更新。</p>
+        </div>
+
+        <div class="text">
+            <p>若遇上更新检查失败/下载出现问题，可按以下步骤手动更新：</p>
+            <ol class="update-steps">
+                <li>访问<a href="https://github.com/Slok7565/FinalSuspect/releases" target="_blank" rel="noopener noreferrer">GitHub发行版页面</a>，下载最新版本的dll文件。</li>
+                <li>打开AmongUs根目录，再继续打开`BepInEx\plugins`文件夹。</li>
+                <li>将下载的dll文件替换掉原有的dll文件。</li>
+                <li>至此，更新结束。</li>
+            </ol>
+        </div>
+    </main>
+</body>
+</html>
