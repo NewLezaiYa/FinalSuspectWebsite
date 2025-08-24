@@ -1,34 +1,28 @@
-name: Crowdin Action
+name: Add labels to the PR initiated for Crowdin
 
 on:
-  push:
-    branches: [ main ]
+  pull_request:
+    types: [opened]
+
+permissions:
+  pull-requests: write
 
 jobs:
-  synchronize-with-crowdin:
+  check-and-label:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: crowdin action
-        uses: crowdin/github-action@v2
+      - name: Check PR title and add labels
+        uses: actions/github-script@v6
         with:
-          upload_sources: true
-          upload_translations: false
-          download_translations: true
-          localization_branch_name: l10n_crowdin_translations
-          create_pull_request: true
-          pull_request_title: 'New Crowdin Translations'
-          pull_request_body: 'New Crowdin translations by [Crowdin GH Action](https://github.com/crowdin/github-action)'
-          pull_request_base_branch_name: 'main'
-        env:
-          # A classic GitHub Personal Access Token with the 'repo' scope selected (the user should have write access to the repository).
-          GITHUB_TOKEN: ${{ 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 }}
-          
-          # A numeric ID, found at https://crowdin.com/project/<projectName>/tools/api
-          CROWDIN_PROJECT_ID: ${{ 822770 }}
-
-          # Visit https://crowdin.com/settings#api-key to create this token
-          CROWDIN_PERSONAL_TOKEN: ${{ d229019c5fa19c635cd9516cf64befea42dd66f291e9f6b728640e60ed7eacd320e217deced15ac8 }}
+          script: |
+            if (context.payload.pull_request.title.includes('New Crowdin updates')) {
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.payload.pull_request.number,
+                labels: ['Crowdin', 'Feature']
+              });
+              console.log('Added Crowdin and Feature labels to the PR');
+            } else {
+              console.log('PR title does not match "New Crowdin updates", no labels added');
+            }
