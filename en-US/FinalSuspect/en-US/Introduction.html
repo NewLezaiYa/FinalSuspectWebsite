@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
+    <title>Introduction</title>
+    <style>
+        /* 基础样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "Segoe UI", sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f0f4f9 0%, #e6edf5 100%);
+            padding: 2rem 1.5rem;
+            line-height: 1.9;
+            color: #2d3748;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 3rem 2.5rem;
+            box-shadow: 0 12px 36px rgba(148, 163, 184, 0.15);
+            position: relative;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            margin: 0 0 2.5rem;
+            color: #2c3e50;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #4f6df5 0%, #3a56e6 100%);
+            border-radius: 2px;
+        }
+
+        .image-card {
+            margin: 2.5rem 0;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .image-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+        }
+
+        .main-img {
+            display: block;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 16px;
+        }
+
+        .text {
+            margin-bottom: 2.5rem;
+        }
+
+        p {
+            font-size: clamp(1rem, 3vw, 1.1rem);
+            color: #4a5568;
+            margin-bottom: 1.8rem;
+            text-indent: 2em;
+            line-height: 1.9;
+            padding: 0 5px;
+            letter-spacing: 0.02em;
+        }
+
+        .contributors {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 2rem;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .contributors-note {
+            font-size: 0.95rem;
+            color: #64748b;
+            margin-bottom: 1.2rem;
+            font-weight: 500;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            background: linear-gradient(90deg, #4f6df5 0%, #3a56e6 100%);
+            color: white;
+            font-size: clamp(1rem, 3vw, 1.1rem);
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 12px rgba(79, 109, 245, 0.3);
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(79, 109, 245, 0.4);
+        }
+
+        .back-button::before {
+            content: "< ";
+            margin-right: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 2rem 1.5rem;
+                border-radius: 16px;
+            }
+
+            h1 {
+                margin: 0 0 2rem;
+                font-size: clamp(1.5rem, 5vw, 2rem);
+            }
+
+            p {
+                font-size: 1rem;
+                padding: 0 3px;
+                line-height: 1.85;
+            }
+
+            .image-card {
+                margin: 2rem 0;
+                border-radius: 12px;
+            }
+
+            .contributors {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: linear-gradient(135deg, #1a1f29 0%, #232a38 100%);
+            }
+
+            .container {
+                background: #2d3748;
+                box-shadow: 0 12px 36px rgba(0, 0, 0, 0.25);
+            }
+
+            h1 {
+                color: #edf2f7;
+            }
+
+            h1::after {
+                background: linear-gradient(90deg, #60a5fa 0%, #3b82f6 100%);
+            }
+
+            p {
+                color: #cbd5e1;
+            }
+
+            .contributors {
+                background: #374151;
+            }
+
+            .contributors-note {
+                color: #94a3b8;
+            }
+
+            .image-card {
+                box-shadow: 0 8px 24px #FFFFFF;
+            }
+
+            .back-button  {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <main>
+            <div class="back-button" onclick="window.history.back()">Go back to the previous page</div>
+
+            <h1 id="introduction">Introduction</h1>
+
+            <div class="contributors">
+                <p class="contributors-note">Final Suspect游戏背景图：</p>
+                <div class="image-card">
+                    <img
+                        src="images/LogoWithTeam.png"
+                        alt="FinalSuspect游戏背景图"
+                        class="main-img"
+                    >
+                </div>
+            </div>
+
+            <div class="text">
+                <p>Final Suspect（终极嫌疑）是Among Us原版的优质辅助模组，致力于为玩家带来更流畅、更丰富的游戏体验。作为原版核心机制的深度扩展，我们坚持「保留经典，优化体验」的开发理念，通过20+项功能迭代，全面覆盖操作手感、视觉表现、社交互动等核心场景。</p>
+                <p>从精准的操作延迟优化到沉浸式的UI界面重制，从智能的队友行为提示到稳定的网络连接增强，Final Suspect不仅修复了原版长期存在的体验痛点，更通过创意功能为多人协作注入新的活力。无论是新手玩家的入门引导，还是资深玩家的深度自定义，都能在这款模组中找到专属乐趣。</p>
+            </div>
+
+            <div class="contributors">
+                <p class="contributors-note">衷心感谢为Final Suspect贡献代码与创意的所有开发者：</p>
+                <div class="image-card">
+                    <img 
+                        src="https://contrib.rocks/image?repo=XtremeWave/FinalSuspect" 
+                        alt="FinalSuspect Contributors" 
+                        class="main-img"
+                    >
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
