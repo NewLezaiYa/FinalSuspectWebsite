@@ -1,3 +1,9 @@
 files:
   - source: FinalSuspect/zh-CN/*.*
     translation: FinalSuspect/en-US/%original_file_name%.html
+  - source: FinalSuspect/zh-CN/Features/*.*
+    translation: FinalSuspect/en-US/Features/%original_file_name%.html
+  - source: FinalSuspect/zh-CN/Guide/*.*
+    translation: FinalSuspect/en-US/Guide/%original_file_name%.html
+  - source: FinalSuspect/zh-CN/Options/*.*
+    translation: FinalSuspect/en-US/Options/%original_file_name%.html
