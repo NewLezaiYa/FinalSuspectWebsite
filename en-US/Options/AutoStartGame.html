@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
@@ -136,6 +136,9 @@
 
         <p class="text">
             在Final Suspect模组中，我们优化了自动开始游戏的逻辑，使房间人数接近满员时即可触发倒计时。<br>
+            当房间玩家人数达到<mark>最大值-1</mark>（即仅差1人满员）时，Final Suspect会启动10秒的短倒计时。<br>
+            倒计时期间，房主可手动取消。<br>
+            这一机制既避免了满员后的等待延迟，又防止因最后一名玩家迟迟未加入而影响游戏体验。<br>
             当房间玩家人数达到<mark>最大值-1</mark>（即仅差1人满员）时，Final Suspect会启动10秒的短倒计时。<br>
             倒计时期间，房主可手动取消。<br>
             这一机制既避免了满员后的等待延迟，又防止因最后一名玩家迟迟未加入而影响游戏体验。
