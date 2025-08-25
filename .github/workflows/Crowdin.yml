@@ -15,7 +15,7 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            if (context.payload.pull_request.title.includes('New Crowdin updates')) {
+            if (context.payload.pull_request.title.includes('New Crowdin Translation')) {
               await github.rest.issues.addLabels({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
@@ -24,5 +24,5 @@ jobs:
               });
               console.log('Added Crowdin and Feature labels to the PR');
             } else {
-              console.log('PR title does not match "New Crowdin updates", no labels added');
+              console.log('PR title does not match "New Crowdin Translation", no labels added');
             }
