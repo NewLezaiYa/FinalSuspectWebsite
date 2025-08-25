@@ -250,19 +250,44 @@
     <div class="container">
         <!-- 语言切换按钮 -->
         <div class="language-switch">
-            <button id="cn-btn" class="active" aria-label="切换到中文">中文</button>
-            <button id="en-btn" aria-label="切换到英文">English</button>
+            <button id="cn-btn"
+                    class="active"
+                    aria-label="切换到中文">
+                    中文
+            </button>
+            <button id="en-btn"
+                    aria-label="切换到英文">
+                    English
+            </button>
         </div>
 
-        <!-- 英雄区域 -->
-        <section class="hero">
+        <!-- 主区域（中文） -->
+        <section class="hero" data-lang="zh">
             <div class="hero-content">
-                <img src="FinalSuspect/images/FinalSuspect-Logo.png" 
-                     alt="FinalSuspect Logo" 
+                <img src="FinalSuspect/images/FinalSuspect-Logo.png"
+                     alt="FinalSuspect Logo"
                      class="hero-logo">
-                <h1 class="hero-name" data-zh="模组文档" data-en="Mod Documentation">模组文档</h1>
-                <p class="hero-tagline" data-zh="The Ultimate Among Us Mod for the Original Experience" 
-                   data-en="The Ultimate Among Us Mod for the Original Experience">The Ultimate Among Us Mod for the Original Experience</p>
+                <h1 class="hero-name">
+                    模组文档
+                </h1>
+                <p class="hero-tagline">
+                    The Ultimate Among Us Mod for the Original Experience
+                </p>
+            </div>
+        </section>
+
+        <!-- 主区域（英文） -->
+        <section class="hero" data-lang="en" style="display: none;">
+            <div class="hero-content">
+                <img src="FinalSuspect/images/FinalSuspect-Logo.png"
+                     alt="FinalSuspect Logo"
+                     class="hero-logo">
+                <h1 class="hero-name">
+                    Mod Documentation
+                </h1>
+                <p class="hero-tagline">
+                    The Ultimate Among Us Mod for the Original Experience
+                </p>
             </div>
         </section>
 
@@ -270,12 +295,13 @@
         <section class="section introduction" data-lang="zh">
             <h2 class="section-title">
                 <i class="fas fa-book-open"></i>
-                <span data-zh="FinalSuspect 简介" data-en="FinalSuspect Introduction">FinalSuspect 简介</span>
+                FinalSuspect 简介
             </h2>
-            <p class="section-content" data-zh="在这里可以了解FinalSuspect有关详细信息，助你更好理解FinalSuspect模组" 
-               data-en="Get detailed information about FinalSuspect to better understand the mod">在这里可以了解FinalSuspect有关详细信息，助你更好理解FinalSuspect模组</p>
-            <a href="FinalSuspect/zh-CN/Introduction" class="feature-link">
-                <span data-zh="了解更多" data-en="Learn More">了解更多</span>
+            <p class="section-content">
+                在这里可以了解FinalSuspect有关详细信息，助你更好理解FinalSuspect模组
+            </p>
+            <a href="FinalSuspect/Introduction" class="feature-link">
+                了解更多
                 <i class="fas fa-chevron-right"></i>
             </a>
         </section>
@@ -284,12 +310,13 @@
         <section class="section introduction" data-lang="en" style="display: none;">
             <h2 class="section-title">
                 <i class="fas fa-book-open"></i>
-                <span data-zh="FinalSuspect 简介" data-en="FinalSuspect Introduction">FinalSuspect Introduction</span>
+                FinalSuspect Introduction
             </h2>
-            <p class="section-content" data-zh="在这里可以了解FinalSuspect有关详细信息，助你更好理解FinalSuspect模组" 
-               data-en="Get detailed information about FinalSuspect to better understand the mod">Get detailed information about FinalSuspect to better understand the mod</p>
-            <a href="FinalSuspect/en-US/Introduction" class="feature-link">
-                <span data-zh="了解更多" data-en="Learn More">Learn More</span>
+            <p class="section-content">
+                Get detailed information about FinalSuspect to better understand the mod
+            </p>
+            <a href="en-US/Introduction" class="feature-link">
+                Learn More
                 <i class="fas fa-chevron-right"></i>
             </a>
         </section>
@@ -298,12 +325,13 @@
         <section class="section introduction" data-lang="zh">
             <h2 class="section-title">
                 <i class="fas fa-life-ring"></i>
-                <span data-zh="FinalSuspect 疑难解答" data-en="FinalSuspect FAQ">FinalSuspect 疑难解答</span>
+                FinalSuspect 疑难解答
             </h2>
-            <p class="section-content" data-zh="遇到任何技术问题？这里整理了常见问题解答和解决方案，助你快速解决问题。" 
-               data-en="Encountering technical issues? Here are common Q&A and solutions to help you resolve problems quickly.">遇到任何技术问题？这里整理了常见问题解答和解决方案，助你快速解决问题。</p>
-            <a href="FinalSuspect/zh-CN/FAQ" class="feature-link">
-                <span data-zh="了解更多" data-en="Learn More">了解更多</span>
+            <p class="section-content">
+                遇到任何技术问题？这里整理了常见问题解答和解决方案，助你快速解决问题。
+            </p>
+            <a href="FinalSuspect/FAQ" class="feature-link">
+                了解更多
                 <i class="fas fa-chevron-right"></i>
             </a>
         </section>
@@ -312,12 +340,13 @@
         <section class="section introduction" data-lang="en" style="display: none;">
             <h2 class="section-title">
                 <i class="fas fa-life-ring"></i>
-                <span data-zh="FinalSuspect 疑难解答" data-en="FinalSuspect FAQ">FinalSuspect FAQ</span>
+                FinalSuspect FAQ
             </h2>
-            <p class="section-content" data-zh="遇到任何技术问题？这里整理了常见问题解答和解决方案，助你快速解决问题。" 
-               data-en="Encountering technical issues? Here are common Q&A and solutions to help you resolve problems quickly.">Encountering technical issues? Here are common Q&A and solutions to help you resolve problems quickly.</p>
-            <a href="FinalSuspect/en-US/FAQ" class="feature-link">
-                <span data-zh="了解更多" data-en="Learn More">Learn More</span>
+            <p class="section-content">
+                Encountering technical issues? Here are common Q&A and solutions to help you resolve problems quickly.
+            </p>
+            <a href="en-US/FAQ" class="feature-link">
+                Learn More
                 <i class="fas fa-chevron-right"></i>
             </a>
         </section>
@@ -326,12 +355,13 @@
         <section class="section options" data-lang="zh">
             <h2 class="section-title">
                 <i class="fas fa-sliders-h"></i>
-                <span data-zh="FinalSuspect 选项" data-en="FinalSuspect Options">FinalSuspect 选项</span>
+                FinalSuspect 选项
             </h2>
-            <p class="section-content" data-zh="深入探索丰富的自定义配置选项，从画面设置到游戏机制，完全掌控你的游戏体验。" 
-               data-en="Dive into rich custom configuration options, from graphics settings to gameplay mechanics, taking full control of your gaming experience.">深入探索丰富的自定义配置选项，从画面设置到游戏机制，完全掌控你的游戏体验。</p>
-            <a href="FinalSuspect/zh-CN/Options/" class="feature-link">
-                <span data-zh="了解更多" data-en="Learn More">了解更多</span>
+            <p class="section-content">
+                深入探索丰富的自定义配置选项，从画面设置到游戏机制，完全掌控你的游戏体验。
+            </p>
+            <a href="FinalSuspect/Options/" class="feature-link">
+                了解更多
                 <i class="fas fa-chevron-right"></i>
             </a>
         </section>
@@ -340,12 +370,13 @@
         <section class="section options" data-lang="en" style="display: none;">
             <h2 class="section-title">
                 <i class="fas fa-sliders-h"></i>
-                <span data-zh="FinalSuspect 选项" data-en="FinalSuspect Options">FinalSuspect Options</span>
+                FinalSuspect Options
             </h2>
-            <p class="section-content" data-zh="深入探索丰富的自定义配置选项，从画面设置到游戏机制，完全掌控你的游戏体验。" 
-               data-en="Dive into rich custom configuration options, from graphics settings to gameplay mechanics, taking full control of your gaming experience.">Dive into rich custom configuration options, from graphics settings to gameplay mechanics, taking full control of your gaming experience.</p>
-            <a href="FinalSuspect/en-US/Options/" class="feature-link">
-                <span data-zh="了解更多" data-en="Learn More">Learn More</span>
+            <p class="section-content">
+                Dive into rich custom configuration options, from graphics settings to gameplay mechanics, taking full control of your gaming experience.
+            </p>
+            <a href="en-US/Options/" class="feature-link">
+                Learn More
                 <i class="fas fa-chevron-right"></i>
             </a>
         </section>
@@ -354,12 +385,13 @@
         <section class="section options" data-lang="zh">
             <h2 class="section-title">
                 <i class="fas fa-book"></i>
-                <span data-zh="FinalSuspect 教程" data-en="FinalSuspect Guide">FinalSuspect 教程</span>
+                FinalSuspect 教程
             </h2>
-            <p class="section-content" data-zh="了解FinalSuspect有关安装和更新教程，防止你不会安装模组" 
-               data-en="Learn installation and update tutorials for FinalSuspect to prevent installation issues">了解FinalSuspect有关安装和更新教程，防止你不会安装模组</p>
-            <a href="FinalSuspect/zh-CN/Guide/" class="feature-link">
-                <span data-zh="了解更多" data-en="Learn More">了解更多</span>
+            <p class="section-content">
+                了解FinalSuspect有关安装和更新教程，防止你不会安装模组。
+            </p>
+            <a href="FinalSuspect/Guide/" class="feature-link">
+                了解更多
                 <i class="fas fa-chevron-right"></i>
             </a>
         </section>
@@ -368,12 +400,12 @@
         <section class="section options" data-lang="en" style="display: none;">
             <h2 class="section-title">
                 <i class="fas fa-book"></i>
-                <span data-zh="FinalSuspect 教程" data-en="FinalSuspect Guide">FinalSuspect Guide</span>
+                FinalSuspect Guide
             </h2>
-            <p class="section-content" data-zh="了解FinalSuspect有关安装和更新教程，防止你不会安装模组" 
-               data-en="Learn installation and update tutorials for FinalSuspect to prevent installation issues">Learn installation and update tutorials for FinalSuspect to prevent installation issues</p>
-            <a href="FinalSuspect/en-US/Guide/" class="feature-link">
-                <span data-zh="了解更多" data-en="Learn More">Learn More</span>
+            <p class="section-content">
+                Learn installation and update tutorials for FinalSuspect to prevent installation issues</p>
+            <a href="en-US/Guide/" class="feature-link">
+                Learn More
                 <i class="fas fa-chevron-right"></i>
             </a>
         </section>
@@ -382,12 +414,13 @@
         <section class="section options" data-lang="zh">
             <h2 class="section-title">
                 <i class="fas fa-toolbox"></i>
-                <span data-zh="FinalSuspect 功能" data-en="FinalSuspect Features">FinalSuspect 功能</span>
+                FinalSuspect 功能
             </h2>
-            <p class="section-content" data-zh="尽情体验原版的功能且不会妨碍没有使用MOD的玩家" 
-               data-en="Fully enjoy original features without interfering with players not using the mod">尽情体验原版的功能且不会妨碍没有使用MOD的玩家</p>
-            <a href="FinalSuspect/zh-CN/Features/" class="feature-link">
-                <span data-zh="了解更多" data-en="Learn More">了解更多</span>
+            <p class="section-content">
+                尽情体验原版的功能且不会妨碍没有使用MOD的玩家。
+            </p>
+            <a href="FinalSuspect/Features/" class="feature-link">
+                了解更多
                 <i class="fas fa-chevron-right"></i>
             </a>
         </section>
@@ -396,12 +429,13 @@
         <section class="section options" data-lang="en" style="display: none;">
             <h2 class="section-title">
                 <i class="fas fa-toolbox"></i>
-                <span data-zh="FinalSuspect 功能" data-en="FinalSuspect Features">FinalSuspect Features</span>
+                FinalSuspect Features
             </h2>
-            <p class="section-content" data-zh="尽情体验原版的功能且不会妨碍没有使用MOD的玩家" 
-               data-en="Fully enjoy original features without interfering with players not using the mod">Fully enjoy original features without interfering with players not using the mod</p>
-            <a href="FinalSuspect/en-US/Features/" class="feature-link">
-                <span data-zh="了解更多" data-en="Learn More">Learn More</span>
+            <p class="section-content">
+                Fully enjoy original features without interfering with players not using the mod
+            </p>
+            <a href="en-US/Features/" class="feature-link">
+                Learn More
                 <i class="fas fa-chevron-right"></i>
             </a>
         </section>
@@ -422,7 +456,7 @@
     </div>
 
     <script>
-        // 语言切换核心逻辑
+        // 语言切换核心
         document.addEventListener('DOMContentLoaded', () => {
             const cnBtn = document.getElementById('cn-btn');
             const enBtn = document.getElementById('en-btn');
