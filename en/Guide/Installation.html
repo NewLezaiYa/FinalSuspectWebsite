@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
-    <title>更新</title>
+    <title>安装</title>
     <style>
         /* 基础样式 */
         * {
@@ -64,6 +64,22 @@
             font-size: 1.2em;
         }
 
+        h3 {
+            font-size: clamp(1.3rem, 3.5vw, 1.5rem);
+            margin: 1.8rem 0 1.2rem;
+            color: #c0392b;
+            position: relative;
+            padding-left: 24px;
+        }
+
+        h3::before {
+            content: '⚠️';
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1.2em;
+        }
+
         .text {
             margin-bottom: 2rem;
             text-indent: 2em;
@@ -121,6 +137,19 @@
             transform: translateY(-2px);
         }
 
+        pre {
+            background-color: #f8f9fa;
+            padding: 1.2rem;
+            border-radius: 8px;
+            margin: 1.2rem 0;
+            overflow-x: auto;
+            font-family: "Consolas", "Monaco", monospace;
+            font-size: clamp(0.9rem, 2.5vw, 0.95rem);
+            color: #495057;
+            line-height: 1.6;
+            border: 1px solid #e9ecef;
+        }
+
         a {
             color: #2980b9;
             text-decoration: none;
@@ -147,26 +176,18 @@
             width: 100%;
         }
 
-        .update-steps {
-            padding-left: 2rem;
-            margin: 1.5rem 0;
+        .guide-img {
+            display: block;
+            max-width: 90%;
+            height: auto;
+            margin: 2rem auto;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(148, 163, 184, 0.15);
+            transition: transform 0.3s ease;
         }
 
-        .update-steps li {
-            margin-bottom: 1rem;
-            font-size: clamp(1rem, 3vw, 1.1rem);
-            color: #4a5568;
-            line-height: 1.7;
-            position: relative;
-        }
-
-        .update-steps li::before {
-            content: '→';
-            position: absolute;
-            left: -20px;
-            top: 0;
-            color: #4f6df5;
-            font-weight: bold;
+        .guide-img:hover {
+            transform: scale(1.01);
         }
 
         .back-button {
@@ -215,17 +236,31 @@
                 font-size: 1.1em;
             }
 
+            h3 {
+                font-size: 1.3rem;
+                margin: 1.3rem 0 0.8rem;
+                padding-left: 20px;
+            }
+
+            h3::before {
+                font-size: 1.1em;
+            }
+
             .text, .tip, .warning {
                 font-size: 1rem;
                 padding: 1.5rem;
             }
 
-            .update-steps {
-                padding-left: 1.5rem;
+            pre {
+                font-size: 0.85rem;
+                padding: 1rem;
+                margin: 1rem 0;
             }
 
-            .update-steps li {
-                margin-bottom: 0.8rem;
+            .guide-img {
+                max-width: 100%;
+                border-radius: 12px;
+                box-shadow: 0 4px 12px rgba(148, 163, 184, 0.15);
             }
 
             .back-button  {
@@ -238,36 +273,69 @@
     <main>
         <div class="back-button" onclick="window.history.back()">返回上一页</div>
 
-        <!-- 更新 -->
-        <h1 id="update">更新</h1>
+        <h1 id="installation">FinalSuspect 安装</h1>
 
-        <!-- 自动更新 -->
-        <h2 id="auto-update">自动更新</h2>
+        <!-- 下载 -->
+        <h2 id="download">下载</h2>
         <div class="text">
-            <p>Final Suspect已于游戏内<mark>内置更新检查</mark>，每次启动将自动检查更新。<br>
-            在有更新时会要求您更新，否则您无法继续游玩。<br>
-            在有更新时会要求您更新，否则您无法继续游玩。</p>
-
-            <div class="tip">
-                <p>Release版本与OpenBeta版本的更新检查逻辑不同：<br>
-                Release不会要求您更新到OpenBeta版本，而OpenBeta则不会进行更新检查。</p>
-            </div>
+            <p>访问Release页面，下载最新版本的安装包。</p>
+            <p>在GitHub上获取发行版：
+                <a href="https://github.com/Slok7565/FinalSuspect/releases"
+                    target="_blank" rel="noopener noreferrer">
+                    点击此处
+                </a>
+            </p>
         </div>
 
-        <!-- 手动更新 -->
-        <h2 id="manual-update">手动更新</h2>
+        <!-- Steam安装 -->
+        <h2 id="steam-installation">Steam平台安装</h2>
+        <div class="tip">
+            <p>如果您在安装原版Among Us时选择的是C盘，默认路径为：</p>
+            <pre>C:\Program Files (x86)\Steam\steamapps\common\Among Us</pre>
+            <p>按下<mark>Win</mark> + <mark>R</mark>，粘贴路径即可打开目录。</p>
+        </div>
+
+        <div class="text">
+            <p>通过Steam打开游戏根目录：</p>
+            <img src="https://api.xtreme.net.cn/Docs/FinalSuspect/Guide/OpenAmongUsWithSteam.png"
+                alt="使用Steam打开Among Us根目录示意图"
+                class="guide-img"
+            >
+
+            <p>将Final Suspect解压至Among Us根目录，完成后的结构应为：</p>
+            <pre>C:\Program Files (x86)\Steam\steamapps\common\Among Us\BepInEx\plugins\FinalSuspect.dll</pre>
+            <img src="https://api.xtreme.net.cn/Docs/FinalSuspect/Guide/SteamUnzip.png"
+                alt="Steam平台解压完成示意图"
+                class="guide-img"
+            >
+        </div>
+
+        <!-- Epic安装 -->
+        <h2 id="epic-installation">Epic平台安装</h2>
+        <div class="tip">
+            <p>Epic默认路径为：</p>
+            <pre>C:\Program Files\Epic Games\AmongUs</pre>
+            <p>通过Epic打开目录：</p>
+            <img src="https://api.xtreme.net.cn/Docs/FinalSuspect/Guide/OpenAmongWithEpic.png"
+                alt="使用Epic打开AmongUs目录示意图"
+                class="guide-img"
+            >
+        </div>
+
+        <div class="text">
+            <p>解压Final Suspect至Epic游戏根目录示意图</p>
+            <pre>C:\Program Files\Epic Games\AmongUs\BepInEx\plugins\FinalSuspect.dll</pre>
+            <img src="https://api.xtreme.net.cn/Docs/FinalSuspect/Guide/EpicUnzip.png"
+                alt="Epic平台解压完成示意图"
+                class="guide-img"
+            >
+        </div>
+
+        <!-- Epic警告 -->
         <div class="warning">
-            <p>如非必要，我们建议您优先选择自动更新。</p>
-        </div>
-
-        <div class="text">
-            <p>若遇上更新检查失败/下载出现问题，可按以下步骤手动更新：</p>
-            <ol class="update-steps">
-                <li>访问<a href="https://github.com/Slok7565/FinalSuspect/releases" target="_blank" rel="noopener noreferrer">GitHub发行版页面</a>，下载最新版本的dll文件。</li>
-                <li>打开Among Us根目录，再继续打开<mark>BepInEx\plugins</mark>文件夹。</li>
-                <li>将下载的dll文件替换掉原有的dll文件。</li>
-                <li>至此，更新结束。</li>
-            </ol>
+            <h3>Epic平台限制</h3>
+            <p>必须安装在官方目录下，且<mark>不支持多模组共存</mark>。<br>
+            非官方目录安装会导致<mark>校验失败</mark>，无法启动游戏。</p>
         </div>
     </main>
 </body>

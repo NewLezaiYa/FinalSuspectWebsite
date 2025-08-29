@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
-    <title>名称标识管理</title>
+    <title>启用反作弊</title>
     <style>
         /* 基础样式 */
         * {
@@ -49,10 +49,11 @@
 
         .text {
             margin-bottom: 2rem;
+            text-indent: 2em;
             font-size: clamp(1rem, 3vw, 1.1rem);
             color: #4a5568;
             padding: 1.8rem;
-            background-color: #fff;
+            background: white;
             border-radius: 16px;
             box-shadow: 0 6px 20px rgba(148, 163, 184, 0.12);
             transition: transform 0.3s ease;
@@ -63,30 +64,28 @@
             transform: translateY(-2px);
         }
 
-        a {
-            color: #2980b9;
-            text-decoration: none;
-            transition: all 0.3s;
-            position: relative;
+        mark {
+            background-color: #fff9c4;
+            color: #e67e22;
+            font-weight: 500;
+            padding: 2px 8px;
+            border-radius: 4px;
         }
 
-        a:hover {
-            color: #1a5276;
+        .warning {
+            margin: 2rem 0;
+            padding: 1.8rem;
+            background-color: #fff5f5;
+            border-left: 5px solid #fc8181;
+            border-radius: 12px;
+            color: #c53030;
+            font-weight: 500;
+            box-shadow: 0 4px 12px rgba(252, 129, 129, 0.1);
+            transition: transform 0.3s ease;
         }
 
-        a::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #1a5276;
-            transition: width 0.3s;
-        }
-
-        a:hover::after {
-            width: 100%;
+        .warning:hover {
+            transform: translateY(-2px);
         }
 
         .back-button {
@@ -125,9 +124,13 @@
                 margin: 0 0 2rem;
             }
 
-            .text, .tip, .warning {
+            .text, .warning {
                 font-size: 1rem;
                 padding: 1.5rem;
+            }
+
+            mark {
+                padding: 2px 6px;
             }
 
             .back-button  {
@@ -140,12 +143,20 @@
     <main>
         <div class="back-button" onclick="window.history.back()">返回上一页</div>
 
-        <!-- 名称标识管理 -->
-        <h1 id="audio-management">名称标识管理</h1>
+        <h1 id="disable-fac">启用反作弊</h1>
 
-        <!-- 说明 -->
-        <div class="text">
-            <p>该功能可以为任意玩家添加名称标识，标识会在绑定好友代码的玩家加入后自动发放，进入房间后不能编辑标识。</p>
+        <p class="text">
+            在Final Suspect模组中，我们提供了启用FAC（Final Anti Cheat）的选项。<br>
+            启用此选项后，<mark>FAC将开始工作</mark>。
+        </p>
+
+        <p class="text">
+            该功能适用于自定义房间或模组测试场景，禁用后房间将依赖玩家自律。
+        </p>
+
+        <div class="warning">
+            <p>我们<mark>不推荐</mark>你禁用FAC。<br>
+            禁用FAC后您的房间可能会被外挂炸崩。</p>
         </div>
     </main>
 </body>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
-    <title>名称标识管理</title>
+    <title>导出日志</title>
     <style>
         /* 基础样式 */
         * {
@@ -47,12 +47,30 @@
             border-radius: 2px;
         }
 
+        h2 {
+            font-size: clamp(1.5rem, 4vw, 1.8rem);
+            margin: 2.5rem 0 1.5rem;
+            color: #2c3e50;
+            position: relative;
+            padding-left: 24px;
+        }
+
+        h2::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #4f6df5;
+            font-size: 1.2em;
+        }
+
         .text {
             margin-bottom: 2rem;
+            text-indent: 2em;
             font-size: clamp(1rem, 3vw, 1.1rem);
             color: #4a5568;
             padding: 1.8rem;
-            background-color: #fff;
+            background: white;
             border-radius: 16px;
             box-shadow: 0 6px 20px rgba(148, 163, 184, 0.12);
             transition: transform 0.3s ease;
@@ -61,6 +79,42 @@
 
         .text:hover {
             transform: translateY(-2px);
+        }
+
+        .text mark {
+            background-color: #fff9c4;
+            color: #e67e22;
+            font-weight: 500;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .tip {
+            margin: 2rem 0;
+            padding: 1.8rem;
+            background-color: #f1f9eb;
+            border-left: 5px solid #a3d168;
+            border-radius: 12px;
+            color: #678539;
+            font-weight: 500;
+            box-shadow: 0 4px 12px rgba(163, 209, 104, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .tip:hover {
+            transform: translateY(-2px);
+        }
+
+        pre {
+            background-color: #f8f9fa;
+            padding: 1.2rem;
+            border-radius: 8px;
+            margin: 1.2rem 0;
+            overflow-x: auto;
+            font-family: "Consolas", "Monaco", monospace;
+            font-size: clamp(0.9rem, 2.5vw, 0.95rem);
+            color: #495057;
+            border: 1px solid #e9ecef;
         }
 
         a {
@@ -125,9 +179,25 @@
                 margin: 0 0 2rem;
             }
 
-            .text, .tip, .warning {
+            h2 {
+                font-size: 1.5rem;
+                margin: 2rem 0 1.2rem;
+                padding-left: 20px;
+            }
+
+            h2::before {
+                font-size: 1.1em;
+            }
+
+            .text, .tip {
                 font-size: 1rem;
                 padding: 1.5rem;
+            }
+
+            pre {
+                font-size: 0.85rem;
+                padding: 1rem;
+                margin: 1rem 0;
             }
 
             .back-button  {
@@ -140,12 +210,28 @@
     <main>
         <div class="back-button" onclick="window.history.back()">返回上一页</div>
 
-        <!-- 名称标识管理 -->
-        <h1 id="audio-management">名称标识管理</h1>
+        <h1 id="outputlog">FinalSuspect 导出日志</h1>
 
-        <!-- 说明 -->
+        <!-- 自动导出 -->
+        <h2 id="auto-output">自动导出</h2>
         <div class="text">
-            <p>该功能可以为任意玩家添加名称标识，标识会在绑定好友代码的玩家加入后自动发放，进入房间后不能编辑标识。</p>
+            <p>您可以在Final Suspect功能中选择输出日志，随后Final Suspect将打开输出日志所在的文件夹。</p>
+            <p>有关自动导出日志的功能介绍，请查阅<a href="../Features/DumpLog" target="_blank" rel="noopener noreferrer">此篇文档</a>。</p>
+        </div>
+
+        <!-- 自动导出路径 -->
+        <div class="tip">
+            <p>Final Suspect的输出目录位于下方路径：</p>
+            <pre>%APPDATA%\..\LocalLow\Innersloth\Among Us\FinalSuspect\Logs\Final Suspect-logs</pre>
+            <p>您可以按下<mark>Win</mark> + <mark>R</mark>，并粘贴这串路径来手动打开。</p>
+        </div>
+
+        <!-- 手动查看 -->
+        <h2 id="manual-view">手动查看</h2>
+        <div class="text">
+            <p>如果你无法打开设置页面，你也可以选择手动查看日志。</p>
+            <p>启动Steam，在库页面中选择<mark>Among Us</mark>，点击右侧的<mark>设置图标</mark>，选择<mark>管理</mark>，随后选择<mark>浏览本地文件</mark>。Steam将打开Among Us根目录。</p>
+            <p>打开<mark>BepInEx</mark>文件夹，其中的<mark>LogOutput.log</mark>便是日志文件。该文件将随着你重新启动FinalSuspect自动清除。</p>
         </div>
     </main>
 </body>

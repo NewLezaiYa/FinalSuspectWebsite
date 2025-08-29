@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
-    <title>输出日志</title>
+    <title>Output Log</title>
     <style>
         /* 基础样式 */
         * {
@@ -180,16 +180,17 @@
 </head>
 <body>
     <main>
-        <div class="back-button" onclick="window.history.back()">返回上一页</div>
+        <div class="back-button" onclick="window.history.back()">Go back to the previous page</div>
 
         <!-- 输出日志 -->
-        <h1 id="dump-log">输出日志</h1>
+        <h1 id="dump-log">Output Log</h1>
 
         <!-- 说明 -->
         <div class="text">
-            <p>该功能提供简单的日志管理方案：</p>
+            <p>This feature provides a simple log management solution ：</p>
             <ol>
-                <li>一键导出：自动将当前<mark>Among Us\BepInEx</mark>下的日志文件复制到模组指定的专用目录。</li>
+                <li>One-Click Export:： Automatically copies the log files from the current <mark>Among Us\BepInEx</mark>directory to a dedicated directory specified by the mod.
+</li>
                 <li>快速访问：复制完成后立即自动打开目标文件夹窗口，方便查看日志内容。</li>
                 <li>自动清理：原日志文件会在每次启动 Final Suspect 时自动清空，避免占用过多空间。</li>
             </ol>
@@ -198,7 +199,8 @@
         <!-- 日志路径 -->
         <div class="tip">
             <p>日志文件夹位于下方路径：</p>
-            <pre>%APPDATA%\..\LocalLow\Innersloth\Among Us\FinalSuspect\Logs\Final Suspect-logs</pre>
+            <pre>%APPDATA%
+\..\LocalLow\Innersloth\Among Us\FinalSuspect\Logs\Final Suspect-logs</pre>
             <p>你可以按<mark>Win</mark> + <mark>R</mark>打开运行，粘贴这串地址，并确认以手动访问目录。</p>
         </div>
     </main>

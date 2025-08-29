@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
-    <title>Change homepage style</title>
+    <title>豆子形象切换</title>
     <style>
         /* 基础样式 */
         * {
@@ -95,6 +95,7 @@
 
         .text {
             margin-bottom: 2rem;
+            text-indent: 2em;
             font-size: clamp(1rem, 3vw, 1.1rem);
             color: #4a5568;
             padding: 1.8rem;
@@ -176,28 +177,6 @@
             line-height: 1.7;
         }
 
-        .info-img {
-            display: block;
-            max-width: 90%;
-            height: auto;
-            margin: 2.5rem auto;
-            border-radius: 16px;
-            box-shadow: 0 8px 24px #FFFFFF;
-            transition: transform 0.3s ease;
-        }
-
-        .info-img:hover {
-            transform: scale(1.01);
-        }
-
-        .image {
-            background: #f8fafc;
-            border-radius: 16px;
-            padding: 2rem;
-            margin-top: 2rem;
-            text-align: center;
-        }
-
         .back-button {
             display: inline-flex;
             align-items: center;
@@ -263,16 +242,6 @@
                 padding: 1.5rem;
             }
 
-            .image {
-                background: #FFFFFF;
-            }
-
-            .info-img {
-                max-width: 100%;
-                border-radius: 12px;
-                box-shadow: 0 4px 12px #FFFFFF;
-            }
-
             .back-button  {
                 display: none;
             }
@@ -281,120 +250,23 @@
 </head>
 <body>
     <main>
-        <div class="back-button" onclick="window.history.back()">Go back to the previous page</div>
+        <div class="back-button" onclick="window.history.back()">返回上一页</div>
 
-        <h1 id="change-outfit">Change homepage style</h1>
+        <h1 id="change-outfit">豆子形象切换</h1>
 
         <p class="text">
-            在FinalSuspect中，我们为玩家提供了<mark>6种可切换的背景图片</mark>，增添更多个性化选择：
+            在Final Suspect中，我们为玩家提供了<mark>三种可切换的太空人形象</mark>，增添更多趣味性和个性化选择：
         </p>
 
         <ol class="outfit-list">
-            <li>逐光寻晓（FS经典背景）</li>
-            <div class="image">
-                <p class="text">逐光寻晓（FS经典背景）示意图：</p>
-                    <img
-                        src="../../images/FinalSuspect-BG-MiraHQ.png"
-                        alt="逐光寻晓（FS经典背景）示意图"
-                        class="info-img"
-                    >
-                    <p class="text">
-                            随着时间的推移，北半球的冬天迎来尾声，春意正在各处复苏。<br>
-                            眺望米拉的雪景，内心中的回忆是否唤醒？暖流依旧心中流淌。<br>
-                            无论嫌疑最终落在谁身，无论真理最后破碎于谁手，在焕然一新的体验中，头脑风暴，留下全新的快乐回忆。<br>
-                            Author:KpCam
-                    </p>
-            </div>
-
-            <li>赤心炽爱（TONEX经典背景）</li>
-            <div class="image">
-                <p class="text">赤心炽爱（TONEX经典背景）示意图：</p>
-                    <img
-                        src="../../images/FinalSuspect-BG-Security-Preview.png"
-                        alt="赤心炽爱（TONEX经典背景）示意图"
-                        class="info-img"
-                    >
-                    <p class="text">
-                            我们不会就此跌下、不会就此放弃、不会让玩家失望、更不会停止进步。<br>
-                            若有人冷眼相待，我们会证明给所有人看！伴着热爱，我们再次起航<br>
-                            作者：KpCam<br>
-                            若有人冷眼相待，我们会证明给所有人看！伴着热爱，我们再次起航<br>
-                            作者：KpCam
-                    </p>
-            </div>
-
-            <li>祉缘谐乐（新春特别节目）</li>
-            <div class="image">
-                <p class="text">祉缘谐乐（新春特别节目）示意图：</p>
-                    <img
-                        src="../../images/FinalSuspect-BG-NewYear-Preview.png"
-                        alt="祉缘谐乐（新春特别节目）示意图"
-                        class="info-img"
-                    >
-                    <p class="text">
-                            Bliss, wishes imbued with fortune
-Bond, woven in heart; Harmony, ties in affection
-Joy, peace bestowed on all<br>
-
-                            True bond, creates harmonious joy
-To afar, harmony begets joy; To all, all embrace joy
-Wishing only, everyone joy<br>
-
-                            May everyone find their own path in the new year, carrying our blessings, forging ahead courageously, and pursuing the life that truly belongs to them!<br>
-                            Author:小黄117
-                    </p>
-            </div>
-
-            <li>极致演播厅（新春特别节目）</li>
-            <div class="image">
-                <p class="text">极致演播厅（新春特别节目）示意图：</p>
-                    <img
-                        src="../../images/FinalSuspect-BG-MiraStudio-Preview.png"
-                        alt="极致演播厅（新春特别节目）示意图"
-                        class="info-img"
-                    >
-                    <p class="text">
-                            ——花开似浪，温柔如风，愿大家心海如风，事事如意<br>
-                            ——春风浩荡，浪涌千里，愿大家勇立潮头，蒸蒸日上<br>
-                            ——欢迎来到XtremeWave 极致狂澜——新春特别节目！<br>
-                            作者：小黄117<br>
-                            Author:小黄117
-                    </p>
-            </div>
-
-            <li>XtremeWave 极致狂澜</li>
-            <div class="image">
-                <p class="text">XtremeWave 极致狂澜示意图：</p>
-                    <img
-                        src="../../images/FinalSuspect-BG-XtremeWave-Preview.png"
-                        alt="XtremeWave 极致狂澜示意图"
-                        class="info-img"
-                    >
-                    <p class="text">
-                            「极行致远，梦领狂澜！」<br>
-                            作者：Slok
-                    </p>
-            </div>
-
-            <li>Emergency meeting!紧急会议！（TORE经典背景）</li>
-            <div class="image">
-                <p class="text">Emergency meeting!紧急会议！（TORE经典背景）示意图：</p>
-                    <img
-                        src="../../images/FinalSuspect-BG-EmergencyMeeting-Preview.png"
-                        alt="Emergency meeting!紧急会议！（TORE经典背景）示意图"
-                        class="info-img"
-                    >
-                    <p class="text">
-                            「 Who is imposter!? 」<br>
-                             Author:AIGE
-                    </p>
-            </div>
+            <li>经典豆子模式 - 官方默认，还是你最熟悉的太空<mark>豆子</mark>造型。</li>
+            <li>愚人节牧马模式 - 恶搞风格，将角色替换为滑稽的<mark>牧马</mark>形象（参考官方愚人节彩蛋）。</li>
+            <li>愚人节长颈豆模式 - 趣味变体，角色变成脖子超长的<mark>长颈豆</mark>，致敬官方愚人节特殊外观。</li>
         </ol>
 
         <p class="text">
-            玩家可在功能菜单中自由切换。<br>
-            该功能不影响游戏平衡，仅为个性化扩展。<br>
-            该功能不影响游戏平衡，仅为个性化扩展。
+            玩家可在设置菜单中自由切换模式。<br>
+            该功能不影响游戏平衡，仅为娱乐性扩展。
         </p>
     </main>
 </body>

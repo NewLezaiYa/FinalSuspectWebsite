@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
-    <title>名称标识管理</title>
+    <title>清空自动日志</title>
     <style>
         /* 基础样式 */
         * {
@@ -49,6 +49,7 @@
 
         .text {
             margin-bottom: 2rem;
+            text-indent: 2em;
             font-size: clamp(1rem, 3vw, 1.1rem);
             color: #4a5568;
             padding: 1.8rem;
@@ -61,32 +62,6 @@
 
         .text:hover {
             transform: translateY(-2px);
-        }
-
-        a {
-            color: #2980b9;
-            text-decoration: none;
-            transition: all 0.3s;
-            position: relative;
-        }
-
-        a:hover {
-            color: #1a5276;
-        }
-
-        a::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #1a5276;
-            transition: width 0.3s;
-        }
-
-        a:hover::after {
-            width: 100%;
         }
 
         .back-button {
@@ -125,9 +100,10 @@
                 margin: 0 0 2rem;
             }
 
-            .text, .tip, .warning {
+            .text {
                 font-size: 1rem;
                 padding: 1.5rem;
+                border-radius: 12px;
             }
 
             .back-button  {
@@ -140,12 +116,15 @@
     <main>
         <div class="back-button" onclick="window.history.back()">返回上一页</div>
 
-        <!-- 名称标识管理 -->
-        <h1 id="audio-management">名称标识管理</h1>
+        <!-- 清空自动日志 -->
+        <h1 id="clear-auto-logs">清空自动日志</h1>
 
         <!-- 说明 -->
         <div class="text">
-            <p>该功能可以为任意玩家添加名称标识，标识会在绑定好友代码的玩家加入后自动发放，进入房间后不能编辑标识。</p>
+            <p>在模组 Town Of Host 中，当 Among Us 关闭时会自动保存一个日志文件。<br>
+            这个功能的初衷是为了遇到意外错误时可以提供相关信息。<br>
+            但该功能在 Town Of Host 中是默认启用且（除非改代码）无法关闭。</p>
+            <p>因此，我们在 Final Suspect 中添加了清空自动日志功能，以解决这个问题。</p>
         </div>
     </main>
 </body>

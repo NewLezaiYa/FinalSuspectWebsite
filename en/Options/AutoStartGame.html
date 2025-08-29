@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
-    <title>名称标识管理</title>
+    <title>人满自动开始游戏</title>
     <style>
         /* 基础样式 */
         * {
@@ -49,10 +49,11 @@
 
         .text {
             margin-bottom: 2rem;
+            text-indent: 2em;
             font-size: clamp(1rem, 3vw, 1.1rem);
             color: #4a5568;
             padding: 1.8rem;
-            background-color: #fff;
+            background: white;
             border-radius: 16px;
             box-shadow: 0 6px 20px rgba(148, 163, 184, 0.12);
             transition: transform 0.3s ease;
@@ -63,30 +64,17 @@
             transform: translateY(-2px);
         }
 
-        a {
-            color: #2980b9;
-            text-decoration: none;
-            transition: all 0.3s;
-            position: relative;
+        mark {
+            background-color: #fff9c4;
+            color: #e67e22;
+            font-weight: 500;
+            padding: 2px 6px;
+            border-radius: 3px;
         }
 
-        a:hover {
-            color: #1a5276;
-        }
-
-        a::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #1a5276;
-            transition: width 0.3s;
-        }
-
-        a:hover::after {
-            width: 100%;
+        .text strong {
+            color: #4f6df5;
+            font-weight: 600;
         }
 
         .back-button {
@@ -125,9 +113,13 @@
                 margin: 0 0 2rem;
             }
 
-            .text, .tip, .warning {
-                font-size: 1rem;
+            .text {
                 padding: 1.5rem;
+                font-size: 1rem;
+            }
+
+            mark {
+                padding: 2px 4px;
             }
 
             .back-button  {
@@ -140,13 +132,14 @@
     <main>
         <div class="back-button" onclick="window.history.back()">返回上一页</div>
 
-        <!-- 名称标识管理 -->
-        <h1 id="audio-management">名称标识管理</h1>
+        <h1 id="auto-start-game">人满自动开始游戏</h1>
 
-        <!-- 说明 -->
-        <div class="text">
-            <p>该功能可以为任意玩家添加名称标识，标识会在绑定好友代码的玩家加入后自动发放，进入房间后不能编辑标识。</p>
-        </div>
+        <p class="text">
+            在Final Suspect模组中，我们优化了自动开始游戏的逻辑，使房间人数接近满员时即可触发倒计时。<br>
+            当房间玩家人数达到<mark>最大值-1</mark>（即仅差1人满员）时，Final Suspect会启动10秒的短倒计时。<br>
+            倒计时期间，房主可手动取消。<br>
+            这一机制既避免了满员后的等待延迟，又防止因最后一名玩家迟迟未加入而影响游戏体验。
+        </p>
     </main>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
-    <title>名称标识管理</title>
+    <title>快速启动模式</title>
     <style>
         /* 基础样式 */
         * {
@@ -49,10 +49,11 @@
 
         .text {
             margin-bottom: 2rem;
+            text-indent: 2em;
             font-size: clamp(1rem, 3vw, 1.1rem);
             color: #4a5568;
             padding: 1.8rem;
-            background-color: #fff;
+            background: white;
             border-radius: 16px;
             box-shadow: 0 6px 20px rgba(148, 163, 184, 0.12);
             transition: transform 0.3s ease;
@@ -63,30 +64,48 @@
             transform: translateY(-2px);
         }
 
-        a {
-            color: #2980b9;
-            text-decoration: none;
-            transition: all 0.3s;
-            position: relative;
+        .text strong {
+            color: #4f6df5;
+            font-weight: 600;
+            background: linear-gradient(transparent 60%, rgba(79, 109, 245, 0.1) 40%);
         }
 
-        a:hover {
-            color: #1a5276;
+        .tip {
+            margin: 2rem 0;
+            padding: 1.8rem;
+            background-color: #f1f9eb;
+            border-left: 5px solid #a3d168;
+            border-radius: 12px;
+            color: #678539;
+            font-weight: 500;
+            box-shadow: 0 4px 12px rgba(163, 209, 104, 0.1);
+            transition: transform 0.3s ease;
         }
 
-        a::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #1a5276;
-            transition: width 0.3s;
+        .tip:hover {
+            transform: translateY(-2px);
         }
 
-        a:hover::after {
-            width: 100%;
+        .info-img {
+            display: block;
+            max-width: 90%;
+            height: auto;
+            margin: 2.5rem auto;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px #FFFFFF;
+            transition: transform 0.3s ease;
+        }
+
+        .info-img:hover {
+            transform: scale(1.01);
+        }
+
+        .FastBoot {
+            background: #FFFFFF;
+            border-radius: 16px;
+            padding: 2rem;
+            margin-top: 2rem;
+            text-align: center;
         }
 
         .back-button {
@@ -125,9 +144,19 @@
                 margin: 0 0 2rem;
             }
 
-            .text, .tip, .warning {
+            .text, .tip {
                 font-size: 1rem;
                 padding: 1.5rem;
+            }
+
+            .info-img {
+                max-width: 100%;
+                border-radius: 12px;
+                box-shadow: 0 4px 12px #FFFFFF;
+            }
+
+            .FastBoot {
+                background: #FFFFFF;
             }
 
             .back-button  {
@@ -140,12 +169,27 @@
     <main>
         <div class="back-button" onclick="window.history.back()">返回上一页</div>
 
-        <!-- 名称标识管理 -->
-        <h1 id="audio-management">名称标识管理</h1>
+        <h1 id="fast-boot">快速启动模式</h1>
 
-        <!-- 说明 -->
-        <div class="text">
-            <p>该功能可以为任意玩家添加名称标识，标识会在绑定好友代码的玩家加入后自动发放，进入房间后不能编辑标识。</p>
+        <p class="text">
+            在Final Suspect模组中，我们引入了快速启动模式以优化游戏加载流程。启用该模式后，系统将跳过非必要环节。
+        </p>
+
+        <p class="text">
+            经实测，常规启动耗时约<strong>15秒</strong>，而启用快速启动后仅需<strong>5秒</strong>即可直达主菜单。该模式特别适合频繁重启游戏的测试场景，玩家可通过设置菜单切换模式。
+        </p>
+
+        <div class="tip">
+            <p>首次安装或大版本更新时仍需完整加载资源。</p>
+        </div>
+
+        <div class="FastBoot">
+            <p class="text">快速启动模式示意图：</p>
+            <img
+                src="../../images/FastBoot.png"
+                alt="快速启动模式示意图"
+                class="info-img"
+            >
         </div>
     </main>
 </body>
