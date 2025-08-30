@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
+    <title>Change homepage style</title>
+    <style>
+        /* 基础样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "Segoe UI", sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            line-height: 1.9;
+            color: #2d3748;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf9 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            margin: 0 0 2.5rem;
+            color: #2c3e50;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #4f6df5 0%, #3a56e6 100%);
+            border-radius: 2px;
+        }
+
+        h2 {
+            font-size: clamp(1.5rem, 4vw, 1.8rem);
+            margin: 2.5rem 0 1.5rem;
+            color: #2c3e50;
+            position: relative;
+            padding-left: 24px;
+        }
+
+        h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 24px;
+            background: #4f6df5;
+            border-radius: 3px;
+        }
+
+        h2 a {
+            color: #4f6df5;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        h2 a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #4f6df5;
+            transition: width 0.3s ease;
+        }
+
+        h2 a:hover {
+            color: #3a56e6;
+        }
+
+        h2 a:hover::after {
+            width: 100%;
+        }
+
+        .text {
+            margin-bottom: 2rem;
+            font-size: clamp(1rem, 3vw, 1.1rem);
+            color: #4a5568;
+            padding: 1.8rem;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 6px 20px rgba(148, 163, 184, 0.12);
+            transition: transform 0.3s ease;
+            line-height: 1.9;
+        }
+
+        .text:hover {
+            transform: translateY(-2px);
+        }
+
+        .outfit-list {
+            margin: 2rem 0;
+            padding-left: 2rem;
+        }
+
+        .outfit-list li {
+            margin-bottom: 1.5rem;
+            font-size: clamp(1rem, 3vw, 1.1rem);
+            color: #4a5568;
+            padding: 1.8rem;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 6px 20px rgba(148, 163, 184, 0.12);
+            transition: transform 0.3s ease;
+            line-height: 1.7;
+        }
+
+        .outfit-list li:hover {
+            transform: translateY(-2px);
+        }
+
+        mark {
+            background-color: #fff9c4;
+            color: #e67e22;
+            font-weight: 500;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .danger {
+            margin: 2rem 0;
+            padding: 1.8rem;
+            background-color: #fff5f5;
+            border-left: 5px solid #fc8181;
+            border-radius: 12px;
+            color: #c53030;
+            font-weight: 500;
+            box-shadow: 0 4px 12px rgba(252, 129, 129, 0.1);
+        }
+
+        .video-container {
+            margin: 2.5rem 0;
+            width: 100%;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(148, 163, 184, 0.15);
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+            border-radius: 16px;
+        }
+
+        blockquote {
+            margin: 2rem 0;
+            padding: 1.5rem 2rem;
+            background-color: #f8f9fa;
+            border-left: 5px solid #4f6df5;
+            border-radius: 8px;
+            color: #4a5568;
+            font-style: italic;
+            font-size: clamp(1rem, 3vw, 1.1rem);
+            line-height: 1.7;
+        }
+
+        .info-img {
+            display: block;
+            max-width: 90%;
+            height: auto;
+            margin: 2.5rem auto;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px #FFFFFF;
+            transition: transform 0.3s ease;
+        }
+
+        .info-img:hover {
+            transform: scale(1.01);
+        }
+
+        .image {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 2rem;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            background: linear-gradient(90deg, #4f6df5 0%, #3a56e6 100%);
+            color: white;
+            font-size: clamp(1rem, 3vw, 1.1rem);
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 12px rgba(79, 109, 245, 0.3);
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(79, 109, 245, 0.4);
+        }
+
+        .back-button::before {
+            content: "< ";
+            margin-right: 8px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 2rem 1.5rem;
+            }
+
+            h1 {
+                margin: 0 0 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+                margin: 2rem 0 1.2rem;
+                padding-left: 20px;
+            }
+
+            h2::before {
+                width: 4px;
+                height: 18px;
+            }
+
+            .text, .outfit-list li {
+                font-size: 1rem;
+                padding: 1.5rem;
+            }
+
+            .video-container iframe {
+                height: 250px;
+            }
+
+            blockquote {
+                font-size: 1rem;
+                padding: 1.2rem 1.8rem;
+            }
+
+            .danger {
+                padding: 1.5rem;
+            }
+
+            .image {
+                background: #FFFFFF;
+            }
+
+            .info-img {
+                max-width: 100%;
+                border-radius: 12px;
+                box-shadow: 0 4px 12px #FFFFFF;
+            }
+
+            .back-button  {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="back-button" onclick="window.history.back()">Go back to the previous page</div>
+
+        <h1 id="change-outfit">Change homepage style</h1>
+
+        <p class="text">
+            在FinalSuspect中，我们为玩家提供了<mark>6种可切换的背景图片</mark>，增添更多个性化选择：
+        </p>
+
+        <ol class="outfit-list">
+            <li>逐光寻晓（FS经典背景）</li>
+            <div class="image">
+                <p class="text">逐光寻晓（FS经典背景）示意图：</p>
+                    <img
+                        src="../../images/FinalSuspect-BG-MiraHQ.png"
+                        alt="逐光寻晓（FS经典背景）示意图"
+                        class="info-img"
+                    >
+                    <p class="text">
+                            随着时间的推移，北半球的冬天迎来尾声，春意正在各处复苏。<br>
+                            眺望米拉的雪景，内心中的回忆是否唤醒？暖流依旧心中流淌。<br>
+                            无论嫌疑最终落在谁身，无论真理最后破碎于谁手，在焕然一新的体验中，头脑风暴，留下全新的快乐回忆。<br>
+                            Author:KpCam
+                    </p>
+            </div>
+
+            <li>赤心炽爱（TONEX经典背景）</li>
+            <div class="image">
+                <p class="text">赤心炽爱（TONEX经典背景）示意图：</p>
+                    <img
+                        src="../../images/FinalSuspect-BG-Security-Preview.png"
+                        alt="赤心炽爱（TONEX经典背景）示意图"
+                        class="info-img"
+                    >
+                    <p class="text">
+                            我们不会就此跌下、不会就此放弃、不会让玩家失望、更不会停止进步。<br>
+                            若有人冷眼相待，我们会证明给所有人看！伴着热爱，我们再次起航<br>
+                            作者：KpCam
+                    </p>
+            </div>
+
+            <li>祉缘谐乐（新春特别节目）</li>
+            <div class="image">
+                <p class="text">祉缘谐乐（新春特别节目）示意图：</p>
+                    <img
+                        src="../../images/FinalSuspect-BG-NewYear-Preview.png"
+                        alt="祉缘谐乐（新春特别节目）示意图"
+                        class="info-img"
+                    >
+                    <p class="text">
+                            Bliss, wishes imbued with fortune
+Bond, woven in heart; Harmony, ties in affection
+Joy, peace bestowed on all<br>
+                            True bond, creates harmonious joy
+To afar, harmony begets joy; To all, all embrace joy
+Wishing only, everyone joy<br>
+                            May everyone find their own path in the new year, carrying our blessings, forging ahead courageously, and pursuing the life that truly belongs to them!<br>
+                            Author:小黄117
+                    </p>
+            </div>
+
+            <li>极致演播厅（新春特别节目）</li>
+            <div class="image">
+                <p class="text">极致演播厅（新春特别节目）示意图：</p>
+                    <img
+                        src="../../images/FinalSuspect-BG-MiraStudio-Preview.png"
+                        alt="极致演播厅（新春特别节目）示意图"
+                        class="info-img"
+                    >
+                    <p class="text">
+                            ——花开似浪，温柔如风，愿大家心海如风，事事如意<br>
+                            ——春风浩荡，浪涌千里，愿大家勇立潮头，蒸蒸日上<br>
+                            ——欢迎来到XtremeWave 极致狂澜——新春特别节目！<br>
+                            作者：小黄117
+                    </p>
+            </div>
+
+            <li>XtremeWave 极致狂澜</li>
+            <div class="image">
+                <p class="text">XtremeWave 极致狂澜示意图：</p>
+                    <img
+                        src="../../images/FinalSuspect-BG-XtremeWave-Preview.png"
+                        alt="XtremeWave 极致狂澜示意图"
+                        class="info-img"
+                    >
+                    <p class="text">
+                            「极行致远，梦领狂澜！」<br>
+                            作者：Slok
+                    </p>
+            </div>
+
+            <li>Emergency meeting!（TORE经典背景）</li>
+            <div class="image">
+                <p class="text">Emergency meeting!（TORE经典背景）示意图：</p>
+                    <img
+                        src="../../images/FinalSuspect-BG-EmergencyMeeting-Preview.png"
+                        alt="Emergency meeting!（TORE经典背景）示意图"
+                        class="info-img"
+                    >
+                    <p class="text">
+                            「 Who is imposter!? 」<br>
+                            Author：AIGE
+                    </p>
+            </div>
+        </ol>
+
+        <p class="text">
+            玩家可在功能菜单中自由切换。<br>
+            该功能不影响游戏平衡，仅为个性化扩展。
+        </p>
+    </main>
+</body>
+</html>
