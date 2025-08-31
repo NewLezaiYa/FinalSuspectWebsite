@@ -14,15 +14,15 @@ FinalSuspect 是一个专注于提供游戏模组指南与功能展示的网站�
 
 ## 贡献者
 
-本项目由开发者 [LezaiYa](https://gitee.com/LezaiYa) 开发
+本项目由开发者 [LezaiYa](https://github.com/NewLezaiYa) 开发
 
 ## 开源许可
 
-本项目遵循 MIT License。详细内容请查看 [LICENSE](LICENSE) 文件。
+本项目遵循 AGPL-3.0 License。详细内容请查看 [LICENSE](LICENSE) 文件。
 
 ## 联系方式
 
-如有建议或问题，请提交 issue 或联系作者。
+如有建议或问题，请提交 [issue](https://github.com/NewLezaiYa/FinalSuspectWebsite/issues)。
 
 ---
 

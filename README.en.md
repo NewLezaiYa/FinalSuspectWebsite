@@ -14,15 +14,15 @@ FinalSuspect is website project dedicated to providing game mod guides and featu
 
 ## Contributors
 
-This project is primarily developed by developer [LezaiYa](https://gitee.com/LezaiYa), with support from the community.
+This project is primarily developed by developer [LezaiYa](https://github.com/NewLezaiYa), with support from the community.
 
 ## Open Source License
 
-This project is licensed under the MIT License. For details, please refer to the [LICENSE](LICENSE) file.
+This project is licensed under the AGPL-3.0 License. For details, please refer to the [LICENSE](LICENSE) file.
 
 ## Contact
 
-If you have any suggestions or questions, please submit an issue or contact the author.
+If you have any suggestions or questions, please submit an [issue](https://github.com/NewLezaiYa/FinalSuspectWebsite/issues).
 
 ---
 
