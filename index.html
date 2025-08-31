@@ -22,6 +22,79 @@
             min-height: 100vh;
         }
 
+        .language-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .language-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 12px 36px rgba(148, 163, 184, 0.25);
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+
+        .language-modal.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .modal-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .modal-btn {
+            padding: 0.8rem 1.5rem;
+            background: #f0f4f9;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .modal-btn:hover {
+            background: #e2e8f0;
+        }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -222,6 +295,23 @@
             .footer-disclaimer strong {
                 color: #edf2f7;
             }
+
+            .modal-content {
+                background: #2d3748;
+            }
+
+            .modal-title {
+                color: #edf2f7;
+            }
+
+            .modal-btn {
+                background: #4a5568;
+                color: #edf2f7;
+            }
+
+            .modal-btn:hover {
+                background: #718096;
+            }
         }
 
         @media (max-width: 768px) {
@@ -243,12 +333,36 @@
                 flex-direction: column;
                 align-items: center;
             }
+
+            .modal-content {
+                padding: 2rem 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- 语言选择 -->
+    <div class="language-modal" id="languageModal">
+        <div class="modal-content">
+            <h3 class="modal-title">
+                <i class="fas fa-globe-americas"></i>
+                您的语言 || Your language
+            </h3>
+            <div class="modal-buttons">
+                <button class="modal-btn" id="modalCnBtn">
+                    <i class="fas fa-check-circle"></i>
+                    中文
+                </button>
+                <button class="modal-btn" id="modalEnBtn">
+                    <i class="fas fa-check-circle"></i>
+                    English
+                </button>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
-        <!-- 语言切换按钮 -->
+        <!-- 语言切换 -->
         <div class="language-switch">
             <button id="cn-btn"
                     class="active"
@@ -261,184 +375,142 @@
             </button>
         </div>
 
-        <!-- 主区域（中文） -->
         <section class="hero" data-lang="zh">
             <div class="hero-content">
-                <img src="images/FinalSuspect-Logo.png"
-                     class="hero-logo">
-                <h1 class="hero-name">
-                    模组文档
-                </h1>
-                <p class="hero-tagline">
-                    The Ultimate Among Us Mod for the Original Experience
-                </p>
+                <img src="images/FinalSuspect-Logo.png" class="hero-logo" alt="FinalSuspect Logo">
+                <h1 class="hero-name">模组文档</h1>
+                <p class="hero-tagline">The Ultimate Among Us Mod for the Original Experience</p>
             </div>
         </section>
 
-        <!-- 主区域（英文） -->
         <section class="hero" data-lang="en" style="display: none;">
             <div class="hero-content">
-                <img src="images/FinalSuspect-Logo.png"
-                     class="hero-logo">
-                <h1 class="hero-name">
-                    Mod Documentation
-                </h1>
-                <p class="hero-tagline">
-                    The Ultimate Among Us Mod for the Original Experience
-                </p>
+                <img src="images/FinalSuspect-Logo.png" class="hero-logo" alt="FinalSuspect Logo">
+                <h1 class="hero-name">Mod Documentation</h1>
+                <p class="hero-tagline">The Ultimate Among Us Mod for the Original Experience</p>
             </div>
         </section>
 
-        <!-- 简介区域（中文） -->
         <section class="section introduction" data-lang="zh">
             <h2 class="section-title">
                 <i class="fas fa-book-open"></i>
                 FinalSuspect 简介
             </h2>
-            <p class="section-content">
-                在这里可以了解FinalSuspect有关详细信息，助你更好理解FinalSuspect模组
-            </p>
+            <p class="section-content">在这里可以了解FinalSuspect有关详细信息，助你更好理解FinalSuspect模组</p>
             <a href="FinalSuspect/Introduction" class="feature-link">
                 了解更多
                 <i class="fas fa-chevron-right"></i>
             </a>
         </section>
 
-        <!-- 简介区域（英文） -->
         <section class="section introduction" data-lang="en" style="display: none;">
             <h2 class="section-title">
                 <i class="fas fa-book-open"></i>
                 FinalSuspect Introduction
             </h2>
-            <p class="section-content">
-                Get detailed information about FinalSuspect to better understand the mod
-            </p>
+            <p class="section-content">Get detailed information about FinalSuspect to better understand the mod</p>
             <a href="en-US/Introduction" class="feature-link">
                 Learn More
                 <i class="fas fa-chevron-right"></i>
             </a>
         </section>
 
-        <!-- 疑难解答区域（中文） -->
         <section class="section introduction" data-lang="zh">
             <h2 class="section-title">
                 <i class="fas fa-life-ring"></i>
                 FinalSuspect 疑难解答
             </h2>
-            <p class="section-content">
-                遇到任何技术问题？这里整理了常见问题解答和解决方案，助你快速解决问题。
-            </p>
+            <p class="section-content">遇到任何技术问题？这里整理了常见问题解答和解决方案，助你快速解决问题。</p>
             <a href="FinalSuspect/FAQ" class="feature-link">
                 了解更多
                 <i class="fas fa-chevron-right"></i>
             </a>
         </section>
 
-        <!-- 疑难解答区域（英文） -->
         <section class="section introduction" data-lang="en" style="display: none;">
             <h2 class="section-title">
                 <i class="fas fa-life-ring"></i>
                 FinalSuspect FAQ
             </h2>
-            <p class="section-content">
-                Encountering technical issues? Here are common Q&A and solutions to help you resolve problems quickly.
-            </p>
+            <p class="section-content">Encountering technical issues? Here are common Q&A and solutions to help you resolve problems quickly.</p>
             <a href="en-US/FAQ" class="feature-link">
                 Learn More
                 <i class="fas fa-chevron-right"></i>
             </a>
         </section>
 
-        <!-- 选项区域（中文） -->
         <section class="section options" data-lang="zh">
             <h2 class="section-title">
                 <i class="fas fa-sliders-h"></i>
                 FinalSuspect 选项
             </h2>
-            <p class="section-content">
-                深入探索丰富的自定义配置选项，从画面设置到游戏机制，完全掌控你的游戏体验。
-            </p>
+            <p class="section-content">深入探索丰富的自定义配置选项，从画面设置到游戏机制，完全掌控你的游戏体验。</p>
             <a href="FinalSuspect/Options/" class="feature-link">
                 了解更多
                 <i class="fas fa-chevron-right"></i>
             </a>
         </section>
 
-        <!-- 选项区域（英文） -->
         <section class="section options" data-lang="en" style="display: none;">
             <h2 class="section-title">
                 <i class="fas fa-sliders-h"></i>
                 FinalSuspect Options
             </h2>
-            <p class="section-content">
-                Dive into rich custom configuration options, from graphics settings to gameplay mechanics, taking full control of your gaming experience.
-            </p>
+            <p class="section-content">Dive into rich custom configuration options, from graphics settings to gameplay mechanics, taking full control of your gaming experience.</p>
             <a href="en-US/Options/" class="feature-link">
                 Learn More
                 <i class="fas fa-chevron-right"></i>
             </a>
         </section>
 
-        <!-- 教程区域（中文） -->
         <section class="section options" data-lang="zh">
             <h2 class="section-title">
                 <i class="fas fa-book"></i>
                 FinalSuspect 教程
             </h2>
-            <p class="section-content">
-                了解FinalSuspect有关安装和更新教程，防止你不会安装模组。
-            </p>
+            <p class="section-content">了解FinalSuspect有关安装和更新教程，防止你不会安装模组。</p>
             <a href="FinalSuspect/Guide/" class="feature-link">
                 了解更多
                 <i class="fas fa-chevron-right"></i>
             </a>
         </section>
 
-        <!-- 教程区域（英文） -->
         <section class="section options" data-lang="en" style="display: none;">
             <h2 class="section-title">
                 <i class="fas fa-book"></i>
                 FinalSuspect Guide
             </h2>
-            <p class="section-content">
-                Learn installation and update tutorials for FinalSuspect to prevent installation issues</p>
+            <p class="section-content">Learn installation and update tutorials for FinalSuspect to prevent installation issues</p>
             <a href="en-US/Guide/" class="feature-link">
                 Learn More
                 <i class="fas fa-chevron-right"></i>
             </a>
         </section>
 
-        <!-- 功能区域（中文） -->
         <section class="section options" data-lang="zh">
             <h2 class="section-title">
                 <i class="fas fa-toolbox"></i>
                 FinalSuspect 功能
             </h2>
-            <p class="section-content">
-                尽情体验原版的功能且不会妨碍没有使用MOD的玩家。
-            </p>
+            <p class="section-content">尽情体验原版的功能且不会妨碍没有使用MOD的玩家。</p>
             <a href="FinalSuspect/Features/" class="feature-link">
                 了解更多
                 <i class="fas fa-chevron-right"></i>
             </a>
         </section>
 
-        <!-- 功能区域（英文） -->
         <section class="section options" data-lang="en" style="display: none;">
             <h2 class="section-title">
                 <i class="fas fa-toolbox"></i>
                 FinalSuspect Features
             </h2>
-            <p class="section-content">
-                Fully enjoy original features without interfering with players not using the mod
-            </p>
+            <p class="section-content">Fully enjoy original features without interfering with players not using the mod</p>
             <a href="en-US/Features/" class="feature-link">
                 Learn More
                 <i class="fas fa-chevron-right"></i>
             </a>
         </section>
 
-        <!-- 声明区域 -->
         <div class="footer-disclaimer" data-lang="zh">
             <p><strong>注意：</strong></p>
             <p>本模组不隶属于 Among Us 或 Innersloth LLC，其包含的内容也未得到 Innersloth LLC 的认可或以其他方式赞助。</p>
@@ -454,32 +526,47 @@
     </div>
 
     <script>
-        // 语言切换核心
         document.addEventListener('DOMContentLoaded', () => {
             const cnBtn = document.getElementById('cn-btn');
             const enBtn = document.getElementById('en-btn');
+            const modalCnBtn = document.getElementById('modalCnBtn');
+            const modalEnBtn = document.getElementById('modalEnBtn');
+            const languageModal = document.getElementById('languageModal');
             const allLangSections = document.querySelectorAll('[data-lang]');
-            const currentLang = localStorage.getItem('siteLang') || 'zh';
 
-            // 初始化页面语言
+            // 从本地存储获取语言设置
+            const currentLang = localStorage.getItem('siteLang');
+
+            // 初始化语言函数
             function initLanguage(lang) {
                 allLangSections.forEach(section => {
                     section.style.display = section.dataset.lang === lang ? 'block' : 'none';
                 });
-                // 更新按钮激活状态
+                // 更新语言切换按钮状态
                 cnBtn.classList.toggle('active', lang === 'zh');
                 enBtn.classList.toggle('active', lang === 'en');
+                // 存储语言设置到本地存储
                 localStorage.setItem('siteLang', lang);
             }
 
             function switchLanguage(lang) {
                 initLanguage(lang);
+                languageModal.classList.remove('active');
             }
 
             cnBtn.addEventListener('click', () => switchLanguage('zh'));
             enBtn.addEventListener('click', () => switchLanguage('en'));
 
-            initLanguage(currentLang);
+            modalCnBtn.addEventListener('click', () => switchLanguage('zh'));
+            modalEnBtn.addEventListener('click', () => switchLanguage('en'));
+
+            if (!currentLang) {
+                setTimeout(() => {
+                    languageModal.classList.add('active');
+                }, 500);
+            } else {
+                initLanguage(currentLang);
+            }
         });
     </script>
 </body>
