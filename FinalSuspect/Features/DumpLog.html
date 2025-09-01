@@ -49,6 +49,7 @@
 
         .text {
             margin-bottom: 2rem;
+            text-indent: 2em;
             font-size: clamp(1rem, 3vw, 1.1rem);
             color: #4a5568;
             padding: 1.8rem;
@@ -61,26 +62,6 @@
 
         .text:hover {
             transform: translateY(-2px);
-        }
-
-        .text ol {
-            padding-left: 1.8rem;
-            margin: 1.2rem 0;
-        }
-
-        .text li {
-            margin-bottom: 1rem;
-            position: relative;
-            padding-left: 0.5rem;
-        }
-
-        .text li::before {
-            content: '→';
-            position: absolute;
-            left: -20px;
-            top: 0;
-            color: #4f6df5;
-            font-weight: bold;
         }
 
         .tip {
@@ -139,6 +120,27 @@
             margin-right: 8px;
         }
 
+        .dump-log-steps {
+            padding-left: 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .dump-log-steps li {
+            margin-bottom: 1rem;
+            font-size: clamp(1rem, 3vw, 1.1rem);
+            color: #4a5568;
+            line-height: 1.7;
+            position: relative;
+        }
+
+        .dump-log-steps li::before {
+            content: '→';
+            position: absolute;
+            left: -20px;
+            color: #4f6df5;
+            font-weight: bold;
+        }
+
         @media (max-width: 768px) {
             body {
                 padding: 2rem 1.5rem;
@@ -154,14 +156,6 @@
                 border-radius: 12px;
             }
 
-            .text ol {
-                padding-left: 1.5rem;
-            }
-
-            .text li {
-                margin-bottom: 0.8rem;
-            }
-
             .tip {
                 font-size: 0.95rem;
                 padding: 1.5rem;
@@ -174,6 +168,14 @@
 
             .back-button  {
                 display: none;
+            }
+
+            .dump-log-steps {
+                padding-left: 1.5rem;
+            }
+
+            .dump-log-steps li {
+                margin-bottom: 0.8rem;
             }
         }
     </style>
@@ -189,7 +191,7 @@
         <!-- 说明 -->
         <div class="text">
             <p>该功能提供简单的日志管理方案：</p>
-            <ol>
+            <ol class="dump-log-steps">
                 <li>一键导出：自动将当前<mark>Among Us\BepInEx</mark>下的日志文件复制到模组指定的专用目录。</li>
                 <li>快速访问：复制完成后立即自动打开目标文件夹窗口，方便查看日志内容。</li>
                 <li>自动清理：原日志文件会在每次启动 Final Suspect 时自动清空，避免占用过多空间。</li>
