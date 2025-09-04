@@ -4,35 +4,103 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
     <title>Change homepage style</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* 基础样式 */
+        :root {
+            --primary: #4f6df5;
+            --primary-light: #6b8aff;
+            --primary-dark: #3a56e6;
+            --text-primary: #2d3748;
+            --text-secondary: #4a5568;
+            --text-muted: #718096;
+            --bg-light: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            --card-bg: #ffffff;
+            --border-radius: 16px;
+            --shadow-sm: 0 4px 12px rgba(148, 163, 184, 0.1);
+            --shadow-md: 0 8px 24px rgba(148, 163, 184, 0.15);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "Segoe UI", sans-serif;
+            font-family: 'Poppins', "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "Segoe UI", sans-serif;
             -webkit-tap-highlight-color: transparent;
         }
 
         body {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 3rem 2rem;
-            line-height: 1.9;
-            color: #2d3748;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf9 100%);
+            padding: 3rem 1.5rem;
+            line-height: 1.8;
+            color: var(--text-primary);
+            background: var(--bg-light);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            transition: var(--transition);
+        }
+
+        main {
+            width: 100%;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            font-size: 1rem;
+            font-weight: 500;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 12px rgba(79, 109, 245, 0.25);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .back-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-light) 0%, var(--primary) 100%);
+            transition: width 0.3s ease;
+            z-index: -1;
+        }
+
+        .back-button:hover::before {
+            width: 100%;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(79, 109, 245, 0.35);
+        }
+
+        .back-button::before {
+            content: "< ";
+            margin-right: 8px;
+            font-weight: 600;
         }
 
         h1 {
             text-align: center;
             font-size: clamp(1.8rem, 5vw, 2.5rem);
             margin: 0 0 2.5rem;
-            color: #2c3e50;
+            color: var(--text-primary);
             position: relative;
-            padding-bottom: 1rem;
+            padding-bottom: 1.2rem;
+            font-weight: 700;
         }
 
         h1::after {
@@ -41,18 +109,25 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, #4f6df5 0%, #3a56e6 100%);
-            border-radius: 2px;
+            width: 100px;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 3px;
+            animation: lineGrow 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        @keyframes lineGrow {
+            from { width: 0; }
+            to { width: 100px; }
         }
 
         h2 {
             font-size: clamp(1.5rem, 4vw, 1.8rem);
             margin: 2.5rem 0 1.5rem;
-            color: #2c3e50;
+            color: var(--text-primary);
             position: relative;
-            padding-left: 24px;
+            padding-left: 28px;
+            font-weight: 600;
         }
 
         h2::before {
@@ -61,17 +136,23 @@
             left: 0;
             top: 50%;
             transform: translateY(-50%);
-            width: 6px;
-            height: 24px;
-            background: #4f6df5;
-            border-radius: 3px;
+            width: 8px;
+            height: 32px;
+            background: var(--primary);
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+
+        h2:hover::before {
+            height: 36px;
         }
 
         h2 a {
-            color: #4f6df5;
+            color: var(--primary);
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             position: relative;
+            font-weight: 600;
         }
 
         h2 a::after {
@@ -81,32 +162,37 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: #4f6df5;
+            background: var(--primary);
             transition: width 0.3s ease;
         }
 
         h2 a:hover {
-            color: #3a56e6;
+            color: var(--primary-dark);
         }
 
         h2 a:hover::after {
             width: 100%;
         }
 
+        .content-section {
+            margin-bottom: 3rem;
+        }
+
         .text {
-            margin-bottom: 2rem;
             font-size: clamp(1rem, 3vw, 1.1rem);
-            color: #4a5568;
+            color: var(--text-secondary);
             padding: 1.8rem;
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 6px 20px rgba(148, 163, 184, 0.12);
-            transition: transform 0.3s ease;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
             line-height: 1.9;
+            margin-bottom: 2rem;
         }
 
         .text:hover {
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
         }
 
         .outfit-list {
@@ -114,28 +200,88 @@
             padding-left: 2rem;
         }
 
-        .outfit-list li {
-            margin-bottom: 1.5rem;
-            font-size: clamp(1rem, 3vw, 1.1rem);
-            color: #4a5568;
-            padding: 1.8rem;
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 6px 20px rgba(148, 163, 184, 0.12);
-            transition: transform 0.3s ease;
+        .outfit-item {
+            margin-bottom: 2.5rem;
+            padding: 2rem;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
             line-height: 1.7;
+            position: relative;
+            overflow: hidden;
         }
 
-        .outfit-list li:hover {
-            transform: translateY(-2px);
+        .outfit-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: var(--primary);
+            transition: height 0.4s ease;
         }
 
-        mark {
-            background-color: #fff9c4;
-            color: #e67e22;
-            font-weight: 500;
-            padding: 2px 8px;
-            border-radius: 4px;
+        .outfit-item:hover::before {
+            height: 100%;
+        }
+
+        .outfit-item:hover {
+            transform: translateX(8px);
+        }
+
+        .outfit-item h3 {
+            font-size: 1.3rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .image-wrapper {
+            margin: 1.5rem 0;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+
+        .image-wrapper:hover {
+            transform: scale(1.01);
+            box-shadow: 0 12px 32px rgba(148, 163, 184, 0.2);
+        }
+
+        .info-img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .image-caption {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-top: 0.8rem;
+            font-style: italic;
+        }
+
+        blockquote {
+            margin: 2rem 0;
+            padding: 1.5rem 2rem;
+            background-color: #f8f9fa;
+            border-left: 5px solid var(--primary);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            font-style: italic;
+            font-size: clamp(1rem, 3vw, 1.1rem);
+            line-height: 1.7;
+            transition: var(--transition);
+        }
+
+        blockquote:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow-sm);
         }
 
         .danger {
@@ -147,107 +293,74 @@
             color: #c53030;
             font-weight: 500;
             box-shadow: 0 4px 12px rgba(252, 129, 129, 0.1);
+            transition: var(--transition);
+        }
+
+        .danger:hover {
+            transform: scale(1.005);
         }
 
         .video-container {
             margin: 2.5rem 0;
             width: 100%;
-            border-radius: 16px;
+            border-radius: var(--border-radius);
             overflow: hidden;
-            box-shadow: 0 8px 24px rgba(148, 163, 184, 0.15);
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+
+        .video-container:hover {
+            box-shadow: 0 12px 32px rgba(148, 163, 184, 0.2);
         }
 
         .video-container iframe {
             width: 100%;
             height: 500px;
             border: none;
-            border-radius: 16px;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
         }
 
-        blockquote {
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
             margin: 2rem 0;
-            padding: 1.5rem 2rem;
-            background-color: #f8f9fa;
-            border-left: 5px solid #4f6df5;
-            border-radius: 8px;
-            color: #4a5568;
-            font-style: italic;
-            font-size: clamp(1rem, 3vw, 1.1rem);
-            line-height: 1.7;
-        }
-
-        .info-img {
-            display: block;
-            max-width: 90%;
-            height: auto;
-            margin: 2.5rem auto;
-            border-radius: 16px;
-            box-shadow: 0 8px 24px #FFFFFF;
-            transition: transform 0.3s ease;
-        }
-
-        .info-img:hover {
-            transform: scale(1.01);
-        }
-
-        .image {
-            background: #f8fafc;
-            border-radius: 16px;
-            padding: 2rem;
-            margin-top: 2rem;
-            text-align: center;
-        }
-
-        .back-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 12px 24px;
-            background: linear-gradient(90deg, #4f6df5 0%, #3a56e6 100%);
-            color: white;
-            font-size: clamp(1rem, 3vw, 1.1rem);
-            font-weight: 600;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            margin-bottom: 3rem;
-            box-shadow: 0 4px 12px rgba(79, 109, 245, 0.3);
-        }
-
-        .back-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(79, 109, 245, 0.4);
-        }
-
-        .back-button::before {
-            content: "< ";
-            margin-right: 8px;
         }
 
         @media (max-width: 768px) {
             body {
-                padding: 2rem 1.5rem;
+                padding: 2rem 1rem;
             }
 
             h1 {
-                margin: 0 0 2rem;
+                margin: 0 0 1.5rem;
+                padding-bottom: 1rem;
+            }
+
+            h1::after {
+                width: 80px;
+                height: 4px;
             }
 
             h2 {
-                font-size: 1.5rem;
+                font-size: 1.4rem;
                 margin: 2rem 0 1.2rem;
-                padding-left: 20px;
+                padding-left: 24px;
             }
 
             h2::before {
-                width: 4px;
-                height: 18px;
+                width: 6px;
+                height: 28px;
             }
 
-            .text, .outfit-list li {
+            .text, .outfit-item {
                 font-size: 1rem;
                 padding: 1.5rem;
+            }
+
+            .outfit-item {
+                margin-bottom: 2rem;
             }
 
             .video-container iframe {
@@ -263,128 +376,118 @@
                 padding: 1.5rem;
             }
 
-            .image {
-                background: #FFFFFF;
+            .image-grid {
+                grid-template-columns: 1fr;
             }
 
-            .info-img {
-                max-width: 100%;
-                border-radius: 12px;
-                box-shadow: 0 4px 12px #FFFFFF;
-            }
-
-            .back-button  {
-                display: none;
+            .back-button {
+                padding: 10px 20px;
+                font-size: 0.95rem;
             }
         }
     </style>
 </head>
 <body>
     <main>
-        <div class="back-button" onclick="window.history.back()">Back</div>
+        <button class="back-button" onclick="window.history.back()">返回上一页</button>
 
-        <h1 id="change-outfit">FinalSuspect<br>
-            切换主页风格</h1>
+        <h1 id="change-outfit">FinalSuspect<br>切换主页风格</h1>
 
-        <p class="text">
-            在FinalSuspect中，我们为玩家提供了<mark>6种可切换的背景图片</mark>，增添更多个性化选择：
-        </p>
+        <div class="content-section">
+            <p class="text">
+                在Final Suspect中，我们为玩家精心准备了<strong>6种风格各异的可切换背景</strong>，涵盖经典场景、节日限定和原创设计，为您的游戏体验增添更多个性化色彩：
+            </p>
 
-        <ol class="outfit-list">
-            <li>逐光寻晓（FS经典背景）</li>
-            <div class="image">
-                <p class="text">逐光寻晓（FS经典背景）示意图：</p>
-                    <img
-                        src="../../images/FinalSuspect-BG-MiraHQ.png"
-                        class="info-img"
-                    >
+            <ol class="outfit-list">
+                <li class="outfit-item">
+                    <h3>逐光寻晓（FS经典背景）</h3>
+                    <div class="image-grid">
+                        <div class="image-wrapper">
+                            <img src="../../images/FinalSuspect-BG-MiraHQ.png" class="info-img">
+                        </div>
+                    </div>
                     <p class="text">
-                            随着时间的推移，北半球的冬天迎来尾声，春意正在各处复苏。<br>
-                            眺望米拉的雪景，内心中的回忆是否唤醒？暖流依旧心中流淌。<br>
-                            无论嫌疑最终落在谁身，无论真理最后破碎于谁手，在焕然一新的体验中，头脑风暴，留下全新的快乐回忆。<br>
-                            Author:KpCam
+                        随着时间的推移，北半球的冬天迎来尾声，春意正在各处复苏。<br>
+                        眺望米拉的雪景，内心中的回忆是否唤醒？暖流依旧心中流淌。<br>
+                        无论嫌疑最终落在谁身，无论真理最后破碎于谁手，在焕然一新的体验中，头脑风暴，留下全新的快乐回忆。
                     </p>
-            </div>
+                    <p class="text" style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.8rem;">作者：KpCam</p>
+                </li>
 
-            <li>赤心炽爱（TONEX经典背景）</li>
-            <div class="image">
-                <p class="text">赤心炽爱（TONEX经典背景）示意图：</p>
-                    <img
-                        src="../../images/FinalSuspect-BG-Security-Preview.png"
-                        class="info-img"
-                    >
+                <li class="outfit-item">
+                    <h3>赤心炽爱（TONEX经典背景）</h3>
+                    <div class="image-grid">
+                        <div class="image-wrapper">
+                            <img src="../../images/FinalSuspect-BG-Security-Preview.png" class="info-img">
+                        </div>
+                    </div>
                     <p class="text">
-                            我们不会就此跌下、不会就此放弃、不会让玩家失望、更不会停止进步。<br>
-                            若有人冷眼相待，我们会证明给所有人看！伴着热爱，我们再次起航<br>
-                            作者：KpCam
+                        我们不会就此跌下、不会就此放弃、不会让玩家失望、更不会停止进步。<br>
+                        若有人冷眼相待，我们会证明给所有人看！伴着热爱，我们再次起航。
                     </p>
-            </div>
+                    <p class="text" style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.8rem;">作者：KpCam</p>
+                </li>
 
-            <li>祉缘谐乐（新春特别节目）</li>
-            <div class="image">
-                <p class="text">祉缘谐乐（新春特别节目）示意图：</p>
-                    <img
-                        src="../../images/FinalSuspect-BG-NewYear-Preview.png"
-                        class="info-img"
-                    >
+                <li class="outfit-item">
+                    <h3>Harmonic Bliss (New Year Special)</h3>
+                    <div class="image-grid">
+                        <div class="image-wrapper">
+                            <img src="../../images/FinalSuspect-BG-NewYear-Preview.png" class="info-img">
+                        </div>
+                    </div>
                     <p class="text">
-                            Bliss, wishes imbued with fortune
-Bond, woven in heart; Harmony, ties in affection
-Joy, peace bestowed on all<br>
-                            True bond, creates harmonious joy
-To afar, harmony begets joy; To all, all embrace joy
-Wishing only, everyone joy<br>
-                            May everyone find their own path in the new year, carrying our blessings, forging ahead courageously, and pursuing the life that truly belongs to them!<br>
-                            Author:小黄117
+                        祉，祝予福    缘，织于心，谐，连与情    乐，安喻人<br>
+                        挚缘，创谐乐  致远，谐得乐，至元，皆怀乐  只愿，人皆乐<br>
+                        愿每个人在新的一年都能寻得自己的道路，带着我们的祝福，勇往直前，追寻属于自己的人生吧！
                     </p>
-            </div>
+                    <p class="text" style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.8rem;">作者：小黄117</p>
+                </li>
 
-            <li>极致演播厅（新春特别节目）</li>
-            <div class="image">
-                <p class="text">极致演播厅（新春特别节目）示意图：</p>
-                    <img
-                        src="../../images/FinalSuspect-BG-MiraStudio-Preview.png"
-                        class="info-img"
-                    >
+                <li class="outfit-item">
+                    <h3>Xtreme Studio (New Year Special)</h3>
+                    <div class="image-grid">
+                        <div class="image-wrapper">
+                            <img src="../../images/FinalSuspect-BG-MiraStudio-Preview.png" class="info-img">
+                        </div>
+                    </div>
                     <p class="text">
-                            — Like blossoms surging, gentle as the breeze; may all hearts sail with ease and every wish find its way<br>
-                            — On spring's vast currents, ride the towering tide; may all stand bold at the forefront, rising with relentless stride<br>
-                            — Welcome to XtremeWave—New Year Special!<br>
-                            Author:小黄117
+                        ——花开似浪，温柔如风，愿大家心海如风，事事如意<br>
+                        ——春风浩荡，浪涌千里，愿大家勇立潮头，蒸蒸日上<br>
+                        ——欢迎来到XtremeWave 极致狂澜——新春特别节目！
                     </p>
-            </div>
+                    <p class="text" style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.8rem;">作者：小黄117</p>
+                </li>
 
-            <li>XtremeWave</li>
-            <div class="image">
-                <p class="text">XtremeWave Demonstration ：</p>
-                    <img
-                        src="../../images/FinalSuspect-BG-XtremeWave-Preview.png"
-                        class="info-img"
-                    >
+                <li class="outfit-item">
+                    <h3>XtremeWave</h3>
+                    <div class="image-grid">
+                        <div class="image-wrapper">
+                            <img src="../../images/FinalSuspect-BG-XtremeWave-Preview.png" class="info-img">
+                        </div>
+                    </div>
                     <p class="text">
-                            「极行致远，梦领狂澜！」<br>
-                            作者：Slok
+                        「极行致远，梦领狂澜！」
                     </p>
-            </div>
+                    <p class="text" style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.8rem;">作者：Slok</p>
+                </li>
 
-            <li>Emergency meeting!(TORE Classic Background)</li>
-            <div class="image">
-                <p class="text">Emergency meeting!(TORE Classic Background) Demonstration ：</p>
-                    <img
-                        src="../../images/FinalSuspect-BG-EmergencyMeeting-Preview.png"
-                        class="info-img"
-                    >
+                <li class="outfit-item">
+                    <h3>Emergency meeting!(TORE Classic Background)</h3>
+                    <div class="image-grid">
+                        <div class="image-wrapper">
+                            <img src="../../images/FinalSuspect-BG-EmergencyMeeting-Preview.png" class="info-img">
+                        </div>
+                    </div>
                     <p class="text">
-                            「 Who is imposter!? 」<br>
-                             Author:AIGE
-                    </p>
-            </div>
-        </ol>
+                        「谁是内鬼！？」
+                    <p class="text" style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.8rem;">作者：AIGE</p>
+                </li>
+            </ol>
 
-        <p class="text">
-            玩家可在功能菜单中自由切换。<br>
-            该功能不影响游戏平衡，仅为个性化扩展。
-        </p>
+            <div class="danger">
+                <strong>温馨提示：</strong> 风格切换功能不影响游戏平衡，所有玩家均可自由选择喜欢的背景。
+            </div>
+        </div>
     </main>
 </body>
 </html>
