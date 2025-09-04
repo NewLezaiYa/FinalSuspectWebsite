@@ -3,89 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
-    <title>我的音乐</title>
+    <title>资源管理</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* 基础样式 */
+        :root {
+            --primary: #4f6df5;
+            --primary-light: #6b8aff;
+            --primary-dark: #3a56e6;
+            --text-primary: #2d3748;
+            --text-secondary: #4a5568;
+            --bg-light: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            --card-bg: #ffffff;
+            --border-radius: 16px;
+            --shadow-sm: 0 4px 12px rgba(148, 163, 184, 0.1);
+            --shadow-md: 0 8px 24px rgba(148, 163, 184, 0.15);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "Segoe UI", sans-serif;
+            font-family: 'Poppins', "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "Segoe UI", sans-serif;
             -webkit-tap-highlight-color: transparent;
         }
 
         body {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 3rem 2rem;
-            line-height: 1.9;
-            color: #2d3748;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf9 100%);
+            padding: 3rem 1.5rem;
+            line-height: 1.8;
+            color: var(--text-primary);
+            background: var(--bg-light);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            transition: var(--transition);
         }
 
-        h1 {
-            text-align: center;
-            font-size: clamp(1.8rem, 5vw, 2.5rem);
-            margin: 0 0 2.5rem;
-            color: #2c3e50;
-            position: relative;
-            padding-bottom: 1rem;
-        }
-
-        h1::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, #4f6df5 0%, #3a56e6 100%);
-            border-radius: 2px;
-        }
-
-        .text {
-            margin-bottom: 2rem;
-            font-size: clamp(1rem, 3vw, 1.1rem);
-            color: #4a5568;
-            padding: 1.8rem;
-            background-color: #fff;
-            border-radius: 16px;
-            box-shadow: 0 6px 20px rgba(148, 163, 184, 0.12);
-            transition: transform 0.3s ease;
-            line-height: 1.9;
-        }
-
-        .text:hover {
-            transform: translateY(-2px);
-        }
-
-        a {
-            color: #2980b9;
-            text-decoration: none;
-            transition: all 0.3s;
-            position: relative;
-        }
-
-        a:hover {
-            color: #1a5276;
-        }
-
-        a::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #1a5276;
-            transition: width 0.3s;
-        }
-
-        a:hover::after {
+        main {
             width: 100%;
         }
 
@@ -94,58 +50,163 @@
             align-items: center;
             justify-content: center;
             padding: 12px 24px;
-            background: linear-gradient(90deg, #4f6df5 0%, #3a56e6 100%);
+            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
             color: white;
-            font-size: clamp(1rem, 3vw, 1.1rem);
-            font-weight: 600;
+            font-size: 1rem;
+            font-weight: 500;
             border: none;
             border-radius: 8px;
             cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transition: var(--transition);
             margin-bottom: 3rem;
-            box-shadow: 0 4px 12px rgba(79, 109, 245, 0.3);
+            box-shadow: 0 4px 12px rgba(79, 109, 245, 0.25);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .back-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-light) 0%, var(--primary) 100%);
+            transition: width 0.3s ease;
+            z-index: -1;
+        }
+
+        .back-button:hover::before {
+            width: 100%;
         }
 
         .back-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(79, 109, 245, 0.4);
+            box-shadow: 0 6px 18px rgba(79, 109, 245, 0.35);
         }
 
         .back-button::before {
             content: "< ";
             margin-right: 8px;
+            font-weight: 600;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            margin: 0 0 2.5rem;
+            color: var(--text-primary);
+            position: relative;
+            padding-bottom: 1.2rem;
+            font-weight: 700;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 3px;
+            animation: lineGrow 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        @keyframes lineGrow {
+            from { width: 0; }
+            to { width: 100px; }
+        }
+
+        .content-section {
+            margin-bottom: 3rem;
+        }
+
+        .text {
+            font-size: clamp(1rem, 3vw, 1.1rem);
+            color: var(--text-secondary);
+            padding: 1.8rem;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            line-height: 1.9;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .text::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: var(--primary);
+            transition: height 0.4s ease;
+        }
+
+        .text:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .text:hover::before {
+            height: 100%;
+        }
+
+        .text p {
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .text p:last-child {
+            margin-bottom: 0;
         }
 
         @media (max-width: 768px) {
             body {
-                padding: 2rem 1.5rem;
+                padding: 2rem 1rem;
             }
 
             h1 {
-                margin: 0 0 2rem;
+                margin: 0 0 1.5rem;
+                padding-bottom: 1rem;
             }
 
-            .text, .tip, .warning {
+            h1::after {
+                width: 80px;
+                height: 4px;
+            }
+
+            .text {
                 font-size: 1rem;
                 padding: 1.5rem;
+                border-radius: 12px;
             }
 
             .back-button  {
-                display: none;
+                padding: 10px 20px;
+                font-size: 0.95rem;
             }
         }
     </style>
 </head>
 <body>
     <main>
-        <div class="back-button" onclick="window.history.back()">返回上一页</div>
+        <button class="back-button" onclick="window.history.back()">返回上一页</button>
 
-        <h1 id="audio-management">FinalSuspect<br>
-            资源管理</h1>
+        <!-- 资源管理 -->
+        <h1 id="resource-management">FinalSuspect<br>资源管理</h1>
 
-        <!-- 说明 -->
-        <div class="text">
-            <p>该功能可以在「资源管理」中下载本模组的配套以及扩展资源。</p>
+        <div class="content-section">
+            <div class="text">
+                <p>该功能可以在「资源管理」中下载本模组的配套以及扩展资源。</p>
+            </div>
         </div>
     </main>
 </body>
