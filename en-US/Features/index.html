@@ -6,6 +6,22 @@
     <title>Function</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
+        :root {
+            --primary: #4f6df5;
+            --primary-light: #6b8aff;
+            --primary-dark: #3a56e6;
+            --primary-darker: #2a42c2;
+            --text-primary: #2d3748;
+            --text-secondary: #4a5568;
+            --bg-light: linear-gradient(135deg, #f0f4f9 0%, #e6edf5 100%);
+            --card-bg: #ffffff;
+            --border-radius: 20px;
+            --shadow-sm: 0 4px 12px rgba(148, 163, 184, 0.1);
+            --shadow-md: 0 8px 24px rgba(148, 163, 184, 0.15);
+            --shadow-lg: 0 12px 36px rgba(148, 163, 184, 0.18);
+            --transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -21,21 +37,23 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #f0f4f9 0%, #e6edf5 100%);
+            background: var(--bg-light);
             padding: 20px 15px;
             line-height: 1.6;
+            transition: var(--transition);
         }
 
         .container {
             width: 100%;
             max-width: 520px;
-            background: #ffffff;
-            border-radius: 20px;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
             padding: 40px 28px;
-            box-shadow: 0 12px 36px rgba(148, 163, 184, 0.18);
+            box-shadow: var(--shadow-lg);
             border: 1px solid rgba(255, 255, 255, 0.8);
             position: relative;
             overflow: hidden;
+            transition: var(--transition);
         }
 
         .header {
@@ -52,7 +70,7 @@
             width: 52px;
             height: 52px;
             border-radius: 50%;
-            background: linear-gradient(45deg, #4f6df5 0%, #3a56e6 100%);
+            background: linear-gradient(45deg, var(--primary) 0%, var(--primary-dark) 100%);
             color: white;
             border: none;
             cursor: pointer;
@@ -60,7 +78,7 @@
             align-items: center;
             justify-content: center;
             box-shadow: 0 4px 12px rgba(79, 109, 245, 0.25);
-            transition: all 0.3s ease;
+            transition: var(--transition);
             -webkit-tap-highlight-color: transparent;
             touch-action: manipulation;
         }
@@ -82,11 +100,16 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: transform 0.3s ease;
         }
 
         .back-button:hover, .back-button:focus {
             transform: translateY(-50%) scale(1.05);
             box-shadow: 0 6px 18px rgba(79, 109, 245, 0.3);
+        }
+
+        .back-button:hover i {
+            transform: translate(-50%, -50%) rotate(-15deg);
         }
 
         .container::before {
@@ -96,12 +119,18 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, #4f6df5 0%, #3a56e6 50%, #2a42c2 100%);
-            border-radius: 20px 20px 0 0;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 50%, var(--primary-darker) 100%);
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+            animation: gradientShift 8s linear infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
         }
 
         h1 {
-            color: #2d3748;
+            color: var(--text-primary);
             font-size: clamp(1.4rem, 4vw, 1.6rem);
             margin-bottom: 38px;
             text-align: center;
@@ -119,8 +148,9 @@
             transform: translateX(-50%);
             width: 50px;
             height: 3px;
-            background: #4f6df5;
+            background: var(--primary);
             border-radius: 2px;
+            transition: width 0.3s ease;
         }
 
         .btn-group {
@@ -140,13 +170,14 @@
             text-align: left;
             position: relative;
             overflow: hidden;
-            transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
-            background: linear-gradient(45deg, #4f6df5 0%, #3a56e6 100%);
+            transition: var(--transition);
+            background: linear-gradient(45deg, var(--primary) 0%, var(--primary-dark) 100%);
             color: white;
             box-shadow: 0 4px 14px rgba(79, 109, 245, 0.22);
             display: flex;
             align-items: center;
             justify-content: space-between;
+            min-height: 64px; /* 确保触摸区域足够大 */
         }
 
         .btn-content {
@@ -154,6 +185,7 @@
             align-items: center;
             gap: 16px;
             flex: 1;
+            transition: transform 0.3s ease;
         }
 
         .btn-icon {
@@ -162,20 +194,29 @@
             color: rgba(255, 255, 255, 0.9);
         }
 
+        .btn-text {
+            transition: transform 0.3s ease;
+        }
+
         .btn-arrow {
             font-size: 1.1rem;
             opacity: 0.8;
             transition: transform 0.3s ease;
+            color: rgba(255, 255, 255, 0.9);
         }
 
         .jump-btn:hover, .jump-btn:focus-visible {
             transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(79, 109, 245, 0.3);
-            background: linear-gradient(45deg, #3a56e6 0%, #4f6df5 100%);
+            background: linear-gradient(45deg, var(--primary-dark) 0%, var(--primary) 100%);
+        }
+
+        .jump-btn:hover .btn-content {
+            transform: translateX(8px);
         }
 
         .jump-btn:hover .btn-icon {
-            transform: translateX(6px);
+            transform: scale(1.1);
         }
 
         .jump-btn:hover .btn-arrow {
@@ -183,14 +224,14 @@
         }
 
         .jump-btn:focus-visible {
-            outline: 2px solid #4f6df5;
+            outline: 2px solid var(--primary);
             outline-offset: 2px;
         }
 
         .jump-btn:active {
             transform: scale(0.985);
             box-shadow: 0 3px 10px rgba(79, 109, 245, 0.25);
-            background: linear-gradient(45deg, #354bc2 0%, #3a56e6 100%);
+            background: linear-gradient(45deg, var(--primary-darker) 0%, var(--primary-dark) 100%);
         }
 
         @media (max-width: 380px) {
@@ -200,14 +241,24 @@
 
             h1 {
                 margin-bottom: 32px;
+                font-size: 1.4rem;
             }
 
             .jump-btn {
                 padding: 16px 20px;
+                font-size: 1rem;
             }
 
             .btn-content {
                 gap: 14px;
+            }
+
+            .btn-icon {
+                font-size: 1.2rem;
+            }
+
+            .btn-arrow {
+                font-size: 1rem;
             }
         }
 
@@ -244,6 +295,10 @@
                 background: linear-gradient(45deg, #2b6cb0 0%, #3182ce 100%);
                 box-shadow: 0 3px 10px rgba(66, 153, 225, 0.25);
             }
+
+            .btn-icon, .btn-text, .btn-arrow {
+                color: rgba(255, 255, 255, 0.9);
+            }
         }
 
         @media (max-width: 768px) {
@@ -266,7 +321,7 @@
             <button class="jump-btn" onclick="window.location.href='ClearAutoLogs.html'">
                 <div class="btn-content">
                     <i class="btn-icon fas fa-trash-alt"></i>
-                    <span class="text">Clear automatic logs</span>
+                    <span class="btn-text">清空自动日志</span>
                 </div>
                 <i class="btn-arrow fas fa-chevron-right"></i>
             </button>
@@ -274,7 +329,7 @@
             <button class="jump-btn" onclick="window.location.href='DumpLog.html'">
                 <div class="btn-content">
                     <i class="btn-icon fas fa-file-code"></i>
-                    <span class="text">Output logs</span>
+                    <span class="btn-text">输出日志</span>
                 </div>
                 <i class="btn-arrow fas fa-chevron-right"></i>
             </button>
@@ -282,7 +337,7 @@
             <button class="jump-btn" onclick="window.location.href='MainMenuStyleManager.html'">
                 <div class="btn-content">
                     <i class="btn-icon fas fa-palette"></i>
-                    <span class="text">Change homepage style </span>
+                    <span class="btn-text">切换主页风格</span>
                 </div>
                 <i class="btn-arrow fas fa-chevron-right"></i>
             </button>
@@ -290,7 +345,7 @@
             <button class="jump-btn" onclick="window.location.href='MyMusic.html'">
                 <div class="btn-content">
                     <i class="btn-icon fas fa-music"></i>
-                    <span class="text">My Music</span>
+                    <span class="btn-text">我的音乐</span>
                 </div>
                 <i class="btn-arrow fas fa-chevron-right"></i>
             </button>
@@ -298,7 +353,7 @@
             <button class="jump-btn" onclick="window.location.href='NameTagManager.html'">
                 <div class="btn-content">
                     <i class="btn-icon fas fa-tags"></i>
-                    <span class="text">Identity Management</span>
+                    <span class="btn-text">名称标识管理</span>
                 </div>
                 <i class="btn-arrow fas fa-chevron-right"></i>
             </button>
@@ -306,7 +361,7 @@
             <button class="jump-btn" onclick="window.location.href='ResourceManager.html'">
                 <div class="btn-content">
                     <i class="btn-icon fas fa-folder"></i>
-                    <span class="text">Resource Management</span>
+                    <span class="btn-text">资源管理</span>
                 </div>
                 <i class="btn-arrow fas fa-chevron-right"></i>
             </button>
@@ -314,7 +369,7 @@
             <button class="jump-btn" onclick="window.location.href='UnloadMod.html'">
                 <div class="btn-content">
                     <i class="btn-icon fas fa-toggle-on"></i>
-                    <span class="text">Switch to Vanilla</span>
+                    <span class="btn-text">切换原版</span>
                 </div>
                 <i class="btn-arrow fas fa-chevron-right"></i>
             </button>
