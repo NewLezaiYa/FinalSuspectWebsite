@@ -50,46 +50,26 @@
             align-items: center;
             justify-content: center;
             padding: 12px 24px;
-            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
+            background: linear-gradient(90deg, #4f6df5 0%, #3a56e6 100%);
             color: white;
-            font-size: 1rem;
-            font-weight: 500;
+            font-size: clamp(1rem, 3vw, 1.1rem);
+            font-weight: 600;
             border: none;
             border-radius: 8px;
             cursor: pointer;
-            transition: var(--transition);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
             margin-bottom: 3rem;
-            box-shadow: 0 4px 12px rgba(79, 109, 245, 0.25);
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .back-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 0%;
-            height: 100%;
-            background: linear-gradient(90deg, var(--primary-light) 0%, var(--primary) 100%);
-            transition: width 0.3s ease;
-            z-index: -1;
-        }
-
-        .back-button:hover::before {
-            width: 100%;
+            box-shadow: 0 4px 12px rgba(79, 109, 245, 0.3);
         }
 
         .back-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 18px rgba(79, 109, 245, 0.35);
+            box-shadow: 0 6px 16px rgba(79, 109, 245, 0.4);
         }
 
         .back-button::before {
             content: "< ";
             margin-right: 8px;
-            font-weight: 600;
         }
 
         h1 {
