@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
-    <title>屏蔽违禁词</title>
+    <title>Block banned words</title>
     <style>
         /* 基础样式 */
         * {
@@ -157,23 +157,21 @@
 </head>
 <body>
     <main>
-        <div class="back-button" onclick="window.history.back()">返回上一页</div>
+        <div class="back-button" onclick="window.history.back()">Back</div>
 
-        <h1 id="spam-deny-word">屏蔽违禁词</h1>
+        <h1 id="spam-deny-word">FinalSuspect<br>
+            Block banned words</h1>
 
         <div class="text">
-            <p>当Final Suspect检测到聊天内容中包含违禁词（如<mark>侮辱性词汇、广告、敏感信息</mark>等）时，会自动将该词汇替换为星号(*)，而不会影响句子的其余部分。<br>
-            功能能在维持聊天可读性的同时，有效减少违规内容传播。<br>
-            您可以在设置中关闭此功能。<br>
+            <p>When Final Suspect detects prohibited content in chat (such as <mark>insults, advertisements, or sensitive information</mark>), it will automatically replace those words with asterisks (*)  ,without affecting the rest of the message.<br>
             功能能在维持聊天可读性的同时，有效减少违规内容传播。<br>
             您可以在设置中关闭此功能。</p>
         </div>
 
         <div class="SpamDenyWord">
-            <p class="text">屏蔽违禁词示意图：</p>
+            <p class="text">Block Banned Words Demonstration ：</p>
             <img
                 src="../../images/SpamDenyWord.png"
-                alt="屏蔽违禁词示意图"
                 class="info-img"
             >
     </main>
