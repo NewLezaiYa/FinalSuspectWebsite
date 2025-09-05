@@ -4,169 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
     <title>更新</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* 基础样式 */
+        :root {
+            --primary: #4f6df5;
+            --primary-light: #6b8aff;
+            --primary-dark: #3a56e6;
+            --text-primary: #2d3748;
+            --text-secondary: #4a5568;
+            --text-muted: #718096;
+            --bg-light: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            --card-bg: #ffffff;
+            --border-radius: 16px;
+            --shadow-sm: 0 4px 12px rgba(148, 163, 184, 0.1);
+            --shadow-md: 0 8px 24px rgba(148, 163, 184, 0.15);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "Segoe UI", sans-serif;
+            font-family: 'Poppins', "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "Segoe UI", sans-serif;
             -webkit-tap-highlight-color: transparent;
         }
 
         body {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 3rem 2rem;
-            line-height: 1.9;
-            color: #2d3748;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf9 100%);
+            padding: 3rem 1.5rem;
+            line-height: 1.8;
+            color: var(--text-primary);
+            background: var(--bg-light);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            transition: var(--transition);
         }
 
-        h1 {
-            text-align: center;
-            font-size: clamp(1.8rem, 5vw, 2.5rem);
-            margin: 0 0 2.5rem;
-            color: #2c3e50;
-            position: relative;
-            padding-bottom: 1rem;
-        }
-
-        h1::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, #4f6df5 0%, #3a56e6 100%);
-            border-radius: 2px;
-        }
-
-        h2 {
-            font-size: clamp(1.5rem, 4vw, 1.8rem);
-            margin: 2.5rem 0 1.5rem;
-            color: #2c3e50;
-            position: relative;
-            padding-left: 24px;
-        }
-
-        h2::before {
-            content: '•';
-            position: absolute;
-            left: 0;
-            top: 0;
-            color: #4f6df5;
-            font-size: 1.2em;
-        }
-
-        .text {
-            margin-bottom: 2rem;
-            text-indent: 2em;
-            font-size: clamp(1rem, 3vw, 1.1rem);
-            color: #4a5568;
-            padding: 1.8rem;
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 6px 20px rgba(148, 163, 184, 0.12);
-            transition: transform 0.3s ease;
-            line-height: 1.9;
-        }
-
-        .text:hover {
-            transform: translateY(-2px);
-        }
-
-        .text mark {
-            background-color: #fff9c4;
-            color: #e67e22;
-            font-weight: 500;
-            padding: 2px 8px;
-            border-radius: 4px;
-        }
-
-        .tip {
-            margin: 2rem 0;
-            padding: 1.8rem;
-            background-color: #f1f9eb;
-            border-left: 5px solid #a3d168;
-            border-radius: 12px;
-            color: #678539;
-            font-weight: 500;
-            box-shadow: 0 4px 12px rgba(163, 209, 104, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .tip:hover {
-            transform: translateY(-2px);
-        }
-
-        .warning {
-            margin: 2rem 0;
-            padding: 1.8rem;
-            background-color: #fff5f5;
-            border-left: 5px solid #e74c3c;
-            border-radius: 12px;
-            color: #c0392b;
-            font-weight: 500;
-            box-shadow: 0 4px 12px rgba(231, 76, 60, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .warning:hover {
-            transform: translateY(-2px);
-        }
-
-        a {
-            color: #2980b9;
-            text-decoration: none;
-            transition: all 0.3s;
-            position: relative;
-        }
-
-        a:hover {
-            color: #1a5276;
-        }
-
-        a::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #1a5276;
-            transition: width 0.3s;
-        }
-
-        a:hover::after {
+        main {
             width: 100%;
-        }
-
-        .update-steps {
-            padding-left: 2rem;
-            margin: 1.5rem 0;
-        }
-
-        .update-steps li {
-            margin-bottom: 1rem;
-            font-size: clamp(1rem, 3vw, 1.1rem);
-            color: #4a5568;
-            line-height: 1.7;
-            position: relative;
-        }
-
-        .update-steps li::before {
-            content: '→';
-            position: absolute;
-            left: -20px;
-            top: 0;
-            color: #4f6df5;
-            font-weight: bold;
         }
 
         .back-button {
@@ -196,28 +73,283 @@
             margin-right: 8px;
         }
 
+        h1 {
+            text-align: center;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            margin: 0 0 2.5rem;
+            color: var(--text-primary);
+            position: relative;
+            padding-bottom: 1.2rem;
+            font-weight: 700;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 3px;
+            animation: lineGrow 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        h2 {
+            font-size: clamp(1.4rem, 4vw, 1.8rem);
+            margin: 2.5rem 0 1.5rem;
+            color: var(--text-primary);
+            position: relative;
+            padding-left: 1.2rem;
+        }
+
+        h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 24px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        @keyframes lineGrow {
+            from { width: 0; }
+            to { width: 100px; }
+        }
+
+        .text {
+            font-size: clamp(1rem, 3vw, 1.1rem);
+            color: var(--text-secondary);
+            padding: 1.8rem;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            line-height: 1.9;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+            text-indent: 2em;
+        }
+
+        .text::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: var(--primary);
+            transition: height 0.4s ease;
+        }
+
+        .text:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .text:hover::before {
+            height: 100%;
+        }
+
+        .text p {
+            margin-bottom: 1rem;
+            text-indent: 2em;
+            position: relative;
+            z-index: 2;
+        }
+
+        .text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .tip {
+            margin: 2rem 0;
+            padding: 1.8rem;
+            background-color: #f1f9eb;
+            border-left: 5px solid #a3d168;
+            border-radius: 12px;
+            color: #678539;
+            font-weight: 500;
+            box-shadow: 0 4px 12px rgba(163, 209, 104, 0.1);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tip::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: #a3d168;
+            transition: height 0.4s ease;
+        }
+
+        .tip:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(163, 209, 104, 0.2);
+        }
+
+        .tip:hover::before {
+            height: 100%;
+        }
+
+        .tip p {
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .tip p:last-child {
+            margin-bottom: 0;
+        }
+
+        pre {
+            background-color: #2d3748;
+            padding: 1.2rem;
+            border-radius: 8px;
+            margin: 1.2rem 0;
+            overflow-x: auto;
+            font-family: "Consolas", "Monaco", monospace;
+            font-size: clamp(0.9rem, 2.5vw, 0.95rem);
+            color: #edf2f7;
+            line-height: 1.6;
+            border: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        pre code {
+            display: block;
+        }
+
+        .update-steps {
+            padding-left: 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .update-steps li {
+            margin-bottom: 1rem;
+            font-size: clamp(1rem, 3vw, 1.1rem);
+            color: var(--text-secondary);
+            line-height: 1.7;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .update-steps li::before {
+            content: '→';
+            position: absolute;
+            left: -20px;
+            color: var(--primary);
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .update-steps li:hover {
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        .update-steps li:hover::before {
+            transform: scale(1.2);
+        }
+
+        .danger {
+            margin: 2rem 0;
+            padding: 1.8rem;
+            background-color: #fff5f5;
+            border-left: 5px solid #fc8181;
+            border-radius: 12px;
+            color: #c53030;
+            font-weight: 500;
+            box-shadow: 0 4px 12px rgba(252, 129, 129, 0.1);
+            transition: var(--transition);
+        }
+
+        .danger::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: #fc8181;
+            transition: height 0.4s ease;
+        }
+
+        .danger:hover {
+            transform: scale(1.005);
+            box-shadow: 0 6px 18px rgba(252, 129, 129, 0.1);
+        }
+
+        .danger:hover::before {
+            height: 100%;
+
+        }
+
+        .danger p {
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .danger p:last-child {
+            margin-bottom: 0;
+        }
+
         @media (max-width: 768px) {
             body {
-                padding: 2rem 1.5rem;
+                padding: 2rem 1rem;
             }
 
             h1 {
-                margin: 0 0 2rem;
+                margin: 0 0 1.5rem;
+                padding-bottom: 1rem;
+            }
+
+            h1::after {
+                width: 80px;
+                height: 4px;
             }
 
             h2 {
-                font-size: 1.5rem;
-                margin: 2rem 0 1.2rem;
-                padding-left: 20px;
+                font-size: 1.4rem;
+                padding-left: 1rem;
             }
 
             h2::before {
-                font-size: 1.1em;
+                height: 20px;
             }
 
-            .text, .tip, .warning {
+
+            .text {
                 font-size: 1rem;
                 padding: 1.5rem;
+                border-radius: 12px;
+            }
+
+            .tip {
+                font-size: 0.95rem;
+                padding: 1.5rem;
+                border-radius: 12px;
+            }
+
+            pre {
+                font-size: 0.85rem;
+                padding: 1rem;
+                border-radius: 8px;
+            }
+
+            .back-button  {
+                padding: 10px 20px;
+                font-size: 0.95rem;
             }
 
             .update-steps {
@@ -227,10 +359,6 @@
             .update-steps li {
                 margin-bottom: 0.8rem;
             }
-
-            .back-button  {
-                display: none;
-            }
         }
     </style>
 </head>
@@ -239,7 +367,7 @@
         <div class="back-button" onclick="window.history.back()">返回上一页</div>
 
         <!-- 更新 -->
-        <h1 id="update">FinalSuspect 更新</h1>
+        <h1 id="update">FinalSuspect<br>更新</h1>
 
         <!-- 自动更新 -->
         <h2 id="auto-update">自动更新</h2>
@@ -255,14 +383,14 @@
 
         <!-- 手动更新 -->
         <h2 id="manual-update">手动更新</h2>
-        <div class="warning">
+        <div class="danger">
             <p>如非必要，我们建议您优先选择自动更新。</p>
         </div>
 
         <div class="text">
             <p>若遇上更新检查失败/下载出现问题，可按以下步骤手动更新：</p>
             <ol class="update-steps">
-                <li>访问<a href="https://github.com/Slok7565/FinalSuspect/releases" target="_blank" rel="noopener noreferrer">GitHub发行版页面</a>，下载最新版本的dll文件。</li>
+                <li>访问<a href="https://github.com/Slok7565/FinalSuspect/releases" target="_blank" rel="noopener noreferrer">GitHub Releases</a>，下载最新版本的dll文件。</li>
                 <li>打开Among Us根目录，再继续打开<mark>BepInEx\plugins</mark>文件夹。</li>
                 <li>将下载的dll文件替换掉原有的dll文件。</li>
                 <li>至此，更新结束。</li>
