@@ -4,88 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
     <title>离线模式（试验性）</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* 基础样式 */
+        :root {
+            --primary: #4f6df5;
+            --primary-light: #6b8aff;
+            --primary-dark: #3a56e6;
+            --text-primary: #2d3748;
+            --text-secondary: #4a5568;
+            --text-muted: #718096;
+            --bg-light: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            --card-bg: #ffffff;
+            --border-radius: 16px;
+            --shadow-sm: 0 4px 12px rgba(148, 163, 184, 0.1);
+            --shadow-md: 0 8px 24px rgba(148, 163, 184, 0.15);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "Segoe UI", sans-serif;
+            font-family: 'Poppins', "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "Segoe UI", sans-serif;
             -webkit-tap-highlight-color: transparent;
         }
 
         body {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 3rem 2rem;
-            line-height: 1.9;
-            color: #2d3748;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf9 100%);
+            padding: 3rem 1.5rem;
+            line-height: 1.8;
+            color: var(--text-primary);
+            background: var(--bg-light);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            transition: var(--transition);
         }
 
-        h1 {
-            text-align: center;
-            font-size: clamp(1.8rem, 5vw, 2.5rem);
-            margin: 0 0 2.5rem;
-            color: #2c3e50;
-            position: relative;
-            padding-bottom: 1rem;
-        }
-
-        h1::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, #4f6df5 0%, #3a56e6 100%);
-            border-radius: 2px;
-        }
-
-        .text {
-            margin-bottom: 2rem;
-            text-indent: 2em;
-            font-size: clamp(1rem, 3vw, 1.1rem);
-            color: #4a5568;
-            padding: 1.8rem;
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 6px 20px rgba(148, 163, 184, 0.12);
-            transition: transform 0.3s ease;
-            line-height: 1.9;
-        }
-
-        .text:hover {
-            transform: translateY(-2px);
-        }
-
-        mark {
-            background-color: #fff9c4;
-            color: #e67e22;
-            font-weight: 500;
-            padding: 2px 8px;
-            border-radius: 4px;
-        }
-
-        .warning {
-            margin: 2rem 0;
-            padding: 1.8rem;
-            background-color: #fff5f5;
-            border-left: 5px solid #fc8181;
-            border-radius: 12px;
-            color: #c53030;
-            font-weight: 500;
-            box-shadow: 0 4px 12px rgba(252, 129, 129, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .warning:hover {
-            transform: translateY(-2px);
+        main {
+            width: 100%;
         }
 
         .back-button {
@@ -115,26 +73,151 @@
             margin-right: 8px;
         }
 
+        h1 {
+            text-align: center;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            margin: 0 0 2.5rem;
+            color: var(--text-primary);
+            position: relative;
+            padding-bottom: 1.2rem;
+            font-weight: 700;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 3px;
+            animation: lineGrow 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        @keyframes lineGrow {
+            from { width: 0; }
+            to { width: 100px; }
+        }
+
+        .text {
+            font-size: clamp(1rem, 3vw, 1.1rem);
+            color: var(--text-secondary);
+            padding: 1.8rem;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            line-height: 1.9;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+            text-indent: 2em;
+        }
+
+        .text::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: var(--primary);
+            transition: height 0.4s ease;
+        }
+
+        .text:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .text:hover::before {
+            height: 100%;
+        }
+
+        .text p {
+            margin-bottom: 1rem;
+            text-indent: 2em;
+            position: relative;
+            z-index: 2;
+        }
+
+        .text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .danger {
+            margin: 2rem 0;
+            padding: 1.8rem;
+            background-color: #fff5f5;
+            border-left: 5px solid #fc8181;
+            border-radius: 12px;
+            color: #c53030;
+            font-weight: 500;
+            box-shadow: 0 4px 12px rgba(252, 129, 129, 0.1);
+            transition: var(--transition);
+        }
+
+        .danger::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: #fc8181;
+            transition: height 0.4s ease;
+        }
+
+        .danger:hover {
+            transform: scale(1.005);
+            box-shadow: 0 6px 18px rgba(252, 129, 129, 0.1);
+        }
+
+        .danger:hover::before {
+            height: 100%;
+
+        }
+
+        .danger p {
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .danger p:last-child {
+            margin-bottom: 0;
+        }
+
         @media (max-width: 768px) {
             body {
-                padding: 2rem 1.5rem;
+                padding: 2rem 1rem;
             }
 
             h1 {
-                margin: 0 0 2rem;
+                margin: 0 0 1.5rem;
+                padding-bottom: 1rem;
             }
 
-            .text, .warning {
+            h1::after {
+                width: 80px;
+                height: 4px;
+            }
+
+            .text {
                 font-size: 1rem;
                 padding: 1.5rem;
-            }
-
-            mark {
-                padding: 2px 6px;
+                border-radius: 12px;
             }
 
             .back-button  {
-                display: none;
+                padding: 10px 20px;
+                font-size: 0.95rem;
+            }
+
+            .danger {
+                padding: 1.5rem;
             }
         }
     </style>
@@ -143,14 +226,13 @@
     <main>
         <div class="back-button" onclick="window.history.back()">返回上一页</div>
 
-        <h1 id="disable-fac">FinalSuspect<br>
-            离线模式（试验性）</h1>
+        <h1 id="disable-fac">FinalSuspect<br>离线模式（试验性）</h1>
 
         <p class="text">
-            在FinalSuspect模组中，当你启动离线模式，将不会从<mark>远程获取资源</mark>。<br>
+            在Final Suspect模组中，当你启动离线模式，将不会从<mark>远程获取资源</mark>。<br>
         </p>
 
-        <div class="warning">
+        <div class="danger">
             <p>我们<mark>不推荐</mark>你启用离线模式。<br>
             启用离线模式后您无法获取最新的资源。</p>
         </div>
