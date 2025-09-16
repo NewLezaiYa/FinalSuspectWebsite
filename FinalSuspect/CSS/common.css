@@ -99,12 +99,11 @@ h1::after {
 }
 
 h2 {
-    font-size: clamp(1.5rem, 4vw, 1.8rem);
+    font-size: clamp(1.4rem, 4vw, 1.8rem);
     margin: 2.5rem 0 1.5rem;
     color: var(--text-primary);
     position: relative;
-    padding-left: 28px;
-    font-weight: 600;
+    padding-left: 1.2rem;
 }
 
 h2::before {
@@ -113,42 +112,10 @@ h2::before {
     left: 0;
     top: 50%;
     transform: translateY(-50%);
-    width: 8px;
-    height: 32px;
+    width: 4px;
+    height: 24px;
     background: var(--primary);
-    border-radius: 4px;
-    transition: var(--transition);
-}
-
-h2:hover::before {
-    height: 36px;
-}
-
-h2 a {
-    color: var(--primary);
-    text-decoration: none;
-    transition: var(--transition);
-    position: relative;
-    font-weight: 600;
-}
-
-h2 a::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--primary);
-    transition: width 0.3s ease;
-}
-
-h2 a:hover {
-    color: var(--primary-dark);
-}
-
-h2 a:hover::after {
-    width: 100%;
+    border-radius: 2px;
 }
 
 .content-section {
@@ -165,11 +132,40 @@ h2 a:hover::after {
     transition: var(--transition);
     line-height: 1.9;
     margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+    text-indent: 2em;
+}
+
+.text::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 0;
+    background: var(--primary);
+    transition: height 0.4s ease;
 }
 
 .text:hover {
     transform: translateY(-3px);
     box-shadow: var(--shadow-md);
+}
+
+.text:hover::before {
+    height: 100%;
+}
+
+.text p {
+    margin-bottom: 1rem;
+    text-indent: 2em;
+    position: relative;
+    z-index: 2;
+}
+
+.text p:last-child {
+    margin-bottom: 0;
 }
 
 .outfit-list {
