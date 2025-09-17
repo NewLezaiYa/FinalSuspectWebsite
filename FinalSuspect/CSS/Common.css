@@ -168,47 +168,25 @@ h2::before {
     margin-bottom: 0;
 }
 
-.outfit-list {
+.guide-img {
+    display: block;
+    max-width: 90%;
+    height: auto;
+    margin: 2rem auto;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(148, 163, 184, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.guide-img:hover {
+    transform: scale(1.01);
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
     margin: 2rem 0;
-    padding-left: 2rem;
-}
-
-.outfit-item {
-    margin-bottom: 2.5rem;
-    padding: 2rem;
-    background: var(--card-bg);
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow-sm);
-    transition: var(--transition);
-    line-height: 1.7;
-    position: relative;
-    overflow: hidden;
-}
-
-.outfit-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 4px;
-    height: 0;
-    background: var(--primary);
-    transition: height 0.4s ease;
-}
-
-.outfit-item:hover::before {
-    height: 100%;
-}
-
-.outfit-item:hover {
-    transform: translateX(8px);
-}
-
-.outfit-item h3 {
-    font-size: 1.3rem;
-    color: var(--text-primary);
-    margin-bottom: 1rem;
-    font-weight: 600;
 }
 
 .image-wrapper {
@@ -222,14 +200,6 @@ h2::before {
 .image-wrapper:hover {
     transform: scale(1.01);
     box-shadow: 0 12px 32px rgba(148, 163, 184, 0.2);
-}
-
-.guide-img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-    border-radius: var(--border-radius);
-    transition: var(--transition);
 }
 
 .image-caption {
@@ -269,8 +239,35 @@ blockquote:hover {
     transition: var(--transition);
 }
 
+.danger::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 0;
+    background: #fc8181;
+    transition: height 0.4s ease;
+}
+
 .danger:hover {
     transform: scale(1.005);
+    box-shadow: 0 6px 18px rgba(252, 129, 129, 0.1);
+}
+
+.danger:hover::before {
+    height: 100%;
+
+}
+
+.danger p {
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 2;
+}
+
+.danger p:last-child {
+    margin-bottom: 0;
 }
 
 .video-container {
@@ -292,13 +289,6 @@ blockquote:hover {
     border: none;
     border-radius: var(--border-radius);
     transition: var(--transition);
-}
-
-.image-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin: 2rem 0;
 }
 
 .tip {
@@ -363,38 +353,6 @@ pre code {
     display: block;
 }
 
-.dump-log-steps {
-    padding-left: 2rem;
-    margin: 1.5rem 0;
-}
-
-.dump-log-steps li {
-    margin-bottom: 1rem;
-    font-size: clamp(1rem, 3vw, 1.1rem);
-    color: var(--text-secondary);
-    line-height: 1.7;
-    position: relative;
-    transition: var(--transition);
-}
-
-.dump-log-steps li::before {
-    content: '→';
-    position: absolute;
-    left: -20px;
-    color: var(--primary);
-    font-weight: bold;
-    transition: transform 0.3s ease;
-}
-
-.dump-log-steps li:hover {
-    color: var(--primary);
-    transform: translateX(5px);
-}
-
-.dump-log-steps li:hover::before {
-    transform: scale(1.2);
-}
-
 .music-link {
     display: inline-flex;
     align-items: center;
@@ -435,36 +393,47 @@ pre code {
     transform: translateX(4px);
 }
 
-.update-steps {
+.outfit-list {
+    margin: 2rem 0;
     padding-left: 2rem;
-    margin: 1.5rem 0;
 }
 
-.update-steps li {
-    margin-bottom: 1rem;
-    font-size: clamp(1rem, 3vw, 1.1rem);
-    color: var(--text-secondary);
+.outfit-item {
+    margin-bottom: 2.5rem;
+    padding: 2rem;
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
     line-height: 1.7;
     position: relative;
-    transition: var(--transition);
+    overflow: hidden;
 }
 
-.update-steps li::before {
-    content: '→';
+.outfit-item::before {
+    content: '';
     position: absolute;
-    left: -20px;
-    color: var(--primary);
-    font-weight: bold;
-    transition: transform 0.3s ease;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 0;
+    background: var(--primary);
+    transition: height 0.4s ease;
 }
 
-.update-steps li:hover {
-    color: var(--primary);
-    transform: translateX(5px);
+.outfit-item:hover::before {
+    height: 100%;
 }
 
-.update-steps li:hover::before {
-    transform: scale(1.2);
+.outfit-item:hover {
+    transform: translateX(8px);
+}
+
+.outfit-item h3 {
+    font-size: 1.3rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-weight: 600;
 }
 
 .outfit-list {
