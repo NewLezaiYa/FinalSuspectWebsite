@@ -3,136 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
-    <title>踢出违规昵称玩家</title>
-    <style>
-        /* 基础样式 */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "Segoe UI", sans-serif;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        body {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
-            line-height: 1.9;
-            color: #2d3748;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf9 100%);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        h1 {
-            text-align: center;
-            font-size: clamp(1.8rem, 5vw, 2.5rem);
-            margin: 0 0 2.5rem;
-            color: #2c3e50;
-            position: relative;
-            padding-bottom: 1rem;
-        }
-
-        h1::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, #4f6df5 0%, #3a56e6 100%);
-            border-radius: 2px;
-        }
-
-        .text {
-            margin-bottom: 2rem;
-            text-indent: 2em;
-            font-size: clamp(1rem, 3vw, 1.1rem);
-            color: #4a5568;
-            padding: 1.8rem;
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 6px 20px rgba(148, 163, 184, 0.12);
-            transition: transform 0.3s ease;
-            line-height: 1.9;
-        }
-
-        .text:hover {
-            transform: translateY(-2px);
-        }
-
-        .text mark {
-            background-color: #fff9c4;
-            color: #e67e22;
-            font-weight: 500;
-            padding: 2px 8px;
-            border-radius: 4px;
-        }
-
-        .back-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 12px 24px;
-            background: linear-gradient(90deg, #4f6df5 0%, #3a56e6 100%);
-            color: white;
-            font-size: clamp(1rem, 3vw, 1.1rem);
-            font-weight: 600;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            margin-bottom: 3rem;
-            box-shadow: 0 4px 12px rgba(79, 109, 245, 0.3);
-        }
-
-        .back-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(79, 109, 245, 0.4);
-        }
-
-        .back-button::before {
-            content: "< ";
-            margin-right: 8px;
-        }
-
-        @media (max-width: 768px) {
-            body {
-                padding: 2rem 1.5rem;
-            }
-
-            h1 {
-                margin: 0 0 2rem;
-            }
-
-            .text {
-                font-size: 1rem;
-                padding: 1.5rem;
-            }
-
-            .text mark {
-                padding: 2px 6px;
-            }
-
-            .back-button  {
-                display: none;
-            }
-        }
-    </style>
+    <title>Kick players with violating names</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/Common.css">
 </head>
 <body>
     <main>
-        <div class="back-button" onclick="window.history.back()">返回上一页</div>
+        <div class="back-button" onclick="window.history.back()">Back</div>
 
-        <h1 id="kick-player-with-deny-name">踢出使用违规昵称的玩家</h1>
+        <h1 id="kick-player-with-deny-name">FinalSuspect<br>Kick players with violating names</h1>
 
         <div class="text">
-            <p>当您是房主时，若Final Suspect检测到有人使用了违规昵称（如包含敏感词等<mark>破坏游戏体验</mark>的名称），系统将自动踢出该玩家。</p>
-            <p>该功能可有效维护房间秩序，避免恶意名称对其他玩家造成干扰。</p>
-            <p>您可以在设置手动禁用自动踢出功能。</p>
+            <p>When you are the host, if Final Suspect detects that a player is using a violating nickname (e.g., one containing sensitive words or other names that <mark>ruin the gaming experience</mark>), the system will automatically kick that player.</p>
+            <p>This feature effectively maintains lobby order and prevents disruptive or malicious names from affecting other players.</p>
+            <p>You can manually disable the automatic kick feature in the settings.</p>
         </div>
     </main>
 </body>

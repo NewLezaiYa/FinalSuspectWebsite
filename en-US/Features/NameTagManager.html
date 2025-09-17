@@ -3,149 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
-    <title>名称标识管理</title>
-    <style>
-        /* 基础样式 */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "Segoe UI", sans-serif;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        body {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
-            line-height: 1.9;
-            color: #2d3748;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf9 100%);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        h1 {
-            text-align: center;
-            font-size: clamp(1.8rem, 5vw, 2.5rem);
-            margin: 0 0 2.5rem;
-            color: #2c3e50;
-            position: relative;
-            padding-bottom: 1rem;
-        }
-
-        h1::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, #4f6df5 0%, #3a56e6 100%);
-            border-radius: 2px;
-        }
-
-        .text {
-            margin-bottom: 2rem;
-            font-size: clamp(1rem, 3vw, 1.1rem);
-            color: #4a5568;
-            padding: 1.8rem;
-            background-color: #fff;
-            border-radius: 16px;
-            box-shadow: 0 6px 20px rgba(148, 163, 184, 0.12);
-            transition: transform 0.3s ease;
-            line-height: 1.9;
-        }
-
-        .text:hover {
-            transform: translateY(-2px);
-        }
-
-        a {
-            color: #2980b9;
-            text-decoration: none;
-            transition: all 0.3s;
-            position: relative;
-        }
-
-        a:hover {
-            color: #1a5276;
-        }
-
-        a::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #1a5276;
-            transition: width 0.3s;
-        }
-
-        a:hover::after {
-            width: 100%;
-        }
-
-        .back-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 12px 24px;
-            background: linear-gradient(90deg, #4f6df5 0%, #3a56e6 100%);
-            color: white;
-            font-size: clamp(1rem, 3vw, 1.1rem);
-            font-weight: 600;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            margin-bottom: 3rem;
-            box-shadow: 0 4px 12px rgba(79, 109, 245, 0.3);
-        }
-
-        .back-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(79, 109, 245, 0.4);
-        }
-
-        .back-button::before {
-            content: "< ";
-            margin-right: 8px;
-        }
-
-        @media (max-width: 768px) {
-            body {
-                padding: 2rem 1.5rem;
-            }
-
-            h1 {
-                margin: 0 0 2rem;
-            }
-
-            .text, .tip, .warning {
-                font-size: 1rem;
-                padding: 1.5rem;
-            }
-
-            .back-button  {
-                display: none;
-            }
-        }
-    </style>
+    <title>Identity Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/Common.css">
 </head>
 <body>
     <main>
-        <div class="back-button" onclick="window.history.back()">返回上一页</div>
+        <button class="back-button" onclick="window.history.back()">Back</button>
 
         <!-- 名称标识管理 -->
-        <h1 id="audio-management">名称标识管理</h1>
+        <h1 id="name-tag-management">FinalSuspect<br>Identity Management</h1>
 
-        <!-- 说明 -->
-        <div class="text">
-            <p>该功能可以为任意玩家添加名称标识，标识会在绑定好友代码的玩家加入后自动发放，进入房间后不能编辑标识。</p>
+        <div class="content-section">
+            <div class="text">
+                <p>This feature allows you to add name tags for any player. The tags will be automatically assigned when players with bound friend codes join, and cannot be edited after entering a room.</p>
+            </div>
         </div>
     </main>
 </body>

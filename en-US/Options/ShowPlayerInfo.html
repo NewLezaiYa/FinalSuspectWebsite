@@ -3,193 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
-    <title>展示玩家平台与客户端信息</title>
-    <style>
-        /* 基础样式 */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "Segoe UI", sans-serif;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        body {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
-            line-height: 1.9;
-            color: #2d3748;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf9 100%);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        h1 {
-            text-align: center;
-            font-size: clamp(1.8rem, 5vw, 2.5rem);
-            margin: 0 0 2.5rem;
-            color: #2c3e50;
-            position: relative;
-            padding-bottom: 1rem;
-        }
-
-        h1::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, #4f6df5 0%, #3a56e6 100%);
-            border-radius: 2px;
-        }
-
-        .text {
-            margin-bottom: 2rem;
-            text-indent: 2em;
-            font-size: clamp(1rem, 3vw, 1.1rem);
-            color: #4a5568;
-            padding: 1.8rem;
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 6px 20px rgba(148, 163, 184, 0.12);
-            transition: transform 0.3s ease;
-            line-height: 1.9;
-        }
-
-        .text:hover {
-            transform: translateY(-2px);
-        }
-
-
-        .text mark {
-            background-color: #fff9c4;
-            color: #e67e22;
-            font-weight: 500;
-            padding: 2px 8px;
-            border-radius: 4px;
-        }
-
-        .tip {
-            margin: 2rem 0;
-            padding: 1.8rem;
-            background-color: #f1f9eb;
-            border-left: 5px solid #a3d168;
-            border-radius: 12px;
-            color: #678539;
-            font-weight: 500;
-            box-shadow: 0 4px 12px rgba(163, 209, 104, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .tip:hover {
-            transform: translateY(-2px);
-        }
-
-        .info-img {
-            display: block;
-            max-width: 90%;
-            height: auto;
-            margin: 2.5rem auto;
-            border-radius: 16px;
-            box-shadow: 0 8px 24px #FFFFFF;
-            transition: transform 0.3s ease;
-        }
-
-        .info-img:hover {
-            transform: scale(1.01);
-        }
-
-        .ShowPlayerInfo {
-            background: #FFFFFF;
-            border-radius: 16px;
-            padding: 2rem;
-            margin-top: 2rem;
-            text-align: center;
-        }
-
-        .back-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 12px 24px;
-            background: linear-gradient(90deg, #4f6df5 0%, #3a56e6 100%);
-            color: white;
-            font-size: clamp(1rem, 3vw, 1.1rem);
-            font-weight: 600;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            margin-bottom: 3rem;
-            box-shadow: 0 4px 12px rgba(79, 109, 245, 0.3);
-        }
-
-        .back-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(79, 109, 245, 0.4);
-        }
-
-        .back-button::before {
-            content: "< ";
-            margin-right: 8px;
-        }
-
-        @media (max-width: 768px) {
-            body {
-                padding: 2rem 1.5rem;
-            }
-
-            h1 {
-                margin: 0 0 2rem;
-            }
-
-            .text, .tip {
-                font-size: 1rem;
-                padding: 1.5rem;
-            }
-
-            .info-img {
-                max-width: 100%;
-                border-radius: 12px;
-                box-shadow: 0 4px 12px #FFFFFF;
-            }
-
-            .ShowPlayerInfo {
-                background: #FFFFFF;
-            }
-
-            .back-button  {
-                display: none;
-            }
-        }
-    </style>
+    <title>Show player platform and client info</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/Common.css">
 </head>
 <body>
     <main>
-        <div class="back-button" onclick="window.history.back()">返回上一页</div>
+        <div class="back-button" onclick="window.history.back()">Back</div>
 
-        <h1 id="show-player-info">展示玩家平台与客户端信息</h1>
+        <h1 id="show-player-info">FinalSuspect<br>Display player platform and client information</h1>
 
         <div class="text">
-            <p>启用该选项后，在大厅等待时，所有玩家的所属平台（如Steam、Epic等）及好友代码将会显示在玩家下方。</p>
-            <p>这不仅方便玩家查看房间成员的来源平台，还能帮助开发团队快速识别潜在的作弊者——当玩家举报外挂时，好友代码可作为关键数据提交，便于开发组追踪违规账号并进行处理。</p>
+            <p>When this option is enabled, the platform affiliation (e.g., Steam, Epic) and friend code of all players will be displayed beneath their names while in the lobby.</p>
+            <p>This not only allows players to easily see the platform source of room members but also helps the development team quickly identify potential cheaters—when players report hacking, the friend code can be submitted as key data, making it easier for the devs to track and handle violating accounts.</p>
         </div>
 
         <div class="tip">
-            <p>在进行直播、素材录制等活动时我们建议您<mark>关闭此功能</mark>来保护隐私。</p>
+            <p>During live streaming or content recording, it is recommended to <mark>disable this feature</mark> to protect your privacy.</p>
         </div>
 
-        <div class="ShowPlayerInfo">
-            <p class="text">快速启动模式示意图：</p>
-            <img
-                src="../../images/ShowPlayerInfo.png"
-                alt="展示玩家平台与客户端信息示意图"
-                class="info-img"
-            >
+        <div class="image-grid">
+            <div class="image-wrapper">
+                <p class="text">Schematic diagram showing player platform and client information：</p>
+                <img src="../../images/ShowPlayerInfo.png">
+            </div>>
         </div>
     </main>
 </body>

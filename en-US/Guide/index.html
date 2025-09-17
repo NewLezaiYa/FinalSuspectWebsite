@@ -3,260 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
-    <title>FinalSuspect 教程</title>
+    <title>Tutorial</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-            touch-action: manipulation;
-        }
-
-        body {
-            font-family: 'Segoe UI', '微软雅黑', system-ui, sans-serif;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #f0f4f9 0%, #e6edf5 100%);
-            padding: 20px 15px;
-            line-height: 1.6;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 520px;
-            background: #ffffff;
-            border-radius: 20px;
-            padding: 40px 28px;
-            box-shadow: 0 12px 36px rgba(148, 163, 184, 0.18);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .header {
-            position: relative;
-            margin-bottom: 30px;
-        }
-
-        .back-button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            right: 20px;
-            z-index: 100;
-            width: 52px;
-            height: 52px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, #4f6df5 0%, #3a56e6 100%);
-            color: white;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 12px rgba(79, 109, 245, 0.25);
-            transition: all 0.3s ease;
-            -webkit-tap-highlight-color: transparent;
-            touch-action: manipulation;
-        }
-
-        .back-button::after {
-            content: '';
-            display: block;
-            padding-bottom: 100%;
-        }
-
-        .back-button i {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 18px;
-            width: 24px;
-            height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .back-button:hover, .back-button:focus {
-            transform: translateY(-50%) scale(1.05);
-            box-shadow: 0 6px 18px rgba(79, 109, 245, 0.3);
-        }
-
-        .container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #4f6df5 0%, #3a56e6 50%, #2a42c2 100%);
-            border-radius: 20px 20px 0 0;
-        }
-
-        h1 {
-            color: #2d3748;
-            font-size: clamp(1.4rem, 4vw, 1.6rem);
-            margin-bottom: 38px;
-            text-align: center;
-            font-weight: 600;
-            letter-spacing: 0.03em;
-            position: relative;
-            padding-bottom: 12px;
-        }
-
-        h1::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 50px;
-            height: 3px;
-            background: #4f6df5;
-            border-radius: 2px;
-        }
-
-        .btn-group {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .jump-btn {
-            width: 100%;
-            padding: 18px 24px;
-            border: none;
-            border-radius: 14px;
-            font-size: clamp(1rem, 3.5vw, 1.1rem);
-            font-weight: 500;
-            cursor: pointer;
-            text-align: left;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
-            background: linear-gradient(45deg, #4f6df5 0%, #3a56e6 100%);
-            color: white;
-            box-shadow: 0 4px 14px rgba(79, 109, 245, 0.22);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .btn-content {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            flex: 1;
-        }
-
-        .btn-icon {
-            font-size: 1.3rem;
-            transition: transform 0.3s ease;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .btn-arrow {
-            font-size: 1.1rem;
-            opacity: 0.8;
-            transition: transform 0.3s ease;
-        }
-
-        .jump-btn:hover, .jump-btn:focus-visible {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(79, 109, 245, 0.3);
-            background: linear-gradient(45deg, #3a56e6 0%, #4f6df5 100%);
-        }
-
-        .jump-btn:hover .btn-icon {
-            transform: translateX(6px);
-        }
-
-        .jump-btn:hover .btn-arrow {
-            transform: translateX(4px);
-        }
-
-        .jump-btn:focus-visible {
-            outline: 2px solid #4f6df5;
-            outline-offset: 2px;
-        }
-
-        .jump-btn:active {
-            transform: scale(0.985);
-            box-shadow: 0 3px 10px rgba(79, 109, 245, 0.25);
-            background: linear-gradient(45deg, #354bc2 0%, #3a56e6 100%);
-        }
-
-        @media (max-width: 380px) {
-            .container {
-                padding: 32px 20px;
-            }
-
-            h1 {
-                margin-bottom: 32px;
-            }
-
-            .jump-btn {
-                padding: 16px 20px;
-            }
-
-            .btn-content {
-                gap: 14px;
-            }
-        }
-
-        @media (prefers-color-scheme: dark) {
-            body {
-                background: linear-gradient(135deg, #1a1f29 0%, #232a38 100%);
-            }
-
-            .container {
-                background: #2d3748;
-                box-shadow: 0 12px 36px rgba(0, 0, 0, 0.25);
-                border-color: rgba(255, 255, 255, 0.1);
-            }
-
-            h1 {
-                color: #edf2f7;
-            }
-
-            h1::after {
-                background: #63b3ed;
-            }
-
-            .jump-btn {
-                background: linear-gradient(45deg, #4299e1 0%, #3182ce 100%);
-                box-shadow: 0 4px 14px rgba(66, 153, 225, 0.22);
-            }
-
-            .jump-btn:hover, .jump-btn:focus-visible {
-                background: linear-gradient(45deg, #3182ce 0%, #4299e1 100%);
-                box-shadow: 0 8px 20px rgba(66, 153, 225, 0.3);
-            }
-
-            .jump-btn:active {
-                background: linear-gradient(45deg, #2b6cb0 0%, #3182ce 100%);
-                box-shadow: 0 3px 10px rgba(66, 153, 225, 0.25);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .back-button {
-                display: none;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="../CSS/index.css">
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>FinalSuspect 教程</h1>
+            <h1>FinalSuspect Tutorial</h1>
             <button class="back-button" onclick="window.history.back()">
                 <i class="fas fa-chevron-left"></i>
             </button>
@@ -266,7 +21,7 @@
             <button class="jump-btn" onclick="window.location.href='Installation.html'">
                 <div class="btn-content">
                     <i class="btn-icon fas fa-download"></i>
-                    <span class="text">安装</span>
+                    <span class="btn-text">Install</span>
                 </div>
                 <i class="btn-arrow fas fa-chevron-right"></i>
             </button>
@@ -274,7 +29,7 @@
             <button class="jump-btn" onclick="window.location.href='OutputLog.html'">
                 <div class="btn-content">
                     <i class="btn-icon fas fa-save"></i>
-                    <span class="text">导出日志</span>
+                    <span class="btn-text">Export Logs</span>
                 </div>
                 <i class="btn-arrow fas fa-chevron-right"></i>
             </button>
@@ -282,7 +37,7 @@
             <button class="jump-btn" onclick="window.location.href='Update.html'">
                 <div class="btn-content">
                     <i class="btn-icon fas fa-arrow-up"></i>
-                    <span class="text">更新</span>
+                    <span class="btn-text">Update</span>
                 </div>
                 <i class="btn-arrow fas fa-chevron-right"></i>
             </button>

@@ -3,179 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
-    <title>屏蔽违禁词</title>
-    <style>
-        /* 基础样式 */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "Segoe UI", sans-serif;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        body {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
-            line-height: 1.9;
-            color: #2d3748;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf9 100%);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        h1 {
-            text-align: center;
-            font-size: clamp(1.8rem, 5vw, 2.5rem);
-            margin: 0 0 2.5rem;
-            color: #2c3e50;
-            position: relative;
-            padding-bottom: 1rem;
-        }
-
-        h1::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, #4f6df5 0%, #3a56e6 100%);
-            border-radius: 2px;
-        }
-
-        .text {
-            margin-bottom: 2rem;
-            text-indent: 2em;
-            font-size: clamp(1rem, 3vw, 1.1rem);
-            color: #4a5568;
-            padding: 1.8rem;
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 6px 20px rgba(148, 163, 184, 0.12);
-            transition: transform 0.3s ease;
-            line-height: 1.9;
-        }
-
-        .text:hover {
-            transform: translateY(-2px);
-        }
-
-        .text mark {
-            background-color: #fff9c4;
-            color: #e67e22;
-            font-weight: 500;
-            padding: 2px 8px;
-            border-radius: 4px;
-        }
-
-        .info-img {
-            display: block;
-            max-width: 90%;
-            height: auto;
-            margin: 2.5rem auto;
-            border-radius: 16px;
-            box-shadow: 0 8px 24px #FFFFFF;
-            transition: transform 0.3s ease;
-        }
-
-        .info-img:hover {
-            transform: scale(1.01);
-        }
-
-        .SpamDenyWord {
-            background: #FFFFFF;
-            border-radius: 16px;
-            padding: 2rem;
-            margin-top: 2rem;
-            text-align: center;
-        }
-
-        .back-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 12px 24px;
-            background: linear-gradient(90deg, #4f6df5 0%, #3a56e6 100%);
-            color: white;
-            font-size: clamp(1rem, 3vw, 1.1rem);
-            font-weight: 600;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            margin-bottom: 3rem;
-            box-shadow: 0 4px 12px rgba(79, 109, 245, 0.3);
-        }
-
-        .back-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(79, 109, 245, 0.4);
-        }
-
-        .back-button::before {
-            content: "< ";
-            margin-right: 8px;
-        }
-
-        @media (max-width: 768px) {
-            body {
-                padding: 2rem 1.5rem;
-            }
-
-            h1 {
-                margin: 0 0 2rem;
-            }
-
-            .text {
-                font-size: 1rem;
-                padding: 1.5rem;
-            }
-
-            .text mark {
-                padding: 2px 6px;
-            }
-
-            .info-img {
-                max-width: 100%;
-                border-radius: 12px;
-                box-shadow: 0 4px 12px #FFFFFF;
-            }
-
-            .SpamDenyWord {
-                background: #FFFFFF;
-            }
-
-            .back-button  {
-                display: none;
-            }
-        }
-    </style>
+    <title>Block banned words</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/Common.css">
 </head>
 <body>
     <main>
-        <div class="back-button" onclick="window.history.back()">返回上一页</div>
+        <div class="back-button" onclick="window.history.back()">Back</div>
 
-        <h1 id="spam-deny-word">屏蔽违禁词</h1>
+        <h1 id="spam-deny-word">FinalSuspect<br>
+            Block banned words</h1>
 
         <div class="text">
-            <p>当Final Suspect检测到聊天内容中包含违禁词（如<mark>侮辱性词汇、广告、敏感信息</mark>等）时，会自动将该词汇替换为星号(*)，而不会影响句子的其余部分。<br>
-            功能能在维持聊天可读性的同时，有效减少违规内容传播。<br>
-            您可以在设置中关闭此功能。<br>
-            功能能在维持聊天可读性的同时，有效减少违规内容传播。<br>
-            您可以在设置中关闭此功能。</p>
+            <p>When Final Suspect detects prohibited content in chat (such as <mark>insults, advertisements, or sensitive information</mark>), it will automatically replace those words with asterisks (*)  ,without affecting the rest of the message.<br>
+            This feature effectively reduces the spread of inappropriate content while maintaining chat readability.<br>
+            You can turn this feature off in settings.</p>
         </div>
 
-        <div class="SpamDenyWord">
-            <p class="text">屏蔽违禁词示意图：</p>
-            <img
-                src="../../images/SpamDenyWord.png"
-                alt="屏蔽违禁词示意图"
-                class="info-img"
-            >
+        <div class="image-grid">
+            <div class="image-wrapper">
+                <p class="text">Diagram of blocking banned words：</p>
+                <img src="../../images/SpamDenyWord.png" class="guide-img">
+            </div>
+        </div>
     </main>
 </body>
 </html>
