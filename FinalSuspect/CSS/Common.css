@@ -8,9 +8,9 @@
     --bg-light: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
     --card-bg: #ffffff;
     --border-radius: 16px;
-    --shadow-sm: 0 4px 12px rgba(148, 163, 184, 0.1);
-    --shadow-md: 0 8px 24px rgba(148, 163, 184, 0.15);
-    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --shadow-sm: 0 2px 8px rgba(148, 163, 184, 0.15);
+    --shadow-md: 0 6px 18px rgba(148, 163, 184, 0.25);
+    --transition: all 0.3s ease-in-out;
 }
 
 * {
@@ -25,13 +25,14 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 3rem 1.5rem;
-    line-height: 1.8;
+    line-height: 2.0;
     color: var(--text-primary);
     background: var(--bg-light);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     transition: var(--transition);
+    opacity: 0;
 }
 
 main {
@@ -43,21 +44,26 @@ main {
     align-items: center;
     justify-content: center;
     padding: 12px 24px;
-    background: linear-gradient(90deg, #4f6df5 0%, #3a56e6 100%);
+    background: linear-gradient(90deg, #4f6df5 10%, #3a56e6 90%);
     color: white;
     font-size: clamp(1rem, 3vw, 1.1rem);
     font-weight: 600;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: var(--transition);
     margin-bottom: 3rem;
-    box-shadow: 0 4px 12px rgba(79, 109, 245, 0.3);
+    box-shadow: 0 2px 6px rgba(79, 109, 245, 0.3);
 }
 
 .back-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(79, 109, 245, 0.4);
+    box-shadow: 0 4px 10px rgba(79, 109, 245, 0.4);
+}
+
+.back-button:focus {
+    outline: 2px solid var(--primary-light);
+    outline-offset: 2px;
 }
 
 .back-button::before {
@@ -68,10 +74,10 @@ main {
 h1 {
     text-align: center;
     font-size: clamp(1.8rem, 5vw, 2.5rem);
-    margin: 0 0 2.5rem;
+    margin: 0 0 1.5rem;
     color: var(--text-primary);
     position: relative;
-    padding-bottom: 1.2rem;
+    padding-bottom: 1rem;
     font-weight: 700;
 }
 
@@ -81,9 +87,9 @@ h1::after {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 100px;
-    height: 5px;
-    background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary) 20%, var(--primary-dark) 80%);
     border-radius: 3px;
     animation: lineGrow 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
@@ -92,18 +98,17 @@ h1::after {
     from {
         width: 0;
     }
-
     to {
-        width: 100px;
+        width: 80px;
     }
 }
 
 h2 {
     font-size: clamp(1.4rem, 4vw, 1.8rem);
-    margin: 2.5rem 0 1.5rem;
+    margin: 2rem 0 1.2rem;
     color: var(--text-primary);
     position: relative;
-    padding-left: 1.2rem;
+    padding-left: 24px;
 }
 
 h2::before {
@@ -112,8 +117,8 @@ h2::before {
     left: 0;
     top: 50%;
     transform: translateY(-50%);
-    width: 4px;
-    height: 24px;
+    width: 6px;
+    height: 28px;
     background: var(--primary);
     border-radius: 2px;
 }
@@ -125,7 +130,7 @@ h2::before {
 .text {
     font-size: clamp(1rem, 3vw, 1.1rem);
     color: var(--text-secondary);
-    padding: 1.8rem;
+    padding: 1.5rem;
     background: var(--card-bg);
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-sm);
@@ -173,7 +178,7 @@ h2::before {
     max-width: 90%;
     height: auto;
     margin: 2rem auto;
-    border-radius: 16px;
+    border-radius: var(--border-radius);
     box-shadow: 0 8px 24px rgba(148, 163, 184, 0.15);
     transition: transform 0.3s ease;
 }
@@ -184,8 +189,8 @@ h2::before {
 
 .image-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
     margin: 2rem 0;
 }
 
@@ -204,11 +209,11 @@ h2::before {
 
 blockquote {
     margin: 2rem 0;
-    padding: 1.5rem 2rem;
+    padding: 1.2rem 1.8rem;
     background-color: #f8f9fa;
     border-left: 5px solid var(--primary);
     border-radius: 8px;
-    color: var(--text-secondary);
+    color: #333;
     font-style: italic;
     font-size: clamp(1rem, 3vw, 1.1rem);
     line-height: 1.7;
@@ -222,7 +227,7 @@ blockquote:hover {
 
 .danger {
     margin: 2rem 0;
-    padding: 1.8rem;
+    padding: 1.5rem;
     background-color: #fff5f5;
     border-left: 5px solid #fc8181;
     border-radius: 12px;
@@ -230,6 +235,8 @@ blockquote:hover {
     font-weight: 500;
     box-shadow: 0 4px 12px rgba(252, 129, 129, 0.1);
     transition: var(--transition);
+    position: relative;
+    overflow: hidden;
 }
 
 .danger::before {
@@ -250,7 +257,6 @@ blockquote:hover {
 
 .danger:hover::before {
     height: 100%;
-
 }
 
 .danger p {
@@ -272,16 +278,18 @@ blockquote:hover {
     transition: var(--transition);
 }
 
-.video-container:hover {
-    box-shadow: 0 12px 32px rgba(148, 163, 184, 0.2);
-}
-
 .video-container iframe {
     width: 100%;
     height: 500px;
     border: none;
     border-radius: var(--border-radius);
     transition: var(--transition);
+}
+
+@media (max-width: 480px) {
+    .video-container iframe {
+        height: 180px;
+    }
 }
 
 .tip {
@@ -385,7 +393,6 @@ pre code {
 .music-link:hover i {
     transform: translateX(4px);
 }
-
 
 @media (max-width: 768px) {
     body {
