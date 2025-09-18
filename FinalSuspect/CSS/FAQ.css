@@ -4,11 +4,12 @@
     --primary-dark: #3a56e6;
     --text-primary: #2d3748;
     --text-secondary: #4a5568;
+    --text-muted: #718096;
     --bg-light: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
     --card-bg: #ffffff;
     --border-radius: 16px;
-    --shadow-sm: 0 4px 12px rgba(148, 163, 184, 0.1);
-    --shadow-md: 0 8px 24px rgba(148, 163, 184, 0.15);
+    --shadow-sm: 0 2px 8px rgba(148, 163, 184, 0.1);
+    --shadow-md: 0 6px 18px rgba(148, 163, 184, 0.15);
     --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     --warning-bg: #fff3f3;
     --warning-border: #fecaca;
@@ -33,6 +34,7 @@ body {
     display: flex;
     flex-direction: column;
     transition: var(--transition);
+    opacity: 0;
 }
 
 main {
@@ -44,26 +46,44 @@ main {
     align-items: center;
     justify-content: center;
     padding: 12px 24px;
-    background: linear-gradient(90deg, #4f6df5 0%, #3a56e6 100%);
+    background: linear-gradient(90deg, var(--primary) 10%, var(--primary-dark) 90%);
     color: white;
     font-size: clamp(1rem, 3vw, 1.1rem);
     font-weight: 600;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: var(--transition);
     margin-bottom: 3rem;
-    box-shadow: 0 4px 12px rgba(79, 109, 245, 0.3);
+    box-shadow: 0 4px 12px rgba(79, 109, 245, 0.25);
+    position: relative;
+    overflow: hidden;
+}
+
+.back-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
 }
 
 .back-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(79, 109, 245, 0.4);
+    box-shadow: 0 6px 16px rgba(79, 109, 245, 0.35);
 }
 
-.back-button::before {
+.back-button:hover::before {
+    left: 100%;
+}
+
+.back-button::after {
     content: "< ";
     margin-right: 8px;
+    font-weight: bold;
 }
 
 h1 {
@@ -84,19 +104,14 @@ h1::after {
     transform: translateX(-50%);
     width: 100px;
     height: 5px;
-    background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
+    background: linear-gradient(90deg, var(--primary-light) 0%, var(--primary-dark) 100%);
     border-radius: 3px;
     animation: lineGrow 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
 
 @keyframes lineGrow {
-    from {
-        width: 0;
-    }
-
-    to {
-        width: 100px;
-    }
+    from { width: 0; opacity: 0; }
+    to { width: 100px; opacity: 1; }
 }
 
 h2 {
@@ -117,12 +132,17 @@ h2::before {
     height: 24px;
     background: var(--primary);
     border-radius: 2px;
+    transition: height 0.3s ease;
+}
+
+h2:hover::before {
+    height: 28px;
 }
 
 h3 {
     font-size: clamp(1.3rem, 3.5vw, 1.5rem);
     margin: 2rem 0 1.2rem;
-    color: #34495e;
+    color: var(--text-primary);
     position: relative;
     padding-left: 24px;
 }
@@ -135,8 +155,13 @@ h3::before {
     transform: translateY(-50%);
     width: 4px;
     height: 18px;
-    background: #a0aec0;
+    background: var(--primary-light);
     border-radius: 2px;
+    transition: height 0.3s ease;
+}
+
+h3:hover::before {
+    height: 22px;
 }
 
 .error-code {
@@ -147,6 +172,12 @@ h3::before {
     color: #c53030;
     font-weight: 600;
     border: 1px solid #fed7d7;
+    transition: var(--transition);
+}
+
+.error-code:hover {
+    transform: scale(1.02);
+    box-shadow: 0 2px 8px rgba(252, 129, 129, 0.1);
 }
 
 .content-section {
@@ -165,6 +196,7 @@ h3::before {
     margin-bottom: 2rem;
     position: relative;
     overflow: hidden;
+    border: 1px solid rgba(148, 163, 184, 0.1);
 }
 
 .text::before {
@@ -174,13 +206,14 @@ h3::before {
     left: 0;
     width: 4px;
     height: 0;
-    background: var(--primary);
+    background: linear-gradient(to bottom, var(--primary-light), var(--primary-dark));
     transition: height 0.4s ease;
 }
 
 .text:hover {
     transform: translateY(-3px);
     box-shadow: var(--shadow-md);
+    border-color: rgba(148, 163, 184, 0.2);
 }
 
 .text:hover::before {
@@ -192,6 +225,7 @@ h3::before {
     position: relative;
     z-index: 2;
     font-size: inherit;
+    text-indent: 2em;
 }
 
 .text p:last-child {
@@ -219,7 +253,7 @@ h3::before {
     left: 0;
     width: 4px;
     height: 0;
-    background: #a3d168;
+    background: linear-gradient(to bottom, #a3d168, #8bc34a);
     transition: height 0.4s ease;
 }
 
@@ -247,11 +281,26 @@ a {
     text-decoration: none;
     font-weight: 500;
     transition: color 0.2s ease;
+    position: relative;
+}
+
+a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: var(--primary-light);
+    transition: width 0.3s ease;
 }
 
 a:hover {
     color: var(--primary-light);
-    text-decoration: underline;
+}
+
+a:hover::after {
+    width: 100%;
 }
 
 mark {
@@ -259,6 +308,7 @@ mark {
     padding: 0.1rem 0.3rem;
     border-radius: 4px;
     color: #92400e;
+    font-weight: 500;
 }
 
 .danger {
@@ -271,6 +321,8 @@ mark {
     font-weight: 500;
     box-shadow: 0 4px 12px rgba(252, 129, 129, 0.1);
     transition: var(--transition);
+    position: relative;
+    overflow: hidden;
 }
 
 .danger::before {
@@ -280,18 +332,17 @@ mark {
     left: 0;
     width: 4px;
     height: 0;
-    background: #fc8181;
+    background: linear-gradient(to bottom, #fc8181, #f56565);
     transition: height 0.4s ease;
 }
 
 .danger:hover {
-    transform: scale(1.005);
-    box-shadow: 0 6px 18px rgba(252, 129, 129, 0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(252, 129, 129, 0.2);
 }
 
 .danger:hover::before {
     height: 100%;
-
 }
 
 .danger p {
@@ -343,4 +394,14 @@ mark {
         font-size: 0.95rem;
     }
 
+    .error-code {
+        font-size: 0.9rem;
+        padding: 0.2rem 0.6rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .back-button {
+        display: none;
+    }
 }

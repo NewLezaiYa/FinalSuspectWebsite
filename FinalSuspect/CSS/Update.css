@@ -1,16 +1,30 @@
 :root {
+    /* 主色系 */
     --primary: #4f6df5;
     --primary-light: #6b8aff;
     --primary-dark: #3a56e6;
+    
+    /* 文本色系 */
     --text-primary: #2d3748;
     --text-secondary: #4a5568;
     --text-muted: #718096;
+    
+    /* 背景与卡片 */
     --bg-light: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
     --card-bg: #ffffff;
     --border-radius: 16px;
+    
+    /* 阴影体系 */
     --shadow-sm: 0 4px 12px rgba(148, 163, 184, 0.1);
     --shadow-md: 0 8px 24px rgba(148, 163, 184, 0.15);
+    --shadow-hover: 0 12px 32px rgba(148, 163, 184, 0.2);
+    
+    /* 过渡与动画 */
     --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --transition-fast: all 0.2s ease;
+    --scale-up: scale(1.005);
+    --translate-y: translateY(-3px);
+    --translate-x: translateX(5px);
 }
 
 * {
@@ -38,21 +52,80 @@ main {
     width: 100%;
 }
 
+/* 通用高亮条样式 */
+.highlight-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 0;
+    background: var(--primary);
+    transition: height 0.4s ease;
+    z-index: 1;
+}
+
+/* 通用卡片样式 */
+.card {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 1.8rem;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    line-height: 1.9;
+    margin-bottom: 2rem;
+}
+
+.card:hover {
+    transform: var(--translate-y);
+    box-shadow: var(--shadow-hover);
+}
+
+.card:hover .highlight-bar {
+    height: 100%;
+}
+
+.card p {
+    margin-bottom: 1rem;
+    text-indent: 2em;
+    position: relative;
+    z-index: 2;
+}
+
+.card p:last-child {
+    margin-bottom: 0;
+}
+
+/* 导航按钮优化 */
 .back-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     padding: 12px 24px;
-    background: linear-gradient(90deg, #4f6df5 0%, #3a56e6 100%);
+    background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
     color: white;
     font-size: clamp(1rem, 3vw, 1.1rem);
     font-weight: 600;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: var(--transition);
     margin-bottom: 3rem;
     box-shadow: 0 4px 12px rgba(79, 109, 245, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.back-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
 }
 
 .back-button:hover {
@@ -60,11 +133,17 @@ main {
     box-shadow: 0 6px 16px rgba(79, 109, 245, 0.4);
 }
 
-.back-button::before {
-    content: "< ";
-    margin-right: 8px;
+.back-button:hover::before {
+    left: 100%;
 }
 
+.back-button::after {
+    content: "< ";
+    margin-right: 8px;
+    font-weight: bold;
+}
+
+/* 标题样式优化 */
 h1 {
     text-align: center;
     font-size: clamp(1.8rem, 5vw, 2.5rem);
@@ -94,6 +173,7 @@ h2 {
     color: var(--text-primary);
     position: relative;
     padding-left: 1.2rem;
+    font-weight: 600;
 }
 
 h2::before {
@@ -106,18 +186,46 @@ h2::before {
     height: 24px;
     background: var(--primary);
     border-radius: 2px;
+    transition: height 0.3s ease;
+}
+
+h2:hover::before {
+    height: 28px;
+}
+
+h2 a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: var(--transition);
+    position: relative;
+    font-weight: 600;
+}
+
+h2 a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: width 0.3s ease;
+}
+
+h2 a:hover {
+    color: var(--primary-dark);
+}
+
+h2 a:hover::after {
+    width: 100%;
 }
 
 @keyframes lineGrow {
-    from {
-        width: 0;
-    }
-
-    to {
-        width: 100px;
-    }
+    from { width: 0; opacity: 0; }
+    to { width: 100px; opacity: 1; }
 }
 
+/* 文本内容块 */
 .text {
     font-size: clamp(1rem, 3vw, 1.1rem);
     color: var(--text-secondary);
@@ -129,41 +237,9 @@ h2::before {
     line-height: 1.9;
     margin-bottom: 2rem;
     position: relative;
-    overflow: hidden;
-    text-indent: 2em;
 }
 
-.text::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 4px;
-    height: 0;
-    background: var(--primary);
-    transition: height 0.4s ease;
-}
-
-.text:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-md);
-}
-
-.text:hover::before {
-    height: 100%;
-}
-
-.text p {
-    margin-bottom: 1rem;
-    text-indent: 2em;
-    position: relative;
-    z-index: 2;
-}
-
-.text p:last-child {
-    margin-bottom: 0;
-}
-
+/* 提示框 */
 .tip {
     margin: 2rem 0;
     padding: 1.8rem;
@@ -175,7 +251,6 @@ h2::before {
     box-shadow: 0 4px 12px rgba(163, 209, 104, 0.1);
     transition: var(--transition);
     position: relative;
-    overflow: hidden;
 }
 
 .tip::before {
@@ -190,7 +265,7 @@ h2::before {
 }
 
 .tip:hover {
-    transform: translateY(-3px);
+    transform: var(--translate-y);
     box-shadow: 0 6px 18px rgba(163, 209, 104, 0.2);
 }
 
@@ -208,6 +283,7 @@ h2::before {
     margin-bottom: 0;
 }
 
+/* 代码块 */
 pre {
     background-color: #2d3748;
     padding: 1.2rem;
@@ -226,6 +302,7 @@ pre code {
     display: block;
 }
 
+/* 更新步骤 */
 .update-steps {
     padding-left: 2rem;
     margin: 1.5rem 0;
@@ -251,13 +328,14 @@ pre code {
 
 .update-steps li:hover {
     color: var(--primary);
-    transform: translateX(5px);
+    transform: var(--translate-x);
 }
 
 .update-steps li:hover::before {
     transform: scale(1.2);
 }
 
+/* 危险提示 */
 .danger {
     margin: 2rem 0;
     padding: 1.8rem;
@@ -268,6 +346,7 @@ pre code {
     font-weight: 500;
     box-shadow: 0 4px 12px rgba(252, 129, 129, 0.1);
     transition: var(--transition);
+    position: relative;
 }
 
 .danger::before {
@@ -282,13 +361,12 @@ pre code {
 }
 
 .danger:hover {
-    transform: scale(1.005);
-    box-shadow: 0 6px 18px rgba(252, 129, 129, 0.1);
+    transform: var(--scale-up);
+    box-shadow: 0 6px 18px rgba(252, 129, 129, 0.15);
 }
 
 .danger:hover::before {
     height: 100%;
-
 }
 
 .danger p {
@@ -301,6 +379,7 @@ pre code {
     margin-bottom: 0;
 }
 
+/* 响应式调整 */
 @media (max-width: 768px) {
     body {
         padding: 2rem 1rem;
@@ -325,15 +404,11 @@ pre code {
         height: 20px;
     }
 
-
-    .text {
+    .card,
+    .text,
+    .tip,
+    .danger {
         font-size: 1rem;
-        padding: 1.5rem;
-        border-radius: 12px;
-    }
-
-    .tip {
-        font-size: 0.95rem;
         padding: 1.5rem;
         border-radius: 12px;
     }

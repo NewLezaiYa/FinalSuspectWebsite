@@ -4,12 +4,11 @@
     --primary-dark: #3a56e6;
     --text-primary: #2d3748;
     --text-secondary: #4a5568;
-    --text-muted: #718096;
     --bg-light: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
     --card-bg: #ffffff;
     --border-radius: 16px;
-    --shadow-sm: 0 4px 12px rgba(148, 163, 184, 0.1);
-    --shadow-md: 0 8px 24px rgba(148, 163, 184, 0.15);
+    --shadow-sm: 0 2px 8px rgba(148, 163, 184, 0.1);
+    --shadow-md: 0 6px 18px rgba(148, 163, 184, 0.15);
     --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
@@ -43,26 +42,44 @@ main {
     align-items: center;
     justify-content: center;
     padding: 12px 24px;
-    background: linear-gradient(90deg, #4f6df5 0%, #3a56e6 100%);
+    background: linear-gradient(90deg, var(--primary) 10%, var(--primary-dark) 90%);
     color: white;
     font-size: clamp(1rem, 3vw, 1.1rem);
     font-weight: 600;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: var(--transition);
     margin-bottom: 3rem;
-    box-shadow: 0 4px 12px rgba(79, 109, 245, 0.3);
+    box-shadow: 0 4px 12px rgba(79, 109, 245, 0.25);
+    position: relative;
+    overflow: hidden;
+}
+
+.back-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
 }
 
 .back-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(79, 109, 245, 0.4);
+    box-shadow: 0 6px 16px rgba(79, 109, 245, 0.35);
 }
 
-.back-button::before {
+.back-button:hover::before {
+    left: 100%;
+}
+
+.back-button::after {
     content: "< ";
     margin-right: 8px;
+    font-weight: bold;
 }
 
 h1 {
@@ -83,19 +100,14 @@ h1::after {
     transform: translateX(-50%);
     width: 100px;
     height: 5px;
-    background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
+    background: linear-gradient(90deg, var(--primary-light) 0%, var(--primary-dark) 100%);
     border-radius: 3px;
     animation: lineGrow 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
 
 @keyframes lineGrow {
-    from {
-        width: 0;
-    }
-
-    to {
-        width: 100px;
-    }
+    from { width: 0; opacity: 0; }
+    to { width: 100px; opacity: 1; }
 }
 
 .text {
@@ -111,6 +123,7 @@ h1::after {
     position: relative;
     overflow: hidden;
     text-indent: 2em;
+    border: 1px solid rgba(148, 163, 184, 0.1);
 }
 
 .text::before {
@@ -120,13 +133,14 @@ h1::after {
     left: 0;
     width: 4px;
     height: 0;
-    background: var(--primary);
+    background: linear-gradient(to bottom, var(--primary-light), var(--primary-dark));
     transition: height 0.4s ease;
 }
 
 .text:hover {
     transform: translateY(-3px);
     box-shadow: var(--shadow-md);
+    border-color: rgba(148, 163, 184, 0.2);
 }
 
 .text:hover::before {
@@ -138,6 +152,7 @@ h1::after {
     text-indent: 2em;
     position: relative;
     z-index: 2;
+    font-size: inherit;
 }
 
 .text p:last-child {
@@ -149,13 +164,13 @@ h1::after {
     max-width: 90%;
     height: auto;
     margin: 2rem auto;
-    border-radius: 16px;
+    border-radius: var(--border-radius);
     box-shadow: 0 8px 24px rgba(148, 163, 184, 0.15);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .guide-img:hover {
-    transform: scale(1.01);
+    transform: scale(1.015);
 }
 
 .image-grid {
@@ -171,11 +186,28 @@ h1::after {
     overflow: hidden;
     box-shadow: var(--shadow-md);
     transition: var(--transition);
+    position: relative;
+}
+
+.image-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.1), transparent 40%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .image-wrapper:hover {
     transform: scale(1.01);
     box-shadow: 0 12px 32px rgba(148, 163, 184, 0.2);
+}
+
+.image-wrapper:hover::after {
+    opacity: 1;
 }
 
 .tip {
@@ -199,7 +231,7 @@ h1::after {
     left: 0;
     width: 4px;
     height: 0;
-    background: #a3d168;
+    background: linear-gradient(to bottom, #a3d168, #8bc34a);
     transition: height 0.4s ease;
 }
 
@@ -250,5 +282,9 @@ h1::after {
 
     .image-grid {
         grid-template-columns: 1fr;
+    }
+
+    .image-wrapper {
+        margin: 1rem 0;
     }
 }
