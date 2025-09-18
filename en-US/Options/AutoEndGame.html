@@ -6,12 +6,16 @@
     <title>Auto return to lobby when game ends</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../CSS/Common.css">
+    <script src='../JS/Common.js'></script>
 </head>
 <body>
     <main>
-        <div class="back-button" onclick="window.history.back()">Back</div>
+        <div data-parallax="0.3">
+            <div class="back-button" onclick="window.history.back()">返回上一页
+            </div>
+        </div>
 
-        <h1 id="auto-end-game">FinalSuspect<br>Auto return to lobby when game ends</h1>
+        <h1 data-animate="data-animate">FinalSuspect<br>结束时自动返回大厅</h1>
 
         <p class="text">
             When a match ends, Final Suspect’s <mark>Auto return to lobby when game ends</mark> feature will be triggered. It automatically skips the result animation and summary page, taking players directly back to the game lobby.<br>
