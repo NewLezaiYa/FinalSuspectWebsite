@@ -48,12 +48,6 @@
     -webkit-tap-highlight-color: transparent;
 }
 
-/* 隐藏初始状态 */
-.hidden {
-    opacity: 0;
-    visibility: hidden;
-}
-
 body {
     max-width: 1200px;
     margin: 0 auto;
