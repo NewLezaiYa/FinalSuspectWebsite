@@ -1,78 +1,100 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 确保元素存在（添加空值检查）
-    const cnBtn = document.getElementById('cn-btn');
-    const enBtn = document.getElementById('en-btn');
-    const modalCnBtn = document.getElementById('modalCnBtn');
-    const modalEnBtn = document.getElementById('modalEnBtn');
-    const languageModal = document.getElementById('languageModal');
-    const allLangSections = document.querySelectorAll('[data-lang]');
-    const logo = document.querySelector('.hero-logo');
+    // 元素缓存（带空值检查）
+    const elements = {
+        cnBtn: document.getElementById('cn-btn'),
+        enBtn: document.getElementById('en-btn'),
+        modalCnBtn: document.getElementById('modalCnBtn'),
+        modalEnBtn: document.getElementById('modalEnBtn'),
+        languageModal: document.getElementById('languageModal'),
+        allLangSections: document.querySelectorAll('[data-lang]'),
+        logo: document.querySelector('.hero-logo')
+    };
 
-    // 从本地存储获取语言设置（限制为有效语言）
-    const storedLang = localStorage.getItem('siteLang');
-    const browserLang = navigator.language?.slice(0, 2)?.toLowerCase() || 'zh';
+    // 语言配置
     const validLangs = ['zh', 'en'];
-    const currentLang = storedLang && validLangs.includes(storedLang) 
-        ? storedLang 
-        : validLangs.includes(browserLang) 
-            ? browserLang 
-            : 'zh';
+    const storedLang = localStorage.getItem('siteLang');
+    const browserLang = (navigator.language || navigator.userLanguage)?.slice(0, 2)?.toLowerCase() || 'zh';
 
-    // 初始化语言函数（添加调试日志）
+    // 确定当前语言（优先本地存储，其次浏览器语言）
+    let currentLang;
+    if (storedLang && validLangs.includes(storedLang)) {
+        currentLang = storedLang;
+    } else if (validLangs.includes(browserLang)) {
+        currentLang = browserLang;
+    } else {
+        currentLang = 'zh'; // 默认中文
+    }
+
+    // 初始化语言显示
     function initLanguage(lang) {
-        console.log(`初始化语言: ${lang}`);
-        allLangSections.forEach(section => {
+        if (window.currentLang === lang) return; // 防止重复初始化
+        window.currentLang = lang;
+
+        // 显示/隐藏语言区块
+        elements.allLangSections.forEach(section => {
             const sectionLang = section.dataset.lang?.toLowerCase();
-            console.log(`检查区块: data-lang="${sectionLang}", 当前语言="${lang}"`);
             section.style.display = sectionLang === lang ? 'block' : 'none';
+            section.style.opacity = '1'; // 强制显示（避免CSS过渡遮挡）
+            section.style.transform = 'scale(1)';
         });
-        // 更新按钮状态（确保按钮存在时操作）
-        if (cnBtn) cnBtn.classList.toggle('active', lang === 'zh');
-        if (enBtn) enBtn.classList.toggle('active', lang === 'en');
-        // 存储有效语言
+
+        // 更新按钮激活状态
+        if (elements.cnBtn) elements.cnBtn.classList.toggle('active', lang === 'zh');
+        if (elements.enBtn) elements.enBtn.classList.toggle('active', lang === 'en');
+
+        // 存储到本地
         localStorage.setItem('siteLang', lang);
     }
 
-    // 切换语言（添加动画和模态框关闭）
+    // 切换语言（带动画）
+    let isSwitching = false;
     function switchLanguage(lang) {
-        if (!validLangs.includes(lang)) return; // 过滤无效语言
+        if (!validLangs.includes(lang) || isSwitching || window.currentLang === lang) return;
+        isSwitching = true;
+
+        // 关闭模态框并重置动画
+        if (elements.languageModal) {
+            elements.languageModal.classList.remove('active');
+            const modalContent = elements.languageModal.querySelector('.modal-content');
+            if (modalContent) modalContent.style.transform = 'translateY(20px) scale(0.95)';
+        }
+
+        // 初始化语言
         initLanguage(lang);
-        if (languageModal) languageModal.classList.remove('active');
-        // 动画（确保body存在）
-        document.body.style.transition = 'opacity 0.2s';
-        document.body.style.opacity = 0.8;
+
+        // 页面透明度动画
+        document.body.style.transition = 'opacity 0.2s ease';
+        document.body.style.opacity = '0.8';
+
         setTimeout(() => {
-            document.body.style.opacity = 1;
+            document.body.style.opacity = '1';
+            isSwitching = false;
         }, 200);
     }
 
-    // 绑定事件（仅当按钮存在时绑定）
-    if (cnBtn) cnBtn.addEventListener('click', () => switchLanguage('zh'));
-    if (enBtn) enBtn.addEventListener('click', () => switchLanguage('en'));
-    if (modalCnBtn) modalCnBtn.addEventListener('click', () => switchLanguage('zh'));
-    if (modalEnBtn) modalEnBtn.addEventListener('click', () => switchLanguage('en'));
+    // 绑定事件（仅元素存在时绑定）
+    if (elements.cnBtn) elements.cnBtn.addEventListener('click', () => switchLanguage('zh'));
+    if (elements.enBtn) elements.enBtn.addEventListener('click', () => switchLanguage('en'));
+    if (elements.modalCnBtn) elements.modalCnBtn.addEventListener('click', () => switchLanguage('zh'));
+    if (elements.modalEnBtn) elements.modalEnBtn.addEventListener('click', () => switchLanguage('en'));
 
-    // 初始加载逻辑
-    if (!storedLang) { // 仅当本地无存储时检查是否显示模态框
-        if (!validLangs.includes(browserLang)) {
-            setTimeout(() => {
-                if (languageModal) languageModal.classList.add('active');
-            }, 800);
-        } else {
-            initLanguage(browserLang); // 浏览器语言有效时直接初始化
-        }
+    // 初始加载逻辑（首次访问显示模态框）
+    if (!storedLang) {
+        setTimeout(() => {
+            if (elements.languageModal) elements.languageModal.classList.add('active');
+        }, 800);
     } else {
         initLanguage(currentLang);
     }
 
-    // logo 悬停动画（确保logo存在时绑定）
-    if (logo) {
-        logo.addEventListener('mouseenter', () => {
-            logo.style.transform = 'scale(1.03)';
-            logo.style.transition = 'transform 0.2s'; // 添加过渡更平滑
+    // Logo悬停动画
+    if (elements.logo) {
+        elements.logo.style.transition = 'transform 0.2s ease';
+        elements.logo.addEventListener('mouseenter', () => {
+            elements.logo.style.transform = 'scale(1.03)';
         });
-        logo.addEventListener('mouseleave', () => {
-            logo.style.transform = 'scale(1)';
+        elements.logo.addEventListener('mouseleave', () => {
+            elements.logo.style.transform = 'scale(1)';
         });
     }
 });

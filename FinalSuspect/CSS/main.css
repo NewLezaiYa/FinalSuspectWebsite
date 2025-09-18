@@ -1,3 +1,4 @@
+/* 基础重置与全局变量 */
 * {
     margin: 0;
     padding: 0;
@@ -77,7 +78,7 @@ body {
     box-shadow: var(--shadow-hover);
 }
 
-/* 模态框样式 */
+/* 语言模态框样式 */
 .language-modal {
     position: fixed;
     top: 0;
