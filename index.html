@@ -194,67 +194,6 @@
             <p>© Innersloth LLC</p>
         </div>
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const cnBtn = document.getElementById('cn-btn');
-            const enBtn = document.getElementById('en-btn');
-            const modalCnBtn = document.getElementById('modalCnBtn');
-            const modalEnBtn = document.getElementById('modalEnBtn');
-            const languageModal = document.getElementById('languageModal');
-            const allLangSections = document.querySelectorAll('[data-lang]');
-            const logo = document.querySelector('.hero-logo');
-
-            // 从本地存储获取语言设置
-            const currentLang = localStorage.getItem('siteLang') || navigator.language?.slice(0,2) || 'zh';
-
-            // 初始化语言函数
-            function initLanguage(lang) {
-                allLangSections.forEach(section => {
-                    section.style.display = section.dataset.lang === lang ? 'block' : 'none';
-                });
-                // 更新语言切换按钮状态
-                cnBtn.classList.toggle('active', lang === 'zh');
-                enBtn.classList.toggle('active', lang === 'en');
-                // 存储语言设置到本地存储
-                localStorage.setItem('siteLang', lang);
-            }
-
-            function switchLanguage(lang) {
-                initLanguage(lang);
-                languageModal.classList.remove('active');
-                // 添加语言切换动画
-                document.body.style.opacity = 0.8;
-                setTimeout(() => {
-                    document.body.style.opacity = 1;
-                }, 200);
-            }
-
-            // 绑定事件
-            cnBtn.addEventListener('click', () => switchLanguage('zh'));
-            enBtn.addEventListener('click', () => switchLanguage('en'));
-            modalCnBtn.addEventListener('click', () => switchLanguage('zh'));
-            modalEnBtn.addEventListener('click', () => switchLanguage('en'));
-
-            // 初始加载逻辑
-            if (!currentLang) {
-                setTimeout(() => {
-                    languageModal.classList.add('active');
-                }, 800);
-            } else {
-                initLanguage(currentLang);
-            }
-
-            // logo 悬停动画增强
-            if (logo) {
-                logo.addEventListener('mouseenter', () => {
-                    logo.style.transform = 'scale(1.03)';
-                });
-                logo.addEventListener('mouseleave', () => {
-                    logo.style.transform = 'scale(1)';
-                });
-            }
-        });
-    </script>
+    <script src='FinalSuspect/JS/main.js'></script>
 </body>
 </html>
