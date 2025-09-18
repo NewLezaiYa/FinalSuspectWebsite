@@ -280,28 +280,6 @@ h1::after {
     animation: slideInRight 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
 }
 
-/* 新增涟漪效果样式 */
-.back-button {
-    position: relative;
-    overflow: hidden; /* 确保涟漪不溢出 */
-}
-
-.back-button .ripple {
-    position: absolute;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.2);
-    transform: scale(0);
-    animation: ripple 0.6s linear;
-    pointer-events: none;
-}
-
-@keyframes ripple {
-    to {
-        transform: scale(2.5);
-        opacity: 0;
-    }
-}
-
 @media (max-width: 380px) {
     .container {
         padding: 32px 20px;
