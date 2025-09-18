@@ -386,92 +386,59 @@ pre code {
     transform: translateX(4px);
 }
 
-/* 基础隐藏类（用于动画前状态） */
-.hidden {
-    opacity: 0;
-    visibility: hidden;
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
-/* 页面元素动画关键帧 */
 @keyframes fadeInUp {
     from {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-@keyframes slideInTop {
+@keyframes scaleIn {
     from {
         opacity: 0;
-        transform: translateY(-15px);
+        transform: scale(0.95);
     }
+
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: scale(1);
     }
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+/* 初始隐藏状态 */
+.hidden {
+    opacity: 0;
+    visibility: hidden;
 }
 
-/* 新增文本容器样式 */
+/* 应用初始状态 */
+.back-button,
+h1#clear-auto-logs,
 .text {
-    color: var(--text-secondary); /* 使用之前定义的次级文本颜色 */
-    font-size: clamp(0.9rem, 3vw, 1rem); /* 响应式字体大小 */
-    line-height: 1.7; /* 更舒适的行高 */
-    margin-top: 20px; /* 与标题的间距 */
-    padding: 0 12px; /* 左右内边距，避免文字贴边 */
+    opacity: 0;
+    visibility: hidden;
 }
 
-.text p {
-    opacity: 0; /* 初始透明（动画控制显示） */
-    transform: translateY(10px); /* 初始向下偏移（动画控制） */
-}
-
-/* 应用动画的类（通过 JS 触发） */
-.animate-fadeInUp {
-    animation: fadeInUp 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
-}
-
-.animate-slideInTop {
-    animation: slideInTop 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
-}
-
-.animate-fadeIn {
-    animation: fadeIn 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
-}
-
-/* 返回按钮涟漪效果 */
-.back-button {
-    position: relative;
-    overflow: hidden;
-}
-
-.back-button .ripple {
-    content: '';
-    position: absolute;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.2);
-    transform: scale(0);
-    animation: ripple 0.6s linear;
-    pointer-events: none;
-}
-
-@keyframes ripple {
-    to {
-        transform: scale(2.5);
-        opacity: 0;
-    }
+/* 增强的标题下划线动画 */
+h1#clear-auto-logs::after {
+    animation: lineGrow 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.4) forwards;
 }
 
 @media (max-width: 768px) {
