@@ -6,14 +6,15 @@
     <title>清空自动日志</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../CSS/Common.css">
+    <script src="../JS/Common.js"></script>
 </head>
 <body>
     <main>
-        <button class="back-button" onclick="window.history.back()">返回上一页</button>
+        <button class="back-button hidden" onclick="window.history.back()">返回上一页</button>
 
-        <h1 id="clear-auto-logs">FinalSuspect<br>清空自动日志</h1>
+        <h1 id="clear-auto-logs" class="hidden">FinalSuspect<br>清空自动日志</h1>
 
-        <div class="text">
+        <div class="text hidden">
             <p>在模组 Town Of Host 中，当 Among Us 关闭时会自动保存一个日志文件。<br>
             这个功能的初衷是为了遇到意外错误时可以提供相关信息。<br>
             但该功能在 Town Of Host 中是默认启用且（除非改代码）无法关闭。</p>
