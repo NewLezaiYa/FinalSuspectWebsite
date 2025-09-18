@@ -1,106 +1,119 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // ======================
-    // 工具函数：动画类管理器
-    // ======================
-    const AnimationManager = {
-        // 存储已触发的元素（防止重复触发）
-        triggeredElements: new Set(),
+/**
+ * 页面动画增强脚本
+ * 功能：滚动视差、渐进加载、交互反馈动画
+ * 依赖：现代浏览器（支持 Intersection Observer API）
+ */
 
-        // 初始化所有需要动画的元素
+(function() {
+    // ======================
+    // 工具函数与配置
+    // ======================
+    const Config = {
+        // 滚动触发动画的根边距（元素进入视口 50px 时触发）
+        rootMargin: '0px 0px -50px 0px',
+        // 滚动触发动画的可见阈值（10% 可见时触发）
+        threshold: 0.1,
+        // 默认动画配置
+        defaultAnimations: {
+            'fade-in-up': {
+                from: { opacity: 0, transform: 'translateY(30px)' },
+                to: { opacity: 1, transform: 'translateY(0)' },
+                duration: 0.6
+            },
+            'slide-in-left': {
+                from: { opacity: 0, transform: 'translateX(-50px)' },
+                to: { opacity: 1, transform: 'translateX(0)' },
+                duration: 0.5
+            },
+            'slide-in-right': {
+                from: { opacity: 0, transform: 'translateX(50px)' },
+                to: { opacity: 1, transform: 'translateX(0)' },
+                duration: 0.5
+            },
+            'scale-in': {
+                from: { opacity: 0, transform: 'scale(0.9)' },
+                to: { opacity: 1, transform: 'scale(1)' },
+                duration: 0.4
+            }
+        }
+    };
+
+    // ======================
+    // 动画管理器核心类
+    // ======================
+    class AnimationManager {
+        constructor() {
+            this.triggeredElements = new Set(); // 记录已触发动画的元素
+            this.observer = null; // 滚动观察者实例
+            this.init();
+        }
+
+        // 初始化所有动画功能
         init() {
-            this.observeElements('.animate-on-scroll'); // 滚动动画元素
-            this.observeElements('.parallax-element');   // 视差元素
-            this.initInteractiveAnimations();           // 交互相关动画
-        },
+            this.setupObserver();       // 初始化滚动观察者
+            this.initParallax();        // 初始化视差效果
+            this.initInteractive();     // 初始化交互反馈
+            this.bindCustomEvents();    // 绑定自定义事件
+        }
 
-        // 视差滚动效果（适用于背景/大图）
-        initParallax() {
-            const parallaxElements = document.querySelectorAll('.parallax-element');
-            window.addEventListener('scroll', () => {
-                const scrollY = window.scrollY;
-                parallaxElements.forEach(el => {
-                    const speed = parseFloat(el.dataset.speed) || 0.3;
-                    el.style.transform = `translateY(${scrollY * speed}px)`;
-                });
-            });
-        },
-
-        // 滚动触发动画（核心功能）
-        observeElements(selector, options = {}) {
-            const observer = new IntersectionObserver((entries) => {
+        // 设置滚动触发动画的观察者
+        setupObserver() {
+            this.observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting && !this.triggeredElements.has(entry.target)) {
+                        this.triggerElementAnimation(entry.target);
                         this.triggeredElements.add(entry.target);
-                        const target = entry.target;
-                        
-                        // 根据 data-animation 属性获取动画类型
-                        const animationType = target.dataset.animation || 'fade-in-up';
-                        this.playAnimation(target, animationType);
-
-                        // 可选：动画完成后移除监听（适用于一次性动画）
-                        if (options.once !== false) {
-                            observer.unobserve(target);
-                        }
                     }
                 });
             }, {
-                rootMargin: '0px 0px -50px 0px', // 元素进入视口50px时触发
-                threshold: 0.1
+                rootMargin: Config.rootMargin,
+                threshold: Config.threshold
             });
 
-            document.querySelectorAll(selector).forEach(el => {
-                observer.observe(el);
+            // 观察所有需要滚动动画的元素（需配合 data-animate 属性）
+            document.querySelectorAll('[data-animate]').forEach(el => {
+                this.observer.observe(el);
             });
-        },
+        }
 
-        // 播放具体动画
-        playAnimation(element, animationType) {
-            // 定义动画映射表（可根据需求扩展）
-            const animations = {
-                'fade-in-up': {
-                    from: { opacity: 0, transform: 'translateY(30px)' },
-                    to: { opacity: 1, transform: 'translateY(0)' },
-                    duration: 0.6
-                },
-                'slide-in-left': {
-                    from: { opacity: 0, transform: 'translateX(-50px)' },
-                    to: { opacity: 1, transform: 'translateX(0)' },
-                    duration: 0.5
-                },
-                'slide-in-right': {
-                    from: { opacity: 0, transform: 'translateX(50px)' },
-                    to: { opacity: 1, transform: 'translateX(0)' },
-                    duration: 0.5
-                },
-                'scale-in': {
-                    from: { opacity: 0, transform: 'scale(0.9)' },
-                    to: { opacity: 1, transform: 'scale(1)' },
-                    duration: 0.4
-                }
-            };
+        // 触发单个元素的动画
+        triggerElementAnimation(element) {
+            const animationType = element.dataset.animate || 'fade-in-up';
+            const animationConfig = Config.defaultAnimations[animationType];
+            
+            if (!animationConfig) return;
 
-            const anim = animations[animationType];
-            if (!anim) return;
-
-            // 应用初始样式
+            // 应用初始样式（强制重绘前设置）
             Object.assign(element.style, {
                 opacity: 0,
-                ...anim.from,
-                transition: `all ${anim.duration}s cubic-bezier(0.25, 0.8, 0.25, 1)`
+                ...animationConfig.from,
+                transition: `all ${animationConfig.duration}s cubic-bezier(0.25, 0.8, 0.25, 1)`
             });
 
             // 强制重绘触发过渡
-            element.getBoundingClientRect();
+            void element.offsetWidth; // 触发重绘的 hack
 
             // 应用结束样式
             requestAnimationFrame(() => {
-                Object.assign(element.style, anim.to);
+                Object.assign(element.style, animationConfig.to);
             });
-        },
+        }
 
-        // 初始化交互相关动画（悬停/点击）
-        initInteractiveAnimations() {
-            // 图片悬停放大增强
+        // 初始化视差滚动效果
+        initParallax() {
+            const parallaxElements = document.querySelectorAll('[data-parallax]');
+            window.addEventListener('scroll', () => {
+                const scrollY = window.scrollY;
+                parallaxElements.forEach(el => {
+                    const speed = parseFloat(el.dataset.parallax) || 0.3;
+                    el.style.transform = `translateY(${scrollY * speed}px)`;
+                });
+            });
+        }
+
+        // 初始化交互反馈动画
+        initInteractive() {
+            // 图片悬停放大优化
             document.querySelectorAll('.guide-img, .image-wrapper').forEach(img => {
                 img.addEventListener('mouseenter', () => {
                     img.style.transition = 'transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
@@ -110,53 +123,78 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             });
 
-            // 按钮点击涟漪效果
-            document.querySelector('.back-button')?.addEventListener('click', function(e) {
-                const ripple = document.createElement('span');
-                ripple.className = 'ripple-effect';
-                const rect = this.getBoundingClientRect();
-                const size = Math.max(rect.width, rect.height);
-                
-                Object.assign(ripple.style, {
-                    width: `${size}px`,
-                    height: `${size}px`,
-                    left: `${e.clientX - rect.left - size/2}px`,
-                    top: `${e.clientY - rect.top - size/2}px`
-                });
+            // 返回按钮涟漪效果
+            const backButton = document.querySelector('.back-button');
+            if (backButton) {
+                backButton.addEventListener('click', this.createRippleEffect.bind(this));
+            }
+        }
 
-                this.appendChild(ripple);
-                setTimeout(() => ripple.remove(), 600);
-            });
-
-            // 文本块渐入增强
-            document.querySelectorAll('.text').forEach(text => {
-                text.addEventListener('mouseenter', () => {
-                    text.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
+        // 绑定自定义事件（可扩展）
+        bindCustomEvents() {
+            // 示例：视频容器点击全屏
+            document.querySelectorAll('.video-container').forEach(videoEl => {
+                videoEl.addEventListener('click', () => {
+                    const iframe = videoEl.querySelector('iframe');
+                    iframe.requestFullscreen().catch(err => {
+                        console.error('全屏请求失败:', err);
+                    });
                 });
             });
         }
-    };
+
+        // 创建涟漪效果（工具方法）
+        createRippleEffect(e) {
+            const button = e.currentTarget;
+            const rect = button.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            
+            const ripple = document.createElement('span');
+            ripple.className = 'ripple-effect';
+            Object.assign(ripple.style, {
+                width: `${size}px`,
+                height: `${size}px`,
+                left: `${e.clientX - rect.left - size/2}px`,
+                top: `${e.clientY - rect.top - size/2}px`
+            });
+
+            button.appendChild(ripple);
+            setTimeout(() => ripple.remove(), 600);
+        }
+    }
 
     // ======================
-    // 初始化配置
+    // 页面加载完成后启动
     // ======================
-    // 为需要动画的元素添加 data 属性（示例）
-    document.querySelector('h1').dataset.animation = 'fade-in-up';
-    document.querySelectorAll('h2').forEach((h2, i) => {
-        h2.dataset.animation = `slide-in-left`;
-        h2.style.transitionDelay = `${i * 0.1}s`; // 依次延迟
-    });
-    document.querySelectorAll('.text').forEach((text, i) => {
-        text.dataset.animation = `slide-in-right`;
-        text.style.transitionDelay = `${i * 0.15}s`;
-    });
-    document.querySelectorAll('.image-wrapper').forEach((img, i) => {
-        img.dataset.animation = `scale-in`;
-        img.style.transitionDelay = `${i * 0.2}s`;
-    });
-    document.querySelector('.guide-img').dataset.animation = 'fade-in-up';
+    window.addEventListener('DOMContentLoaded', () => {
+        // 初始化动画管理器
+        window.animationManager = new AnimationManager();
 
-    // 启动动画系统
-    AnimationManager.init();
-    AnimationManager.initParallax(); // 如需视差效果启用此行
-});
+        // ======================
+        // 示例：为页面元素绑定动画（需根据实际 HTML 调整）
+        // ======================
+        // 标题动画（上滑淡入）
+        document.querySelector('h1')?.setAttribute('data-animate', 'fade-in-up');
+
+        // 二级标题动画（左滑进入，依次延迟）
+        document.querySelectorAll('h2').forEach((h2, index) => {
+            h2.setAttribute('data-animate', 'slide-in-left');
+            h2.style.transitionDelay = `${index * 0.1}s`;
+        });
+
+        // 文本块动画（右滑进入，依次延迟）
+        document.querySelectorAll('.text').forEach((text, index) => {
+            text.setAttribute('data-animate', 'slide-in-right');
+            text.style.transitionDelay = `${index * 0.15}s`;
+        });
+
+        // 图片容器动画（缩放进入，依次延迟）
+        document.querySelectorAll('.image-wrapper').forEach((img, index) => {
+            img.setAttribute('data-animate', 'scale-in');
+            img.style.transitionDelay = `${index * 0.2}s`;
+        });
+
+        // 示例：视差背景图（需添加 data-parallax 属性）
+        // <div class="parallax-bg" data-parallax="0.2"></div>
+    });
+})();
