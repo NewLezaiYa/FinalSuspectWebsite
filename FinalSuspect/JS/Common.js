@@ -183,13 +183,13 @@
         });
 
         // 文本块动画（右滑进入，依次延迟）
-        document.querySelectorAll('.text').forEach((text, index) => {
+        document.querySelectorAll('text').forEach((text, index) => {
             text.setAttribute('data-animate', 'slide-in-right');
             text.style.transitionDelay = `${index * 0.15}s`;
         });
 
         // 图片容器动画（缩放进入，依次延迟）
-        document.querySelectorAll('.image-wrapper').forEach((img, index) => {
+        document.querySelectorAll('image-wrapper').forEach((img, index) => {
             img.setAttribute('data-animate', 'scale-in');
             img.style.transitionDelay = `${index * 0.2}s`;
         });
