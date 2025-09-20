@@ -290,46 +290,46 @@ blockquote:hover {
     box-shadow: var(--shadow-sm);
 }
 
-.danger {
-    margin: 2rem 0;
+.warning {
     padding: 1.8rem;
-    background-color: #fff5f5;
-    border-left: 5px solid #fc8181;
-    border-radius: 12px;
-    color: #c53030;
-    font-weight: 500;
-    box-shadow: 0 4px 12px rgba(252, 129, 129, 0.1);
-    transition: var(--transition);
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-base);
+    position: relative;
+    overflow: hidden;
+    background-color: #fff9db;
+    border-left: 5px solid #ffd43b;
+    color: #e67700;
 }
 
-.danger::before {
+.warning:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.warning::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 4px;
     height: 0;
-    background: #fc8181;
+    background: #ffd43b;
     transition: height 0.4s ease;
 }
 
-.danger:hover {
-    transform: scale(1.005);
-    box-shadow: 0 6px 18px rgba(252, 129, 129, 0.1);
-}
-
-.danger:hover::before {
+.warning:hover::before {
     height: 100%;
-
 }
 
-.danger p {
+.warning p {
     margin-bottom: 1rem;
     position: relative;
     z-index: 2;
 }
 
-.danger p:last-child {
+.warning p:last-child {
     margin-bottom: 0;
 }
 
@@ -361,6 +361,46 @@ blockquote:hover {
     margin: 2rem 0;
 }
 
+.back-to-top {
+    position: fixed;
+    right: 2rem;
+    bottom: 2rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+    z-index: 1000;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(79, 109, 245, 0.4);
+    background: var(--primary-dark);
+}
+
+.back-to-top svg {
+    transition: transform 0.3s ease;
+}
+
+.back-to-top:hover svg {
+    transform: translateY(-2px);
+}
+
 @media (max-width: 768px) {
     body {
         padding: 2rem 1rem;
@@ -387,8 +427,7 @@ blockquote:hover {
         height: 28px;
     }
 
-    .text,
-    .outfit-item {
+    .text {
         font-size: 1rem;
         padding: 1.5rem;
     }
@@ -406,8 +445,10 @@ blockquote:hover {
         padding: 1.2rem 1.8rem;
     }
 
-    .danger {
+    .warning {
+        font-size: 0.95rem;
         padding: 1.5rem;
+        border-radius: 12px;
     }
 
     .image-grid {
@@ -417,5 +458,23 @@ blockquote:hover {
     .back-button {
         padding: 10px 20px;
         font-size: 0.95rem;
+    }
+
+    .back-to-top {
+        right: 1rem;
+        bottom: 1rem;
+        width: 44px;
+        height: 44px;
+    }
+
+    .back-to-top svg {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    .back-button {
+        display: none;
     }
 }

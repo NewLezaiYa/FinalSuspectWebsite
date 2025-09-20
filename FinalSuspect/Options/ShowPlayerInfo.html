@@ -5,30 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
     <title>展示玩家平台与客户端信息</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../CSS/Common.css">
-    <script src="../JS/Common.js"></script>
 </head>
 <body>
     <main>
         <div class="back-button" onclick="window.history.back()">返回上一页</div>
 
-        <h1 id="show-player-info">FinalSuspect<br>展示玩家平台与客户端信息</h1>
+        <h1 id="ShowPlayerInfo">FinalSuspect<br>展示玩家平台与客户端信息</h1>
 
         <div class="text">
-            <p>启用该选项后，在大厅等待时，所有玩家的所属平台（如Steam、Epic等）及好友代码将会显示在玩家下方。</p>
-            <p>这不仅方便玩家查看房间成员的来源平台，还能帮助开发团队快速识别潜在的作弊者——当玩家举报外挂时，好友代码可作为关键数据提交，便于开发组追踪违规账号并进行处理。</p>
+            <p>启用该选项后，在大厅等待时，所有玩家的所属平台（如Steam、Epic等）及好友代码将会显示在玩家下方。<br>
+            这不仅方便玩家查看房间成员的来源平台，还能帮助开发团队快速识别潜在的作弊者——当玩家举报外挂时，好友代码可作为关键数据提交，便于开发组追踪违规账号并进行处理。</p>
         </div>
 
-        <div class="tip">
+        <div class="warning">
             <p>在进行直播、素材录制等活动时我们建议您<mark>关闭此功能</mark>来保护隐私。</p>
         </div>
 
         <div class="image-grid">
             <div class="image-wrapper">
                 <p class="text">展示玩家平台与客户端信息示意图：</p>
-                <img src="../../images/ShowPlayerInfo.png"class="guide-img">
+                <img src="../../images/ShowPlayerInfo.png" class="guide-img">
             </div>>
         </div>
     </main>
+
+    <button class="back-to-top" aria-label="回到顶部">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
+    <script src='../JS/BackToTop.js'></script>
 </body>
 </html>

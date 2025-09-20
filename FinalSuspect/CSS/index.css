@@ -176,7 +176,6 @@ h1::after {
     align-items: center;
     justify-content: space-between;
     min-height: 64px;
-    /* 确保触摸区域足够大 */
 }
 
 .btn-content {
@@ -234,50 +233,44 @@ h1::after {
     background: linear-gradient(45deg, var(--primary-darker) 0%, var(--primary-dark) 100%);
 }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.back-to-top {
+    position: fixed;
+    right: 2rem;
+    bottom: 2rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+    z-index: 1000;
 }
 
-@keyframes slideInRight {
-    from {
-        opacity: 0;
-        transform: translateX(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
 }
 
-@keyframes titleSlide {
-    from {
-        transform: translateY(-10px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
+.back-to-top:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(79, 109, 245, 0.4);
+    background: var(--primary-dark);
 }
 
-/* 新增动画类 */
-.container.animate {
-    animation: fadeInUp 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+.back-to-top svg {
+    transition: transform 0.3s ease;
 }
 
-.header.animate h1 {
-    animation: titleSlide 0.5s 0.2s cubic-bezier(0.25, 0.8, 0.25, 1) both;
-}
-
-.jump-btn.animate {
-    animation: slideInRight 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+.back-to-top:hover svg {
+    transform: translateY(-2px);
 }
 
 @media (max-width: 380px) {
@@ -347,6 +340,18 @@ h1::after {
     .btn-text,
     .btn-arrow {
         color: rgba(255, 255, 255, 0.9);
+    }
+
+    .back-to-top {
+        right: 1rem;
+        bottom: 1rem;
+        width: 44px;
+        height: 44px;
+    }
+
+    .back-to-top svg {
+        width: 18px;
+        height: 18px;
     }
 }
 
