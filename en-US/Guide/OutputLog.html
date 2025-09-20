@@ -5,17 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
     <title>Export Log</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../CSS/Common.css">
 </head>
 <body>
     <main>
         <div class="back-button" onclick="window.history.back()">Back</div>
 
-        <h1 id="outputlog">FinalSuspect<br>Export logs</h1>
+        <h1 id="OutputLog">FinalSuspect<br>Export logs</h1>
 
-        <h2 id="auto-output">Auto-Export</h2>
+        <h2>自动导出</h2>
         <div class="text">
-            <p>You can select the output log in the Final Suspect function, and then Final Suspect will open the folder where the output log is located.</p>
+            <p>您可以在Final Suspect功能中选择输出日志，随后Final Suspect将自动打开输出日志所在的文件夹。</p>
             <p>For an introduction to the automatic log export function, please refer to <a href="../Features/DumpLog" target="_blank" rel="noopener noreferrer">this document</a>.</p>
         </div>
 
@@ -27,12 +28,19 @@
 <mark>R</mark>, and paste this path to open it manually.</p>
         </div>
 
-        <h2 id="manual-view">Manual Review</h2>
+        <h2>手动查看</h2>
         <div class="text">
             <p>If you can't open the settings page, you can also choose to view the log manually.</p>
             <p>Launch Steam, go to your Library, select <mark>Among Us</mark>, click the <mark>settings icon</mark> on the right, choose <mark>Manage</mark>, and then select <mark>Browse Local Files</mark>.Steam will open to the Among Us root directory.</p>
-            <p>Open the <mark>BepInEx</mark> folder, and the <mark>LogOutput.log</mark> file is the log file.This file will be automatically cleared when you restart FinalSuspect.</p>
+            <p>Open the <mark>BepInEx</mark> folder, and the <mark>LogOutput.log</mark> file is the log file.该文件将随着你重新启动Final Suspect自动清除。</p>
         </div>
     </main>
+
+    <button class="back-to-top" aria-label="回到顶部">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
+    <script src='../JS/BackToTop.js'></script>
 </body>
 </html>
