@@ -257,3 +257,9 @@ h1::after {
         border-radius: 12px;
     }
 }
+
+@media (max-width: 768px) {
+    .back-button {
+        display: none;
+    }
+}

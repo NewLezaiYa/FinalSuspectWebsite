@@ -38,7 +38,7 @@ main {
     width: 100%;
 }
 
-.back-button-Windows {
+.back-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -55,39 +55,12 @@ main {
     box-shadow: 0 4px 12px rgba(79, 109, 245, 0.3);
 }
 
-.back-button-Windows:hover {
+.back-button:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 16px rgba(79, 109, 245, 0.4);
 }
 
-.back-button-Windows::before {
-    content: "< ";
-    margin-right: 8px;
-}
-
-.back-button-Android {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px 24px;
-    background: linear-gradient(90deg, #4f6df5 0%, #3a56e6 100%);
-    color: white;
-    font-size: clamp(1rem, 3vw, 1.1rem);
-    font-weight: 600;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    margin-bottom: 3rem;
-    box-shadow: 0 4px 12px rgba(79, 109, 245, 0.3);
-}
-
-.back-button-Android:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(79, 109, 245, 0.4);
-}
-
-.back-button-Android::before {
+.back-button::before {
     content: "< ";
     margin-right: 8px;
 }
@@ -501,7 +474,7 @@ pre code {
         grid-template-columns: 1fr;
     }
 
-    .back-button-Android, .back-button-Windows {
+    .back-button {
         padding: 10px 20px;
         font-size: 0.95rem;
     }
@@ -524,13 +497,7 @@ pre code {
 }
 
 @media (max-width: 768px) {
-    .back-button-Windows {
-        display: none;
-    }
-}
-
-@media (min-width: 1024px) {
-    .back-button-Android {
+    .back-button {
         display: none;
     }
 }

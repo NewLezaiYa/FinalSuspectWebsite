@@ -302,3 +302,9 @@ h1::after {
         color: rgba(255, 255, 255, 0.9);
     }
 }
+
+@media (max-width: 768px) {
+    .back-button {
+        display: none;
+    }
+}

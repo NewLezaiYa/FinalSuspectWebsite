@@ -284,3 +284,9 @@ pre code {
         margin-bottom: 0.8rem;
     }
 }
+
+@media (max-width: 768px) {
+    .back-button {
+        display: none;
+    }
+}
