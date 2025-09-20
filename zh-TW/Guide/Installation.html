@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
+    <title>安装</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/Common.css">
+</head>
+<body>
+    <main>
+        <button class="back-button" onclick="window.history.back()">返回上一页</button>
+
+        <h1 id="Installation">FinalSuspect 安装</h1>
+
+        <section class="content-section">
+            <h2>下载</h2>
+            <div class="text">
+                <p>请通过以下方式获取最新版本安装包：</p>
+                <p>
+                    <a href="https://github.com/Slok7565/FinalSuspect/releases" target="_blank" rel="noopener noreferrer">
+                        GitHub Releases
+                    </a>
+                </p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Steam平台安装</h2>
+
+            <div class="tip">
+                <p><strong>默认安装路径参考：</strong></p>
+                <pre><code>C:\Program Files (x86)\Steam\steamapps\common\Among Us</code></pre>
+                <p>快速打开方法：按下 <mark>Win</mark> + <mark>R</mark> 组合键，输入路径后回车</p>
+            </div>
+
+            <div class="text">
+                <p><strong>操作步骤：</strong></p>
+                <ol>
+                    <li>通过Steam客户端右键点击《Among Us》→ 选择「属性」→ 切换到「本地文件」→ 点击「浏览」打开游戏根目录</li>
+                    <img src="../../images/OpenAmongUsWithSteam.png" class="guide-img">
+                    <li>将下载的Final Suspect压缩包解压到游戏根目录，最终文件结构应包含：</li>
+                </ol>
+                    <img src="../../images/SteamUnzip.png" class="guide-img">
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Epic平台安装</h2>
+
+            <div class="tip">
+                <p><strong>默认安装路径参考：</strong></p>
+                <pre><code>C:\Program Files\Epic Games\AmongUs</pre></code>
+                <p>快速打开方法：通过Epic客户端库中找到《Among Us》→ 点击右侧「⋯」→ 选择「在资源管理器中显示」</p>
+            </div>
+
+            <div class="text">
+                <p><strong>操作步骤：</strong></p>
+                <ol>
+                    <li>按照上述方法打开Epic平台游戏根目录</li>
+                    <li>将下载的Final Suspect压缩包解压到游戏根目录，最终文件结构应与Steam平台一致</li>
+                </ol>
+                <pre><code>C:\Program Files\Epic Games\AmongUs\BepInEx\plugins\FinalSuspect.dll</pre></code>
+            </div>
+
+            <div class="warning">
+                <p><strong>Epic平台限制</strong></p>
+                <p>必须安装在Epic官方游戏目录下（非官方路径会导致校验失败）</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <button class="back-to-top" aria-label="回到顶部">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
+    <script src='../JS/BackToTop.js'></script>
+</body>
+</html>
