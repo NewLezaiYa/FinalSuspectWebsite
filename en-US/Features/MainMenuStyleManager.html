@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
     <title>Swtich homepage style </title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../CSS/MainMenuStyleManager.css">
 </head>
 <body>
     <main>
         <button class="back-button" onclick="window.history.back()">Back</button>
 
-        <h1 id="change-outfit">FinalSuspect<br>Switch Homepage Style</h1>
+        <h1 id="MainMenuStyleManager">FinalSuspect<br>切换主页风格</h1>
 
         <div class="content-section">
             <p class="text">
@@ -121,10 +122,17 @@ Wishing only, everyone joy<br>
                 </li>
             </ol>
 
-            <div class="danger">
-                <strong>Friendly Reminder ：</strong> The style switching feature does not affect game balance. All players are free to choose their preferred background.
+            <div class="warning">
+                <p>切换主页风格功能不影响游戏平衡，所有玩家均可自由选择喜欢的背景。</p>
             </div>
         </div>
     </main>
+
+    <button class="back-to-top" aria-label="回到顶部">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
+    <script src='../JS/BackToTop.js'></script>
 </body>
 </html>
