@@ -29,6 +29,7 @@ body {
     background: var(--bg-light);
     min-height: 100vh;
     transition: all 0.3s ease;
+    cursor: url("Cursor.png");
 }
 
 @media (prefers-color-scheme: dark) {
