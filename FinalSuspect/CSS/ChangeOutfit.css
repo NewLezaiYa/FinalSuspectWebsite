@@ -1,212 +1,327 @@
+/* ==============================
+   基础变量与全局设置
+   ============================== */
 :root {
-    --primary: #4f6df5;
-    --primary-light: #6b8aff;
-    --primary-dark: #3a56e6;
-    --text-primary: #2d3748;
-    --text-secondary: #4a5568;
-    --text-muted: #718096;
-    --bg-light: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-    --card-bg: #ffffff;
-    --border-radius: 16px;
-    --shadow-sm: 0 4px 12px rgba(148, 163, 184, 0.1);
-    --shadow-md: 0 8px 24px rgba(148, 163, 184, 0.15);
-    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  /* 主色系 */
+  --primary: #4f6df5;
+  --primary-light: #6b8aff;
+  --primary-dark: #3a56e6;
+  
+  /* 文本色（语义化命名） */
+  --text-heading: #2d3748;
+  --text-body: #4a5568;
+  --text-caption: #718096;
+  
+  /* 背景与卡片 */
+  --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  --card-bg: #ffffff;
+  
+  /* 形状与阴影 */
+  --radius-md: 16px;
+  --radius-sm: 8px;
+  --shadow-sm: 0 4px 12px rgba(148, 163, 184, 0.1);
+  --shadow-md: 0 8px 24px rgba(148, 163, 184, 0.15);
+  --shadow-lg: 0 12px 32px rgba(148, 163, 184, 0.2);
+  
+  /* 过渡效果（明确属性提升性能） */
+  --transition-transform: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --transition-shadow: box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --transition-base: var(--transition-transform), var(--transition-shadow);
+  
+  /* 字体 */
+  --font-body: 'Poppins', "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "Segoe UI", sans-serif;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "Segoe UI", sans-serif;
-    -webkit-tap-highlight-color: transparent;
+/* ==============================
+   全局基础样式
+   ============================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent; /* 消除移动端点击高亮 */
+}
+
+html {
+  font-size: 16px; /* 基准字体大小，配合 clamp 使用 */
 }
 
 body {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 3rem 1.5rem;
-    line-height: 1.8;
-    color: var(--text-primary);
-    background: var(--bg-light);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    transition: var(--transition);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  min-height: 100vh;
+  line-height: 1.8;
+  color: var(--text-heading);
+  background: var(--bg-gradient);
+  font-family: var(--font-body);
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition-base);
 }
 
 main {
-    width: 100%;
+  width: 100%;
 }
 
-.back-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px 24px;
-    background: linear-gradient(90deg, #4f6df5 0%, #3a56e6 100%);
-    color: white;
-    font-size: clamp(1rem, 3vw, 1.1rem);
-    font-weight: 600;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    margin-bottom: 3rem;
-    box-shadow: 0 4px 12px rgba(79, 109, 245, 0.3);
+/* ==============================
+   通用组件样式
+   ============================== */
+/* 基础卡片（核心复用类） */
+.card {
+  padding: 1.8rem;
+  background: var(--card-bg);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-base);
+  position: relative;
+  overflow: hidden;
 }
 
-.back-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(79, 109, 245, 0.4);
+/* 卡片悬停效果（统一交互） */
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
 }
 
-.back-button::before {
-    content: "< ";
-    margin-right: 8px;
+/* 卡片左侧装饰线动画（通用） */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 0;
+  background: var(--primary);
+  transition: height 0.4s ease;
 }
 
+.card:hover::before {
+  height: 100%;
+}
+
+/* 按钮基础样式 */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  font-size: clamp(1rem, 3vw, 1.1rem);
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition-transform), var(--transition-shadow);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn::before {
+  margin-right: 8px;
+}
+
+/* 主色按钮（带渐变） */
+.btn-primary {
+  background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(79, 109, 245, 0.3);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 6px 16px rgba(79, 109, 245, 0.4);
+}
+
+/* ==============================
+   文本与排版
+   ============================== */
 h1 {
-    text-align: center;
-    font-size: clamp(1.8rem, 5vw, 2.5rem);
-    margin: 0 0 2.5rem;
-    color: var(--text-primary);
-    position: relative;
-    padding-bottom: 1.2rem;
-    font-weight: 700;
+  text-align: center;
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  margin: 0 0 2.5rem;
+  color: var(--text-heading);
+  position: relative;
+  padding-bottom: 1.2rem;
+  font-weight: 700;
 }
 
 h1::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 5px;
-    background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
-    border-radius: 3px;
-    animation: lineGrow 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 5px;
+  background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
+  border-radius: 3px;
+  animation: lineGrow 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
 
-@keyframes lineGrow {
-    from {
-        width: 0;
-    }
-
-    to {
-        width: 100px;
-    }
+h2 {
+  font-size: clamp(1.4rem, 4vw, 1.8rem);
+  margin: 2.5rem 0 1.5rem;
+  color: var(--text-heading);
+  position: relative;
+  padding-left: 1.2rem;
 }
 
-.text {
-    font-size: clamp(1rem, 3vw, 1.1rem);
-    color: var(--text-secondary);
-    padding: 1.8rem;
-    background: var(--card-bg);
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow-sm);
-    transition: var(--transition);
-    line-height: 1.9;
-    margin-bottom: 2rem;
-    position: relative;
-    overflow: hidden;
-    text-indent: 2em;
+h2::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 24px;
+  background: var(--primary);
+  border-radius: 2px;
 }
 
-.text::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 4px;
-    height: 0;
-    background: var(--primary);
-    transition: height 0.4s ease;
+p {
+  margin-bottom: 1rem;
+  line-height: 1.9;
+  color: var(--text-body);
 }
 
-.text:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-md);
+/* 通用文本块（继承卡片样式） */
+.text-block {
+  text-indent: 2em;
+  font-size: clamp(1rem, 3vw, 1.1rem);
 }
 
-.text:hover::before {
-    height: 100%;
+/* 文本块段落 */
+.text-block p {
+  margin-bottom: 1rem;
+  text-indent: 2em;
+  position: relative;
+  z-index: 2; /* 确保文字在装饰线上方 */
 }
 
-.text p {
-    margin-bottom: 1rem;
-    text-indent: 2em;
-    position: relative;
-    z-index: 2;
+.text-block p:last-child {
+  margin-bottom: 0;
 }
 
-.text p:last-child {
-    margin-bottom: 0;
-}
-
+/* ==============================
+   列表样式（优化交互一致性）
+   ============================== */
 .outfit-list {
-    padding-left: 2rem;
-    margin: 1.5rem 0;
+  padding-left: 2rem;
+  margin: 1.5rem 0;
 }
 
 .outfit-list li {
-    margin-bottom: 1rem;
-    font-size: clamp(1rem, 3vw, 1.1rem);
-    color: var(--text-secondary);
-    line-height: 1.7;
-    position: relative;
-    transition: var(--transition);
+  margin-bottom: 1rem;
+  font-size: clamp(1rem, 3vw, 1.1rem);
+  color: var(--text-body);
+  line-height: 1.7;
+  position: relative;
+  transition: var(--transition-transform), color 0.3s ease; /* 明确过渡属性 */
 }
 
+/* 列表项装饰箭头 */
 .outfit-list li::before {
-    content: '→';
-    position: absolute;
-    left: -20px;
-    color: var(--primary);
-    font-weight: bold;
-    transition: transform 0.3s ease;
+  content: '→';
+  position: absolute;
+  left: -20px;
+  color: var(--primary);
+  font-weight: bold;
+  transition: transform 0.3s ease;
 }
 
+/* 列表项悬停效果 */
 .outfit-list li:hover {
-    color: var(--primary);
-    transform: translateX(5px);
+  color: var(--primary);
+  transform: translateX(5px);
 }
 
 .outfit-list li:hover::before {
-    transform: scale(1.2);
+  transform: scale(1.2);
 }
 
+/* ==============================
+   媒体嵌入与特殊内容
+   ============================== */
+.guide-img {
+  display: block;
+  max-width: 90%;
+  height: auto;
+  margin: 2rem auto;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-transform), var(--transition-shadow);
+}
+
+.guide-img:hover {
+  transform: scale(1.01);
+}
+
+.video-container {
+  margin: 2.5rem 0;
+  width: 100%;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-shadow);
+}
+
+.video-container iframe {
+  width: 100%;
+  height: 500px;
+  border: none;
+  border-radius: var(--radius-md);
+}
+
+/* ==============================
+   动画定义
+   ============================== */
+@keyframes lineGrow {
+  from { width: 0; }
+  to { width: 100px; }
+}
+
+/* ==============================
+   响应式设计（768px以下）
+   ============================== */
 @media (max-width: 768px) {
-    body {
-        padding: 2rem 1rem;
-    }
+  body {
+    padding: 2rem 1rem;
+  }
 
-    h1 {
-        margin: 0 0 1.5rem;
-        padding-bottom: 1rem;
-    }
+  h1 {
+    margin: 0 0 1.5rem;
+    padding-bottom: 1rem;
+  }
 
-    h1::after {
-        width: 80px;
-        height: 4px;
-    }
+  h1::after {
+    width: 80px;
+    height: 4px;
+  }
 
-    .text {
-        font-size: 1rem;
-        padding: 1.5rem;
-        border-radius: 12px;
-    }
+  .text-block {
+    padding: 1.5rem;
+    border-radius: var(--radius-sm);
+  }
 
-    .back-button {
-        padding: 10px 20px;
-        font-size: 0.95rem;
-    }
+  .btn {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+  }
 
-    .outfit-list {
-        padding-left: 1.5rem;
-    }
+  .outfit-list {
+    padding-left: 1.5rem;
+  }
 
-    .outfit-list li {
-        margin-bottom: 0.8rem;
-    }
+  .outfit-list li {
+    margin-bottom: 0.8rem;
+  }
+
+  .guide-img {
+    max-width: 95%;
+  }
+
+  .video-container iframe {
+    height: 250px;
+  }
 }

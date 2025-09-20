@@ -1,286 +1,359 @@
+/* ==============================
+   基础变量与全局设置（语义化+模块化）
+   ============================== */
 :root {
-    --primary: #4f6df5;
-    --primary-light: #6b8aff;
-    --primary-dark: #3a56e6;
-    --text-primary: #2d3748;
-    --text-secondary: #4a5568;
-    --text-muted: #718096;
-    --bg-light: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-    --card-bg: #ffffff;
-    --border-radius: 16px;
-    --shadow-sm: 0 4px 12px rgba(148, 163, 184, 0.1);
-    --shadow-md: 0 8px 24px rgba(148, 163, 184, 0.15);
-    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  /* 主色系 */
+  --primary: #4f6df5;
+  --primary-light: #6b8aff;
+  --primary-dark: #3a56e6;
+  
+  /* 文本颜色（语义化命名） */
+  --text-heading: #2d3748;    /* 标题/主文本 */
+  --text-body: #4a5568;       /* 正文 */
+  --text-caption: #718096;    /* 辅助文本 */
+  --text-success: #678539;    /* 成功提示文本 */
+  
+  /* 背景与卡片 */
+  --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  --card-bg: #ffffff;
+  
+  /* 形状与圆角 */
+  --radius-md: 16px;          /* 中等圆角（卡片/容器） */
+  --radius-sm: 8px;           /* 小圆角（按钮/输入框） */
+  --radius-xs: 4px;           /* 超小圆角（装饰线） */
+  
+  /* 阴影层级 */
+  --shadow-sm: 0 4px 12px rgba(148, 163, 184, 0.1);   /* 浅阴影 */
+  --shadow-md: 0 8px 24px rgba(148, 163, 184, 0.15);  /* 中阴影 */
+  --shadow-lg: 0 12px 32px rgba(148, 163, 184, 0.2);  /* 深阴影 */
+  
+  /* 过渡效果（明确属性提升性能） */
+  --transition-transform: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --transition-shadow: box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --transition-color: color 0.3s ease;
+  --transition-base: var(--transition-transform), var(--transition-shadow), var(--transition-color);
+  
+  /* 字体 */
+  --font-body: 'Poppins', "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "Segoe UI", sans-serif;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "Segoe UI", sans-serif;
-    -webkit-tap-highlight-color: transparent;
+/* ==============================
+   全局基础样式（精简+统一）
+   ============================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent; /* 消除移动端点击高亮 */
+}
+
+html {
+  font-size: 16px; /* 基准字体大小，配合 clamp 使用 */
 }
 
 body {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 3rem 1.5rem;
-    line-height: 1.8;
-    color: var(--text-primary);
-    background: var(--bg-light);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    transition: var(--transition);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  min-height: 100vh;
+  line-height: 1.8;
+  color: var(--text-heading);
+  background: var(--bg-gradient);
+  font-family: var(--font-body);
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition-base);
 }
 
 main {
-    width: 100%;
+  width: 100%;
 }
 
-.back-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px 24px;
-    background: linear-gradient(90deg, #4f6df5 0%, #3a56e6 100%);
-    color: white;
-    font-size: clamp(1rem, 3vw, 1.1rem);
-    font-weight: 600;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    margin-bottom: 3rem;
-    box-shadow: 0 4px 12px rgba(79, 109, 245, 0.3);
+/* ==============================
+   通用组件样式（高复用性）
+   ============================== */
+/* 基础卡片（核心复用类） */
+.card {
+  padding: 1.8rem;
+  background: var(--card-bg);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-base);
+  position: relative;
+  overflow: hidden;
 }
 
-.back-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(79, 109, 245, 0.4);
+/* 卡片悬停效果（统一交互） */
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
 }
 
-.back-button::before {
-    content: "< ";
-    margin-right: 8px;
+/* 卡片左侧装饰线动画（通用） */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 0;
+  background: var(--primary);
+  transition: height 0.4s ease;
 }
 
+.card:hover::before {
+  height: 100%;
+}
+
+/* 按钮基础样式 */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  font-size: clamp(1rem, 3vw, 1.1rem);
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition-transform), var(--transition-shadow);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn::before {
+  margin-right: 8px;
+}
+
+/* 主色渐变按钮 */
+.btn-primary {
+  background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(79, 109, 245, 0.3);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 6px 16px rgba(79, 109, 245, 0.4);
+}
+
+/* ==============================
+   文本与内容块（复用卡片类）
+   ============================== */
 h1 {
-    text-align: center;
-    font-size: clamp(1.8rem, 5vw, 2.5rem);
-    margin: 0 0 2.5rem;
-    color: var(--text-primary);
-    position: relative;
-    padding-bottom: 1.2rem;
-    font-weight: 700;
+  text-align: center;
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  margin: 0 0 2.5rem;
+  color: var(--text-heading);
+  position: relative;
+  padding-bottom: 1.2rem;
+  font-weight: 700;
 }
 
 h1::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 5px;
-    background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
-    border-radius: 3px;
-    animation: lineGrow 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 5px;
+  background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
+  border-radius: var(--radius-xs);
+  animation: lineGrow 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
 
-@keyframes lineGrow {
-    from {
-        width: 0;
-    }
-
-    to {
-        width: 100px;
-    }
+h2 {
+  font-size: clamp(1.4rem, 4vw, 1.8rem);
+  margin: 2.5rem 0 1.5rem;
+  color: var(--text-heading);
+  position: relative;
+  padding-left: 1.2rem;
 }
 
-.text {
-    font-size: clamp(1rem, 3vw, 1.1rem);
-    color: var(--text-secondary);
-    padding: 1.8rem;
-    background: var(--card-bg);
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow-sm);
-    transition: var(--transition);
-    line-height: 1.9;
-    margin-bottom: 2rem;
-    position: relative;
-    overflow: hidden;
-    text-indent: 2em;
+h2::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 24px;
+  background: var(--primary);
+  border-radius: var(--radius-xs);
 }
 
-.text::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 4px;
-    height: 0;
-    background: var(--primary);
-    transition: height 0.4s ease;
+p {
+  margin-bottom: 1rem;
+  line-height: 1.9;
+  color: var(--text-body);
 }
 
-.text:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-md);
+/* 通用文本块（继承卡片样式） */
+.text-block {
+  text-indent: 2em;
+  font-size: clamp(1rem, 3vw, 1.1rem);
 }
 
-.text:hover::before {
-    height: 100%;
+/* 文本块段落 */
+.text-block p {
+  margin-bottom: 1rem;
+  text-indent: 2em;
+  position: relative;
+  z-index: 2; /* 确保文字在装饰线上方 */
 }
 
-.text p {
-    margin-bottom: 1rem;
-    text-indent: 2em;
-    position: relative;
-    z-index: 2;
+.text-block p:last-child {
+  margin-bottom: 0;
 }
 
-.text p:last-child {
-    margin-bottom: 0;
-}
-
+/* 成功提示框（继承卡片样式） */
 .tip {
-    margin: 2rem 0;
-    padding: 1.8rem;
-    background-color: #f1f9eb;
-    border-left: 5px solid #a3d168;
-    border-radius: 12px;
-    color: #678539;
-    font-weight: 500;
-    box-shadow: 0 4px 12px rgba(163, 209, 104, 0.1);
-    transition: var(--transition);
-    position: relative;
-    overflow: hidden;
+  background-color: #f1f9eb;
+  border-left: 5px solid #a3d168;
+  color: var(--text-success);
+  box-shadow: 0 4px 12px rgba(163, 209, 104, 0.1);
 }
 
-.tip::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 4px;
-    height: 0;
-    background: #a3d168;
-    transition: height 0.4s ease;
-}
-
-.tip:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 18px rgba(163, 209, 104, 0.2);
-}
-
-.tip:hover::before {
-    height: 100%;
-}
-
+/* 提示框段落 */
 .tip p {
-    margin-bottom: 1rem;
-    position: relative;
-    z-index: 2;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 2;
 }
 
 .tip p:last-child {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
-pre {
-    background-color: #2d3748;
-    padding: 1.2rem;
-    border-radius: 8px;
-    margin: 1.2rem 0;
-    overflow-x: auto;
-    font-family: "Consolas", "Monaco", monospace;
-    font-size: clamp(0.9rem, 2.5vw, 0.95rem);
-    color: #edf2f7;
-    line-height: 1.6;
-    border: none;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-pre code {
-    display: block;
-}
-
+/* ==============================
+   列表样式（统一交互）
+   ============================== */
 .dump-log-steps {
-    padding-left: 2rem;
-    margin: 1.5rem 0;
+  padding-left: 2rem;
+  margin: 1.5rem 0;
 }
 
 .dump-log-steps li {
-    margin-bottom: 1rem;
-    font-size: clamp(1rem, 3vw, 1.1rem);
-    color: var(--text-secondary);
-    line-height: 1.7;
-    position: relative;
-    transition: var(--transition);
+  margin-bottom: 1rem;
+  font-size: clamp(1rem, 3vw, 1.1rem);
+  color: var(--text-body);
+  line-height: 1.7;
+  position: relative;
+  transition: var(--transition-transform), var(--transition-color);
 }
 
+/* 列表项装饰箭头 */
 .dump-log-steps li::before {
-    content: '→';
-    position: absolute;
-    left: -20px;
-    color: var(--primary);
-    font-weight: bold;
-    transition: transform 0.3s ease;
+  content: '→';
+  position: absolute;
+  left: -20px;
+  color: var(--primary);
+  font-weight: bold;
+  transition: transform 0.3s ease;
 }
 
+/* 列表项悬停效果（与卡片统一位移） */
 .dump-log-steps li:hover {
-    color: var(--primary);
-    transform: translateX(5px);
+  color: var(--primary);
+  transform: translateX(5px);
 }
 
 .dump-log-steps li:hover::before {
-    transform: scale(1.2);
+  transform: scale(1.2);
 }
 
+/* ==============================
+   媒体嵌入与代码块
+   ============================== */
+.guide-img {
+  display: block;
+  max-width: 90%;
+  height: auto;
+  margin: 2rem auto;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-transform), var(--transition-shadow);
+}
+
+.guide-img:hover {
+  transform: scale(1.01);
+}
+
+pre {
+  background-color: #2d3748;
+  padding: 1.2rem;
+  border-radius: var(--radius-sm);
+  margin: 1.2rem 0;
+  overflow-x: auto;
+  font-family: "Consolas", "Monaco", monospace;
+  font-size: clamp(0.9rem, 2.5vw, 0.95rem);
+  color: #edf2f7;
+  line-height: 1.6;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+pre code {
+  display: block;
+}
+
+/* ==============================
+   动画定义
+   ============================== */
+@keyframes lineGrow {
+  from { width: 0; }
+  to { width: 100px; }
+}
+
+/* ==============================
+   响应式设计（768px以下）
+   ============================== */
 @media (max-width: 768px) {
-    body {
-        padding: 2rem 1rem;
-    }
+  body {
+    padding: 2rem 1rem;
+  }
 
-    h1 {
-        margin: 0 0 1.5rem;
-        padding-bottom: 1rem;
-    }
+  h1 {
+    margin: 0 0 1.5rem;
+    padding-bottom: 1rem;
+  }
 
-    h1::after {
-        width: 80px;
-        height: 4px;
-    }
+  h1::after {
+    width: 80px;
+    height: 4px;
+  }
 
-    .text {
-        font-size: 1rem;
-        padding: 1.5rem;
-        border-radius: 12px;
-    }
+  .text-block {
+    padding: 1.5rem;
+    border-radius: var(--radius-sm);
+  }
 
-    .tip {
-        font-size: 0.95rem;
-        padding: 1.5rem;
-        border-radius: 12px;
-    }
+  .btn {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+  }
 
-    pre {
-        font-size: 0.85rem;
-        padding: 1rem;
-        border-radius: 8px;
-    }
+  .tip {
+    padding: 1.5rem;
+    border-radius: var(--radius-sm);
+  }
 
-    .back-button {
-        padding: 10px 20px;
-        font-size: 0.95rem;
-    }
+  .dump-log-steps {
+    padding-left: 1.5rem;
+  }
 
-    .dump-log-steps {
-        padding-left: 1.5rem;
-    }
+  .dump-log-steps li {
+    margin-bottom: 0.8rem;
+  }
 
-    .dump-log-steps li {
-        margin-bottom: 0.8rem;
-    }
+  pre {
+    font-size: 0.85rem;
+    padding: 1rem;
+    border-radius: var(--radius-sm);
+  }
+
+  .guide-img {
+    max-width: 95%; /* 小屏图片更居中 */
+  }
 }
