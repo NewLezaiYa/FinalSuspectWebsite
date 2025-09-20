@@ -164,50 +164,6 @@ h2::before {
     margin-bottom: 0;
 }
 
-.tip {
-    margin: 2rem 0;
-    padding: 1.8rem;
-    background-color: #f1f9eb;
-    border-left: 5px solid #a3d168;
-    border-radius: 12px;
-    color: #678539;
-    font-weight: 500;
-    box-shadow: 0 4px 12px rgba(163, 209, 104, 0.1);
-    transition: var(--transition);
-    position: relative;
-    overflow: hidden;
-}
-
-.tip::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 4px;
-    height: 0;
-    background: #a3d168;
-    transition: height 0.4s ease;
-}
-
-.tip:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 18px rgba(163, 209, 104, 0.2);
-}
-
-.tip:hover::before {
-    height: 100%;
-}
-
-.tip p {
-    margin-bottom: 1rem;
-    position: relative;
-    z-index: 2;
-}
-
-.tip p:last-child {
-    margin-bottom: 0;
-}
-
 pre {
     background-color: #2d3748;
     padding: 1.2rem;
@@ -256,6 +212,50 @@ pre code {
 
 .update-steps li:hover::before {
     transform: scale(1.2);
+}
+
+.tip {
+    margin: 2rem 0;
+    padding: 1.8rem;
+    background-color: #f1f9eb;
+    border-left: 5px solid #a3d168;
+    border-radius: 12px;
+    color: #678539;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(163, 209, 104, 0.1);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.tip::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 0;
+    background: #a3d168;
+    transition: height 0.4s ease;
+}
+
+.tip:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(163, 209, 104, 0.2);
+}
+
+.tip:hover::before {
+    height: 100%;
+}
+
+.tip p {
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 2;
+}
+
+.tip p:last-child {
+    margin-bottom: 0;
 }
 
 .danger {
@@ -329,10 +329,9 @@ pre code {
     .text {
         font-size: 1rem;
         padding: 1.5rem;
-        border-radius: 12px;
     }
 
-    .tip {
+    .tip .danger {
         font-size: 0.95rem;
         padding: 1.5rem;
         border-radius: 12px;

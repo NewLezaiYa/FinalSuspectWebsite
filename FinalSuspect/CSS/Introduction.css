@@ -240,7 +240,6 @@ h1::after {
     .text {
         font-size: 1rem;
         padding: 1.5rem;
-        border-radius: 12px;
     }
 
     .back-button {
@@ -250,5 +249,11 @@ h1::after {
 
     .image-grid {
         grid-template-columns: 1fr;
+    }
+
+    .tip {
+        font-size: 0.95rem;
+        padding: 1.5rem;
+        border-radius: 12px;
     }
 }

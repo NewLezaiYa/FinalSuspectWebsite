@@ -387,8 +387,7 @@ blockquote:hover {
         height: 28px;
     }
 
-    .text,
-    .outfit-item {
+    .text {
         font-size: 1rem;
         padding: 1.5rem;
     }
@@ -407,7 +406,9 @@ blockquote:hover {
     }
 
     .danger {
+        font-size: 0.95rem;
         padding: 1.5rem;
+        border-radius: 12px;
     }
 
     .image-grid {

@@ -31,7 +31,6 @@ body {
     transition: all 0.3s ease;
 }
 
-/* 暗模式变量覆盖 */
 @media (prefers-color-scheme: dark) {
     body {
         background: var(--bg-dark);
