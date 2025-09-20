@@ -222,6 +222,46 @@ h1::after {
     margin-bottom: 0;
 }
 
+.back-to-top {
+    position: fixed;
+    right: 2rem;
+    bottom: 2rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+    z-index: 1000;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(79, 109, 245, 0.4);
+    background: var(--primary-dark);
+}
+
+.back-to-top svg {
+    transition: transform 0.3s ease;
+}
+
+.back-to-top:hover svg {
+    transform: translateY(-2px);
+}
+
 @media (max-width: 768px) {
     body {
         padding: 2rem 1rem;
@@ -240,7 +280,6 @@ h1::after {
     .text {
         font-size: 1rem;
         padding: 1.5rem;
-        border-radius: 12px;
     }
 
     .back-button {
@@ -250,5 +289,29 @@ h1::after {
 
     .image-grid {
         grid-template-columns: 1fr;
+    }
+
+    .tip {
+        font-size: 0.95rem;
+        padding: 1.5rem;
+        border-radius: 12px;
+    }
+
+    .back-to-top {
+        right: 1rem;
+        bottom: 1rem;
+        width: 44px;
+        height: 44px;
+    }
+
+    .back-to-top svg {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    .back-button {
+        display: none;
     }
 }

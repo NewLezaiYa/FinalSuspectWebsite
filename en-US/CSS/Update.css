@@ -164,50 +164,6 @@ h2::before {
     margin-bottom: 0;
 }
 
-.tip {
-    margin: 2rem 0;
-    padding: 1.8rem;
-    background-color: #f1f9eb;
-    border-left: 5px solid #a3d168;
-    border-radius: 12px;
-    color: #678539;
-    font-weight: 500;
-    box-shadow: 0 4px 12px rgba(163, 209, 104, 0.1);
-    transition: var(--transition);
-    position: relative;
-    overflow: hidden;
-}
-
-.tip::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 4px;
-    height: 0;
-    background: #a3d168;
-    transition: height 0.4s ease;
-}
-
-.tip:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 18px rgba(163, 209, 104, 0.2);
-}
-
-.tip:hover::before {
-    height: 100%;
-}
-
-.tip p {
-    margin-bottom: 1rem;
-    position: relative;
-    z-index: 2;
-}
-
-.tip p:last-child {
-    margin-bottom: 0;
-}
-
 pre {
     background-color: #2d3748;
     padding: 1.2rem;
@@ -258,6 +214,50 @@ pre code {
     transform: scale(1.2);
 }
 
+.tip {
+    margin: 2rem 0;
+    padding: 1.8rem;
+    background-color: #f1f9eb;
+    border-left: 5px solid #a3d168;
+    border-radius: 12px;
+    color: #678539;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(163, 209, 104, 0.1);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.tip::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 0;
+    background: #a3d168;
+    transition: height 0.4s ease;
+}
+
+.tip:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(163, 209, 104, 0.2);
+}
+
+.tip:hover::before {
+    height: 100%;
+}
+
+.tip p {
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 2;
+}
+
+.tip p:last-child {
+    margin-bottom: 0;
+}
+
 .danger {
     margin: 2rem 0;
     padding: 1.8rem;
@@ -301,6 +301,89 @@ pre code {
     margin-bottom: 0;
 }
 
+.warning {
+  padding: 1.8rem;
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-base);
+  position: relative;
+  overflow: hidden;
+  background-color: #fff9db;
+  border-left: 5px solid #ffd43b;
+  color: #e67700;
+}
+
+.warning:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+.warning::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 0;
+  background: #ffd43b;
+  transition: height 0.4s ease;
+}
+
+.warning:hover::before {
+  height: 100%;
+}
+
+.warning p {
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.warning p:last-child {
+  margin-bottom: 0;
+}
+
+.back-to-top {
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-md);
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+  z-index: 1000;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(79, 109, 245, 0.4);
+  background: var(--primary-dark);
+}
+
+.back-to-top svg {
+  transition: transform 0.3s ease;
+}
+
+.back-to-top:hover svg {
+  transform: translateY(-2px);
+}
+
 @media (max-width: 768px) {
     body {
         padding: 2rem 1rem;
@@ -329,10 +412,9 @@ pre code {
     .text {
         font-size: 1rem;
         padding: 1.5rem;
-        border-radius: 12px;
     }
 
-    .tip {
+    .tip .danger .warning {
         font-size: 0.95rem;
         padding: 1.5rem;
         border-radius: 12px;
@@ -355,5 +437,23 @@ pre code {
 
     .update-steps li {
         margin-bottom: 0.8rem;
+    }
+
+    .back-to-top {
+        right: 1rem;
+        bottom: 1rem;
+        width: 44px;
+        height: 44px;
+    }
+
+    .back-to-top svg {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    .back-button {
+        display: none;
     }
 }
