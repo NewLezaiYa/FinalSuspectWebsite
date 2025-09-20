@@ -72,36 +72,6 @@ header {
     /* 页面提示语颜色（浅灰） */
 }
 
-.guide-section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    opacity: 1.5;
-    min-height: calc(30vh);
-    margin-top: 0;
-}
-
-.back-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 1.5rem 2.5rem;
-    background-color: var(--neon-main);
-    color: #E0E0E0;
-    border: none;
-    border-radius: 7px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
-}
-
-.back-btn:hover {
-    background-color: #5359E6;
-    transform: scale(1.05);
-    color: #fff;
-}
-
 /* 响应式：小屏幕适配 */
 @media (max-width: 768px) {
     header {
@@ -114,9 +84,5 @@ header {
 
     .error-text {
         font-size: 1.5rem;
-    }
-
-    .guide-section {
-        grid-template-columns: 1fr;
     }
 }
