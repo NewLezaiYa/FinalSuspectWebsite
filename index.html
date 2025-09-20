@@ -26,6 +26,10 @@
                         <i class="fas fa-check"></i>
                         English
                     </button>
+                    <button class="modal-btn">
+                        <i class="fas fa-check"></i>
+                        繁體中文
+                    </button>
                 </div>
             </div>
         </div>
@@ -41,20 +45,17 @@
                     <i class="fas fa-language"></i>
                     English
                 </button>
+                <button id="tw-btn" class="active" aria-label="切换到繁體中文">
+                    <i class="fas fa-language"></i>
+                    繁體中文
+                </button>
             </div>
 
+            <!-- 简体中文 -->
             <section class="hero" data-lang="zh">
                 <div class="hero-content">
                     <img src="images/FinalSuspect-Logo.png" class="hero-logo">
                     <h1 class="hero-name">模组文档</h1>
-                    <p class="hero-tagline">The ultimate mod for the original Among Us, redefining your space werewolf hunting experience</p>
-                </div>
-            </section>
-
-            <section class="hero" data-lang="en" style="display: none;">
-                <div class="hero-content">
-                    <img src="images/FinalSuspect-Logo.png" class="hero-logo">
-                    <h1 class="hero-name">Mod documentation</h1>
                     <p class="hero-tagline">The ultimate mod for the original Among Us, redefining your space werewolf hunting experience</p>
                 </div>
             </section>
@@ -71,18 +72,6 @@
                 </a>
             </section>
 
-            <section class="section introduction" data-lang="en" style="display: none;">
-                <h2 class="section-title">
-                    <i class="fas fa-book-open"></i>
-                    FinalSuspect Introduction
-                </h2>
-                <p class="section-content">Here you can find detailed information about Final Suspect to help you better understand the mod</p>
-                <a href="en-US/Introduction" class="feature-link">
-                    Check Details
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-            </section>
-
             <section class="section introduction" data-lang="zh">
                 <h2 class="section-title">
                     <i class="fas fa-life-ring"></i>
@@ -91,18 +80,6 @@
                 <p class="section-content">遇到安装失败、功能异常或兼容性问题？这里整理了常见问题解答与分步解决方案，快速帮你恢复流畅游戏。</p>
                 <a href="FinalSuspect/FAQ" class="feature-link">
                     查看详情
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-            </section>
-
-            <section class="section introduction" data-lang="en" style="display: none;">
-                <h2 class="section-title">
-                    <i class="fas fa-life-ring"></i>
-                    FinalSuspect Q&A
-                </h2>
-                <p class="section-content">Experiencing installation failures, feature malfunctions, or compatibility issues? We've compiled FAQs and step-by-step solutions to quickly get you back to smooth gameplay.</p>
-                <a href="en-US/FAQ" class="feature-link">
-                    Check Details
                     <i class="fas fa-arrow-right"></i>
                 </a>
             </section>
@@ -119,18 +96,6 @@
                 </a>
             </section>
 
-            <section class="section options" data-lang="en" style="display: none;">
-                <h2 class="section-title">
-                    <i class="fas fa-sliders-h"></i>
-                    FinalSuspect Options
-                </h2>
-                <p class="section-content">With over 20 customizable options, you can fully tailor your gameplay to create a unique style that meets your personalized needs.</p>
-                <a href="en-US/Options/" class="feature-link">
-                    Check Details
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-            </section>
-
             <section class="section options" data-lang="zh">
                 <h2 class="section-title">
                     <i class="fas fa-book"></i>
@@ -143,18 +108,6 @@
                 </a>
             </section>
 
-            <section class="section options" data-lang="en" style="display: none;">
-                <h2 class="section-title">
-                    <i class="fas fa-book"></i>
-                    FinalSuspect Tutorial
-                </h2>
-                <p class="section-content">Detailed step-by-step tutorials with screenshots make installation easy, even for complete beginners.</p>
-                <a href="en-US/Guide/" class="feature-link">
-                    Check Details
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-            </section>
-
             <section class="section options" data-lang="zh">
                 <h2 class="section-title">
                     <i class="fas fa-toolbox"></i>
@@ -163,6 +116,63 @@
                 <p class="section-content">完美支持原版玩家与模组玩家同局游戏；带来前所未有的游戏体验。</p>
                 <a href="FinalSuspect/Features/" class="feature-link">
                     查看详情
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </section>
+
+            <!-- 英文 -->
+            <section class="hero" data-lang="en" style="display: none;">
+                <div class="hero-content">
+                    <img src="images/FinalSuspect-Logo.png" class="hero-logo">
+                    <h1 class="hero-name">Mod documentation</h1>
+                    <p class="hero-tagline">The ultimate mod for the original Among Us, redefining your space werewolf hunting experience</p>
+                </div>
+            </section>
+
+            <section class="section introduction" data-lang="en" style="display: none;">
+                <h2 class="section-title">
+                    <i class="fas fa-book-open"></i>
+                    FinalSuspect Introduction
+                </h2>
+                <p class="section-content">Here you can find detailed information about Final Suspect to help you better understand the mod</p>
+                <a href="en-US/Introduction" class="feature-link">
+                    Check Details
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </section>
+
+            <section class="section introduction" data-lang="en" style="display: none;">
+                <h2 class="section-title">
+                    <i class="fas fa-life-ring"></i>
+                    FinalSuspect Q&A
+                </h2>
+                <p class="section-content">Experiencing installation failures, feature malfunctions, or compatibility issues? We've compiled FAQs and step-by-step solutions to quickly get you back to smooth gameplay.</p>
+                <a href="en-US/FAQ" class="feature-link">
+                    Check Details
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </section>
+
+            <section class="section options" data-lang="en" style="display: none;">
+                <h2 class="section-title">
+                    <i class="fas fa-sliders-h"></i>
+                    FinalSuspect Options
+                </h2>
+                <p class="section-content">With over 20 customizable options, you can fully tailor your gameplay to create a unique style that meets your personalized needs.</p>
+                <a href="en-US/Options/" class="feature-link">
+                    Check Details
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </section>
+
+            <section class="section options" data-lang="en" style="display: none;">
+                <h2 class="section-title">
+                    <i class="fas fa-book"></i>
+                    FinalSuspect Tutorial
+                </h2>
+                <p class="section-content">Detailed step-by-step tutorials with screenshots make installation easy, even for complete beginners.</p>
+                <a href="en-US/Guide/" class="feature-link">
+                    Check Details
                     <i class="fas fa-arrow-right"></i>
                 </a>
             </section>
@@ -192,13 +202,19 @@
                 <p>Portions of the materials contained herein are property of Innersloth LLC.</p>
                 <p>© Innersloth LLC</p>
             </div>
+            <div class="footer-disclaimer" data-lang="tw" style="display: none;">
+                <p><strong>Note:</strong></p>
+                <p>這些模組不隸屬於 Among Us 或 Innersloth LLC，其包含的內容也未得到 Innersloth LLC 的認可或以其他方式贊助。</p>
+                <p>此處包含的部分材料是Innersloth LLC的財產。</p>
+                <p>© Innersloth LLC</p>
+            </div>
         </div>
         <button class="back-to-top" aria-label="回到顶部">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M18 15l-6-6-6 6"/>
             </svg>
         </button>
-        <script src='../JS/BackToTop.js'></script>
+        <script src='FinalSuspect/JS/BackToTop.js'></script>
     </main>
 </body>
 </html>

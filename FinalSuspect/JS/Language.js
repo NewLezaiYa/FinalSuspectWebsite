@@ -1,8 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
     const cnBtn = document.getElementById('cn-btn');
     const enBtn = document.getElementById('en-btn');
+    const twBtn = document.getElementById('tw-btn');
     const modalCnBtn = document.getElementById('modalCnBtn');
     const modalEnBtn = document.getElementById('modalEnBtn');
+    const modalTwBtn = document.getElementById('modalTwBtn');
     const languageModal = document.getElementById('languageModal');
     const allLangSections = document.querySelectorAll('[data-lang]');
     const logo = document.querySelector('.hero-logo');
@@ -35,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // 更新按钮状态
             cnBtn.classList.toggle('active', lang === 'zh');
             enBtn.classList.toggle('active', lang === 'en');
+            twBtn.classList.toggle('active', lang === 'tw');
 
             // 存储语言设置
             localStorage.setItem('siteLang', lang);
@@ -50,8 +53,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // 绑定事件（保持不变）
     cnBtn.addEventListener('click', () => switchLanguage('zh'));
     enBtn.addEventListener('click', () => switchLanguage('en'));
+    twBtn.addEventListener('click', () => switchLanguage('tw'));
     modalCnBtn.addEventListener('click', () => switchLanguage('zh'));
     modalEnBtn.addEventListener('click', () => switchLanguage('en'));
+    modalTwBtn.addEventListener('click', () => switchLanguage('tw'));
 
     // 初始加载逻辑（修复1后更健壮）
     if (!currentLang || !['zh', 'en'].includes(currentLang)) {
