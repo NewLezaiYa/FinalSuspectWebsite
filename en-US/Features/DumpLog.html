@@ -5,31 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
     <title>Output Log</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="../CSS/DumpLog.css">
 </head>
 <body>
     <main>
         <button class="back-button" onclick="window.history.back()">Back</button>
 
-        <!-- 输出日志 -->
+        <div class="theme-toggle" id="themeToggle">
+            <i class="fas fa-moon"></i>
+        </div>
+
         <h1 id="DumpLog">FinalSuspect<br>输出日志</h1>
 
         <div class="text">
-            <p>This feature provides a simple log management solution：</p>
+            <p>该功能提供简单的日志管理方案：</p>
             <ol class="dump-log-steps">
-                <li>One-Click Export: Automatically copies log files from the current <mark>Among Us\BepInEx</mark> directory to a dedicated directory specified by the mod.
-</li>
-                <li>Quick Access: Automatically opens the target folder window immediately after copying is complete, making it easy to view log content.</li>
-                <li>Auto-Clean: Original log files are automatically cleared every time Final Suspect starts, preventing excessive space usage.</li>
+                <li>一键导出：自动将当前<mark>Among Us\BepInEx</mark>下的日志文件复制到模组指定的专用目录。</li>
+                <li>快速访问：复制完成后立即自动打开目标文件夹窗口，方便查看日志内容。</li>
+                <li>自动清理：原日志文件会在每次启动 Final Suspect 时自动清空，避免占用过多空间。</li>
             </ol>
         </div>
 
         <div class="tip">
-            <p>The log folder is located at the following path ：</p>
-            <pre><code>%APPDATA%
-\..\LocalLow\Innersloth\Among Us\FinalSuspect\Logs\Final Suspect-logs</code></pre>
-            <p>You can press <mark>Win</mark> + <mark>R</mark> to open the Run dialog, paste this address, and confirm to manually access the directory.</p>
+            <p>日志文件夹位于下方路径：</p>
+            <pre><code>%APPDATA%\..\LocalLow\Innersloth\Among Us\FinalSuspect\Logs\Final Suspect-logs</code></pre>
+            <p>你可以按<mark>Win</mark> + <mark>R</mark>打开运行，粘贴这串地址，并确认以手动访问目录。</p>
         </div>
+        <script src='../JS/LightAndNight.js'></script>
     </main>
 </body>
 </html>
