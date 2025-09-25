@@ -4,15 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
     <title>Options</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="../CSS/index.css">
 </head>
 <body>
+    <div class="particles"></div>
+
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+    </div>
+
     <div class="container">
         <div class="header">
-            <h1>FinalSuspect Options</h1>
+            <h1>FinalSuspect 选项</h1>
             <button class="back-button" onclick="window.history.back()">
                 <i class="fas fa-chevron-left"></i>
             </button>
@@ -22,7 +27,7 @@
             <button class="jump-btn" onclick="window.location.href='AutoEndGame.html'">
                 <div class="btn-content">
                     <i class="btn-icon fas fa-flag-checkered"></i>
-                    <span>Auto return to lobby when game ends</span>
+                    <span>结束时自动返回大厅</span>
                 </div>
                 <i class="btn-arrow fas fa-chevron-right"></i>
             </button>
@@ -30,7 +35,7 @@
             <button class="jump-btn" onclick="window.location.href='AutoStartGame.html'">
                 <div class="btn-content">
                     <i class="btn-icon fas fa-users-cog"></i>
-                    <span>Auto start when lobby is full</span>
+                    <span>人满自动开始游戏</span>
                 </div>
                 <i class="btn-arrow fas fa-chevron-right"></i>
             </button>
@@ -38,7 +43,7 @@
             <button class="jump-btn" onclick="window.location.href='ChangeOutfit.html'">
                 <div class="btn-content">
                     <i class="btn-icon fas fa-palette"></i>
-                    <span>Bean Skin Selector</span>
+                    <span>豆子形象切换</span>
                 </div>
                 <i class="btn-arrow fas fa-chevron-right"></i>
             </button>
@@ -46,7 +51,7 @@
             <button class="jump-btn" onclick="window.location.href='EnableFAC.html'">
                 <div class="btn-content">
                     <i class="btn-icon fas fa-shield-alt"></i>
-                    <span>FACf</span>
+                    <span>启用反作弊</span>
                 </div>
                 <i class="btn-arrow fas fa-chevron-right"></i>
             </button>
@@ -54,7 +59,7 @@
             <button class="jump-btn" onclick="window.location.href='EnableGuardian.html'">
                 <div class="btn-content">
                     <i class="btn-icon fas fa-user-shield"></i>
-                    <span>Enable Client Guardian (Experimental)</span>
+                    <span>启用客户端守护（试验性）</span>
                 </div>
                 <i class="btn-arrow fas fa-chevron-right"></i>
             </button>
@@ -62,7 +67,7 @@
             <button class="jump-btn" onclick="window.location.href='DisableVanillaSound.html'">
                 <div class="btn-content">
                     <i class="btn-icon fas fa-volume-mute"></i>
-                    <span>Disable Vanilla Game Music </span>
+                    <span>禁用原版游戏音乐</span>
                 </div>
                 <i class="btn-arrow fas fa-chevron-right"></i>
             </button>
@@ -70,7 +75,7 @@
             <button class="jump-btn" onclick="window.location.href='FastBoot.html'">
                 <div class="btn-content">
                     <i class="btn-icon fas fa-bolt"></i>
-                    <span>Quick Start Mode</span>
+                    <span>快速启动模式</span>
                 </div>
                 <i class="btn-arrow fas fa-chevron-right"></i>
             </button>
@@ -78,7 +83,7 @@
             <button class="jump-btn" onclick="window.location.href='KickPlayerWithAbnormalFriendCode.html'">
                 <div class="btn-content">
                     <i class="btn-icon fas fa-user-slash"></i>
-                    <span>Kick players with invalid friend codes</span>
+                    <span>踢出好友代码异常的玩家</span>
                 </div>
                 <i class="btn-arrow fas fa-chevron-right"></i>
             </button>
@@ -86,7 +91,7 @@
             <button class="jump-btn" onclick="window.location.href='KickPlayerInBanList.html'">
                 <div class="btn-content">
                     <i class="btn-icon fas fa-ban"></i>
-                    <span>Kick banned players</span>
+                    <span>踢出被封禁的玩家</span>
                 </div>
                 <i class="btn-arrow fas fa-chevron-right"></i>
             </button>
@@ -94,7 +99,7 @@
             <button class="jump-btn" onclick="window.location.href='KickPlayerWithDenyName.html'">
                 <div class="btn-content">
                     <i class="btn-icon fas fa-exclamation-triangle"></i>
-                    <span>Kick players with violating names</span>
+                    <span>踢出使用违规昵称的玩家</span>
                 </div>
                 <i class="btn-arrow fas fa-chevron-right"></i>
             </button>
@@ -102,7 +107,7 @@
             <button class="jump-btn" onclick="window.location.href='OfflineMode.html'">
                 <div class="btn-content">
                     <i class="btn-icon fas fa-solid fa-plug"></i>
-                    <span>Offline Mode (Experimental)</span>
+                    <span>离线模式（实验性）</span>
                 </div>
                 <i class="btn-arrow fas fa-chevron-right"></i>
             </button>
@@ -110,7 +115,7 @@
             <button class="jump-btn" onclick="window.location.href='ShowPlayerInfo.html'">
                 <div class="btn-content">
                     <i class="btn-icon fas fa-info-circle"></i>
-                    <span>Display player platform and client Infromation</span>
+                    <span>展示玩家平台与客户端信息</span>
                 </div>
                 <i class="btn-arrow fas fa-chevron-right"></i>
             </button>
@@ -118,7 +123,7 @@
             <button class="jump-btn" onclick="window.location.href='SpamDenyWord.html'">
                 <div class="btn-content">
                     <i class="btn-icon fas fa-comment-slash"></i>
-                    <span>Block banned words</span>
+                    <span>屏蔽违禁词</span>
                 </div>
                 <i class="btn-arrow fas fa-chevron-right"></i>
             </button>
@@ -126,7 +131,7 @@
             <button class="jump-btn" onclick="window.location.href='UnlockFPS.html'">
                 <div class="btn-content">
                     <i class="btn-icon fas fa-infinity"></i>
-                    <span>Unlock FPS Limit</span>
+                    <span>解锁帧数限制</span>
                 </div>
                 <i class="btn-arrow fas fa-chevron-right"></i>
             </button>
@@ -134,7 +139,7 @@
             <button class="jump-btn" onclick="window.location.href='UseModCursor.html'">
                 <div class="btn-content">
                     <i class="btn-icon fas fa-mouse-pointer"></i>
-                    <span>Using the Mod Mouse Cursor</span>
+                    <span>使用模组鼠标光标</span>
                 </div>
                 <i class="btn-arrow fas fa-chevron-right"></i>
             </button>
@@ -146,5 +151,6 @@
         </svg>
     </button>
     <script src='../JS/BackToTop.js'></script>
+    <script src='../JS/index.js'></script>
 </body>
 </html>
