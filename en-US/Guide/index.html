@@ -9,9 +9,15 @@
     <link rel="stylesheet" href="../CSS/index.css">
 </head>
 <body>
+    <div class="particles"></div>
+
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+    </div>
+
     <div class="container">
         <div class="header">
-            <h1>FinalSuspect Tutorial</h1>
+            <h1>FinalSuspect 教程</h1>
             <button class="back-button" onclick="window.history.back()">
                 <i class="fas fa-chevron-left"></i>
             </button>
@@ -21,7 +27,7 @@
             <button class="jump-btn" onclick="window.location.href='Installation.html'">
                 <div class="btn-content">
                     <i class="btn-icon fas fa-download"></i>
-                    <span class="btn-text">Install</span>
+                    <span class="btn-text">安装</span>
                 </div>
                 <i class="btn-arrow fas fa-chevron-right"></i>
             </button>
@@ -29,7 +35,7 @@
             <button class="jump-btn" onclick="window.location.href='OutputLog.html'">
                 <div class="btn-content">
                     <i class="btn-icon fas fa-save"></i>
-                    <span class="btn-text">Export Logs</span>
+                    <span class="btn-text">导出日志</span>
                 </div>
                 <i class="btn-arrow fas fa-chevron-right"></i>
             </button>
@@ -37,11 +43,12 @@
             <button class="jump-btn" onclick="window.location.href='Update.html'">
                 <div class="btn-content">
                     <i class="btn-icon fas fa-arrow-up"></i>
-                    <span class="btn-text">Update</span>
+                    <span class="btn-text">更新</span>
                 </div>
                 <i class="btn-arrow fas fa-chevron-right"></i>
             </button>
         </div>
     </div>
+    <script src='../JS/index.js'></script>
 </body>
 </html>
