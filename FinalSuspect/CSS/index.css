@@ -52,7 +52,6 @@ body {
     line-height: 1.6;
     transition: var(--transition);
     position: relative;
-    overflow: hidden;
 }
 
 body.dark-mode {
