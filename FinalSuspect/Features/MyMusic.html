@@ -5,13 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
     <title>我的音乐</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="../CSS/Common.css">
 </head>
 <body>
     <main>
         <button class="back-button" onclick="window.history.back()">返回上一页</button>
 
-        <!-- 我的音乐 -->
+        <div class="theme-toggle" id="themeToggle">
+            <i class="fas fa-moon"></i>
+        </div>
+
         <h1 id="MyMusic">FinalSuspect<br>我的音乐</h1>
 
         <div class="content-section">
@@ -21,7 +25,7 @@
 
             <div class="text">
                 <p>由Slok创作的音乐也已发布至
-                    <a href="https://music.163.com/" target="_blank" rel="noopener noreferrer">
+                    <a href=" https://y.music.163.com/m/user?id=8039762500" target="_blank" rel="noopener noreferrer">
                         <i class="fas fa-music"></i>
                         网易云音乐
                     </a>，想听的可以去听听哦。
@@ -29,5 +33,6 @@
             </div>
         </div>
     </main>
+    <script src='../JS/LightAndNight.js'></script>
 </body>
 </html>
