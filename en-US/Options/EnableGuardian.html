@@ -5,11 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
     <title>Enable Client Guardian (Experimental)</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="../CSS/Common.css">
 </head>
 <body>
     <main>
         <div class="back-button" onclick="window.history.back()">Back</div>
+
+        <div class="theme-toggle" id="themeToggle">
+            <i class="fas fa-moon"></i>
+        </div>
 
         <h1 id="EnableGuardian">FinalSuspect<br>启用客户端守护（试验性）</h1>
 
@@ -19,9 +24,10 @@
         </p>
 
         <div class="danger">
-            <p>We do <mark>not recommend</mark> disabling Enable Client Guardian.<br>
-            If you disable the Client Guardian, your client may be crashed by cheats.</p>
+            <p>我们<mark>不推荐</mark>你禁用客户端守护。<br>
+            禁用客户端守护后您的客户端可能会被外挂炸崩。</p>
         </div>
     </main>
+    <script src='../JS/LightAndNight.js'></script>
 </body>
 </html>
