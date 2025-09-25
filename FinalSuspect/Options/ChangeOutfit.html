@@ -5,11 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
     <title>豆子形象切换</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../CSS/ChangeOutfit.css">
 </head>
 <body>
     <main>
         <button class="back-button" onclick="window.history.back()">返回上一页</button>
+
+        <div class="theme-toggle" id="themeToggle">
+            <i class="fas fa-moon"></i>
+        </div>
 
         <h1 id="ChangeOutfit">FinalSuspect<br>豆子形象切换</h1>
 
@@ -29,6 +34,7 @@
             玩家可在设置菜单中自由切换模式。<br>
             该功能不影响游戏平衡，仅为娱乐性扩展。
         </div>
+        <script src='../JS/LightAndNight.js'></script>
     </main>
 </body>
 </html>

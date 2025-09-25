@@ -7,10 +7,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="FinalSuspect/CSS/main.css">
-    <script src='FinalSuspect/JS/Language.js'></script>
 </head>
 <body>
-    <main>=
+    <main>
+        <div class="theme-toggle" id="themeToggle">
+            <i class="fas fa-moon"></i>
+        </div>
+
+        <div class="particles"></div>
+        <div class="scanlines"></div>
+        <div class="tech-grid-overlay"></div>
+        <div class="floating-icons"></div>
+
         <div class="language-modal" id="languageModal">
             <div class="modal-content">
                 <h3 class="modal-title">
@@ -84,7 +92,7 @@
                 </a>
             </section>
 
-            <section class="section options" data-lang="zh">
+            <section class="section" data-lang="zh">
                 <h2 class="section-title">
                     <i class="fas fa-sliders-h"></i>
                     FinalSuspect 选项
@@ -96,7 +104,7 @@
                 </a>
             </section>
 
-            <section class="section options" data-lang="zh">
+            <section class="section" data-lang="zh">
                 <h2 class="section-title">
                     <i class="fas fa-book"></i>
                     FinalSuspect 教程
@@ -108,7 +116,7 @@
                 </a>
             </section>
 
-            <section class="section options" data-lang="zh">
+            <section class="section" data-lang="zh">
                 <h2 class="section-title">
                     <i class="fas fa-toolbox"></i>
                     FinalSuspect 功能
@@ -153,7 +161,7 @@
                 </a>
             </section>
 
-            <section class="section options" data-lang="en" style="display: none;">
+            <section class="section" data-lang="en" style="display: none;">
                 <h2 class="section-title">
                     <i class="fas fa-sliders-h"></i>
                     FinalSuspect Options
@@ -165,7 +173,7 @@
                 </a>
             </section>
 
-            <section class="section options" data-lang="en" style="display: none;">
+            <section class="section" data-lang="en" style="display: none;">
                 <h2 class="section-title">
                     <i class="fas fa-book"></i>
                     FinalSuspect Tutorial
@@ -177,7 +185,7 @@
                 </a>
             </section>
 
-            <section class="section options" data-lang="en" style="display: none;">
+            <section class="section" data-lang="en" style="display: none;">
                 <h2 class="section-title">
                     <i class="fas fa-toolbox"></i>
                     FinalSuspect Function
@@ -215,6 +223,7 @@
             </svg>
         </button>
         <script src='FinalSuspect/JS/BackToTop.js'></script>
+        <script src='FinalSuspect/JS/main.js'></script>
     </main>
 </body>
 </html>
