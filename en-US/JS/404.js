@@ -2,12 +2,10 @@ window.onload = function () {
     setTimeout(function () {
         window.location.href = 'https://finalsuspect.pages.dev/';
     }, 3000);
-}
-
+};
 document.addEventListener('DOMContentLoaded', function () {
     const particlesContainer = document.querySelector('.particles');
     const particlesCount = 15;
-
     for (let i = 0; i < particlesCount; i++) {
         const particle = document.createElement('span');
         particle.style.left = Math.random() * 100 + '%';
@@ -18,12 +16,10 @@ document.addEventListener('DOMContentLoaded', function () {
         particle.style.opacity = Math.random() * 0.5 + 0.1;
         particlesContainer.appendChild(particle);
     }
-
     const terminalContent = document.querySelector('.terminal-content');
     const text = terminalContent.textContent;
     terminalContent.textContent = '';
     let charIndex = 0;
-
     function typeText() {
         if (charIndex < text.length) {
             terminalContent.textContent += text.charAt(charIndex);
@@ -31,6 +27,5 @@ document.addEventListener('DOMContentLoaded', function () {
             setTimeout(typeText, 50);
         }
     }
-
     setTimeout(typeText, 1000);
 });
