@@ -1,21 +1,27 @@
 document.addEventListener('DOMContentLoaded', function () {
+    // 昼夜模式切换功能
     const themeToggle = document.getElementById('themeToggle');
     const sunIcon = '<i class="fas fa-sun"></i>';
     const moonIcon = '<i class="fas fa-moon"></i>';
 
-    const setTheme = (theme) => {
-        document.documentElement.setAttribute('data-theme', theme);
-        localStorage.setItem('theme', theme);
-    };
+    // 检查本地存储中的主题偏好
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        themeToggle.innerHTML = sunIcon;
+    }
 
-    // 初始化主题
-    const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-    setTheme(savedTheme);
-
+    // 切换主题
     themeToggle.addEventListener('click', () => {
-        const newTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-        setTheme(newTheme);
-        themeToggle.innerHTML = newTheme === 'dark' ? sunIcon : moonIcon;
+        document.body.classList.toggle('dark-mode');
+
+        if (document.body.classList.contains('dark-mode')) {
+            themeToggle.innerHTML = sunIcon;
+            localStorage.setItem('theme', 'dark');
+        } else {
+            themeToggle.innerHTML = moonIcon;
+            localStorage.setItem('theme', 'light');
+        }
     });
 
     const cnBtn = document.getElementById('cn-btn');

@@ -18,7 +18,7 @@
     --text-inverse: #edf2f7;
     --bg-dark: linear-gradient(135deg, #1a1f29 0%, #232a38 100%);
     --card-bg-dark: #2d3748;
-    --border-dark: rgba(255, 255, 255, 极.1);
+    --border-dark: rgba(255, 255, 255, 0.1);
     --shadow-dark: 0 12px 36px rgba(0, 0, 0, 0.25);
     --tech-glow: 0 0 15px rgba(79, 109, 245, 0.3);
     --tech-glow-hover: 0 0 25px rgba(79, 109, 245, 0.5);
@@ -26,7 +26,7 @@
     --tech-grid: linear-gradient(rgba(79, 109, 245, 0.05) 1px, transparent 1px),
         linear-gradient(90deg, rgba(79, 109, 245, 0.05) 1px, transparent 1px);
     --dark-text-primary: #edf2f7;
-    --dark极ext-secondary: #a0aec0;
+    --dark-text-secondary: #a0aec0;
     --dark-bg: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
     --dark-card-bg: rgba(30, 41, 59, 0.9);
     --dark-shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -57,8 +57,8 @@ body {
 body.dark-mode {
     --text-primary: var(--dark-text-primary);
     --text-secondary: var(--dark-text-secondary);
-    --bg-light: 极(--dark-bg);
-    --card-bg-light: var(--dark-card极g);
+    --bg-light: var(--dark-bg);
+    --card-bg-light: var(--dark-card-bg);
     --shadow-light: var(--dark-shadow-lg);
     --border-light: var(--dark-tech-border);
     --tech-glow: var(--dark-tech-glow);
@@ -170,7 +170,7 @@ body.dark-mode {
     width: 90%;
     text-align: center;
     transform: scale(0.9);
-    transition: var(--极ansition-smooth);
+    transition: var(--transition-smooth);
 }
 
 .language-modal.active .modal-content {
@@ -223,7 +223,6 @@ body.dark-mode {
     height: 100%;
     overflow: hidden;
     z-index: 1;
-    pointer-events: none;
 }
 
 .particles span {
@@ -234,7 +233,7 @@ body.dark-mode {
     background: rgba(79, 109, 245, 0.1);
     border-radius: 50%;
     box-shadow: 0 0 10px rgba(100, 108, 255, 0.5),
-        0 极 20px rgba(100, 108, 255, 0.3),
+        0 0 20px rgba(100, 108, 255, 0.3),
         0 0 30px rgba(100, 108, 255, 0.1);
     animation: float 15s linear infinite;
     bottom: -150px;
@@ -242,7 +241,7 @@ body.dark-mode {
 
 body.dark-mode .particles span {
     background: rgba(79, 109, 245, 0.2);
-    box-shadow: 0 0 15极 rgba(100, 108, 极55, 0.8),
+    box-shadow: 0 0 15px rgba(100, 108, 255, 0.8),
         0 0 25px rgba(100, 108, 255, 0.5),
         0 0 35px rgba(100, 108, 255, 0.2);
 }
@@ -280,7 +279,7 @@ body.dark-mode .particles span {
 body.dark-mode .scanlines {
     background: repeating-linear-gradient(to bottom,
             transparent 0%,
-            rgba(100, 108, 255, 0.15) 1极,
+            rgba(100, 108, 255, 0.15) 1px,
             transparent 2px);
 }
 
@@ -416,7 +415,7 @@ body.dark-mode .grid-overlay {
     border-radius: var(--card-radius);
     padding: 3rem 2.5rem;
     margin-bottom: 3rem;
-    box-shadow: var(--shadow-light), var(--tech-g极w);
+    box-shadow: var(--shadow-light), var(--tech-glow);
     transition: var(--transition-smooth);
     text-align: center;
     border: var(--tech-border);
@@ -473,7 +472,7 @@ body.dark-mode .grid-overlay {
 }
 
 .section-content {
-    font-size: clamp(1rem, 3.5vw, 极.1rem);
+    font-size: clamp(1rem, 3.5vw, 1.1rem);
     color: var(--text-secondary);
     max-width: 850px;
     margin: 0 auto 2.5rem;
