@@ -1,5 +1,4 @@
 :root {
-    /* 深色模式变量 */
     --primary: #4f6df5;
     --primary-light: #6b8aff;
     --primary-dark: #3a56e6;
@@ -17,8 +16,6 @@
     --tech-border: 1px solid rgba(79, 109, 245, 0.3);
     --tech-grid: linear-gradient(rgba(79, 109, 245, 0.1) 1px, transparent 1px),
         linear-gradient(90deg, rgba(79, 109, 245, 0.1) 1px, transparent 1px);
-
-    /* 浅色模式变量 */
     --light-text-primary: #2d3748;
     --light-text-secondary: #4a5568;
     --light-text-muted: #718096;
@@ -33,7 +30,6 @@
         linear-gradient(90deg, rgba(79, 109, 245, 0.05) 1px, transparent 1px);
 }
 
-/* 昼夜模式切换按钮 */
 .theme-toggle {
     position: fixed;
     top: 20px;
@@ -64,7 +60,6 @@
     transition: var(--transition);
 }
 
-/* 浅色模式样式 */
 body.light-mode {
     --text-primary: var(--light-text-primary);
     --text-secondary: var(--light-text-secondary);
@@ -93,7 +88,6 @@ body.light-mode .theme-toggle i {
     color: var(--light-text-primary);
 }
 
-/* 基础样式 */
 * {
     margin: 0;
     padding: 0;
