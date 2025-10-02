@@ -27,7 +27,6 @@ body {
     position: relative;
 }
 
-/* 科技感粒子背景 */
 .particles {
     position: absolute;
     top: 0;
@@ -142,7 +141,6 @@ body {
     }
 }
 
-/* 扫描线效果 */
 .scanlines {
     position: fixed;
     top: 0;
