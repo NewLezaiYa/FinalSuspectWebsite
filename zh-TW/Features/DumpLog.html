@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
+    <title>輸出日誌</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/DumpLog.css">
+</head>
+<body>
+    <main>
+        <button class="back-button" onclick="window.history.back()">返回上一頁</button>
+
+        <div class="theme-toggle" id="themeToggle">
+            <i class="fas fa-moon"></i>
+        </div>
+
+        <h1 id="DumpLog">FinalSuspect<br>輸出日誌</h1>
+
+        <div class="text">
+            <p>該功能提供簡單的日誌管理方案：</p>
+            <ol class="dump-log-steps">
+                <li>一键导出：自动将当前<mark>Among Us\BepInEx</mark>下的日志文件复制到模组指定的专用目录。</li>
+                <li>快速访问：复制完成后立即自动打开目标文件夹窗口，方便查看日志内容。</li>
+                <li>自动清理：原日志文件会在每次启动 Final Suspect 时自动清空，避免占用过多空间。</li>
+            </ol>
+        </div>
+
+        <div class="tip">
+            <p>日誌文件位於下方路徑：</p>
+            <pre><code>%APPDATA%\..\LocalLow\Innersloth\Among Us\FinalSuspect\Logs\Final Suspect-logs</code></pre>
+            <p>你可以按<mark>Win</mark>+<mark>R</mark>打開運行，貼上這串地址，並確認以手動訪問目錄。</p>
+        </div>
+        <script src='../JS/LightAndNight.js'></script>
+    </main>
+</body>
+</html>
