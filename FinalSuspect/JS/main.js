@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // 语言切换
     const themeToggle = document.getElementById('themeToggle');
     const sunIcon = '<i class="fas fa-sun"></i>';
     const moonIcon = '<i class="fas fa-moon"></i>';
@@ -19,74 +18,63 @@ document.addEventListener('DOMContentLoaded', function () {
         themeToggle.innerHTML = newTheme === 'dark' ? sunIcon : moonIcon;
     });
 
-    // 语言切换
     const cnBtn = document.getElementById('cn-btn');
     const enBtn = document.getElementById('en-btn');
     const twBtn = document.getElementById('tw-btn');
+    const modalCnBtn = document.getElementById('modalCnBtn');
+    const modalEnBtn = document.getElementById('modalEnBtn');
+    const modalTwBtn = document.getElementById('modalTwBtn');
     const languageModal = document.getElementById('languageModal');
     const allLangSections = document.querySelectorAll('[data-lang]');
     const logo = document.querySelector('.hero-logo');
 
+    const getBrowserLang = () => {
+        const lang = navigator.language || navigator.userLanguage;
+        return lang ? lang.slice(0, 2).toLowerCase() : 'zh';
+    };
+
     const currentLang = localStorage.getItem('siteLang') || getBrowserLang();
 
-    function getBrowserLang() {
-        return navigator.languages ? navigator.languages[0].slice(0, 2).toLowerCase() : 'zh';
-    }
-
-    const switchLanguage = (lang) => {
+    function initLanguage(lang) {
         allLangSections.forEach(section => {
-            section.style.display = section.dataset.lang === lang ? 'block' : 'none';
+            section.style.opacity = '0';
+            section.style.visibility = 'hidden';
         });
 
-        cnBtn.classList.toggle('active', lang === 'zh');
-        enBtn.classList.toggle('active', lang === 'en');
-        twBtn.classList.toggle('active', lang === 'tw');
+        setTimeout(() => {
+            allLangSections.forEach(section => {
+                const shouldShow = section.dataset.lang === lang;
+                section.style.display = shouldShow ? 'block' : 'none';
+                section.style.opacity = shouldShow ? '1' : '0';
+                section.style.visibility = shouldShow ? 'visible' : 'hidden';
+            });
 
-        localStorage.setItem('siteLang', lang);
-        languageModal.classList.remove('active');
-    };
+            cnBtn.classList.toggle('active', lang === 'zh');
+            enBtn.classList.toggle('active', lang === 'en');
+            twBtn.classList.toggle('active', lang === 'tw');
 
-    // 初始化语言
-    if (!currentLang) {
-        setTimeout(() => languageModal.classList.add('active'), 1000);
-    } else {
-        switchLanguage(currentLang);
+            localStorage.setItem('siteLang', lang);
+        }, 200);
     }
 
-    document.addEventListener('click', (e) => {
-        if (e.target.closest('.lang-btn')) {
-            const lang = e.target.closest('.lang-btn').dataset.lang;
-            switchLanguage(lang);
-        }
-    });
+    function switchLanguage(lang) {
+        initLanguage(lang);
+        languageModal.classList.remove('active');
+    }
 
-    const images = document.querySelectorAll('img[data-src]');
-    const loadImages = () => {
-        images.forEach(img => {
-            if (img.getBoundingClientRect().top < window.innerHeight) {
-                img.src = img.dataset.src;
-                img.removeAttribute('data-src');
-            }
-        });
-    };
-    window.addEventListener('scroll', loadImages);
-    loadImages();
+    cnBtn.addEventListener('click', () => switchLanguage('zh'));
+    enBtn.addEventListener('click', () => switchLanguage('en'));
+    twBtn.addEventListener('click', () => switchLanguage('tw'));
+    modalCnBtn.addEventListener('click', () => switchLanguage('zh'));
+    modalEnBtn.addEventListener('click', () => switchLanguage('en'));
+    modalTwBtn.addEventListener('click', () => switchLanguage('tw'));
 
-    particlesContainer.addEventListener('mouseover', () => cancelAnimationFrame(animationFrameId));
-    particlesContainer.addEventListener('mouseout', animateParticles);
-
-    document.querySelectorAll('.modal-close').forEach(btn => {
-        btn.addEventListener('click', () => languageModal.classList.remove('active'));
-    });
+    if (!currentLang || !['zh', 'en', 'tw'].includes(currentLang)) {
+        setTimeout(() => languageModal.classList.add('active'), 800);
+    } else {
+        initLanguage(currentLang);
+    }
 
     logo.addEventListener('mouseenter', () => logo.classList.add('hover'));
     logo.addEventListener('mouseleave', () => logo.classList.remove('hover'));
-
-    const style = document.createElement('style');
-    style.textContent = `
-        [data-lang] { opacity: 0; transition: opacity 0.3s; }
-        [data-lang].active { opacity: 1; }
-        .hover { transform: scale(1.05); }
-    `;
-    document.head.appendChild(style);
 });
