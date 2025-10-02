@@ -589,7 +589,6 @@ body.dark-mode .grid-overlay {
     transform: translateY(-2px);
 }
 
-/* 响应式优化 */
 @media (max-width: 768px) {
     .container {
         padding: 1.5rem 1rem;
@@ -633,7 +632,6 @@ body.dark-mode .grid-overlay {
     }
 }
 
-/* 新增动画效果 */
 @keyframes fadeInUp {
     from {
         opacity: 0;
