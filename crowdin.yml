@@ -7,7 +7,3 @@ files:
     translation: Guide/%original_file_name%
   - source: FinalSuspect/Options/*.*
     translation: Options/%original_file_name%
-  - source: FinalSuspect/CSS/*.*
-    translation: 'CSS/%original_file_name%'
-  - source: FinalSuspect/JS/*.*
-    translation: 'JS/%original_file_name%'
