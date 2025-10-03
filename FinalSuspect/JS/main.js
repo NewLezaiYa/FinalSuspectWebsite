@@ -59,7 +59,6 @@ document.addEventListener('DOMContentLoaded', function () {
         localStorage.setItem('siteLang', lang);
     }
 
-    // 桌面按钮事件
     desktopButtons.forEach((button, index) => {
         button.addEventListener('click', function () {
             const lang = index === 0 ? 'zh' : index === 1 ? 'en' : 'tw';
@@ -67,8 +66,32 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // 移动下拉选择事件
     mobileSelect.addEventListener('change', function () {
         switchLanguage(this.value);
     });
+
+    // 粒子效果
+    const particlesContainer = document.createElement('div');
+    particlesContainer.className = 'particles';
+    document.body.appendChild(particlesContainer);
+
+    function createParticles() {
+        for (let i = 0; i < 30; i++) {
+            const particle = document.createElement('span');
+            const size = Math.random() * 20 + 10;
+            const posX = Math.random() * 100;
+            const duration = Math.random() * 15 + 10;
+            const delay = Math.random() * 5;
+
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.left = `${posX}%`;
+            particle.style.animationDelay = `${delay}s`;
+            particle.style.animationDuration = `${duration}s`;
+
+            particlesContainer.appendChild(particle);
+        }
+    }
+
+    createParticles();
 });
