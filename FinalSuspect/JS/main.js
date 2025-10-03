@@ -24,63 +24,51 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    const cnBtn = document.getElementById('cn-btn');
-    const enBtn = document.getElementById('en-btn');
-    const twBtn = document.getElementById('tw-btn');
-    const modalCnBtn = document.getElementById('modalCnBtn');
-    const modalEnBtn = document.getElementById('modalEnBtn');
-    const modalTwBtn = document.getElementById('modalTwBtn');
-    const languageModal = document.getElementById('languageModal');
+    // 语言切换功能
     const allLangSections = document.querySelectorAll('[data-lang]');
-    const logo = document.querySelector('.hero-logo');
+    const desktopButtons = document.querySelectorAll('.language-switch button');
+    const mobileSelect = document.getElementById('mobileLanguageSelect');
 
-    const getBrowserLang = () => {
-        const lang = navigator.language || navigator.userLanguage;
-        return lang ? lang.slice(0, 2).toLowerCase() : 'zh';
-    };
-
-    const currentLang = localStorage.getItem('siteLang') || getBrowserLang();
-
-    function initLanguage(lang) {
-        allLangSections.forEach(section => {
-            section.style.opacity = '0';
-            section.style.visibility = 'hidden';
-        });
-
-        setTimeout(() => {
-            allLangSections.forEach(section => {
-                const shouldShow = section.dataset.lang === lang;
-                section.style.display = shouldShow ? 'block' : 'none';
-                section.style.opacity = shouldShow ? '1' : '0';
-                section.style.visibility = shouldShow ? 'visible' : 'hidden';
-            });
-
-            cnBtn.classList.toggle('active', lang === 'zh');
-            enBtn.classList.toggle('active', lang === 'en');
-            twBtn.classList.toggle('active', lang === 'tw');
-
-            localStorage.setItem('siteLang', lang);
-        }, 200);
-    }
+    // 初始化语言
+    const savedLang = localStorage.getItem('siteLang') || 'zh';
+    switchLanguage(savedLang);
 
     function switchLanguage(lang) {
-        initLanguage(lang);
-        languageModal.classList.remove('active');
+        // 隐藏所有语言部分
+        allLangSections.forEach(section => {
+            section.style.display = 'none';
+        });
+
+        // 显示选中的语言部分
+        document.querySelector(`[data-lang="${lang}"]`).style.display = 'block';
+
+        // 更新活动状态
+        desktopButtons.forEach(btn => btn.classList.remove('active'));
+        mobileSelect.value = lang;
+
+        // 根据语言代码设置活动状态
+        if (lang === 'zh') {
+            document.getElementById('cn-btn').classList.add('active');
+        } else if (lang === 'en') {
+            document.getElementById('en-btn').classList.add('active');
+        } else if (lang === 'tw') {
+            document.getElementById('tw-btn').classList.add('active');
+        }
+
+        // 保存语言选择
+        localStorage.setItem('siteLang', lang);
     }
 
-    cnBtn.addEventListener('click', () => switchLanguage('zh'));
-    enBtn.addEventListener('click', () => switchLanguage('en'));
-    twBtn.addEventListener('click', () => switchLanguage('tw'));
-    modalCnBtn.addEventListener('click', () => switchLanguage('zh'));
-    modalEnBtn.addEventListener('click', () => switchLanguage('en'));
-    modalTwBtn.addEventListener('click', () => switchLanguage('tw'));
+    // 桌面按钮事件
+    desktopButtons.forEach((button, index) => {
+        button.addEventListener('click', function () {
+            const lang = index === 0 ? 'zh' : index === 1 ? 'en' : 'tw';
+            switchLanguage(lang);
+        });
+    });
 
-    if (!currentLang || !['zh', 'en', 'tw'].includes(currentLang)) {
-        setTimeout(() => languageModal.classList.add('active'), 800);
-    } else {
-        initLanguage(currentLang);
-    }
-
-    logo.addEventListener('mouseenter', () => logo.classList.add('hover'));
-    logo.addEventListener('mouseleave', () => logo.classList.remove('hover'));
+    // 移动下拉选择事件
+    mobileSelect.addEventListener('change', function () {
+        switchLanguage(this.value);
+    });
 });
