@@ -172,56 +172,6 @@ header {
     max-width: 600px;
 }
 
-/* 按钮优化 */
-.cta-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-top: 2rem;
-    z-index: 3;
-    position: relative;
-}
-
-.cta-button {
-    padding: 12px 30px;
-    background: rgba(100, 108, 255, 0.2);
-    color: var(--text-light);
-    border: 1px solid var(--neon-main);
-    border-radius: 4px;
-    font-size: 1rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    font-family: 'Orbitron', sans-serif;
-}
-
-.cta-button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(100, 108, 255, 0.4), transparent);
-    transition: 0.5s;
-}
-
-.cta-button:hover {
-    background: rgba(100, 108, 255, 0.4);
-    box-shadow:
-        0 0 10px var(--neon-main),
-        0 0 20px var(--neon-main);
-    transform: translateY(-2px);
-}
-
-.cta-button:hover::before {
-    left: 100%;
-}
-
 /* 动画定义 */
 @keyframes float {
     0% {
