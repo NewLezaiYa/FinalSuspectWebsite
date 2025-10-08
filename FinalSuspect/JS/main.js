@@ -16,8 +16,6 @@ function createParticles() {
         particle.style.left = `${posX}%`;
         particle.style.animationDelay = `${delay}s`;
         particle.style.animationDuration = `${duration}s`;
-
-        particlesContainer.appendChild(particle);
     }
 }
 
@@ -131,7 +129,7 @@ function setupSmoothScroll() {
     });
 }
 
-// 初始化
+// 修改初始化函数（保持不变）
 document.addEventListener('DOMContentLoaded', () => {
     createParticles();
     setupThemeToggle();
