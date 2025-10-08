@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
@@ -8,35 +9,23 @@
     <link rel="stylesheet" href="CSS/404.css">
     <script src='JS/404.js'></script>
 </head>
+
 <body>
-    <header>
-        <div class="particles">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-
-        <div class="scanlines"></div>
-
+    <div class="background-effects">
         <div class="grid-lines"></div>
-
-        <div class="floating-shapes">
-            <div class="shape"></div>
-            <div class="shape"></div>
-            <div class="shape"></div>
-            <div class="shape"></div>
-        </div>
+        <div class="particles" id="particles"></div>
+        <div class="floating-shapes" id="shapes"></div>
+        <div class="scanlines"></div>
+    </div>
+    <header>
         <h1 class="error-code">404</h1>
-        <p class="error-text">页面迷路啦～（其实是被太空人抓走啦）<br>
-            您将在 3 秒内被重定向到主页
-        </p>
+        <h2 class="error-text">页面未找到</h2>
+        <p class="error-subtext">您访问的页面已被太空人抓走</p>
+
+        <div class="cta-buttons">
+            <button class="cta-button" onclick="window.location.href='index.html'">返回主页</button>
+        </div>
     </header>
 </body>
+
 </html>
