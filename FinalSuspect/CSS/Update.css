@@ -488,18 +488,18 @@ blockquote:hover {
     right: 2rem;
     width: calc(var(--player-size) * 7.5);
     height: var(--player-size);
-    background: var(--card-bg-light);
+    background: var(--card-bg);
     border-radius: 50px;
     display: flex;
     align-items: center;
     padding: 0 1.2rem;
     gap: 1rem;
-    box-shadow: var(--shadow-light), var(--tech-glow);
+    box-shadow: var(--shadow-md), var(--tech-glow);
     border: var(--tech-border);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     z-index: 1000;
-    transition: var(--transition-smooth);
+    transition: var(--transition);
     transform: translateY(20px);
     opacity: 0;
     animation: slideUp 0.5s ease forwards 0.5s;
@@ -518,12 +518,12 @@ body.dark-mode .music-player {
 }
 
 .music-player:hover {
-    box-shadow: var(--shadow-light), var(--tech-glow-hover);
+    box-shadow: var(--shadow-lg), var(--tech-glow-hover);
     transform: translateY(-2px);
 }
 
 body.dark-mode .music-player:hover {
-    box-shadow: var(--shadow-dark), var(--tech-glow-hover);
+    box-shadow: var(--shadow-lg), var(--tech-glow-hover);
 }
 
 .album-art {
@@ -537,6 +537,7 @@ body.dark-mode .music-player:hover {
     overflow: hidden;
     flex-shrink: 0;
     position: relative;
+    box-shadow: 0 0 15px rgba(79, 109, 245, 0.3);
 }
 
 .album-art img {
@@ -551,7 +552,7 @@ body.dark-mode .music-player:hover {
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    background: var(--card-bg-light);
+    background: var(--card-bg);
     z-index: 2;
 }
 
@@ -594,13 +595,15 @@ body.dark-mode .music-player:hover {
     border: none;
     color: var(--text-primary);
     cursor: pointer;
-    transition: var(--transition-fast);
+    transition: var(--transition);
     font-size: 1.1rem;
+    box-shadow: 0 0 10px rgba(79, 109, 245, 0.1);
 }
 
 .control-btn:hover {
     color: var(--primary);
     transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(79, 109, 245, 0.3);
 }
 
 .play-btn {
@@ -609,12 +612,14 @@ body.dark-mode .music-player:hover {
     background: var(--primary);
     color: white;
     font-size: 1.3rem;
+    box-shadow: 0 0 15px rgba(79, 109, 245, 0.3);
 }
 
 .play-btn:hover {
     background: var(--primary-dark);
     color: white;
     transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(79, 109, 245, 0.5);
 }
 
 .progress-container {
@@ -623,7 +628,7 @@ body.dark-mode .music-player:hover {
     left: 1.5rem;
     right: 1.5rem;
     height: 4px;
-    background: var(--border-light);
+    background: rgba(0, 0, 0, 0.1);
     border-radius: 2px;
     overflow: hidden;
     cursor: pointer;
@@ -635,6 +640,7 @@ body.dark-mode .music-player:hover {
     background: var(--primary);
     border-radius: 2px;
     transition: width 0.1s linear;
+    box-shadow: 0 0 5px var(--primary);
 }
 
 .volume-control {
@@ -647,7 +653,7 @@ body.dark-mode .music-player:hover {
 .volume-slider {
     width: 80px;
     height: 4px;
-    background: var(--border-light);
+    background: rgba(0, 0, 0, 0.1);
     border-radius: 2px;
     position: relative;
     cursor: pointer;
@@ -658,6 +664,7 @@ body.dark-mode .music-player:hover {
     width: 70%;
     background: var(--primary);
     border-radius: 2px;
+    box-shadow: 0 0 5px var(--primary);
 }
 
 @media (max-width: 992px) {
