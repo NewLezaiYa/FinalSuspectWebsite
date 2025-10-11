@@ -1,35 +1,43 @@
-// 粒子背景生成
-document.addEventListener('DOMContentLoaded', function () {
-    const buttons = document.querySelectorAll('.jump-btn');
-    buttons.forEach(button => {
-        button.addEventListener('mouseenter', () => {
-            button.style.transform = 'translateY(-3px)';
-        });
+const themeToggle = document.getElementById('themeToggle');
+const sunIcon = '<i class="fas fa-sun"></i>';
+const moonIcon = '<i class="fas fa-moon"></i>';
 
-        button.addEventListener('mouseleave', () => {
-            button.style.transform = 'translateY(0)';
-        });
-    });
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'dark') {
+    document.body.classList.add('dark-mode');
+    themeToggle.innerHTML = sunIcon;
+}
 
-    const themeToggle = document.getElementById('themeToggle');
-    const sunIcon = '<i class="fas fa-sun"></i>';
-    const moonIcon = '<i class="fas fa-moon"></i>';
+themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
 
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-        document.body.classList.add('dark-mode');
+    if (document.body.classList.contains('dark-mode')) {
         themeToggle.innerHTML = sunIcon;
+        localStorage.setItem('theme', 'light');
+    } else {
+        themeToggle.innerHTML = moonIcon;
+        localStorage.setItem('theme', 'dark');
     }
+});
 
-    themeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
+// 按钮波纹效果
+const buttons = document.querySelectorAll('.jump-btn, .control-btn, .back-button, .theme-toggle');
 
-        if (document.body.classList.contains('dark-mode')) {
-            themeToggle.innerHTML = sunIcon;
-            localStorage.setItem('theme', 'light');
-        } else {
-            themeToggle.innerHTML = moonIcon;
-            localStorage.setItem('theme', 'dark');
-        }
+buttons.forEach(button => {
+    button.addEventListener('click', function (e) {
+        const rect = this.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const ripple = document.createElement('span');
+        ripple.classList.add('ripple');
+        ripple.style.left = `${x}px`;
+        ripple.style.top = `${y}px`;
+
+        this.appendChild(ripple);
+
+        setTimeout(() => {
+            ripple.remove();
+        }, 600);
     });
 });
