@@ -29,6 +29,7 @@
     --dark-tech-border: 1px solid rgba(79, 109, 245, 0.3);
     --dark-tech-grid: linear-gradient(rgba(79, 109, 245, 0.1) 1px, transparent 1px),
         linear-gradient(90deg, rgba(79, 109, 245, 0.1) 1px, transparent 1px);
+    --player-size: 60px;
 }
 
 * {

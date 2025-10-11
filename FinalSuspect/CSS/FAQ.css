@@ -30,6 +30,7 @@
     --light-tech-border: 1px solid rgba(79, 109, 245, 0.1);
     --light-tech-grid: linear-gradient(rgba(79, 109, 245, 0.05) 1px, transparent 1px),
         linear-gradient(90deg, rgba(79, 109, 245, 0.05) 1px, transparent 1px);
+    --player-size: 60px;
 }
 
 .theme-toggle {
