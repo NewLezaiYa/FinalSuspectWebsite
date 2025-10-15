@@ -16,6 +16,14 @@ function createParticles() {
         particle.style.left = `${posX}%`;
         particle.style.animationDelay = `${delay}s`;
         particle.style.animationDuration = `${duration}s`;
+
+        // 添加随机颜色和脉冲效果
+        const hue = 240 + Math.random() * 30; // 蓝色到紫色范围
+        particle.style.background = `hsla(${hue}, 70%, 60%, 0.2)`;
+        particle.style.boxShadow = `
+            0 0 ${10 + size}px hsla(${hue}, 70%, 60%, 0.5),
+            0 0 ${20 + size}px hsla(${hue}, 70%, 60%, 0.3),
+            0 0 ${30 + size}px hsla(${hue}, 70%, 60%, 0.1)`;
     }
 }
 
@@ -47,6 +55,12 @@ function setupThemeToggle() {
             icon.classList.add('fa-moon');
             localStorage.setItem('theme', 'light');
         }
+
+        // 添加点击动画效果
+        themeToggle.style.transform = 'scale(0.9)';
+        setTimeout(() => {
+            themeToggle.style.transform = '';
+        }, 200);
     });
 }
 
@@ -108,6 +122,17 @@ function switchLanguage(lang) {
         content.style.display = 'none';
     });
     document.querySelector(`[data-lang="${lang}"]`).style.display = 'block';
+
+    // 添加切换动画
+    const activeContent = document.querySelector(`[data-lang="${lang}"]`);
+    activeContent.style.opacity = '0';
+    activeContent.style.transform = 'translateY(20px)';
+    activeContent.style.transition = 'all 0.3s ease';
+
+    setTimeout(() => {
+        activeContent.style.opacity = '1';
+        activeContent.style.transform = 'translateY(0)';
+    }, 50);
 }
 
 // 导航平滑滚动
@@ -129,11 +154,47 @@ function setupSmoothScroll() {
     });
 }
 
-// 修改初始化函数（保持不变）
+// 添加悬停效果到功能区域
+function setupSectionHoverEffects() {
+    const sections = document.querySelectorAll('.section');
+
+    sections.forEach(section => {
+        section.addEventListener('mouseenter', () => {
+            section.classList.add('section-hover');
+        });
+
+        section.addEventListener('mouseleave', () => {
+            section.classList.remove('section-hover');
+        });
+    });
+}
+
+// 添加返回顶部按钮显示/隐藏逻辑
+function setupBackToTopButton() {
+    const backToTopButton = document.querySelector('.back-to-top');
+
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            backToTopButton.classList.add('visible');
+        } else {
+            backToTopButton.classList.remove('visible');
+        }
+    });
+
+    backToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
+
+// 初始化所有功能
 document.addEventListener('DOMContentLoaded', () => {
     createParticles();
     setupThemeToggle();
     setupScrollAnimations();
     setupLanguageSwitch();
     setupSmoothScroll();
+    setupSectionHoverEffects();
 });
