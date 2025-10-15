@@ -13,6 +13,11 @@
 </head>
 
 <body>
+    <div class="tech-border-corner top-left"></div>
+    <div class="tech-border-corner top-right"></div>
+    <div class="tech-border-corner bottom-left"></div>
+    <div class="tech-border-corner bottom-right"></div>
+
     <div class="music-player">
         <div class="album-art">
             <i class="fas fa-music" style="font-size: 1.2rem; color: var(--primary);"></i>
@@ -58,6 +63,9 @@
     <div class="glowing-dot"></div>
     <div class="glowing-dot"></div>
 
+    <!-- 扫描线效果 -->
+    <div class="scanlines"></div>
+
     <div class="theme-toggle" id="themeToggle">
         <i class="fas fa-moon"></i>
     </div>
@@ -72,6 +80,7 @@
 
         <div class="btn-group">
             <button class="jump-btn" onclick="window.location.href='Installation.html'">
+                <div class="jump-btn-glow"></div>
                 <div class="btn-content">
                     <i class="btn-icon fas fa-download"></i>
                     <span class="btn-text">安装</span>
@@ -80,6 +89,7 @@
             </button>
 
             <button class="jump-btn" onclick="window.location.href='OutputLog.html'">
+                <div class="jump-btn-glow"></div>
                 <div class="btn-content">
                     <i class="btn-icon fas fa-save"></i>
                     <span class="btn-text">导出日志</span>
@@ -88,6 +98,7 @@
             </button>
 
             <button class="jump-btn" onclick="window.location.href='Update.html'">
+                <div class="jump-btn-glow"></div>
                 <div class="btn-content">
                     <i class="btn-icon fas fa-arrow-up"></i>
                     <span class="btn-text">更新</span>

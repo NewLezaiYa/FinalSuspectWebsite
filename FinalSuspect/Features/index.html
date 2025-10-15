@@ -13,6 +13,11 @@
 </head>
 
 <body>
+    <div class="tech-border-corner top-left"></div>
+    <div class="tech-border-corner top-right"></div>
+    <div class="tech-border-corner bottom-left"></div>
+    <div class="tech-border-corner bottom-right"></div>
+
     <div class="music-player">
         <div class="album-art">
             <i class="fas fa-music" style="font-size: 1.2rem; color: var(--primary);"></i>
@@ -58,6 +63,9 @@
     <div class="glowing-dot"></div>
     <div class="glowing-dot"></div>
 
+    <!-- 扫描线效果 -->
+    <div class="scanlines"></div>
+
     <div class="theme-toggle" id="themeToggle">
         <i class="fas fa-moon"></i>
     </div>
@@ -72,6 +80,7 @@
 
         <div class="btn-group">
             <button class="jump-btn" onclick="window.location.href='ClearAutoLogs.html'">
+                <div class="jump-btn-glow"></div>
                 <div class="btn-content">
                     <i class="btn-icon fas fa-trash-alt"></i>
                     <span class="btn-text">清空自动日志</span>
@@ -80,6 +89,7 @@
             </button>
 
             <button class="jump-btn" onclick="window.location.href='DumpLog.html'">
+                <div class="jump-btn-glow"></div>
                 <div class="btn-content">
                     <i class="btn-icon fas fa-file-code"></i>
                     <span class="btn-text">输出日志</span>
@@ -88,6 +98,7 @@
             </button>
 
             <button class="jump-btn" onclick="window.location.href='MainMenuStyleManager.html'">
+                <div class="jump-btn-glow"></div>
                 <div class="btn-content">
                     <i class="btn-icon fas fa-palette"></i>
                     <span class="btn-text">切换主页风格</span>
@@ -96,6 +107,7 @@
             </button>
 
             <button class="jump-btn" onclick="window.location.href='MyMusic.html'">
+                <div class="jump-btn-glow"></div>
                 <div class="btn-content">
                     <i class="btn-icon fas fa-music"></i>
                     <span class="btn-text">我的音乐</span>
@@ -104,6 +116,7 @@
             </button>
 
             <button class="jump-btn" onclick="window.location.href='NameTagManager.html'">
+                <div class="jump-btn-glow"></div>
                 <div class="btn-content">
                     <i class="btn-icon fas fa-tags"></i>
                     <span class="btn-text">名称标识管理</span>
@@ -112,6 +125,7 @@
             </button>
 
             <button class="jump-btn" onclick="window.location.href='ResourceManager.html'">
+                <div class="jump-btn-glow"></div>
                 <div class="btn-content">
                     <i class="btn-icon fas fa-folder"></i>
                     <span class="btn-text">资源管理</span>
@@ -120,6 +134,7 @@
             </button>
 
             <button class="jump-btn" onclick="window.location.href='UnloadMod.html'">
+                <div class="jump-btn-glow"></div>
                 <div class="btn-content">
                     <i class="btn-icon fas fa-toggle-on"></i>
                     <span class="btn-text">切换原版</span>

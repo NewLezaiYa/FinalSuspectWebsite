@@ -13,6 +13,11 @@
 </head>
 
 <body>
+    <div class="tech-border-corner top-left"></div>
+    <div class="tech-border-corner top-right"></div>
+    <div class="tech-border-corner bottom-left"></div>
+    <div class="tech-border-corner bottom-right"></div>
+
     <div class="music-player">
         <div class="album-art">
             <i class="fas fa-music" style="font-size: 1.2rem; color: var(--primary);"></i>
@@ -58,6 +63,9 @@
     <div class="glowing-dot"></div>
     <div class="glowing-dot"></div>
 
+    <!-- 扫描线效果 -->
+    <div class="scanlines"></div>
+
     <div class="theme-toggle" id="themeToggle">
         <i class="fas fa-moon"></i>
     </div>
@@ -72,6 +80,7 @@
 
         <div class="btn-group">
             <button class="jump-btn" onclick="window.location.href='AutoEndGame.html'">
+                <div class="jump-btn-glow"></div>
                 <div class="btn-content">
                     <i class="btn-icon fas fa-flag-checkered"></i>
                     <span>结束时自动返回大厅</span>
@@ -80,6 +89,7 @@
             </button>
 
             <button class="jump-btn" onclick="window.location.href='AutoStartGame.html'">
+                <div class="jump-btn-glow"></div>
                 <div class="btn-content">
                     <i class="btn-icon fas fa-users-cog"></i>
                     <span>人满自动开始游戏</span>
@@ -88,6 +98,7 @@
             </button>
 
             <button class="jump-btn" onclick="window.location.href='EnableFAC.html'">
+                <div class="jump-btn-glow"></div>
                 <div class="btn-content">
                     <i class="btn-icon fas fa-shield-alt"></i>
                     <span>启用反作弊</span>
@@ -96,6 +107,7 @@
             </button>
 
             <button class="jump-btn" onclick="window.location.href='EnableGuardian.html'">
+                <div class="jump-btn-glow"></div>
                 <div class="btn-content">
                     <i class="btn-icon fas fa-user-shield"></i>
                     <span>启用客户端守护（试验性）</span>
@@ -104,6 +116,7 @@
             </button>
 
             <button class="jump-btn" onclick="window.location.href='DisableVanillaSound.html'">
+                <div class="jump-btn-glow"></div>
                 <div class="btn-content">
                     <i class="btn-icon fas fa-volume-mute"></i>
                     <span>禁用原版游戏音乐</span>
@@ -112,6 +125,7 @@
             </button>
 
             <button class="jump-btn" onclick="window.location.href='FastBoot.html'">
+                <div class="jump-btn-glow"></div>
                 <div class="btn-content">
                     <i class="btn-icon fas fa-bolt"></i>
                     <span>快速启动模式</span>
@@ -120,6 +134,7 @@
             </button>
 
             <button class="jump-btn" onclick="window.location.href='GodMode.html'">
+                <div class="jump-btn-glow"></div>
                 <div class="btn-content">
                     <i class="btn-icon fas fa-crown"></i>
                     <span>上帝模式</span>
@@ -128,6 +143,7 @@
             </button>
 
             <button class="jump-btn" onclick="window.location.href='KickPlayerWithAbnormalFriendCode.html'">
+                <div class="jump-btn-glow"></div>
                 <div class="btn-content">
                     <i class="btn-icon fas fa-user-slash"></i>
                     <span>踢出好友代码异常的玩家</span>
@@ -136,6 +152,7 @@
             </button>
 
             <button class="jump-btn" onclick="window.location.href='KickPlayerInBanList.html'">
+                <div class="jump-btn-glow"></div>
                 <div class="btn-content">
                     <i class="btn-icon fas fa-ban"></i>
                     <span>踢出被封禁的玩家</span>
@@ -144,6 +161,7 @@
             </button>
 
             <button class="jump-btn" onclick="window.location.href='KickPlayerWithDenyName.html'">
+                <div class="jump-btn-glow"></div>
                 <div class="btn-content">
                     <i class="btn-icon fas fa-exclamation-triangle"></i>
                     <span>踢出使用违规昵称的玩家</span>
@@ -152,6 +170,7 @@
             </button>
 
             <button class="jump-btn" onclick="window.location.href='NoGameEnd.html'">
+                <div class="jump-btn-glow"></div>
                 <div class="btn-content">
                     <i class="btn-icon fas fa-flask"></i>
                     <span>测试模式</span>
@@ -160,6 +179,7 @@
             </button>
 
             <button class="jump-btn" onclick="window.location.href='OfflineMode.html'">
+                <div class="jump-btn-glow"></div>
                 <div class="btn-content">
                     <i class="btn-icon fas fa-solid fa-plug"></i>
                     <span>离线模式（实验性）</span>
@@ -168,6 +188,7 @@
             </button>
 
             <button class="jump-btn" onclick="window.location.href='ShowPlayerInfo.html'">
+                <div class="jump-btn-glow"></div>
                 <div class="btn-content">
                     <i class="btn-icon fas fa-info-circle"></i>
                     <span>展示玩家平台与客户端信息</span>
@@ -176,6 +197,7 @@
             </button>
 
             <button class="jump-btn" onclick="window.location.href='SpamDenyWord.html'">
+                <div class="jump-btn-glow"></div>
                 <div class="btn-content">
                     <i class="btn-icon fas fa-comment-slash"></i>
                     <span>屏蔽违禁词</span>
@@ -184,6 +206,7 @@
             </button>
 
             <button class="jump-btn" onclick="window.location.href='SwitchOutfitType.html'">
+                <div class="jump-btn-glow"></div>
                 <div class="btn-content">
                     <i class="btn-icon fas fa-palette"></i>
                     <span>切换外观形象</span>
@@ -192,6 +215,7 @@
             </button>
 
             <button class="jump-btn" onclick="window.location.href='UnlockFPS.html'">
+                <div class="jump-btn-glow"></div>
                 <div class="btn-content">
                     <i class="btn-icon fas fa-infinity"></i>
                     <span>解锁帧数限制</span>
@@ -200,6 +224,7 @@
             </button>
 
             <button class="jump-btn" onclick="window.location.href='UseModCursor.html'">
+                <div class="jump-btn-glow"></div>
                 <div class="btn-content">
                     <i class="btn-icon fas fa-mouse-pointer"></i>
                     <span>使用模组鼠标光标</span>
@@ -208,6 +233,7 @@
             </button>
 
             <button class="jump-btn" onclick="window.location.href='VersionCheat.html'">
+                <div class="jump-btn-glow"></div>
                 <div class="btn-content">
                     <i class="btn-icon fas fa-unlock-alt"></i>
                     <span>绕过版本同步检查</span>
