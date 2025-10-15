@@ -31,6 +31,87 @@
     --player-size: 60px;
 }
 
+/* 科技感边框装饰 */
+.tech-border-corner {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--primary);
+    z-index: 1000;
+    box-shadow: var(--tech-glow);
+}
+
+.top-left {
+    top: 20px;
+    left: 20px;
+    border-right: none;
+    border-bottom: none;
+}
+
+.top-right {
+    top: 20px;
+    right: 20px;
+    border-left: none;
+    border-bottom: none;
+}
+
+.bottom-left {
+    bottom: 20px;
+    left: 20px;
+    border-right: none;
+    border-top: none;
+}
+
+.bottom-right {
+    bottom: 20px;
+    right: 20px;
+    border-left: none;
+    border-top: none;
+}
+
+/* 网格覆盖层 */
+.grid-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        linear-gradient(rgba(79, 109, 245, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(79, 109, 245, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.5;
+}
+
+/* 扫描线效果 */
+.scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(to bottom,
+            transparent 0%,
+            rgba(100, 108, 255, 0.05) 1px,
+            transparent 2px);
+    background-size: 100% 4px;
+    animation: scan 8s linear infinite;
+    pointer-events: none;
+    z-index: 2;
+}
+
+@keyframes scan {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 100%;
+    }
+}
+
 .theme-toggle {
     position: fixed;
     top: 20px;
@@ -48,10 +129,11 @@
     cursor: pointer;
     transition: var(--transition);
     backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
 }
 
 .theme-toggle:hover {
-    transform: scale(1.05);
+    transform: scale(1.05) rotate(15deg);
     box-shadow: var(--shadow-md), var(--tech-glow-hover);
 }
 
@@ -109,10 +191,14 @@ body {
     display: flex;
     flex-direction: column;
     transition: var(--transition);
+    position: relative;
+    overflow-x: hidden;
 }
 
 main {
     width: 100%;
+    position: relative;
+    z-index: 3;
 }
 
 .back-button {
@@ -132,6 +218,7 @@ main {
     box-shadow: 0 4px 12px rgba(79, 109, 245, 0.3), var(--tech-glow);
     position: relative;
     overflow: hidden;
+    border: var(--tech-border);
 }
 
 .back-button:hover {
@@ -178,6 +265,30 @@ h1 {
     padding-bottom: 1.2rem;
     font-weight: 700;
     text-shadow: 0 0 10px rgba(79, 109, 245, 0.5);
+    font-family: 'Orbitron', sans-serif;
+}
+
+h1::before,
+h1::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--primary);
+}
+
+h1::before {
+    top: 0;
+    left: 0;
+    border-right: none;
+    border-bottom: none;
+}
+
+h1::after {
+    top: 0;
+    right: 0;
+    border-left: none;
+    border-bottom: none;
 }
 
 h1::after {
@@ -309,6 +420,7 @@ h1::after {
     position: relative;
     overflow: hidden;
     backdrop-filter: blur(5px);
+    border: var(--tech-border);
 }
 
 .tip::before {
@@ -320,6 +432,23 @@ h1::after {
     height: 0;
     background: #a3d168;
     transition: height 0.4s ease;
+}
+
+.tip::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(163, 209, 104, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.tip:hover::after {
+    opacity: 1;
 }
 
 .tip:hover {
@@ -341,8 +470,6 @@ h1::after {
     margin-bottom: 0;
 }
 
-
-/* ===== 音乐播放器样式 ===== */
 .music-player {
     position: fixed;
     bottom: 2rem;
@@ -399,6 +526,7 @@ body.dark-mode .music-player:hover {
     flex-shrink: 0;
     position: relative;
     box-shadow: 0 0 15px rgba(79, 109, 245, 0.3);
+    border: var(--tech-border);
 }
 
 .album-art img {
@@ -474,6 +602,7 @@ body.dark-mode .music-player:hover {
     color: white;
     font-size: 1.3rem;
     box-shadow: 0 0 15px rgba(79, 109, 245, 0.3);
+    border: var(--tech-border);
 }
 
 .play-btn:hover {
@@ -532,6 +661,31 @@ body.dark-mode .music-player:hover {
     .music-player {
         width: calc(var(--player-size) * 6.5);
     }
+
+    .tech-border-corner {
+        width: 30px;
+        height: 30px;
+    }
+
+    .top-left {
+        top: 15px;
+        left: 15px;
+    }
+
+    .top-right {
+        top: 15px;
+        right: 15px;
+    }
+
+    .bottom-left {
+        bottom: 15px;
+        left: 15px;
+    }
+
+    .bottom-right {
+        bottom: 15px;
+        right: 15px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -540,9 +694,18 @@ body.dark-mode .music-player:hover {
         background-size: 15px 15px;
     }
 
+    .tech-border-corner {
+        display: none;
+    }
+
     h1 {
         margin: 0 0 1.5rem;
         padding-bottom: 1rem;
+    }
+
+    h1::before,
+    h1::after {
+        display: none;
     }
 
     h1::after {
