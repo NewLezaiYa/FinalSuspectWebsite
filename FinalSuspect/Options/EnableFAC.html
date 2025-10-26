@@ -1,53 +1,15 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
     <title>启用反作弊</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../CSS/Common.css">
 </head>
-
 <body>
     <main>
-        <!-- 科技感边框装饰 -->
-        <div class="tech-border-corner top-left"></div>
-        <div class="tech-border-corner bottom-left"></div>
-        <div class="tech-border-corner bottom-right"></div>
-
-        <!-- 网格覆盖层 -->
-        <div class="grid-overlay"></div>
-
-        <!-- 扫描线效果 -->
-        <div class="scanlines"></div>
-        <div class="music-player">
-            <div class="album-art">
-                <i class="fas fa-music" style="font-size: 1.2rem; color: var(--primary);"></i>
-            </div>
-            <div class="track-info">
-                <div class="track-title">FinalSuspect</div>
-                <div class="track-artist">Slok</div>
-            </div>
-            <div class="player-controls">
-                <button class="control-btn play-btn">
-                    <i class="fas fa-play"></i>
-                </button>
-            </div>
-            <div class="volume-control">
-                <i class="fas fa-volume-up" style="color: var(--text-secondary);"></i>
-                <div class="volume-slider">
-                    <div class="volume-level"></div>
-                </div>
-            </div>
-            <div class="progress-container">
-                <div class="progress-bar"></div>
-            </div>
-        </div>
-
         <div class="back-button" onclick="window.history.back()">返回上一页</div>
 
         <div class="theme-toggle" id="themeToggle">
@@ -64,14 +26,9 @@
 
         <div class="danger">
             <p>我们<mark>不推荐</mark>你禁用FAC。<br>
-                禁用FAC后您的房间可能会被外挂炸崩。</p>
+            禁用FAC后您的房间可能会被外挂炸崩。</p>
         </div>
     </main>
     <script src='../JS/LightAndNight.js'></script>
-    <script src='../JS/MusicPlayer.js'></script>
-    <audio id="gameAudio" loop>
-        <source src="../MP3/FinalSuspect.wav" type="audio/wav">
-    </audio>
 </body>
-
 </html>
