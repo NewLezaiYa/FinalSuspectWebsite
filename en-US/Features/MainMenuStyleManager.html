@@ -1,15 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
     <title>Swtich homepage style </title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../CSS/MainMenuStyleManager.css">
 </head>
+
 <body>
     <main>
+        <div class="music-player">
+            <div class="album-art">
+                <i class="fas fa-music" style="font-size: 1.2rem; color: var(--primary);"></i>
+            </div>
+            <div class="track-info">
+                <div class="track-title">FinalSuspect</div>
+                <div class="track-artist">Slok</div>
+            </div>
+            <div class="player-controls">
+                <button class="control-btn play-btn">
+                    <i class="fas fa-play"></i>
+                </button>
+            </div>
+            <div class="volume-control">
+                <i class="fas fa-volume-up" style="color: var(--text-secondary);"></i>
+                <div class="volume-slider">
+                    <div class="volume-level"></div>
+                </div>
+            </div>
+            <div class="progress-container">
+                <div class="progress-bar"></div>
+            </div>
+        </div>
+
         <button class="back-button" onclick="window.history.back()">Back</button>
 
         <div class="theme-toggle" id="themeToggle">
@@ -65,10 +93,9 @@
                         </div>
                     </div>
                     <p class="text">
-                        Bliss, wishes imbued with fortune Bond, woven in heart; Harmony, ties in affection<br>
-Joy, peace bestowed on all
-                        True bond, creates harmonious joy To afar, harmony begets joy; To all, all embrace joy Wishing only, everyone joy
-                        May everyone find their own path in the new year, carrying our blessings, forging ahead courageously, and pursuing the life that truly belongs to them!
+                        祉，祝予福 缘，织于心，谐，连与情 乐，安喻人<br>
+                        挚缘，创谐乐 致远，谐得乐，至元，皆怀乐 只愿，人皆乐<br>
+                        愿每个人在新的一年都能寻得自己的道路，带着我们的祝福，勇往直前，追寻属于自己的人生吧！
                     </p>
                     <p class="text" style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.8rem;">
                         Author：小黄117
@@ -129,11 +156,17 @@ Joy, peace bestowed on all
     </main>
 
     <button class="back-to-top" aria-label="回到顶部">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 15l-6-6-6 6"/>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 15l-6-6-6 6" />
         </svg>
     </button>
     <script src='../JS/BackToTop.js'></script>
     <script src='../JS/LightAndNight.js'></script>
+    <script src='../JS/MusicPlayer.js'></script>
+    <audio id="gameAudio" loop>
+        <source src="../MP3/FinalSuspect.wav" type="audio/wav">
+    </audio>
 </body>
+
 </html>
