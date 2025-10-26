@@ -1,15 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
     <title>Introduction</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="CSS/Introduction.css">
 </head>
+
 <body>
     <main>
+        <div class="music-player">
+            <div class="album-art">
+                <i class="fas fa-music" style="font-size: 1.2rem; color: var(--primary);"></i>
+            </div>
+            <div class="track-info">
+                <div class="track-title">FinalSuspect</div>
+                <div class="track-artist">Slok</div>
+            </div>
+            <div class="player-controls">
+                <button class="control-btn play-btn">
+                    <i class="fas fa-play"></i>
+                </button>
+            </div>
+            <div class="volume-control">
+                <i class="fas fa-volume-up" style="color: var(--text-secondary);"></i>
+                <div class="volume-slider">
+                    <div class="volume-level"></div>
+                </div>
+            </div>
+            <div class="progress-container">
+                <div class="progress-bar"></div>
+            </div>
+        </div>
+
         <div class="back-button" onclick="window.history.back()">Back</div>
 
         <div class="theme-toggle" id="themeToggle">
@@ -26,8 +54,11 @@
         </div>
 
         <div class="text">
-            <p>Final Suspect (Ultimate Suspect) is a high-quality enhancement mod for vanilla Among Us, dedicated to delivering a smoother and more feature-rich gaming experience for players.As a deep extension of the vanilla game's core mechanics, we adhere to the development philosophy of "preserving the classics while refining the experience." Through 20+ iterative features, we comprehensively cover core scenarios such as gameplay feel, visual presentation, and social interaction.</p>
-            <p>From precise input latency optimization to immersive UI redesigns and intelligent teammate behavior prompts, Final Suspect not only addresses long-standing pain points in the vanilla experience but also breathes new life into multiplayer collaboration through innovative features.Both newcomers with its onboarding guidance and veteran players with deep customization options can find their unique enjoyment in this mod.</p>
+            <p>Final Suspect（终极嫌疑）是Among
+                Us原版的优质辅助模组，致力于为玩家带来更流畅、更丰富的游戏体验。As a deep extension of the vanilla game's core mechanics, we adhere to the development philosophy of "preserving the classics while refining the experience." Through 20+ iterative features, we comprehensively cover core scenarios such as gameplay feel, visual presentation, and social interaction.
+            </p>
+            <p>从精准的操作延迟优化到沉浸式的UI界面重制，智能的队友行为提示，Final
+                Suspect不仅修复了原版长期存在的体验痛点，更通过创意功能为多人协作注入新的活力。Both newcomers with its onboarding guidance and veteran players with deep customization options can find their unique enjoyment in this mod.</p>
         </div>
 
         <div class="image-grid">
@@ -39,11 +70,17 @@
     </main>
 
     <button class="back-to-top" aria-label="回到顶部">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 15l-6-6-6 6"/>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 15l-6-6-6 6" />
         </svg>
     </button>
     <script src='JS/BackToTop.js'></script>
     <script src='JS/LightAndNight.js'></script>
+    <script src='JS/MusicPlayer.js'></script>
+    <audio id="gameAudio" loop>
+        <source src="MP3/FinalSuspect.wav" type="audio/wav">
+    </audio>
 </body>
+
 </html>
