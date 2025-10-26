@@ -1,53 +1,15 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
     <title>更新</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../CSS/Update.css">
 </head>
-
 <body>
     <main>
-        <!-- 科技感边框装饰 -->
-        <div class="tech-border-corner top-left"></div>
-        <div class="tech-border-corner bottom-left"></div>
-        <div class="tech-border-corner bottom-right"></div>
-
-        <!-- 网格覆盖层 -->
-        <div class="grid-overlay"></div>
-
-        <!-- 扫描线效果 -->
-        <div class="scanlines"></div>
-        <div class="music-player">
-            <div class="album-art">
-                <i class="fas fa-music" style="font-size: 1.2rem; color: var(--primary);"></i>
-            </div>
-            <div class="track-info">
-                <div class="track-title">FinalSuspect</div>
-                <div class="track-artist">Slok</div>
-            </div>
-            <div class="player-controls">
-                <button class="control-btn play-btn">
-                    <i class="fas fa-play"></i>
-                </button>
-            </div>
-            <div class="volume-control">
-                <i class="fas fa-volume-up" style="color: var(--text-secondary);"></i>
-                <div class="volume-slider">
-                    <div class="volume-level"></div>
-                </div>
-            </div>
-            <div class="progress-container">
-                <div class="progress-bar"></div>
-            </div>
-        </div>
-
         <div class="back-button" onclick="window.history.back()">返回上一页</div>
 
         <div class="theme-toggle" id="themeToggle">
@@ -59,10 +21,10 @@
         <h2>自动更新</h2>
         <div class="text">
             <p>Final Suspect已于游戏内<mark>内置更新检查</mark>，每次启动将自动检查更新。<br>
-                在有更新时会要求您更新，否则您无法继续游玩。</p>
+            在有更新时会要求您更新，否则您无法继续游玩。</p>
             <div class="tip">
                 <p>Release版本与OpenBeta版本的更新检查逻辑不同：<br>
-                    Release不会要求您更新到OpenBeta版本，而OpenBeta则不会进行更新检查。</p>
+                Release不会要求您更新到OpenBeta版本，而OpenBeta则不会进行更新检查。</p>
             </div>
         </div>
 
@@ -73,8 +35,7 @@
             </div>
             <p>若遇上更新检查失败/下载出现问题，可按以下步骤手动更新：</p>
             <ol class="update-steps">
-                <li>访问<a href="https://github.com/Slok7565/FinalSuspect/releases" target="_blank"
-                        rel="noopener noreferrer">GitHub Releases</a>，下载最新版本的dll文件。</li>
+                <li>访问<a href="https://github.com/Slok7565/FinalSuspect/releases" target="_blank" rel="noopener noreferrer">GitHub Releases</a>，下载最新版本的dll文件。</li>
                 <li>打开Among Us根目录，再继续打开<mark>BepInEx\plugins</mark>文件夹。</li>
                 <li>将下载的dll文件替换掉原有的dll文件。</li>
                 <li>至此，更新结束。</li>
@@ -83,17 +44,11 @@
     </main>
 
     <button class="back-to-top" aria-label="回到顶部">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 15l-6-6-6 6" />
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 15l-6-6-6 6"/>
         </svg>
     </button>
     <script src='../JS/BackToTop.js'></script>
     <script src='../JS/LightAndNight.js'></script>
-    <script src='../JS/MusicPlayer.js'></script>
-    <audio id="gameAudio" loop>
-        <source src="../MP3/FinalSuspect.wav" type="audio/wav">
-    </audio>
 </body>
-
 </html>
