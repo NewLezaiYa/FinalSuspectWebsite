@@ -30,16 +30,19 @@
 
     <header>
         <div class="logo">FinalSuspect</div>
-        <nav>
-            <ul>
-                <li><a href="#intro"><i class="fas fa-book-open"></i> 简介</a></li>
-                <li><a href="#faq"><i class="fas fa-life-ring"></i> 疑难解答</a></li>
-                <li><a href="#options"><i class="fas fa-sliders-h"></i> 选项</a></li>
-                <li><a href="#tutorial"><i class="fas fa-book"></i> 教程</a></li>
-                <li><a href="#features"><i class="fas fa-toolbox"></i> 功能</a></li>
-            </ul>
-        </nav>
+            <nav>
+                <ul>
+                    <li><a href="#intro"><i class="fas fa-book-open"></i> 简介</a></li>
+                    <li><a href="#faq"><i class="fas fa-life-ring"></i> 疑难解答</a></li>
+                    <li><a href="#options"><i class="fas fa-sliders-h"></i> 选项</a></li>
+                    <li><a href="#tutorial"><i class="fas fa-book"></i> 教程</a></li>
+                    <li><a href="#features"><i class="fas fa-toolbox"></i> 功能</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
+
+    <!-- 音乐播放器 -->
     <div class="music-player">
         <div class="album-art">
             <i class="fas fa-music" style="font-size: 1.2rem; color: var(--primary);"></i>
@@ -170,6 +173,7 @@
                     <i class="fas fa-chevron-right"></i>
                 </a>
             </section>
+
             <div class="footer-disclaimer">
                 <p><strong>注意：</strong></p>
                 <p>本模组不隶属于 Among Us 或 Innersloth LLC，其包含的内容也未得到 Innersloth LLC 的认可或以其他方式赞助。</p>
@@ -269,9 +273,84 @@
             </div>
         </div>
 
+        <!-- 繁体内容 -->
         <div data-lang="tw" style="display: none;">
+            <section class="hero animate-fadeInUp">
+                <div class="hero-content">
+                    <img src="images/FinalSuspect-Logo.png" class="hero-logo" alt="FinalSuspect Logo">
+                    <h1 class="hero-name">模組文檔</h1>
+                    <p class="hero-tagline">The ultimate mod for the original Among Us, redefining your space werewolf
+                        hunting experience</p>
+                </div>
+            </section>
+
+            <section id="intro" class="section animate-fadeInUp delay-1">
+                <div class="section-glow"></div>
+                <h2 class="section-title">
+                    <i class="fas fa-book-open"></i>
+                    FinalSuspect簡介
+                </h2>
+                <p class="section-content">在這裏可以了解Final Suspect有關詳細信息</p>
+                <a href="zh-TW/Introduction" class="feature-link">
+                    查看詳情
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </section>
+
+            <section id="faq" class="section animate-fadeInUp delay-2">
+                <div class="section-glow"></div>
+                <h2 class="section-title">
+                    <i class="fas fa-life-ring"></i>
+                    FinalSuspect疑難解答
+                </h2>
+                <p class="section-content">遇到安裝失敗、功能異常或兼容性問題？這裡整理了常見問題解答與分步解決方案，快速幫你恢復流暢遊戲</p>
+                <a href="zh-TW/FAQ" class="feature-link">
+                    查看詳情
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </section>
+
+            <section id="options" class="section animate-fadeInUp delay-3">
+                <div class="section-glow"></div>
+                <h2 class="section-title">
+                    <i class="fas fa-sliders-h"></i>
+                    FinalSuspect選項
+                </h2>
+                <p class="section-content">超過20項可調節選項完全滿足你的個性化需求，打造專屬遊戲風格。</p>
+                <a href="zh-TW/Options/" class="feature-link">
+                    查看詳情
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </section>
+
+            <section id="tutorial" class="section animate-fadeInUp delay-4">
+                <div class="section-glow"></div>
+                <h2 class="section-title">
+                    <i class="fas fa-book"></i>
+                    FinalSuspect教程
+                </h2>
+                <p class="section-content">詳細的圖文教程，即使是新手也能輕鬆完成安裝。</p>
+                <a href="zh-TW/Guide/" class="feature-link">
+                    查看詳情
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </section>
+
+            <section id="features" class="section animate-fadeInUp delay-5">
+                <div class="section-glow"></div>
+                <h2 class="section-title">
+                    <i class="fas fa-toolbox"></i>
+                    FinalSuspect功能
+                </h2>
+                <p class="section-content">完美支持原版玩家與模組玩家同局遊戲；帶來前所未有的遊戲體驗。</p>
+                <a href="zh-TW/Features/" class="feature-link">
+                    查看詳情
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+            </section>
+
             <div class="footer-disclaimer">
-                <p><strong>Note:</strong></p>
+                <p><strong>注意：</strong></p>
                 <p>這些模組不隸屬於 Among Us 或 Innersloth LLC，其包含的內容也未得到 Innersloth LLC 的認可或以其他方式贊助。</p>
                 <p>此處包含的部分材料是Innersloth LLC的財產。</p>
                 <p>© Innersloth LLC</p>
@@ -288,9 +367,8 @@
     <script src='FinalSuspect/JS/main.js'></script>
     <script src='FinalSuspect/JS/MusicPlayer.js'></script>
     <audio id="gameAudio" loop>
-        <source src="FinalSuspect/MP3/FinalSuspect.wav" type="audio/mpeg">
+        <source src="FinalSuspect/MP3/FinalSuspect.wav" type="audio/wav">
     </audio>
-    </main>
 </body>
 
 </html>
