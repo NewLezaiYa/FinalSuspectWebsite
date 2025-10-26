@@ -14,12 +14,13 @@ FinalSuspect 是一个专注于提供游戏模组指南与功能展示的网站�
 
 ## 贡献者
 
-本项目由开发者 [LezaiYa](https://github.com/NewLezaiYa) 开发
-基于 [FinalSuspect](https://github.com/Slok7565/FinalSuspect) 模组开发
+本项目由开发者 [LezaiYa](https://github.com/NewLezaiYa) 开发。\
+基于 [FinalSuspect](https://github.com/Slok7565/FinalSuspect) 模组开发。
 
 ## 开源许可
 
-本项目遵循 AGPL-3.0 License。详细内容请查看 [LICENSE](LICENSE) 文件。
+本项目遵循 AGPL-3.0 License。\
+详细内容请查看 [LICENSE](LICENSE) 文件。
 
 ## 问题
 

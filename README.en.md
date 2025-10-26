@@ -14,12 +14,13 @@ FinalSuspect is website project dedicated to providing game mod guides and featu
 
 ## Contributors
 
-This project is primarily developed by developer [LezaiYa](https://github.com/NewLezaiYa), with support from the community.
+This project is primarily developed by developer [LezaiYa](https://github.com/NewLezaiYa), with support from the community.\
 Based on the [FinalSuspect](https://github.com/Slok7565/FinalSuspect) mod development
 
 ## Open Source License
 
-This project is licensed under the AGPL-3.0 License. For details, please refer to the [LICENSE](LICENSE) file.
+This project is licensed under the AGPL-3.0 License.\
+For details, please refer to the [LICENSE](LICENSE) file.
 
 ## issue
 
