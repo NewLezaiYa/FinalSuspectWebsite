@@ -1,43 +1,15 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
     <title>简介</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="CSS/Introduction.css">
 </head>
-
 <body>
     <main>
-        <div class="music-player">
-            <div class="album-art">
-                <i class="fas fa-music" style="font-size: 1.2rem; color: var(--primary);"></i>
-            </div>
-            <div class="track-info">
-                <div class="track-title">FinalSuspect</div>
-                <div class="track-artist">Slok</div>
-            </div>
-            <div class="player-controls">
-                <button class="control-btn play-btn">
-                    <i class="fas fa-play"></i>
-                </button>
-            </div>
-            <div class="volume-control">
-                <i class="fas fa-volume-up" style="color: var(--text-secondary);"></i>
-                <div class="volume-slider">
-                    <div class="volume-level"></div>
-                </div>
-            </div>
-            <div class="progress-container">
-                <div class="progress-bar"></div>
-            </div>
-        </div>
-
         <div class="back-button" onclick="window.history.back()">返回上一页</div>
 
         <div class="theme-toggle" id="themeToggle">
@@ -54,11 +26,8 @@
         </div>
 
         <div class="text">
-            <p>Final Suspect（终极嫌疑）是Among
-                Us原版的优质辅助模组，致力于为玩家带来更流畅、更丰富的游戏体验。作为原版核心机制的深度扩展，我们坚持「保留经典，优化体验」的开发理念，通过20+项功能迭代，全面覆盖操作手感、视觉表现、社交互动等核心场景。
-            </p>
-            <p>从精准的操作延迟优化到沉浸式的UI界面重制，智能的队友行为提示，Final
-                Suspect不仅修复了原版长期存在的体验痛点，更通过创意功能为多人协作注入新的活力。无论是新手玩家的入门引导，还是资深玩家的深度自定义，都能在这款模组中找到专属乐趣。</p>
+            <p>Final Suspect（终极嫌疑）是Among Us原版的优质辅助模组，致力于为玩家带来更流畅、更丰富的游戏体验。作为原版核心机制的深度扩展，我们坚持「保留经典，优化体验」的开发理念，通过20+项功能迭代，全面覆盖操作手感、视觉表现、社交互动等核心场景。</p>
+            <p>从精准的操作延迟优化到沉浸式的UI界面重制，智能的队友行为提示，Final Suspect不仅修复了原版长期存在的体验痛点，更通过创意功能为多人协作注入新的活力。无论是新手玩家的入门引导，还是资深玩家的深度自定义，都能在这款模组中找到专属乐趣。</p>
         </div>
 
         <div class="image-grid">
@@ -70,17 +39,11 @@
     </main>
 
     <button class="back-to-top" aria-label="回到顶部">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 15l-6-6-6 6" />
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 15l-6-6-6 6"/>
         </svg>
     </button>
     <script src='JS/BackToTop.js'></script>
     <script src='JS/LightAndNight.js'></script>
-    <script src='JS/MusicPlayer.js'></script>
-    <audio id="gameAudio" loop>
-        <source src="MP3/FinalSuspect.wav" type="audio/wav">
-    </audio>
 </body>
-
 </html>
