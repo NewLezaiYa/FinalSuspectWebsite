@@ -1,0 +1,60 @@
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background: linear-gradient(90deg, #4f6df5 0%, #3a56e6 100%);
+    color: white;
+    font-size: clamp(1rem, 3vw, 1.1rem);
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin-bottom: 3rem;
+    box-shadow: 0 4px 12px rgba(79, 109, 245, 0.3), var(--tech-glow);
+    position: relative;
+    overflow: hidden;
+    border: var(--tech-border);
+}
+
+.back-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(79, 109, 245, 0.4), var(--tech-glow-hover);
+}
+
+.back-button::before {
+    content: "< ";
+    margin-right: 8px;
+}
+
+.back-button::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(to right,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.3) 50%,
+            rgba(255, 255, 255, 0) 100%);
+    transform: rotate(30deg);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% {
+        transform: rotate(30deg) translateX(-100%);
+    }
+
+    100% {
+        transform: rotate(30deg) translateX(100%);
+    }
+}
+
+@media (max-width: 768px) {
+    .back-button {
+        display: none;
+    }
+}

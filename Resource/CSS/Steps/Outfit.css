@@ -1,0 +1,53 @@
+
+.outfit-list {
+    margin: 2rem 0;
+    padding-left: 2rem;
+}
+
+.outfit-item {
+    margin-bottom: 2.5rem;
+    padding: 2rem;
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm), var(--tech-glow);
+    transition: var(--transition);
+    line-height: 1.7;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(5px);
+    border: var(--tech-border);
+}
+
+.outfit-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 0;
+    background: var(--primary);
+    transition: height 0.4s ease;
+}
+
+.outfit-item:hover::before {
+    height: 100%;
+}
+
+.outfit-item:hover {
+    transform: translateX(8px);
+    box-shadow: var(--shadow-md), var(--tech-glow-hover);
+}
+
+.outfit-item h3 {
+    font-size: 1.3rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .outfit-item {
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+    }
+}

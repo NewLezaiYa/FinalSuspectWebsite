@@ -1,0 +1,32 @@
+h3 {
+    font-size: clamp(1.3rem, 3.5vw, 1.5rem);
+    margin: 2rem 0 1.2rem;
+    color: var(--text-primary);
+    position: relative;
+    padding-left: 24px;
+}
+
+h3::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 18px;
+    background: var(--text-secondary);
+    border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+    h3 {
+        font-size: 1.3rem;
+        margin: 1.8rem 0 1rem;
+        padding-left: 20px;
+    }
+
+    h3::before {
+        width: 5px;
+        height: 16px;
+    }
+}

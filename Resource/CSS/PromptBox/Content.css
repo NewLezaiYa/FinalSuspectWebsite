@@ -1,0 +1,15 @@
+.content-section {
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.content-section::after {
+    content: '';
+    position: absolute;
+    bottom: -1.5rem;
+    left: 10%;
+    width: 80%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--primary), transparent);
+    box-shadow: 0 0 10px var(--primary);
+}

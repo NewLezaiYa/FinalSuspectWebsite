@@ -1,0 +1,55 @@
+.text {
+    font-size: clamp(1rem, 3vw, 1.1rem);
+    color: var(--text-secondary);
+    padding: 1.8rem;
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm), var(--tech-glow);
+    transition: var(--transition);
+    line-height: 1.9;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+    text-indent: 2em;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: var(--tech-border);
+}
+
+.text::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 0;
+    background: var(--primary);
+    transition: height 0.4s ease;
+}
+
+.text:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md), var(--tech-glow-hover);
+}
+
+.text:hover::before {
+    height: 100%;
+}
+
+.text p {
+    margin-bottom: 1rem;
+    text-indent: 2em;
+    position: relative;
+    z-index: 2;
+}
+
+.text p:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .text {
+        font-size: 1rem;
+        padding: 1.5rem;
+    }
+}

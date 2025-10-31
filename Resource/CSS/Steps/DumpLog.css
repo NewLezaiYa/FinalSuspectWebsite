@@ -1,0 +1,41 @@
+.dump-log-steps {
+    padding-left: 2rem;
+    margin: 1.5rem 0;
+}
+
+.dump-log-steps li {
+    margin-bottom: 1rem;
+    font-size: clamp(1rem, 3vw, 1.1rem);
+    color: var(--text-secondary);
+    line-height: 1.7;
+    position: relative;
+    transition: var(--transition);
+}
+
+.dump-log-steps li::before {
+    content: '→';
+    position: absolute;
+    left: -20px;
+    color: var(--primary);
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.dump-log-steps li:hover {
+    color: var(--primary);
+    transform: translateX(5px);
+}
+
+.dump-log-steps li:hover::before {
+    transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+    .dump-log-steps {
+        padding-left: 1.5rem;
+    }
+
+    .dump-log-steps li {
+        margin-bottom: 0.8rem;
+    }
+}
