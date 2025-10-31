@@ -27,43 +27,6 @@ function createParticles() {
     }
 }
 
-// 主题切换功能
-function setupThemeToggle() {
-    const themeToggle = document.getElementById('themeToggle');
-    const body = document.body;
-    const icon = themeToggle.querySelector('i');
-
-    // 检查本地存储或系统偏好
-    const savedTheme = localStorage.getItem('theme');
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-    if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
-        body.classList.add('dark-mode');
-        icon.classList.remove('fa-moon');
-        icon.classList.add('fa-sun');
-    }
-
-    themeToggle.addEventListener('click', () => {
-        body.classList.toggle('dark-mode');
-
-        if (body.classList.contains('dark-mode')) {
-            icon.classList.remove('fa-moon');
-            icon.classList.add('fa-sun');
-            localStorage.setItem('theme', 'dark');
-        } else {
-            icon.classList.remove('fa-sun');
-            icon.classList.add('fa-moon');
-            localStorage.setItem('theme', 'light');
-        }
-
-        // 添加点击动画效果
-        themeToggle.style.transform = 'scale(0.9)';
-        setTimeout(() => {
-            themeToggle.style.transform = '';
-        }, 200);
-    });
-}
-
 // 滚动动画
 function setupScrollAnimations() {
     const observerOptions = {
@@ -169,32 +132,10 @@ function setupSectionHoverEffects() {
     });
 }
 
-// 添加返回顶部按钮显示/隐藏逻辑
-function setupBackToTopButton() {
-    const backToTopButton = document.querySelector('.back-to-top');
-
-    window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 300) {
-            backToTopButton.classList.add('visible');
-        } else {
-            backToTopButton.classList.remove('visible');
-        }
-    });
-
-    backToTopButton.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
-}
-
 // 初始化所有功能
 document.addEventListener('DOMContentLoaded', () => {
     createParticles();
-    setupThemeToggle();
     setupScrollAnimations();
     setupLanguageSwitch();
-    setupSmoothScroll();
     setupSectionHoverEffects();
 });
