@@ -7,3 +7,5 @@ files:
     translation: Guide/%original_file_name%
   - source: FinalSuspect/Options/*.*
     translation: Options/%original_file_name%
+  - source: README.md
+    translation: '%original_file_name%'
