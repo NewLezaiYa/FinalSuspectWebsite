@@ -3,8 +3,11 @@
     --primary-light: #6b8aff;
     --primary-dark: #3a56e6;
     --primary-darker: #2a42c2;
-    --text-primary: #2d3748;
-    --text-secondary: #4a5568;
+    --text-primary: #1e293b; /* 加深文本颜色适应亮色背景 */
+    --text-secondary: #475569; /* 调整次文本颜色 */
+    --text-muted: #64748b; /* 调整弱文本颜色 */
+    --bg-light: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); /* 改为浅色渐变背景 */
+    --card-bg: rgba(255, 255, 255, 0.85); /* 卡片改为白色半透明 */
     --bg-light: linear-gradient(135deg, #f0f4f9 0%, #e6edf5 100%);
     --card-bg: #ffffff;
     --border-radius: 20px;
@@ -12,10 +15,10 @@
     --shadow-md: 0 8px 24px rgba(148, 163, 184, 0.15);
     --shadow-lg: 0 12px 36px rgba(148, 163, 184, 0.18);
     --transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
-    --tech-glow: 0 0 15px rgba(79, 109, 245, 0.3);
-    --tech-glow-hover: 0 0 25px rgba(79, 109, 245, 0.5);
-    --tech-border: 1px solid rgba(79, 109, 245, 0.2);
-    --tech-grid: linear-gradient(rgba(79, 109, 245, 0.05) 1px, transparent 1px),
+    --tech-glow: 0 0 10px rgba(79, 109, 245, 0.3); /* 减弱发光强度 */
+    --tech-glow-hover: 0 0 15px rgba(79, 109, 245, 0.5);
+    --tech-border: 1px solid rgba(79, 109, 245, 0.1); /* 减弱边框透明度 */
+    --tech-grid: linear-gradient(rgba(79, 109, 245, 0.03) 1px, transparent 1px), /* 减弱网格颜色 */
         linear-gradient(90deg, rgba(79, 109, 245, 0.05) 1px, transparent 1px);
     --player-size: 60px;
     --header-height: 80px;
@@ -36,7 +39,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: var(--bg-light), var(--tech-grid);
+    background: var(--bg-light); /* 仅保留浅色渐变背景 */
     background-size: 30px 30px;
     padding: 20px 15px;
     line-height: 1.6;
