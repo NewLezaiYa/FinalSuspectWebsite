@@ -1203,3 +1203,60 @@ body.dark-mode .music-player:hover {
         gap: 0.5rem;
     }
 }
+
+/* 赞赏按钮 */
+.action-buttons {
+    position: fixed;
+    top: 50%;
+    right: 2rem;
+    transform: translateY(-50%);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.action-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1rem;
+    background: var(--card-bg-light);
+    border-radius: 50px;
+    box-shadow: var(--shadow-light), var(--tech-glow);
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: var(--transition-smooth);
+    border: var(--tech-border);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    min-width: 100px;
+    justify-content: center;
+}
+
+.action-btn:hover {
+    transform: translateX(-5px);
+    box-shadow: var(--shadow-lg), var(--tech-glow-hover);
+    color: var(--primary);
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .action-buttons {
+        top: auto;
+        bottom: 2rem;
+        right: 50%;
+        transform: translateX(50%);
+        flex-direction: row;
+    }
+
+    .action-btn {
+        min-width: 90px;
+        padding: 0.6rem 0.8rem;
+    }
+
+    .btn-text {
+        display: none;
+        /* 移动端隐藏文字只显示图标 */
+    }
+}
