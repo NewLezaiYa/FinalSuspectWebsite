@@ -2,89 +2,21 @@
     --primary: #4f6df5;
     --primary-light: #6b8aff;
     --primary-dark: #3a56e6;
-    --text-primary: #e2e8f0;
-    --text-secondary: #a0aec0;
-    --text-muted: #718096;
-    --bg-light: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-    --card-bg: rgba(30, 41, 59, 0.8);
+    --text-primary: #1e293b; /* 加深文本颜色适应亮色背景 */
+    --text-secondary: #475569; /* 调整次文本颜色 */
+    --text-muted: #64748b; /* 调整弱文本颜色 */
+    --bg-light: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); /* 改为浅色渐变背景 */
+    --card-bg: rgba(255, 255, 255, 0.85); /* 卡片改为白色半透明 */
     --border-radius: 16px;
     --shadow-sm: 0 4px 12px rgba(148, 163, 184, 0.1);
     --shadow-md: 0 8px 24px rgba(148, 163, 184, 0.15);
     --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    --tech-glow: 0 0 10px rgba(79, 109, 245, 0.5);
-    --tech-glow-hover: 0 0 20px rgba(79, 109, 245, 0.8);
-    --tech-border: 1px solid rgba(79, 109, 245, 0.3);
-    --tech-grid: linear-gradient(rgba(79, 109, 245, 0.1) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(79, 109, 245, 0.1) 1px, transparent 1px);
+    --tech-glow: 0 0 10px rgba(79, 109, 245, 0.3); /* 减弱发光强度 */
+    --tech-glow-hover: 0 0 15px rgba(79, 109, 245, 0.5);
+    --tech-border: 1px solid rgba(79, 109, 245, 0.1); /* 减弱边框透明度 */
+    --tech-grid: linear-gradient(rgba(79, 109, 245, 0.03) 1px, transparent 1px), /* 减弱网格颜色 */
+        linear-gradient(90deg, rgba(79, 109, 245, 0.03) 1px, transparent 1px);
     --player-size: 60px;
-}
-
-.tech-border-corner {
-    position: fixed;
-    width: 40px;
-    height: 40px;
-    border: 2px solid var(--primary);
-    z-index: 1000;
-    box-shadow: var(--tech-glow);
-}
-
-.top-left {
-    top: 20px;
-    left: 20px;
-    border-right: none;
-    border-bottom: none;
-}
-
-.top-right {
-    top: 20px;
-    right: 20px;
-    border-left: none;
-    border-bottom: none;
-}
-
-.bottom-left {
-    bottom: 20px;
-    left: 20px;
-    border-right: none;
-    border-top: none;
-}
-
-.bottom-right {
-    bottom: 20px;
-    right: 20px;
-    border-left: none;
-    border-top: none;
-}
-
-.grid-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background:
-        linear-gradient(rgba(79, 109, 245, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(79, 109, 245, 0.05) 1px, transparent 1px);
-    background-size: 40px 40px;
-    pointer-events: none;
-    z-index: -1;
-    opacity: 0.5;
-}
-
-.scanlines {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: repeating-linear-gradient(to bottom,
-            transparent 0%,
-            rgba(100, 108, 255, 0.05) 1px,
-            transparent 2px);
-    background-size: 100% 4px;
-    animation: scan 8s linear infinite;
-    pointer-events: none;
-    z-index: 2;
 }
 
 @keyframes scan {
@@ -111,8 +43,7 @@ body {
     padding: 3rem 1.5rem;
     line-height: 1.8;
     color: var(--text-primary);
-    background: var(--bg-light), var(--tech-grid);
-    background-size: 20px 20px;
+    background: var(--bg-light); /* 仅保留浅色渐变背景 */
     min-height: 100vh;
     display: flex;
     flex-direction: column;

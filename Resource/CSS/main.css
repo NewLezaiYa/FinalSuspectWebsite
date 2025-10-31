@@ -2,10 +2,11 @@
     --primary: #4f6df5;
     --primary-light: #6b8aff;
     --primary-dark: #3a56e6;
-    --text-primary: #2d3748;
-    --text-secondary: #4a5568;
-    --bg-light: linear-gradient(135deg, #f0f4f9 0%, #e6edf5 100%);
-    --card-bg-light: rgba(255, 255, 255, 0.85);
+    --text-primary: #1e293b; /* 加深文本颜色适应亮色背景 */
+    --text-secondary: #475569; /* 调整次文本颜色 */
+    --text-muted: #64748b; /* 调整弱文本颜色 */
+    --bg-light: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); /* 改为浅色渐变背景 */
+    --card-bg: rgba(255, 255, 255, 0.85); /* 卡片改为白色半透明 */
     --border-light: rgba(148, 163, 184, 0.15);
     --shadow-light: 0 12px 36px rgba(148, 163, 184, 0.15);
     --text-inverse: #edf2f7;
@@ -15,11 +16,11 @@
     --shadow-dark: 0 12px 36px rgba(0, 0, 0, 0.25);
     --dark-text-primary: #f8fafc;
     --dark-text-secondary: #cbd5e1;
-    --tech-glow: 0 0 15px rgba(79, 109, 245, 0.3);
-    --tech-glow-hover: 0 0 25px rgba(79, 109, 245, 0.5);
-    --tech-border: 1px solid rgba(79, 109, 245, 0.2);
-    --tech-grid: linear-gradient(rgba(79, 109, 245, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(79, 109, 245, 0.05) 1px, transparent 1px);
+    --tech-glow: 0 0 10px rgba(79, 109, 245, 0.3); /* 减弱发光强度 */
+    --tech-glow-hover: 0 0 15px rgba(79, 109, 245, 0.5);
+    --tech-border: 1px solid rgba(79, 109, 245, 0.1); /* 减弱边框透明度 */
+    --tech-grid: linear-gradient(rgba(79, 109, 245, 0.03) 1px, transparent 1px), /* 减弱网格颜色 */
+        linear-gradient(90deg, rgba(79, 109, 245, 0.03) 1px, transparent 1px);
     --transition-smooth: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     --transition-fast: all 0.2s ease;
     --card-radius: 20px;
@@ -38,7 +39,7 @@ body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.7;
     color: var(--text-primary);
-    background: var(--bg-light), var(--tech-grid);
+    background: var(--bg-light); /* 仅保留浅色渐变背景 */
     background-size: 20px 20px;
     min-height: 100vh;
     transition: var(--transition-smooth);
