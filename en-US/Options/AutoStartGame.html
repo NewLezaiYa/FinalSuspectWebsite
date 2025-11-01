@@ -9,21 +9,14 @@
         href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../CSS/Common.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Button/Back.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Text/Text.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Text/h1.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Common.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Music.css">
 </head>
 
 <body>
-    <!-- 科技感边框装饰 -->
-    <div class="tech-border-corner top-left"></div>
-    <div class="tech-border-corner bottom-left"></div>
-    <div class="tech-border-corner bottom-right"></div>
-
-    <!-- 网格覆盖层 -->
-    <div class="grid-overlay"></div>
-
-    <!-- 扫描线效果 -->
-    <div class="scanlines"></div>
-
     <main>
         <div class="music-player">
             <div class="album-art">
@@ -51,23 +44,18 @@
 
         <div class="back-button" onclick="window.history.back()">Back</div>
 
-        <div class="theme-toggle" id="themeToggle">
-            <i class="fas fa-moon"></i>
-        </div>
-
         <h1 id="AutoStartGame">FinalSuspect<br>Auto start when lobby is full</h1>
 
         <div class="text">
-            In the Final Suspect mod, we have optimized the auto-start logic so that the countdown is triggered when the lobby is nearly full.<br>
-            When the number of players in the lobby reaches <mark>max capacity - 1</mark> (i.e., only one player short of being full), Final Suspect will initiate a 10-second short countdown.<br>
-            During the countdown, the host can manually cancel.<br>
-            This mechanism not only avoids delays after the lobby is full, but also prevents the game experience from being affected by the last player joining too late.
+            在Final Suspect模组中，我们优化了自动开始游戏的逻辑，使房间人数接近满员时即可触发倒计时。<br>
+            当房间玩家人数达到<mark>最大值-1</mark>（即仅差1人满员）时，Final Suspect会启动10秒的短倒计时。<br>
+            倒计时期间，房主可手动取消。<br>
+            这一机制既避免了满员后的等待延迟，又防止因最后一名玩家迟迟未加入而影响游戏体验。
         </div>
     </main>
-    <script src='../JS/LightAndNight.js'></script>
-    <script src='../JS/MusicPlayer.js'></script>
+    <script src='../../Resource/JS/MusicPlayer.js'></script>
     <audio id="gameAudio" loop>
-        <source src="../MP3/FinalSuspect.wav" type="audio/wav">
+        <source src="../../Resource/MP3/FinalSuspect.wav" type="audio/wav">
     </audio>
 </body>
 
