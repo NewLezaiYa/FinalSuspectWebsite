@@ -9,21 +9,17 @@
         href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="../CSS/Common.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Button/Back.css">
+    <link rel="stylesheet" href="../../Resource/CSS/PromptBox/Content.css">
+    <link rel="stylesheet" href="../../Resource/CSS/PromptBox/Warning.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Text/Text.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Text/h1.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Common.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Music.css">
 </head>
 
 <body>
     <main>
-        <!-- 科技感边框装饰 -->
-        <div class="tech-border-corner top-left"></div>
-        <div class="tech-border-corner bottom-left"></div>
-        <div class="tech-border-corner bottom-right"></div>
-
-        <!-- 网格覆盖层 -->
-        <div class="grid-overlay"></div>
-
-        <!-- 扫描线效果 -->
-        <div class="scanlines"></div>
         <div class="music-player">
             <div class="album-art">
                 <i class="fas fa-music" style="font-size: 1.2rem; color: var(--primary);"></i>
@@ -50,26 +46,21 @@
 
         <button class="back-button" onclick="window.history.back()">Back</button>
 
-        <div class="theme-toggle" id="themeToggle">
-            <i class="fas fa-moon"></i>
-        </div>
-
         <h1 id="UnloadMod">FinalSuspect<br>Switch to Vanilla</h1>
 
         <div class="content-section">
             <div class="text">
-                <p>This will uninstall Final Suspect-related features and revert the game to its vanilla state.<br>
-                    You will play Among Us using the vanilla client.</p>
+                <p>这将卸载Final Suspect有关功能，回到原版。<br>
+                    您将以原版客户端游玩Among Us。</p>
                 <div class="warning">
-                    <p>After reverting to the vanilla version, the game needs to be restarted for the mod to function.</p>
+                    <p>回到原版后需要重启游戏才能使用Mod</p>
                 </div>
             </div>
         </div>
     </main>
-    <script src='../JS/LightAndNight.js'></script>
-    <script src='../JS/MusicPlayer.js'></script>
+    <script src='../../Resource/JS/MusicPlayer.js'></script>
     <audio id="gameAudio" loop>
-        <source src="../MP3/FinalSuspect.wav" type="audio/wav">
+        <source src="../../Resource/MP3/FinalSuspect.wav" type="audio/wav">
     </audio>
 </body>
 
