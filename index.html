@@ -10,6 +10,8 @@
         href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="Resource/CSS/main.css">
+    <link rel="stylesheet" href="Resource/CSS/Music.css">
+    <link rel="stylesheet" href="Resource/CSS/Button/BackTo.css">
 </head>
 
 <body>
@@ -68,11 +70,6 @@
         </div>
     </div>
 
-    <!-- 主题切换和语言选择 -->
-    <div class="theme-toggle" id="themeToggle">
-        <i class="fas fa-moon"></i>
-    </div>
-
     <div class="language-switch">
         <button id="cn-btn" class="active">
             <i class="fas fa-language"></i>
@@ -103,7 +100,7 @@
         <div data-lang="zh">
             <section class="hero animate-fadeInUp">
                 <div class="hero-content">
-                    <img src="images/FinalSuspect-Logo.png" class="hero-logo" alt="FinalSuspect Logo">
+                    <img src="Resource/images/FinalSuspect-Logo.png" class="hero-logo" alt="FinalSuspect Logo">
                     <h1 class="hero-name">模组文档</h1>
                     <p class="hero-tagline">The ultimate mod for the original Among Us, redefining your space werewolf
                         hunting experience</p>
@@ -181,8 +178,8 @@
                     <i class="fas fa-keyboard"></i>
                     FinalSuspect 快捷键
                 </h2>
-                <p class="section-content">仅试用于MOD端的快捷键，带来更好的操作体验。</p>
-                <a href="FinalSuspect/Keyboard/" class="feature-link">
+                <p class="section-content">仅适用于MOD端的快捷键，带来更好的操作体验。</p>
+                <a href="FinalSuspect/Keyboard" class="feature-link">
                     查看详情
                     <i class="fas fa-chevron-right"></i>
                 </a>
@@ -207,7 +204,7 @@
         <div data-lang="en" style="display: none;">
             <section class="hero animate-fadeInUp">
                 <div class="hero-content">
-                    <img src="images/FinalSuspect-Logo.png" class="hero-logo" alt="FinalSuspect Logo">
+                    <img src="Resource/images/FinalSuspect-Logo.png" class="hero-logo" alt="FinalSuspect Logo">
                     <h1 class="hero-name">Mod Documentation</h1>
                     <p class="hero-tagline">The ultimate mod for the original Among Us, redefining your space werewolf
                         hunting experience</p>
@@ -298,7 +295,7 @@
         <div data-lang="tw" style="display: none;">
             <section class="hero animate-fadeInUp">
                 <div class="hero-content">
-                    <img src="images/FinalSuspect-Logo.png" class="hero-logo" alt="FinalSuspect Logo">
+                    <img src="Resource/images/FinalSuspect-Logo.png" class="hero-logo" alt="FinalSuspect Logo">
                     <h1 class="hero-name">模組文檔</h1>
                     <p class="hero-tagline">The ultimate mod for the original Among Us, redefining your space werewolf
                         hunting experience</p>
@@ -385,10 +382,11 @@
             <path d="M18 15l-6-6-6 6" />
         </svg>
     </button>
-    <script src='FinalSuspect/JS/main.js'></script>
-    <script src='FinalSuspect/JS/MusicPlayer.js'></script>
+    <script src='Resource/JS/BackToTop.js'></script>
+    <script src='Resource/JS/MusicPlayer.js'></script>
+    <script src='Resource/JS/main.js'></script>
     <audio id="gameAudio" loop>
-        <source src="FinalSuspect/MP3/FinalSuspect.wav" type="audio/wav">
+        <source src="Resource/MP3/FinalSuspect.wav" type="audio/wav">
     </audio>
 </body>
 
