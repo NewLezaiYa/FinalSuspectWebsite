@@ -9,7 +9,8 @@
         href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="../CSS/index.css">
+    <link rel="stylesheet" href="../../Resource/CSS/index.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Music.css">
 </head>
 
 <body>
@@ -65,13 +66,9 @@
     <!-- 扫描线效果 -->
     <div class="scanlines"></div>
 
-    <div class="theme-toggle" id="themeToggle">
-        <i class="fas fa-moon"></i>
-    </div>
-
     <div class="container">
         <div class="header">
-            <h1>FinalSuspect Function</h1>
+            <h1>FinalSuspect 功能</h1>
             <button class="back-button" onclick="window.history.back()">
                 <i class="fas fa-chevron-left"></i>
             </button>
@@ -82,7 +79,7 @@
                 <div class="jump-btn-glow"></div>
                 <div class="btn-content">
                     <i class="btn-icon fas fa-trash-alt"></i>
-                    <span class="btn-text">Clear logs</span>
+                    <span class="btn-text">清空自动日志</span>
                 </div>
                 <i class="btn-arrow fas fa-chevron-right"></i>
             </button>
@@ -91,7 +88,7 @@
                 <div class="jump-btn-glow"></div>
                 <div class="btn-content">
                     <i class="btn-icon fas fa-file-code"></i>
-                    <span class="btn-text">Output Log</span>
+                    <span class="btn-text">输出日志</span>
                 </div>
                 <i class="btn-arrow fas fa-chevron-right"></i>
             </button>
@@ -100,7 +97,7 @@
                 <div class="jump-btn-glow"></div>
                 <div class="btn-content">
                     <i class="btn-icon fas fa-palette"></i>
-                    <span class="btn-text">Switch Homepage Style</span>
+                    <span class="btn-text">切换主页风格</span>
                 </div>
                 <i class="btn-arrow fas fa-chevron-right"></i>
             </button>
@@ -109,7 +106,7 @@
                 <div class="jump-btn-glow"></div>
                 <div class="btn-content">
                     <i class="btn-icon fas fa-music"></i>
-                    <span class="btn-text">My Music</span>
+                    <span class="btn-text">我的音乐</span>
                 </div>
                 <i class="btn-arrow fas fa-chevron-right"></i>
             </button>
@@ -118,7 +115,7 @@
                 <div class="jump-btn-glow"></div>
                 <div class="btn-content">
                     <i class="btn-icon fas fa-tags"></i>
-                    <span class="btn-text">Identity Management</span>
+                    <span class="btn-text">名称标识管理</span>
                 </div>
                 <i class="btn-arrow fas fa-chevron-right"></i>
             </button>
@@ -127,7 +124,7 @@
                 <div class="jump-btn-glow"></div>
                 <div class="btn-content">
                     <i class="btn-icon fas fa-folder"></i>
-                    <span class="btn-text">Resource Management</span>
+                    <span class="btn-text">资源管理</span>
                 </div>
                 <i class="btn-arrow fas fa-chevron-right"></i>
             </button>
@@ -136,16 +133,16 @@
                 <div class="jump-btn-glow"></div>
                 <div class="btn-content">
                     <i class="btn-icon fas fa-toggle-on"></i>
-                    <span class="btn-text">Switch to Vanilla</span>
+                    <span class="btn-text">切换原版</span>
                 </div>
                 <i class="btn-arrow fas fa-chevron-right"></i>
             </button>
         </div>
     </div>
-    <script src='../JS/index.js'></script>
-    <script src='../JS/MusicPlayer.js'></script>
+    <script src='../../Resource/JS/index.js'></script>
+    <script src='../../Resource/JS/MusicPlayer.js'></script>
     <audio id="gameAudio" loop>
-        <source src="../MP3/FinalSuspect.wav" type="audio/wav">
+        <source src="../../Resource/MP3/FinalSuspect.wav" type="audio/wav">
     </audio>
 </body>
 
