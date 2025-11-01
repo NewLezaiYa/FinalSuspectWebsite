@@ -9,7 +9,13 @@
         href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="CSS/Introduction.css">
+    <link rel="stylesheet" href="../Resource/CSS/Button/Back.css">
+    <link rel="stylesheet" href="../Resource/CSS/Button/BackTo.css">
+    <link rel="stylesheet" href="../Resource/CSS/Text/Text.css">
+    <link rel="stylesheet" href="../Resource/CSS/Text/h1.css">
+    <link rel="stylesheet" href="../Resource/CSS/Common.css">
+    <link rel="stylesheet" href="../Resource/CSS/Image.css">
+    <link rel="stylesheet" href="../Resource/CSS/Music.css">
 </head>
 
 <body>
@@ -40,16 +46,12 @@
 
         <div class="back-button" onclick="window.history.back()">返回上一页</div>
 
-        <div class="theme-toggle" id="themeToggle">
-            <i class="fas fa-moon"></i>
-        </div>
-
         <h1 id="Introduction">FinalSuspect 简介</h1>
 
         <div class="image-grid">
             <div class="image-wrapper">
                 <p class="text">Final Suspect游戏背景图：</p>
-                <img src="../images/LogoWithTeam.png" class="guide-img">
+                <img src="../Resource/images/LogoWithTeam.png" class="guide-img">
             </div>
         </div>
 
@@ -75,11 +77,10 @@
             <path d="M18 15l-6-6-6 6" />
         </svg>
     </button>
-    <script src='JS/BackToTop.js'></script>
-    <script src='JS/LightAndNight.js'></script>
-    <script src='JS/MusicPlayer.js'></script>
+    <script src='../Resource/JS/BackToTop.js'></script>
+    <script src='../Resource/JS/MusicPlayer.js'></script>
     <audio id="gameAudio" loop>
-        <source src="MP3/FinalSuspect.wav" type="audio/wav">
+        <source src="../Resource/MP3/FinalSuspect.wav" type="audio/wav">
     </audio>
 </body>
 

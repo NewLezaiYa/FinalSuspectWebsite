@@ -1,0 +1,70 @@
+.danger {
+    margin: 2rem 0;
+    padding: 1.8rem;
+    background-color: rgba(255, 245, 245, 0.1);
+    border-left: 5px solid #fc8181;
+    border-radius: 12px;
+    color: #fc8181;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(252, 129, 129, 0.1), var(--tech-glow);
+    transition: var(--transition);
+    backdrop-filter: blur(5px);
+    position: relative;
+    overflow: hidden;
+    border: var(--tech-border);
+}
+
+.danger::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 0;
+    background: #fc8181;
+    transition: height 0.4s ease;
+}
+
+.danger::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(252, 129, 129, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.danger:hover::after {
+    opacity: 1;
+}
+
+.danger:hover {
+    transform: scale(1.005);
+    box-shadow: 0 6px 18px rgba(252, 129, 129, 0.1), var(--tech-glow-hover);
+}
+
+.danger:hover::before {
+    height: 100%;
+}
+
+.danger p {
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 2;
+}
+
+.danger p:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .danger {
+        font-size: 0.95rem;
+        padding: 1.5rem;
+        border-radius: 12px;
+    }
+}

@@ -9,7 +9,9 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="FinalSuspect/CSS/main.css">
+    <link rel="stylesheet" href="Resource/CSS/main.css">
+    <link rel="stylesheet" href="Resource/CSS/Music.css">
+    <link rel="stylesheet" href="Resource/CSS/Button/BackTo.css">
 </head>
 
 <body>
@@ -30,15 +32,16 @@
 
     <header>
         <div class="logo">FinalSuspect</div>
-            <nav>
-                <ul>
-                    <li><a href="#intro"><i class="fas fa-book-open"></i> 简介</a></li>
-                    <li><a href="#faq"><i class="fas fa-life-ring"></i> 疑难解答</a></li>
-                    <li><a href="#options"><i class="fas fa-sliders-h"></i> 选项</a></li>
-                    <li><a href="#tutorial"><i class="fas fa-book"></i> 教程</a></li>
-                    <li><a href="#features"><i class="fas fa-toolbox"></i> 功能</a></li>
-                </ul>
-            </nav>
+        <nav>
+            <ul>
+                <li><a href="#intro"><i class="fas fa-book-open"></i> 简介</a></li>
+                <li><a href="#faq"><i class="fas fa-life-ring"></i> 疑难解答</a></li>
+                <li><a href="#options"><i class="fas fa-sliders-h"></i> 选项</a></li>
+                <li><a href="#tutorial"><i class="fas fa-book"></i> 教程</a></li>
+                <li><a href="#features"><i class="fas fa-toolbox"></i> 功能</a></li>
+                <li><a href="#keyboard"><i class="fas fa-keyboard"></i> 快捷键</a></li>
+            </ul>
+        </nav>
         </div>
     </header>
 
@@ -65,11 +68,6 @@
         <div class="progress-container">
             <div class="progress-bar"></div>
         </div>
-    </div>
-
-    <!-- 主题切换和语言选择 -->
-    <div class="theme-toggle" id="themeToggle">
-        <i class="fas fa-moon"></i>
     </div>
 
     <div class="language-switch">
@@ -102,7 +100,7 @@
         <div data-lang="zh">
             <section class="hero animate-fadeInUp">
                 <div class="hero-content">
-                    <img src="images/FinalSuspect-Logo.png" class="hero-logo" alt="FinalSuspect Logo">
+                    <img src="Resource/images/FinalSuspect-Logo.png" class="hero-logo" alt="FinalSuspect Logo">
                     <h1 class="hero-name">模组文档</h1>
                     <p class="hero-tagline">The ultimate mod for the original Among Us, redefining your space werewolf
                         hunting experience</p>
@@ -174,6 +172,26 @@
                 </a>
             </section>
 
+            <section id="keyboard" class="section animate-fadeInUp delay-6">
+                <div class="section-glow"></div>
+                <h2 class="section-title">
+                    <i class="fas fa-keyboard"></i>
+                    FinalSuspect 快捷键（开发中）
+                </h2>
+                <p class="section-content">仅适用于MOD端的快捷键，带来更好的操作体验。</p>
+                <a href="FinalSuspect/Keyboard" class="feature-link">
+                    查看详情
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+            </section>
+
+            <div class="action-buttons">
+                <a href="#donate" class="action-btn donate-btn">
+                    <i class="fas fa-heart"></i>
+                    <span class="btn-text">赞赏（开发中）</span>
+                </a>
+            </div>
+
             <div class="footer-disclaimer">
                 <p><strong>注意：</strong></p>
                 <p>本模组不隶属于 Among Us 或 Innersloth LLC，其包含的内容也未得到 Innersloth LLC 的认可或以其他方式赞助。</p>
@@ -186,7 +204,7 @@
         <div data-lang="en" style="display: none;">
             <section class="hero animate-fadeInUp">
                 <div class="hero-content">
-                    <img src="images/FinalSuspect-Logo.png" class="hero-logo" alt="FinalSuspect Logo">
+                    <img src="Resource/images/FinalSuspect-Logo.png" class="hero-logo" alt="FinalSuspect Logo">
                     <h1 class="hero-name">Mod Documentation</h1>
                     <p class="hero-tagline">The ultimate mod for the original Among Us, redefining your space werewolf
                         hunting experience</p>
@@ -277,7 +295,7 @@
         <div data-lang="tw" style="display: none;">
             <section class="hero animate-fadeInUp">
                 <div class="hero-content">
-                    <img src="images/FinalSuspect-Logo.png" class="hero-logo" alt="FinalSuspect Logo">
+                    <img src="Resource/images/FinalSuspect-Logo.png" class="hero-logo" alt="FinalSuspect Logo">
                     <h1 class="hero-name">模組文檔</h1>
                     <p class="hero-tagline">The ultimate mod for the original Among Us, redefining your space werewolf
                         hunting experience</p>
@@ -364,10 +382,11 @@
             <path d="M18 15l-6-6-6 6" />
         </svg>
     </button>
-    <script src='FinalSuspect/JS/main.js'></script>
-    <script src='FinalSuspect/JS/MusicPlayer.js'></script>
+    <script src='Resource/JS/BackToTop.js'></script>
+    <script src='Resource/JS/MusicPlayer.js'></script>
+    <script src='Resource/JS/main.js'></script>
     <audio id="gameAudio" loop>
-        <source src="FinalSuspect/MP3/FinalSuspect.wav" type="audio/wav">
+        <source src="Resource/MP3/FinalSuspect.wav" type="audio/wav">
     </audio>
 </body>
 
