@@ -9,21 +9,15 @@
         href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="../CSS/Common.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Button/Back.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Text/Text.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Text/h1.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Common.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Music.css">
 </head>
 
 <body>
     <main>
-        <!-- 科技感边框装饰 -->
-        <div class="tech-border-corner top-left"></div>
-        <div class="tech-border-corner bottom-left"></div>
-        <div class="tech-border-corner bottom-right"></div>
-
-        <!-- 网格覆盖层 -->
-        <div class="grid-overlay"></div>
-
-        <!-- 扫描线效果 -->
-        <div class="scanlines"></div>
         <div class="music-player">
             <div class="album-art">
                 <i class="fas fa-music" style="font-size: 1.2rem; color: var(--primary);"></i>
@@ -48,24 +42,19 @@
             </div>
         </div>
 
-        <div class="back-button" onclick="window.history.back()">返回上一頁</div>
-
-        <div class="theme-toggle" id="themeToggle">
-            <i class="fas fa-moon"></i>
-        </div>
+        <div class="back-button" onclick="window.history.back()">返回上一页</div>
 
         <h1 id="KickPlayerWithDenyName">FinalSuspect<br>踢出使用違規暱稱的玩家</h1>
 
         <div class="text">
-            <p>當您是房主時，若Final Suspect偵測到有人使用了違規暱稱（如包含敏感字詞等<mark>破壞遊戲體驗</mark>的名稱），系統將自動踢出該玩家。
-                此功能可有效維護房間秩序，避免惡意名稱對其他玩家造成干擾。
-                您可以在設定中手動停用自動踢出功能。</p>
+            <p>当您是房主时，若Final Suspect检测到有人使用了违规昵称（如包含敏感词等<mark>破坏游戏体验</mark>的名称），系统将自动踢出该玩家。
+                该功能可有效维护房间秩序，避免恶意名称对其他玩家造成干扰。
+                您可以在设置手动禁用自动踢出功能。</p>
         </div>
     </main>
-    <script src='../JS/LightAndNight.js'></script>
-    <script src='../JS/MusicPlayer.js'></script>
+    <script src='../../Resource/JS/MusicPlayer.js'></script>
     <audio id="gameAudio" loop>
-        <source src="../MP3/FinalSuspect.wav" type="audio/wav">
+        <source src="../../Resource/MP3/FinalSuspect.wav" type="audio/wav">
     </audio>
 </body>
 
