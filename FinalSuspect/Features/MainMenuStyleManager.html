@@ -9,7 +9,16 @@
         href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../CSS/MainMenuStyleManager.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Button/Back.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Button/BackTo.css">
+    <link rel="stylesheet" href="../../Resource/CSS/PromptBox/Warning.css">
+    <link rel="stylesheet" href="../../Resource/CSS/PromptBox/Content.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Text/Text.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Text/h1.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Common.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Music.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Image.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Steps/Outfit.css">
 </head>
 
 <body>
@@ -40,10 +49,6 @@
 
         <button class="back-button" onclick="window.history.back()">返回上一页</button>
 
-        <div class="theme-toggle" id="themeToggle">
-            <i class="fas fa-moon"></i>
-        </div>
-
         <h1 id="MainMenuStyleManager">FinalSuspect<br>切换主页风格</h1>
 
         <div class="content-section">
@@ -56,7 +61,7 @@
                     <h3>逐光寻晓（FS经典背景）</h3>
                     <div class="image-grid">
                         <div class="image-wrapper">
-                            <img src="../../images/FinalSuspect-BG-MiraHQ.png" class="guide-img">
+                            <img src="../../Resource/images/FinalSuspect-BG-MiraHQ.png" class="guide-img">
                         </div>
                     </div>
                     <p class="text">
@@ -73,7 +78,7 @@
                     <h3>赤心炽爱（TONEX经典背景）</h3>
                     <div class="image-grid">
                         <div class="image-wrapper">
-                            <img src="../../images/FinalSuspect-BG-Security-Preview.png" class="guide-img">
+                            <img src="../../Resource/images/FinalSuspect-BG-Security-Preview.png" class="guide-img">
                         </div>
                     </div>
                     <p class="text">
@@ -89,7 +94,7 @@
                     <h3>祉缘谐乐（新春特别节目）</h3>
                     <div class="image-grid">
                         <div class="image-wrapper">
-                            <img src="../../images/FinalSuspect-BG-NewYear-Preview.png" class="guide-img">
+                            <img src="../../Resource/images/FinalSuspect-BG-NewYear-Preview.png" class="guide-img">
                         </div>
                     </div>
                     <p class="text">
@@ -106,7 +111,7 @@
                     <h3>极致演播厅（新春特别节目）</h3>
                     <div class="image-grid">
                         <div class="image-wrapper">
-                            <img src="../../images/FinalSuspect-BG-MiraStudio-Preview.png" class="guide-img">
+                            <img src="../../Resource/images/FinalSuspect-BG-MiraStudio-Preview.png" class="guide-img">
                         </div>
                     </div>
                     <p class="text">
@@ -123,7 +128,7 @@
                     <h3>XtremeWave 极致狂澜</h3>
                     <div class="image-grid">
                         <div class="image-wrapper">
-                            <img src="../../images/FinalSuspect-BG-XtremeWave-Preview.png" class="guide-img">
+                            <img src="../../Resource/images/FinalSuspect-BG-XtremeWave-Preview.png" class="guide-img">
                         </div>
                     </div>
                     <p class="text">
@@ -138,7 +143,7 @@
                     <h3>紧急会议！（TORE经典背景）</h3>
                     <div class="image-grid">
                         <div class="image-wrapper">
-                            <img src="../../images/FinalSuspect-BG-EmergencyMeeting-Preview.png" class="guide-img">
+                            <img src="../../Resource/images/FinalSuspect-BG-EmergencyMeeting-Preview.png" class="guide-img">
                         </div>
                     </div>
                     <p class="text">
@@ -161,11 +166,10 @@
             <path d="M18 15l-6-6-6 6" />
         </svg>
     </button>
-    <script src='../JS/BackToTop.js'></script>
-    <script src='../JS/LightAndNight.js'></script>
-    <script src='../JS/MusicPlayer.js'></script>
+    <script src='../../Resource/JS/BackToTop.js'></script>
+    <script src='../../Resource/JS/MusicPlayer.js'></script>
     <audio id="gameAudio" loop>
-        <source src="../MP3/FinalSuspect.wav" type="audio/wav">
+        <source src="../../Resource/MP3/FinalSuspect.wav" type="audio/wav">
     </audio>
 </body>
 
