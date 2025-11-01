@@ -9,21 +9,16 @@
         href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../CSS/Common.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Button/Back.css">
+    <link rel="stylesheet" href="../../Resource/CSS/PromptBox/Danger.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Text/Text.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Text/h1.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Common.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Music.css">
 </head>
 
 <body>
     <main>
-        <!-- 科技感边框装饰 -->
-        <div class="tech-border-corner top-left"></div>
-        <div class="tech-border-corner bottom-left"></div>
-        <div class="tech-border-corner bottom-right"></div>
-
-        <!-- 网格覆盖层 -->
-        <div class="grid-overlay"></div>
-
-        <!-- 扫描线效果 -->
-        <div class="scanlines"></div>
         <div class="music-player">
             <div class="album-art">
                 <i class="fas fa-music" style="font-size: 1.2rem; color: var(--primary);"></i>
@@ -48,29 +43,24 @@
             </div>
         </div>
 
-        <div class="back-button" onclick="window.history.back()">返回上一頁</div>
-
-        <div class="theme-toggle" id="themeToggle">
-            <i class="fas fa-moon"></i>
-        </div>
+        <div class="back-button" onclick="window.history.back()">返回上一页</div>
 
         <h1 id="EnableFAC">FinalSuspect<br>啟用反作弊</h1>
 
         <div class="text">
-            在Final Suspect模組中，我們提供了啟用FAC（Final Anti Cheat）的選項。<br>
-            啟用此選項後，<mark>FAC將開始工作</mark>。<br>
-            此功能適用於自訂房間或模組測試場景，停用後房間將依賴玩家自律。
+            在Final Suspect模组中，我们提供了启用FAC（Final Anti Cheat）的选项。<br>
+            启用此选项后，<mark>FAC将开始工作</mark>。<br>
+            该功能适用于自定义房间或模组测试场景，禁用后房间将依赖玩家自律。
         </div>
 
         <div class="danger">
-            <p>我們<mark>不建議</mark>你禁用FAC。<br>
-                禁用FAC後您的房間可能會被外掛炸崩。</p>
+            <p>我们<mark>不推荐</mark>你禁用FAC。<br>
+                禁用FAC后您的房间可能会被外挂炸崩。</p>
         </div>
     </main>
-    <script src='../JS/LightAndNight.js'></script>
-    <script src='../JS/MusicPlayer.js'></script>
+    <script src='../../Resource/JS/MusicPlayer.js'></script>
     <audio id="gameAudio" loop>
-        <source src="../MP3/FinalSuspect.wav" type="audio/wav">
+        <source src="../../Resource/MP3/FinalSuspect.wav" type="audio/wav">
     </audio>
 </body>
 
