@@ -9,21 +9,16 @@
         href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../CSS/Common.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Button/Back.css">
+    <link rel="stylesheet" href="../../Resource/CSS/PromptBox/Tip.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Text/Text.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Text/h1.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Common.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Music.css">
 </head>
 
 <body>
     <main>
-        <!-- 科技感边框装饰 -->
-        <div class="tech-border-corner top-left"></div>
-        <div class="tech-border-corner bottom-left"></div>
-        <div class="tech-border-corner bottom-right"></div>
-
-        <!-- 网格覆盖层 -->
-        <div class="grid-overlay"></div>
-
-        <!-- 扫描线效果 -->
-        <div class="scanlines"></div>
         <div class="music-player">
             <div class="album-art">
                 <i class="fas fa-music" style="font-size: 1.2rem; color: var(--primary);"></i>
@@ -48,28 +43,23 @@
             </div>
         </div>
 
-        <div class="back-button" onclick="window.history.back()">Back</div>
-
-        <div class="theme-toggle" id="themeToggle">
-            <i class="fas fa-moon"></i>
-        </div>
+        <div class="back-button" onclick="window.history.back()">返回上一页</div>
 
         <h1 id="DisableVanillaSound">FinalSuspect<br>Disable Vanilla Game Music</h1>
 
         <div class="text">
-            In Final Suspect, we allow players to mute the lobby waiting music.<br>
-            When enabled, the relevant scenes will remain silent, suitable for players who wish to play their own music or reduce repetitive audio distractions.<br>
-            This setting can be adjusted at any time through the mod configuration menu.The feature does not affect game sound effects.
+            在Final Suspect中，我们允许玩家屏蔽大厅等待音乐。<br>
+            启用后，相关场景将保持静默，适合希望自定义播放器音乐或需要减少重复音频干扰的玩家。<br>
+            该设定可通过模组配置菜单随时调整。功能不影响游戏音效。
         </div>
 
         <div class="tip">
-            <p>The ambient lobby noise is classified as a <mark>sound effect</mark>, not music.</p>
+            <p>大厅等待的噪声被归类为<mark>音效</mark>，而非音乐。</p>
         </div>
     </main>
-    <script src='../JS/LightAndNight.js'></script>
-    <script src='../JS/MusicPlayer.js'></script>
+    <script src='../../Resource/JS/MusicPlayer.js'></script>
     <audio id="gameAudio" loop>
-        <source src="../MP3/FinalSuspect.wav" type="audio/wav">
+        <source src="../../Resource/MP3/FinalSuspect.wav" type="audio/wav">
     </audio>
 </body>
 
