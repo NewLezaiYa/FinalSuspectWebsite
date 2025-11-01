@@ -9,21 +9,18 @@
         href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../CSS/Common.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Button/Back.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Button/BackTo.css">
+    <link rel="stylesheet" href="../../Resource/CSS/PromptBox/Tip.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Text/Text.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Text/h1.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Text/h2.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Common.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Music.css">
 </head>
 
 <body>
     <main>
-        <!-- 科技感边框装饰 -->
-        <div class="tech-border-corner top-left"></div>
-        <div class="tech-border-corner bottom-left"></div>
-        <div class="tech-border-corner bottom-right"></div>
-
-        <!-- 网格覆盖层 -->
-        <div class="grid-overlay"></div>
-
-        <!-- 扫描线效果 -->
-        <div class="scanlines"></div>
         <div class="music-player">
             <div class="album-art">
                 <i class="fas fa-music" style="font-size: 1.2rem; color: var(--primary);"></i>
@@ -48,32 +45,28 @@
             </div>
         </div>
 
-        <div class="back-button" onclick="window.history.back()">Back</div>
-
-        <div class="theme-toggle" id="themeToggle">
-            <i class="fas fa-moon"></i>
-        </div>
+        <div class="back-button" onclick="window.history.back()">返回上一页</div>
 
         <h1 id="OutputLog">FinalSuspect<br>Export logs</h1>
 
         <h2>Auto-Export</h2>
         <div class="text">
-            <p>You can select the output log in the Final Suspect function, and then Final Suspect will open the folder where the output log is located.</p>
-            <p>For an introduction to the automatic log export function, please refer to <a href="../Features/DumpLog" target="_blank" rel="noopener noreferrer">this document</a>.</p>
+            <p>您可以在Final Suspect功能中选择输出日志，随后Final Suspect将自动打开输出日志所在的文件夹。</p>
+            <p>有关自动导出日志的功能介绍，请查阅<a href="../Features/DumpLog" target="_blank" rel="noopener noreferrer">此篇文档</a>。</p>
         </div>
 
         <div class="tip">
-            <p>The output directory of Final Suspect is located in the following path：</p>
-            <pre><code>%APPDATA%
-\..\LocalLow\Innersloth\Among Us\FinalSuspect\Logs\Final Suspect-logs</pre></code>
-            <p>You can press<mark>Win</mark> + <mark>R</mark>, and paste this path to open it manually.</p>
+            <p>Final Suspect的输出目录位于下方路径：</p>
+            <pre><code>%APPDATA%\..\LocalLow\Innersloth\Among Us\FinalSuspect\Logs\Final Suspect-logs</pre></code>
+            <p>您可以按下<mark>Win</mark> + <mark>R</mark>，并粘贴这串路径来手动打开。</p>
         </div>
 
         <h2>Manual View</h2>
         <div class="text">
-            <p>If you can't open the settings page, you can also choose to view the log manually.</p>
-            <p>Launch Steam, select <mark>Among                    Us</mark> in your library, click the <mark>gear icon</mark> on the right, choose <mark>Manage</mark>, and then select <mark>Browse local files</mark>.Steam will open to the Among Us root directory.</p>
-            <p>Open the <mark>BepInEx</mark> folder, and the <mark>LogOutput.log</mark> file is the log file.This file will be automatically cleared when you restart FinalSuspect.This file will be automatically cleared when you restart Final Suspect.</p>
+            <p>如果你无法打开设置页面，你也可以选择手动查看日志。</p>
+            <p>启动Steam，在库页面中选择<mark>Among
+                    Us</mark>，点击右侧的<mark>设置图标</mark>，选择<mark>管理</mark>，随后选择<mark>浏览本地文件</mark>。Steam将打开Among Us根目录。</p>
+            <p>打开<mark>BepInEx</mark>文件夹，其中的<mark>LogOutput.log</mark>便是日志文件。该文件将随着你重新启动Final Suspect自动清除。</p>
         </div>
     </main>
 
@@ -83,11 +76,10 @@
             <path d="M18 15l-6-6-6 6" />
         </svg>
     </button>
-    <script src='../JS/BackToTop.js'></script>
-    <script src='../JS/LightAndNight.js'></script>
-    <script src='../JS/MusicPlayer.js'></script>
+    <script src='../../Resource/JS/BackToTop.js'></script>
+    <script src='../../Resource/JS/MusicPlayer.js'></script>
     <audio id="gameAudio" loop>
-        <source src="../MP3/FinalSuspect.wav" type="audio/wav">
+        <source src="../../Resource/MP3/FinalSuspect.wav" type="audio/wav">
     </audio>
 </body>
 
