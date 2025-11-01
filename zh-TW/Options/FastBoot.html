@@ -9,21 +9,18 @@
         href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../CSS/Common.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Button/Back.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Button/BackTo.css">
+    <link rel="stylesheet" href="../../Resource/CSS/PromptBox/Tip.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Text/Text.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Text/h1.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Common.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Music.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Image.css">
 </head>
 
 <body>
     <main>
-        <!-- 科技感边框装饰 -->
-        <div class="tech-border-corner top-left"></div>
-        <div class="tech-border-corner bottom-left"></div>
-        <div class="tech-border-corner bottom-right"></div>
-
-        <!-- 网格覆盖层 -->
-        <div class="grid-overlay"></div>
-
-        <!-- 扫描线效果 -->
-        <div class="scanlines"></div>
         <div class="music-player">
             <div class="album-art">
                 <i class="fas fa-music" style="font-size: 1.2rem; color: var(--primary);"></i>
@@ -48,27 +45,23 @@
             </div>
         </div>
 
-        <div class="back-button" onclick="window.history.back()">返回上一頁</div>
-
-        <div class="theme-toggle" id="themeToggle">
-            <i class="fas fa-moon"></i>
-        </div>
+        <div class="back-button" onclick="window.history.back()">返回上一页</div>
 
         <h1 id="FastBoot">FinalSuspect<br>快速啟動模式</h1>
 
         <div class="text">
-            在Final Suspect模組中，我們引入了快速啟動模式以優化遊戲載入流程。啟用該模式後，系統將跳過非必要環節。<br>
-            經實測，常規啟動耗時約<strong>15秒</strong>，而啟用快速啟動後僅需<strong>5秒</strong>即可直達主選單。此模式特別適合頻繁重啟遊戲的測試場景，玩家可透過設定選單切換模式。
+            在Final Suspect模组中，我们引入了快速启动模式以优化游戏加载流程。启用该模式后，系统将跳过非必要环节。<br>
+            经实测，常规启动耗时约<strong>15秒</strong>，而启用快速启动后仅需<strong>5秒</strong>即可直达主菜单。该模式特别适合频繁重启游戏的测试场景，玩家可通过设置菜单切换模式。
         </div>
 
         <div class="tip">
-            <p>首次安裝或大版本更新時仍需完整載入資源。</p>
+            <p>首次安装或大版本更新时仍需完整加载资源。</p>
         </div>
 
         <div class="image-grid">
             <div class="image-wrapper">
-                <p class="text">快速啟動模式示意圖：</p>
-                <img src="../../images/FastBoot.png" class="guide-img">
+                <p class="text">快速启动模式示意图：</p>
+                <img src="../../Resource/images/FastBoot.png" class="guide-img">
             </div>
         </div>
     </main>
@@ -79,11 +72,10 @@
             <path d="M18 15l-6-6-6 6" />
         </svg>
     </button>
-    <script src='../JS/BackToTop.js'></script>
-    <script src='../JS/LightAndNight.js'></script>
-    <script src='../JS/MusicPlayer.js'></script>
+    <script src='../../Resource/JS/BackToTop.js'></script>
+    <script src='../../Resource/JS/MusicPlayer.js'></script>
     <audio id="gameAudio" loop>
-        <source src="../MP3/FinalSuspect.wav" type="audio/wav">
+        <source src="../../Resource/MP3/FinalSuspect.wav" type="audio/wav">
     </audio>
 </body>
 
