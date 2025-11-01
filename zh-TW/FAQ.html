@@ -9,7 +9,16 @@
         href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="CSS/FAQ.css">
+    <link rel="stylesheet" href="../Resource/CSS/Button/Back.css">
+    <link rel="stylesheet" href="../Resource/CSS/Button/BackTo.css">
+    <link rel="stylesheet" href="../Resource/CSS/Text/Text.css">
+    <link rel="stylesheet" href="../Resource/CSS/Text/h1.css">
+    <link rel="stylesheet" href="../Resource/CSS/Text/h2.css">
+    <link rel="stylesheet" href="../Resource/CSS/Text/h3.css">
+    <link rel="stylesheet" href="../Resource/CSS/Text/ErrorCode.css">
+    <link rel="stylesheet" href="../../Resource/CSS/PromptBox/Warning.css">
+    <link rel="stylesheet" href="../Resource/CSS/Common.css">
+    <link rel="stylesheet" href="../Resource/CSS/Music.css">
 </head>
 
 <body>
@@ -40,41 +49,37 @@
 
         <div class="back-button" onclick="window.history.back()">返回上一頁</div>
 
-        <div class="theme-toggle" id="themeToggle">
-            <i class="fas fa-moon"></i>
-        </div>
-
         <h1 id="FAQ">FinalSuspect 疑難解答</h1>
 
         <h2>Final Suspect兼容其他模組嗎？</h2>
         <div class="text">
-            <p><mark>不考慮、不適配、不兼容</mark>。</p>
+            <p><mark>不考虑、不适配、不兼容</mark>。</p>
         </div>
 
         <h2>最新版本沒有安裝包，我該如何安裝？</h2>
         <div class="text">
-            <p>您可以下載上一個版本的安裝包，隨后按照正常方式安裝Final Suspect<br>
+            <p>您可以下载上一个版本的安装包，随后按照正常方式安装Final Suspect。<br>
                 随后Final Suspect应该会要求你更新，照流程更新即可。</p>
-            <p>如果沒有提示（可能是因為OpenBeta），<a href="Guide/Update">您可以根據更新教程手動</a>更新。</p>
+            <p>如果没有提示（可能是因为OpenBeta），您可以<a href="Guide/Update">根据更新教程手动更新</a>。</p>
         </div>
 
         <h2>Among us客戶端提示錯誤</h2>
 
         <h3>錯誤代碼:<span class="error-code">ErrSteamWorksAuthFail</span></h3>
         <div class="text">
-            <p>請<mark>啟動steam后再打開Among us</mark><br>
+            <p>请<mark>启动Steam后再打开Among Us</mark>。<br>
                 如果您将Final Suspect安装在了官方目录，可以直接通过Steam来打开Among Us。</p>
         </div>
 
         <h3>錯誤代碼：<span class="error-code">ErrFriendCodeFail</span></h3>
         <div class="text">
-            <p>從服務器獲取好友代碼失敗。<br>
+            <p>从服务器获取好友代码失败。<br>
                 请<mark>重启Among Us</mark>以重试登录。</p>
         </div>
 
         <h3>錯誤代碼：<span class="error-code">NoConnectionError</span></h3>
         <div class="text">
-            <p>網絡問題<br>
+            <p>网络问题。<br>
                 请<mark>重启Among Us</mark>以重试登录。</p>
         </div>
 
@@ -83,23 +88,23 @@
             <p>網絡問題<br>
                 请<mark>重启Among Us并确认你是否挂了加速器</mark>。</p>
             <div class="warning">
-                <p>部分情況可能需要掛代理(VPN)</p>
+                <p>部分情况可能需要挂代理（VPN）。</p>
             </div>
         </div>
 
         <h2>無法連接到Final Suspect伺服器</h2>
         <div class="text">
-            <p>請檢查你的網絡</p>
+            <p>请检查你的网络。</p>
             <div class="warning">
-                <p>在1.1_20250501-後續的2個OpenBeta版本中，<mark>無法連接伺服器實際上是一个Bug</mark><br>
+                <p>在1.1_20250501 - 后续的2个OpenBeta版本中，<mark>无法连接服务器实际上是一个Bug</mark>。<br>
                     该问题会在后续的OpenBeta版本中修复。</p>
             </div>
         </div>
 
         <h2>老版本Final Suspect對新版本Among Us的兼容性</h2>
         <div class="text">
-            <p><mark>無法保證</mark>新版兼容性，即使其是Final Suspect的最新版本。<br>
-                但我們相信，等到有人在中國發明推廣了時空穿梭技術後，我們就可以Innersloth退送新版AmongUs前就適配了。</p>
+            <p><mark>无法保证</mark>新版兼容性，即使其是Final Suspect的最新版本。<br>
+                但我们相信，等到有人在中国发明推广了时空穿梭技术后，我们就可以在Innersloth推送新版Among Us前就适配了。</p>
         </div>
     </main>
 
@@ -109,11 +114,10 @@
             <path d="M18 15l-6-6-6 6" />
         </svg>
     </button>
-    <script src='JS/BackToTop.js'></script>
-    <script src='JS/LightAndNight.js'></script>
-    <script src='JS/MusicPlayer.js'></script>
+    <script src='../Resource/JS/BackToTop.js'></script>
+    <script src='../Resource/JS/MusicPlayer.js'></script>
     <audio id="gameAudio" loop>
-        <source src="MP3/FinalSuspect.wav" type="audio/wav">
+        <source src="../Resource/MP3/FinalSuspect.wav" type="audio/wav">
     </audio>
 </body>
 
