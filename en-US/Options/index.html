@@ -9,7 +9,9 @@
         href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="../CSS/index.css">
+    <link rel="stylesheet" href="../../Resource/CSS/index.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Music.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Button/BackTo.css">
 </head>
 
 <body>
@@ -65,13 +67,9 @@
     <!-- 扫描线效果 -->
     <div class="scanlines"></div>
 
-    <div class="theme-toggle" id="themeToggle">
-        <i class="fas fa-moon"></i>
-    </div>
-
     <div class="container">
         <div class="header">
-            <h1>FinalSuspect Options</h1>
+            <h1>FinalSuspect 选项</h1>
             <button class="back-button" onclick="window.history.back()">
                 <i class="fas fa-chevron-left"></i>
             </button>
@@ -82,7 +80,7 @@
                 <div class="jump-btn-glow"></div>
                 <div class="btn-content">
                     <i class="btn-icon fas fa-flag-checkered"></i>
-                    <span>Auto Return to Lobby When Game Ends</span>
+                    <span>结束时自动返回大厅</span>
                 </div>
                 <i class="btn-arrow fas fa-chevron-right"></i>
             </button>
@@ -91,7 +89,7 @@
                 <div class="jump-btn-glow"></div>
                 <div class="btn-content">
                     <i class="btn-icon fas fa-users-cog"></i>
-                    <span>Auto Start When Lobby Is Full</span>
+                    <span>人满自动开始游戏</span>
                 </div>
                 <i class="btn-arrow fas fa-chevron-right"></i>
             </button>
@@ -100,7 +98,7 @@
                 <div class="jump-btn-glow"></div>
                 <div class="btn-content">
                     <i class="btn-icon fas fa-shield-alt"></i>
-                    <span>Enable Anti-Cheat</span>
+                    <span>启用反作弊</span>
                 </div>
                 <i class="btn-arrow fas fa-chevron-right"></i>
             </button>
@@ -109,7 +107,7 @@
                 <div class="jump-btn-glow"></div>
                 <div class="btn-content">
                     <i class="btn-icon fas fa-user-shield"></i>
-                    <span>Enable Client Guardian (Experimental)</span>
+                    <span>启用客户端守护（试验性）</span>
                 </div>
                 <i class="btn-arrow fas fa-chevron-right"></i>
             </button>
@@ -118,7 +116,7 @@
                 <div class="jump-btn-glow"></div>
                 <div class="btn-content">
                     <i class="btn-icon fas fa-volume-mute"></i>
-                    <span>Disable Vanilla Game Music</span>
+                    <span>禁用原版游戏音乐</span>
                 </div>
                 <i class="btn-arrow fas fa-chevron-right"></i>
             </button>
@@ -127,7 +125,7 @@
                 <div class="jump-btn-glow"></div>
                 <div class="btn-content">
                     <i class="btn-icon fas fa-bolt"></i>
-                    <span>Quick Start Mode</span>
+                    <span>快速启动模式</span>
                 </div>
                 <i class="btn-arrow fas fa-chevron-right"></i>
             </button>
@@ -136,7 +134,7 @@
                 <div class="jump-btn-glow"></div>
                 <div class="btn-content">
                     <i class="btn-icon fas fa-crown"></i>
-                    <span>God Mode</span>
+                    <span>上帝模式</span>
                 </div>
                 <i class="btn-arrow fas fa-chevron-right"></i>
             </button>
@@ -145,7 +143,7 @@
                 <div class="jump-btn-glow"></div>
                 <div class="btn-content">
                     <i class="btn-icon fas fa-user-slash"></i>
-                    <span>Kick Players with Invalid Friend Codes</span>
+                    <span>踢出好友代码异常的玩家</span>
                 </div>
                 <i class="btn-arrow fas fa-chevron-right"></i>
             </button>
@@ -154,7 +152,7 @@
                 <div class="jump-btn-glow"></div>
                 <div class="btn-content">
                     <i class="btn-icon fas fa-ban"></i>
-                    <span>Kick Banned Players</span>
+                    <span>踢出被封禁的玩家</span>
                 </div>
                 <i class="btn-arrow fas fa-chevron-right"></i>
             </button>
@@ -163,7 +161,7 @@
                 <div class="jump-btn-glow"></div>
                 <div class="btn-content">
                     <i class="btn-icon fas fa-exclamation-triangle"></i>
-                    <span>Kick Players with Violating Nicknames</span>
+                    <span>踢出使用违规昵称的玩家</span>
                 </div>
                 <i class="btn-arrow fas fa-chevron-right"></i>
             </button>
@@ -172,7 +170,7 @@
                 <div class="jump-btn-glow"></div>
                 <div class="btn-content">
                     <i class="btn-icon fas fa-flask"></i>
-                    <span>Test Mode</span>
+                    <span>测试模式</span>
                 </div>
                 <i class="btn-arrow fas fa-chevron-right"></i>
             </button>
@@ -181,7 +179,7 @@
                 <div class="jump-btn-glow"></div>
                 <div class="btn-content">
                     <i class="btn-icon fas fa-solid fa-plug"></i>
-                    <span>Offline Mode (Experimental)</span>
+                    <span>离线模式（实验性）</span>
                 </div>
                 <i class="btn-arrow fas fa-chevron-right"></i>
             </button>
@@ -190,7 +188,7 @@
                 <div class="jump-btn-glow"></div>
                 <div class="btn-content">
                     <i class="btn-icon fas fa-info-circle"></i>
-                    <span>Show Player Platform & Client Info</span>
+                    <span>展示玩家平台与客户端信息</span>
                 </div>
                 <i class="btn-arrow fas fa-chevron-right"></i>
             </button>
@@ -199,7 +197,7 @@
                 <div class="jump-btn-glow"></div>
                 <div class="btn-content">
                     <i class="btn-icon fas fa-comment-slash"></i>
-                    <span>Block Banned Words</span>
+                    <span>屏蔽违禁词</span>
                 </div>
                 <i class="btn-arrow fas fa-chevron-right"></i>
             </button>
@@ -208,7 +206,7 @@
                 <div class="jump-btn-glow"></div>
                 <div class="btn-content">
                     <i class="btn-icon fas fa-palette"></i>
-                    <span>Switch Appearance</span>
+                    <span>切换外观形象</span>
                 </div>
                 <i class="btn-arrow fas fa-chevron-right"></i>
             </button>
@@ -217,7 +215,7 @@
                 <div class="jump-btn-glow"></div>
                 <div class="btn-content">
                     <i class="btn-icon fas fa-infinity"></i>
-                    <span>Unlock FPS Limit</span>
+                    <span>解锁帧数限制</span>
                 </div>
                 <i class="btn-arrow fas fa-chevron-right"></i>
             </button>
@@ -226,7 +224,7 @@
                 <div class="jump-btn-glow"></div>
                 <div class="btn-content">
                     <i class="btn-icon fas fa-mouse-pointer"></i>
-                    <span>Use Modded Mouse Cursor</span>
+                    <span>使用模组鼠标光标</span>
                 </div>
                 <i class="btn-arrow fas fa-chevron-right"></i>
             </button>
@@ -235,7 +233,7 @@
                 <div class="jump-btn-glow"></div>
                 <div class="btn-content">
                     <i class="btn-icon fas fa-unlock-alt"></i>
-                    <span>Bypass Version Sync Check</span>
+                    <span>绕过版本同步检查</span>
                 </div>
                 <i class="btn-arrow fas fa-chevron-right"></i>
             </button>
@@ -247,11 +245,11 @@
             <path d="M18 15l-6-6-6 6" />
         </svg>
     </button>
-    <script src='../JS/BackToTop.js'></script>
-    <script src='../JS/index.js'></script>
-    <script src='../JS/MusicPlayer.js'></script>
+    <script src='../../Resource/JS/BackToTop.js'></script>
+    <script src='../../Resource/JS/index.js'></script>
+    <script src='../../Resource/JS/MusicPlayer.js'></script>
     <audio id="gameAudio" loop>
-        <source src="../MP3/FinalSuspect.wav" type="audio/wav">
+        <source src="../../Resource/MP3/FinalSuspect.wav" type="audio/wav">
     </audio>
 </body>
 
