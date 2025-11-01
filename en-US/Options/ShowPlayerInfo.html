@@ -9,21 +9,18 @@
         href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../CSS/Common.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Button/Back.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Button/BackTo.css">
+    <link rel="stylesheet" href="../../Resource/CSS/PromptBox/Warning.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Text/Text.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Text/h1.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Common.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Music.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Image.css">
 </head>
 
 <body>
     <main>
-        <!-- 科技感边框装饰 -->
-        <div class="tech-border-corner top-left"></div>
-        <div class="tech-border-corner bottom-left"></div>
-        <div class="tech-border-corner bottom-right"></div>
-
-        <!-- 网格覆盖层 -->
-        <div class="grid-overlay"></div>
-
-        <!-- 扫描线效果 -->
-        <div class="scanlines"></div>
         <div class="music-player">
             <div class="album-art">
                 <i class="fas fa-music" style="font-size: 1.2rem; color: var(--primary);"></i>
@@ -48,27 +45,23 @@
             </div>
         </div>
 
-        <div class="back-button" onclick="window.history.back()">Back</div>
-
-        <div class="theme-toggle" id="themeToggle">
-            <i class="fas fa-moon"></i>
-        </div>
+        <div class="back-button" onclick="window.history.back()">返回上一页</div>
 
         <h1 id="ShowPlayerInfo">FinalSuspect<br>Show Player Platform & Client Info</h1>
 
         <div class="text">
-            <p>When this option is enabled, the platform affiliation (e.g., Steam, Epic) and friend code of all players will be displayed beneath their names while in the lobby.<br>
-                This not only allows players to easily see the platform source of room members, but also helps the development team quickly identify potential cheaters—when players report hacking, the friend code can be submitted as key data, making it easier for the devs to track and handle violating accounts.</p>
+            <p>启用该选项后，在大厅等待时，所有玩家的所属平台（如Steam、Epic等）及好友代码将会显示在玩家下方。<br>
+                这不仅方便玩家查看房间成员的来源平台，还能帮助开发团队快速识别潜在的作弊者——当玩家举报外挂时，好友代码可作为关键数据提交，便于开发组追踪违规账号并进行处理。</p>
         </div>
 
         <div class="warning">
-            <p>During live streaming or content recording, it is recommended to <mark>disable this feature</mark> to protect your privacy.</p>
+            <p>在进行直播、素材录制等活动时我们建议您<mark>关闭此功能</mark>来保护隐私。</p>
         </div>
 
         <div class="image-grid">
             <div class="image-wrapper">
-                <p class="text">Player Platform & Client Info Display Demo：</p>
-                <img src="../../images/ShowPlayerInfo.png" class="guide-img">
+                <p class="text">展示玩家平台与客户端信息示意图：</p>
+                <img src="../../Resource/images/ShowPlayerInfo.png" class="guide-img">
             </div>
         </div>
     </main>
@@ -79,11 +72,10 @@
             <path d="M18 15l-6-6-6 6" />
         </svg>
     </button>
-    <script src='../JS/BackToTop.js'></script>
-    <script src='../JS/LightAndNight.js'></script>
-    <script src='../JS/MusicPlayer.js'></script>
+    <script src='../../Resource/JS/BackToTop.js'></script>
+    <script src='../../Resource/JS/MusicPlayer.js'></script>
     <audio id="gameAudio" loop>
-        <source src="../MP3/FinalSuspect.wav" type="audio/wav">
+        <source src="../../Resource/MP3/FinalSuspect.wav" type="audio/wav">
     </audio>
 </body>
 
