@@ -9,21 +9,15 @@
         href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="../CSS/Common.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Button/Back.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Text/Text.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Text/h1.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Common.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Music.css">
 </head>
 
 <body>
     <main>
-        <!-- 科技感边框装饰 -->
-        <div class="tech-border-corner top-left"></div>
-        <div class="tech-border-corner bottom-left"></div>
-        <div class="tech-border-corner bottom-right"></div>
-
-        <!-- 网格覆盖层 -->
-        <div class="grid-overlay"></div>
-
-        <!-- 扫描线效果 -->
-        <div class="scanlines"></div>
         <div class="music-player">
             <div class="album-art">
                 <i class="fas fa-music" style="font-size: 1.2rem; color: var(--primary);"></i>
@@ -50,22 +44,17 @@
 
         <button class="back-button" onclick="window.history.back()">返回上一頁</button>
 
-        <div class="theme-toggle" id="themeToggle">
-            <i class="fas fa-moon"></i>
-        </div>
-
         <h1 id="ClearAutoLogs">FinalSuspect<br>清空自動日誌</h1>
 
         <div class="text">
-            <p>在模組Town Of Host中，當Among Us關閉時會自動保存一個日誌文件。<br>
+            <p>在模组Town Of Host中，当Among Us关闭时会自动保存一个日志文件。<br>
                 这个功能的初衷是为了遇到意外错误时可以提供相关信息。<br>
                 但该功能在Town Of Host中是默认启用且（除非改代码）无法关闭。</p>
-            <p>因此，我們在Final Suspect中添加了清空自動日誌功能，以解決這個問題。</p>
+            <p>因此，我们在Final Suspect中添加了清空自动日志功能，以解决这个问题。</p>
         </div>
-        <script src='../JS/LightAndNight.js'></script>
-        <script src='../JS/MusicPlayer.js'></script>
+        <script src='../../Resource/JS/MusicPlayer.js'></script>
         <audio id="gameAudio" loop>
-            <source src="../MP3/FinalSuspect.wav" type="audio/wav">
+            <source src="../../Resource/MP3/FinalSuspect.wav" type="audio/wav">
         </audio>
     </main>
 </body>
