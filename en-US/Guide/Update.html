@@ -9,21 +9,20 @@
         href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../CSS/Update.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Button/Back.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Button/BackTo.css">
+    <link rel="stylesheet" href="../../Resource/CSS/PromptBox/Tip.css">
+    <link rel="stylesheet" href="../../Resource/CSS/PromptBox/Warning.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Text/Text.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Text/h1.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Text/h2.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Common.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Music.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Steps/Update.css">
 </head>
 
 <body>
     <main>
-        <!-- 科技感边框装饰 -->
-        <div class="tech-border-corner top-left"></div>
-        <div class="tech-border-corner bottom-left"></div>
-        <div class="tech-border-corner bottom-right"></div>
-
-        <!-- 网格覆盖层 -->
-        <div class="grid-overlay"></div>
-
-        <!-- 扫描线效果 -->
-        <div class="scanlines"></div>
         <div class="music-player">
             <div class="album-art">
                 <i class="fas fa-music" style="font-size: 1.2rem; color: var(--primary);"></i>
@@ -48,36 +47,32 @@
             </div>
         </div>
 
-        <div class="back-button" onclick="window.history.back()">Back</div>
-
-        <div class="theme-toggle" id="themeToggle">
-            <i class="fas fa-moon"></i>
-        </div>
+        <div class="back-button" onclick="window.history.back()">返回上一页</div>
 
         <h1 id="Update">FinalSuspect Update </h1>
 
         <h2>Automatic Update</h2>
         <div class="text">
-            <p>Final Suspect has a <mark>built-in update checker</mark> within the game, and will automatically check for updates each time you launch it.<br> 
-                If an update is available, you will be required to update; otherwise, you cannot continue playing.</p>
+            <p>Final Suspect已于游戏内<mark>内置更新检查</mark>，每次启动将自动检查更新。<br>
+                在有更新时会要求您更新，否则您无法继续游玩。</p>
             <div class="tip">
-                <p>The update check logic differs between Release and OpenBeta versions：<br>
-                    Release versions will not prompt you to update to an OpenBeta version, while OpenBeta versions do not perform update checks.</p>
+                <p>Release版本与OpenBeta版本的更新检查逻辑不同：<br>
+                    Release不会要求您更新到OpenBeta版本，而OpenBeta则不会进行更新检查。</p>
             </div>
         </div>
 
         <h2>Manual Update</h2>
         <div class="text">
             <div class="warning">
-                <p>If not necessary, we recommend that you choose automatic update.</p>
+                <p>如非必要，我们建议您优先选择自动更新。</p>
             </div>
-            <p>If the update check fails or issues occur during download, you can manually update by following these steps：</p>
+            <p>若遇上更新检查失败/下载出现问题，可按以下步骤手动更新：</p>
             <ol class="update-steps">
-                <li>Visit <a href="https://github.com/Slok7565/FinalSuspect/releases" target="_blank"
-                        rel="noopener noreferrer">GitHub Releases</a> and download the latest version of the DLL file.</li>
-                <li>Open the Among Us root directory, then navigate to the <mark>BepInEx\plugins</mark> folder.</li>
-                <li>Replace the existing DLL file with the downloaded one.</li>
-                <li>That's all for the updates.</li>
+                <li>访问<a href="https://github.com/Slok7565/FinalSuspect/releases" target="_blank"
+                        rel="noopener noreferrer">GitHub Releases</a>，下载最新版本的dll文件。</li>
+                <li>打开Among Us根目录，再继续打开<mark>BepInEx\plugins</mark>文件夹。</li>
+                <li>将下载的dll文件替换掉原有的dll文件。</li>
+                <li>至此，更新结束。</li>
             </ol>
         </div>
     </main>
@@ -88,11 +83,10 @@
             <path d="M18 15l-6-6-6 6" />
         </svg>
     </button>
-    <script src='../JS/BackToTop.js'></script>
-    <script src='../JS/LightAndNight.js'></script>
-    <script src='../JS/MusicPlayer.js'></script>
+    <script src='../../Resource/JS/BackToTop.js'></script>
+    <script src='../../Resource/JS/MusicPlayer.js'></script>
     <audio id="gameAudio" loop>
-        <source src="../MP3/FinalSuspect.wav" type="audio/wav">
+        <source src="../../Resource/MP3/FinalSuspect.wav" type="audio/wav">
     </audio>
 </body>
 
