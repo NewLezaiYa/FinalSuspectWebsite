@@ -27,6 +27,7 @@
     <div class="scanlines"></div>
     <div class="grid-overlay"></div>
     <div class="tech-border-corner top-left"></div>
+    <div class="tech-border-corner top-right"></div>
     <div class="tech-border-corner bottom-left"></div>
     <div class="tech-border-corner bottom-right"></div>
 
@@ -376,6 +377,37 @@
         </div>
     </div>
 
+    <!-- 赞赏按钮 -->
+    <div class="appreciate-btn">
+        <div class="appreciate-main-btn">
+            <i class="fas fa-heart"></i>
+        </div>
+        <div class="appreciate-options">
+            <div class="appreciate-option" data-type="wechat">
+                <i class="fab fa-weixin"></i>
+                <span class="appreciate-label">微信支付</span>
+            </div>
+        </div>
+    </div>
+
+        <!-- 微信支付 -->
+    <div class="wechat-modal" id="wechat-modal">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div class="modal-icon">
+                <i class="fab fa-weixin"></i>
+            </div>
+            <h3 class="modal-title">微信支付赞赏</h3>
+            <p class="modal-desc">扫描下方二维码支持FinalSuspect，感谢您的慷慨赞助！</p>
+
+            <div class="qrcode-container">
+                <img src="Resource/images/Appreciate_Slok.jpg" class="Appreciate_Slok">
+            </div>
+
+            <p class="tip">扫码支付后，您的支持将直接送达FinalSuspect的开发人员</p>
+        </div>
+    </div>
+
     <button class="back-to-top" aria-label="回到顶部">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -385,6 +417,7 @@
     <script src='Resource/JS/BackToTop.js'></script>
     <script src='Resource/JS/MusicPlayer.js'></script>
     <script src='Resource/JS/main.js'></script>
+    <script src='Resource/JS/Appreciate.js'></script>
     <audio id="gameAudio" loop>
         <source src="Resource/MP3/FinalSuspect.wav" type="audio/wav">
     </audio>
