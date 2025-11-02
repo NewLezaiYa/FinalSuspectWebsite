@@ -1,0 +1,23 @@
+kbd {
+    display: inline-block;
+    padding: 0.2rem 0.4rem;
+    background: var(--card-bg);
+    border: var(--tech-border);
+    border-radius: 4px;
+    box-shadow: var(--shadow-sm);
+    font-family: monospace;
+    color: var(--text-primary);
+    margin: 0 0.2rem;
+}
+
+dl {
+    margin-bottom: 1rem;
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 0.8rem 1.5rem;
+}
+
+dt {
+    font-weight: 600;
+    color: var(--primary);
+}
