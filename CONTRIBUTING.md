@@ -1,4 +1,4 @@
-## 贡献指南
+# 贡献指南
 
 ### 贡献方式
 
@@ -11,12 +11,12 @@
 - **HTML代码编辑器（如Visual Studio Code）**
 
 ### 贡献流程
-- **添加新功能**
- - **Fork 项目到个人 GitHub 账户**
- - **编写代码并确保符合项目规范**
- - **提交 Pull Request 并详细描述改动内容**
- 
-- **添加新语言翻译**
+#### **添加新功能**
+- **Fork 项目到个人 GitHub 账户**
+- **编写代码并确保符合项目规范**
+- **提交 Pull Request 并详细描述改动内容**
+
+####**添加新语言翻译**
  - **打开 [issue](https://github.com/NewLezaiYa/FinalSuspectWebsite/issues) 申请添加新语言**
 
 ### 注意事项
