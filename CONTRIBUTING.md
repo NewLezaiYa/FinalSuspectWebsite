@@ -16,7 +16,7 @@
 - **编写代码并确保符合项目规范**
 - **提交 Pull Request 并详细描述改动内容**
 
-####**添加新语言翻译**
+#### **添加新语言翻译**
  - **打开 [issue](https://github.com/NewLezaiYa/FinalSuspectWebsite/issues) 申请添加新语言**
 
 ### 注意事项
