@@ -979,6 +979,10 @@ nav a:hover::after {
     animation-delay: 0.5s;
 }
 
+.delay-6 {
+    animation-delay: 0.6s;
+}
+
 .Appreciate_Slok {
     max-width: 250px;
     height: auto;
