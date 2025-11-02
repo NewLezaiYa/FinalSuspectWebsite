@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="../Resource/CSS/Text/h1.css">
     <link rel="stylesheet" href="../Resource/CSS/Text/h2.css">
     <link rel="stylesheet" href="../Resource/CSS/PromptBox/Warning.css">
+    <link rel="stylesheet" href="../Resource/CSS/PromptBox/Danger.css">
     <link rel="stylesheet" href="../Resource/CSS/Common.css">
     <link rel="stylesheet" href="../Resource/CSS/Music.css">
 </head>
@@ -68,6 +69,9 @@
                 <dt><kbd>F1</kbd>+<kbd>左Ctrl</kbd>/<kbd>右Ctrl</kbd></dt>
                 <dd>输出日志</dd>
 
+                <dt><kbd>F2</kbd>+<kbd>左Ctrl</kbd>/<kbd>右Ctrl</kbd></dt>
+                <dd>游戏中输出日志</dd>
+
                 <dt><kbd>F10</kbd></dt>
                 <dd>打开游戏目录</dd>
 
@@ -88,10 +92,14 @@
 
                 <dt><kbd>C</kbd></dt>
                 <dd>重置房间倒计时</dd>
+            </dl>
 
-                <dt><kbd>F2</kbd>+<kbd>左Ctrl</kbd>/<kbd>右Ctrl</kbd></dt>
-                <dd>游戏中输出日志</dd>
+            <div class="danger">
+                <p>以下快捷键仅支持构建版本为Debug模式。<br>
+                    查看模组公告确认是什么构建版本。</p>
+            </div>
 
+            <dl>
                 <dt><kbd>Shift</kbd>+<kbd>V</kbd>+<kbd>Enter</kbd></dt>
                 <dd>实名投票</dd>
 
@@ -109,18 +117,18 @@
             </dl>
         </div>
 
-    <button class="back-to-top" aria-label="回到顶部">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 15l-6-6-6 6" />
-        </svg>
-    </button>
+        <button class="back-to-top" aria-label="回到顶部">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 15l-6-6-6 6" />
+            </svg>
+        </button>
 
-    <script src='../Resource/JS/BackToTop.js'></script>
-    <script src='../Resource/JS/MusicPlayer.js'></script>
-    <audio id="gameAudio" loop>
-        <source src="../Resource/MP3/FinalSuspect.wav" type="audio/wav">
-    </audio>
+        <script src='../Resource/JS/BackToTop.js'></script>
+        <script src='../Resource/JS/MusicPlayer.js'></script>
+        <audio id="gameAudio" loop>
+            <source src="../Resource/MP3/FinalSuspect.wav" type="audio/wav">
+        </audio>
 </body>
 
 </html>
