@@ -28,9 +28,3 @@ wechatModal.addEventListener('click', function (e) {
         wechatModal.classList.remove('active');
     }
 });
-
-// 模拟二维码生成
-const qrcode = document.querySelector('.qrcode');
-setTimeout(() => {
-    qrcode.innerHTML = '<div style="position:absolute; color:#333; font-weight:bold; font-size:1.2rem;">微信支付</div>';
-}, 500);
