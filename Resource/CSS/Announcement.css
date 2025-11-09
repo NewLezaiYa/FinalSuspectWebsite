@@ -1,0 +1,434 @@
+/* 粒子背景 */
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.particles span {
+    position: absolute;
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: rgba(79, 109, 245, 0.1);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(100, 108, 255, 0.5),
+        0 0 20px rgba(100, 108, 255, 0.3),
+        0 0 30px rgba(100, 108, 255, 0.1);
+    animation: float 15s linear infinite;
+    bottom: -150px;
+}
+
+body.dark-mode .particles span {
+    background: rgba(79, 109, 245, 0.2);
+    box-shadow: 0 0 15px rgba(100, 108, 255, 0.8),
+        0 0 25px rgba(100, 108, 255, 0.5),
+        0 0 35px rgba(100, 108, 255, 0.2);
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+        border-radius: 0;
+    }
+
+    100% {
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+        border-radius: 50%;
+    }
+}
+
+/* 网格覆盖层 */
+.grid-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        linear-gradient(rgba(79, 109, 245, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(79, 109, 245, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.5;
+}
+
+/* 扫描线效果 */
+.scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(to bottom,
+            transparent 0%,
+            rgba(100, 108, 255, 0.05) 1px,
+            transparent 2px);
+    background-size: 100% 4px;
+    animation: scan 8s linear infinite;
+    pointer-events: none;
+    z-index: 2;
+}
+
+@keyframes scan {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 100%;
+    }
+}
+
+/* 容器 */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 3;
+}
+
+/* 页面标题 */
+.page-header {
+    text-align: center;
+    margin: 5rem 0 3rem;
+    position: relative;
+}
+
+.page-title {
+    font-size: clamp(2rem, 6vw, 3rem);
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+}
+
+.page-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--primary);
+    border-radius: 2px;
+    box-shadow: 0 0 10px var(--primary);
+}
+
+.page-subtitle {
+    font-size: clamp(1.1rem, 3vw, 1.4rem);
+    color: var(--text-secondary);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* 更新日志容器 */
+.changelog-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* 版本卡片 */
+.version-card {
+    background: var(--card-bg);
+    border-radius: var(--card-radius);
+    padding: 1.8rem;
+    box-shadow: var(--shadow-light), var(--tech-glow);
+    border: var(--tech-border);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+.version-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 40px rgba(148, 163, 184, 0.2), var(--tech-glow-hover);
+}
+
+.version-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--primary), transparent);
+}
+
+.version-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.version-number {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, var(--primary), #8a63d2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.release-date {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    background: rgba(79, 109, 245, 0.1);
+    padding: 3px 10px;
+    border-radius: 20px;
+}
+
+.version-type {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-top: 5px;
+}
+
+.major {
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+}
+
+.minor {
+    background: rgba(59, 130, 246, 0.1);
+    color: #3b82f6;
+}
+
+.patch {
+    background: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+}
+
+.version-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.changes-list {
+    list-style: none;
+    margin-bottom: 1.5rem;
+}
+
+.changes-list li {
+    padding: 0.6rem 0;
+    padding-left: 1.8rem;
+    position: relative;
+    color: var(--text-secondary);
+}
+
+.changes-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    top: 0.6rem;
+    color: var(--primary);
+    font-size: 1.2rem;
+}
+
+.changes-list li:last-child {
+    padding-bottom: 0;
+}
+
+.version-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-light);
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.contributors {
+    display: flex;
+    gap: 8px;
+}
+
+.contributor {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 500;
+}
+
+/* 筛选器 */
+.filter-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+}
+
+.filter-button {
+    padding: 0.6rem 1.5rem;
+    border-radius: 30px;
+    background: transparent;
+    border: var(--tech-border);
+    color: var(--text-primary);
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.filter-button:hover,
+.filter-button.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+/* 页脚 */
+.footer-disclaimer {
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 2.5rem 1.5rem;
+    margin-top: 4rem;
+    box-shadow: var(--shadow-light), var(--tech-glow);
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.8;
+    transition: var(--transition-smooth);
+    border: var(--tech-border);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    position: relative;
+    overflow: hidden;
+}
+
+.footer-disclaimer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        linear-gradient(90deg, transparent 50%, rgba(79, 109, 245, 0.05) 50%),
+        linear-gradient(transparent 50%, rgba(79, 109, 245, 0.05) 50%);
+    background-size: 20px 20px;
+    z-index: -1;
+    opacity: 0.3;
+}
+
+.footer-disclaimer strong {
+    color: var(--text-primary);
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+/* 动画效果 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fadeInUp {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.delay-1 {
+    animation-delay: 0.1s;
+}
+
+.delay-2 {
+    animation-delay: 0.2s;
+}
+
+.delay-3 {
+    animation-delay: 0.3s;
+}
+
+/* 响应式设计 */
+@media (max-width: 992px) {
+    .changelog-container {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .page-header {
+        margin: 4rem 0 2rem;
+    }
+
+    .changelog-container {
+        grid-template-columns: 1fr;
+    }
+
+    .filter-container {
+        gap: 0.8rem;
+    }
+
+    .filter-button {
+        padding: 0.5rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 1.5rem 1rem;
+    }
+
+    .page-title {
+        font-size: 1.8rem;
+    }
+
+    .page-subtitle {
+        font-size: 1rem;
+    }
+
+    .version-card {
+        padding: 1.5rem;
+    }
+
+    .version-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .release-date {
+        align-self: flex-start;
+    }
+}

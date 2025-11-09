@@ -2,11 +2,11 @@
     --primary: #4f6df5;
     --primary-light: #6b8aff;
     --primary-dark: #3a56e6;
-    --text-primary: #1e293b; /* 加深文本颜色适应亮色背景 */
-    --text-secondary: #475569; /* 调整次文本颜色 */
-    --text-muted: #64748b; /* 调整弱文本颜色 */
-    --bg-light: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); /* 改为浅色渐变背景 */
-    --card-bg: rgba(255, 255, 255, 0.85); /* 卡片改为白色半透明 */
+    --text-primary: #1e293b;
+    --text-secondary: #475569;
+    --text-muted: #64748b;
+    --bg-light: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    --card-bg: rgba(255, 255, 255, 0.85);
     --border-light: rgba(148, 163, 184, 0.15);
     --shadow-light: 0 12px 36px rgba(148, 163, 184, 0.15);
     --text-inverse: #edf2f7;
@@ -16,10 +16,10 @@
     --shadow-dark: 0 12px 36px rgba(0, 0, 0, 0.25);
     --dark-text-primary: #f8fafc;
     --dark-text-secondary: #cbd5e1;
-    --tech-glow: 0 0 10px rgba(79, 109, 245, 0.3); /* 减弱发光强度 */
+    --tech-glow: 0 0 10px rgba(79, 109, 245, 0.3);
     --tech-glow-hover: 0 0 15px rgba(79, 109, 245, 0.5);
-    --tech-border: 1px solid rgba(79, 109, 245, 0.1); /* 减弱边框透明度 */
-    --tech-grid: linear-gradient(rgba(79, 109, 245, 0.03) 1px, transparent 1px), /* 减弱网格颜色 */
+    --tech-border: 1px solid rgba(79, 109, 245, 0.1);
+    --tech-grid: linear-gradient(rgba(79, 109, 245, 0.03) 1px, transparent 1px),
         linear-gradient(90deg, rgba(79, 109, 245, 0.03) 1px, transparent 1px);
     --transition-smooth: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     --transition-fast: all 0.2s ease;
@@ -47,6 +47,128 @@ body {
     overflow-x: hidden;
     font-weight: 300;
     letter-spacing: -0.2px;
+}
+
+/* 更新公告栏样式 */
+.update-announcement {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    width: 100%;
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: var(--tech-border);
+    box-shadow: var(--shadow-light), var(--tech-glow);
+    z-index: 800;
+    padding: 0.8rem 0;
+    transform: translateY(-100%);
+    opacity: 0;
+    animation: slideDown 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    animation-delay: 0.8s;
+    transition: var(--transition-smooth);
+}
+
+@keyframes slideDown {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.update-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    gap: 1rem;
+}
+
+.update-text {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.update-icon {
+    color: #10b981;
+    font-size: 1.4rem;
+    animation: pulse 2s infinite;
+}
+
+.update-message {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.update-version {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.update-time {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.update-log {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition-fast);
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.update-log::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--primary);
+    transition: width 0.3s ease;
+}
+
+.update-log:hover::after {
+    width: 100%;
+}
+
+.update-close {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: var(--transition-fast);
+}
+
+.update-close:hover {
+    color: var(--text-primary);
+    background: rgba(79, 109, 245, 0.1);
 }
 
 /* 赞赏按钮样式 */
@@ -1091,30 +1213,15 @@ nav a:hover::after {
         display: none;
     }
 
-    /* 调整赞赏按钮在移动端的位置 */
-    .appreciate-btn {
-        bottom: 140px;
-        right: 20px;
+    /* 调整更新公告栏在移动端 */
+    .update-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
     }
 
-    .appreciate-main-btn {
-        width: 50px;
-        height: 50px;
-    }
-
-    .appreciate-option {
-        width: 45px;
-        height: 45px;
-    }
-
-    /* 调整模态框在移动端的大小 */
-    .modal-content {
-        padding: 1.8rem 1.5rem;
-    }
-
-    .qrcode {
-        width: 180px;
-        height: 180px;
+    .update-text {
+        justify-content: center;
     }
 }
 
@@ -1140,20 +1247,13 @@ nav a:hover::after {
         font-size: 1rem;
     }
 
-    /* 进一步调整移动端赞赏按钮 */
-    .appreciate-btn {
-        bottom: 15px;
-        right: 15px;
+    /* 调整更新公告栏在移动端 */
+    .update-announcement {
+        padding: 0.6rem 0;
     }
 
-    /* 调整模态框在移动端的大小 */
-    .modal-content {
-        padding: 1.5rem 1rem;
-    }
-
-    .qrcode {
-        width: 160px;
-        height: 160px;
+    .update-message {
+        font-size: 0.8rem;
     }
 }
 
