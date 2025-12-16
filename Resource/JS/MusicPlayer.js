@@ -68,7 +68,7 @@ function setupMusicPlayer() {
     // 初始化设置
     audio.volume = 0.7;
 
-    // ------------------- 新增自动播放逻辑 -------------------
+    // ------------------- 自动播放逻辑 -------------------
     const tryAutoPlay = () => {
         audio.muted = false;
     };
