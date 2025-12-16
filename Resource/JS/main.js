@@ -49,55 +49,6 @@ function setupScrollAnimations() {
     });
 }
 
-// 语言切换功能
-function setupLanguageSwitch() {
-    const cnBtn = document.getElementById('cn-btn');
-    const enBtn = document.getElementById('en-btn');
-    const twBtn = document.getElementById('tw-btn');
-    const mobileSelect = document.getElementById('mobileLanguageSelect');
-
-    // 桌面端语言切换
-    cnBtn.addEventListener('click', () => switchLanguage('zh'));
-    enBtn.addEventListener('click', () => switchLanguage('en'));
-    twBtn.addEventListener('click', () => switchLanguage('tw'));
-
-    // 移动端语言切换
-    mobileSelect.addEventListener('change', (e) => {
-        switchLanguage(e.target.value);
-    });
-}
-
-function switchLanguage(lang) {
-    // 更新桌面端按钮状态
-    document.querySelectorAll('.language-switch button').forEach(btn => {
-        btn.classList.remove('active');
-    });
-
-    if (lang === 'zh') document.getElementById('cn-btn').classList.add('active');
-    if (lang === 'en') document.getElementById('en-btn').classList.add('active');
-    if (lang === 'tw') document.getElementById('tw-btn').classList.add('active');
-
-    // 更新移动端选择器
-    document.getElementById('mobileLanguageSelect').value = lang;
-
-    // 显示/隐藏内容
-    document.querySelectorAll('[data-lang]').forEach(content => {
-        content.style.display = 'none';
-    });
-    document.querySelector(`[data-lang="${lang}"]`).style.display = 'block';
-
-    // 添加切换动画
-    const activeContent = document.querySelector(`[data-lang="${lang}"]`);
-    activeContent.style.opacity = '0';
-    activeContent.style.transform = 'translateY(20px)';
-    activeContent.style.transition = 'all 0.3s ease';
-
-    setTimeout(() => {
-        activeContent.style.opacity = '1';
-        activeContent.style.transform = 'translateY(0)';
-    }, 50);
-}
-
 // 导航平滑滚动
 function setupSmoothScroll() {
     document.querySelectorAll('nav a').forEach(anchor => {
@@ -136,6 +87,5 @@ function setupSectionHoverEffects() {
 document.addEventListener('DOMContentLoaded', () => {
     createParticles();
     setupScrollAnimations();
-    setupLanguageSwitch();
     setupSectionHoverEffects();
 });
