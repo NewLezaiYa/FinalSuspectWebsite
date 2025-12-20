@@ -2,24 +2,24 @@
 document.querySelectorAll('.error-code').forEach(errorCode => {
     errorCode.style.cursor = 'pointer';
     errorCode.title = '点击复制错误代码';
-    
-    errorCode.addEventListener('click', async function() {
+
+    errorCode.addEventListener('click', async function () {
         const text = this.textContent;
-        
+
         try {
             await navigator.clipboard.writeText(text);
-            
+
             // 添加反馈效果
             const originalText = this.textContent;
             const originalBg = this.style.background;
             const originalColor = this.style.color;
-            
+
             this.textContent = '已复制!';
             this.style.background = 'linear-gradient(145deg, rgba(9, 187, 7, 0.2) 0%, rgba(10, 10, 26, 0.9) 100%)';
             this.style.color = '#09bb07';
             this.style.borderColor = 'rgba(9, 187, 7, 0.4)';
             this.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(9, 187, 7, 0.3)';
-            
+
             setTimeout(() => {
                 this.textContent = originalText;
                 this.style.background = originalBg;
@@ -27,12 +27,12 @@ document.querySelectorAll('.error-code').forEach(errorCode => {
                 this.style.borderColor = '';
                 this.style.boxShadow = '';
             }, 1500);
-            
+
         } catch (err) {
             console.error('复制失败:', err);
             this.textContent = '复制失败';
             this.style.color = '#ff5555';
-            
+
             setTimeout(() => {
                 this.textContent = text;
                 this.style.color = '';
@@ -44,7 +44,7 @@ document.querySelectorAll('.error-code').forEach(errorCode => {
 // 为链接添加悬停效果增强
 document.querySelectorAll('a').forEach(link => {
     // 添加波纹效果
-    link.addEventListener('mouseenter', function(e) {
+    link.addEventListener('mouseenter', function (e) {
         // 创建波纹元素
         const ripple = document.createElement('span');
         ripple.style.position = 'absolute';
@@ -54,21 +54,21 @@ document.querySelectorAll('a').forEach(link => {
         ripple.style.animation = 'ripple 0.6s linear';
         ripple.style.pointerEvents = 'none';
         ripple.style.zIndex = '0';
-        
+
         // 获取链接位置
         const rect = this.getBoundingClientRect();
         const size = Math.max(rect.width, rect.height);
         const x = e.clientX - rect.left - size / 2;
         const y = e.clientY - rect.top - size / 2;
-        
+
         ripple.style.width = ripple.style.height = size + 'px';
         ripple.style.left = x + 'px';
         ripple.style.top = y + 'px';
-        
+
         this.style.position = 'relative';
         this.style.overflow = 'hidden';
         this.appendChild(ripple);
-        
+
         // 移除波纹
         setTimeout(() => {
             ripple.remove();

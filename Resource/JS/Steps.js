@@ -1,7 +1,7 @@
 // 为步骤列表添加交互效果
 document.querySelectorAll('.update-steps li').forEach((step, index) => {
     // 添加点击完成效果
-    step.addEventListener('click', function() {
+    step.addEventListener('click', function () {
         if (this.classList.contains('completed')) {
             this.classList.remove('completed');
             this.style.background = 'linear-gradient(135deg, rgba(17, 17, 46, 0.6) 0%, rgba(10, 10, 26, 0.8) 100%)';
@@ -12,7 +12,7 @@ document.querySelectorAll('.update-steps li').forEach((step, index) => {
             this.style.borderColor = 'rgba(9, 187, 7, 0.4)';
             this.querySelector('.step-title').style.textDecoration = 'line-through';
             this.querySelector('.step-title').style.opacity = '0.8';
-            
+
             // 为完成图标添加动画
             const checkmark = document.createElement('span');
             checkmark.className = 'step-checkmark';
@@ -28,9 +28,9 @@ document.querySelectorAll('.update-steps li').forEach((step, index) => {
                 transform: scale(0);
                 animation: checkmarkAppear 0.5s ease-out forwards;
             `;
-            
+
             this.appendChild(checkmark);
-            
+
             // 添加动画
             const style = document.createElement('style');
             style.textContent = `
@@ -50,20 +50,20 @@ document.querySelectorAll('.update-steps li').forEach((step, index) => {
                 }
             `;
             document.head.appendChild(style);
-            
+
             setTimeout(() => {
                 checkmark.style.animation = 'pulse 2s infinite';
                 style.remove();
             }, 500);
         }
     });
-    
+
     // 添加逐步显示动画
     setTimeout(() => {
         step.style.opacity = '0';
         step.style.transform = 'translateX(-20px)';
         step.style.transition = 'all 0.5s ease';
-        
+
         setTimeout(() => {
             step.style.opacity = '1';
             step.style.transform = 'translateX(0)';
@@ -86,14 +86,14 @@ function trackStepProgress() {
         align-items: center;
         justify-content: space-between;
     `;
-    
+
     const progressText = document.createElement('span');
     progressText.style.cssText = `
         color: #b0b0d0;
         font-family: 'Orbitron', sans-serif;
         font-size: 1.1rem;
     `;
-    
+
     const progressBar = document.createElement('div');
     progressBar.style.cssText = `
         flex-grow: 1;
@@ -104,7 +104,7 @@ function trackStepProgress() {
         overflow: hidden;
         position: relative;
     `;
-    
+
     const progressFill = document.createElement('div');
     progressFill.style.cssText = `
         position: absolute;
@@ -117,11 +117,11 @@ function trackStepProgress() {
         transition: width 0.5s ease;
         box-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
     `;
-    
+
     progressBar.appendChild(progressFill);
     progressContainer.appendChild(progressText);
     progressContainer.appendChild(progressBar);
-    
+
     const resetButton = document.createElement('button');
     resetButton.textContent = '重置进度';
     resetButton.style.cssText = `
@@ -135,19 +135,19 @@ function trackStepProgress() {
         font-size: 0.9rem;
         transition: all 0.3s ease;
     `;
-    
+
     resetButton.addEventListener('mouseenter', () => {
         resetButton.style.background = 'rgba(255, 71, 87, 0.3)';
         resetButton.style.color = '#ffffff';
         resetButton.style.borderColor = 'rgba(255, 71, 87, 0.6)';
     });
-    
+
     resetButton.addEventListener('mouseleave', () => {
         resetButton.style.background = 'rgba(113, 88, 226, 0.3)';
         resetButton.style.color = '#b0b0d0';
         resetButton.style.borderColor = 'rgba(113, 88, 226, 0.5)';
     });
-    
+
     resetButton.addEventListener('click', () => {
         document.querySelectorAll('.update-steps li.completed').forEach(step => {
             step.classList.remove('completed');
@@ -163,26 +163,26 @@ function trackStepProgress() {
         });
         updateProgress();
     });
-    
+
     progressContainer.appendChild(resetButton);
-    
+
     function updateProgress() {
         const completed = document.querySelectorAll('.update-steps li.completed').length;
         const total = steps.length;
         const percentage = (completed / total) * 100;
-        
+
         progressFill.style.width = `${percentage}%`;
         progressText.textContent = `进度: ${completed}/${total} (${Math.round(percentage)}%)`;
     }
-    
+
     // 监听步骤完成状态变化
     const observer = new MutationObserver(updateProgress);
     steps.forEach(step => {
         observer.observe(step, { attributes: true, attributeFilter: ['class'] });
     });
-    
+
     updateProgress();
-    
+
     // 将进度条插入到步骤列表前
     const stepsList = document.querySelector('.update-steps');
     if (stepsList) {
@@ -191,6 +191,6 @@ function trackStepProgress() {
 }
 
 // 页面加载完成后初始化
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     trackStepProgress();
 });
