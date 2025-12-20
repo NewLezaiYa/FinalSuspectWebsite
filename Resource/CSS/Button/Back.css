@@ -135,10 +135,7 @@
 
 @media (max-width: 768px) {
     .back-button {
-        padding: 10px 20px;
-        font-size: 1rem;
-        border-radius: 10px;
-        margin-bottom: 2rem;
+        display: none;
     }
 
     .back-button .pulse-dot {
