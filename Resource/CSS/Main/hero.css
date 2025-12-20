@@ -33,6 +33,7 @@
 }
 
 .hero-logo {
+    text-align: center;
     max-width: 600px;
     margin-bottom: 1.5rem;
     filter: drop-shadow(0 0 15px rgba(255, 71, 87, 0.5));
