@@ -9,28 +9,26 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="Resource/CSS/main.css">
-    <link rel="stylesheet" href="Resource/CSS/Music.css">
     <link rel="stylesheet" href="Resource/CSS/Button/BackTo.css">
+    <link rel="stylesheet" href="Resource/CSS/Main/animate.css">
+    <link rel="stylesheet" href="Resource/CSS/Main/appreciate.css">
+    <link rel="stylesheet" href="Resource/CSS/Main/footer.css">
+    <link rel="stylesheet" href="Resource/CSS/Main/hero.css">
+    <link rel="stylesheet" href="Resource/CSS/Main/logo.css">
+    <link rel="stylesheet" href="Resource/CSS/Main/nav.css">
+    <link rel="stylesheet" href="Resource/CSS/Main/root.css">
+    <link rel="stylesheet" href="Resource/CSS/Main/wechat.css">
+    <link rel="stylesheet" href="Resource/CSS/Main/Media/480px.css">
+    <link rel="stylesheet" href="Resource/CSS/Main/Media/768px.css">
+    <link rel="stylesheet" href="Resource/CSS/Main/Media/992px.css">
+    <link rel="stylesheet" href="Resource/CSS/PromptBox/container.css">
+    <link rel="stylesheet" href="Resource/CSS/PromptBox/feature.css">
+    <link rel="stylesheet" href="Resource/CSS/PromptBox/header.css">
+    <link rel="stylesheet" href="Resource/CSS/PromptBox/section.css">
+    <link rel="stylesheet" href="Resource/CSS/Image.css">
 </head>
 
 <body>
-    <div class="particles">
-        <span style="left: 5%; animation-delay: 0s;"></span>
-        <span style="left: 15%; animation-delay: 2s;"></span>
-        <span style="left: 30%; animation-delay: 4s;"></span>
-        <span style="left: 45%; animation-delay: 1s;"></span>
-        <span style="left: 60%; animation-delay: 5s;"></span>
-        <span style="left: 75%; animation-delay: 3s;"></span>
-        <span style="left: 90%; animation-delay: 6s;"></span>
-    </div>
-    <div class="scanlines"></div>
-    <div class="grid-overlay"></div>
-    <div class="tech-border-corner top-left"></div>
-    <div class="tech-border-corner top-right"></div>
-    <div class="tech-border-corner bottom-left"></div>
-    <div class="tech-border-corner bottom-right"></div>
-
     <header>
         <div class="logo">FinalSuspect</div>
         <nav>
@@ -43,129 +41,106 @@
                 <li><a href="#keyboard"><i class="fas fa-keyboard"></i> 快捷键</a></li>
             </ul>
         </nav>
-        </div>
     </header>
-
-    <!-- 音乐播放器 -->
-    <div class="music-player">
-        <div class="album-art">
-            <i class="fas fa-music" style="font-size: 1.2rem; color: var(--primary);"></i>
-        </div>
-        <div class="track-info">
-            <div class="track-title">FinalSuspect</div>
-            <div class="track-artist">Slok</div>
-        </div>
-        <div class="player-controls">
-            <button class="control-btn play-btn">
-                <i class="fas fa-play"></i>
-            </button>
-        </div>
-        <div class="volume-control">
-            <i class="fas fa-volume-up" style="color: var(--text-secondary);"></i>
-            <div class="volume-slider">
-                <div class="volume-level"></div>
-            </div>
-        </div>
-        <div class="progress-container">
-            <div class="progress-bar"></div>
-        </div>
-    </div>
 
     <!-- 主内容区 -->
     <div class="container">
-            <section class="hero animate-fadeInUp">
-                <div class="hero-content">
-                    <img src="Resource/images/FinalSuspect-Logo.png" class="hero-logo" alt="FinalSuspect Logo">
-                    <h1 class="hero-name">模组文档</h1>
-                    <p class="hero-tagline">The ultimate mod for the original Among Us, redefining your space werewolf
-                        hunting experience</p>
-                </div>
-            </section>
-
-            <section id="intro" class="section animate-fadeInUp delay-1">
-                <div class="section-glow"></div>
-                <h2 class="section-title">
-                    <i class="fas fa-book-open"></i>
-                    FinalSuspect 简介
-                </h2>
-                <p class="section-content">在这里可以了解Final Suspect有关详细信息，助你更好理解Final Suspect模组</p>
-                <a href="FinalSuspect/Introduction" class="feature-link">
-                    查看详情
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-            </section>
-
-            <section id="faq" class="section animate-fadeInUp delay-2">
-                <div class="section-glow"></div>
-                <h2 class="section-title">
-                    <i class="fas fa-life-ring"></i>
-                    FinalSuspect 疑难解答
-                </h2>
-                <p class="section-content">遇到安装失败、功能异常或兼容性问题？这里整理了常见问题解答与分步解决方案，快速帮你恢复流畅游戏。</p>
-                <a href="FinalSuspect/FAQ" class="feature-link">
-                    查看详情
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-            </section>
-
-            <section id="options" class="section animate-fadeInUp delay-3">
-                <div class="section-glow"></div>
-                <h2 class="section-title">
-                    <i class="fas fa-sliders-h"></i>
-                    FinalSuspect 选项
-                </h2>
-                <p class="section-content">超过20项可调节选项完全满足你的个性化需求，打造专属游戏风格。</p>
-                <a href="FinalSuspect/Options/" class="feature-link">
-                    查看详情
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-            </section>
-
-            <section id="tutorial" class="section animate-fadeInUp delay-4">
-                <div class="section-glow"></div>
-                <h2 class="section-title">
-                    <i class="fas fa-book"></i>
-                    FinalSuspect 教程
-                </h2>
-                <p class="section-content">详细的图文教程，即使是新手也能轻松完成安装。</p>
-                <a href="FinalSuspect/Guide/" class="feature-link">
-                    查看详情
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-            </section>
-
-            <section id="features" class="section animate-fadeInUp delay-5">
-                <div class="section-glow"></div>
-                <h2 class="section-title">
-                    <i class="fas fa-toolbox"></i>
-                    FinalSuspect 功能
-                </h2>
-                <p class="section-content">完美支持原版玩家与模组玩家同局游戏；带来前所未有的游戏体验。</p>
-                <a href="FinalSuspect/Features/" class="feature-link">
-                    查看详情
-                    <i class="fas fa-chevron-right"></i>
-                </a>
-            </section>
-
-            <section id="keyboard" class="section animate-fadeInUp delay-6">
-                <div class="section-glow"></div>
-                <h2 class="section-title">
-                    <i class="fas fa-keyboard"></i>
-                    FinalSuspect 快捷键
-                </h2>
-                <p class="section-content">仅适用于MOD端的快捷键，带来更好的操作体验。</p>
-                <a href="FinalSuspect/Keyboard" class="feature-link">
-                    查看详情
-                    <i class="fas fa-chevron-right"></i>
-                </a>
-            </section>
-
-            <div class="footer-disclaimer">
-                <p><strong>注意：</strong></p>
-                <p>本模组不隶属于 Among Us 或 Innersloth LLC，其包含的内容也未得到 Innersloth LLC 的认可或以其他方式赞助。</p>
-                <p>此处包含的部分材料是Innersloth LLC的财产。</p>
-                <p>© Innersloth LLC</p>
+        <section class="hero animate-fadeInUp">
+            <div class="hero-content">
+                <img src="Resource/images/FinalSuspect-Logo.png" class="hero-logo" alt="FinalSuspect Logo">
+                <h1 class="hero-name">模组文档</h1>
+                <p class="hero-tagline">The ultimate mod for the original Among Us, redefining your space werewolf
+                    hunting experience</p>
             </div>
+        </section>
+
+        <section id="intro" class="section animate-fadeInUp delay-1">
+            <div class="section-glow"></div>
+            <h2 class="section-title">
+                <i class="fas fa-book-open"></i>
+                FinalSuspect 简介
+            </h2>
+            <p class="section-content">在这里可以了解Final Suspect有关详细信息，助你更好理解Final Suspect模组</p>
+            <a href="FinalSuspect/Introduction" class="feature-link">
+                查看详情
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </section>
+
+        <section id="faq" class="section animate-fadeInUp delay-2">
+            <div class="section-glow"></div>
+            <h2 class="section-title">
+                <i class="fas fa-life-ring"></i>
+                FinalSuspect 疑难解答
+            </h2>
+            <p class="section-content">遇到安装失败、功能异常或兼容性问题？这里整理了常见问题解答与分步解决方案，快速帮你恢复流畅游戏。</p>
+            <a href="FinalSuspect/FAQ" class="feature-link">
+                查看详情
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </section>
+
+        <section id="options" class="section animate-fadeInUp delay-3">
+            <div class="section-glow"></div>
+            <h2 class="section-title">
+                <i class="fas fa-sliders-h"></i>
+                FinalSuspect 选项
+            </h2>
+            <p class="section-content">超过20项可调节选项完全满足你的个性化需求，打造专属游戏风格。</p>
+            <a href="FinalSuspect/Options/" class="feature-link">
+                查看详情
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </section>
+
+        <section id="tutorial" class="section animate-fadeInUp delay-4">
+            <div class="section-glow"></div>
+            <h2 class="section-title">
+                <i class="fas fa-book"></i>
+                FinalSuspect 教程
+            </h2>
+            <p class="section-content">详细的图文教程，即使是新手也能轻松完成安装。</p>
+            <a href="FinalSuspect/Guide/" class="feature-link">
+                查看详情
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </section>
+
+        <section id="features" class="section animate-fadeInUp delay-5">
+            <div class="section-glow"></div>
+            <h2 class="section-title">
+                <i class="fas fa-toolbox"></i>
+                FinalSuspect 功能
+            </h2>
+            <p class="section-content">完美支持原版玩家与模组玩家同局游戏；带来前所未有的游戏体验。</p>
+            <a href="FinalSuspect/Features/" class="feature-link">
+                查看详情
+                <i class="fas fa-chevron-right"></i>
+            </a>
+        </section>
+
+        <section id="keyboard" class="section animate-fadeInUp delay-6">
+            <div class="section-glow"></div>
+            <h2 class="section-title">
+                <i class="fas fa-keyboard"></i>
+                FinalSuspect 快捷键
+            </h2>
+            <p class="section-content">仅适用于MOD端的快捷键，带来更好的操作体验。</p>
+            <a href="FinalSuspect/Keyboard" class="feature-link">
+                查看详情
+                <i class="fas fa-chevron-right"></i>
+            </a>
+        </section>
+
+        <div class="footer-disclaimer">
+            <p><strong>注意：</strong></p>
+            <p>本模组不隶属于 Among Us 或 Innersloth LLC，其包含的内容也未得到 Innersloth LLC 的认可或以其他方式赞助。</p>
+            <p>此处包含的部分材料是Innersloth LLC的财产。</p>
+            <p>© Innersloth LLC</p>
+        </div>
+
+        <div class="footer-copyright">
+            <p>网站设计 ©<span>LezaiYa</span> | FinalSuspect Mod ©<span>Slok</span></p>
         </div>
     </div>
 
@@ -182,7 +157,7 @@
         </div>
     </div>
 
-    <!-- 微信支付 -->
+    <!-- 微信支付模态框 -->
     <div class="wechat-modal" id="wechat-modal">
         <div class="modal-content">
             <button class="modal-close">&times;</button>
@@ -206,14 +181,10 @@
             <path d="M18 15l-6-6-6 6" />
         </svg>
     </button>
-    <script src='Resource/JS/BackToTop.js'></script>
-    <script src='Resource/JS/MusicPlayer.js'></script>
-    <script src='Resource/JS/main.js'></script>
+
     <script src='Resource/JS/Appreciate.js'></script>
-    <script src='Resource/JS/mainAnnouncement.js'></script>
-    <audio id="gameAudio" loop>
-        <source src="Resource/MP3/FinalSuspect.wav" type="audio/wav">
-    </audio>
+    <script src='Resource/JS/main.js'></script>
+    <script src='Resource/JS/BackToTop.js'></script>
 </body>
 
 </html>

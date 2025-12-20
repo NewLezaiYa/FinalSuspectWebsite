@@ -12,36 +12,13 @@
     <link rel="stylesheet" href="../../Resource/CSS/Button/Back.css">
     <link rel="stylesheet" href="../../Resource/CSS/Text/Text.css">
     <link rel="stylesheet" href="../../Resource/CSS/Text/h1.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Common.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Music.css">
+    <link rel="stylesheet" href="../../Resource/CSS/PromptBox/container.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Main/root.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Main/footer.css">
 </head>
 
 <body>
-    <main>
-        <div class="music-player">
-            <div class="album-art">
-                <i class="fas fa-music" style="font-size: 1.2rem; color: var(--primary);"></i>
-            </div>
-            <div class="track-info">
-                <div class="track-title">FinalSuspect</div>
-                <div class="track-artist">Slok</div>
-            </div>
-            <div class="player-controls">
-                <button class="control-btn play-btn">
-                    <i class="fas fa-play"></i>
-                </button>
-            </div>
-            <div class="volume-control">
-                <i class="fas fa-volume-up" style="color: var(--text-secondary);"></i>
-                <div class="volume-slider">
-                    <div class="volume-level"></div>
-                </div>
-            </div>
-            <div class="progress-container">
-                <div class="progress-bar"></div>
-            </div>
-        </div>
-
+    <div class="container">
         <div class="back-button" onclick="window.history.back()">返回上一页</div>
 
         <h1 id="AutoEndGame">FinalSuspect<br>结束时自动返回大厅</h1>
@@ -50,11 +27,7 @@
             当游戏对局结束时，Final Suspect<mark>结束时自动返回大厅</mark>功能将自动触发，自动跳过结算动画与复盘信息页，直接将玩家跳转返回至游戏大厅界面。<br>
             该设计通过减少非必要的中转环节，可有效提升玩家在连续对局时的操作流畅度，尤其适用于躲猫猫或练习模式等需要高频次对局的场景。
         </div>
-    </main>
-    <script src='../../Resource/JS/MusicPlayer.js'></script>
-    <audio id="gameAudio" loop>
-        <source src="../../Resource/MP3/FinalSuspect.wav" type="audio/wav">
-    </audio>
+    </div>
 </body>
 
 </html>
