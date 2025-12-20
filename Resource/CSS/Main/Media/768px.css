@@ -42,4 +42,8 @@
         right: 20px;
         bottom: 20px;
     }
+
+    .hero-logo {
+        max-width: 480px;
+    }
 }
