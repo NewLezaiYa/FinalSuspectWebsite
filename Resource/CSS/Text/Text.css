@@ -175,7 +175,6 @@
 }
 
 .text ol li::before {
-    content: counter(item) ".";
     counter-increment: item;
     position: absolute;
     left: -2em;
