@@ -17,36 +17,13 @@
     <link rel="stylesheet" href="../Resource/CSS/Text/h2.css">
     <link rel="stylesheet" href="../Resource/CSS/PromptBox/Warning.css">
     <link rel="stylesheet" href="../Resource/CSS/PromptBox/Danger.css">
-    <link rel="stylesheet" href="../Resource/CSS/Common.css">
-    <link rel="stylesheet" href="../Resource/CSS/Music.css">
+    <link rel="stylesheet" href="../Resource/CSS/PromptBox/container.css">
+    <link rel="stylesheet" href="../Resource/CSS/Main/root.css">
+    <link rel="stylesheet" href="../Resource/CSS/Main/footer.css">
 </head>
 
 <body>
-    <main>
-        <div class="music-player">
-            <div class="album-art">
-                <i class="fas fa-music" style="font-size: 1.2rem; color: var(--primary);"></i>
-            </div>
-            <div class="track-info">
-                <div class="track-title">FinalSuspect</div>
-                <div class="track-artist">Slok</div>
-            </div>
-            <div class="player-controls">
-                <button class="control-btn play-btn">
-                    <i class="fas fa-play"></i>
-                </button>
-            </div>
-            <div class="volume-control">
-                <i class="fas fa-volume-up" style="color: var(--text-secondary);"></i>
-                <div class="volume-slider">
-                    <div class="volume-level"></div>
-                </div>
-            </div>
-            <div class="progress-container">
-                <div class="progress-bar"></div>
-            </div>
-        </div>
-
+    <div class="container">
         <div class="back-button" onclick="window.history.back()">返回上一页</div>
 
         <h1 id="Keyboard">FinalSuspect 快捷键</h1>
@@ -116,19 +93,20 @@
             </dl>
         </div>
 
-        <button class="back-to-top" aria-label="回到顶部">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M18 15l-6-6-6 6" />
-            </svg>
-        </button>
+        <div class="footer-copyright">
+            <p>网站设计 ©<span>LezaiYa</span> | FinalSuspect Mod ©<span>Slok</span></p>
+        </div>
+    </div>
 
-        <script src='../Resource/JS/BackToTop.js'></script>
-        <script src='../Resource/JS/MusicPlayer.js'></script>
-        <audio id="gameAudio" loop>
-            <source src="../Resource/MP3/FinalSuspect.wav" type="audio/wav">
-        </audio>
-    </main>
+    <button class="back-to-top" aria-label="回到顶部">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 15l-6-6-6 6" />
+        </svg>
+    </button>
+    <script src='../Resource/JS/BackToTop.js'></script>
+    <script src='../Resource/JS/h1.js'></script>
+    <script src='../Resource/JS/h2.js'></script>
 </body>
 
 </html>

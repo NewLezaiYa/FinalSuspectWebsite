@@ -1,0 +1,93 @@
+.wechat-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.wechat-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: var(--primary);
+    width: 90%;
+    max-width: 400px;
+    padding: 2.5rem;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid var(--border);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    position: relative;
+    animation: modalAppear 0.5s ease-out;
+}
+
+@keyframes modalAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.8) translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.modal-close:hover {
+    color: var(--accent);
+}
+
+.modal-icon {
+    font-size: 3.5rem;
+    color: #09bb07;
+    margin-bottom: 1rem;
+}
+
+.modal-title {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--text);
+}
+
+.modal-desc {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.qrcode-container {
+    background: white;
+    padding: 1rem;
+    border-radius: 10px;
+    margin: 1.5rem 0;
+    display: inline-block;
+}
+
+.Appreciate_Slok {
+    width: 200px;
+    height: 200px;
+    display: block;
+}

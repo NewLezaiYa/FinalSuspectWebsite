@@ -13,36 +13,13 @@
     <link rel="stylesheet" href="../../Resource/CSS/PromptBox/Danger.css">
     <link rel="stylesheet" href="../../Resource/CSS/Text/Text.css">
     <link rel="stylesheet" href="../../Resource/CSS/Text/h1.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Common.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Music.css">
+    <link rel="stylesheet" href="../../Resource/CSS/PromptBox/container.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Main/root.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Main/footer.css">
 </head>
 
 <body>
-    <main>
-        <div class="music-player">
-            <div class="album-art">
-                <i class="fas fa-music" style="font-size: 1.2rem; color: var(--primary);"></i>
-            </div>
-            <div class="track-info">
-                <div class="track-title">FinalSuspect</div>
-                <div class="track-artist">Slok</div>
-            </div>
-            <div class="player-controls">
-                <button class="control-btn play-btn">
-                    <i class="fas fa-play"></i>
-                </button>
-            </div>
-            <div class="volume-control">
-                <i class="fas fa-volume-up" style="color: var(--text-secondary);"></i>
-                <div class="volume-slider">
-                    <div class="volume-level"></div>
-                </div>
-            </div>
-            <div class="progress-container">
-                <div class="progress-bar"></div>
-            </div>
-        </div>
-
+    <div class="container">
         <div class="back-button" onclick="window.history.back()">返回上一页</div>
 
         <h1 id="OfflineMode">FinalSuspect<br>离线模式（试验性）</h1>
@@ -55,11 +32,12 @@
             <p>我们<mark>不推荐</mark>你启用离线模式。<br>
                 启用离线模式后您无法获取最新的资源。</p>
         </div>
-    </main>
-    <script src='../../Resource/JS/MusicPlayer.js'></script>
-    <audio id="gameAudio" loop>
-        <source src="../../Resource/MP3/FinalSuspect.wav" type="audio/wav">
-    </audio>
+
+        <div class="footer-copyright">
+            <p>网站设计 ©<span>LezaiYa</span> | FinalSuspect Mod ©<span>Slok</span></p>
+        </div>
+    </div>
+    <script src='../../Resource/JS/h1.js'></script>
 </body>
 
 </html>
