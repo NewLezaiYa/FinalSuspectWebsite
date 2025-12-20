@@ -1,0 +1,32 @@
+.footer-disclaimer {
+    margin-top: 4rem;
+    padding: 2rem;
+    background: rgba(10, 10, 26, 0.7);
+    border-radius: 12px;
+    border-left: 4px solid var(--accent);
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.footer-disclaimer p {
+    margin-bottom: 0.8rem;
+}
+
+.footer-disclaimer strong {
+    color: var(--accent-light);
+}
+
+/* 页脚版权信息 */
+.footer-copyright {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 1.5rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--border);
+}
+
+.footer-copyright span {
+    color: var(--cyan);
+    font-weight: 600;
+}

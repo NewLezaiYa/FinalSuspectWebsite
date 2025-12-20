@@ -1,0 +1,32 @@
+.feature-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--cyan);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 0.8rem 1.8rem;
+    background: rgba(0, 210, 255, 0.1);
+    border-radius: 50px;
+    border: 1px solid rgba(0, 210, 255, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.feature-link i {
+    margin-left: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.feature-link:hover {
+    background: rgba(0, 210, 255, 0.2);
+    color: white;
+    padding-right: 2.2rem;
+    box-shadow: 0 5px 15px rgba(0, 210, 255, 0.2);
+}
+
+.feature-link:hover i {
+    transform: translateX(5px);
+}

@@ -1,0 +1,19 @@
+@media (max-width: 480px) {
+    .hero-name {
+        font-size: 1.8rem;
+    }
+
+    .section {
+        padding: 1.5rem;
+    }
+
+    .feature-link {
+        width: 100%;
+        justify-content: center;
+    }
+
+    nav a {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
+    }
+}
