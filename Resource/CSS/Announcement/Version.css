@@ -4,6 +4,127 @@
    ============================================ */
 
 /* 版本导航栏基础样式 */
+/* 版本头部区域 */
+.version-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+}
+
+/* 版本详情区域 */
+.version-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+}
+
+/* 日期样式 */
+.version-date {
+    color: #8a9ba8;
+    font-size: 0.8rem;
+    font-weight: 500;
+    background: rgba(138, 155, 168, 0.1);
+    padding: 2px 8px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+/* 悬停状态下的日期 */
+.nav-item:hover .version-date {
+    color: #a8d8ff;
+    background: rgba(168, 216, 255, 0.15);
+    transform: translateY(-1px);
+}
+
+/* 激活状态下的日期 */
+.nav-item.active .version-date {
+    color: #5eead4;
+    background: rgba(94, 234, 212, 0.15);
+    box-shadow: 0 2px 8px rgba(94, 234, 212, 0.1);
+}
+
+/* 更新数量微调 */
+.update-count {
+    font-weight: 500;
+    color: #94a3b8;
+    transition: all 0.3s ease;
+}
+
+.nav-item.active .update-count {
+    color: #a8d8ff;
+    font-weight: 600;
+}
+
+/* 响应式调整：中等屏幕 */
+@media (max-width: 1200px) {
+    .version-details {
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+
+    .version-date,
+    .update-count {
+        font-size: 0.75rem;
+    }
+}
+
+/* 响应式调整：小屏幕 */
+@media (max-width: 768px) {
+    .version-header {
+        margin-bottom: 4px;
+    }
+
+    .version-details {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2px;
+    }
+
+    .version-date,
+    .update-count {
+        font-size: 0.7rem;
+    }
+}
+
+/* 响应式调整：超小屏幕 */
+@media (max-width: 576px) {
+    .version-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+
+    .version-type {
+        align-self: flex-start;
+    }
+}
+
+/* 动画效果：日期显示 */
+@keyframes dateFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.version-date {
+    animation: dateFadeIn 0.5s ease-out forwards;
+}
+
+/* 减少动画偏好 */
+@media (prefers-reduced-motion: reduce) {
+    .version-date {
+        animation: none;
+    }
+}
+
 .version-nav {
     position: fixed;
     left: 20px;
@@ -88,7 +209,6 @@
 
 /* 导航内容区域 */
 .nav-content {
-    padding: 15px;
     max-height: 350px;
     overflow-y: auto;
     transition: opacity 0.3s ease;
@@ -198,7 +318,7 @@
 
 /* 导航栏折叠状态 */
 .version-nav.collapsed {
-    width: 60px;
+    width: 130px;
 }
 
 .version-nav.collapsed .nav-header-left span,
