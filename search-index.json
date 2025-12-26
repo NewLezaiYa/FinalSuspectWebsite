@@ -3,144 +3,58 @@
     {
       "id": "intro",
       "title": "FinalSuspect 简介",
-      "description": "了解Final Suspect模组的详细信息，包括背景故事、核心特性和设计理念",
-      "keywords": ["简介", "介绍", "背景", "特性", "设计理念"],
+      "description": "了解Final Suspect模组的详细信息，包括核心特性和设计理念",
+      "keywords": ["简介", "介绍"],
       "url": "FinalSuspect/Introduction",
-      "icon": "fas fa-book-open",
-      "category": "基础"
+      "icon": "fas fa-book-open"
     },
     {
       "id": "faq",
       "title": "FinalSuspect 疑难解答",
       "description": "安装失败、功能异常或兼容性问题的解决方案和常见问题解答",
-      "keywords": ["FAQ", "疑难解答", "安装问题", "错误", "兼容性", "解决方案"],
+      "keywords": ["FAQ", "疑难解答", "安装问题"],
       "url": "FinalSuspect/FAQ",
-      "icon": "fas fa-life-ring",
-      "category": "帮助"
+      "icon": "fas fa-life-ring"
     },
     {
       "id": "options",
       "title": "FinalSuspect 选项",
       "description": "超过20项可调节选项，完全满足个性化需求，打造专属游戏风格",
-      "keywords": ["选项", "设置", "配置", "个性化", "游戏设置", "调节"],
+      "keywords": ["选项", "设置", "游戏设置"],
       "url": "FinalSuspect/Options/",
-      "icon": "fas fa-sliders-h",
-      "category": "配置"
+      "icon": "fas fa-sliders-h"
     },
     {
       "id": "tutorial",
       "title": "FinalSuspect 教程",
       "description": "详细的图文安装教程，即使是新手也能轻松完成安装和配置",
-      "keywords": ["教程", "安装指南", "新手教程", "使用教程", "配置教程", "图文教程"],
+      "keywords": ["教程", "安装指南", "新手教程"],
       "url": "FinalSuspect/Guide/",
-      "icon": "fas fa-book",
-      "category": "教程"
+      "icon": "fas fa-book"
     },
     {
       "id": "features",
       "title": "FinalSuspect 功能",
       "description": "完美支持原版玩家与模组玩家同局游戏，带来前所未有的游戏体验",
-      "keywords": ["功能", "特性", "核心功能", "游戏功能", "特色功能", "新增功能"],
+      "keywords": ["功能", "游戏功能", "特色功能", "新增功能"],
       "url": "FinalSuspect/Features/",
-      "icon": "fas fa-toolbox",
-      "category": "功能"
+      "icon": "fas fa-toolbox"
     },
     {
       "id": "keyboard",
       "title": "FinalSuspect 快捷键",
       "description": "适用于MOD端的快捷键大全，提升游戏操作体验和效率",
-      "keywords": ["快捷键", "热键", "键盘快捷键", "操作快捷键", "功能键", "快捷操作"],
+      "keywords": ["快捷键", "键盘快捷键"],
       "url": "FinalSuspect/Keyboard",
-      "icon": "fas fa-keyboard",
-      "category": "操作"
+      "icon": "fas fa-keyboard"
     },
     {
       "id": "changelog",
-      "title": "FinalSuspect 更新日志",
+      "title": "FinalSuspect 版本更新日志",
       "description": "查看版本历史、新增功能、修复的问题和已知问题列表",
-      "keywords": ["更新日志", "版本历史", "更新记录", "版本更新", "新功能", "修复"],
-      "url": "#",
-      "icon": "fas fa-history",
-      "category": "更新"
-    },
-    {
-      "id": "roles",
-      "title": "角色图鉴",
-      "description": "查看所有新角色的详细说明、技能效果演示和使用技巧",
-      "keywords": ["角色", "职业", "技能", "船员", "内鬼", "中立", "角色介绍"],
-      "url": "FinalSuspect/Roles",
-      "icon": "fas fa-user-friends",
-      "category": "角色"
-    },
-    {
-      "id": "strategies",
-      "title": "游戏策略",
-      "description": "各角色的详细攻略、地图策略点位标注和进阶技巧",
-      "keywords": ["策略", "攻略", "技巧", "战术", "游戏攻略", "进阶技巧"],
-      "url": "FinalSuspect/Strategies",
-      "icon": "fas fa-chess",
-      "category": "攻略"
-    },
-    {
-      "id": "community",
-      "title": "社区与资源",
-      "description": "玩家社区、资源分享、自定义皮肤和模组下载",
-      "keywords": ["社区", "资源", "皮肤", "模组", "插件", "玩家社区", "资源下载"],
-      "url": "FinalSuspect/Community",
-      "icon": "fas fa-users",
-      "category": "社区"
-    }
-  ],
-  "categories": [
-    {
-      "id": "基础",
-      "name": "基础信息",
-      "description": "模组的基本信息和介绍"
-    },
-    {
-      "id": "配置",
-      "name": "配置选项",
-      "description": "游戏设置和个性化选项"
-    },
-    {
-      "id": "教程",
-      "name": "教程指南",
-      "description": "安装和使用教程"
-    },
-    {
-      "id": "功能",
-      "name": "功能特性",
-      "description": "模组的功能和特色"
-    },
-    {
-      "id": "操作",
-      "name": "操作控制",
-      "description": "快捷键和操作方法"
-    },
-    {
-      "id": "帮助",
-      "name": "帮助支持",
-      "description": "常见问题和技术支持"
-    },
-    {
-      "id": "更新",
-      "name": "更新记录",
-      "description": "版本更新和历史"
-    },
-    {
-      "id": "角色",
-      "name": "角色系统",
-      "description": "游戏角色和技能"
-    },
-    {
-      "id": "攻略",
-      "name": "游戏攻略",
-      "description": "策略和技巧指南"
-    },
-    {
-      "id": "社区",
-      "name": "社区资源",
-      "description": "玩家社区和资源分享"
+      "keywords": ["版本更新日志", "版本历史", "更新记录", "版本更新"],
+      "url": "FinalSuspect/Changelog",
+      "icon": "fas fa-history"
     }
   ]
 }
