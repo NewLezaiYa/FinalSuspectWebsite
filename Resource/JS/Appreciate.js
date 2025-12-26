@@ -1,19 +1,28 @@
-// 微信支付模态框功能
-const wechatModal = document.getElementById('wechat-modal');
-const wechatOption = document.querySelector('.appreciate-option[data-type="wechat"]');
-const modalClose = document.querySelector('.modal-close');
-const appreciateBtn = document.querySelector('.appreciate-btn');
+// 公告按钮交互
+document.addEventListener('DOMContentLoaded', function () {
+    const changelogBtn = document.querySelector('.changelog-btn');
+    const changelogOptions = changelogBtn.querySelector('.changelog-options');
+    const changelogMainBtn = changelogBtn.querySelector('.changelog-main-btn');
 
-wechatOption.addEventListener('click', () => {
-    wechatModal.classList.add('active');
-});
+    // 点击公告主按钮跳转到更新日志
+    changelogMainBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        window.location.href = 'FinalSuspect/Changelog';
+    });
 
-modalClose.addEventListener('click', () => {
-    wechatModal.classList.remove('active');
-});
+    // 点击更新日志选项
+    const changelogOption = document.querySelector('.changelog-option[data-type="changelog"]');
+    changelogOption.addEventListener('click', function (e) {
+        e.stopPropagation();
+        window.location.href = 'FinalSuspect/Changelog';
+    });
 
-wechatModal.addEventListener('click', (e) => {
-    if (e.target === wechatModal) {
-        wechatModal.classList.remove('active');
-    }
+    // 点击页面其他地方关闭选项菜单
+    document.addEventListener('click', function (e) {
+        if (!changelogBtn.contains(e.target)) {
+            changelogOptions.style.opacity = '0';
+            changelogOptions.style.visibility = 'hidden';
+            changelogOptions.style.transform = 'translateY(20px)';
+        }
+    });
 });

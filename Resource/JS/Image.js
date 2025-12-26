@@ -22,17 +22,3 @@ function closePreview() {
     previewOverlay.classList.remove('active');
     document.body.style.overflow = 'auto'; // 恢复滚动
 }
-
-// 点击背景关闭预览
-document.querySelector('.preview-overlay').addEventListener('click', function (e) {
-    if (e.target === this) {
-        closePreview();
-    }
-});
-
-// ESC键关闭预览
-document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') {
-        closePreview();
-    }
-});
