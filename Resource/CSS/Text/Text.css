@@ -15,7 +15,6 @@
     margin-bottom: 2.5rem;
     position: relative;
     overflow: hidden;
-    text-indent: 2em;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(113, 88, 226, 0.3);
     z-index: 1;
@@ -71,7 +70,6 @@
 
 .text p {
     margin-bottom: 1.2rem;
-    text-indent: 2em;
     position: relative;
     z-index: 2;
     color: #ffffff;
