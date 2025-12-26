@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="Resource/CSS/Main/animate.css">
     <link rel="stylesheet" href="Resource/CSS/Main/appreciate.css">
     <link rel="stylesheet" href="Resource/CSS/Main/Changelog-main.css">
+    <link rel="stylesheet" href="Resource/CSS/Main/Load.css">
+    <link rel="stylesheet" href="Resource/CSS/Main/Search.css">
     <link rel="stylesheet" href="Resource/CSS/Footer.css">
     <link rel="stylesheet" href="Resource/CSS/Main/hero.css">
     <link rel="stylesheet" href="Resource/CSS/Main/logo.css">
@@ -30,8 +32,27 @@
 </head>
 
 <body>
+    <!-- 页面加载动画 -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-content">
+            <img src="Resource/images/FinalSuspect-Logo-2.0.png" class="loader-logo" alt="FinalSuspect Logo">
+            <div class="loader-text">加载中<span class="loading-dots"></span><span class="loading-dots"></span><span
+                    class="loading-dots"></span></div>
+        </div>
+    </div>
+
     <header>
         <div class="logo">FinalSuspect</div>
+
+        <!-- 搜索功能 -->
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="搜索...">
+            <div class="search-icon">
+                <i class="fas fa-search"></i>
+            </div>
+            <div class="search-results"></div>
+        </div>
+
         <nav>
             <ul>
                 <li><a href="#intro"><i class="fas fa-book-open"></i> 简介</a></li>
@@ -198,6 +219,7 @@
 
     <script src='Resource/JS/Appreciate.js'></script>
     <script src='Resource/JS/Wechat.js'></script>
+    <script src='Resource/JS/LoadSearch.js'></script>
     <script src='Resource/JS/main.js'></script>
     <script src='Resource/JS/BackToTop.js'></script>
     <script src='Resource/JS/h2.js'></script>
