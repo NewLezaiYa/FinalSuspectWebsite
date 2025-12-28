@@ -36,7 +36,18 @@
     <div class="loading-overlay" id="loadingOverlay">
         <div class="loading-content">
             <img src="Resource/images/FinalSuspect-Logo-2.0.png" class="loading-logo" alt="FinalSuspect Logo">
-            <div class="loading-text">加载中...</div>
+            <div class="loading-text">正在初始化...</div>
+
+            <!-- 进度条 -->
+            <div class="loading-progress-container">
+                <div class="loading-progress-bar" id="loadingProgressBar"></div>
+            </div>
+
+            <!-- 进度百分比 -->
+            <div class="loading-percentage" id="loadingPercentage">0%</div>
+
+            <!-- 加载状态 -->
+            <div class="loading-status" id="loadingStatus">正在准备资源...</div>
         </div>
     </div>
 
@@ -210,7 +221,7 @@
                 你真是个细心的玩家！🎉<br><br>
                 继续探索，也许还有更多秘密等着你！
             </p>
-                        <div class="audio-status" id="audioStatus">
+            <div class="audio-status" id="audioStatus">
                 <i class="fas fa-volume-up"></i> 音效已加载
             </div>
             <p class="easter-egg-secret">

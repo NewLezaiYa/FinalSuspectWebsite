@@ -40,14 +40,47 @@
 }
 
 .loading-text {
-    color: var(--text-secondary);
+    color: #00ffff;
     font-family: 'Orbitron', sans-serif;
-    font-size: 2rem;
+    font-size: 1.2rem;
     letter-spacing: 2px;
     opacity: 0.8;
     animation: textFade 2s ease-in-out infinite;
     margin-top: 10px;
     /* 额外的上边距确保与logo有足够间距 */
+}
+
+/* 进度条容器 */
+.loading-progress-container {
+    width: 300px;
+    height: 8px;
+    background-color: rgba(0, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 15px;
+    position: relative;
+}
+
+.loading-progress-bar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #00ffff, #0088ff);
+    border-radius: 4px;
+    transition: width 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 进度条发光效果 */
+.loading-progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: progressShine 1.5s ease-in-out infinite;
 }
 
 @keyframes logoPulse {
@@ -76,6 +109,35 @@
     }
 }
 
+@keyframes progressShine {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* 进度百分比文本 */
+.loading-percentage {
+    color: #00ffff;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1rem;
+    margin-top: 8px;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+/* 加载状态指示器 */
+.loading-status {
+    color: rgba(0, 255, 255, 0.7);
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    min-height: 20px;
+}
+
 /* 响应式调整 */
 @media (max-width: 768px) {
     .loading-logo {
@@ -86,6 +148,10 @@
 
     .loading-text {
         font-size: 1rem;
+    }
+
+    .loading-progress-container {
+        width: 250px;
     }
 
     .loading-content {
@@ -105,6 +171,14 @@
         font-size: 0.9rem;
     }
 
+    .loading-progress-container {
+        width: 200px;
+    }
+
+    .loading-percentage {
+        font-size: 0.9rem;
+    }
+
     .loading-content {
         gap: 10px;
         /* 进一步减少间距 */
@@ -119,6 +193,14 @@
     }
 
     .loading-text {
+        font-size: 0.8rem;
+    }
+
+    .loading-progress-container {
+        width: 180px;
+    }
+
+    .loading-percentage {
         font-size: 0.8rem;
     }
 }
