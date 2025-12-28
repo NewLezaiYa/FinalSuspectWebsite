@@ -38,13 +38,3 @@ window.addEventListener('load', () => {
         document.body.style.opacity = 1;
     }, 100);
 });
-
-document.addEventListener('DOMContentLoaded', () => {
-    // 检查搜索功能是否已加载
-    setTimeout(() => {
-        if (typeof searchEngine === 'undefined') {
-            console.warn('搜索功能未正确加载，正在重新初始化...');
-            // 可以在这里重新加载Search.js
-        }
-    }, 1000);
-});
