@@ -176,9 +176,9 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // 控制台彩蛋
-    console.log('FinalSuspect 彩蛋已激活!',
+    console.log('%c🎯 FinalSuspect 彩蛋已激活!',
         'color: #00ffcc; font-size: 16px; font-weight: bold;');
-    console.log('提示: 在页面中寻找隐藏的点击区域快速点击5次',
+    console.log('%c💡 提示: 在页面中寻找隐藏的点击区域快速点击5次',
         'color: #ffcc00; font-size: 12px;');
 
     // 手动触发音频加载（用于测试）
