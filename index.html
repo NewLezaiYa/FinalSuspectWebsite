@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="Resource/CSS/Main/logo.css">
     <link rel="stylesheet" href="Resource/CSS/Main/Load.css">
     <link rel="stylesheet" href="Resource/CSS/Main/nav.css">
+    <link rel="stylesheet" href="Resource/CSS/Main/Easteregg.css">
     <link rel="stylesheet" href="Resource/CSS/Root.css">
     <link rel="stylesheet" href="Resource/CSS/Main/wechat.css">
     <link rel="stylesheet" href="Resource/CSS/Main/Media/480px.css">
@@ -38,6 +39,9 @@
             <div class="loading-text">加载中...</div>
         </div>
     </div>
+
+    <!-- 彩蛋触发点：在加载Logo上 -->
+    <div class="secret-spot" id="secret-spot-1" style="top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
     <header>
         <div class="logo">FinalSuspect</div>
         <nav>
@@ -197,6 +201,25 @@
         </div>
     </div>
 
+    <!-- 彩蛋模态框 -->
+    <div class="easter-egg-modal" id="easterEggModal">
+        <div class="easter-egg-content">
+            <h2 class="easter-egg-title">🎮 隐藏彩蛋被发现！</h2>
+            <p class="easter-egg-message">
+                恭喜你发现了FinalSuspect的隐藏彩蛋！<br>
+                你真是个细心的玩家！🎉<br><br>
+                继续探索，也许还有更多秘密等着你！
+            </p>
+                        <div class="audio-status" id="audioStatus">
+                <i class="fas fa-volume-up"></i> 音效已加载
+            </div>
+            <p class="easter-egg-secret">
+                🎯 彩蛋代码: FS-2025
+            </p>
+            <button class="easter-egg-close" id="closeEasterEgg">关闭彩蛋</button>
+        </div>
+    </div>
+
     <button class="back-to-top" aria-label="回到顶部">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -205,6 +228,7 @@
     </button>
 
     <script src='Resource/JS/Appreciate.js'></script>
+    <script src='Resource/JS/Easteregg.js'></script>
     <script src='Resource/JS/Load.js'></script>
     <script src='Resource/JS/Wechat.js'></script>
     <script src='Resource/JS/main.js'></script>
