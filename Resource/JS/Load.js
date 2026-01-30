@@ -237,11 +237,6 @@ document.addEventListener('DOMContentLoaded', function () {
             // 隐藏加载动画
             loadingOverlay.classList.add('hidden');
 
-            // 显示主内容
-            setTimeout(() => {
-                mainContent.classList.add('visible');
-            }, 500);
-
             // 动画完成后移除元素
             setTimeout(() => {
                 loadingOverlay.style.display = 'none';
