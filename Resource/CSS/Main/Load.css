@@ -1,5 +1,5 @@
-/* 初始加载动画样式 */
-.loading-overlay {
+/* === 加载动画容器 === */
+#loadingOverlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -14,7 +14,7 @@
     transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
-.loading-overlay.hidden {
+#loadingOverlay.hidden {
     opacity: 0;
     visibility: hidden;
 }
@@ -27,13 +27,11 @@
     justify-content: center;
     text-align: center;
     gap: 20px;
-    /* 控制logo和文字之间的间距 */
 }
 
 .loading-logo {
     width: 650px;
     max-width: 80%;
-    /* 添加最大宽度确保响应式 */
     position: relative;
     animation: logoPulse 2s ease-in-out infinite;
     filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.5));
@@ -47,7 +45,6 @@
     opacity: 0.8;
     animation: textFade 2s ease-in-out infinite;
     margin-top: 10px;
-    /* 额外的上边距确保与logo有足够间距 */
 }
 
 /* 进度条容器 */
@@ -138,11 +135,180 @@
     min-height: 20px;
 }
 
+/* === 动画特效容器 === */
+.animation-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* 数字流容器 */
+.digital-stream-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.digital-stream-container.active {
+    opacity: 1;
+}
+
+.digital-stream {
+    position: absolute;
+    color: #00ffff;
+    font-family: 'Orbitron', monospace;
+    font-size: 1.2rem;
+    opacity: 0.7;
+    text-shadow: 0 0 5px #00ffff;
+    white-space: nowrap;
+}
+
+/* 矩阵雨容器 */
+.matrix-rain-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.matrix-rain-container.active {
+    opacity: 1;
+}
+
+.matrix-column {
+    position: absolute;
+    top: -100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.matrix-char {
+    color: rgba(0, 255, 0, 0.8);
+    font-family: 'Orbitron', monospace;
+    font-size: 1.2rem;
+    opacity: 0;
+    text-shadow: 0 0 8px rgba(0, 255, 0, 0.8);
+    margin: 2px 0;
+}
+
+/* 电路板光效容器 */
+.circuit-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.circuit-container.active {
+    opacity: 1;
+}
+
+.circuit-path {
+    fill: none;
+    stroke-width: 2;
+    stroke: rgba(0, 255, 255, 0.3);
+    stroke-dasharray: 10, 10;
+}
+
+.circuit-glow {
+    fill: none;
+    stroke-width: 3;
+    stroke: #00ffff;
+    filter: url(#glow);
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+}
+
+.circuit-node {
+    fill: #00ffff;
+    filter: url(#glow);
+    opacity: 0;
+}
+
+/* 动画类 */
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes digitalStream {
+    0% {
+        transform: translateX(100vw);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes matrixRain {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(100vh);
+    }
+}
+
+@keyframes circuitPulse {
+    0% {
+        opacity: 0.5;
+        r: 3;
+    }
+
+    50% {
+        opacity: 1;
+        r: 5;
+    }
+
+    100% {
+        opacity: 0.5;
+        r: 3;
+    }
+}
+
 /* 响应式调整 */
 @media (max-width: 768px) {
     .loading-logo {
         width: 400px;
-        /* 调整中等屏幕的大小 */
         max-width: 80%;
     }
 
@@ -156,14 +322,12 @@
 
     .loading-content {
         gap: 15px;
-        /* 减少间距 */
     }
 }
 
 @media (max-width: 480px) {
     .loading-logo {
         width: 300px;
-        /* 调整小屏幕的大小 */
         max-width: 85%;
     }
 
@@ -181,11 +345,9 @@
 
     .loading-content {
         gap: 10px;
-        /* 进一步减少间距 */
     }
 }
 
-/* 针对超小屏幕的额外调整 */
 @media (max-width: 360px) {
     .loading-logo {
         width: 250px;

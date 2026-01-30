@@ -54,12 +54,26 @@ document.addEventListener('DOMContentLoaded', function () {
     const loadingPercentage = document.getElementById('loadingPercentage');
     const loadingStatus = document.getElementById('loadingStatus');
 
+    const digitalStreamContainer = document.getElementById('digitalStreamContainer');
+    const matrixRainContainer = document.getElementById('matrixRainContainer');
+    const circuitContainer = document.getElementById('circuitContainer');
+    const circuitGlow = document.getElementById('circuitGlow');
+    const circuitNodes = document.querySelectorAll('.circuit-node');
+    const mainContent = document.getElementById('mainContent');
+
     if (!loadingOverlay) return;
 
     let totalProgress = 0;
     let imageProgress = 0;
     let domProgress = 0;
     let resourceProgress = 0;
+
+    // 记录动画是否已触发
+    let animationsTriggered = {
+        digitalStream: false,
+        matrixRain: false,
+        circuitEffect: false
+    };
 
     // 更新进度显示
     function updateProgress() {
@@ -82,7 +96,31 @@ document.addEventListener('DOMContentLoaded', function () {
             loadingPercentage.textContent = totalProgress + '%';
         }
 
+        // 根据进度触发动画
+        triggerAnimationsByProgress(totalProgress);
+
         return totalProgress;
+    }
+
+    // 根据进度触发动画
+    function triggerAnimationsByProgress(progress) {
+        // 当进度达到25%时，启动数字流特效
+        if (progress >= 25 && !animationsTriggered.digitalStream) {
+            createDigitalStream();
+            animationsTriggered.digitalStream = true;
+        }
+
+        // 当进度达到50%时，启动矩阵雨特效
+        if (progress >= 50 && !animationsTriggered.matrixRain) {
+            createMatrixRain();
+            animationsTriggered.matrixRain = true;
+        }
+
+        // 当进度达到75%时，启动电路板光效
+        if (progress >= 75 && !animationsTriggered.circuitEffect) {
+            createCircuitEffect();
+            animationsTriggered.circuitEffect = true;
+        }
     }
 
     // 更新加载状态文本
@@ -124,7 +162,7 @@ document.addEventListener('DOMContentLoaded', function () {
     updateDOMProgress(); // 初始调用
 
     // 开始预加载图片
-    updateStatusText('images', '0/14' + imagesToPreload.length);
+    updateStatusText('images', '0/' + imagesToPreload.length);
     const preloadPromise = preloadImages(imagesToPreload, (loaded, total, type) => {
         imageProgress = Math.round((loaded / total) * 100);
         updateStatusText('images', `${loaded}/${total}`);
@@ -182,6 +220,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     if (loadingText) {
                         loadingText.textContent = '加载完成！';
                         loadingText.style.color = '#00ff00';
+                        loadingText.style.animation = 'none';
                     }
                     if (loadingPercentage) {
                         loadingPercentage.style.color = '#00ff00';
@@ -198,10 +237,15 @@ document.addEventListener('DOMContentLoaded', function () {
             // 隐藏加载动画
             loadingOverlay.classList.add('hidden');
 
+            // 显示主内容
+            setTimeout(() => {
+                mainContent.classList.add('visible');
+            }, 500);
+
             // 动画完成后移除元素
             setTimeout(() => {
                 loadingOverlay.style.display = 'none';
-            }, 500);
+            }, 1000);
         })
         .catch(error => {
             console.error('加载过程中出现错误:', error);
@@ -213,7 +257,104 @@ document.addEventListener('DOMContentLoaded', function () {
 
             loadingOverlay.classList.add('hidden');
             setTimeout(() => {
+                mainContent.classList.add('visible');
                 loadingOverlay.style.display = 'none';
             }, 500);
         });
+
+    // 创建数字流特效
+    function createDigitalStream() {
+        // 激活容器
+        digitalStreamContainer.classList.add('active');
+
+        const streamCount = 15;
+
+        for (let i = 0; i < streamCount; i++) {
+            const stream = document.createElement('div');
+            stream.className = 'digital-stream';
+
+            // 随机生成数字串
+            let digitalString = '';
+            const length = Math.floor(Math.random() * 30) + 20;
+            for (let j = 0; j < length; j++) {
+                digitalString += Math.random() > 0.5 ? '1' : '0';
+            }
+
+            stream.textContent = digitalString;
+
+            // 随机位置
+            const top = Math.random() * 100;
+            const fontSize = Math.random() * 10 + 14;
+            const speed = Math.random() * 20 + 10;
+            const delay = Math.random() * 5;
+
+            stream.style.top = `${top}%`;
+            stream.style.fontSize = `${fontSize}px`;
+            stream.style.animation = `digitalStream ${speed}s linear ${delay}s infinite`;
+            stream.style.opacity = Math.random() * 0.5 + 0.3;
+
+            digitalStreamContainer.appendChild(stream);
+        }
+    }
+
+    // 创建矩阵雨特效
+    function createMatrixRain() {
+        // 激活容器
+        matrixRainContainer.classList.add('active');
+
+        const columnCount = 30;
+
+        for (let i = 0; i < columnCount; i++) {
+            const column = document.createElement('div');
+            column.className = 'matrix-column';
+
+            // 随机位置
+            const left = Math.random() * 100;
+            column.style.left = `${left}%`;
+
+            // 随机字符数
+            const charCount = Math.floor(Math.random() * 15) + 10;
+
+            for (let j = 0; j < charCount; j++) {
+                const char = document.createElement('div');
+                char.className = 'matrix-char';
+
+                // 随机字符（ASCII 33-126）
+                const randomChar = String.fromCharCode(Math.floor(Math.random() * 94) + 33);
+                char.textContent = randomChar;
+
+                // 随机延迟和持续时间
+                const delay = Math.random() * 2;
+                const duration = Math.random() * 3 + 2;
+
+                char.style.animation = `matrixRain ${duration}s linear ${delay}s forwards`;
+                char.style.opacity = Math.random() * 0.7 + 0.3;
+
+                column.appendChild(char);
+            }
+
+            matrixRainContainer.appendChild(column);
+        }
+    }
+
+    // 创建电路板光效
+    function createCircuitEffect() {
+        // 激活容器
+        circuitContainer.classList.add('active');
+
+        // 电路光效动画
+        circuitGlow.style.animation = 'none';
+        setTimeout(() => {
+            circuitGlow.style.transition = 'stroke-dashoffset 3s ease-in-out';
+            circuitGlow.style.strokeDashoffset = '0';
+        }, 10);
+
+        // 电路节点脉冲动画
+        circuitNodes.forEach((node, index) => {
+            setTimeout(() => {
+                node.style.opacity = '1';
+                node.style.animation = `circuitPulse 1.5s ease-in-out infinite ${index * 0.3}s`;
+            }, index * 200);
+        });
+    }
 });

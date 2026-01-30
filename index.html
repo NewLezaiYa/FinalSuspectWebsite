@@ -32,22 +32,54 @@
 </head>
 
 <body>
-    <!-- 加载动画 -->
-    <div class="loading-overlay" id="loadingOverlay">
-        <div class="loading-content">
-            <img src="Resource/images/FinalSuspect-Logo-2.0.png" class="loading-logo" alt="FinalSuspect Logo">
-            <div class="loading-text">正在初始化...</div>
+    <!-- 加载动画和特效容器 -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <!-- 动画特效容器 -->
+        <div class="animation-container">
+            <!-- 数字流特效 -->
+            <div class="digital-stream-container" id="digitalStreamContainer"></div>
 
-            <!-- 进度条 -->
+            <!-- 矩阵雨特效 -->
+            <div class="matrix-rain-container" id="matrixRainContainer"></div>
+
+            <!-- 电路板光效 -->
+            <div class="circuit-container" id="circuitContainer">
+                <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <filter id="glow">
+                            <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+                            <feMerge>
+                                <feMergeNode in="coloredBlur" />
+                                <feMergeNode in="SourceGraphic" />
+                            </feMerge>
+                        </filter>
+                    </defs>
+                    <!-- 电路路径 -->
+                    <path class="circuit-path" id="circuitPath"
+                        d="M100,100 Q250,50 400,100 T700,100 Q850,150 900,100 T1100,100" />
+                    <path class="circuit-glow" id="circuitGlow"
+                        d="M100,100 Q250,50 400,100 T700,100 Q850,150 900,100 T1100,100" />
+
+                    <!-- 电路节点 -->
+                    <circle class="circuit-node" id="circuitNode1" cx="100" cy="100" r="5" />
+                    <circle class="circuit-node" id="circuitNode2" cx="400" cy="100" r="5" />
+                    <circle class="circuit-node" id="circuitNode3" cx="700" cy="100" r="5" />
+                    <circle class="circuit-node" id="circuitNode4" cx="900" cy="100" r="5" />
+                    <circle class="circuit-node" id="circuitNode5" cx="1100" cy="100" r="5" />
+                </svg>
+            </div>
+        </div>
+
+        <!-- 加载内容容器 -->
+        <div class="loading-content">
+            <img src="Resource/images/FinalSuspect-Logo-2.0.png"
+                alt="FinalSuspect Logo" class="loading-logo">
+            <div class="loading-text">正在加载 FinalSuspect</div>
             <div class="loading-progress-container">
                 <div class="loading-progress-bar" id="loadingProgressBar"></div>
             </div>
-
-            <!-- 进度百分比 -->
             <div class="loading-percentage" id="loadingPercentage">0%</div>
-
-            <!-- 加载状态 -->
-            <div class="loading-status" id="loadingStatus">正在准备资源...</div>
+            <div class="loading-status" id="loadingStatus">初始化中...</div>
         </div>
     </div>
 
