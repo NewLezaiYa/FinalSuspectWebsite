@@ -104,20 +104,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // 根据进度触发动画
     function triggerAnimationsByProgress(progress) {
-        // 当进度达到25%时，启动数字流特效
-        if (progress >= 25 && !animationsTriggered.digitalStream) {
+        if (progress >= 0 && !animationsTriggered.digitalStream) {
             createDigitalStream();
             animationsTriggered.digitalStream = true;
         }
 
-        // 当进度达到50%时，启动矩阵雨特效
-        if (progress >= 50 && !animationsTriggered.matrixRain) {
+        if (progress >= 0 && !animationsTriggered.matrixRain) {
             createMatrixRain();
             animationsTriggered.matrixRain = true;
         }
 
-        // 当进度达到75%时，启动电路板光效
-        if (progress >= 75 && !animationsTriggered.circuitEffect) {
+        if (progress >= 0 && !animationsTriggered.circuitEffect) {
             createCircuitEffect();
             animationsTriggered.circuitEffect = true;
         }
@@ -259,7 +256,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // 创建数字流特效
     function createDigitalStream() {
-        // 激活容器
         digitalStreamContainer.classList.add('active');
 
         const streamCount = 15;
@@ -294,7 +290,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // 创建矩阵雨特效
     function createMatrixRain() {
-        // 激活容器
         matrixRainContainer.classList.add('active');
 
         const columnCount = 30;
@@ -314,7 +309,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const char = document.createElement('div');
                 char.className = 'matrix-char';
 
-                // 随机字符（ASCII 33-126）
+                // 随机字符
                 const randomChar = String.fromCharCode(Math.floor(Math.random() * 94) + 33);
                 char.textContent = randomChar;
 
@@ -334,7 +329,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // 创建电路板光效
     function createCircuitEffect() {
-        // 激活容器
         circuitContainer.classList.add('active');
 
         // 电路光效动画
