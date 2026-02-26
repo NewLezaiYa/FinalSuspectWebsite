@@ -30,20 +30,20 @@ function preloadImages(imageUrls, progressCallback) {
 
 // 需要预加载的图片列表
 const imagesToPreload = [
-    'Resource/images/FinalSuspect-Logo-2.0.png',
-    'Resource/images/Cursor.png',
-    'Resource/images/FastBoot.png',
-    'Resource/images/FinalSuspect-BG-EmergencyMeeting-Preview.png',
-    'Resource/images/FinalSuspect-BG-MiraHQ.png',
-    'Resource/images/FinalSuspect-BG-MiraStudio-Preview.png',
-    'Resource/images/FinalSuspect-BG-NewYear-Preview.png',
-    'Resource/images/FinalSuspect-BG-Security-Preview.png',
-    'Resource/images/FinalSuspect-BG-XtremeWave-Preview.png',
-    'Resource/images/OpenAmongUsWithSteam.png',
-    'Resource/images/ShowPlayerInfo.png',
-    'Resource/images/SpamDenyWord.png',
-    'Resource/images/SteamUnzip.png',
-    'Resource/images/UnlockFPS.png',
+    '/Resource/images/FinalSuspect-Logo-2.0.png',
+    '/Resource/images/Cursor.png',
+    '/Resource/images/FastBoot.png',
+    '/Resource/images/FinalSuspect-BG-EmergencyMeeting-Preview.png',
+    '/Resource/images/FinalSuspect-BG-MiraHQ.png',
+    '/Resource/images/FinalSuspect-BG-MiraStudio-Preview.png',
+    '/Resource/images/FinalSuspect-BG-NewYear-Preview.png',
+    '/Resource/images/FinalSuspect-BG-Security-Preview.png',
+    '/Resource/images/FinalSuspect-BG-XtremeWave-Preview.png',
+    '/Resource/images/OpenAmongUsWithSteam.png',
+    '/Resource/images/ShowPlayerInfo.png',
+    '/Resource/images/SpamDenyWord.png',
+    '/Resource/images/SteamUnzip.png',
+    '/Resource/images/UnlockFPS.png',
 ];
 
 // 页面加载完成后处理
