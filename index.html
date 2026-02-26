@@ -32,17 +32,12 @@
 </head>
 
 <body>
-    <!-- 加载动画和特效容器 -->
     <div id="loadingOverlay" class="loading-overlay">
-        <!-- 动画特效容器 -->
         <div class="animation-container">
-            <!-- 数字流特效 -->
             <div class="digital-stream-container" id="digitalStreamContainer"></div>
 
-            <!-- 矩阵雨特效 -->
             <div class="matrix-rain-container" id="matrixRainContainer"></div>
 
-            <!-- 电路板光效 -->
             <div class="circuit-container" id="circuitContainer">
                 <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
                     <defs>
@@ -54,13 +49,11 @@
                             </feMerge>
                         </filter>
                     </defs>
-                    <!-- 电路路径 -->
                     <path class="circuit-path" id="circuitPath"
                         d="M100,100 Q250,50 400,100 T700,100 Q850,150 900,100 T1100,100" />
                     <path class="circuit-glow" id="circuitGlow"
                         d="M100,100 Q250,50 400,100 T700,100 Q850,150 900,100 T1100,100" />
 
-                    <!-- 电路节点 -->
                     <circle class="circuit-node" id="circuitNode1" cx="100" cy="100" r="5" />
                     <circle class="circuit-node" id="circuitNode2" cx="400" cy="100" r="5" />
                     <circle class="circuit-node" id="circuitNode3" cx="700" cy="100" r="5" />
@@ -70,7 +63,6 @@
             </div>
         </div>
 
-        <!-- 加载 -->
         <div class="loading-content">
             <img src="Resource/images/FinalSuspect-Logo-2.0.png"
                 alt="FinalSuspect Logo" class="loading-logo">
@@ -86,7 +78,7 @@
     <!-- 彩蛋触发点：在加载Logo上 -->
     <div class="secret-spot" id="secret-spot-1" style="top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
     <header>
-        <div class="logo">FinalSuspect</div>
+        <div class="logo" data-text="FinalSuspect">FinalSuspect</div>
         <nav>
             <ul>
                 <li><a href="#intro"><i class="fas fa-book-open"></i> 简介</a></li>
@@ -257,7 +249,7 @@
                 <i class="fas fa-volume-up"></i> 音效已加载
             </div>
             <p class="easter-egg-secret">
-                🎯 彩蛋代码: FS-2025
+                🎯 彩蛋代码: FS-2026
             </p>
             <button class="easter-egg-close" id="closeEasterEgg">关闭彩蛋</button>
         </div>

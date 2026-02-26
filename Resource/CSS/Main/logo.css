@@ -1,28 +1,110 @@
 .logo {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 2rem;
-    font-weight: 700;
-    background: linear-gradient(to right, var(--accent), var(--cyan));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    letter-spacing: 1px;
-    position: relative;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: 4px;
+  background: linear-gradient(
+    45deg,
+    var(--accent),
+    var(--cyan),
+    #ff44ec,
+    var(--accent)
+  );
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow:
+    0 0 10px rgba(0, 255, 255, 0.5),
+    0 0 20px rgba(255, 68, 236, 0.4),
+    0 0 40px rgba(0, 255, 255, 0.2);
+  position: relative;
+  display: inline-block;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation: gradientShift 6s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.logo:hover {
+  transform: scale(1.08);
+  text-shadow:
+    0 0 15px rgba(0, 255, 255, 0.8),
+    0 0 30px rgba(255, 68, 236, 0.7),
+    0 0 60px rgba(0, 255, 255, 0.5);
+  transition: all 0.3s ease;
+}
+
+.logo::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  background: inherit;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: blur(12px);
+  opacity: 0.6;
+  transition: opacity 0.3s;
+  animation: breathe 4s ease-in-out infinite;
+}
+
+.logo:hover::before {
+  opacity: 0.9;
+  filter: blur(16px);
 }
 
 .logo::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: linear-gradient(to right, var(--accent), var(--cyan));
-    border-radius: 2px;
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--cyan), #ff44ec);
+  border-radius: 4px;
+  box-shadow: 0 0 15px var(--cyan);
+  transform: translateX(-50%);
+  transition: width 0.4s ease-out;
 }
 
 .logo:hover::after {
-    transform: scaleX(1);
+  width: 100%;
+}
+
+.logo:hover {
+  &::after {
+    width: 100%;
+  }
+  &::before {
+    opacity: 0.9;
+  }
+}
+
+.logo::selection {
+  background: var(--cyan);
+  color: #000;
+}
+
+@keyframes breathe {
+  0%, 100% {
+    opacity: 0.4;
+    filter: blur(10px);
+  }
+  50% {
+    opacity: 0.8;
+    filter: blur(20px);
+  }
 }

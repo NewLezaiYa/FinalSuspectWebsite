@@ -130,9 +130,6 @@
             <!-- 更新统计 -->
             <div style="text-align: center; margin: 30px 0;">
                 <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 15px;">
-                    <div class="update-counter" style="border-color: #3b82f6; color: #3b82f6;">
-                        <i class="fas fa-plus-circle"></i> 新增: 9
-                    </div>
                     <div class="update-counter" style="border-color: #ef4444; color: #ef4444;">
                         <i class="fas fa-check-circle"></i> 修正: 5
                     </div>
@@ -141,6 +138,9 @@
                     </div>
                     <div class="update-counter" style="border-color: #f59e0b; color: #f59e0b;">
                         <i class="fas fa-exchange-alt"></i> 更改: 3
+                    </div>
+                    <div class="update-counter" style="border-color: #3b82f6; color: #3b82f6;">
+                        <i class="fas fa-plus-circle"></i> 新增: 9
                     </div>
                     <div class="update-counter" style="border-color: #8b5cf6; color: #8b5cf6;">
                         <i class="fas fa-trash-alt"></i> 删除: 1
@@ -337,9 +337,6 @@
             <!-- 更新统计 -->
             <div style="text-align: center; margin: 30px 0;">
                 <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 15px;">
-                    <div class="update-counter" style="border-color: #3b82f6; color: #3b82f6;">
-                        <i class="fas fa-plus-circle"></i> 新增: 37
-                    </div>
                     <div class="update-counter" style="border-color: #ef4444; color: #ef4444;">
                         <i class="fas fa-check-circle"></i> 修正: 23
                     </div>
@@ -348,6 +345,9 @@
                     </div>
                     <div class="update-counter" style="border-color: #f59e0b; color: #f59e0b;">
                         <i class="fas fa-exchange-alt"></i> 更改: 17
+                    </div>
+                    <div class="update-counter" style="border-color: #3b82f6; color: #3b82f6;">
+                        <i class="fas fa-plus-circle"></i> 新增: 37
                     </div>
                     <div class="update-counter" style="border-color: #ec4899; color: #ec4899;">
                         <i class="fas fa-redo-alt"></i> 重制: 1
@@ -773,6 +773,135 @@
                     <span class="contributor-name">FangKuai</span>
                     <a href="https://github.com/FangkuaiYa" class="contributor-link" target="_blank">
                         <i class="fab fa-github"></i> GITHUB主页
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 1.1.0 -->
+        <div class="changelog-content">
+            <!-- 版本号 -->
+            <div class="version-badge" id="v1.1_20250501">1.1 正式版 | 日期版本：20250501</div>
+            <div class="text">
+                修复了一些在1.1的下载问题
+            </div>
+
+            <!-- 版本信息 -->
+            <div class="version-info-grid">
+                <div class="info-card">
+                    <h3>对应官方版本</h3>
+                    <p>Among Us v16.0.2</p>
+                </div>
+                <div class="info-card">
+                    <h3>BepInEx 框架</h3>
+                    <p>v6.0.0-be.733</p>
+                </div>
+            </div>
+
+            <!-- 更新统计 -->
+            <div style="text-align: center; margin: 30px 0;">
+                <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 15px;">
+                    <div class="update-counter" style="border-color: #ef4444; color: #ef4444;">
+                        <i class="fas fa-check-circle"></i> 修正: 3
+                    </div>
+                    <div class="update-counter" style="border-color: #10b981; color: #10b981;">
+                        <i class="fas fa-rocket"></i> 优化: 1
+                    </div>
+                    <div class="update-counter" style="border-color: #f59e0b; color: #f59e0b;">
+                        <i class="fas fa-exchange-alt"></i> 更改: 1
+                    </div>
+                    <div class="update-counter" style="border-color: #8b5cf6; color: #8b5cf6;">
+                        <i class="fas fa-trash-alt"></i> 删除: 1
+                    </div>
+                </div>
+                <div style="margin-top: 20px; color: #94a3b8; font-size: 1.1rem; font-weight: 600;">
+                    总计: 6 项更新
+                </div>
+            </div>
+
+            <!-- 修正 -->
+            <div class="update-section section-fix" style="animation-delay: 0.1s;">
+                <div class="section-title">
+                    <i class="fas fa-bug"></i>
+                    <span>修正</span>
+                    <span class="update-counter">3 项</span>
+                </div>
+                <div class="update-item">
+                    修复了资源下载时出现的问题
+                </div>
+                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
+                    修复: LezaiYa | 反馈: 警长小蓝
+                </div>
+                <div class="update-item stagger-delay-1">
+                    修复了SM缺少检测RPC的问题
+                </div>
+                <div class="update-item stagger-delay-2">
+                    修复了反作弊不检测RPC55的问题
+                </div>
+                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
+                    修复: LezaiYa
+                </div>
+            </div>
+
+            <!-- 优化 -->
+            <div class="update-section section-optimize" style="animation-delay: 0.2s;">
+                <div class="section-title">
+                    <i class="fas fa-rocket"></i>
+                    <span>优化</span>
+                    <span class="update-counter">1 项</span>
+                </div>
+                <div class="update-item">
+                    优化远程未检测到文件时的框架报错信息
+                </div>
+                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
+                    制作: LezaiYa
+                </div>
+            </div>
+
+            <!-- 更改 -->
+            <div class="update-section section-change" style="animation-delay: 0.3s;">
+                <div class="section-title">
+                    <i class="fas fa-exchange-alt"></i>
+                    <span>更改</span>
+                    <span class="update-counter">1 项</span>
+                </div>
+                <div class="update-item">
+                    将国内Gitee镜像源改接新的资源镜像源
+                </div>
+                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
+                    制作: LezaiYa
+                </div>
+            </div>
+
+            <!-- 删除 -->
+            <div class="update-section section-remove" style="animation-delay: 0.4s;">
+                <div class="section-title">
+                    <i class="fas fa-trash-alt"></i>
+                    <span>删除</span>
+                    <span class="update-counter">1 项</span>
+                </div>
+                <div class="update-item removed-item">
+                    删除API检查更新及下载资源
+                </div>
+                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
+                    决定: QingFeng
+                </div>
+            </div>
+
+            <!-- 贡献者 -->
+            <div class="contributors">
+                <div class="contributor-card" style="animation-delay: 0.5s;">
+                    <span class="contributor-name">QingFeng</span>
+                    <a href="https://github.com/QingFeng-awa" class="contributor-link"
+                        target="_blank">
+                        <i class="fab fa-bilibili"></i> GITHUB主页
+                    </a>
+                </div>
+                <div class="contributor-card" style="animation-delay: 0.5s;">
+                    <span class="contributor-name">LezaiYa</span>
+                    <a href="https://github.com/NewLezaiYa" class="contributor-link"
+                        target="_blank">
+                        <i class="fab fa-bilibili"></i> GITHUB主页
                     </a>
                 </div>
             </div>
