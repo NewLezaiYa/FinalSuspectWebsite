@@ -1,4 +1,4 @@
-// 图片预加载函数
+// 图片预加载
 function preloadImages(imageUrls, progressCallback) {
     const totalImages = imageUrls.length;
     let loadedImages = 0;
@@ -44,6 +44,7 @@ const imagesToPreload = [
     '/Resource/images/SpamDenyWord.png',
     '/Resource/images/SteamUnzip.png',
     '/Resource/images/UnlockFPS.png',
+    '/Resource/images/LogoWithTeam.png',
 ];
 
 // 页面加载完成后处理
@@ -68,7 +69,6 @@ document.addEventListener('DOMContentLoaded', function () {
     let domProgress = 0;
     let resourceProgress = 0;
 
-    // 记录动画是否已触发
     let animationsTriggered = {
         digitalStream: false,
         matrixRain: false,
@@ -87,7 +87,6 @@ document.addEventListener('DOMContentLoaded', function () {
         // 限制进度在0-100之间
         totalProgress = Math.min(100, totalProgress);
 
-        // 更新UI
         if (loadingProgressBar) {
             loadingProgressBar.style.width = totalProgress + '%';
         }
@@ -96,13 +95,11 @@ document.addEventListener('DOMContentLoaded', function () {
             loadingPercentage.textContent = totalProgress + '%';
         }
 
-        // 根据进度触发动画
         triggerAnimationsByProgress(totalProgress);
 
         return totalProgress;
     }
 
-    // 根据进度触发动画
     function triggerAnimationsByProgress(progress) {
         if (progress >= 0 && !animationsTriggered.digitalStream) {
             createDigitalStream();
@@ -127,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const statusMap = {
             'init': '正在初始化...',
             'dom': '正在加载页面结构...',
-            'images': `正在加载图片 (${detail || '0/14'})...`,
+            'images': `正在加载图片 (${detail || '0/15'})...`,
             'resources': '正在加载其他资源...',
             'scripts': '正在初始化脚本...',
             'almost': '即将完成...',
@@ -154,9 +151,8 @@ document.addEventListener('DOMContentLoaded', function () {
         updateProgress();
     }
 
-    // 监听DOM状态变化
     document.onreadystatechange = updateDOMProgress;
-    updateDOMProgress(); // 初始调用
+    updateDOMProgress();
 
     // 开始预加载图片
     updateStatusText('images', '0/' + imagesToPreload.length);
@@ -254,7 +250,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 500);
         });
 
-    // 创建数字流特效
     function createDigitalStream() {
         digitalStreamContainer.classList.add('active');
 
@@ -264,7 +259,6 @@ document.addEventListener('DOMContentLoaded', function () {
             const stream = document.createElement('div');
             stream.className = 'digital-stream';
 
-            // 随机生成数字串
             let digitalString = '';
             const length = Math.floor(Math.random() * 30) + 20;
             for (let j = 0; j < length; j++) {
@@ -273,7 +267,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
             stream.textContent = digitalString;
 
-            // 随机位置
             const top = Math.random() * 100;
             const fontSize = Math.random() * 10 + 14;
             const speed = Math.random() * 20 + 10;
@@ -288,7 +281,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // 创建矩阵雨特效
     function createMatrixRain() {
         matrixRainContainer.classList.add('active');
 
@@ -298,22 +290,18 @@ document.addEventListener('DOMContentLoaded', function () {
             const column = document.createElement('div');
             column.className = 'matrix-column';
 
-            // 随机位置
             const left = Math.random() * 100;
             column.style.left = `${left}%`;
 
-            // 随机字符数
             const charCount = Math.floor(Math.random() * 15) + 10;
 
             for (let j = 0; j < charCount; j++) {
                 const char = document.createElement('div');
                 char.className = 'matrix-char';
 
-                // 随机字符
                 const randomChar = String.fromCharCode(Math.floor(Math.random() * 94) + 33);
                 char.textContent = randomChar;
 
-                // 随机延迟和持续时间
                 const delay = Math.random() * 2;
                 const duration = Math.random() * 3 + 2;
 
@@ -327,18 +315,15 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // 创建电路板光效
     function createCircuitEffect() {
         circuitContainer.classList.add('active');
 
-        // 电路光效动画
         circuitGlow.style.animation = 'none';
         setTimeout(() => {
             circuitGlow.style.transition = 'stroke-dashoffset 3s ease-in-out';
             circuitGlow.style.strokeDashoffset = '0';
         }, 10);
 
-        // 电路节点脉冲动画
         circuitNodes.forEach((node, index) => {
             setTimeout(() => {
                 node.style.opacity = '1';

@@ -38,7 +38,5 @@ document.querySelectorAll('h2').forEach(h2 => {
             color: rgba(0, 210, 255, 0.3);
             z-index: 0;
         `;
-
-        // 注意：这里只是示例，实际应用中可能需要调整
     }
 });

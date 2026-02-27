@@ -1,19 +1,19 @@
 // 创建更多的装饰性粒子
 function createErrorParticles() {
     const header = document.querySelector('header');
-    
+
     // 创建背景粒子
     for (let i = 0; i < 30; i++) {
         const particle = document.createElement('div');
         particle.className = 'error-particle';
-        
+
         // 随机位置和大小
         const left = Math.random() * 100;
         const top = Math.random() * 100;
         const size = 2 + Math.random() * 4;
         const delay = Math.random() * 3;
         const duration = 3 + Math.random() * 4;
-        
+
         particle.style.cssText = `
             position: absolute;
             left: ${left}%;
@@ -28,10 +28,10 @@ function createErrorParticles() {
             pointer-events: none;
             z-index: 1;
         `;
-        
+
         header.appendChild(particle);
     }
-    
+
     // 添加浮动动画
     const style = document.createElement('style');
     style.textContent = `
@@ -52,35 +52,35 @@ function createErrorParticles() {
 // 为错误代码添加交互效果
 function setupErrorCodeInteraction() {
     const errorCode = document.querySelector('.error-code');
-    
+
     // 鼠标悬停效果
-    errorCode.addEventListener('mouseenter', function() {
+    errorCode.addEventListener('mouseenter', function () {
         // 增强发光效果
         this.style.animationDuration = '2s';
         this.style.filter = 'drop-shadow(0 0 30px rgba(0, 210, 255, 0.8))';
-        
+
         // 创建点击扩散效果
         createClickEffect(this);
     });
-    
-    errorCode.addEventListener('mouseleave', function() {
+
+    errorCode.addEventListener('mouseleave', function () {
         // 恢复原状
         this.style.animationDuration = '4s';
         this.style.filter = 'drop-shadow(0 0 20px rgba(0, 0, 0, 0.5))';
     });
-    
+
     // 点击效果
-    errorCode.addEventListener('click', function() {
+    errorCode.addEventListener('click', function () {
         // 创建爆炸效果
         for (let i = 0; i < 20; i++) {
             const spark = document.createElement('div');
             spark.className = 'error-spark';
-            
+
             const angle = Math.random() * Math.PI * 2;
             const distance = 50 + Math.random() * 100;
             const x = Math.cos(angle) * distance;
             const y = Math.sin(angle) * distance;
-            
+
             spark.style.cssText = `
                 position: absolute;
                 left: 50%;
@@ -94,7 +94,7 @@ function setupErrorCodeInteraction() {
                 pointer-events: none;
                 z-index: 10;
             `;
-            
+
             // 动态设置关键帧
             const sparkStyle = document.createElement('style');
             sparkStyle.textContent = `
@@ -110,9 +110,9 @@ function setupErrorCodeInteraction() {
                 }
             `;
             document.head.appendChild(sparkStyle);
-            
+
             errorCode.appendChild(spark);
-            
+
             // 移除元素
             setTimeout(() => {
                 spark.remove();
@@ -139,9 +139,9 @@ function createClickEffect(element) {
         pointer-events: none;
         z-index: -1;
     `;
-    
+
     element.appendChild(ripple);
-    
+
     // 添加动画
     const rippleStyle = document.createElement('style');
     rippleStyle.textContent = `
@@ -157,7 +157,7 @@ function createClickEffect(element) {
         }
     `;
     document.head.appendChild(rippleStyle);
-    
+
     // 移除元素
     setTimeout(() => {
         ripple.remove();
@@ -166,7 +166,7 @@ function createClickEffect(element) {
 }
 
 // 页面加载完成后初始化
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     createErrorParticles();
     setupErrorCodeInteraction();
 });
