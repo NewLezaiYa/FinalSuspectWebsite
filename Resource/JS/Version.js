@@ -1,15 +1,5 @@
-/**
- * version-nav.js - 版本导航交互功能
- * 适用于 FinalSuspect 更新日志页面
- * 功能：版本导航、滚动定位、折叠/隐藏控制
- */
-
 (function () {
     'use strict';
-
-    // ============================================
-    // 全局变量和配置
-    // ============================================
 
     // DOM 元素引用
     let versionNav = null;
@@ -32,29 +22,21 @@
 
     // 动画和交互配置
     const CONFIG = {
-        scrollOffset: 100,           // 滚动偏移量
-        scrollDetectionDelay: 100,   // 滚动检测延迟
-        indicatorDuration: 3000,     // 指示器显示时长
-        restoreTipDuration: 3000,    // 恢复提示显示时长
-        touchSwipeThreshold: 50,     // 触摸滑动阈值
-        touchVerticalMax: 30         // 垂直移动最大值
+        scrollOffset: 100,
+        scrollDetectionDelay: 100,
+        indicatorDuration: 3000,
+        restoreTipDuration: 3000,
+        touchSwipeThreshold: 50,
+        touchVerticalMax: 30
     };
 
     // 当前活动版本
     let activeVersion = '1.3.0';
 
-    // 定时器引用
     let scrollTimeout = null;
     let indicatorTimeout = null;
     let restoreTipTimeout = null;
 
-    // ============================================
-    // 初始化函数
-    // ============================================
-
-    /**
-     * 初始化所有功能
-     */
     function init() {
         // 检查是否在更新日志页面
         if (!document.querySelector('.changelog-content')) {
@@ -85,9 +67,6 @@
         console.log('快捷键: Alt+N 显示/隐藏导航 | Alt+C 折叠/展开导航 | ESC 关闭提示');
     }
 
-    /**
-     * 获取 DOM 元素引用
-     */
     function getDOMElements() {
         versionNav = document.getElementById('versionNav');
         navToggle = document.getElementById('navToggle');
@@ -99,9 +78,6 @@
         versionContents = document.querySelectorAll('.changelog-content');
     }
 
-    /**
-     * 验证必要元素是否存在
-     */
     function validateElements() {
         const requiredElements = [
             versionNav, navToggle, navHide, navShowBtn,
@@ -111,11 +87,7 @@
         return requiredElements.every(element => element !== null);
     }
 
-    /**
-     * 设置初始状态
-     */
     function setupInitialState() {
-        // 创建当前版本指示器
         createIndicator();
 
         // 从本地存储获取状态
@@ -132,9 +104,6 @@
         updateActiveNavItem(activeVersion);
     }
 
-    /**
-     * 创建当前版本指示器
-     */
     function createIndicator() {
         indicator = document.createElement('div');
         indicator.className = 'current-version-indicator';
@@ -142,13 +111,6 @@
         document.body.appendChild(indicator);
     }
 
-    // ============================================
-    // 状态管理函数
-    // ============================================
-
-    /**
-     * 从本地存储获取状态
-     */
     function getSavedState() {
         try {
             const saved = localStorage.getItem(STORAGE_KEY);
@@ -159,9 +121,6 @@
         }
     }
 
-    /**
-     * 保存状态到本地存储
-     */
     function saveState(state) {
         try {
             localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
@@ -170,9 +129,6 @@
         }
     }
 
-    /**
-     * 应用导航状态
-     */
     function applyNavState(state) {
         // 应用隐藏状态
         if (state.hidden) {
@@ -196,13 +152,6 @@
         saveState(state);
     }
 
-    // ============================================
-    // 导航控制函数
-    // ============================================
-
-    /**
-     * 切换折叠状态
-     */
     function toggleCollapse() {
         const currentState = getSavedState();
         currentState.collapsed = !currentState.collapsed;
@@ -213,9 +162,6 @@
         animateButtonFeedback(navToggle);
     }
 
-    /**
-     * 更新折叠按钮图标
-     */
     function updateToggleIcon() {
         const isCollapsed = versionNav.classList.contains('collapsed');
         navToggle.innerHTML = isCollapsed ?
@@ -224,9 +170,6 @@
         navToggle.title = isCollapsed ? '展开导航' : '折叠导航';
     }
 
-    /**
-     * 隐藏导航栏
-     */
     function hideNav() {
         const currentState = getSavedState();
         currentState.hidden = true;
@@ -245,9 +188,6 @@
         animateButtonFeedback(navHide);
     }
 
-    /**
-     * 显示导航栏
-     */
     function showNav() {
         const currentState = getSavedState();
         currentState.hidden = false;
@@ -260,9 +200,6 @@
         animateButtonFeedback(navShowBtn);
     }
 
-    /**
-     * 按钮动画反馈
-     */
     function animateButtonFeedback(button) {
         button.classList.add('clicked');
         setTimeout(() => {
@@ -270,13 +207,6 @@
         }, 300);
     }
 
-    // ============================================
-    // 提示和指示器函数
-    // ============================================
-
-    /**
-     * 显示恢复提示
-     */
     function showRestoreTip() {
         navRestoreTip.classList.add('visible');
 
@@ -291,9 +221,6 @@
         }, CONFIG.restoreTipDuration);
     }
 
-    /**
-     * 隐藏恢复提示
-     */
     function hideRestoreTip() {
         navRestoreTip.classList.remove('visible');
 
@@ -303,9 +230,6 @@
         }
     }
 
-    /**
-     * 更新当前版本指示器
-     */
     function updateIndicator(version, type) {
         indicator.innerHTML = `<span>当前查看: <strong>${version} ${type}</strong></span>`;
         indicator.classList.add('show');
@@ -321,13 +245,6 @@
         }, CONFIG.indicatorDuration);
     }
 
-    // ============================================
-    // 导航和滚动功能
-    // ============================================
-
-    /**
-     * 平滑滚动到元素
-     */
     function smoothScrollTo(element) {
         if (!element) return;
 
@@ -340,9 +257,6 @@
         });
     }
 
-    /**
-     * 更新活动导航项
-     */
     function updateActiveNavItem(version) {
         navItems.forEach(item => {
             const isActive = item.getAttribute('data-version') === version;
@@ -350,9 +264,6 @@
         });
     }
 
-    /**
-     * 导航到指定版本
-     */
     function navigateToVersion(version) {
         const versionType = document.querySelector(`.nav-item[data-version="${version}"] .version-type`)?.textContent || '';
         const targetId = `v${version}`;
@@ -381,9 +292,6 @@
         }
     }
 
-    /**
-     * 检查当前可见的版本
-     */
     function checkVisibleVersion() {
         let currentVisibleVersion = null;
         let maxVisibleArea = 0;
@@ -417,9 +325,6 @@
         }
     }
 
-    /**
-     * 防抖滚动检测
-     */
     function debouncedCheckVisibleVersion() {
         if (scrollTimeout) {
             clearTimeout(scrollTimeout);
@@ -428,13 +333,6 @@
         scrollTimeout = setTimeout(checkVisibleVersion, CONFIG.scrollDetectionDelay);
     }
 
-    // ============================================
-    // 事件处理函数
-    // ============================================
-
-    /**
-     * 绑定所有事件监听器
-     */
     function bindEventListeners() {
         // 导航控制按钮事件
         navToggle.addEventListener('click', toggleCollapse);
@@ -466,27 +364,18 @@
         setupMobileNavToggle();
     }
 
-    /**
-     * 处理导航项点击
-     */
     function handleNavItemClick(event) {
         event.preventDefault();
         const version = this.getAttribute('data-version');
         navigateToVersion(version);
     }
 
-    /**
-     * 处理文档点击（隐藏恢复提示）
-     */
     function handleDocumentClick(event) {
         if (!navRestoreTip.contains(event.target) && event.target !== restoreNavBtn) {
             hideRestoreTip();
         }
     }
 
-    /**
-     * 处理键盘事件
-     */
     function handleKeyDown(event) {
         // Alt+N 显示/隐藏导航
         if (event.altKey && event.key === 'n') {
@@ -522,9 +411,6 @@
         }
     }
 
-    /**
-     * 设置触摸事件
-     */
     function setupTouchEvents() {
         let touchStartX = 0;
         let touchStartY = 0;
@@ -552,9 +438,6 @@
         });
     }
 
-    /**
-     * 处理窗口大小变化
-     */
     function handleResize() {
         // 重新检测可见版本
         checkVisibleVersion();
@@ -566,9 +449,6 @@
         }
     }
 
-    /**
-     * 设置移动端导航栏切换
-     */
     function setupMobileNavToggle() {
         const navHeader = versionNav.querySelector('.nav-header');
 
@@ -583,13 +463,6 @@
         }
     }
 
-    // ============================================
-    // 辅助函数
-    // ============================================
-
-    /**
-     * 添加按钮点击样式类
-     */
     function addButtonClickStyle() {
         const style = document.createElement('style');
         style.textContent = `
@@ -599,7 +472,7 @@
                 transform: scale(0.9);
                 background: rgba(94, 234, 212, 0.3);
             }
-            
+
             .nav-item.clicked {
                 transform: scale(0.95);
             }
@@ -607,9 +480,6 @@
         document.head.appendChild(style);
     }
 
-    /**
-     * 增强导航项点击效果
-     */
     function enhanceNavItemClicks() {
         navItems.forEach(item => {
             item.addEventListener('mousedown', function () {
@@ -628,27 +498,14 @@
         });
     }
 
-    // ============================================
-    // 公共 API（可选）
-    // ============================================
-
-    /**
-     * 导航到指定版本（公共方法）
-     */
     window.navigateToVersion = function (version) {
         navigateToVersion(version);
     };
 
-    /**
-     * 获取当前活动版本
-     */
     window.getCurrentVersion = function () {
         return activeVersion;
     };
 
-    /**
-     * 显示/隐藏导航栏
-     */
     window.toggleNavVisibility = function () {
         const state = getSavedState();
         if (state.hidden) {
@@ -657,10 +514,6 @@
             hideNav();
         }
     };
-
-    // ============================================
-    // 页面加载后初始化
-    // ============================================
 
     // 等待 DOM 完全加载
     if (document.readyState === 'loading') {
@@ -672,5 +525,4 @@
 
     // 添加按钮点击样式
     addButtonClickStyle();
-
 })();
