@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="../../Resource/CSS/PromptBox/container.css">
     <link rel="stylesheet" href="../../Resource/CSS/Root.css">
     <link rel="stylesheet" href="../../Resource/CSS/Footer.css">
+    <link rel="stylesheet" href="../../Resource/CSS/time.css">
 </head>
 
 <body>
@@ -30,11 +31,19 @@
             这一机制既避免了满员后的等待延迟，又防止因最后一名玩家迟迟未加入而影响游戏体验。
         </div>
 
+        <div class="footer-meta">
+            <div class="edit-time">
+                <i class="fas fa-clock"></i>
+                <span>最后更新: <time id="lastEditTime" datetime=""></time></span>
+            </div>
+        </div>
+
         <div class="footer-copyright">
             <p>网站设计 ©<span>LezaiYa</span> | FinalSuspect Mod ©<span>Slok</span></p>
         </div>
     </div>
     <script src='../../Resource/JS/h1.js'></script>
+    <script src='../../Resource/JS/Time.js'></script>
 </body>
 
 </html>

@@ -28,13 +28,3 @@ sections.forEach(section => {
         section.style.transform = 'translateY(0)';
     });
 });
-
-// 页面加载动画
-window.addEventListener('load', () => {
-    document.body.style.opacity = 0;
-    document.body.style.transition = 'opacity 0.5s ease';
-
-    setTimeout(() => {
-        document.body.style.opacity = 1;
-    }, 100);
-});

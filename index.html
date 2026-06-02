@@ -18,7 +18,6 @@
     <link rel="stylesheet" href="Resource/CSS/Main/logo.css">
     <link rel="stylesheet" href="Resource/CSS/Main/Load.css">
     <link rel="stylesheet" href="Resource/CSS/Main/nav.css">
-    <link rel="stylesheet" href="Resource/CSS/Main/Easteregg.css">
     <link rel="stylesheet" href="Resource/CSS/Root.css">
     <link rel="stylesheet" href="Resource/CSS/Main/wechat.css">
     <link rel="stylesheet" href="Resource/CSS/Main/Media/480px.css">
@@ -29,43 +28,13 @@
     <link rel="stylesheet" href="Resource/CSS/PromptBox/header.css">
     <link rel="stylesheet" href="Resource/CSS/PromptBox/section.css">
     <link rel="stylesheet" href="Resource/CSS/Image.css">
+    <link rel="stylesheet" href="Resource/CSS/time.css">
 </head>
 
 <body>
     <div id="loadingOverlay" class="loading-overlay">
-        <div class="animation-container">
-            <div class="digital-stream-container" id="digitalStreamContainer"></div>
-
-            <div class="matrix-rain-container" id="matrixRainContainer"></div>
-
-            <div class="circuit-container" id="circuitContainer">
-                <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <filter id="glow">
-                            <feGaussianBlur stdDeviation="3" result="coloredBlur" />
-                            <feMerge>
-                                <feMergeNode in="coloredBlur" />
-                                <feMergeNode in="SourceGraphic" />
-                            </feMerge>
-                        </filter>
-                    </defs>
-                    <path class="circuit-path" id="circuitPath"
-                        d="M100,100 Q250,50 400,100 T700,100 Q850,150 900,100 T1100,100" />
-                    <path class="circuit-glow" id="circuitGlow"
-                        d="M100,100 Q250,50 400,100 T700,100 Q850,150 900,100 T1100,100" />
-
-                    <circle class="circuit-node" id="circuitNode1" cx="100" cy="100" r="5" />
-                    <circle class="circuit-node" id="circuitNode2" cx="400" cy="100" r="5" />
-                    <circle class="circuit-node" id="circuitNode3" cx="700" cy="100" r="5" />
-                    <circle class="circuit-node" id="circuitNode4" cx="900" cy="100" r="5" />
-                    <circle class="circuit-node" id="circuitNode5" cx="1100" cy="100" r="5" />
-                </svg>
-            </div>
-        </div>
-
         <div class="loading-content">
-            <img src="/Resource/images/FinalSuspect-Logo-2.0.png"
-                alt="FinalSuspect Logo" class="loading-logo">
+            <img src="/Resource/images/FinalSuspect-Logo-2.0.png" alt="FinalSuspect Logo" class="loading-logo">
             <div class="loading-text">正在加载 FinalSuspect</div>
             <div class="loading-progress-container">
                 <div class="loading-progress-bar" id="loadingProgressBar"></div>
@@ -75,8 +44,6 @@
         </div>
     </div>
 
-    <!-- 彩蛋触发点：在加载Logo上 -->
-    <div class="secret-spot" id="secret-spot-1" style="top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
     <header>
         <div class="logo" data-text="FinalSuspect">FinalSuspect</div>
         <nav>
@@ -187,6 +154,13 @@
             <p>© Innersloth LLC</p>
         </div>
 
+        <div class="footer-meta">
+            <div class="edit-time">
+                <i class="fas fa-clock"></i>
+                <span>最后更新: <time id="lastEditTime" datetime=""></time></span>
+            </div>
+        </div>
+
         <div class="footer-copyright">
             <p>网站设计 ©<span>LezaiYa</span> | FinalSuspect Mod ©<span>Slok</span></p>
         </div>
@@ -236,25 +210,6 @@
         </div>
     </div>
 
-    <!-- 彩蛋模态框 -->
-    <div class="easter-egg-modal" id="easterEggModal">
-        <div class="easter-egg-content">
-            <h2 class="easter-egg-title">🎮 隐藏彩蛋被发现！</h2>
-            <p class="easter-egg-message">
-                恭喜你发现了FinalSuspect的隐藏彩蛋！<br>
-                你真是个细心的玩家！🎉<br><br>
-                继续探索，也许还有更多秘密等着你！
-            </p>
-            <div class="audio-status" id="audioStatus">
-                <i class="fas fa-volume-up"></i> 音效已加载
-            </div>
-            <p class="easter-egg-secret">
-                🎯 彩蛋代码: FS-2026
-            </p>
-            <button class="easter-egg-close" id="closeEasterEgg">关闭彩蛋</button>
-        </div>
-    </div>
-
     <button class="back-to-top" aria-label="回到顶部">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -263,7 +218,6 @@
     </button>
 
     <script src='Resource/JS/Appreciate.js'></script>
-    <script src='Resource/JS/Easteregg.js'></script>
     <script src='Resource/JS/Load.js'></script>
     <script src='Resource/JS/Wechat.js'></script>
     <script src='Resource/JS/main.js'></script>
@@ -271,6 +225,7 @@
     <script src='Resource/JS/h2.js'></script>
     <script src='Resource/JS/h3.js'></script>
     <script src='Resource/JS/Image.js'></script>
+    <script src='Resource/JS/Time.js'></script>
 </body>
 
 </html>
