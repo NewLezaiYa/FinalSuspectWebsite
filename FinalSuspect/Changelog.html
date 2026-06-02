@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="../Resource/CSS/Footer.css">
     <link rel="stylesheet" href="../Resource/CSS/Announcement/Changelog.css">
     <link rel="stylesheet" href="../Resource/CSS/Announcement/Version.css">
+    <link rel="stylesheet" href="../Resource/CSS/time.css">
 </head>
 
 <body>
@@ -930,123 +931,123 @@
                     </a>
                 </div>
             </div>
+        </div>
 
-            <!-- 1.1.0 -->
-            <div class="changelog-content">
-                <!-- 版本号 -->
-                <div class="version-badge" id="v1.1_20250412">1.1 正式版 | 日期版本：20250412</div>
-                <div class="text">
-                    修复了一些在1.1出现的BUG以及对新版本的适配
+        <!-- 1.1.0 -->
+        <div class="changelog-content">
+            <!-- 版本号 -->
+            <div class="version-badge" id="v1.1_20250412">1.1 正式版 | 日期版本：20250412</div>
+            <div class="text">
+                修复了一些在1.1出现的BUG以及对新版本的适配
+            </div>
+
+            <!-- 版本信息 -->
+            <div class="version-info-grid">
+                <div class="info-card">
+                    <h3>对应官方版本</h3>
+                    <p>Among Us v16.0.2</p>
                 </div>
-
-                <!-- 版本信息 -->
-                <div class="version-info-grid">
-                    <div class="info-card">
-                        <h3>对应官方版本</h3>
-                        <p>Among Us v16.0.2</p>
-                    </div>
-                    <div class="info-card">
-                        <h3>BepInEx 框架</h3>
-                        <p>v6.0.0-be.733</p>
-                    </div>
+                <div class="info-card">
+                    <h3>BepInEx 框架</h3>
+                    <p>v6.0.0-be.733</p>
                 </div>
+            </div>
 
-                <!-- 更新统计 -->
-                <div style="text-align: center; margin: 30px 0;">
-                    <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 15px;">
-                        <div class="update-counter" style="border-color: #ef4444; color: #ef4444;">
-                            <i class="fas fa-check-circle"></i> 修正: 7
-                        </div>
-                        <div class="update-counter" style="border-color: #10b981; color: #10b981;">
-                            <i class="fas fa-rocket"></i> 优化: 1
-                        </div>
-                        <div class="update-counter" style="border-color: #f59e0b; color: #f59e0b;">
-                            <i class="fas fa-exchange-alt"></i> 更改: 2
-                        </div>
-                        <div class="update-counter" style="border-color: #3b82f6; color: #3b82f6;">
-                            <i class="fas fa-plus-circle"></i> 新增: 5
-                        </div>
+            <!-- 更新统计 -->
+            <div style="text-align: center; margin: 30px 0;">
+                <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 15px;">
+                    <div class="update-counter" style="border-color: #ef4444; color: #ef4444;">
+                        <i class="fas fa-check-circle"></i> 修正: 7
                     </div>
-                    <div style="margin-top: 20px; color: #94a3b8; font-size: 1.1rem; font-weight: 600;">
-                        总计: 15 项更新
+                    <div class="update-counter" style="border-color: #10b981; color: #10b981;">
+                        <i class="fas fa-rocket"></i> 优化: 1
+                    </div>
+                    <div class="update-counter" style="border-color: #f59e0b; color: #f59e0b;">
+                        <i class="fas fa-exchange-alt"></i> 更改: 2
+                    </div>
+                    <div class="update-counter" style="border-color: #3b82f6; color: #3b82f6;">
+                        <i class="fas fa-plus-circle"></i> 新增: 5
                     </div>
                 </div>
-
-                <!-- 修正 -->
-                <div class="update-section section-fix" style="animation-delay: 0.1s;">
-                    <div class="section-title">
-                        <i class="fas fa-bug"></i>
-                        <span>修正</span>
-                        <span class="update-counter">10 项</span>
-                    </div>
-                    <div class="update-item">
-                        修复了v1.1_20250216更新日志无法正常下载与加载的问题
-                    </div>
-                    <div class="update-item stagger-delay-1">
-                        修复了使用简体中文的玩家更新检查内容获取失效的问题
-                    </div>
-                    <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                        修复: LezaiYa | 反馈：QingFeng
-                    </div>
-                    <div class="update-item stagger-delay-2">
-                        修复了更新公告时间格式错误的问题
-                    </div>
-                    <div class="update-item stagger-delay-3">
-                        修复了SM和KM使用错误RPC的问题
-                    </div>
-                    <div class="update-item stagger-delay-4">
-                        修复了会议结束出现空值导致框架报错的问题
-                    </div>
-                    <div class="update-item stagger-delay-5">
-                        修复了FS每次检测版本框架爆警告的问题
-                    </div>
-                    <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                        修复: LezaiYa
-                    </div>
-                    <div class="update-item stagger-delay-7">
-                        修复了使用简体中文的玩家无法从远程获取资源的问题
-                    </div>
-                    <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                        修复: Slok | 反馈:Qingfeng
-                    </div>
+                <div style="margin-top: 20px; color: #94a3b8; font-size: 1.1rem; font-weight: 600;">
+                    总计: 15 项更新
                 </div>
-                <!-- 优化 -->
-                <div class="update-section section-optimize" style="animation-delay: 0.2s;">
-                    <div class="section-title">
-                        <i class="fas fa-rocket"></i>
-                        <span>优化</span>
-                        <span class="update-counter">2 项</span>
-                    </div>
-                    <div class="update-item">
-                        将违禁词存储在远程
-                    </div>
-                    <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                        制作: Slok
-                    </div>
-                    <div class="update-item">
-                        优化代码结构
-                    </div>
-                    <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                        制作: LezaiYa
-                    </div>
-                </div>
+            </div>
 
-                <!-- 新增 -->
-                <div class="update-section section-new" style="animation-delay: 0.3s;">
-                    <div class="section-title">
-                        <i class="fas fa-plus-circle"></i>
-                        <span>新增</span>
-                        <span class="update-counter">5 项</span>
-                    </div>
-                    <div class="update-item">
-                        在线搜索房间计时器
-                    </div>
-                    <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                        制作: Nonalus
-                    </div>
-                    <div class="update-item stagger-delay-1">
-                        清空自动日志
-                    </div>
+            <!-- 修正 -->
+            <div class="update-section section-fix" style="animation-delay: 0.1s;">
+                <div class="section-title">
+                    <i class="fas fa-bug"></i>
+                    <span>修正</span>
+                    <span class="update-counter">10 项</span>
+                </div>
+                <div class="update-item">
+                    修复了v1.1_20250216更新日志无法正常下载与加载的问题
+                </div>
+                <div class="update-item stagger-delay-1">
+                    修复了使用简体中文的玩家更新检查内容获取失效的问题
+                </div>
+                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
+                    修复: LezaiYa | 反馈：QingFeng
+                </div>
+                <div class="update-item stagger-delay-2">
+                    修复了更新公告时间格式错误的问题
+                </div>
+                <div class="update-item stagger-delay-3">
+                    修复了SM和KM使用错误RPC的问题
+                </div>
+                <div class="update-item stagger-delay-4">
+                    修复了会议结束出现空值导致框架报错的问题
+                </div>
+                <div class="update-item stagger-delay-5">
+                    修复了FS每次检测版本框架爆警告的问题
+                </div>
+                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
+                    修复: LezaiYa
+                </div>
+                <div class="update-item stagger-delay-7">
+                    修复了使用简体中文的玩家无法从远程获取资源的问题
+                </div>
+                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
+                    修复: Slok | 反馈:Qingfeng
+                </div>
+            </div>
+            <!-- 优化 -->
+            <div class="update-section section-optimize" style="animation-delay: 0.2s;">
+                <div class="section-title">
+                    <i class="fas fa-rocket"></i>
+                    <span>优化</span>
+                    <span class="update-counter">2 项</span>
+                </div>
+                <div class="update-item">
+                    将违禁词存储在远程
+                </div>
+                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
+                    制作: Slok
+                </div>
+                <div class="update-item">
+                    优化代码结构
+                </div>
+                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
+                    制作: LezaiYa
+                </div>
+            </div>
+
+            <!-- 新增 -->
+            <div class="update-section section-new" style="animation-delay: 0.3s;">
+                <div class="section-title">
+                    <i class="fas fa-plus-circle"></i>
+                    <span>新增</span>
+                    <span class="update-counter">5 项</span>
+                </div>
+                <div class="update-item">
+                    在线搜索房间计时器
+                </div>
+                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
+                    制作: Nonalus
+                </div>
+                <div class="update-item stagger-delay-1">
+                    清空自动日志
                 </div>
                 <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
                     制作: Slok
@@ -1829,6 +1830,13 @@
         </div>
     </div>
 
+    <div class="footer-meta">
+        <div class="edit-time">
+            <i class="fas fa-clock"></i>
+            <span>最后更新: <time id="lastEditTime" datetime=""></time></span>
+        </div>
+    </div>
+
     <div class="footer-copyright">
         <p>网站设计 ©<span>LezaiYa</span> | FinalSuspect Mod ©<span>Slok</span></p>
     </div>
@@ -1844,6 +1852,7 @@
     <script src='../Resource/JS/h2.js'></script>
     <script src='../Resource/JS/Version.js'></script>
     <script src='../Resource/JS/BackToTop.js'></script>
+    <script src='../Resource/JS/Time.js'></script>
 </body>
 
 </html>
