@@ -4,21 +4,20 @@ function preloadImages(imageUrls, progressCallback) {
     let loadedImages = 0;
 
     const promises = imageUrls.map(url => {
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve) => {
             const img = new Image();
             img.src = url;
             img.onload = () => {
                 loadedImages++;
                 if (progressCallback) {
-                    progressCallback(loadedImages, totalImages, 'image');
+                    progressCallback(loadedImages, totalImages);
                 }
-                console.log(`已预加载: ${url}`);
                 resolve({ url, status: 'success' });
             };
             img.onerror = () => {
                 loadedImages++;
                 if (progressCallback) {
-                    progressCallback(loadedImages, totalImages, 'image');
+                    progressCallback(loadedImages, totalImages);
                 }
                 console.warn(`预加载失败: ${url}`);
                 resolve({ url, status: 'error' });
@@ -60,32 +59,20 @@ document.addEventListener('DOMContentLoaded', function () {
     const circuitContainer = document.getElementById('circuitContainer');
     const circuitGlow = document.getElementById('circuitGlow');
     const circuitNodes = document.querySelectorAll('.circuit-node');
-    const mainContent = document.getElementById('mainContent');
 
     if (!loadingOverlay) return;
 
-    let totalProgress = 0;
     let imageProgress = 0;
     let domProgress = 0;
     let resourceProgress = 0;
 
-    let animationsTriggered = {
-        digitalStream: false,
-        matrixRain: false,
-        circuitEffect: false
-    };
-
     // 更新进度显示
     function updateProgress() {
-        // 计算总进度（加权平均）
-        totalProgress = Math.round(
-            imageProgress * 0.8 +      // 图片预加载占80%
-            domProgress * 0.1 +        // DOM加载占10%
-            resourceProgress * 0.1      // 其他资源占10%
-        );
-
-        // 限制进度在0-100之间
-        totalProgress = Math.min(100, totalProgress);
+        const totalProgress = Math.min(100, Math.round(
+            imageProgress * 0.8 +
+            domProgress * 0.1 +
+            resourceProgress * 0.1
+        ));
 
         if (loadingProgressBar) {
             loadingProgressBar.style.width = totalProgress + '%';
@@ -95,26 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
             loadingPercentage.textContent = totalProgress + '%';
         }
 
-        triggerAnimationsByProgress(totalProgress);
-
         return totalProgress;
-    }
-
-    function triggerAnimationsByProgress(progress) {
-        if (progress >= 0 && !animationsTriggered.digitalStream) {
-            createDigitalStream();
-            animationsTriggered.digitalStream = true;
-        }
-
-        if (progress >= 0 && !animationsTriggered.matrixRain) {
-            createMatrixRain();
-            animationsTriggered.matrixRain = true;
-        }
-
-        if (progress >= 0 && !animationsTriggered.circuitEffect) {
-            createCircuitEffect();
-            animationsTriggered.circuitEffect = true;
-        }
     }
 
     // 更新加载状态文本
@@ -134,10 +102,6 @@ document.addEventListener('DOMContentLoaded', function () {
         loadingStatus.textContent = statusMap[phase] || '正在加载...';
     }
 
-    // 开始加载过程
-    updateStatusText('init');
-    updateProgress();
-
     // DOM加载进度
     function updateDOMProgress() {
         if (document.readyState === 'loading') {
@@ -156,7 +120,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // 开始预加载图片
     updateStatusText('images', '0/' + imagesToPreload.length);
-    const preloadPromise = preloadImages(imagesToPreload, (loaded, total, type) => {
+    const preloadPromise = preloadImages(imagesToPreload, (loaded, total) => {
         imageProgress = Math.round((loaded / total) * 100);
         updateStatusText('images', `${loaded}/${total}`);
         updateProgress();
@@ -178,17 +142,13 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // 确保至少显示1.5秒，同时等待预加载和页面加载
+    // 确保至少显示1.5秒
     const minDisplayPromise = new Promise(resolve => {
-        // 初始快速加载动画
         let fakeProgress = 0;
         const fakeInterval = setInterval(() => {
             if (fakeProgress < 20) {
                 fakeProgress += 2;
-                if (totalProgress < fakeProgress) {
-                    totalProgress = fakeProgress;
-                    updateProgress();
-                }
+                updateProgress();
             } else {
                 clearInterval(fakeInterval);
             }
@@ -199,14 +159,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // 同时等待预加载、页面加载和最小显示时间
     Promise.all([preloadPromise, pageLoadPromise, minDisplayPromise])
-        .then((results) => {
+        .then(() => {
             updateStatusText('almost');
-
-            // 确保进度达到100%
-            totalProgress = 100;
             updateProgress();
 
-            // 短暂显示完成状态
             return new Promise(resolve => {
                 setTimeout(() => {
                     updateStatusText('complete');
@@ -223,21 +179,21 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         })
         .then(() => {
-            // 再等待一点时间让用户看到完成状态
             return new Promise(resolve => setTimeout(resolve, 500));
         })
         .then(() => {
-            // 隐藏加载动画
             loadingOverlay.classList.add('hidden');
-
-            // 动画完成后移除元素
             setTimeout(() => {
                 loadingOverlay.style.display = 'none';
             }, 1000);
+            
+            // 启动背景动画
+            createDigitalStream();
+            createMatrixRain();
+            createCircuitEffect();
         })
         .catch(error => {
             console.error('加载过程中出现错误:', error);
-            // 出错时也隐藏加载动画
             if (loadingStatus) {
                 loadingStatus.textContent = '加载完成，部分资源可能不完整';
                 loadingStatus.style.color = '#ff9900';
@@ -245,12 +201,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
             loadingOverlay.classList.add('hidden');
             setTimeout(() => {
-                mainContent.classList.add('visible');
                 loadingOverlay.style.display = 'none';
             }, 500);
         });
 
     function createDigitalStream() {
+        if (!digitalStreamContainer) return;
         digitalStreamContainer.classList.add('active');
 
         const streamCount = 15;
@@ -282,6 +238,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function createMatrixRain() {
+        if (!matrixRainContainer) return;
         matrixRainContainer.classList.add('active');
 
         const columnCount = 30;
@@ -316,6 +273,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function createCircuitEffect() {
+        if (!circuitContainer || !circuitGlow) return;
         circuitContainer.classList.add('active');
 
         circuitGlow.style.animation = 'none';
