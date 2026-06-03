@@ -186,11 +186,7 @@ document.addEventListener('DOMContentLoaded', function () {
             setTimeout(() => {
                 loadingOverlay.style.display = 'none';
             }, 1000);
-            
-            // 启动背景动画
-            createDigitalStream();
-            createMatrixRain();
-            createCircuitEffect();
+
         })
         .catch(error => {
             console.error('加载过程中出现错误:', error);
