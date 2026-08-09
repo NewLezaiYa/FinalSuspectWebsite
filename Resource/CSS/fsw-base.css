@@ -36,7 +36,6 @@
     --text-secondary: #b0b0d0;
     --accent: #00d2ff;
     --accent-light: rgba(0, 210, 255, 0.5);
-    --cyan: #00d2ff;
     --purple: #7158e2;
     --border: rgba(113, 88, 226, 0.3);
     --danger: #ff4757;
@@ -90,7 +89,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(to bottom, var(--cyan), var(--purple));
+    background: linear-gradient(to bottom, var(--accent), var(--purple));
     border-radius: 4px;
 }
 
@@ -104,7 +103,7 @@ body {
 h1 {
     text-align: center;
     margin: 25px 0 15px;
-    background: linear-gradient(135deg, var(--accent) 0%, #ff4757 30%, var(--purple) 60%, var(--accent) 100%);
+    background: linear-gradient(135deg, var(--accent) 0%, var(--danger) 30%, var(--purple) 60%, var(--accent) 100%);
     background-size: 200% auto;
     -webkit-background-clip: text;
     background-clip: text;
@@ -128,7 +127,7 @@ h2 {
     font-family: 'Orbitron', sans-serif;
     font-weight: 700;
     margin: 3rem 0 1.5rem;
-    background: linear-gradient(135deg, #00d2ff, #7158e2);
+    background: linear-gradient(135deg, var(--accent), var(--purple));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -145,7 +144,7 @@ h2::after {
     left: 0;
     width: 60px;
     height: 2px;
-    background: linear-gradient(90deg, #00d2ff, #7158e2);
+    background: linear-gradient(90deg, var(--accent), var(--purple));
     transition: width 0.4s ease;
 }
 
@@ -159,7 +158,7 @@ h3 {
     font-family: 'Orbitron', sans-serif;
     font-weight: 600;
     margin: 2rem 0 1rem;
-    background: linear-gradient(135deg, #00d2ff 0%, #00e5ff 100%);
+    background: linear-gradient(135deg, var(--accent) 0%, #00e5ff 100%);
     background-size: 300% auto;
     -webkit-background-clip: text;
     background-clip: text;
@@ -168,12 +167,6 @@ h3 {
     position: relative;
     padding-left: 0;
     transition: all 0.3s ease;
-}
-
-@keyframes gradientFlow {
-    0% { background-position: 0% center; }
-    50% { background-position: 100% center; }
-    100% { background-position: 0% center; }
 }
 
 /* Text utilities (from Text/Text.css) */
@@ -218,7 +211,7 @@ h3 {
 
 .error-code:hover {
     background: linear-gradient(145deg, rgba(255, 71, 87, 0.2) 0%, rgba(10, 10, 26, 0.9) 100%);
-    color: #ff4757;
+    color: var(--danger);
     border-color: rgba(255, 71, 87, 0.5);
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 71, 87, 0.2);
     transform: translateY(-2px);
@@ -317,7 +310,7 @@ h3 {
     left: 0;
     width: 100%;
     height: 3px;
-    background: linear-gradient(90deg, var(--cyan), var(--purple));
+    background: linear-gradient(90deg, var(--accent), var(--purple));
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.4s ease;
@@ -709,7 +702,7 @@ time {
 .DumpLog-steps li {
     margin-bottom: 2rem;
     font-size: 1.1rem;
-    color: #b0b0d0;
+    color: var(--text-secondary);
     line-height: 1.8;
     position: relative;
     padding: 1.5rem 2rem;
@@ -737,7 +730,7 @@ time {
     transform: translateY(-50%);
     width: 3rem;
     height: 3rem;
-    background: linear-gradient(135deg, #ff4757 0%, #ff6b81 50%, #7158e2 100%);
+    background: linear-gradient(135deg, var(--danger) 0%, #ff6b81 50%, var(--purple) 100%);
     color: white;
     font-family: 'Orbitron', sans-serif;
     font-weight: 700;
@@ -778,7 +771,7 @@ time {
 .DumpLog-steps li:hover::before {
     transform: translateY(-50%) scale(1.1) rotate(360deg);
     box-shadow: 0 0 25px rgba(255, 71, 87, 0.8), 0 0 40px rgba(113, 88, 226, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    background: linear-gradient(135deg, #ff4757 0%, #ff6b81 30%, #00d2ff 70%, #7158e2 100%);
+    background: linear-gradient(135deg, var(--danger) 0%, #ff6b81 30%, var(--accent) 70%, var(--purple) 100%);
 }
 
 .update-steps li:hover::after,
@@ -804,7 +797,7 @@ time {
     content: '\25B6';
     position: absolute;
     left: 0;
-    color: #00d2ff;
+    color: var(--accent);
     font-size: 0.9rem;
     transition: transform 0.3s ease;
 }
@@ -812,12 +805,12 @@ time {
 .update-steps li:hover .step-title::before,
 .DumpLog-steps li:hover .step-title::before {
     transform: translateX(5px);
-    color: #ff4757;
+    color: var(--danger);
 }
 
 .update-steps li .step-desc,
 .DumpLog-steps li .step-desc {
-    color: #b0b0d0;
+    color: var(--text-secondary);
     font-size: 1rem;
     line-height: 1.7;
     margin-top: 0.8rem;
@@ -862,7 +855,7 @@ time {
 
 .update-steps li a,
 .DumpLog-steps li a {
-    color: #00d2ff;
+    color: var(--accent);
     text-decoration: none;
     border-bottom: 1px solid rgba(0, 210, 255, 0.3);
     transition: all 0.3s ease;
@@ -871,30 +864,30 @@ time {
 .update-steps li a:hover,
 .DumpLog-steps li a:hover {
     color: #ffffff;
-    border-bottom-color: #ff4757;
+    border-bottom-color: var(--danger);
 }
 
 .update-steps li.important,
 .DumpLog-steps li.important {
-    border-left: 3px solid #ff4757;
+    border-left: 3px solid var(--danger);
     background: linear-gradient(135deg, rgba(255, 71, 87, 0.1) 0%, rgba(10, 10, 26, 0.8) 100%);
 }
 
 .update-steps li.important::before,
 .DumpLog-steps li.important::before {
-    background: linear-gradient(135deg, #ff4757, #ff6b81);
+    background: linear-gradient(135deg, var(--danger), #ff6b81);
     box-shadow: 0 0 20px rgba(255, 71, 87, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .update-steps li.success,
 .DumpLog-steps li.success {
-    border-left: 3px solid #09bb07;
+    border-left: 3px solid var(--success);
     background: linear-gradient(135deg, rgba(9, 187, 7, 0.1) 0%, rgba(10, 10, 26, 0.8) 100%);
 }
 
 .update-steps li.success::before,
 .DumpLog-steps li.success::before {
-    background: linear-gradient(135deg, #09bb07, #00d2ff);
+    background: linear-gradient(135deg, var(--success), var(--accent));
     box-shadow: 0 0 20px rgba(9, 187, 7, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
@@ -906,7 +899,7 @@ time {
 
 .update-steps li.warning::before,
 .DumpLog-steps li.warning::before {
-    background: linear-gradient(135deg, #ffd43b, #ffa94d);
+    background: linear-gradient(135deg, #ffd43b, var(--warning));
     box-shadow: 0 0 20px rgba(255, 212, 59, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
@@ -939,7 +932,7 @@ time {
     left: -1.8rem;
     font-size: 1rem;
     font-weight: bold;
-    color: #00d2ff;
+    color: var(--accent);
     box-shadow: 0 0 10px rgba(0, 210, 255, 0.3);
 }
 
@@ -971,7 +964,7 @@ time {
     left: 0;
     width: 4px;
     height: 100%;
-    background: linear-gradient(to bottom, var(--cyan), var(--accent));
+    background: linear-gradient(to bottom, var(--accent), var(--accent));
     transform: scaleY(0);
     transform-origin: top;
     transition: transform 0.4s ease;

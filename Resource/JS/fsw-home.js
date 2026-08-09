@@ -6,6 +6,9 @@
 (function() {
     'use strict';
 
+    // Shared color constants (mirror CSS variables)
+    var ACCENT_BORDER = '2px solid rgba(0,210,255,0.5)';
+
     /* ==========================================
        1. LOADING SEQUENCE (from Load.js)
        ========================================== */
@@ -117,7 +120,7 @@
                 img.src = qrImg.src;
             }
             img.style.cssText = 'max-width:80%;max-height:80%;border-radius:12px;' +
-                'border:2px solid rgba(0,210,255,0.5);';
+                'border:' + ACCENT_BORDER + ';';
 
             overlay.appendChild(img);
             document.body.appendChild(overlay);
@@ -147,7 +150,7 @@
                     img.src = payImg.src;
                 }
                 img.style.cssText = 'max-width:80%;max-height:80%;border-radius:12px;' +
-                    'border:2px solid rgba(0,210,255,0.5);';
+                    'border:' + ACCENT_BORDER + ';';
 
                 overlay.appendChild(img);
                 document.body.appendChild(overlay);

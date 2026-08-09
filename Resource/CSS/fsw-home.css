@@ -46,7 +46,7 @@
 }
 
 @keyframes fade-out {
-    to { opacity: 0; visibility: hidden; display: none; }
+    to { opacity: 0; visibility: hidden; }
 }
 
 /* Loader bar */
@@ -78,7 +78,7 @@
     width: 40%;
     height: 100%;
     border-radius: 5px;
-    background: linear-gradient(90deg, var(--cyan), var(--purple), var(--danger));
+    background: linear-gradient(90deg, var(--accent), var(--purple), var(--danger));
     animation: load var(--loadbar-duration) ease-in-out forwards;
 }
 

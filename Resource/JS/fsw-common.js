@@ -7,6 +7,9 @@
 (function() {
     'use strict';
 
+    // Shared color palette for particle effects
+    var PARTICLE_COLORS = ['#00d2ff', '#7158e2', '#ff4757', '#ffd43b', '#09bb07'];
+
     /* ==========================================
        1. BACK TO TOP BUTTON (from BackToTop.js)
        ========================================== */
@@ -75,7 +78,6 @@
     }
 
     function createParticlesForTarget(el) {
-        var colors = ['#00d2ff', '#7158e2', '#ff4757', '#ffd43b', '#09bb07'];
         var particles = document.createElement('div');
         particles.className = 'h1-particles';
         particles.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:1;';
@@ -84,7 +86,7 @@
         for (var i = 0; i < 15; i++) {
             var particle = document.createElement('span');
             var size = Math.random() * 4 + 2;
-            var color = colors[Math.floor(Math.random() * colors.length)];
+            var color = PARTICLE_COLORS[Math.floor(Math.random() * PARTICLE_COLORS.length)];
             var delay = Math.random() * 1.5;
             var duration = Math.random() * 1 + 0.5;
 
@@ -168,7 +170,7 @@
 
             code.addEventListener('click', function() {
                 var text = code.textContent.trim();
-                copyToClipboard(text, code);
+                copyToClipboard(text);
             });
         });
     }
@@ -191,7 +193,7 @@
 
             btn.addEventListener('click', function() {
                 var text = block.textContent;
-                copyToClipboard(text, btn);
+                copyToClipboard(text);
                 btn.textContent = 'Copied!';
                 btn.classList.add('copied');
                 setTimeout(function() {
@@ -288,7 +290,7 @@
     /* ==========================================
        UTILITY: Copy to Clipboard
        ========================================== */
-    function copyToClipboard(text, sourceEl) {
+    function copyToClipboard(text) {
         if (navigator.clipboard && navigator.clipboard.writeText) {
             navigator.clipboard.writeText(text).catch(function() {
                 fallbackCopy(text);
