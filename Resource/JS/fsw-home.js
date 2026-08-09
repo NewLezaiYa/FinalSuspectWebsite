@@ -13,12 +13,13 @@
        1. LOADING SEQUENCE (from Load.js)
        ========================================== */
     function initLoading() {
-        var loaderSection = document.querySelector('.loader-section');
-        var wrapper = document.querySelector('.wrapper');
-        var loadPercentage = document.querySelector('.load-percentage');
-        var consoleLine = document.querySelector('.console-line');
+        var loaderOverlay = document.getElementById('loadingOverlay');
+        var progressBar = document.getElementById('loadingProgressBar');
+        var percentageEl = document.getElementById('loadingPercentage');
+        var statusEl = document.getElementById('loadingStatus');
+        var wrapper = document.querySelector('.container');
 
-        if (!loaderSection) return;
+        if (!loaderOverlay) return;
 
         // Sync with CSS --loadbar-duration (3s default)
         var duration = 3000;
@@ -37,31 +38,35 @@
                 }
 
                 setTimeout(function() {
-                    if (loaderSection) {
-                        loaderSection.style.display = 'none';
+                    if (loaderOverlay) {
+                        loaderOverlay.style.display = 'none';
                     }
                     document.body.style.overflow = '';
                 }, 400);
             }
 
-            if (loadPercentage) {
-                loadPercentage.textContent = Math.min(Math.floor(current), 100) + '%';
+            if (percentageEl) {
+                percentageEl.textContent = Math.min(Math.floor(current), 100) + '%';
             }
 
-            // Show console messages based on progress
-            if (consoleLine) {
-                if (current > 20 && !consoleLine.classList.contains('visible')) {
-                    consoleLine.textContent = '> Initializing system components...';
-                    consoleLine.classList.add('visible');
+            if (progressBar) {
+                progressBar.style.width = Math.min(current, 100) + '%';
+            }
+
+            // Show status messages based on progress
+            if (statusEl) {
+                if (current > 20 && !statusEl.classList.contains('visible')) {
+                    statusEl.textContent = '初始化系统组件...';
+                    statusEl.classList.add('visible');
                 }
                 if (current > 60) {
-                    consoleLine.textContent = '> Loading assets... [' + Math.floor(current) + '%]';
+                    statusEl.textContent = '加载资源... [' + Math.floor(current) + '%]';
                 }
                 if (current > 85) {
-                    consoleLine.textContent = '> Finalizing setup...';
+                    statusEl.textContent = '完成设置...';
                 }
                 if (current >= 100) {
-                    consoleLine.textContent = '> System ready. Welcome.';
+                    statusEl.textContent = '系统就绪。欢迎。';
                 }
             }
         }, interval);
