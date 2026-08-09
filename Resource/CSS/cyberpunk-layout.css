@@ -140,12 +140,12 @@ nav a:hover::before{left:100%}
 .blockquote{border-left:4px solid var(--neon-purple);padding:1rem 1.5rem;background:rgba(180,77,255,.08);border-radius:0 8px 8px 0;font-style:italic;color:var(--text2);margin:1.2rem 0}
 .content-card{background:var(--bg-card);border-radius:var(--rad);padding:1.8rem;margin-bottom:1.5rem;border:1px solid var(--bdr-glow);transition:all var(--t)}
 .content-card:hover{box-shadow:var(--sh-cyan);border-color:rgba(0,240,255,.35)}
-.danger-box{border-left:4px solid var(--neon-pink);padding:1rem 1.5rem;background:rgba(255,45,149,.08);border-radius:0 8px 8px 0;color:#ff6b8a;margin:1.2rem 0}
-.danger-box strong{color:var(--neon-pink)}
-.warning-box{border-left:4px solid var(--neon-yellow);padding:1rem 1.5rem;background:rgba(255,234,0,.06);border-radius:0 8px 8px 0;color:#ffe680;margin:1.2rem 0}
-.warning-box strong{color:var(--neon-yellow)}
-.tip-box{border-left:4px solid var(--neon-cyan);padding:1rem 1.5rem;background:rgba(0,240,255,.06);border-radius:0 8px 8px 0;color:#7ef0ff;margin:1.2rem 0}
-.tip-box strong{color:var(--neon-cyan)}
+.danger,.danger-box{border-left:4px solid var(--neon-pink);padding:1rem 1.5rem;background:rgba(255,45,149,.08);border-radius:0 8px 8px 0;color:#ff6b8a;margin:1.2rem 0}
+.danger strong,.danger-box strong{color:var(--neon-pink)}
+.warning,.warning-box{border-left:4px solid var(--neon-yellow);padding:1rem 1.5rem;background:rgba(255,234,0,.06);border-radius:0 8px 8px 0;color:#ffe680;margin:1.2rem 0}
+.warning strong,.warning-box strong{color:var(--neon-yellow)}
+.tip,.tip-box{border-left:4px solid var(--neon-cyan);padding:1rem 1.5rem;background:rgba(0,240,255,.06);border-radius:0 8px 8px 0;color:#7ef0ff;margin:1.2rem 0}
+.tip strong,.tip-box strong{color:var(--neon-cyan)}
 pre{background:rgba(5,5,16,.9);border:1px solid var(--bdr-purple);border-radius:var(--rad);padding:1.2rem;overflow-x:auto;font-family:'Consolas',monospace;font-size:.9rem;line-height:1.6;color:#e0e0f0;position:relative;margin:1.2rem 0}
 pre code{background:none;padding:0;color:#e0e0f0;font-size:inherit}
 .copy-btn{position:absolute;top:8px;right:8px;background:rgba(180,77,255,.2);border:1px solid rgba(180,77,255,.3);color:var(--neon-cyan);padding:4px 10px;border-radius:5px;font-size:.78rem;cursor:pointer;transition:all var(--t)}

@@ -2,9 +2,7 @@
    FINALSUSPECT CYBERPUNK v2.0 - Animations & Responsive
    ============================================================ */
 
-/* === ANIMATION UTILITY CLASSES === */
-.animate-fadeInUp{animation-name:fadeInUp}
-.animate-fadeIn{animation-name:fadeIn}
+/* === ANIMATION DELAY UTILITY CLASSES === */
 .delay-1{animation-delay:.1s}.delay-2{animation-delay:.2s}.delay-3{animation-delay:.3s}
 .delay-4{animation-delay:.4s}.delay-5{animation-delay:.5s}.delay-6{animation-delay:.6s}
 
