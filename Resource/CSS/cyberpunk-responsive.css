@@ -83,6 +83,7 @@
   .hero-name{font-size:2rem}
   .hero-tagline{font-size:1rem}
   .section{padding:1.6rem;margin-bottom:1.5rem}
+  .sections-grid{grid-template-columns:1fr;gap:1.5rem}
   .section-title{font-size:1.4rem}
   .section-title i{font-size:1.2rem}
   .feature-link{font-size:.95rem;padding:.7rem 1.4rem}
