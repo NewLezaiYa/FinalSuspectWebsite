@@ -31,11 +31,9 @@ nav a:hover::before{left:100%}
 .section:hover{transform:translateY(-8px);box-shadow:0 20px 45px rgba(0,0,0,.4),var(--sh-cyan),var(--sh-pink);border-color:rgba(255,45,149,.4);background:var(--bg-card-hover)}
 .section-glow{position:absolute;top:0;left:0;width:100%;height:100%;background:radial-gradient(circle at 50% 0%,rgba(255,45,149,.12),transparent 55%);opacity:0;transition:opacity .5s ease;z-index:0;pointer-events:none}
 .section:hover .section-glow{opacity:.7}
-.section-title{font-size:1.7rem;margin-bottom:1rem;color:var(--text);display:flex;align-items:center;gap:.8rem;position:relative;z-index:1}
-.section-title i{color:var(--neon-pink);font-size:1.4rem;text-shadow:0 0 10px rgba(255,45,149,.4)}
-.section-content{color:var(--text2);margin-bottom:1.8rem;font-size:1.05rem;line-height:1.7;position:relative;z-index:1}
-.sections-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem;margin-bottom:2rem}
-.sections-grid .section{margin-bottom:0}
+.section-title{font-size:2rem;margin-bottom:1rem;color:var(--text);display:flex;align-items:center;gap:.8rem;position:relative;z-index:1}
+.section-title i{color:var(--neon-pink);font-size:1.5rem;text-shadow:0 0 10px rgba(255,45,149,.4)}
+.section-content{color:var(--text2);margin-bottom:1.8rem;font-size:1.2rem;line-height:1.7;position:relative;z-index:1}
 
 /* === BUTTONS === */
 .feature-link{display:inline-flex;align-items:center;gap:.5rem;color:var(--neon-cyan);text-decoration:none;font-weight:600;font-size:1rem;padding:.75rem 1.6rem;background:rgba(0,240,255,.08);border-radius:50px;border:1px solid rgba(0,240,255,.3);transition:all var(--t);position:relative;z-index:1;overflow:hidden}
