@@ -11,19 +11,30 @@
         href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="Resource/CSS/cyberpunk.css">
+    <link rel="stylesheet" href="Resource/CSS/splash-intro.css">
 </head>
 
 <body>
-    <div id="loadingOverlay" class="loading-overlay">
-        <div class="loading-content">
-            <img src="/Resource/images/FinalSuspect-Logo-2.0.png" alt="FinalSuspect Logo" class="loading-logo">
-            <div class="loading-text">正在加载 FinalSuspect</div>
-            <div class="loading-progress-container">
-                <div class="loading-progress-bar" id="loadingProgressBar"></div>
-            </div>
-            <div class="loading-percentage" id="loadingPercentage">0%</div>
-            <div class="loading-status" id="loadingStatus">初始化中...</div>
-        </div>
+    <!-- FinalSuspect 模组启动动画（SplashIntro） -->
+    <div id="loadingOverlay" class="loading-overlay splash-overlay">
+        <!-- PCB 电路板光流（最底层） -->
+        <canvas id="splashPcbCanvas"></canvas>
+        <!-- 数字流 + 代码雨 + 主 Logo -->
+        <canvas id="splashFxCanvas"></canvas>
+        <!-- 落幕四散数字粒子 -->
+        <canvas id="splashParticleCanvas"></canvas>
+        <!-- 团队 Logo（开局闪屏） -->
+        <img id="splashTeamLogo" src="/Resource/images/LogoWithTeam.png" alt="Team Logo">
+        <!-- 左上角伪日志区 -->
+        <div id="splashLog"></div>
+        <!-- 底部加载/完成文本 -->
+        <div id="loadText"></div>
+        <!-- 底部进度文本（打字机/下载计数） -->
+        <div id="processText"></div>
+        <!-- 右下角版本号 -->
+        <div id="versionText"></div>
+        <!-- 落幕黑幕 -->
+        <div id="blackPanel"></div>
     </div>
 
     <header>
@@ -200,6 +211,7 @@
     </button>
 
     <script src='Resource/JS/Appreciate.js'></script>
+    <script src='Resource/JS/SplashIntro.js'></script>
     <script src='Resource/JS/Load.js'></script>
     <script src='Resource/JS/Wechat.js'></script>
     <script src='Resource/JS/main.js'></script>
