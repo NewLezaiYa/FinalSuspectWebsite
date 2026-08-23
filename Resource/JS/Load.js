@@ -44,11 +44,21 @@ const imagesToPreload = [
     '/Resource/images/SteamUnzip.png',
     '/Resource/images/UnlockFPS.png',
     '/Resource/images/LogoWithTeam.png',
+    '/Resource/images/HavenGlow-LOGO.png',
 ];
 
 // 页面加载完成后启动 FinalSuspect 启动动画
 document.addEventListener('DOMContentLoaded', function () {
     if (typeof SplashIntro === 'undefined' || !document.getElementById('loadingOverlay')) return;
+
+    // 从后退/前进导航进入页面时跳过开场动画（返回上一页时页面会重新加载，
+    // 避免每次都重播整段开场动画，造成"返回即重新加载"的观感）
+    const navType = (performance.getEntriesByType('navigation')[0] || {}).type;
+    if (navType === 'back_forward') {
+        const overlay = document.getElementById('loadingOverlay');
+        if (overlay) overlay.style.display = 'none';
+        return;
+    }
 
     SplashIntro.start({
         images: imagesToPreload,
