@@ -1,6 +1,3 @@
-/* ============================================================
-   FINALSUSPECT CYBERPUNK v2.0 - Layout & Components
-   ============================================================ */
 .container{width:100%;max-width:1200px;margin:0 auto;padding:100px 24px 48px;position:relative;z-index:1}
 
 /* === HEADER === */
@@ -141,7 +138,7 @@ nav a:hover::before{left:100%}
 .blockquote{border-left:4px solid var(--neon-purple);padding:1rem 1.5rem;background:rgba(180,77,255,.08);border-radius:0 8px 8px 0;font-style:italic;color:var(--text2);margin:1.2rem 0}
 .content-card{background:var(--bg-card);border-radius:var(--rad);padding:1.8rem;margin-bottom:1.5rem;border:1px solid var(--bdr-glow);transition:all var(--t)}
 .content-card:hover{box-shadow:var(--sh-cyan);border-color:rgba(0,240,255,.35)}
-/* Danger - 赛博朋克错误/危险提示 */
+/* Danger */
 .danger,.danger-box{border:1px solid rgba(255,45,149,.18);border-left:3px solid var(--neon-pink);padding:1.2rem 1.5rem 1.2rem 3.4rem;background:linear-gradient(135deg,rgba(255,45,149,.07),rgba(15,15,40,.85));border-radius:0 var(--rad) var(--rad) 0;color:#ff8faa;margin:1.2rem 0;position:relative;box-shadow:inset 0 0 40px rgba(255,45,149,.04),0 4px 20px rgba(0,0,0,.3);transition:all var(--t);overflow:hidden}
 .danger::before,.danger-box::before{content:'⚠';position:absolute;left:1.1rem;top:50%;transform:translateY(-50%);font-size:1.3rem;color:var(--neon-pink);text-shadow:0 0 12px rgba(255,45,149,.7),0 0 24px rgba(255,45,149,.3);animation:dangerIconPulse 2s ease-in-out infinite}
 @keyframes dangerIconPulse{0%,100%{text-shadow:0 0 8px rgba(255,45,149,.5)}50%{text-shadow:0 0 18px rgba(255,45,149,.9),0 0 30px rgba(255,45,149,.4)}}
@@ -149,14 +146,14 @@ nav a:hover::before{left:100%}
 @keyframes dangerScan{0%{top:0}100%{top:100%}}
 .danger:hover,.danger-box:hover{box-shadow:inset 0 0 50px rgba(255,45,149,.08),0 6px 30px rgba(0,0,0,.45),0 0 25px rgba(255,45,149,.18);border-color:rgba(255,45,149,.4);transform:translateY(-2px)}
 .danger strong,.danger-box strong{color:var(--neon-pink);text-shadow:0 0 8px rgba(255,45,149,.3)}
-/* Warning - 赛博朋克警告提示 */
+/* Warning */
 .warning,.warning-box{border:1px solid rgba(255,234,0,.15);border-left:3px solid var(--neon-yellow);padding:1.2rem 1.5rem 1.2rem 3.4rem;background:linear-gradient(135deg,rgba(255,234,0,.05),rgba(15,15,40,.85));border-radius:0 var(--rad) var(--rad) 0;color:#ffe680;margin:1.2rem 0;position:relative;box-shadow:inset 0 0 40px rgba(255,234,0,.03),0 4px 20px rgba(0,0,0,.3);transition:all var(--t);overflow:hidden}
 .warning::before,.warning-box::before{content:'⚡';position:absolute;left:1.1rem;top:50%;transform:translateY(-50%);font-size:1.3rem;color:var(--neon-yellow);text-shadow:0 0 12px rgba(255,234,0,.6),0 0 24px rgba(255,234,0,.25);animation:dangerIconPulse 2.5s ease-in-out infinite}
 .warning::after,.warning-box::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,234,0,.15),transparent);animation:warningScan 5s linear infinite;pointer-events:none}
 @keyframes warningScan{0%{top:0}100%{top:100%}}
 .warning:hover,.warning-box:hover{box-shadow:inset 0 0 50px rgba(255,234,0,.06),0 6px 30px rgba(0,0,0,.45),0 0 20px rgba(255,234,0,.12);border-color:rgba(255,234,0,.35);transform:translateY(-2px)}
 .warning strong,.warning-box strong{color:var(--neon-yellow);text-shadow:0 0 6px rgba(255,234,0,.25)}
-/* Tip - 赛博朋克提示 */
+/* Tip */
 .tip,.tip-box{border:1px solid rgba(0,240,255,.15);border-left:3px solid var(--neon-cyan);padding:1.2rem 1.5rem 1.2rem 3.4rem;background:linear-gradient(135deg,rgba(0,240,255,.05),rgba(15,15,40,.85));border-radius:0 var(--rad) var(--rad) 0;color:#7ef0ff;margin:1.2rem 0;position:relative;box-shadow:inset 0 0 40px rgba(0,240,255,.03),0 4px 20px rgba(0,0,0,.3);transition:all var(--t);overflow:hidden}
 .tip::before,.tip-box::before{content:'✦';position:absolute;left:1.1rem;top:50%;transform:translateY(-50%);font-size:1.2rem;color:var(--neon-cyan);text-shadow:0 0 12px rgba(0,240,255,.6),0 0 24px rgba(0,240,255,.3);animation:dangerIconPulse 3s ease-in-out infinite}
 .tip::after,.tip-box::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,240,255,.15),transparent);animation:tipScan 6s linear infinite;pointer-events:none}

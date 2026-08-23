@@ -1,18 +1,3 @@
-/* ============================================================
-   FINALSUSPECT CYBERPUNK v2.0 - Master Import
-   ============================================================
-   Usage: <link rel="stylesheet" href="Resource/CSS/cyberpunk.css">
-   This single file imports the entire cyberpunk design system.
-
-   Files included (in load order):
-   1. cyberpunk-base     — CSS variables, reset, typography (h1-h3, links, code, etc.)
-   2. cyberpunk-core     — Forms, tables, scrollbars, utilities, badges, tabs
-   3. cyberpunk-layout   — Container, header, nav, hero, sections, buttons, loading,
-                            modal, images, footer, prompt-box, steps
-   4. cyberpunk-extras   — Changelog content, version navigation, 404 error page
-   5. cyberpunk-responsive — Animations & responsive media queries (all breakpoints)
-   ============================================================ */
-
 @import 'cyberpunk-base.css';
 @import 'cyberpunk-core.css';
 @import 'cyberpunk-layout.css';

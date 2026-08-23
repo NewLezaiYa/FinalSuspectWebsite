@@ -1,9 +1,5 @@
 window.SplashIntro = (function () {
     'use strict';
-
-    /* ====================================================================
-     * 配置（对应 C# 原版参数，所有时长/数量均与原版一致）
-     * ================================================================== */
     const CFG = {
         updateInterval: 0.033,
 
@@ -16,7 +12,7 @@ window.SplashIntro = (function () {
         minSpeed: 1.0,
         maxSpeed: 2.5,
 
-        // 代码雨（MatrixRain）
+        // 代码雨
         maxMatrixColumns: 12,
         matrixColumnSpacing: 1.0,
         matrixSpeed: 2.0,
@@ -67,9 +63,6 @@ window.SplashIntro = (function () {
         circuitInactive: { r: 0.0, g: 0.5, b: 1.0, a: 0.2 }, // 电路底色
     };
 
-    /* ====================================================================
-     * 工具函数
-     * ================================================================== */
     const clamp01 = (t) => Math.max(0, Math.min(1, t));
     const lerp = (a, b, t) => a + (b - a) * t;
     const rand = (min, max) => min + Math.random() * (max - min);
@@ -117,7 +110,7 @@ window.SplashIntro = (function () {
     }
 
     /* ====================================================================
-     * 预渲染 Sprite（对应 CreateNumberTexture / CreateMatrixTexture）
+     * 预渲染 Sprite
      * ================================================================== */
     function buildNumberSprite(ch, color) {
         const size = 64;
@@ -154,10 +147,6 @@ window.SplashIntro = (function () {
         return c;
     }
 
-    /* ====================================================================
-     * 数字流系统（对应 #region 数字流系统）
-     * 字符自下而上流动，底部暗顶部亮，随机闪烁换字
-     * ================================================================== */
     class NumberStreams {
         constructor(sprites) {
             this.sprites = sprites;   // { '0'..'9': canvas }
@@ -176,7 +165,6 @@ window.SplashIntro = (function () {
             this.offscreenTop = h / 2 - (5 + 2) * scale; // 顶部 + 2 units
             this.canvasH = h;
             this.fade = 1;                            // 整体淡出系数（落幕前数字流淡出用）
-            // 分布 X 位置（对应 InitializeDistributionPositions）
             this.positions.length = 0;
             const spacing = Math.min(this.spacing, this.charPx * 1.1);
             const count = Math.max(CFG.maxStreams, Math.floor(w / spacing));
@@ -192,7 +180,6 @@ window.SplashIntro = (function () {
             this.initialCount = this.launchInitial();
         }
 
-        /** 首批流（对应 ManageNumberStreams 首循环） */
         async launchInitial() {
             const count = Math.min(8, this.positions.length);
             for (let i = 0; i < count; i++) {
@@ -266,10 +253,6 @@ window.SplashIntro = (function () {
         }
     }
 
-    /* ====================================================================
-     * 代码雨系统（对应 #region 代码雨系统）
-     * 噪点纹理自下而上（视觉下落），顶部暗底部亮
-     * ================================================================== */
     class MatrixRain {
         constructor(sprites) {
             this.sprites = sprites;   // [canvas, canvas]
@@ -371,9 +354,6 @@ window.SplashIntro = (function () {
         }
     }
 
-    /* ====================================================================
-     * PCB 电路板光流系统（对应 #region 电路板光流系统）
-     * ================================================================== */
     class PcbSystem {
         constructor() {
             this.paths = [];        // { path2d, pts:[{x,y}], targetAlpha, isActive, layer, animSpeed, animOffset, pulseTimer }
@@ -623,9 +603,6 @@ window.SplashIntro = (function () {
         }
     }
 
-    /* ====================================================================
-     * 日志系统（对应 SplashLogController）
-     * ================================================================== */
     const LOG_LEVELS = {
         message: { icon: '◈', color: COLORS.number },
         info: { icon: 'ｉ', color: COLORS.fs },
@@ -781,9 +758,6 @@ window.SplashIntro = (function () {
         }
     }
 
-    /* ====================================================================
-     * 底部进度文本（对应 ProcessTextController）
-     * ================================================================== */
     class ProcessText {
         constructor(el) {
             this.el = el;
@@ -861,17 +835,15 @@ window.SplashIntro = (function () {
                 this.el.style.opacity = String(Math.max(0, next));
             });
             this.el.style.opacity = '0';
-            // 切回 idle，否则 update() 会继续以呼吸动画设置 opacity
             this.mode = 'idle';
         }
 
-        /** 每帧更新下载计数 / 呼吸 */
+        /** 每帧更新下载计数 */
         update(dt) {
             if (this.disposed || !this.el) return;
             if (this.mode === 'downloading') {
                 this.breathePhase += dt * (1.4 * 0.8);
                 const pulse = (Math.sin(this.breathePhase) + 1) * 0.5;
-                // 仅计数变化时重建富文本（避免每帧字符串拼接分配）
                 const done = Math.max(0, Math.min(this.current, this.total));
                 if (done !== this._lastDone || this.total !== this._lastTotal) {
                     this._lastDone = done;
@@ -896,9 +868,6 @@ window.SplashIntro = (function () {
         }
     }
 
-    /* ====================================================================
-     * 落幕粒子系统（对应 EndWithFadeToBlack）
-     * ================================================================== */
     class ParticleEnding {
         constructor(canvas, numberSprites, logoImg, logoRect) {
             this.canvas = canvas;
@@ -914,7 +883,7 @@ window.SplashIntro = (function () {
             this.particlePx = 0.4 * this.scale;
         }
 
-        /** 采样 Logo 生成粒子（对应 C# 采样逻辑） */
+        /** 采样 Logo 生成粒子 */
         build() {
             const img = this.logoImg;
             const { x: lx, y: ly, w: lw, h: lh } = this.logoRect;
@@ -947,7 +916,6 @@ window.SplashIntro = (function () {
                     if (lum < 0.75) continue;
                     const u = (px + 0.5) / oc.width;
                     const v = (py + 0.5) / oc.height;
-                    // 采样点映射到 logoRect 内（以左上角为原点），否则整个粒子群会向左上偏移半个 Logo 尺寸
                     const pos = {
                         x: lx + u * lw,
                         y: ly + v * lh,
@@ -1071,9 +1039,6 @@ window.SplashIntro = (function () {
         }
     }
 
-    /* ====================================================================
-     * 引擎：编排整个启动流程（对应 SplashManagerPatch）
-     * ================================================================== */
     class SplashEngine {
         constructor(overlay) {
             this.overlay = overlay;
@@ -1228,9 +1193,7 @@ window.SplashIntro = (function () {
             ctx.restore();
         }
 
-        /* ---------------- 各阶段（对应 SplashManagerPatch） ---------------- */
-
-        /** 团队 Logo 阶段 */
+        /** Logo 阶段 */
         async teamLogoPhase() {
             if (!this.teamLogo) return;
             const el = this.teamLogo;
@@ -1282,13 +1245,11 @@ window.SplashIntro = (function () {
             await this.fadeOutStreams(CFG.numberFadeDuration);
         }
 
-        /** 数字流 / 代码雨淡出（对应 SmoothFadeOutWhileMoving） */
         async fadeOutStreams(duration) {
             await animate(duration, (t, dt) => {
                 const fade = clamp01(1 - t);
                 this.numberStreams.fade = fade;
                 this.matrixRain.fade = fade;
-                // 数字流 / 代码雨淡出期间继续移动
                 for (const s of this.numberStreams.streams) s.baseY -= s.speed * dt;
                 for (const c of this.matrixRain.columns) c.baseY += c.speed * dt;
             });
@@ -1377,9 +1338,6 @@ window.SplashIntro = (function () {
                 await wait(30);
             }
             await wait(500);
-
-            // 版本号已在 loadingPhase 显示，这里继续展示后同步淡出
-            // 版本号比 loadText 更晚淡出，符合 LateTask 时序
             const holdDuration = 2.5;
             const fadeDuration = 1.4;
             await wait(holdDuration * 1000);
@@ -1389,7 +1347,6 @@ window.SplashIntro = (function () {
                 this._fadeProgress = next;
                 // loadText 从 1 线性淡出到 0
                 this.loadText.style.opacity = String(next);
-                // versionText 在 progress > 0.45 时保持，之后淡出
                 if (next >= 0.45) {
                     this.versionText.style.opacity = '1';
                 } else {
@@ -1433,7 +1390,6 @@ window.SplashIntro = (function () {
             black.style.opacity = '1';
         }
 
-        /* ---------------- 对外启动入口 ---------------- */
         async start(options) {
             const { images = [], onComplete } = options || {};
 

@@ -1,7 +1,3 @@
-/* ============================================================
-   FINALSUSPECT CYBERPUNK v2.0 - Changelog & Version Nav
-   ============================================================ */
-
 /* === CHANGELOG CONTENT === */
 .changelog-content{max-width:900px;margin:0 auto;padding:28px;background:rgba(10,16,30,.85);border-radius:var(--rad-lg);box-shadow:0 10px 30px rgba(0,0,0,.5);border:1px solid var(--bdr-glow);position:relative;overflow:hidden}
 .changelog-content::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--neon-cyan),var(--neon-purple),var(--neon-cyan));background-size:200% 100%;animation:changelogGS 3s ease infinite}

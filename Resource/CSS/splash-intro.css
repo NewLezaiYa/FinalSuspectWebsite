@@ -1,7 +1,3 @@
-/* ============================================================
-   FINALSUSPECT SPLASH INTRO - Web port of the in-game boot animation
-   ============================================================ */
-
 /* === OVERLAY === */
 #loadingOverlay.splash-overlay {
     position: fixed;
@@ -21,7 +17,6 @@
     pointer-events: none;
 }
 
-/* 深色径向氛围，模拟原版的屏幕空间 */
 #loadingOverlay.splash-overlay::before {
     content: '';
     position: absolute;
@@ -48,7 +43,6 @@
 #splashFxCanvas { z-index: 4; }
 #splashParticleCanvas { z-index: 6; }
 
-/* === TEAM LOGO (主 Logo 由 Canvas 绘制以支持青蓝→白染色) === */
 #splashTeamLogo {
     position: absolute;
     top: 50%;
@@ -133,7 +127,6 @@
     top: 3vh;
     left: 2.5vw;
     width: min(520px, 42vw);
-    /* 子条目为 absolute 定位，容器高度需显式给出，否则 overflow 裁剪会裁掉全部日志 */
     height: 55vh;
     pointer-events: none;
     z-index: 10;
@@ -152,7 +145,6 @@
     font-size: clamp(0.7rem, 1.1vw, 0.95rem);
     letter-spacing: 0.5px;
     line-height: 1.45;
-    /* 强制单行，省略号截断，避免多行换行后与下一行日志重叠 */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
