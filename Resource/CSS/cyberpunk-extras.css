@@ -26,7 +26,8 @@
 .section-new .section-title i{background:rgba(59,130,246,.15);color:#3b82f6}
 .section-remove .section-title i{background:rgba(139,92,246,.15);color:#8b5cf6}
 .section-reset .section-title i{background:rgba(236,72,153,.15);color:#ec4899}
-.update-item{margin:10px 0;padding:10px 14px;background:rgba(30,40,60,.3);border-radius:8px;display:flex;align-items:flex-start;gap:8px;transition:all var(--t);color:var(--text2)}
+.update-item{margin:10px 0;padding:10px 14px;background:rgba(30,40,60,.3);border-radius:8px;display:flex;align-items:flex-start;gap:8px;transition:all var(--t);color:var(--text2);animation-name:fadeInUp;animation-duration:.6s;animation-timing-function:ease;animation-fill-mode:backwards}
+@media (prefers-reduced-motion:reduce){.update-item{animation:none}}
 .update-item:hover{background:rgba(30,40,60,.5);transform:translateX(4px)}
 .update-item::before{content:'✓';color:var(--neon-cyan);font-weight:700;font-size:.85rem;margin-top:2px}
 .removed-item{background:rgba(139,92,246,.08);border-left:3px solid #8b5cf6}
@@ -55,6 +56,13 @@
 .stagger-delay-13{animation-delay:1.3s}.stagger-delay-14{animation-delay:1.4s}.stagger-delay-15{animation-delay:1.5s}
 .stagger-delay-16{animation-delay:1.6s}.stagger-delay-17{animation-delay:1.7s}.stagger-delay-18{animation-delay:1.8s}
 .stagger-delay-19{animation-delay:1.9s}.stagger-delay-20{animation-delay:2s}
+.stagger-delay-21{animation-delay:2.1s}.stagger-delay-22{animation-delay:2.2s}.stagger-delay-23{animation-delay:2.3s}
+.stagger-delay-24{animation-delay:2.4s}.stagger-delay-25{animation-delay:2.5s}.stagger-delay-26{animation-delay:2.6s}
+.stagger-delay-27{animation-delay:2.7s}.stagger-delay-28{animation-delay:2.8s}.stagger-delay-29{animation-delay:2.9s}
+.stagger-delay-30{animation-delay:3s}.stagger-delay-31{animation-delay:3.1s}.stagger-delay-32{animation-delay:3.2s}
+.stagger-delay-33{animation-delay:3.3s}.stagger-delay-34{animation-delay:3.4s}.stagger-delay-35{animation-delay:3.5s}
+.stagger-delay-36{animation-delay:3.6s}.stagger-delay-37{animation-delay:3.7s}.stagger-delay-38{animation-delay:3.8s}
+.stagger-delay-39{animation-delay:3.9s}.stagger-delay-40{animation-delay:4s}
 
 /* === VERSION NAVIGATION === */
 .version-nav{position:fixed;left:20px;top:50%;transform:translateY(-50%);width:220px;background:rgba(10,16,30,.95);border-radius:14px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 10px 30px rgba(0,0,0,.5);border:1px solid rgba(0,240,255,.15);z-index:1000;overflow:hidden;animation:slideInL .8s ease-out;transition:all var(--t)}
