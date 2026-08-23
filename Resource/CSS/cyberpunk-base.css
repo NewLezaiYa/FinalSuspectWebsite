@@ -36,7 +36,7 @@ h1:hover .tech-border{border-color:var(--neon-pink);box-shadow:0 0 18px rgba(255
 h1 .particle{position:absolute;width:4px;height:4px;background:var(--neon-cyan);border-radius:50%;box-shadow:0 0 8px var(--neon-cyan);pointer-events:none;opacity:0}
 
 /* H2 */
-h2{font-size:2rem;margin:2.8rem 0 1.8rem;padding-left:2.8rem;color:var(--text);letter-spacing:1px;text-transform:uppercase;position:relative;text-shadow:0 0 12px rgba(0,240,255,.15)}
+h2{font-size:2rem;margin:0.8rem 0 1.8rem;padding-left:2.8rem;color:var(--text);letter-spacing:1px;text-transform:uppercase;position:relative;text-shadow:0 0 12px rgba(0,240,255,.15)}
 h2::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:5px;height:36px;background:linear-gradient(to bottom,var(--neon-pink),var(--neon-cyan),var(--neon-purple));border-radius:3px;box-shadow:0 0 15px rgba(0,240,255,.5),0 0 25px rgba(255,45,149,.4);animation:barP 3s ease-in-out infinite}
 @keyframes barP{0%,100%{box-shadow:0 0 10px rgba(0,240,255,.4);transform:translateY(-50%) scaleY(1)}50%{box-shadow:0 0 20px rgba(0,240,255,.7),0 0 30px rgba(255,45,149,.6);transform:translateY(-50%) scaleY(1.12)}}
 h2::after{content:'';position:absolute;bottom:-10px;left:2.8rem;width:70px;height:3px;background:linear-gradient(90deg,var(--neon-pink),var(--neon-cyan),var(--neon-purple));border-radius:2px;box-shadow:0 0 12px rgba(0,240,255,.5);transition:width var(--t)}
