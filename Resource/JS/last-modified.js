@@ -2,7 +2,7 @@
 // Regenerate: node tools/update-last-modified.mjs
 window.LAST_MODIFIED = {
   "FinalSuspect/404.html": "2026-08-10 01:48",
-  "FinalSuspect/Changelog.html": "2026-08-10 02:21",
+  "FinalSuspect/Changelog.html": "2026-08-24 02:36",
   "FinalSuspect/FAQ.html": "2026-08-24 02:05",
   "FinalSuspect/Features/ClearAutoLogs.html": "2026-08-24 02:05",
   "FinalSuspect/Features/DumpLog.html": "2026-08-24 02:05",
