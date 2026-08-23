@@ -1,41 +1,58 @@
-document.addEventListener('DOMContentLoaded', async function () {
-    const lastEditTimeElement = document.getElementById('lastEditTime');
+(function () {
+    function getPagePath() {
+        var path = window.location.pathname.replace(/^\//, '');
+        return path || 'index.html';
+    }
 
-    if (lastEditTimeElement) {
-        try {
-            const response = await fetch(window.location.href, { method: 'HEAD' });
-            const lastModified = response.headers.get('Last-Modified');
+    function formatDate(dateStr) {
+        var parts = dateStr.split(' ');
+        var datePart = parts[0];
+        var timePart = parts[1] || '00:00';
+        return datePart + ' ' + timePart;
+    }
 
-            if (lastModified) {
-                const date = new Date(lastModified);
-                const year = date.getFullYear();
-                const month = String(date.getMonth() + 1).padStart(2, '0');
-                const day = String(date.getDate()).padStart(2, '0');
-                const hours = String(date.getHours()).padStart(2, '0');
-                const minutes = String(date.getMinutes()).padStart(2, '0');
+    function setTime(element, dateStr) {
+        var formatted = formatDate(dateStr);
+        element.textContent = formatted;
+        element.setAttribute('datetime', dateStr);
+    }
 
-                const formattedDate = `${year}-${month}-${day} ${hours}:${minutes}`;
-                lastEditTimeElement.textContent = formattedDate;
-                lastEditTimeElement.setAttribute('datetime', date.toISOString());
-            } else {
-                setDefaultTime(lastEditTimeElement);
+    function init() {
+        var timeElement = document.getElementById('lastEditTime');
+        if (!timeElement) return;
+
+        var pagePath = getPagePath();
+
+        if (window.LAST_MODIFIED && window.LAST_MODIFIED[pagePath]) {
+            setTime(timeElement, window.LAST_MODIFIED[pagePath]);
+        } else {
+            // fallback: try matching just the filename
+            var fileName = pagePath.split('/').pop();
+            var found = false;
+            if (window.LAST_MODIFIED) {
+                for (var key in window.LAST_MODIFIED) {
+                    if (key.indexOf(fileName) !== -1 && key.indexOf(pagePath.replace(/^\//, '')) !== -1) {
+                        setTime(timeElement, window.LAST_MODIFIED[key]);
+                        found = true;
+                        break;
+                    }
+                }
             }
-        } catch (error) {
-            console.warn('无法获取文件最后修改时间:', error);
-            setDefaultTime(lastEditTimeElement);
+            if (!found) {
+                var now = new Date();
+                var y = now.getFullYear();
+                var m = String(now.getMonth() + 1).padStart(2, '0');
+                var d = String(now.getDate()).padStart(2, '0');
+                var h = String(now.getHours()).padStart(2, '0');
+                var min = String(now.getMinutes()).padStart(2, '0');
+                setTime(timeElement, y + '-' + m + '-' + d + ' ' + h + ':' + min);
+            }
         }
     }
-});
 
-function setDefaultTime(element) {
-    const now = new Date();
-    const year = now.getFullYear();
-    const month = String(now.getMonth() + 1).padStart(2, '0');
-    const day = String(now.getDate()).padStart(2, '0');
-    const hours = String(now.getHours()).padStart(2, '0');
-    const minutes = String(now.getMinutes()).padStart(2, '0');
-
-    const formattedDate = `${year}-${month}-${day} ${hours}:${minutes}`;
-    element.textContent = formattedDate;
-    element.setAttribute('datetime', now.toISOString());
-}
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+})();

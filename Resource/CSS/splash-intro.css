@@ -1,0 +1,218 @@
+/* === OVERLAY === */
+#loadingOverlay.splash-overlay {
+    position: fixed;
+    inset: 0;
+    background: var(--bg-deep);
+    display: block;
+    z-index: 9999;
+    opacity: 1;
+    visibility: visible;
+    overflow: hidden;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+#loadingOverlay.splash-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+#loadingOverlay.splash-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at 50% 50%, rgba(0, 240, 255, 0.06) 0%, transparent 55%),
+        radial-gradient(ellipse at 80% 20%, rgba(255, 45, 149, 0.04) 0%, transparent 50%),
+        radial-gradient(ellipse at 20% 80%, rgba(180, 77, 255, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* === CANVAS LAYERS === */
+#loadingOverlay canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+}
+
+#splashPcbCanvas { z-index: 3; }
+#splashFxCanvas { z-index: 4; }
+#splashParticleCanvas { z-index: 6; }
+
+#splashTeamLogo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: min(640px, 72vw);
+    max-height: min(420px, 55vh);
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    pointer-events: none;
+    z-index: 5;
+    opacity: 0;
+    will-change: opacity;
+}
+
+/* === BOTTOM TEXT === */
+#loadText,
+#processText {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    color: var(--neon-cyan);
+    text-shadow: 0 0 12px rgba(0, 240, 255, 0.5);
+    pointer-events: none;
+    z-index: 10;
+    white-space: nowrap;
+    opacity: 0;
+    will-change: opacity, color;
+}
+
+#loadText {
+    bottom: 18vh;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 700;
+    letter-spacing: 3px;
+    font-style: italic;
+}
+
+#processText {
+    bottom: 14vh;
+    font-size: clamp(0.9rem, 1.6vw, 1.15rem);
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    transform: translateX(-50%) scale(0.7);
+    transform-origin: center bottom;
+}
+
+/* === VERSION TEXT === */
+#versionText {
+    position: absolute;
+    right: 2.5vw;
+    bottom: 2.5vh;
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(0.95rem, 1.8vw, 1.35rem);
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-align: right;
+    color: var(--neon-cyan);
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.6);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* === BLACK PANEL === */
+#blackPanel {
+    position: absolute;
+    inset: 0;
+    background: #000;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 20;
+    will-change: opacity;
+}
+
+/* === SPLASH LOG === */
+#splashLog {
+    position: absolute;
+    top: 3vh;
+    left: 2.5vw;
+    width: min(520px, 42vw);
+    height: 55vh;
+    pointer-events: none;
+    z-index: 10;
+    overflow: hidden;
+}
+
+.splash-log-entry {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding-right: 0.6em;
+    font-family: 'Orbitron', 'Poppins', sans-serif;
+    font-size: clamp(0.7rem, 1.1vw, 0.95rem);
+    letter-spacing: 0.5px;
+    line-height: 1.45;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-shadow: 0 0 6px currentColor;
+    opacity: 0.9;
+    will-change: transform, opacity;
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+}
+
+.splash-log-icon {
+    display: inline-block;
+    width: 1.3em;
+    text-align: center;
+    font-weight: 700;
+}
+
+.splash-log-body {
+    font-family: 'Orbitron', 'Poppins', sans-serif;
+    min-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* Log level colors */
+.splash-log-entry.level-message { color: #33ccff; }
+.splash-log-entry.level-info    { color: #00f0ff; }
+.splash-log-entry.level-download{ color: #3f8dff; }
+.splash-log-entry.level-success { color: #b3ffcc; }
+.splash-log-entry.level-error   { color: #ff4050; }
+
+/* === UTILITY === */
+.splash-hidden {
+    opacity: 0 !important;
+    pointer-events: none;
+}
+
+.splash-visible {
+    opacity: 1 !important;
+}
+
+/* === RESPONSIVE SAFETY === */
+@media (max-width: 768px) {
+    #splashTeamLogo {
+        max-width: min(340px, 84vw);
+        max-height: min(260px, 38vh);
+    }
+
+    #splashLog {
+        width: 86vw;
+        top: 2vh;
+        left: 4vw;
+    }
+
+    #loadText {
+        bottom: 20vh;
+        font-size: clamp(1.1rem, 5vw, 1.6rem);
+    }
+
+    #processText {
+        bottom: 16vh;
+        font-size: clamp(0.75rem, 3.5vw, 1rem);
+    }
+
+    #versionText {
+        right: 4vw;
+        bottom: 1.5vh;
+    }
+}
