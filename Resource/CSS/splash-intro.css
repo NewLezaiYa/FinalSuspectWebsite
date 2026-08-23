@@ -105,10 +105,12 @@
     right: 2.5vw;
     bottom: 2.5vh;
     font-family: 'Orbitron', sans-serif;
-    font-size: clamp(0.75rem, 1.2vw, 1rem);
+    font-size: clamp(0.95rem, 1.8vw, 1.35rem);
+    font-weight: 700;
+    letter-spacing: 1px;
     text-align: right;
     color: var(--neon-cyan);
-    text-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.6);
     opacity: 0;
     pointer-events: none;
     z-index: 10;
@@ -131,20 +133,29 @@
     top: 3vh;
     left: 2.5vw;
     width: min(520px, 42vw);
-    height: auto;
+    /* 子条目为 absolute 定位，容器高度需显式给出，否则 overflow 裁剪会裁掉全部日志 */
+    height: 55vh;
     pointer-events: none;
     z-index: 10;
-    overflow: visible;
+    overflow: hidden;
 }
 
 .splash-log-entry {
     position: absolute;
     left: 0;
+    top: 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding-right: 0.6em;
     font-family: 'Orbitron', 'Poppins', sans-serif;
     font-size: clamp(0.7rem, 1.1vw, 0.95rem);
     letter-spacing: 0.5px;
-    line-height: 1.3;
+    line-height: 1.45;
+    /* 强制单行，省略号截断，避免多行换行后与下一行日志重叠 */
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     text-shadow: 0 0 6px currentColor;
     opacity: 0.9;
     will-change: transform, opacity;
@@ -162,6 +173,10 @@
 
 .splash-log-body {
     font-family: 'Orbitron', 'Poppins', sans-serif;
+    min-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 /* Log level colors */

@@ -1,23 +1,3 @@
-/**
- * ============================================================================
- *  FINALSUSPECT SPLASH INTRO - Web engine
- *  将模组内 Splash 启动动画（LogoAnimationController / ProcessTextController /
- *  SplashLogController / SplashManagerPatch）完整移植到网页版。
- *
- *  图层结构（z 轴自下而上）：
- *    #splashPcbCanvas      PCB 电路板光流（原 sortingOrder 0）
- *    #splashFxCanvas       数字流 + 代码雨 + 主 Logo（原 5 / 10 / 100）
- *    #splashParticleCanvas 落幕四散数字粒子（原 200）
- *    #splashLog / #loadText / #processText / #versionText  UI 文本
- *    #blackPanel           落幕黑幕（原 9999）
- *
- *  对外 API：
- *    SplashIntro.start({
- *        images: ['/Resource/images/xxx.png', ...],  // 预加载列表（下载阶段展示）
- *        onComplete: () => {},                        // 全部动画结束回调
- *    })
- * ============================================================================
- */
 window.SplashIntro = (function () {
     'use strict';
 
@@ -278,7 +258,8 @@ window.SplashIntro = (function () {
                     const alpha = baseAlpha * pulse * s.alphaMult * (this.fade ?? 1);
                     if (alpha <= 0.01) continue;
                     ctx.globalAlpha = alpha;
-                    ctx.drawImage(this.sprites[ch.ch], s.x, y, this.charPx, this.charPx);
+                    const sprite = this.sprites[ch.ch];
+                    if (sprite) ctx.drawImage(sprite, s.x, y, this.charPx, this.charPx);
                 }
             }
             ctx.globalAlpha = 1;
@@ -382,7 +363,8 @@ window.SplashIntro = (function () {
                     const alpha = baseAlpha * pulse * (this.fade ?? 1);
                     if (alpha <= 0.01) continue;
                     ctx.globalAlpha = alpha;
-                    ctx.drawImage(this.sprites[ch.ch], c.x, y, this.charPx, this.charPx);
+                    const sprite = this.sprites[ch.ch];
+                    if (sprite) ctx.drawImage(sprite, c.x, y, this.charPx, this.charPx);
                 }
             }
             ctx.globalAlpha = 1;
@@ -662,7 +644,9 @@ window.SplashIntro = (function () {
         }
 
         resize() {
-            if (this.root) this.linePx = Math.max(16, this.root.clientWidth * 0.045);
+            if (!this.root) return;
+            const cw = this.root.clientWidth || 0;
+            this.linePx = Math.max(26, cw * 0.065);
         }
 
         /** 压入一条日志；返回 Promise，打字完成后 resolve */
@@ -877,6 +861,8 @@ window.SplashIntro = (function () {
                 this.el.style.opacity = String(Math.max(0, next));
             });
             this.el.style.opacity = '0';
+            // 切回 idle，否则 update() 会继续以呼吸动画设置 opacity
+            this.mode = 'idle';
         }
 
         /** 每帧更新下载计数 / 呼吸 */
@@ -961,9 +947,10 @@ window.SplashIntro = (function () {
                     if (lum < 0.75) continue;
                     const u = (px + 0.5) / oc.width;
                     const v = (py + 0.5) / oc.height;
+                    // 采样点映射到 logoRect 内（以左上角为原点），否则整个粒子群会向左上偏移半个 Logo 尺寸
                     const pos = {
-                        x: lx + (u - 0.5) * lw,
-                        y: ly + (v - 0.5) * lh,
+                        x: lx + u * lw,
+                        y: ly + v * lh,
                     };
                     const offX = pos.x - (lx + lw / 2), offY = pos.y - (ly + lh / 2);
                     const dist = Math.hypot(offX, offY);
@@ -1131,7 +1118,12 @@ window.SplashIntro = (function () {
             }
             this.numberSprites = numSprites;
             this.numberStreams.sprites = numSprites;
-            this.matrixSprites = [buildMatrixSprite(COLORS.matrix), buildMatrixSprite(COLORS.matrix)];
+            // MatrixRain 的字符索引为 0-2，必须准备 3 张精灵，否则 drawImage 会收到 undefined
+            this.matrixSprites = [
+                buildMatrixSprite(COLORS.matrix),
+                buildMatrixSprite(COLORS.matrix),
+                buildMatrixSprite(COLORS.matrix)
+            ];
             this.matrixRain.sprites = this.matrixSprites;
 
             // 主循环
@@ -1314,6 +1306,10 @@ window.SplashIntro = (function () {
             await animate(1 / 2.8, (t) => {
                 this.loadText.style.opacity = String(lerp(0, 0.75, smoothEaseInOut(t)));
             });
+
+            // 版本号在下载阶段前就显示，并持续到结束阶段淡出
+            this.versionText.textContent = `FinalSuspectWebsite v3.0`;
+            this.versionText.style.opacity = '1';
         }
 
         /** 下载阶段（对应 LoadEssentialResources + VerifyAdditionalResources） */
@@ -1378,27 +1374,26 @@ window.SplashIntro = (function () {
             }
             await wait(500);
 
-            // 版本号显示（对应 CreateTextObj 的 LateTask）
-            this.versionText.textContent = `Final Suspect - v3.0`;
-            this.versionText.style.opacity = '0.9';
-
-            // 整体渐隐（对应尾部 progress 循环：loadText 与版本号同步淡出）
-            await animate(1 / 1.2, (_t, dt) => {
-                const next = this._fadeProgress === undefined
-                    ? 1
-                    : this._fadeProgress - dt * 1.2;
+            // 版本号已在 loadingPhase 显示，这里继续展示后同步淡出
+            // 版本号比 loadText 更晚淡出，符合 LateTask 时序
+            const holdDuration = 2.5;
+            const fadeDuration = 1.4;
+            await wait(holdDuration * 1000);
+            this._fadeProgress = 1;
+            await animate(1 / fadeDuration, (_t, dt) => {
+                const next = Math.max(0, this._fadeProgress - dt / fadeDuration);
                 this._fadeProgress = next;
-                if (next >= 0.9) {
-                    this.versionText.style.opacity = String((next - 0.9) / 0.1 * 0.9);
+                // loadText 从 1 线性淡出到 0
+                this.loadText.style.opacity = String(next);
+                // versionText 在 progress > 0.45 时保持，之后淡出
+                if (next >= 0.45) {
+                    this.versionText.style.opacity = '1';
                 } else {
-                    this.versionText.style.opacity = '0';
-                }
-                if (next >= 0.75) {
-                    this.loadText.style.opacity = String((next - 0.75) / 0.25);
-                } else {
-                    this.loadText.style.opacity = '0';
+                    this.versionText.style.opacity = String(next / 0.45);
                 }
             });
+            this.loadText.style.opacity = '0';
+            this.versionText.style.opacity = '0';
             this._fadeProgress = undefined;
         }
 
@@ -1438,30 +1433,44 @@ window.SplashIntro = (function () {
         async start(options) {
             const { images = [], onComplete } = options || {};
 
-            // 准备 Logo 图片（加载失败则跳过动画直接完成）
-            const logoImg = await loadImage('/Resource/images/FinalSuspect-Logo-2.0.png');
-            if (!logoImg) {
+            // 锁定页面滚动，避免启动动画期间背景页面可滑动
+            const htmlEl = document.documentElement;
+            const bodyEl = document.body;
+            const prevHtmlOverflow = htmlEl.style.overflow;
+            const prevBodyOverflow = bodyEl.style.overflow;
+            htmlEl.style.overflow = 'hidden';
+            bodyEl.style.overflow = 'hidden';
+
+            try {
+                // 准备 Logo 图片（加载失败则跳过动画直接完成）
+                const logoImg = await loadImage('/Resource/images/FinalSuspect-Logo-2.0.png');
+                if (!logoImg) {
+                    onComplete && onComplete();
+                    return;
+                }
+                this.setup(logoImg);
+
+                // 后台并行预加载所有图片（本地资源，速度极快）
+                const preloadPromise = Promise.all(images.map((u) => loadImage(u)));
+
+                await this.teamLogoPhase();
+                await this.mainLogoSequence();
+                await this.loadingPhase();
+
+                // 下载阶段等待预加载完成后展示
+                await preloadPromise;
+                await this.downloadPhase(images);
+                await this.completePhase();
+                await this.endingPhase();
+
+                // 全部结束
+                this.log.clear();
+            } finally {
+                // 恢复页面滚动，随后交还控制权
+                htmlEl.style.overflow = prevHtmlOverflow;
+                bodyEl.style.overflow = prevBodyOverflow;
                 onComplete && onComplete();
-                return;
             }
-            this.setup(logoImg);
-
-            // 后台并行预加载所有图片（本地资源，速度极快）
-            const preloadPromise = Promise.all(images.map((u) => loadImage(u)));
-
-            await this.teamLogoPhase();
-            await this.mainLogoSequence();
-            await this.loadingPhase();
-
-            // 下载阶段等待预加载完成后展示
-            await preloadPromise;
-            await this.downloadPhase(images);
-            await this.completePhase();
-            await this.endingPhase();
-
-            // 全部结束
-            this.log.clear();
-            onComplete && onComplete();
         }
     }
 
