@@ -54,8 +54,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    max-width: min(520px, 60vw);
-    max-height: min(320px, 42vh);
+    max-width: min(640px, 72vw);
+    max-height: min(420px, 55vh);
     width: auto;
     height: auto;
     object-fit: contain;
@@ -198,6 +198,11 @@
 
 /* === RESPONSIVE SAFETY === */
 @media (max-width: 768px) {
+    #splashTeamLogo {
+        max-width: min(340px, 84vw);
+        max-height: min(260px, 38vh);
+    }
+
     #splashLog {
         width: 86vw;
         top: 2vh;

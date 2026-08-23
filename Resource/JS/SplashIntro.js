@@ -1163,9 +1163,13 @@ window.SplashIntro = (function () {
             if (this.logoImg) {
                 const iw = this.logoImg.naturalWidth || 512;
                 const ih = this.logoImg.naturalHeight || 256;
-                let lw = Math.min(w * 0.6, ih ? iw / ih * (h * 0.5) : w * 0.6);
+                // 手机端（窄屏）适当缩小主 Logo，避免占满屏幕
+                const mobile = w <= 768;
+                const maxW = mobile ? w * 0.72 : w * 0.6;
+                const maxH = mobile ? h * 0.32 : h * 0.5;
+                let lw = Math.min(maxW, ih ? iw / ih * maxH : maxW);
                 let lh = lw * ih / iw;
-                if (lh > h * 0.5) { lh = h * 0.5; lw = lh * iw / ih; }
+                if (lh > maxH) { lh = maxH; lw = lh * iw / ih; }
                 this.logoRect = { x: w / 2 - lw / 2, y: h / 2 - lh / 2, w: lw, h: lh };
             }
         }
