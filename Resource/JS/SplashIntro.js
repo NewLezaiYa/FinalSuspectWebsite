@@ -28,21 +28,20 @@ window.SplashIntro = (function () {
         tracesPerFrame: 5,
         pointsPerFrame: 30,
 
-        // 动画序列时间控制
-        // 数字流/代码雨展示时长已缩短：更快进入下一个动画（与开局闪屏只闪一次同理）
-        numberStreamBeforeLogo: 2,
-        logoAppearDuration: 1.2,
-        logoAndLightPathDuration: 1.5,
-        numberFadeDuration: 1.5,
-        circuitFadeInDuration: 1,
+        // 动画序列时间控制（已再次缩短：更快进入下载/加载页面）
+        numberStreamBeforeLogo: 1.2,   // 原2
+        logoAppearDuration: 0.8,       // 原1.2
+        logoAndLightPathDuration: 0.9, // 原1.5
+        numberFadeDuration: 0.9,       // 原1.5
+        circuitFadeInDuration: 0.7,    // 原1
 
         // 落幕动画时长（已整体缩短，加快进入结尾）
         endingFlashDuration: 0.15,
-        endingDissolveDuration: 0.5,
-        endingHoldDuration: 0.6,
-        endingScatterDuration: 1.4,
-        endingFadeOutDuration: 0.8,
-        endingBlackDuration: 1.2,
+        endingDissolveDuration: 0.4,
+        endingHoldDuration: 0.5,
+        endingScatterDuration: 1.1,
+        endingFadeOutDuration: 0.6,
+        endingBlackDuration: 1.0,
 
         // 落幕粒子上限（原版 12000，浏览器 Canvas 取 8000 平衡性能）
         maxEndingParticles: 8000,
@@ -672,7 +671,7 @@ window.SplashIntro = (function () {
             for (let i = 1; i <= message.length; i++) {
                 if (this.disposed || !entry.el.isConnected) break;
                 entry.body.textContent = message.slice(0, i);
-                await wait(30);
+                await wait(12);
             }
             if (entry.body && entry.body.isConnected) entry.body.textContent = message;
             entry.isTyping = false;
@@ -795,7 +794,7 @@ window.SplashIntro = (function () {
             this.el.textContent = '';
             for (let i = 1; i <= content.length; i++) {
                 this.el.textContent = content.slice(0, i) + (i % 2 ? '|' : '');
-                await wait(100);
+                await wait(50);
             }
             this.el.textContent = content;
         }
@@ -1210,11 +1209,11 @@ window.SplashIntro = (function () {
             if (!this.teamLogo) return;
             const el = this.teamLogo;
             el.style.opacity = '1';
-            await wait(800);
-            await this.fadeDom(el, 1, 0, 0.36);
-            await wait(800);
-            await this.fadeDom(el, 0, 1, 0.36);
-            await wait(1000);
+            await wait(400);
+            await this.fadeDom(el, 1, 0, 0.25);
+            await wait(400);
+            await this.fadeDom(el, 0, 1, 0.25);
+            await wait(500);
             el.style.opacity = '0';
         }
 
@@ -1236,7 +1235,7 @@ window.SplashIntro = (function () {
 
             await wait(CFG.numberStreamBeforeLogo * 1000);
 
-            // Logo 科技感淡入（2s，青蓝→白）
+            // Logo 科技感淡入（青蓝→白）
             await animate(CFG.logoAppearDuration, (t) => {
                 this.logoAlpha = smoothEaseInOut(t);
                 this.logoTint = t;
@@ -1246,7 +1245,7 @@ window.SplashIntro = (function () {
 
             // 生成 PCB 电路
             await this.pcb.generate();
-            this.pcb.fadeIn(CFG.circuitFadeInDuration * 1.5);
+            this.pcb.fadeIn(CFG.circuitFadeInDuration);
             this.pcb.startAnim();
 
             await wait(CFG.logoAndLightPathDuration * 1000);
@@ -1313,16 +1312,16 @@ window.SplashIntro = (function () {
             if (downloading) {
                 // 下载模式：记录完整伪日志
                 await this.log.push('CHECKING DEPENDENCIES');
-                await wait(800);
+                await wait(400);
                 await this.log.push('START DOWNLOAD: "core.dat"', 'download');
-                await wait(500);
+                await wait(250);
                 await this.log.push('CHECKING RESOURCES...');
                 await this.processText.showTypewriter('正在检查文件...');
-                await wait(300);
+                await wait(150);
             } else {
                 // 加载模式：不记录伪日志
                 await this.processText.showTypewriter('正在检查文件...');
-                await wait(300);
+                await wait(150);
             }
 
             // 隐藏打字机文案，进入进度计数（提示在进度下方，先显示以便完整淡入）
@@ -1335,21 +1334,17 @@ window.SplashIntro = (function () {
             }
 
             // 串行逐张处理：下载记录日志，加载不记录（两种模式流程一致）
+            // 下载模式统一记录 START DOWNLOAD（缓存命中也按下载流程展示，不再混入 LOAD FROM CACHE）
             let progress = 0;
             for (let i = 0; i < images.length; i++) {
                 const url = images[i];
                 if (downloading) {
-                    await this.log.push(
-                        cachedFlags[i]
-                            ? `LOAD FROM CACHE: "${this.fileName(url)}"`
-                            : `START DOWNLOAD: "${this.fileName(url)}"`,
-                        cachedFlags[i] ? 'message' : 'download'
-                    );
+                    await this.log.push(`START DOWNLOAD: "${this.fileName(url)}"`, 'download');
                 }
                 await loadImage(url);
                 progress++;
                 this.processText.updateDownloadProgress(progress, images.length);
-                await wait(500); // 对应 DownloadResources 间 0.5s
+                await wait(150); // 对应 DownloadResources 间短暂停顿（已加快）
             }
 
             this.setDownloadHint(false);
@@ -1357,7 +1352,7 @@ window.SplashIntro = (function () {
             if (downloading) {
                 await this.processText.showComplete('下载完成');
                 await this.log.push('FINISH!', 'success');
-                await wait(500);
+                await wait(300);
                 await this.processText.hide();
             }
         }
@@ -1370,7 +1365,7 @@ window.SplashIntro = (function () {
         /** 完成阶段（对应 ShowLoadCompleteAnimation） */
         async completePhase() {
             await this.log.ejectAll();
-            await wait(600);
+            await wait(300);
 
             // "- Completed -" 绿色 + 闪烁 3 次
             this.loadText.textContent = '- Completed -';
@@ -1382,9 +1377,9 @@ window.SplashIntro = (function () {
                 this.loadText.style.opacity = '1';
                 await wait(30);
             }
-            await wait(300);
-            const holdDuration = 1.5;
-            const fadeDuration = 0.9;
+            await wait(200);
+            const holdDuration = 1.0;
+            const fadeDuration = 0.7;
             await wait(holdDuration * 1000);
             this._fadeProgress = 1;
             await animate(1 / fadeDuration, (_t, dt) => {
@@ -1455,13 +1450,8 @@ window.SplashIntro = (function () {
                 }
                 this.setup(logoImg);
 
-                // 团队 Logo 开局闪屏只播一次（本次会话内刷新不再重复）
-                let splashShown = false;
-                try { splashShown = sessionStorage.getItem('fs_splash_shown') === '1'; } catch (e) {}
-                if (!splashShown) {
-                    try { sessionStorage.setItem('fs_splash_shown', '1'); } catch (e) {}
-                    await this.teamLogoPhase();
-                }
+                // 团队 Logo 开局闪屏：每次页面加载都播放（刷新后同样生效）
+                await this.teamLogoPhase();
 
                 await this.mainLogoSequence();
                 await this.loadingPhase();
