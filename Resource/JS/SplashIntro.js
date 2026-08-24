@@ -31,18 +31,18 @@ window.SplashIntro = (function () {
         // 动画序列时间控制
         // 数字流/代码雨展示时长已缩短：更快进入下一个动画（与开局闪屏只闪一次同理）
         numberStreamBeforeLogo: 2,
-        logoAppearDuration: 2,
-        logoAndLightPathDuration: 3,
+        logoAppearDuration: 1.2,
+        logoAndLightPathDuration: 1.5,
         numberFadeDuration: 1.5,
-        circuitFadeInDuration: 1.5,
+        circuitFadeInDuration: 1,
 
-        // 落幕动画时长
-        endingFlashDuration: 0.25,
-        endingDissolveDuration: 0.8,
-        endingHoldDuration: 1,
-        endingScatterDuration: 2.2,
-        endingFadeOutDuration: 1.2,
-        endingBlackDuration: 1.8,
+        // 落幕动画时长（已整体缩短，加快进入结尾）
+        endingFlashDuration: 0.15,
+        endingDissolveDuration: 0.5,
+        endingHoldDuration: 0.6,
+        endingScatterDuration: 1.4,
+        endingFadeOutDuration: 0.8,
+        endingBlackDuration: 1.2,
 
         // 落幕粒子上限（原版 12000，浏览器 Canvas 取 8000 平衡性能）
         maxEndingParticles: 8000,
@@ -1210,11 +1210,11 @@ window.SplashIntro = (function () {
             if (!this.teamLogo) return;
             const el = this.teamLogo;
             el.style.opacity = '1';
-            await wait(1500);
+            await wait(800);
             await this.fadeDom(el, 1, 0, 0.36);
-            await wait(1500);
+            await wait(800);
             await this.fadeDom(el, 0, 1, 0.36);
-            await wait(2000);
+            await wait(1000);
             el.style.opacity = '0';
         }
 
@@ -1296,39 +1296,70 @@ window.SplashIntro = (function () {
         }
 
         /** 下载/加载阶段：先检测浏览器缓存，命中→本地加载，未命中→下载；
-         *  并行加载全部图片（不记录伪日志），完成后直接进入落幕黑幕 */
+         *  下载与加载共用同一串行流程（下载=加载，加载=下载），仅提示文案与伪日志不同：
+         *  下载时逐张记录 CHECKING/DOWNLOAD/FINISH 伪日志并显示首次加载提示；
+         *  加载（缓存命中）时不记录伪日志 */
         async downloadPhase(images) {
             if (!images || images.length === 0) {
                 this.processText.hide();
                 return;
             }
 
-            // 并行检测每张图片是否已被浏览器缓存
+            // 并行检测每张图片是否已被浏览器缓存（检测不产生网络下载）
             const cachedFlags = await Promise.all(images.map((u) => isCached(u)));
             const needDownload = cachedFlags.filter((f) => !f).length;
+            const downloading = needDownload > 0;
 
-            if (needDownload > 0) {
-                // 存在需要下载的资源：显示下载进度，并在进度下方给出首次加载提示
+            if (downloading) {
+                // 下载模式：记录完整伪日志
+                await this.log.push('CHECKING DEPENDENCIES');
+                await wait(800);
+                await this.log.push('START DOWNLOAD: "core.dat"', 'download');
+                await wait(500);
+                await this.log.push('CHECKING RESOURCES...');
+                await this.processText.showTypewriter('正在检查文件...');
+                await wait(300);
+            } else {
+                // 加载模式：不记录伪日志
+                await this.processText.showTypewriter('正在检查文件...');
+                await wait(300);
+            }
+
+            // 隐藏打字机文案，进入进度计数（提示在进度下方，先显示以便完整淡入）
+            await this.processText.hide();
+            if (downloading) {
                 this.setDownloadHint(true);
                 await this.processText.showDownloading('下载中', 0, images.length);
             } else {
-                // 全部命中缓存：直接本地加载，无需下载提示
                 await this.processText.showDownloading('加载中', 0, images.length);
             }
 
-            // 并行加载全部图片（命中缓存→本地读取；未命中→真正下载），每完成一张更新进度
+            // 串行逐张处理：下载记录日志，加载不记录（两种模式流程一致）
             let progress = 0;
-            await Promise.all(
-                images.map((u) =>
-                    loadImage(u).then(() => {
-                        progress++;
-                        this.processText.updateDownloadProgress(progress, images.length);
-                    })
-                )
-            );
+            for (let i = 0; i < images.length; i++) {
+                const url = images[i];
+                if (downloading) {
+                    await this.log.push(
+                        cachedFlags[i]
+                            ? `LOAD FROM CACHE: "${this.fileName(url)}"`
+                            : `START DOWNLOAD: "${this.fileName(url)}"`,
+                        cachedFlags[i] ? 'message' : 'download'
+                    );
+                }
+                await loadImage(url);
+                progress++;
+                this.processText.updateDownloadProgress(progress, images.length);
+                await wait(500); // 对应 DownloadResources 间 0.5s
+            }
 
             this.setDownloadHint(false);
             await this.processText.hide();
+            if (downloading) {
+                await this.processText.showComplete('下载完成');
+                await this.log.push('FINISH!', 'success');
+                await wait(500);
+                await this.processText.hide();
+            }
         }
 
         fileName(url) {
@@ -1339,7 +1370,7 @@ window.SplashIntro = (function () {
         /** 完成阶段（对应 ShowLoadCompleteAnimation） */
         async completePhase() {
             await this.log.ejectAll();
-            await wait(1000);
+            await wait(600);
 
             // "- Completed -" 绿色 + 闪烁 3 次
             this.loadText.textContent = '- Completed -';
@@ -1351,9 +1382,9 @@ window.SplashIntro = (function () {
                 this.loadText.style.opacity = '1';
                 await wait(30);
             }
-            await wait(500);
-            const holdDuration = 2.5;
-            const fadeDuration = 1.4;
+            await wait(300);
+            const holdDuration = 1.5;
+            const fadeDuration = 0.9;
             await wait(holdDuration * 1000);
             this._fadeProgress = 1;
             await animate(1 / fadeDuration, (_t, dt) => {
