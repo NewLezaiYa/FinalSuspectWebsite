@@ -1,0 +1,331 @@
+.error-code {
+    font-family: 'Consolas', 'Fira Code', 'Monaco', 'Courier New', monospace;
+    background: linear-gradient(145deg,
+            rgba(255, 71, 87, 0.15) 0%,
+            rgba(10, 10, 26, 0.9) 100%);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    color: #ff6b81;
+    font-weight: 600;
+    border: 1px solid rgba(255, 71, 87, 0.4);
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(255, 71, 87, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    text-shadow: 0 0 10px rgba(255, 107, 129, 0.5);
+    margin: 0 0.2rem;
+    z-index: 1;
+}
+
+.error-code::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom,
+            #ff4757 0%,
+            #ff6b81 50%,
+            #ff4757 100%);
+    opacity: 0.7;
+    border-radius: 8px 0 0 8px;
+    transition: width 0.3s ease;
+}
+
+.error-code::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.1),
+            transparent);
+    transition: left 0.6s ease;
+    z-index: -1;
+}
+
+.error-code:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(255, 71, 87, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 71, 87, 0.6);
+    color: #ff9aa3;
+}
+
+.error-code:hover::before {
+    width: 6px;
+    opacity: 0.9;
+}
+
+.error-code:hover::after {
+    left: 100%;
+}
+
+/* 错误代码类型变体 */
+.error-code.fatal {
+    background: linear-gradient(145deg,
+            rgba(255, 0, 0, 0.2) 0%,
+            rgba(10, 10, 26, 0.9) 100%);
+    border-color: rgba(255, 0, 0, 0.5);
+    color: #ff5555;
+    animation: fatalPulse 2s infinite;
+}
+
+@keyframes fatalPulse {
+
+    0%,
+    100% {
+        box-shadow:
+            0 4px 12px rgba(0, 0, 0, 0.3),
+            0 0 0 1px rgba(255, 0, 0, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    50% {
+        box-shadow:
+            0 4px 12px rgba(0, 0, 0, 0.3),
+            0 0 0 1px rgba(255, 0, 0, 0.5),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1),
+            0 0 15px rgba(255, 0, 0, 0.3);
+    }
+}
+
+.error-code.warning {
+    background: linear-gradient(145deg,
+            rgba(255, 212, 59, 0.15) 0%,
+            rgba(10, 10, 26, 0.9) 100%);
+    border-color: rgba(255, 212, 59, 0.4);
+    color: #ffe066;
+}
+
+.error-code.info {
+    background: linear-gradient(145deg,
+            rgba(0, 210, 255, 0.15) 0%,
+            rgba(10, 10, 26, 0.9) 100%);
+    border-color: rgba(0, 210, 255, 0.4);
+    color: #7ee7ff;
+}
+
+/* 错误代码组 */
+.error-code-group {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0.5rem 0;
+}
+
+/* 链接样式 - 科技感美化 */
+a {
+    color: #00d2ff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(0, 210, 255, 0.1) 50%,
+            transparent 100%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    text-shadow: 0 0 10px rgba(0, 210, 255, 0.3);
+}
+
+a::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg,
+            #ff4757 0%,
+            #00d2ff 50%,
+            #7158e2 100%);
+    border-radius: 1px;
+    box-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+}
+
+a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    right: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg,
+            #7158e2 0%,
+            #00d2ff 50%,
+            #ff4757 100%);
+    border-radius: 1px;
+    box-shadow: 0 0 10px rgba(255, 71, 87, 0.5);
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+}
+
+a:hover {
+    color: #ffffff;
+    background-position: 0 0;
+    text-shadow: 0 0 15px rgba(0, 210, 255, 0.6);
+}
+
+a:hover::before {
+    width: 50%;
+}
+
+a:hover::after {
+    width: 50%;
+}
+
+/* 外链指示器 */
+a[target="_blank"]::after {
+    content: ' ↗';
+    font-size: 0.9rem;
+    position: static;
+    width: auto;
+    height: auto;
+    background: none;
+    box-shadow: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin-left: 2px;
+    opacity: 0.7;
+}
+
+a[target="_blank"]:hover::after {
+    opacity: 1;
+    transform: translate(2px, -2px);
+    color: #ff4757;
+}
+
+/* 不同类型的链接 */
+a.nav-link {
+    background: none;
+    padding: 0;
+    font-weight: 500;
+    color: #b0b0d0;
+    text-shadow: none;
+}
+
+a.nav-link:hover {
+    color: #00d2ff;
+    background: none;
+    text-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
+}
+
+a.button-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 1.8rem;
+    background: linear-gradient(135deg,
+            rgba(0, 210, 255, 0.2) 0%,
+            rgba(79, 109, 245, 0.2) 100%);
+    border: 1px solid rgba(0, 210, 255, 0.3);
+    border-radius: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-family: 'Orbitron', sans-serif;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-shadow: 0 0 10px rgba(0, 210, 255, 0.3);
+    backdrop-filter: blur(5px);
+}
+
+a.button-link:hover {
+    transform: translateY(-3px);
+    background: linear-gradient(135deg,
+            rgba(0, 210, 255, 0.3) 0%,
+            rgba(79, 109, 245, 0.3) 100%);
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(0, 210, 255, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    text-shadow: 0 0 15px rgba(0, 210, 255, 0.6);
+}
+
+a.button-link::before,
+a.button-link::after {
+    display: none;
+}
+
+/* 代码中的链接 */
+code a,
+pre a {
+    color: #ff9aa3;
+    background: none;
+    padding: 0;
+    border-radius: 0;
+}
+
+code a:hover,
+pre a:hover {
+    color: #ffffff;
+    background: none;
+    text-shadow: 0 0 10px rgba(255, 154, 163, 0.8);
+}
+
+/* 标题中的链接 */
+h1 a,
+h2 a,
+h3 a,
+h4 a {
+    color: inherit;
+    background: none;
+    padding: 0;
+    border-radius: 0;
+}
+
+h1 a:hover,
+h2 a:hover,
+h3 a:hover,
+h4 a:hover {
+    color: #00d2ff;
+    background: none;
+    text-shadow: 0 0 15px rgba(0, 210, 255, 0.6);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .error-code {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    a.button-link {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .error-code {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.85rem;
+    }
+
+    a {
+        padding: 0.1rem 0.2rem;
+    }
+
+    a.button-link {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.85rem;
+    }
+}

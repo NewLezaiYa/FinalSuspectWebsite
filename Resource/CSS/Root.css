@@ -1,0 +1,46 @@
+:root {
+    --primary: #0a0a1a;
+    --secondary: #11112e;
+    --accent: #ff4757;
+    --accent-light: #ff6b81;
+    --cyan: #00d2ff;
+    --purple: #7158e2;
+    --text: #ffffff;
+    --text-secondary: #b0b0d0;
+    --card-bg: rgba(17, 17, 46, 0.7);
+    --border: rgba(113, 88, 226, 0.3);
+    --shadow: rgba(0, 210, 255, 0.1);
+    --glow: rgba(255, 71, 87, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--primary);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+    background-image:
+        radial-gradient(circle at 20% 80%, rgba(113, 88, 226, 0.1) 0%, transparent 20%),
+        radial-gradient(circle at 80% 20%, rgba(255, 71, 87, 0.1) 0%, transparent 20%);
+    min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+}
+
+.tip {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-top: 1rem;
+}

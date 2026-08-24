@@ -1,0 +1,295 @@
+h3 {
+    font-size: 1.8rem;
+    margin: 2.5rem 0 1.5rem;
+    color: #ffffff;
+    position: relative;
+    padding-left: 2.5rem;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    line-height: 1.3;
+}
+
+h3::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 28px;
+    background: linear-gradient(to bottom,
+            #ff4757 0%,
+            #ff6b81 30%,
+            #00d2ff 70%,
+            #7158e2 100%);
+    border-radius: 3px;
+    box-shadow:
+        0 0 10px rgba(255, 71, 87, 0.6),
+        0 0 20px rgba(0, 210, 255, 0.4);
+    animation: barPulse 3s ease-in-out infinite;
+    z-index: 1;
+}
+
+@keyframes barPulse {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 10px rgba(255, 71, 87, 0.6),
+            0 0 20px rgba(0, 210, 255, 0.4);
+        transform: translateY(-50%) scaleY(1);
+    }
+
+    50% {
+        box-shadow:
+            0 0 15px rgba(255, 71, 87, 0.8),
+            0 0 25px rgba(0, 210, 255, 0.6);
+        transform: translateY(-50%) scaleY(1.1);
+    }
+}
+
+h3::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 2.5rem;
+    width: 60%;
+    height: 2px;
+    background: linear-gradient(90deg,
+            #ff4757 0%,
+            #ff6b81 30%,
+            #00d2ff 70%,
+            #7158e2 100%);
+    border-radius: 1px;
+    opacity: 0.8;
+    box-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
+    transition: width 0.3s ease;
+}
+
+h3:hover::after {
+    width: 80%;
+}
+
+/* 装饰性科技图标 */
+h3.with-icon {
+    padding-left: 4.5rem;
+}
+
+h3.with-icon::before {
+    content: '⚡';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto;
+    height: auto;
+    background: none;
+    font-size: 2rem;
+    color: #00d2ff;
+    box-shadow: none;
+    animation: iconFloat 2s ease-in-out infinite;
+    border-radius: 0;
+}
+
+@keyframes iconFloat {
+
+    0%,
+    100% {
+        transform: translateY(-50%) rotate(0deg);
+        text-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
+    }
+
+    50% {
+        transform: translateY(-50%) rotate(10deg);
+        text-shadow: 0 0 20px rgba(0, 210, 255, 0.8);
+    }
+}
+
+/* 特殊类型的h3 */
+h3.section-title {
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(113, 88, 226, 0.3);
+    margin-bottom: 2rem;
+}
+
+h3.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, #ff4757, #00d2ff);
+    border-radius: 2px;
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.6);
+    opacity: 1;
+}
+
+h3.subsection {
+    font-size: 1.5rem;
+    margin: 2rem 0 1rem;
+    padding-left: 2rem;
+    text-transform: none;
+    font-weight: 600;
+}
+
+h3.subsection::before {
+    width: 4px;
+    height: 20px;
+    background: linear-gradient(to bottom, #00d2ff, #7158e2);
+}
+
+/* 卡片内的h3 */
+.card h3,
+.content-section h3 {
+    margin-top: 0;
+    padding-left: 2rem;
+    margin-bottom: 1.2rem;
+}
+
+.card h3::before,
+.content-section h3::before {
+    width: 4px;
+    height: 24px;
+}
+
+/* 代码块前的h3 */
+pre+h3 {
+    margin-top: 3rem;
+}
+
+/* 动画标题 */
+h3.animated {
+    overflow: hidden;
+    background: linear-gradient(90deg,
+            #ff4757, #ff6b81, #00d2ff, #7158e2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    background-size: 200% 100%;
+    animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+h3.animated::before {
+    background: linear-gradient(to bottom,
+            transparent,
+            rgba(255, 255, 255, 0.3),
+            transparent);
+    animation: barGlow 2s ease-in-out infinite;
+}
+
+@keyframes barGlow {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 5px rgba(255, 71, 87, 0.5),
+            0 0 10px rgba(0, 210, 255, 0.3);
+    }
+
+    50% {
+        box-shadow:
+            0 0 10px rgba(255, 71, 87, 0.8),
+            0 0 20px rgba(0, 210, 255, 0.6),
+            0 0 30px rgba(113, 88, 226, 0.4);
+    }
+}
+
+@media (max-width: 768px) {
+    h3 {
+        font-size: 1.5rem;
+        margin: 2rem 0 1.2rem;
+        padding-left: 2rem;
+        letter-spacing: 0.3px;
+    }
+
+    h3::before {
+        width: 5px;
+        height: 22px;
+    }
+
+    h3::after {
+        left: 2rem;
+        width: 50%;
+    }
+
+    h3.with-icon {
+        padding-left: 3.5rem;
+    }
+
+    h3.with-icon::before {
+        font-size: 1.8rem;
+    }
+
+    h3.subsection {
+        font-size: 1.3rem;
+        padding-left: 1.8rem;
+    }
+
+    h3.section-title {
+        font-size: 1.6rem;
+    }
+
+    h3.section-title::after {
+        width: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    h3 {
+        font-size: 1.3rem;
+        margin: 1.8rem 0 1rem;
+        padding-left: 1.5rem;
+        text-transform: none;
+    }
+
+    h3::before {
+        width: 4px;
+        height: 18px;
+    }
+
+    h3::after {
+        left: 1.5rem;
+        width: 40%;
+        bottom: -5px;
+    }
+
+    h3.with-icon {
+        padding-left: 2.8rem;
+    }
+
+    h3.with-icon::before {
+        font-size: 1.5rem;
+    }
+
+    h3.subsection {
+        font-size: 1.2rem;
+        padding-left: 1.5rem;
+    }
+
+    h3.section-title {
+        font-size: 1.4rem;
+    }
+
+    h3.section-title::after {
+        width: 60px;
+        height: 3px;
+    }
+}

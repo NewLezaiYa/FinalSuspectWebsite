@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
+    <title>测试模式</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Button/Back.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Button/BackTo.css">
+    <link rel="stylesheet" href="../../Resource/CSS/PromptBox/Danger.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Text/Text.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Text/h1.css">
+    <link rel="stylesheet" href="../../Resource/CSS/PromptBox/container.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Root.css">
+    <link rel="stylesheet" href="../../Resource/CSS/Footer.css">
+    <link rel="stylesheet" href="../../Resource/CSS/time.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="back-button" onclick="window.history.back()">返回上一页</div>
+
+        <h1 id="NoGameEnd">FinalSuspect<br>测试模式</h1>
+
+        <div class="danger">
+            <p>该选项仅支持构建版本为Debug模式。<br>
+                查看模组公告确认是什么构建版本。</p>
+        </div>
+
+        <div class="text">
+            <p>启用该功能后，游戏中只要某个职业满足了胜利条件，游戏都不会结束</p>
+            <div class="danger">
+                <p>该功能一般用于测试！</p>
+            </div>
+        </div>
+
+        <div class="footer-meta">
+            <div class="edit-time">
+                <i class="fas fa-clock"></i>
+                <span>最后更新: <time id="lastEditTime" datetime=""></time></span>
+            </div>
+        </div>
+
+        <div class="footer-copyright">
+            <p>网站设计 ©<span>LezaiYa</span> | FinalSuspect Mod ©<span>Slok</span></p>
+        </div>
+    </div>
+
+    <button class="back-to-top" aria-label="回到顶部">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 15l-6-6-6 6" />
+        </svg>
+    </button>
+    <script src='../../Resource/JS/BackToTop.js'></script>
+    <script src='../../Resource/JS/h1.js'></script>
+    <script src='../../Resource/JS/Time.js'></script>
+</body>
+
+</html>

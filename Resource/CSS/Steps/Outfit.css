@@ -1,0 +1,121 @@
+.outfit-list {
+    margin: 2.5rem 0;
+    padding-left: 0;
+}
+
+.outfit-item {
+    margin-bottom: 1.8rem;
+    padding: 2.2rem;
+    background: var(--card-bg);
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s ease;
+    line-height: 1.7;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(5px);
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.outfit-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--cyan), var(--accent));
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.4s ease;
+    z-index: 0;
+}
+
+.outfit-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 30% 30%, rgba(0, 210, 255, 0.05) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 0;
+}
+
+.outfit-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    border-color: var(--accent-light);
+}
+
+.outfit-item:hover::before {
+    transform: scaleY(1);
+}
+
+.outfit-item:hover::after {
+    opacity: 1;
+}
+
+.outfit-item h3 {
+    font-size: 1.5rem;
+    color: var(--text);
+    margin-bottom: 1.2rem;
+    font-weight: 700;
+    font-family: 'Orbitron', sans-serif;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+}
+
+.outfit-item h3::before {
+    content: '▶';
+    color: var(--accent);
+    font-size: 0.8rem;
+    margin-right: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.outfit-item:hover h3::before {
+    transform: translateX(5px);
+}
+
+.outfit-item p {
+    color: var(--text-secondary);
+    position: relative;
+    z-index: 1;
+    font-size: 1.1rem;
+}
+
+.outfit-item .content-wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+/* 动画效果 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .outfit-item {
+        padding: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .outfit-item h3 {
+        font-size: 1.3rem;
+    }
+}

@@ -1,0 +1,378 @@
+h1 {
+    text-align: center;
+    font-size: 3.5rem;
+    margin: 0 0 3.5rem;
+    color: transparent;
+    position: relative;
+    padding-bottom: 2rem;
+    font-weight: 800;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 2px;
+    line-height: 1.1;
+    text-transform: uppercase;
+    overflow: hidden;
+    text-shadow:
+        0 0 10px rgba(0, 210, 255, 0.5),
+        0 0 20px rgba(0, 210, 255, 0.3),
+        0 0 30px rgba(113, 88, 226, 0.2),
+        0 2px 10px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(90deg,
+            #ff4757 0%,
+            #ff6b81 25%,
+            #00d2ff 50%,
+            #7158e2 75%,
+            #ff4757 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-size: 200% 100%;
+    animation: gradientShift 6s linear infinite;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+h1::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle,
+            rgba(79, 109, 245, 0.15) 0%,
+            rgba(79, 109, 245, 0.1) 30%,
+            transparent 70%);
+    filter: blur(60px);
+    z-index: -1;
+    opacity: 0.6;
+    animation: h1Glow 4s ease-in-out infinite;
+}
+
+@keyframes h1Glow {
+
+    0%,
+    100% {
+        opacity: 0.6;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    50% {
+        opacity: 0.8;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 4px;
+    background: linear-gradient(90deg,
+            #ff4757 0%,
+            #ff6b81 30%,
+            #00d2ff 70%,
+            #7158e2 100%);
+    border-radius: 2px;
+    box-shadow:
+        0 0 20px rgba(255, 71, 87, 0.8),
+        0 0 30px rgba(0, 210, 255, 0.6),
+        0 0 40px rgba(113, 88, 226, 0.4);
+    animation:
+        lineGrow 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s forwards,
+        h1Pulse 3s ease-in-out infinite 1.8s;
+}
+
+@keyframes lineGrow {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+
+    to {
+        width: 200px;
+        opacity: 1;
+    }
+}
+
+@keyframes h1Pulse {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 20px rgba(255, 71, 87, 0.8),
+            0 0 30px rgba(0, 210, 255, 0.6),
+            0 0 40px rgba(113, 88, 226, 0.4);
+    }
+
+    50% {
+        box-shadow:
+            0 0 30px rgba(255, 71, 87, 1),
+            0 0 40px rgba(0, 210, 255, 0.8),
+            0 0 50px rgba(113, 88, 226, 0.6),
+            0 0 60px rgba(79, 109, 245, 0.4);
+    }
+}
+
+/* 装饰性科技边框 */
+h1 .tech-border {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border: 3px solid #00d2ff;
+    border-radius: 4px;
+    box-shadow:
+        0 0 15px rgba(0, 210, 255, 0.6),
+        inset 0 0 10px rgba(0, 210, 255, 0.2);
+    opacity: 0.7;
+    transition: all 0.4s ease;
+    pointer-events: none;
+}
+
+h1 .tech-border:nth-child(1) {
+    top: -15px;
+    left: 10%;
+    border-right: none;
+    border-bottom: none;
+    animation: cornerFloat 6s ease-in-out infinite;
+}
+
+h1 .tech-border:nth-child(2) {
+    top: -15px;
+    right: 10%;
+    border-left: none;
+    border-bottom: none;
+    animation: cornerFloat 6s ease-in-out infinite 1.5s;
+}
+
+h1 .tech-border:nth-child(3) {
+    bottom: 15px;
+    left: 10%;
+    border-right: none;
+    border-top: none;
+    animation: cornerFloat 6s ease-in-out infinite 3s;
+}
+
+h1 .tech-border:nth-child(4) {
+    bottom: 15px;
+    right: 10%;
+    border-left: none;
+    border-top: none;
+    animation: cornerFloat 6s ease-in-out infinite 4.5s;
+}
+
+@keyframes cornerFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.7;
+    }
+
+    50% {
+        transform: translateY(-10px) rotate(180deg);
+        opacity: 0.9;
+    }
+}
+
+h1:hover .tech-border {
+    border-color: #ff4757;
+    box-shadow:
+        0 0 20px rgba(255, 71, 87, 0.8),
+        inset 0 0 15px rgba(255, 71, 87, 0.3);
+}
+
+/* 装饰性粒子效果 */
+h1 .particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #00d2ff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #00d2ff;
+    animation: particleFloat 4s linear infinite;
+    opacity: 0;
+}
+
+@keyframes particleFloat {
+    0% {
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-100px) translateX(50px);
+        opacity: 0;
+    }
+}
+
+/* 特殊类型的h1 */
+h1.page-title {
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+}
+
+h1.hero-title {
+    font-size: 4rem;
+    margin: 1rem 0 3rem;
+    letter-spacing: 3px;
+}
+
+h1.hero-title::before {
+    width: 500px;
+    height: 500px;
+}
+
+h1.hero-title::after {
+    width: 250px;
+    animation-duration: 4s;
+}
+
+/* 卡片内的h1 */
+.card h1,
+.content-section h1 {
+    font-size: 2.5rem;
+    margin: 0 0 2rem;
+    padding-bottom: 1.5rem;
+}
+
+.card h1::before,
+.content-section h1::before {
+    width: 300px;
+    height: 300px;
+}
+
+.card h1::after,
+.content-section h1::after {
+    width: 150px;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+        margin: 0 0 2.5rem;
+        padding-bottom: 1.5rem;
+        letter-spacing: 1px;
+    }
+
+    h1::before {
+        width: 300px;
+        height: 300px;
+    }
+
+    h1::after {
+        width: 150px;
+        height: 3px;
+        animation:
+            lineGrow 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s forwards,
+            h1Pulse 3s ease-in-out infinite 1.5s;
+    }
+
+    @keyframes lineGrow {
+        from {
+            width: 0;
+            opacity: 0;
+        }
+
+        to {
+            width: 150px;
+            opacity: 1;
+        }
+    }
+
+    h1 .tech-border {
+        width: 40px;
+        height: 40px;
+    }
+
+    h1.hero-title {
+        font-size: 3rem;
+        letter-spacing: 2px;
+    }
+
+    h1.hero-title::before {
+        width: 400px;
+        height: 400px;
+    }
+
+    h1.hero-title::after {
+        width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+        margin: 0 0 2rem;
+        padding-bottom: 1.2rem;
+        text-transform: none;
+        letter-spacing: 0.5px;
+    }
+
+    h1::before {
+        width: 250px;
+        height: 250px;
+    }
+
+    h1::after {
+        width: 120px;
+        height: 3px;
+    }
+
+    @keyframes lineGrow {
+        from {
+            width: 0;
+            opacity: 0;
+        }
+
+        to {
+            width: 120px;
+            opacity: 1;
+        }
+    }
+
+    h1 .tech-border {
+        width: 30px;
+        height: 30px;
+        display: none;
+    }
+
+    h1.hero-title {
+        font-size: 2.2rem;
+        letter-spacing: 1px;
+    }
+
+    h1.hero-title::before {
+        width: 300px;
+        height: 300px;
+    }
+
+    h1.hero-title::after {
+        width: 150px;
+    }
+
+    .card h1,
+    .content-section h1 {
+        font-size: 1.8rem;
+        padding-bottom: 1rem;
+    }
+}

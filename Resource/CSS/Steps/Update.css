@@ -1,0 +1,356 @@
+.update-steps {
+    padding-left: 3rem;
+    margin: 2.5rem 0;
+    position: relative;
+    counter-reset: step-counter;
+}
+
+.update-steps::before {
+    content: '';
+    position: absolute;
+    left: 1.5rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom,
+            rgba(255, 71, 87, 0.3) 0%,
+            rgba(0, 210, 255, 0.5) 30%,
+            rgba(113, 88, 226, 0.5) 70%,
+            rgba(255, 71, 87, 0.3) 100%);
+    border-radius: 1px;
+    box-shadow:
+        0 0 10px rgba(0, 210, 255, 0.3),
+        inset 0 0 5px rgba(255, 255, 255, 0.1);
+}
+
+.update-steps li {
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    color: #b0b0d0;
+    line-height: 1.8;
+    position: relative;
+    padding: 1.5rem 2rem;
+    background: linear-gradient(135deg,
+            rgba(17, 17, 46, 0.6) 0%,
+            rgba(10, 10, 26, 0.8) 100%);
+    border-radius: 12px;
+    border: 1px solid rgba(113, 88, 226, 0.3);
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    counter-increment: step-counter;
+    backdrop-filter: blur(5px);
+    z-index: 1;
+    overflow: hidden;
+}
+
+.update-steps li::before {
+    content: counter(step-counter, decimal-leading-zero);
+    position: absolute;
+    left: -2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3rem;
+    height: 3rem;
+    background: linear-gradient(135deg,
+            #ff4757 0%,
+            #ff6b81 50%,
+            #7158e2 100%);
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow:
+        0 0 20px rgba(255, 71, 87, 0.6),
+        0 0 30px rgba(113, 88, 226, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    z-index: 2;
+    transition: all 0.4s ease;
+    letter-spacing: 1px;
+}
+
+.update-steps li::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.1),
+            transparent);
+    transition: left 0.6s ease;
+    z-index: -1;
+}
+
+.update-steps li:hover {
+    color: #ffffff;
+    transform: translateX(10px) translateY(-3px);
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(0, 210, 255, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    border-color: rgba(0, 210, 255, 0.5);
+    background: linear-gradient(135deg,
+            rgba(17, 17, 46, 0.8) 0%,
+            rgba(10, 10, 26, 0.9) 100%);
+}
+
+.update-steps li:hover::before {
+    transform: translateY(-50%) scale(1.1) rotate(360deg);
+    box-shadow:
+        0 0 25px rgba(255, 71, 87, 0.8),
+        0 0 40px rgba(113, 88, 226, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    background: linear-gradient(135deg,
+            #ff4757 0%,
+            #ff6b81 30%,
+            #00d2ff 70%,
+            #7158e2 100%);
+}
+
+.update-steps li:hover::after {
+    left: 100%;
+}
+
+/* 步骤内容样式 */
+.update-steps li .step-title {
+    display: block;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #ffffff;
+    margin-bottom: 0.8rem;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 0.5px;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.update-steps li .step-title::before {
+    content: '▶';
+    position: absolute;
+    left: 0;
+    color: #00d2ff;
+    font-size: 0.9rem;
+    transition: transform 0.3s ease;
+}
+
+.update-steps li:hover .step-title::before {
+    transform: translateX(5px);
+    color: #ff4757;
+}
+
+.update-steps li .step-desc {
+    color: #b0b0d0;
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-top: 0.8rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.update-steps li .step-desc::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.8rem;
+    width: 6px;
+    height: 2px;
+    background: rgba(0, 210, 255, 0.5);
+    border-radius: 1px;
+}
+
+/* 步骤中的代码和键盘快捷键 */
+.update-steps li code,
+.update-steps li kbd {
+    background: rgba(10, 10, 26, 0.8);
+    border: 1px solid rgba(0, 210, 255, 0.3);
+    color: #7ee7ff;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-family: 'Consolas', monospace;
+    font-size: 0.9rem;
+    margin: 0 0.2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.update-steps li kbd {
+    font-family: 'Orbitron', monospace;
+    font-weight: 600;
+    color: #ff9aa3;
+    border-color: rgba(255, 71, 87, 0.3);
+}
+
+/* 步骤中的链接 */
+.update-steps li a {
+    color: #00d2ff;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0, 210, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.update-steps li a:hover {
+    color: #ffffff;
+    border-bottom-color: #ff4757;
+}
+
+/* 特殊步骤类型 */
+.update-steps li.important {
+    border-left: 3px solid #ff4757;
+    background: linear-gradient(135deg,
+            rgba(255, 71, 87, 0.1) 0%,
+            rgba(10, 10, 26, 0.8) 100%);
+}
+
+.update-steps li.important::before {
+    background: linear-gradient(135deg, #ff4757, #ff6b81);
+    box-shadow:
+        0 0 20px rgba(255, 71, 87, 0.7),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.update-steps li.success {
+    border-left: 3px solid #09bb07;
+    background: linear-gradient(135deg,
+            rgba(9, 187, 7, 0.1) 0%,
+            rgba(10, 10, 26, 0.8) 100%);
+}
+
+.update-steps li.success::before {
+    background: linear-gradient(135deg, #09bb07, #00d2ff);
+    box-shadow:
+        0 0 20px rgba(9, 187, 7, 0.7),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.update-steps li.warning {
+    border-left: 3px solid #ffd43b;
+    background: linear-gradient(135deg,
+            rgba(255, 212, 59, 0.1) 0%,
+            rgba(10, 10, 26, 0.8) 100%);
+}
+
+.update-steps li.warning::before {
+    background: linear-gradient(135deg, #ffd43b, #ffa94d);
+    box-shadow:
+        0 0 20px rgba(255, 212, 59, 0.7),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* 步骤组 */
+.update-steps.step-group {
+    padding-left: 4rem;
+}
+
+.update-steps.step-group .sub-steps {
+    margin-top: 1.5rem;
+    padding-left: 2rem;
+    border-left: 2px solid rgba(113, 88, 226, 0.2);
+}
+
+.update-steps.step-group .sub-steps li {
+    margin-bottom: 1rem;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    background: rgba(10, 10, 26, 0.5);
+}
+
+.update-steps.step-group .sub-steps li::before {
+    content: '•';
+    width: 1.5rem;
+    height: 1.5rem;
+    background: rgba(0, 210, 255, 0.2);
+    left: -1.8rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #00d2ff;
+    box-shadow: 0 0 10px rgba(0, 210, 255, 0.3);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .update-steps {
+        padding-left: 2.5rem;
+        margin: 2rem 0;
+    }
+
+    .update-steps::before {
+        left: 1rem;
+    }
+
+    .update-steps li {
+        padding: 1.2rem 1.5rem;
+        margin-bottom: 1.5rem;
+        font-size: 1rem;
+    }
+
+    .update-steps li::before {
+        left: -1.5rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 0.8rem;
+    }
+
+    .update-steps li .step-title {
+        font-size: 1.1rem;
+        padding-left: 1.2rem;
+    }
+
+    .update-steps li .step-desc {
+        padding-left: 1.2rem;
+        font-size: 0.95rem;
+    }
+
+    .update-steps.step-group {
+        padding-left: 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .update-steps {
+        padding-left: 2rem;
+    }
+
+    .update-steps::before {
+        left: 0.8rem;
+        width: 1px;
+    }
+
+    .update-steps li {
+        padding: 1rem 1.2rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .update-steps li::before {
+        left: -1.2rem;
+        width: 2rem;
+        height: 2rem;
+        font-size: 0.7rem;
+    }
+
+    .update-steps li .step-title {
+        font-size: 1rem;
+        padding-left: 1rem;
+        margin-bottom: 0.6rem;
+    }
+
+    .update-steps li .step-desc {
+        padding-left: 1rem;
+        font-size: 0.9rem;
+        margin-top: 0.6rem;
+    }
+
+    .update-steps.step-group {
+        padding-left: 2.5rem;
+    }
+
+    .update-steps.step-group .sub-steps {
+        padding-left: 1.5rem;
+    }
+}

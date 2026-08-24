@@ -1,0 +1,365 @@
+.tip {
+    margin: 2.5rem 0;
+    padding: 2rem 2.5rem;
+    background: linear-gradient(135deg,
+            rgba(0, 210, 255, 0.1) 0%,
+            rgba(17, 17, 46, 0.9) 100%);
+    border-left: 5px solid var(--cyan);
+    border-radius: 16px;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(0, 210, 255, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+    z-index: 1;
+}
+
+.tip::before {
+    content: '💡';
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-size: 2rem;
+    opacity: 0.2;
+    z-index: -1;
+}
+
+.tip::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(0, 210, 255, 0.1),
+            transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+    z-index: -1;
+}
+
+.tip:hover {
+    transform: translateX(5px);
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(0, 210, 255, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    border-left-width: 8px;
+}
+
+.tip:hover::after {
+    transform: translateX(100%);
+}
+
+/* 标题样式 */
+.tip>h3,
+.tip>h4 {
+    color: var(--cyan);
+    font-family: 'Orbitron', sans-serif;
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+}
+
+.tip>h3::before,
+.tip>h4::before {
+    content: '';
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: var(--cyan);
+    border-radius: 50%;
+    margin-right: 12px;
+    box-shadow: 0 0 10px var(--cyan);
+    animation: tipPulse 2s infinite;
+}
+
+@keyframes tipPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+        box-shadow: 0 0 10px var(--cyan);
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+        box-shadow: 0 0 15px var(--cyan);
+    }
+}
+
+.tip p {
+    margin-bottom: 1.2rem;
+    position: relative;
+    padding-left: 1.5rem;
+    line-height: 1.7;
+    z-index: 2;
+}
+
+.tip p:last-child {
+    margin-bottom: 0;
+}
+
+.tip p::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.8rem;
+    width: 6px;
+    height: 2px;
+    background: var(--cyan);
+    border-radius: 1px;
+    opacity: 0.7;
+}
+
+/* 列表样式 */
+.tip ul,
+.tip ol {
+    margin: 1.2rem 0;
+    padding-left: 2rem;
+}
+
+.tip li {
+    margin-bottom: 0.8rem;
+    position: relative;
+}
+
+.tip li::before {
+    content: '✓';
+    position: absolute;
+    left: -1.8rem;
+    font-size: 0.9rem;
+    color: var(--cyan);
+    font-weight: bold;
+}
+
+/* 代码块样式 */
+.tip code,
+.tip kbd {
+    background: rgba(0, 210, 255, 0.15);
+    border: 1px solid rgba(0, 210, 255, 0.3);
+    color: #7ee7ff;
+    font-family: 'Consolas', 'Monaco', monospace;
+}
+
+.tip kbd {
+    font-family: 'Orbitron', monospace;
+    font-weight: 600;
+}
+
+/* 链接样式 */
+.tip a {
+    color: #7ee7ff;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0, 210, 255, 0.5);
+    transition: all 0.2s ease;
+}
+
+.tip a:hover {
+    color: white;
+    border-bottom-color: var(--cyan);
+}
+
+/* 高级提示变体 */
+.tip.advanced {
+    background: linear-gradient(135deg,
+            rgba(113, 88, 226, 0.15) 0%,
+            rgba(17, 17, 46, 0.9) 100%);
+    border-left-color: var(--purple);
+}
+
+.tip.advanced::before {
+    content: '⚡';
+}
+
+.tip.advanced>h3,
+.tip.advanced>h4 {
+    color: var(--purple);
+}
+
+.tip.advanced>h3::before,
+.tip.advanced>h4::before {
+    background: var(--purple);
+    box-shadow: 0 0 10px var(--purple);
+    animation: advancedPulse 1.5s infinite;
+}
+
+@keyframes advancedPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+}
+
+/* 成功提示变体 */
+.tip.success {
+    background: linear-gradient(135deg,
+            rgba(9, 187, 7, 0.15) 0%,
+            rgba(17, 17, 46, 0.9) 100%);
+    border-left-color: #09bb07;
+}
+
+.tip.success::before {
+    content: '✅';
+}
+
+.tip.success>h3,
+.tip.success>h4 {
+    color: #09bb07;
+}
+
+.tip.success>h3::before,
+.tip.success>h4::before {
+    background: #09bb07;
+    box-shadow: 0 0 10px #09bb07;
+}
+
+/* 带图标的提示 */
+.tip.with-icon {
+    padding-left: 5rem;
+    position: relative;
+}
+
+.tip.with-icon .tip-icon {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: linear-gradient(135deg, var(--cyan), var(--purple));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: white;
+    box-shadow: 0 5px 15px rgba(0, 210, 255, 0.3);
+    z-index: 3;
+}
+
+/* 紧凑型提示 */
+.tip.compact {
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.tip.compact::before {
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .tip {
+        padding: 1.8rem;
+        margin: 2rem 0;
+        font-size: 0.95rem;
+        border-radius: 14px;
+    }
+
+    .tip::before {
+        top: 1.2rem;
+        right: 1.2rem;
+        font-size: 1.8rem;
+    }
+
+    .tip>h3,
+    .tip>h4 {
+        font-size: 1.2rem;
+    }
+
+    .tip p {
+        padding-left: 1.2rem;
+    }
+
+    .tip p::before {
+        width: 5px;
+        top: 0.7rem;
+    }
+
+    .tip ul,
+    .tip ol {
+        padding-left: 1.8rem;
+    }
+
+    .tip li::before {
+        left: -1.5rem;
+    }
+
+    .tip.with-icon {
+        padding-left: 4rem;
+    }
+
+    .tip.with-icon .tip-icon {
+        left: 1.5rem;
+        top: 1.5rem;
+        width: 2rem;
+        height: 2rem;
+        font-size: 1rem;
+    }
+
+    .tip.compact {
+        padding: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .tip {
+        padding: 1.5rem;
+        border-radius: 12px;
+    }
+
+    .tip::before {
+        display: none;
+    }
+
+    .tip>h3,
+    .tip>h4 {
+        font-size: 1.1rem;
+    }
+
+    .tip>h3::before,
+    .tip>h4::before {
+        width: 8px;
+        height: 8px;
+        margin-right: 10px;
+    }
+
+    .tip p {
+        padding-left: 1rem;
+    }
+
+    .tip p::before {
+        width: 4px;
+    }
+
+    .tip.with-icon {
+        padding-left: 3.5rem;
+    }
+
+    .tip.with-icon .tip-icon {
+        left: 1rem;
+        top: 1.2rem;
+        width: 1.8rem;
+        height: 1.8rem;
+        font-size: 0.9rem;
+    }
+}

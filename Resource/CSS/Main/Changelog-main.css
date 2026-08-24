@@ -1,0 +1,85 @@
+/* 公告按钮容器 */
+.changelog-btn {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    z-index: 999;
+}
+
+/* 公告主按钮 */
+.changelog-main-btn {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+    transition: all 0.3s ease;
+    animation: heartbeat 2s infinite;
+}
+
+.changelog-options {
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 0.8rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    border: 1px solid var(--border);
+}
+
+/* 公告按钮悬停效果 */
+.changelog-btn:hover .changelog-options {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* 公告选项项 */
+.changelog-option {
+    display: flex;
+    align-items: center;
+    padding: 0.8rem 1.2rem;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+    white-space: nowrap;
+}
+
+.changelog-option:hover {
+    background: rgba(102, 126, 234, 0.2);
+}
+
+.changelog-option i {
+    font-size: 1.5rem;
+    margin-right: 0.8rem;
+    color: var(--cyan);
+}
+
+.changelog-label {
+    font-weight: 500;
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+/* 公告按钮悬停效果 */
+.changelog-main-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+}
