@@ -1295,7 +1295,7 @@ window.SplashIntro = (function () {
         }
 
         /** 下载/加载阶段：先检测浏览器缓存，
-         *  全部命中 → 直接一起同步（并行）加载，加载完成后进入；
+         *  全部命中 → 逐张秒加载并显示进度（如 1/16），加载完成后进入；
          *  存在未命中 → 串行逐张下载（记录 CHECKING/START DOWNLOAD/FINISH 伪日志并显示首次加载提示） */
         async downloadPhase(images) {
             if (!images || images.length === 0) {
@@ -1341,9 +1341,16 @@ window.SplashIntro = (function () {
                 await wait(300);
                 await this.processText.hide();
             } else {
-                // ===== 加载模式：资源全部命中缓存 → 一起同步（并行）加载，完成后直接进入 =====
-                await this.processText.showTypewriter('正在加载资源...');
-                await Promise.all(images.map((u) => loadImage(u)));
+                // ===== 加载模式：资源全部命中缓存 → 逐张秒加载并显示进度（如 1/16）=====
+                await this.processText.hide();
+                await this.processText.showDownloading('加载中', 0, images.length);
+                let progress = 0;
+                for (let i = 0; i < images.length; i++) {
+                    await loadImage(images[i]);
+                    progress++;
+                    this.processText.updateDownloadProgress(progress, images.length);
+                    await wait(120); // 缓存命中秒加载，间隔控制进度节奏
+                }
                 await this.processText.hide();
             }
         }
