@@ -1,0 +1,83 @@
+.appreciate-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 999;
+}
+
+.appreciate-main-btn {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-light));
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(255, 71, 87, 0.4);
+    transition: all 0.3s ease;
+    animation: heartbeat 2s infinite;
+}
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.appreciate-main-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(255, 71, 87, 0.6);
+}
+
+.appreciate-options {
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 0.8rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    border: 1px solid var(--border);
+}
+
+.appreciate-btn:hover .appreciate-options {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.appreciate-option {
+    display: flex;
+    align-items: center;
+    padding: 0.8rem 1.2rem;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+    white-space: nowrap;
+}
+
+.appreciate-option:hover {
+    background: rgba(113, 88, 226, 0.2);
+}
+
+.appreciate-option i {
+    font-size: 1.5rem;
+    margin-right: 0.8rem;
+    color: var(--cyan);
+}
+
+.appreciate-label {
+    font-weight: 500;
+}

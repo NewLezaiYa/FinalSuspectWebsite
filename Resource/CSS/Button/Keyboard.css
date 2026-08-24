@@ -1,0 +1,210 @@
+kbd {
+    display: inline-block;
+    padding: 0.3rem 0.6rem;
+    background: linear-gradient(145deg, rgba(17, 17, 46, 0.9), rgba(10, 10, 26, 0.95));
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    box-shadow:
+        0 4px 6px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(113, 88, 226, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    font-family: 'Orbitron', monospace;
+    font-weight: 500;
+    color: var(--cyan);
+    margin: 0 0.3rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    position: relative;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    text-transform: uppercase;
+}
+
+kbd::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg,
+            transparent,
+            rgba(0, 210, 255, 0.1),
+            transparent);
+    border-radius: 8px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+kbd:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 6px 10px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(0, 210, 255, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    background: linear-gradient(145deg, rgba(17, 17, 46, 1), rgba(10, 10, 26, 1));
+}
+
+kbd:hover::before {
+    opacity: 1;
+}
+
+kbd:active {
+    transform: translateY(0);
+    box-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(0, 210, 255, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    transition: transform 0.1s ease;
+}
+
+kbd.alt,
+kbd.ctrl,
+kbd.shift,
+kbd.cmd {
+    background: linear-gradient(145deg, rgba(113, 88, 226, 0.9), rgba(79, 70, 229, 0.95));
+    color: #ffffff;
+    font-weight: 600;
+}
+
+kbd.function {
+    background: linear-gradient(145deg, rgba(255, 71, 87, 0.9), rgba(255, 107, 129, 0.95));
+    color: #ffffff;
+    font-weight: 600;
+}
+
+kbd.num {
+    background: linear-gradient(145deg, rgba(0, 210, 255, 0.9), rgba(0, 184, 217, 0.95));
+    color: #ffffff;
+    font-weight: 600;
+}
+
+dl {
+    margin-bottom: 2rem;
+    display: grid;
+    grid-template-columns: minmax(180px, max-content) 1fr;
+    gap: 1rem 2rem;
+    padding: 1.5rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+}
+
+dl::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--accent), var(--cyan));
+    opacity: 0.7;
+}
+
+dl:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    border-color: rgba(0, 210, 255, 0.4);
+    transform: translateY(-2px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+dt {
+    font-weight: 600;
+    color: var(--cyan);
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 0.5px;
+    padding: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 1rem;
+}
+
+dt::before {
+    content: '▶';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+dl:hover dt::before {
+    transform: translateX(5px);
+    color: var(--accent-light);
+}
+
+dd {
+    margin: 0;
+    padding: 0.5rem 0;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 1rem;
+}
+
+dd::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 2px;
+    height: 60%;
+    background: rgba(113, 88, 226, 0.3);
+    border-radius: 1px;
+}
+
+dl.compact {
+    grid-template-columns: minmax(150px, max-content) 1fr;
+    gap: 0.8rem 1.5rem;
+    padding: 1.2rem;
+}
+
+@media (max-width: 768px) {
+    dl {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+
+    dt {
+        padding-left: 0;
+        padding-top: 0.5rem;
+        border-bottom: 1px solid rgba(113, 88, 226, 0.2);
+        padding-bottom: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    dt::before {
+        display: none;
+    }
+
+    dd {
+        padding-left: 0;
+        margin-bottom: 0.8rem;
+    }
+
+    dd::before {
+        display: none;
+    }
+
+    kbd {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    dl {
+        padding: 1rem;
+    }
+
+    kbd {
+        margin: 0.2rem;
+        font-size: 0.8rem;
+        padding: 0.2rem 0.4rem;
+    }
+}

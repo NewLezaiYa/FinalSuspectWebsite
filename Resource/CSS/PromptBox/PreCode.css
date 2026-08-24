@@ -1,0 +1,331 @@
+pre {
+    background: linear-gradient(135deg,
+            rgba(10, 10, 26, 0.95) 0%,
+            rgba(17, 17, 46, 0.98) 100%);
+    padding: 1.8rem;
+    border-radius: 14px;
+    margin: 2rem 0;
+    overflow-x: auto;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 0.95rem;
+    color: #e6e6e6;
+    line-height: 1.7;
+    border: 1px solid var(--border);
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(113, 88, 226, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+}
+
+pre::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--cyan), var(--purple));
+    border-radius: 14px 0 0 14px;
+    opacity: 0.7;
+}
+
+pre::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg,
+            var(--cyan),
+            var(--purple),
+            var(--accent),
+            var(--cyan));
+    background-size: 400% 400%;
+    border-radius: 16px;
+    z-index: -1;
+    opacity: 0;
+    animation: gradient-shift 3s linear infinite;
+    transition: opacity 0.3s ease;
+}
+
+@keyframes gradient-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+pre:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(0, 210, 255, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+pre:hover::after {
+    opacity: 0.3;
+}
+
+/* 代码块标题栏 */
+pre[data-language]::before {
+    content: attr(data-language);
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0.4rem 1rem;
+    background: linear-gradient(90deg, var(--cyan), var(--purple));
+    color: white;
+    font-size: 0.8rem;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 600;
+    border-radius: 14px 0 8px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 1;
+    width: auto;
+    height: auto;
+    line-height: normal;
+}
+
+pre[data-language] {
+    padding-top: 2.8rem;
+}
+
+/* 复制按钮 */
+pre .copy-btn {
+    position: absolute;
+    top: 0.8rem;
+    right: 0.8rem;
+    background: rgba(113, 88, 226, 0.2);
+    border: 1px solid rgba(113, 88, 226, 0.4);
+    color: var(--cyan);
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-family: 'Orbitron', sans-serif;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    opacity: 0;
+    z-index: 2;
+}
+
+pre:hover .copy-btn {
+    opacity: 1;
+}
+
+pre .copy-btn:hover {
+    background: rgba(113, 88, 226, 0.4);
+    color: white;
+    transform: scale(1.05);
+}
+
+pre .copy-btn.copied {
+    background: rgba(9, 187, 7, 0.2);
+    border-color: rgba(9, 187, 7, 0.4);
+    color: #09bb07;
+}
+
+/* 代码行号 */
+pre .line-numbers {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 1.8rem 0.8rem;
+    text-align: right;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.9rem;
+    user-select: none;
+    font-family: 'Consolas', monospace;
+}
+
+pre.with-line-numbers {
+    padding-left: 3.5rem;
+}
+
+/* 代码高亮 */
+pre code {
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+
+/* 语法高亮颜色 */
+.hljs-keyword {
+    color: #ff6b9d;
+    font-weight: bold;
+}
+
+.hljs-string {
+    color: #7ee787;
+}
+
+.hljs-comment {
+    color: #8b949e;
+    font-style: italic;
+}
+
+.hljs-function {
+    color: #d2a8ff;
+}
+
+.hljs-number {
+    color: #79c0ff;
+}
+
+.hljs-built_in {
+    color: #ffa657;
+}
+
+.hljs-title {
+    color: #ffa657;
+}
+
+.hljs-params {
+    color: #e6e6e6;
+}
+
+.hljs-literal {
+    color: #ff6b9d;
+}
+
+.hljs-type {
+    color: #7ee787;
+}
+
+.hljs-variable {
+    color: #ffa657;
+}
+
+.hljs-attr {
+    color: #7ee787;
+}
+
+.hljs-tag {
+    color: #7ee787;
+}
+
+/* 滚动条样式 */
+pre::-webkit-scrollbar {
+    height: 8px;
+    background: rgba(17, 17, 46, 0.5);
+    border-radius: 4px;
+}
+
+pre::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, var(--cyan), var(--purple));
+    border-radius: 4px;
+}
+
+pre::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(90deg, var(--accent), var(--cyan));
+}
+
+/* 不同类型的代码块 */
+pre.terminal {
+    background: linear-gradient(135deg,
+            rgba(0, 0, 0, 0.9) 0%,
+            rgba(30, 30, 30, 0.98) 100%);
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+    border-left-color: #00ff00;
+}
+
+pre.terminal::before {
+    background: linear-gradient(to bottom, #00ff00, #00cc00);
+}
+
+pre.terminal .copy-btn {
+    background: rgba(0, 255, 0, 0.2);
+    border-color: rgba(0, 255, 0, 0.4);
+    color: #00ff00;
+}
+
+pre.config {
+    background: linear-gradient(135deg,
+            rgba(113, 88, 226, 0.1) 0%,
+            rgba(17, 17, 46, 0.98) 100%);
+    border-left-color: var(--purple);
+}
+
+pre.config::before {
+    background: linear-gradient(to bottom, var(--purple), var(--cyan));
+}
+
+pre.json {
+    background: linear-gradient(135deg,
+            rgba(0, 210, 255, 0.1) 0%,
+            rgba(17, 17, 46, 0.98) 100%);
+    border-left-color: var(--cyan);
+}
+
+pre.json::before {
+    background: linear-gradient(to bottom, var(--cyan), var(--accent));
+}
+
+@media (max-width: 768px) {
+    pre {
+        padding: 1.5rem;
+        font-size: 0.85rem;
+        border-radius: 12px;
+        margin: 1.5rem 0;
+    }
+
+    pre[data-language] {
+        padding-top: 2.5rem;
+    }
+
+    pre[data-language]::before {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.8rem;
+    }
+
+    pre.with-line-numbers {
+        padding-left: 3rem;
+    }
+
+    pre .line-numbers {
+        padding: 1.5rem 0.6rem;
+        font-size: 0.8rem;
+    }
+
+    pre .copy-btn {
+        opacity: 1;
+        top: 0.6rem;
+        right: 0.6rem;
+        padding: 0.3rem 0.6rem;
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 480px) {
+    pre {
+        padding: 1.2rem;
+        font-size: 0.8rem;
+        border-radius: 10px;
+    }
+
+    pre[data-language] {
+        padding-top: 2.2rem;
+    }
+
+    pre.with-line-numbers {
+        padding-left: 2.5rem;
+    }
+
+    pre .line-numbers {
+        padding: 1.2rem 0.5rem;
+        font-size: 0.75rem;
+    }
+}

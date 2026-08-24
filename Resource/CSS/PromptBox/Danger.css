@@ -1,0 +1,310 @@
+.danger {
+    margin: 2.5rem 0;
+    padding: 2rem 2.5rem;
+    background: linear-gradient(135deg,
+            rgba(255, 71, 87, 0.1) 0%,
+            rgba(17, 17, 46, 0.9) 100%);
+    border-left: 5px solid var(--accent);
+    border-radius: 16px;
+    color: var(--accent-light);
+    font-weight: 600;
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(255, 71, 87, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+    z-index: 1;
+}
+
+.danger::before {
+    content: '⚠️';
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-size: 2rem;
+    opacity: 0.2;
+    z-index: -1;
+}
+
+.danger::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 71, 87, 0.15),
+            transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+    z-index: -1;
+}
+
+.danger:hover {
+    transform: translateX(5px);
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(255, 71, 87, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    border-left-width: 8px;
+}
+
+.danger:hover::after {
+    transform: translateX(100%);
+}
+
+/* 标题样式 */
+.danger>h3,
+.danger>h4 {
+    color: var(--accent);
+    font-family: 'Orbitron', sans-serif;
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+}
+
+.danger>h3::before,
+.danger>h4::before {
+    content: '';
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: var(--accent);
+    border-radius: 50%;
+    margin-right: 12px;
+    box-shadow: 0 0 10px var(--accent);
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+}
+
+.danger p {
+    margin-bottom: 1.2rem;
+    position: relative;
+    padding-left: 1.5rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.9);
+    z-index: 2;
+}
+
+.danger p:last-child {
+    margin-bottom: 0;
+}
+
+.danger p::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.8rem;
+    width: 6px;
+    height: 2px;
+    background: var(--accent);
+    border-radius: 1px;
+    opacity: 0.7;
+}
+
+/* 列表样式 */
+.danger ul,
+.danger ol {
+    margin: 1.2rem 0;
+    padding-left: 2rem;
+}
+
+.danger li {
+    margin-bottom: 0.8rem;
+    color: rgba(255, 255, 255, 0.9);
+    position: relative;
+}
+
+.danger li::before {
+    content: '❗';
+    position: absolute;
+    left: -1.8rem;
+    font-size: 0.9rem;
+    color: var(--accent);
+}
+
+/* 代码块样式 */
+.danger code,
+.danger kbd {
+    background: rgba(255, 71, 87, 0.15);
+    border: 1px solid rgba(255, 71, 87, 0.3);
+    color: #ff9aa3;
+    font-family: 'Consolas', 'Monaco', monospace;
+}
+
+.danger kbd {
+    font-family: 'Orbitron', monospace;
+    font-weight: 600;
+}
+
+/* 链接样式 */
+.danger a {
+    color: #ff9aa3;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 71, 87, 0.5);
+    transition: all 0.2s ease;
+}
+
+.danger a:hover {
+    color: white;
+    border-bottom-color: var(--accent);
+}
+
+/* 严重警告变体 */
+.danger.critical {
+    background: linear-gradient(135deg,
+            rgba(255, 0, 0, 0.15) 0%,
+            rgba(17, 17, 46, 0.95) 100%);
+    border-left-color: #ff0000;
+    animation: criticalPulse 2s infinite;
+}
+
+@keyframes criticalPulse {
+
+    0%,
+    100% {
+        box-shadow:
+            0 10px 30px rgba(0, 0, 0, 0.3),
+            0 0 0 1px rgba(255, 0, 0, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    50% {
+        box-shadow:
+            0 10px 30px rgba(0, 0, 0, 0.3),
+            0 0 0 1px rgba(255, 0, 0, 0.5),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1),
+            0 0 20px rgba(255, 0, 0, 0.3);
+    }
+}
+
+.danger.critical>h3,
+.danger.critical>h4 {
+    color: #ff5555;
+}
+
+.danger.critical>h3::before,
+.danger.critical>h4::before {
+    background: #ff0000;
+    box-shadow: 0 0 15px #ff0000;
+    animation: criticalPulseDot 1s infinite;
+}
+
+@keyframes criticalPulseDot {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.5);
+        opacity: 0.8;
+    }
+}
+
+/* 紧凑型危险提示 */
+.danger.compact {
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.danger.compact::before {
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .danger {
+        padding: 1.8rem;
+        margin: 2rem 0;
+        font-size: 0.95rem;
+        border-radius: 14px;
+    }
+
+    .danger::before {
+        top: 1.2rem;
+        right: 1.2rem;
+        font-size: 1.8rem;
+    }
+
+    .danger>h3,
+    .danger>h4 {
+        font-size: 1.2rem;
+    }
+
+    .danger p {
+        padding-left: 1.2rem;
+    }
+
+    .danger p::before {
+        width: 5px;
+        top: 0.7rem;
+    }
+
+    .danger ul,
+    .danger ol {
+        padding-left: 1.8rem;
+    }
+
+    .danger li::before {
+        left: -1.5rem;
+    }
+
+    .danger.compact {
+        padding: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .danger {
+        padding: 1.5rem;
+        border-radius: 12px;
+    }
+
+    .danger::before {
+        display: none;
+    }
+
+    .danger>h3,
+    .danger>h4 {
+        font-size: 1.1rem;
+    }
+
+    .danger>h3::before,
+    .danger>h4::before {
+        width: 8px;
+        height: 8px;
+        margin-right: 10px;
+    }
+
+    .danger p {
+        padding-left: 1rem;
+    }
+
+    .danger p::before {
+        width: 4px;
+    }
+}

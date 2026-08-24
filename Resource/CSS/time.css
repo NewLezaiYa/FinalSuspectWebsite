@@ -1,0 +1,40 @@
+.footer-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    padding: 1.5rem 2rem;
+    background: rgba(17, 17, 46, 0.5);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}
+
+.edit-time {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.edit-time i {
+    color: var(--cyan);
+    font-size: 1.1rem;
+}
+
+.edit-time time {
+    color: var(--text);
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .footer-meta {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.2rem;
+    }
+
+    .edit-time {
+        justify-content: center;
+    }
+}

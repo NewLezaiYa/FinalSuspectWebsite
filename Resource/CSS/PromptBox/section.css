@@ -1,0 +1,59 @@
+.section {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 2.5rem;
+    margin-bottom: 2.5rem;
+    border: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    animation-duration: 0.8s;
+    animation-fill-mode: both;
+}
+
+.section:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    border-color: var(--accent-light);
+}
+
+.section-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 0%, var(--glow), transparent 50%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 0;
+}
+
+.section:hover .section-glow {
+    opacity: 0.5;
+}
+
+.section-title {
+    font-size: 1.8rem;
+    margin-bottom: 1.2rem;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.section-title i {
+    margin-right: 1rem;
+    color: var(--accent);
+    font-size: 1.5rem;
+}
+
+.section-content {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    position: relative;
+    z-index: 1;
+}

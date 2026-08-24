@@ -1,0 +1,49 @@
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 1rem 5%;
+    }
+
+    .logo {
+        margin-bottom: 1rem;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav li {
+        margin: 0.3rem;
+    }
+
+    .hero {
+        padding: 2rem 1.5rem;
+    }
+
+    .hero-name {
+        font-size: 2.2rem;
+    }
+
+    .hero-tagline {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .back-to-top {
+        left: 20px;
+        bottom: 20px;
+    }
+
+    .appreciate-btn {
+        right: 20px;
+        bottom: 20px;
+    }
+
+    .hero-logo {
+        max-width: 480px;
+    }
+}
