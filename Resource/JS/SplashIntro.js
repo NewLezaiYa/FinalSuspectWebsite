@@ -671,7 +671,7 @@ window.SplashIntro = (function () {
             for (let i = 1; i <= message.length; i++) {
                 if (this.disposed || !entry.el.isConnected) break;
                 entry.body.textContent = message.slice(0, i);
-                await wait(12);
+                await wait(30);
             }
             if (entry.body && entry.body.isConnected) entry.body.textContent = message;
             entry.isTyping = false;
@@ -794,7 +794,7 @@ window.SplashIntro = (function () {
             this.el.textContent = '';
             for (let i = 1; i <= content.length; i++) {
                 this.el.textContent = content.slice(0, i) + (i % 2 ? '|' : '');
-                await wait(50);
+                await wait(100);
             }
             this.el.textContent = content;
         }
@@ -1294,10 +1294,9 @@ window.SplashIntro = (function () {
             this.downloadHint.classList.toggle('visible', !!visible);
         }
 
-        /** 下载/加载阶段：先检测浏览器缓存，命中→本地加载，未命中→下载；
-         *  下载与加载共用同一串行流程（下载=加载，加载=下载），仅提示文案与伪日志不同：
-         *  下载时逐张记录 CHECKING/DOWNLOAD/FINISH 伪日志并显示首次加载提示；
-         *  加载（缓存命中）时不记录伪日志 */
+        /** 下载/加载阶段：先检测浏览器缓存，
+         *  全部命中 → 直接一起同步（并行）加载，加载完成后进入；
+         *  存在未命中 → 串行逐张下载（记录 CHECKING/START DOWNLOAD/FINISH 伪日志并显示首次加载提示） */
         async downloadPhase(images) {
             if (!images || images.length === 0) {
                 this.processText.hide();
@@ -1310,7 +1309,7 @@ window.SplashIntro = (function () {
             const downloading = needDownload > 0;
 
             if (downloading) {
-                // 下载模式：记录完整伪日志
+                // ===== 下载模式：资源未缓存 → 串行逐张下载 =====
                 await this.log.push('CHECKING DEPENDENCIES');
                 await wait(400);
                 await this.log.push('START DOWNLOAD: "core.dat"', 'download');
@@ -1318,41 +1317,33 @@ window.SplashIntro = (function () {
                 await this.log.push('CHECKING RESOURCES...');
                 await this.processText.showTypewriter('正在检查文件...');
                 await wait(150);
-            } else {
-                // 加载模式：不记录伪日志
-                await this.processText.showTypewriter('正在检查文件...');
-                await wait(150);
-            }
 
-            // 隐藏打字机文案，进入进度计数（提示在进度下方，先显示以便完整淡入）
-            await this.processText.hide();
-            if (downloading) {
+                // 隐藏打字机文案，进入进度计数（提示在进度下方，先显示以便完整淡入）
+                await this.processText.hide();
                 this.setDownloadHint(true);
                 await this.processText.showDownloading('下载中', 0, images.length);
-            } else {
-                await this.processText.showDownloading('加载中', 0, images.length);
-            }
 
-            // 串行逐张处理：下载记录日志，加载不记录（两种模式流程一致）
-            // 下载模式统一记录 START DOWNLOAD（缓存命中也按下载流程展示，不再混入 LOAD FROM CACHE）
-            let progress = 0;
-            for (let i = 0; i < images.length; i++) {
-                const url = images[i];
-                if (downloading) {
+                // 串行逐张下载，统一记录 START DOWNLOAD（缓存命中也按下载流程展示，不混入 LOAD FROM CACHE）
+                let progress = 0;
+                for (let i = 0; i < images.length; i++) {
+                    const url = images[i];
                     await this.log.push(`START DOWNLOAD: "${this.fileName(url)}"`, 'download');
+                    await loadImage(url);
+                    progress++;
+                    this.processText.updateDownloadProgress(progress, images.length);
+                    await wait(150); // 对应 DownloadResources 间短暂停顿
                 }
-                await loadImage(url);
-                progress++;
-                this.processText.updateDownloadProgress(progress, images.length);
-                await wait(150); // 对应 DownloadResources 间短暂停顿（已加快）
-            }
 
-            this.setDownloadHint(false);
-            await this.processText.hide();
-            if (downloading) {
+                this.setDownloadHint(false);
+                await this.processText.hide();
                 await this.processText.showComplete('下载完成');
                 await this.log.push('FINISH!', 'success');
                 await wait(300);
+                await this.processText.hide();
+            } else {
+                // ===== 加载模式：资源全部命中缓存 → 一起同步（并行）加载，完成后直接进入 =====
+                await this.processText.showTypewriter('正在加载资源...');
+                await Promise.all(images.map((u) => loadImage(u)));
                 await this.processText.hide();
             }
         }
