@@ -91,6 +91,7 @@
     letter-spacing: 1.5px;
     transform: translateX(-50%) scale(0.7);
     transform-origin: center bottom;
+    transition: opacity 0.6s ease;
 }
 
 /* === DOWNLOAD HINT（首次加载提示，位于下载进度下方） === */
@@ -98,7 +99,7 @@
     position: absolute;
     left: 50%;
     bottom: 11vh;
-    transform: translateX(-50%);
+    transform: translateX(-50%) translateY(10px);
     font-family: 'Poppins', 'Orbitron', sans-serif;
     font-size: clamp(0.72rem, 1.2vw, 0.9rem);
     font-weight: 500;
@@ -107,7 +108,7 @@
     color: #fbbf24;
     text-shadow: 0 0 10px rgba(251, 191, 36, 0.45);
     opacity: 0;
-    transition: opacity 0.45s ease;
+    transition: opacity 0.45s ease, transform 0.45s ease;
     pointer-events: none;
     white-space: nowrap;
     z-index: 10;
@@ -115,6 +116,7 @@
 
 #downloadHint.visible {
     opacity: 1;
+    transform: translateX(-50%) translateY(0);
 }
 
 /* === VERSION TEXT === */
@@ -130,6 +132,7 @@
     color: var(--neon-cyan);
     text-shadow: 0 0 10px rgba(0, 240, 255, 0.6);
     opacity: 0;
+    transition: opacity 0.8s ease 0.2s;
     pointer-events: none;
     z-index: 10;
 }

@@ -29,10 +29,11 @@ window.SplashIntro = (function () {
         pointsPerFrame: 30,
 
         // 动画序列时间控制
-        numberStreamBeforeLogo: 7,
+        // 数字流/代码雨展示时长已缩短：更快进入下一个动画（与开局闪屏只闪一次同理）
+        numberStreamBeforeLogo: 2,
         logoAppearDuration: 2,
         logoAndLightPathDuration: 3,
-        numberFadeDuration: 4,
+        numberFadeDuration: 1.5,
         circuitFadeInDuration: 1.5,
 
         // 落幕动画时长
@@ -79,25 +80,20 @@ window.SplashIntro = (function () {
     const rgba = (c, a = 1) =>
         `rgba(${Math.round(c.r * 255)},${Math.round(c.g * 255)},${Math.round(c.b * 255)},${a})`;
 
-    // 全局时间缩放系数：小于 1 时加快动画播放（0.5 = 2 倍速）。
-    // 仅统一压缩 wait/animate 的时长，不改变任何阶段顺序与行为逻辑。
-    const TIME_SCALE = 0.5;
-
-    const wait = (ms) => new Promise((r) => setTimeout(r, ms * TIME_SCALE));
+    const wait = (ms) => new Promise((r) => setTimeout(r, ms));
     const waitFrame = () => new Promise((r) => requestAnimationFrame(r));
 
     /** 逐帧驱动动画的协程（对应 C# IEnumerator + yield return null） */
     function animate(duration, step) {
         return new Promise((resolve) => {
-            const scaled = Math.max(0.03, duration * TIME_SCALE);
             let elapsed = 0;
             let last = performance.now();
             const tick = (now) => {
                 const dt = Math.min(0.05, (now - last) / 1000);
                 last = now;
                 elapsed += dt;
-                step(elapsed / scaled, dt);
-                if (elapsed < scaled) requestAnimationFrame(tick);
+                step(elapsed / duration, dt);
+                if (elapsed < duration) requestAnimationFrame(tick);
                 else resolve();
             };
             requestAnimationFrame(tick);
@@ -1299,38 +1295,18 @@ window.SplashIntro = (function () {
             this.downloadHint.classList.toggle('visible', !!visible);
         }
 
-        /** 下载/加载阶段（LoadEssentialResources + VerifyAdditionalResources，
-         *  带浏览器缓存检测：命中缓存→本地加载，未命中→下载） */
+        /** 下载/加载阶段：先检测浏览器缓存，命中→本地加载，未命中→下载；
+         *  并行加载全部图片（不记录伪日志），完成后直接进入落幕黑幕 */
         async downloadPhase(images) {
-            await this.log.push('CHECKING DEPENDENCIES');
-            await wait(800);
-
-            // 依赖检查（本地已有，模拟通过）
-            await this.log.push('START DOWNLOAD: "core.dat"', 'download');
-            await wait(500);
-
-            await this.log.push('CHECKING RESOURCES...');
-            await this.processText.showTypewriter('正在检查文件...');
-            await wait(300);
-
             if (!images || images.length === 0) {
-                await this.log.push('ALL RESOURCES VERIFIED!', 'success');
                 this.processText.hide();
                 return;
             }
 
-            // 并行检测每张图片是否已在浏览器缓存中
+            // 并行检测每张图片是否已被浏览器缓存
             const cachedFlags = await Promise.all(images.map((u) => isCached(u)));
             const needDownload = cachedFlags.filter((f) => !f).length;
 
-            // 隐藏打字机文案，进入进度计数（第一张图片的日志保持原顺序）
-            await this.processText.hide();
-            await this.log.push(
-                cachedFlags[0]
-                    ? `LOAD FROM CACHE: "${this.fileName(images[0])}"`
-                    : `START DOWNLOAD: "${this.fileName(images[0])}"`,
-                cachedFlags[0] ? 'message' : 'download'
-            );
             if (needDownload > 0) {
                 // 存在需要下载的资源：显示下载进度，并在进度下方给出首次加载提示
                 this.setDownloadHint(true);
@@ -1340,27 +1316,18 @@ window.SplashIntro = (function () {
                 await this.processText.showDownloading('加载中', 0, images.length);
             }
 
+            // 并行加载全部图片（命中缓存→本地读取；未命中→真正下载），每完成一张更新进度
             let progress = 0;
-            for (let i = 0; i < images.length; i++) {
-                if (i > 0) {
-                    await this.log.push(
-                        cachedFlags[i]
-                            ? `LOAD FROM CACHE: "${this.fileName(images[i])}"`
-                            : `START DOWNLOAD: "${this.fileName(images[i])}"`,
-                        cachedFlags[i] ? 'message' : 'download'
-                    );
-                }
-                await loadImage(images[i]);
-                progress++;
-                this.processText.updateDownloadProgress(progress, images.length);
-                await wait(500); // 对应 DownloadResources 间 0.5s
-            }
+            await Promise.all(
+                images.map((u) =>
+                    loadImage(u).then(() => {
+                        progress++;
+                        this.processText.updateDownloadProgress(progress, images.length);
+                    })
+                )
+            );
 
             this.setDownloadHint(false);
-            await this.processText.hide();
-            await this.processText.showComplete(needDownload > 0 ? '下载完成' : '加载完成');
-            await this.log.push('FINISH!', 'success');
-            await wait(500);
             await this.processText.hide();
         }
 
@@ -1457,15 +1424,19 @@ window.SplashIntro = (function () {
                 }
                 this.setup(logoImg);
 
-                // 后台并行预加载所有图片（本地资源，速度极快）
-                const preloadPromise = Promise.all(images.map((u) => loadImage(u)));
+                // 团队 Logo 开局闪屏只播一次（本次会话内刷新不再重复）
+                let splashShown = false;
+                try { splashShown = sessionStorage.getItem('fs_splash_shown') === '1'; } catch (e) {}
+                if (!splashShown) {
+                    try { sessionStorage.setItem('fs_splash_shown', '1'); } catch (e) {}
+                    await this.teamLogoPhase();
+                }
 
-                await this.teamLogoPhase();
                 await this.mainLogoSequence();
                 await this.loadingPhase();
 
-                // 下载阶段等待预加载完成后展示
-                await preloadPromise;
+                // 下载/加载阶段：检测缓存并并行加载全部图片（不再提前预加载，
+                // 否则图片已被缓存导致缓存检测永远命中、首次下载提示不显示）
                 await this.downloadPhase(images);
                 await this.completePhase();
                 await this.endingPhase();
