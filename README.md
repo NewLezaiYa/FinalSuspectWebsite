@@ -1,11 +1,13 @@
-# FinalSuspect 网站项目
+# FinalSuspect 官方网站
 
-FinalSuspect 是一个专注于提供游戏模组指南与功能展示的网站项目，适用于 Among Us 玩家群体，尤其是对模组有兴趣的用户。本项目通过清晰的界面与结构化的内容，帮助用户快速了解模组的功能、安装方式以及相关配置。
+FinalSuspect 网站是提供FinalSuspect模组指南与功能展示的网站项目。本项目通过清晰的界面与结构化的内容，帮助用户快速了解FinalSuspect模组的功能、安装方式以及相关选项配置。
 
-## 贡献者
+## 项目负责及参考
 
-本项目由开发者 [LezaiYa](https://github.com/NewLezaiYa) 开发。\
-基于 [FinalSuspect](https://github.com/Slok7565/FinalSuspect) 模组开发。
+本项目由 [LezaiYa](https://github.com/NewLezaiYa) 进行开发。\
+贡献者 [mangren](https://github.com/sureenoughitwasthemang) 。\
+基于 [FinalSuspect](https://github.com/Slok7565/FinalSuspect) 模组开发。\
+基于 [XtremeWaveDocs](https://github.com/NewLezaiYa/XtremeWaveDocs) 网站开发（代码源自Hiraeth-Wave）
 
 ## 开源许可
 
