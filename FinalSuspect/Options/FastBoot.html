@@ -7,10 +7,11 @@
     <meta name="description" content="FinalSuspect 选项说明：快速启动模式——跳过非必要加载环节，启动耗时从约 15 秒缩短到约 5 秒。">
     <title>快速启动模式 · FinalSuspect</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;800&family=Poppins:wght@300;400;500;600&family=Share+Tech+Mono&display=swap">
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&family=Poppins:wght@400;600&display=swap">
     <link rel="stylesheet" href="../../Resource/CSS/cyberpunk.css">
 </head>
 
@@ -78,7 +79,7 @@
 
             <h2 class="sec-title" id="figure"><span class="sec-title__num">03</span>界面示意</h2>
             <figure class="figure">
-                <img src="../../Resource/images/FastBoot.png" alt="快速启动模式示意图">
+                <picture><source srcset="../../Resource/images/FastBoot.webp" type="image/webp"><img data-nowebp src="../../Resource/images/FastBoot.png" alt="快速启动模式示意图" loading="lazy" decoding="async"></picture>
                 <figcaption>快速启动模式示意图</figcaption>
             </figure>
 
@@ -111,9 +112,9 @@
     </main>
 
     <script src="../../Resource/JS/Nav.js"></script>
-    <script src="../../Resource/JS/fx.js"></script>
-    <script src="../../Resource/JS/Time.js"></script>
-    <script src="../../Resource/JS/last-modified.js"></script>
+    <script src="../../Resource/JS/fx.js" defer></script>
+    <script src="../../Resource/JS/Time.js" defer></script>
+    <script src="../../Resource/JS/last-modified.js" defer></script>
 </body>
 
 </html>

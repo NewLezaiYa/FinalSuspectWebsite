@@ -86,15 +86,40 @@ FinalSuspectWebsite/
 
 ```bash
 node tools/verify-site.mjs            # 全站自检：资源引用、标签配对、死链、旧标记
+node tools/check-contract.mjs         # 契约检查：JS 生成的类名在 CSS 中是否都有定义
+node tools/use-webp.mjs               # 把 <img> 升级为 <picture>（WebP 优先 + PNG 回退 + 懒加载）
 node tools/update-last-modified.mjs   # 重新生成 Resource/JS/last-modified.js
 node tools/extract-changelog.mjs      # 从旧版日志重新解析 Resource/JS/changelog-data.js
+python tools/optimize-images.py       # 图片转 WebP（装饰背景降分辨率），PNG 保留作回退
 ```
 
-> 每次改完页面，先跑 `verify-site.mjs`，它能在无浏览器环境下发现死链、标签不配对、绝对路径等问题。
+> 每次改完页面，先跑 `verify-site.mjs` 与 `check-contract.mjs`：前者能在无浏览器环境下发现死链、
+> 标签不配对、绝对路径等问题，后者能发现「JS 生成了 DOM 但 CSS 里没有对应类名」这类静默失效。
 
 ---
 
-## 六、路径与部署约定
+## 六、加载性能约定
+
+| 措施 | 说明 |
+|---|---|
+| **图片 WebP** | 全部图片提供 WebP 版本（`<picture>` + PNG 回退）。装饰性背景限制 1600px、Logo 限制 1800px。图片总量 15.85 MB → 1.08 MB |
+| **懒加载** | 首屏之外的图片一律 `loading="lazy" decoding="async"`；`<picture>` 的 PNG 回退标记 `data-nowebp`，不计入关键路径 |
+| **脚本延迟** | `fx.js` / `Time.js` / `last-modified.js` 一律 `defer`；只有 `Nav.js` 同步（它负责注入外壳与页脚，需要在首屏前完成） |
+| **字体** | 只加载 2 个 Web 字体族（Orbitron 600/700 + Poppins 400/600），等宽场景走系统字体栈，去掉第三个字体族的下载 |
+| **启动序列** | 每个会话只播放一次（30 分钟窗口）；使用 1000px 专用小图（71 KB）而非页面主图；整体约 2.3s |
+| **预加载** | 启动序列只为「首屏真正会显示的 2 张图」做校验与预加载 |
+
+当前首屏传输量（本地未压缩，gzip 后约为 25%~30%）：
+
+| 页面 | 首屏 | 说明 |
+|---|---|---|
+| 主页 | 约 366 KB | 含启动序列图 207 KB + 首屏 CSS/JS 约 160 KB |
+| 内容页 | 约 139 KB | 无图片，仅 CSS + JS |
+| 更新日志 | 约 168 KB | 多一个 24 KB 的结构化数据文件 |
+
+---
+
+## 七、路径与部署约定
 
 - **站内链接统一带 `.html` 后缀**。这是唯一在以下环境都成立的形式：
   `file://` 直接打开、Python/nginx 等普通静态服务器、GitHub Pages、Cloudflare Pages。
@@ -105,7 +130,7 @@ node tools/extract-changelog.mjs      # 从旧版日志重新解析 Resource/JS/
 
 ---
 
-## 七、动效与可访问性
+## 八、动效与可访问性
 
 - 全站尊重 `prefers-reduced-motion`：关闭时会跳过启动序列、禁用倾斜/涟漪/视差。
 - 启动序列每个会话只播放一次（30 分钟窗口），浏览器后退/前进直接跳过。

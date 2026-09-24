@@ -310,46 +310,6 @@
     });
   }
 
-  /* ==========================================================================
-   * 9. 开机自检叠层（每次会话首次进入显示一次，极短）
-   * ======================================================================== */
-  function initBootCheck() {
-    if (REDUCED) return;
-    if (document.body.dataset.shell === 'home') return;      // 主页已有 SplashIntro
-    var KEY = 'fs.bootedAt';
-    try {
-      var last = parseInt(sessionStorage.getItem(KEY) || '0', 10);
-      if (Date.now() - last < 1000 * 60 * 30) return;         // 30 分钟内不重复
-      sessionStorage.setItem(KEY, String(Date.now()));
-    } catch (e) { return; }
-
-    var boot = document.createElement('div');
-    boot.className = 'boot';
-    boot.innerHTML =
-      '<div class="boot__grid">' +
-        '<span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span>' +
-        '<div class="boot__line"><i class="fas fa-gear"></i> FS-DOCS 系统自检</div>' +
-        '<div class="boot__bar"><i></i></div>' +
-        '<div class="boot__meta"><span id="bootPct">00%</span><span>MOUNTING PANELS</span></div>' +
-      '</div>';
-    document.body.appendChild(boot);
-
-    var pct = boot.querySelector('#bootPct');
-    var bar = boot.querySelector('.boot__bar i');
-    var p = 0;
-    var timer = setInterval(function () {
-      p = Math.min(100, p + 14 + Math.random() * 22);
-      pct.textContent = String(Math.round(p)).padStart(2, '0') + '%';
-      bar.style.width = p + '%';
-      if (p >= 100) {
-        clearInterval(timer);
-        setTimeout(function () {
-          boot.classList.add('is-out');
-          setTimeout(function () { boot.remove(); }, 520);
-        }, 180);
-      }
-    }, 90);
-  }
 
   /* ==========================================================================
    * 10. 视差 / 齿轮联动
@@ -410,7 +370,6 @@
     initCopy();
     initParallax();
     initGearLink();
-    initBootCheck();
     document.documentElement.classList.add('fx-ready');
   }
 

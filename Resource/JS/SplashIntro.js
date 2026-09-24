@@ -8,24 +8,24 @@ window.SplashIntro = (function () {
   'use strict';
 
   var CFG = {
-    /* 时间轴（秒）— 整体约 3.2s，保证首屏不拖延 */
-    ringExpand: 0.55,
-    scanSweep: 0.75,
-    gearMesh: 0.5,
-    logoAssemble: 0.85,
-    logoHold: 0.35,
-    logLines: 4,
-    logLineGap: 130,
-    progressDuration: 1.05,
-    verifyHold: 0.3,
-    clampDown: 0.42,
-    diaOut: 0.55,
+    /* 时间轴（秒）— 整体约 2.3s：保留机械感，但不拖慢进入 */
+    ringExpand: 0.4,
+    scanSweep: 0.55,
+    gearMesh: 0.4,
+    logoAssemble: 0.6,
+    logoHold: 0.25,
+    logLines: 3,
+    logLineGap: 95,
+    progressDuration: 0.65,
+    verifyHold: 0.2,
+    clampDown: 0.32,
+    diaOut: 0.42,
 
     /* 机械视觉参数 */
     gridSize: 42,
     scanThickness: 3,
-    maxDebris: 500,
-    ringCount: 3
+    maxDebris: 260,
+    ringCount: 2
   };
 
   var COLORS = {
@@ -165,7 +165,6 @@ window.SplashIntro = (function () {
     this.pcbCanvas = overlay.querySelector('#splashPcbCanvas');
     this.fxCanvas = overlay.querySelector('#splashFxCanvas');
     this.particleCanvas = overlay.querySelector('#splashParticleCanvas');
-    this.teamLogo = overlay.querySelector('#splashTeamLogo');
     this.logBox = overlay.querySelector('#splashLog');
     this.loadText = overlay.querySelector('#loadText');
     this.processText = overlay.querySelector('#processText');
@@ -466,11 +465,12 @@ window.SplashIntro = (function () {
     }
   };
 
-  /** Logo 路径：优先根路径，file:// 下退回相对路径 */
+  /** Logo 路径：优先根路径，file:// 下退回相对路径。
+   *  用 1000px 宽的专用小图（71 KB），而非 1800px 的页面主图（152 KB）。 */
   Engine.prototype.logoImgSrc = function () {
     return location.protocol === 'file:'
-      ? '../Resource/images/FinalSuspect-Logo-2.0.png'
-      : '/Resource/images/FinalSuspect-Logo-2.0.png';
+      ? '../Resource/images/FinalSuspect-Logo-Splash.webp'
+      : '/Resource/images/FinalSuspect-Logo-Splash.webp';
   };
 
   /* ==========================================================================

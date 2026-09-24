@@ -50,6 +50,19 @@ body.is-ready .tile:nth-child(6) { transition-delay: 1.30s; }
 /* ============================================================================
  * 2. 标题 / 文字特效
  * ========================================================================== */
+/* 打字机（hero 指令行 / 终端文本，按需启用） */
+.tw { white-space: pre-wrap; }
+.cursor {
+  display: inline-block;
+  width: 8px;
+  height: 1.05em;
+  margin-left: 2px;
+  background: var(--c-teal);
+  vertical-align: text-bottom;
+  animation: caretBlink .9s steps(1) infinite;
+}
+@keyframes caretBlink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+
 /* 文字扫描高光（用于强调标题） */
 .txt-scan {
   background: linear-gradient(100deg, var(--t1) 0%, var(--t1) 40%, #fff 50%, var(--t1) 60%, var(--t1) 100%);

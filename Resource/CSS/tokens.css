@@ -63,10 +63,12 @@
   --s-1: 4px;   --s-2: 8px;   --s-3: 12px;  --s-4: 16px;
   --s-5: 24px;  --s-6: 32px;  --s-7: 48px;  --s-8: 64px;  --s-9: 96px;
 
-  /* ---------- 排版 ---------- */
-  --f-display: 'Orbitron', 'Poppins', sans-serif;
-  --f-body: 'Poppins', 'Noto Sans SC', system-ui, sans-serif;
-  --f-mono: 'Share Tech Mono', 'Consolas', 'Fira Code', monospace;
+  /* ---------- 排版 ----------
+     只加载 2 个 Web 字体族（Orbitron / Poppins）；等宽场景一律走系统字体栈，
+     省掉第三个字体族的下载，视觉上几乎无差别。 */
+  --f-display: 'Orbitron', 'Poppins', system-ui, sans-serif;
+  --f-body: 'Poppins', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+  --f-mono: 'Consolas', 'SFMono-Regular', 'Menlo', 'DejaVu Sans Mono', monospace;
 
   --fs-h1: clamp(1.9rem, 4.4vw, 2.6rem);
   --fs-h1-hero: clamp(2.2rem, 6vw, 3.6rem);

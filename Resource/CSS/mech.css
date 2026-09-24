@@ -581,6 +581,15 @@ kbd:hover {
 /* ============================================================================
  * 11. 图片卡（图例 / 截图，可点击放大）
  * ========================================================================== */
+/* 统一的图片基准行为：不溢出容器 + 与原图等比；避免高 DPI 原图撑破版式 */
+img { max-width: 100%; height: auto; }
+picture { display: contents; }
+/* 小尺寸截图 / 图标：限制最大宽度，避免被拉成整屏 */
+.figure img[src*='Cursor'],
+.figure img[src*='UnlockFPS'],
+.figure img[src*='SpamDenyWord'] { max-width: 520px; margin: 0 auto; }
+.figure img[src*='ShowPlayerInfo'] { max-width: 620px; margin: 0 auto; }
+
 .figure {
   position: relative;
   margin: var(--s-5) 0;

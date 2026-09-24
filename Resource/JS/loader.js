@@ -8,15 +8,12 @@
 (function () {
   'use strict';
 
-  /* 首屏需要就绪的资源（相对路径，file:// 与子目录部署都能用） */
+  /* 首屏需要就绪的资源（相对路径，file:// 与子目录部署都能用）
+     只保留真正会显示在首屏的 2 张图。原先 7 张里其余全是首屏之外的大图，
+     提前下载只会拖慢首次进入；WebP 小图合计约 210 KB（原 PNG 版本约 12 MB）。 */
   var IMAGES = [
-    'Resource/images/FinalSuspect-Logo-2.0.png',
-    'Resource/images/HavenGlow-LOGO.png',
-    'Resource/images/FinalSuspect-BG-XtremeWave-Preview.png',
-    'Resource/images/FinalSuspect-BG-Security-Preview.png',
-    'Resource/images/FinalSuspect-BG-NewYear-Preview.png',
-    'Resource/images/FinalSuspect-BG-MiraHQ.png',
-    'Resource/images/LogoWithTeam.png'
+    'Resource/images/FinalSuspect-Logo-Splash.webp',
+    'Resource/images/FinalSuspect-BG-XtremeWave-Preview.webp'
   ];
 
   var SESSION_KEY = 'fs.splashAt';

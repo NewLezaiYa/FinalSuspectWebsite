@@ -601,7 +601,7 @@
         '<div style="padding:var(--s-5)">' +
           '<p style="color:var(--t2);font-size:var(--fs-sm);margin-bottom:var(--s-4)">扫描二维码支持 FinalSuspect，感谢您的慷慨赞助！</p>' +
           '<div style="background:#fff;padding:10px;border-radius:8px;display:inline-block">' +
-            '<img src="' + asset('Resource/images/Appreciate_Slok.jpg') + '" alt="微信赞赏二维码" style="width:200px;height:200px">' +
+            '<img src="' + asset('Resource/images/Appreciate_Slok.webp') + '" alt="微信赞赏二维码" width="200" height="200" loading="lazy" decoding="async" style="width:200px;height:200px">' +
           '</div>' +
           '<p style="color:var(--t4);font-size:var(--fs-xs);margin-top:var(--s-4)">扫码支付后，您的支持将直接送达开发人员</p>' +
         '</div>' +
