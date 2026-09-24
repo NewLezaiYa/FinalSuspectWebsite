@@ -35,6 +35,15 @@
     -webkit-backdrop-filter: none;
   }
 
+  .shell,
+  .shell--no-toc,
+  .shell--no-rail {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: 'main';
+    gap: 0;
+    z-index: auto;
+  }
+
   .shell {
     padding: var(--s-4) var(--s-4) 0;
   }
