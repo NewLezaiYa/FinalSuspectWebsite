@@ -5,13 +5,10 @@
 
   function pageKey() {
     var path = decodeURIComponent(location.pathname).replace(/\\/g, '/');
-    var m = path.match(/FinalSuspectWebsite\/(.+)$/i);
-    if (m) return m[1];
-
-    var parts = path.split('/').filter(Boolean);
-    var idx = parts.lastIndexOf('FinalSuspectWebsite');
-    if (idx !== -1) return parts.slice(idx + 1).join('/');
-    return parts.slice(-1)[0] || 'index.html';
+    var m = path.match(/FinalSuspectWebsite\/(.*)$/i);
+    var key = m ? m[1] : path.split('/').filter(Boolean).slice(-1)[0];
+    if (!key || /\/$/.test(key)) key += 'index.html';
+    return key;
   }
 
 
@@ -24,11 +21,6 @@
     var keys = Object.keys(map);
     for (var i = 0; i < keys.length; i++) {
       if (keys[i].toLowerCase() === key.toLowerCase()) return map[keys[i]];
-    }
-
-    if (/\/$/.test(key)) {
-      var withIndex = key + 'index.html';
-      if (map[withIndex]) return map[withIndex];
     }
     return null;
   }

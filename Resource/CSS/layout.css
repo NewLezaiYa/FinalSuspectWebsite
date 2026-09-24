@@ -2298,8 +2298,8 @@ html.js-on [data-reveal='flip'] {
 /* 主页：版权条要与上面的入口区（1020px）对齐，而不是铺满整宽 */
 .home ~ .legal-bar {
   max-width: 1020px;
+  margin-top: 0;
   padding: var(--s-4) var(--s-5) var(--s-7);
-  margin-top: var(--s-7);
 }
 @media (max-width: 720px) {
   .home ~ .legal-bar {
