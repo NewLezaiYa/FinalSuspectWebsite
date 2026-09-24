@@ -1,3 +1,8 @@
+.legal-bar {
+  padding-right: calc(var(--s-6) + 66px);
+}
+
+
 @media (max-width: 1279px) {
 
   .topbar__inner {
@@ -46,6 +51,10 @@
 
   .shell {
     padding: var(--s-4) var(--s-4) 0;
+  }
+
+  body {
+    padding-bottom: calc(var(--s-9) + var(--s-6) + env(safe-area-inset-bottom));
   }
 
   .shell__rail {
