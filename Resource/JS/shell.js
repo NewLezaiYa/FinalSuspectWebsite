@@ -706,6 +706,7 @@
     if (mode === 'home') {
       buildCmdk();
       buildAppreciate();
+      buildLegal();
       markReadyWhenLoaded();
       document.dispatchEvent(new CustomEvent('shell:ready', { detail: { mode: mode } }));
       return;
