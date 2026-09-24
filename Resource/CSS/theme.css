@@ -216,20 +216,9 @@
   background: linear-gradient(180deg, transparent, rgba(0, 150, 190, .07), transparent);
 }
 
-[data-theme='light'] .hero__inner picture {
-  display: inline-block;
-  padding: 16px 34px;
-  margin-bottom: var(--s-4);
-  background: radial-gradient(ellipse at 50% 45%, #131a30 0%, #05070f 72%);
-  border: 1px solid rgba(0, 137, 166, .3);
-  border-radius: var(--r-sm);
-  box-shadow: 0 16px 38px rgba(16, 26, 46, .2);
-}
-
 [data-theme='light'] .hero__logo {
-  width: min(360px, 58vw);
-  margin-bottom: 0;
-  filter: drop-shadow(0 0 18px rgba(0, 200, 240, .3));
+  filter: invert(1) hue-rotate(180deg) saturate(1.2) contrast(1.05)
+    drop-shadow(0 6px 16px rgba(16, 26, 46, .18));
 }
 
 [data-theme='light'] .hero__status {
