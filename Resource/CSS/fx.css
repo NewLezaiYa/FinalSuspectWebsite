@@ -1,0 +1,257 @@
+/* ============================================================================
+ * FinalSuspect Website — 40 FX
+ * 动画关键帧与交互特效（配合 fx.js / Nav.js 使用）
+ * ========================================================================== */
+
+/* ============================================================================
+ * 1. 主页 hero 入场（启动动画落幕后触发 body.is-ready）
+ * ========================================================================== */
+.hero__badge,
+.hero__logo,
+.hero__title,
+.hero__desc,
+.hero__typer,
+.hero__cta > * {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .8s var(--e-out), transform .9s var(--e-mech);
+}
+body.is-ready .hero__badge  { opacity: 1; transform: none; transition-delay: .05s; }
+body.is-ready .hero__logo   { opacity: 1; transform: none; transition-delay: .16s; }
+body.is-ready .hero__title  { opacity: 1; transform: none; transition-delay: .30s; }
+body.is-ready .hero__desc   { opacity: 1; transform: none; transition-delay: .42s; }
+body.is-ready .hero__typer  { opacity: 1; transform: none; transition-delay: .52s; }
+body.is-ready .hero__cta > *:nth-child(1) { opacity: 1; transform: none; transition-delay: .62s; }
+body.is-ready .hero__cta > *:nth-child(2) { opacity: 1; transform: none; transition-delay: .72s; }
+body.is-ready .hero__cta > *:nth-child(3) { opacity: 1; transform: none; transition-delay: .82s; }
+
+/* hero 背景元素渐显 */
+.hero__bg { opacity: 0; transition: opacity 1.4s var(--e-out) .2s; }
+body.is-ready .hero__bg { opacity: 1; }
+
+/* HUD 角读数：撕入 */
+.hero__hud { opacity: 0; transition: opacity .6s var(--e-out) 1s; }
+body.is-ready .hero__hud { opacity: 1; }
+
+/* 滚动提示延迟出现 */
+.hero__scroll { opacity: 0; transition: opacity .8s var(--e-out) 1.3s; }
+body.is-ready .hero__scroll { opacity: 1; }
+
+/* 磁贴：启动动画结束后按顺序上电 */
+.tile { opacity: 0; transform: translateY(30px) scale(.985); transition: opacity .7s var(--e-out), transform .8s var(--e-mech); }
+body.is-ready .tile { opacity: 1; transform: none; }
+body.is-ready .tile:nth-child(1) { transition-delay: .95s; }
+body.is-ready .tile:nth-child(2) { transition-delay: 1.02s; }
+body.is-ready .tile:nth-child(3) { transition-delay: 1.09s; }
+body.is-ready .tile:nth-child(4) { transition-delay: 1.16s; }
+body.is-ready .tile:nth-child(5) { transition-delay: 1.23s; }
+body.is-ready .tile:nth-child(6) { transition-delay: 1.30s; }
+
+/* ============================================================================
+ * 2. 标题 / 文字特效
+ * ========================================================================== */
+/* 文字扫描高光（用于强调标题） */
+.txt-scan {
+  background: linear-gradient(100deg, var(--t1) 0%, var(--t1) 40%, #fff 50%, var(--t1) 60%, var(--t1) 100%);
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: txtScan 5.5s linear infinite;
+}
+@keyframes txtScan { 0% { background-position: 150% 0; } 100% { background-position: -150% 0; } }
+
+/* 故障（glitch）：机械故障感，用于 404 / 强调 */
+.glitch { position: relative; display: inline-block; }
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: .8;
+}
+.glitch::before { color: var(--c-cyan); animation: glitchA 3.4s steps(2, end) infinite; }
+.glitch::after  { color: var(--c-pink); animation: glitchB 2.7s steps(2, end) infinite; }
+@keyframes glitchA {
+  0%, 92%, 100% { transform: none; clip-path: inset(0 0 100% 0); }
+  93% { transform: translate(-3px, 1px); clip-path: inset(10% 0 55% 0); }
+  95% { transform: translate(2px, -1px); clip-path: inset(60% 0 12% 0); }
+  97% { transform: translate(-2px, 0); clip-path: inset(35% 0 40% 0); }
+}
+@keyframes glitchB {
+  0%, 90%, 100% { transform: none; clip-path: inset(0 0 100% 0); }
+  91% { transform: translate(3px, -1px); clip-path: inset(45% 0 30% 0); }
+  94% { transform: translate(-2px, 1px); clip-path: inset(5% 0 70% 0); }
+  98% { transform: translate(1px, 0); clip-path: inset(70% 0 5% 0); }
+}
+
+/* 逐字入场 */
+.char-in { display: inline-block; opacity: 0; transform: translateY(.4em) rotateX(-40deg); animation: charIn .6s var(--e-mech) forwards; }
+@keyframes charIn { to { opacity: 1; transform: none; } }
+
+/* ============================================================================
+ * 3. 机械运动关键帧
+ * ========================================================================== */
+/* 活塞往复 */
+@keyframes piston {
+  0%, 100% { transform: translateX(0); }
+  50%      { transform: translateX(14px); }
+}
+/* 液压摆动 */
+@keyframes sway {
+  0%, 100% { transform: rotate(-2deg); }
+  50%      { transform: rotate(2deg); }
+}
+/* 机械抖振（上电瞬间） */
+@keyframes machineShake {
+  0%   { transform: translate(0, 0); }
+  20%  { transform: translate(-1.5px, 1px); }
+  40%  { transform: translate(1.5px, -1px); }
+  60%  { transform: translate(-1px, -1.5px); }
+  80%  { transform: translate(1px, 1.5px); }
+  100% { transform: translate(0, 0); }
+}
+.shake-once { animation: machineShake .34s var(--e-out) 1; }
+
+/* 装配式展开（clip 从左到右露出） */
+@keyframes assemble {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0 0 0); }
+}
+.assemble { animation: assemble .8s var(--e-mech) both; }
+
+/* ============================================================================
+ * 4. 装饰性动效
+ * ========================================================================== */
+/* 顶部阅读进度条 */
+.read-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  width: 0;
+  z-index: calc(var(--z-topbar) + 1);
+  background: linear-gradient(90deg, var(--c-cyan), var(--c-pink), var(--c-purple));
+  box-shadow: 0 0 10px rgba(0, 240, 255, .7);
+  transition: width .1s linear;
+}
+
+/* 呼吸辉光（通用） */
+.pulse-glow { animation: glowPulse 3.4s ease-in-out infinite; }
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 8px rgba(0, 240, 255, .25); }
+  50%      { box-shadow: 0 0 22px rgba(0, 240, 255, .55); }
+}
+
+/* 悬浮浮动 */
+.float-y { animation: floatY 5s var(--e-in-out) infinite; }
+@keyframes floatY { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+
+/* 虚线流动（管道/传动） */
+.dash-flow {
+  stroke-dasharray: 6 6;
+  animation: dashFlow 1.6s linear infinite;
+}
+@keyframes dashFlow { to { stroke-dashoffset: -24; } }
+
+/* SVG 描边绘制 */
+.draw path, .draw circle, .draw line, .draw rect, .draw polygon {
+  stroke-dasharray: var(--len, 400);
+  stroke-dashoffset: var(--len, 400);
+  animation: drawIn 1.8s var(--e-mech) forwards;
+}
+@keyframes drawIn { to { stroke-dashoffset: 0; } }
+
+/* 指示器跳动 */
+.blip { animation: blip 1.4s var(--e-out) infinite; }
+@keyframes blip { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.5); opacity: .4; } }
+
+/* ============================================================================
+ * 5. 页面切换（机械百叶帘）
+ * ========================================================================== */
+.page-wipe {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-splash);
+  pointer-events: none;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  opacity: 0;
+  visibility: hidden;
+}
+.page-wipe.is-run { opacity: 1; visibility: visible; }
+.page-wipe i {
+  background: linear-gradient(180deg, #0a0c18, #05060d);
+  border-right: 1px solid rgba(0, 240, 255, .12);
+  transform: scaleY(0);
+  transform-origin: top;
+}
+.page-wipe.is-run i { animation: wipeDown .52s var(--e-mech) forwards; }
+.page-wipe.is-run i:nth-child(1) { animation-delay: 0s; }
+.page-wipe.is-run i:nth-child(2) { animation-delay: .03s; }
+.page-wipe.is-run i:nth-child(3) { animation-delay: .06s; }
+.page-wipe.is-run i:nth-child(4) { animation-delay: .09s; }
+.page-wipe.is-run i:nth-child(5) { animation-delay: .12s; }
+.page-wipe.is-run i:nth-child(6) { animation-delay: .15s; }
+.page-wipe.is-run i:nth-child(7) { animation-delay: .18s; }
+.page-wipe.is-run i:nth-child(8) { animation-delay: .21s; }
+@keyframes wipeDown { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+
+/* 内页正文入场（首屏，不需要滚动触发） */
+.page-head,
+.lede,
+.facts {
+  animation: fadeUpIn .75s var(--e-out) both;
+}
+.page-head { animation-delay: .05s; }
+.lede { animation-delay: .14s; }
+.facts { animation-delay: .2s; }
+@keyframes fadeUpIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ============================================================================
+ * 6. 悬浮提示
+ * ========================================================================== */
+[data-tip] { position: relative; }
+[data-tip]::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  padding: 5px 10px;
+  font-family: var(--f-mono);
+  font-size: var(--fs-hud);
+  letter-spacing: .08em;
+  white-space: nowrap;
+  color: var(--c-cyan);
+  background: rgba(6, 7, 16, .97);
+  border: 1px solid var(--ln-1);
+  border-radius: var(--r-xs);
+  box-shadow: var(--sh-2);
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--dur) var(--e-out);
+  pointer-events: none;
+  z-index: 50;
+}
+[data-tip]:hover::after { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+
+/* ============================================================================
+ * 7. 键盘导航（Tab 时给可交互元素机械描边）
+ * ========================================================================== */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--c-cyan);
+  outline-offset: 2px;
+  box-shadow: var(--glow-cyan);
+}
+
+/* ============================================================================
+ * 8. 工具栏细节（js 注入）
+ * ========================================================================== */
+.fx-ready .reveal-fallback { opacity: 1 !important; transform: none !important; }

@@ -3,67 +3,165 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Cache-Control" content="max-age=3600">
-    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
-    <title>导出日志</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FinalSuspect 教程：如何导出日志——自动导出、日志目录位置，以及无法打开设置页面时的手动查找方式。">
+    <title>导出日志 · FinalSuspect</title>
 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;800&family=Poppins:wght@300;400;500;600&family=Share+Tech+Mono&display=swap">
     <link rel="stylesheet" href="../../Resource/CSS/cyberpunk.css">
 </head>
 
-<body>
-    <div class="container">
-        <div class="back-button" onclick="window.history.back()">返回上一页</div>
+<body data-shell="full" data-page="outputlog" data-rail="guide">
+    <main>
+        <header class="page-head">
+            <span class="page-head__label hud-label"><i class="fas fa-file-export"></i> PROCEDURE · 03</span>
+            <h1 class="page-title">导出日志</h1>
+            <div class="page-head__meta">
+                <span><i class="fas fa-folder"></i> 教程</span>
+                <span><i class="fas fa-wrench"></i> 问题排查</span>
+                <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
+            </div>
+        </header>
 
-        <h1 id="OutputLog">FinalSuspect<br>导出日志</h1>
+        <p class="lede">
+            遇到报错或功能异常时，日志是定位问题<strong>最快</strong>的线索。
+            本文提供两种拿到日志的方式：模组内自动导出，以及打不开设置页面时的手动查找。
+        </p>
 
-        <h2>自动导出</h2>
-        <div class="text">
-            <p>您可以在Final Suspect功能中选择输出日志，随后Final Suspect将自动打开输出日志所在的文件夹。</p>
-            <p>有关自动导出日志的功能介绍，请查阅<a href="../Features/DumpLog" target="_blank" rel="noopener noreferrer">此篇文档</a>。</p>
+        <div class="facts">
+            <div><span class="k">导出方式</span><span class="v">自动 / 手动</span></div>
+            <div><span class="k">日志文件名</span><span class="v">LogOutput.log</span></div>
+            <div><span class="k">清理时机</span><span class="v">每次启动自动清空</span></div>
+            <div><span class="k">反馈渠道</span><span class="v">GitHub Issues</span></div>
         </div>
 
-        <div class="tip">
-            <p>Final Suspect的输出目录位于下方路径：</p>
-            <pre><code>%APPDATA%\..\LocalLow\Innersloth\Among Us\FinalSuspect\Logs\Final Suspect-logs</pre></code>
-            <p>您可以按下<mark>Win</mark> + <mark>R</mark>，并粘贴这串路径来手动打开。</p>
-        </div>
+        <div class="prose">
 
-        <h2>手动查看</h2>
-        <div class="text">
+            <h2 class="sec-title" id="auto"><span class="sec-title__num">01</span>自动导出</h2>
+            <p>
+                您可以在 Final Suspect 功能中选择输出日志，
+                随后 Final Suspect 将自动打开输出日志所在的文件夹。
+            </p>
+            <div class="related__grid">
+                <a class="related__card" href="../Features/DumpLog"><i class="fas fa-file-code"></i><span>输出日志功能说明</span><i
+                        class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="alert alert--tip">
+                <span class="alert__icon"><i class="fas fa-folder-open"></i></span>
+                <div class="alert__body">
+                    <span class="alert__title">输出目录位置</span>
+                    <p class="callout-path" style="margin:var(--s-2) 0"><i class="fas fa-terminal"></i>
+                        %APPDATA%\..\LocalLow\Innersloth\Among Us\FinalSuspect\Logs\Final Suspect-logs</p>
+                    <p>您可以按下 <kbd>Win</kbd> + <kbd>R</kbd>，并粘贴这串路径来手动打开。</p>
+                </div>
+            </div>
+
+            <div class="term">
+                <div class="term__bar">
+                    <span class="term__dots"><i></i><i></i><i></i></span>
+                    <span class="term__path">日志输出目录</span>
+                </div>
+                <pre><code>%APPDATA%\..\LocalLow\Innersloth\Among Us\FinalSuspect\Logs\Final Suspect-logs</code></pre>
+            </div>
+
+            <h2 class="sec-title" id="manual"><span class="sec-title__num">02</span>手动查看</h2>
             <p>如果你无法打开设置页面，你也可以选择手动查看日志。</p>
-            <p>启动Steam，在库页面中选择<mark>Among
-                    Us</mark>，点击右侧的<mark>设置图标</mark>，选择<mark>管理</mark>，随后选择<mark>浏览本地文件</mark>。Steam将打开Among Us根目录。</p>
-            <p>打开<mark>BepInEx</mark>文件夹，其中的<mark>LogOutput.log</mark>便是日志文件。该文件将随着你重新启动Final Suspect自动清除。</p>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="step__body">
+                        <p>启动 Steam，在库页面中选择 <mark>Among Us</mark>。</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step__body">
+                        <p>点击右侧的 <mark>设置图标</mark>，选择 <mark>管理</mark>，随后选择 <mark>浏览本地文件</mark>。
+                            Steam 将打开 Among Us 根目录。</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step__body">
+                        <p>打开 <mark>BepInEx</mark> 文件夹，其中的 <mark>LogOutput.log</mark> 便是日志文件。</p>
+                        <div class="term">
+                            <div class="term__bar">
+                                <span class="term__dots"><i></i><i></i><i></i></span>
+                                <span class="term__path">日志文件路径</span>
+                            </div>
+                            <pre><code>Among Us\BepInEx\LogOutput.log</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert alert--warn">
+                <span class="alert__icon"><i class="fas fa-triangle-exclamation"></i></span>
+                <div class="alert__body">
+                    <span class="alert__title">日志会被自动清除</span>
+                    <p>该文件将随着你重新启动 Final Suspect 自动清除。
+                        如果问题需要反馈给开发者，请<mark>趁早复制出来</mark>，或直接使用自动导出功能。</p>
+                </div>
+            </div>
+
+            <h2 class="sec-title" id="feedback"><span class="sec-title__num">03</span>把日志交给开发者</h2>
+            <p>拿到日志后，按下面的信息一起提交，可以让排查过程快很多：</p>
+            <div class="facts" style="margin-top:var(--s-4)">
+                <div><span class="k">必需</span><span class="v">LogOutput.log 文件</span></div>
+                <div><span class="k">必需</span><span class="v">模组版本与游戏版本</span></div>
+                <div><span class="k">建议</span><span class="v">复现步骤与截图</span></div>
+                <div><span class="k">建议</span><span class="v">是否使用加速器 / 代理</span></div>
+            </div>
+
+            <div class="related__grid">
+                <a class="related__card" href="https://github.com/NewLezaiYa/FinalSuspectWebsite/issues" target="_blank"
+                    rel="noopener noreferrer">
+                    <i class="fa-brands fa-github"></i><span>提交问题反馈</span><i class="fas fa-arrow-up-right-from-square"></i>
+                </a>
+                <a class="related__card" href="../FAQ"><i class="fas fa-life-ring"></i><span>先查疑难解答</span><i
+                        class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="alert alert--tip">
+                <span class="alert__icon"><i class="fas fa-keyboard"></i></span>
+                <div class="alert__body">
+                    <span class="alert__title">快捷键更快</span>
+                    <p>游戏中可以直接按 <kbd>F1</kbd> + <kbd>Ctrl</kbd> 输出日志，
+                        或在游戏中按 <kbd>F2</kbd> + <kbd>Ctrl</kbd> 输出当前对局日志。</p>
+                </div>
+            </div>
         </div>
 
-        <div class="footer-copyright">
-            <p>网站设计 ©<span>LezaiYa</span> | FinalSuspect Mod ©<span>Slok</span></p>
+        <div class="related">
+            <div class="related__title"><i class="fas fa-diagram-project"></i> 相关文档</div>
+            <div class="related__grid">
+                <a class="related__card" href="../Keyboard"><i class="fas fa-keyboard"></i><span>快捷键一览</span><i
+                        class="fas fa-arrow-right"></i></a>
+                <a class="related__card" href="../Features/DumpLog"><i class="fas fa-file-code"></i><span>输出日志功能</span><i
+                        class="fas fa-arrow-right"></i></a>
+                <a class="related__card" href="../Features/ClearAutoLogs"><i class="fas fa-trash-can"></i><span>清空自动日志</span><i
+                        class="fas fa-arrow-right"></i></a>
+            </div>
         </div>
-    </div>
 
-    <div class="footer-meta">
-        <div class="edit-time">
-            <i class="fas fa-clock"></i>
-            <span>最后更新: <time id="lastEditTime" datetime=""></time></span>
+        <div class="pager">
+            <a class="pager__item" href="Update">
+                <small>上一篇</small>
+                <b>← 更新模组</b>
+            </a>
+            <a class="pager__item pager__item--next" href="../Features/">
+                <small>下一篇</small>
+                <b>功能总览 →</b>
+            </a>
         </div>
-    </div>
+    </main>
 
-    <button class="back-to-top" aria-label="回到顶部">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 15l-6-6-6 6" />
-        </svg>
-    </button>
-    <script src='../../Resource/JS/BackToTop.js'></script>
-    <script src='../../Resource/JS/Copy.js'></script>
-    <script src='../../Resource/JS/h1.js'></script>
-    <script src='../../Resource/JS/h2.js'></script>
-    <script src='../../Resource/JS/last-modified.js'></script>
-    <script src='../../Resource/JS/Time.js'></script>
+    <script src="../../Resource/JS/Nav.js"></script>
+    <script src="../../Resource/JS/fx.js"></script>
+    <script src="../../Resource/JS/Time.js"></script>
+    <script src="../../Resource/JS/last-modified.js"></script>
 </body>
 
 </html>

@@ -3,44 +3,91 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Cache-Control" content="max-age=3600">
-    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
-    <title>清空自动日志</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FinalSuspect 功能说明：清空自动日志——解决上游模组 Town Of Host 关闭游戏时自动保存日志、且无法关闭的问题。">
+    <title>清空自动日志 · FinalSuspect</title>
 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;800&family=Poppins:wght@300;400;500;600&family=Share+Tech+Mono&display=swap">
     <link rel="stylesheet" href="../../Resource/CSS/cyberpunk.css">
 </head>
 
-<body>
-    <div class="container">
-        <button class="back-button" onclick="window.history.back()">返回上一页</button>
+<body data-shell="full" data-page="feat-clearautologs" data-rail="features">
+    <main>
+        <header class="page-head">
+            <span class="page-head__label hud-label"><i class="fas fa-trash-can"></i> FEATURE · 01</span>
+            <h1 class="page-title">清空自动日志</h1>
+            <div class="page-head__meta">
+                <span><i class="fas fa-folder"></i> 功能</span>
+                <span><i class="fas fa-tag"></i> 日志管理 / 空间清理</span>
+                <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
+            </div>
+        </header>
 
-        <h1 id="ClearAutoLogs">FinalSuspect<br>清空自动日志</h1>
+        <p class="lede">
+            上游模组 Town Of Host 会在 Among Us 关闭时自动保存一个日志文件，而且该行为默认启用、
+            除非改代码否则无法关闭。FinalSuspect 为此加入清空自动日志功能，用来解决日志不断累积的问题。
+        </p>
 
-        <div class="text">
-            <p>在模组Town Of Host中，当Among Us关闭时会自动保存一个日志文件。<br>
-                这个功能的初衷是为了遇到意外错误时可以提供相关信息。<br>
-                但该功能在Town Of Host中是默认启用且（除非改代码）无法关闭。</p>
-            <p>因此，我们在Final Suspect中添加了清空自动日志功能，以解决这个问题。</p>
+        <div class="facts">
+            <div><span class="k">问题来源</span><span class="v">Town Of Host 自动保存日志</span></div>
+            <div><span class="k">上游默认状态</span><span class="v">默认启用且无法关闭</span></div>
+            <div><span class="k">FinalSuspect 的处理</span><span class="v">内置清空自动日志功能</span></div>
+            <div><span class="k">是否需手动操作</span><span class="v">无需手动清理</span></div>
         </div>
 
-        <div class="footer-meta">
-            <div class="edit-time">
-                <i class="fas fa-clock"></i>
-                <span>最后更新: <time id="lastEditTime" datetime=""></time></span>
+        <div class="prose">
+            <h2 class="sec-title" id="origin"><span class="sec-title__num">01</span>问题来源</h2>
+            <p>
+                在模组 <strong>Town Of Host</strong> 中，当 Among Us 关闭时会自动保存一个日志文件。
+                这个功能的初衷是为了遇到意外错误时可以提供相关信息。
+            </p>
+            <p>
+                但该功能在 Town Of Host 中是<mark>默认启用</mark>且（除非改代码）<mark>无法关闭</mark>的，
+                因此随着游玩次数增加，日志文件只会不断累积。
+            </p>
+
+            <h2 class="sec-title" id="solution"><span class="sec-title__num">02</span>FinalSuspect 的处理</h2>
+            <p>
+                因此，我们在 FinalSuspect 中添加了<strong>清空自动日志</strong>功能，以解决这个问题。
+            </p>
+            <div class="alert alert--tip">
+                <span class="alert__icon"><i class="fas fa-lightbulb"></i></span>
+                <div class="alert__body">
+                    <span class="alert__title">你不需要做的事</span>
+                    <p>不必为了关掉自动日志去修改 Town Of Host 的代码，交给 FinalSuspect 处理即可。</p>
+                </div>
+            </div>
+
+            <h2 class="sec-title" id="related"><span class="sec-title__num">03</span>相关页面</h2>
+            <div class="related__grid">
+                <a class="related__card" href="DumpLog"><i class="fas fa-file-code"></i><span>输出日志</span><i
+                        class="fas fa-arrow-right"></i></a>
+                <a class="related__card" href="../Guide/OutputLog"><i class="fas fa-file-export"></i><span>导出日志教程</span><i
+                        class="fas fa-arrow-right"></i></a>
+                <a class="related__card" href="../FAQ"><i class="fas fa-life-ring"></i><span>疑难解答</span><i
+                        class="fas fa-arrow-right"></i></a>
             </div>
         </div>
 
-        <div class="footer-copyright">
-            <p>网站设计 ©<span>LezaiYa</span> | FinalSuspect Mod ©<span>Slok</span></p>
+        <div class="pager">
+            <a class="pager__item" href="./">
+                <small>返回</small>
+                <b>← 功能总览</b>
+            </a>
+            <a class="pager__item pager__item--next" href="DumpLog">
+                <small>下一个功能</small>
+                <b>输出日志 →</b>
+            </a>
         </div>
-    </div>
-    <script src='../../Resource/JS/h1.js'></script>
-    <script src='../../Resource/JS/last-modified.js'></script>
-    <script src='../../Resource/JS/Time.js'></script>
+    </main>
+
+    <script src="../../Resource/JS/Nav.js"></script>
+    <script src="../../Resource/JS/fx.js"></script>
+    <script src="../../Resource/JS/Time.js"></script>
+    <script src="../../Resource/JS/last-modified.js"></script>
 </body>
 
 </html>

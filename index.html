@@ -3,226 +3,376 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Cache-Control" content="max-age=3600">
-    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
-    <title>FinalSuspect</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FinalSuspect 模组官方文档站：安装教程、20+ 项可调选项、功能说明与完整更新日志。">
+    <meta name="theme-color" content="#030308">
+    <title>FinalSuspect · 模组文档</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;800&family=Poppins:wght@300;400;500;600&family=Share+Tech+Mono&display=swap">
     <link rel="stylesheet" href="Resource/CSS/cyberpunk.css">
     <link rel="stylesheet" href="Resource/CSS/splash-intro.css">
 </head>
 
-<body>
-    <!-- FinalSuspect 模组启动动画（SplashIntro） -->
-    <div id="loadingOverlay" class="loading-overlay splash-overlay">
-        <!-- PCB 电路板光流（最底层） -->
+<body data-shell="home" data-page="home">
+
+    <!-- ==================================================================
+         机械启动序列（首屏 cold boot）
+         ================================================================== -->
+    <div id="loadingOverlay" class="splash-overlay">
         <canvas id="splashPcbCanvas"></canvas>
-        <!-- 数字流 + 代码雨 + 主 Logo -->
         <canvas id="splashFxCanvas"></canvas>
-        <!-- 落幕四散数字粒子 -->
         <canvas id="splashParticleCanvas"></canvas>
-        <!-- Logo（开局闪屏） -->
-        <img id="splashTeamLogo" src="/Resource/images/HavenGlow-LOGO.png" alt="Team Logo">
-        <!-- 左上角伪日志区 -->
+        <img id="splashTeamLogo" src="Resource/images/HavenGlow-LOGO.png" alt="">
         <div id="splashLog"></div>
-        <!-- 底部加载/完成文本 -->
         <div id="loadText"></div>
-        <!-- 底部进度文本（打字机/下载计数） -->
         <div id="processText"></div>
-        <!-- 首次下载提示（位于下载进度下方） -->
-        <div id="downloadHint">第一次加载，需要一些时间</div>
-        <!-- 右下角版本号 -->
+        <div id="downloadHint">首次进入需要校验资源，请稍候</div>
         <div id="versionText"></div>
-        <!-- 落幕黑幕 -->
         <div id="blackPanel"></div>
     </div>
 
-    <header>
-        <div class="logo" data-text="FinalSuspect">FinalSuspect</div>
-        <nav>
-            <ul>
-                <li><a href="#intro"><i class="fas fa-book-open"></i> 简介</a></li>
-                <li><a href="#faq"><i class="fas fa-life-ring"></i> 疑难解答</a></li>
-                <li><a href="#options"><i class="fas fa-sliders-h"></i> 选项</a></li>
-                <li><a href="#tutorial"><i class="fas fa-book"></i> 教程</a></li>
-                <li><a href="#features"><i class="fas fa-toolbox"></i> 功能</a></li>
-                <li><a href="#keyboard"><i class="fas fa-keyboard"></i> 快捷键</a></li>
-            </ul>
-        </nav>
-    </header>
+    <main class="home">
 
-    <!-- 主内容区 -->
-    <div class="container">
-        <section class="hero animate-fadeInUp">
-            <div class="hero-content">
-                <img src="/Resource/images/FinalSuspect-Logo-2.0.png" class="hero-logo" alt="FinalSuspect Logo">
-                <h1 class="hero-name">模组文档</h1>
-                <p class="hero-tagline">The ultimate mod for the original Among Us, redefining your space werewolf
-                    hunting experience</p>
+        <!-- ==============================================================
+             HERO：启动动画落幕后，这里是定格的主舞台
+             ============================================================== -->
+        <section class="hero">
+            <div class="hero__bg">
+                <div class="hero__rings"></div>
+                <div class="hero__radar"></div>
+                <div class="hero__scan"></div>
+            </div>
+
+            <!-- HUD 四角读数（机械仪表盘感） -->
+            <div class="hero__hud hero__hud--tl">
+                <div>SYS / FS-DOCS</div>
+                <div>BUILD <b>MECH-3.0</b></div>
+            </div>
+            <div class="hero__hud hero__hud--tr">
+                <div>STATUS <b>ONLINE</b></div>
+                <div>PANELS <b>06</b></div>
+            </div>
+            <div class="hero__hud hero__hud--bl">
+                <div>MOD VERSION</div>
+                <div><b>1.3</b> RELEASE</div>
+            </div>
+            <div class="hero__hud hero__hud--br">
+                <div>PLATFORMS</div>
+                <div><b>STEAM</b> / <b>EPIC</b></div>
+            </div>
+
+            <div class="hero__inner">
+                <span class="hero__badge">
+                    <i class="fas fa-gear" style="animation:gearSpin 4s linear infinite"></i>
+                    Among Us · 优质辅助模组
+                </span>
+
+                <img src="Resource/images/FinalSuspect-Logo-2.0.png" alt="FinalSuspect" class="hero__logo">
+
+                <h1 class="hero__title">模组文档</h1>
+
+                <p class="hero__desc">
+                    Final Suspect（终极嫌疑）坚持「保留经典，优化体验」。20+ 项功能与选项，
+                    覆盖操作手感、视觉表现与社交互动，让原版太空狼人杀焕然一新。
+                </p>
+
+                <div class="hero__typer"
+                    data-typer="LOADING DOCUMENT INDEX…|17 项可调选项 READY|7 项模组功能 READY|6 套主页风格 READY|SYSTEM NOMINAL">
+                </div>
+
+                <div class="hero__cta">
+                    <a class="btn btn--primary btn--lg btn--magnetic"
+                        href="https://github.com/Slok7565/FinalSuspect/releases" target="_blank"
+                        rel="noopener noreferrer">
+                        <i class="fas fa-download"></i> 下载最新版
+                    </a>
+                    <a class="btn btn--lg btn--magnetic" href="FinalSuspect/Guide/Installation">
+                        <i class="fas fa-rocket"></i> 快速上手
+                    </a>
+                    <a class="btn btn--ghost btn--lg btn--magnetic" href="FinalSuspect/Introduction">
+                        <i class="fas fa-book-open"></i> 了解模组
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero__scroll">
+                <span>SCROLL</span>
+                <i class="fas fa-chevron-down"></i>
             </div>
         </section>
 
-        <section id="intro" class="section animate-fadeInUp delay-1">
-            <div class="section-glow"></div>
-            <h2 class="section-title">
-                <i class="fas fa-book-open"></i>
-                FinalSuspect 简介
-            </h2>
-            <p class="section-content">在这里可以了解Final Suspect有关详细信息，助你更好理解Final Suspect模组</p>
-            <a href="FinalSuspect/Introduction" class="feature-link">
-                查看详情
-                <i class="fas fa-arrow-right"></i>
+        <!-- ==============================================================
+             BENTO：六块面板 + 一块主推大屏
+             ============================================================== -->
+        <div class="bento">
+
+            <!-- 主推大屏 -->
+            <a class="tile tile--feature tilt" href="FinalSuspect/Features/MainMenuStyleManager">
+                <span class="tile__media">
+                    <img src="Resource/images/FinalSuspect-BG-XtremeWave-Preview.png" alt="XtremeWave 极致狂澜背景">
+                </span>
+                <span class="tile__ring">
+                    <svg viewBox="0 0 100 100" aria-hidden="true">
+                        <circle cx="50" cy="50" r="46" fill="none" stroke="rgba(0,240,255,.35)"
+                            stroke-width="1.5" stroke-dasharray="8 6" />
+                        <circle cx="50" cy="50" r="34" fill="none" stroke="rgba(255,45,149,.3)"
+                            stroke-width="1" />
+                        <circle cx="50" cy="50" r="6" fill="rgba(0,240,255,.55)" />
+                    </svg>
+                </span>
+                <span class="tile__content">
+                    <span class="tag tag--cyan"><i class="fas fa-star"></i> 主推功能</span>
+                    <span class="tile__title">六套可切换主页风格</span>
+                    <span class="tile__desc">
+                        经典场景、节日限定与原创设计一次收录：逐光寻晓、赤心炽爱、祉缘谐乐、
+                        极致演播厅、XtremeWave 极致狂澜、紧急会议。
+                    </span>
+                    <span class="tile__go">查看全部背景 <i class="fas fa-arrow-right"></i></span>
+                </span>
+                <span class="tilt__glare"></span>
             </a>
-        </section>
 
-        <section id="faq" class="section animate-fadeInUp delay-2">
-            <div class="section-glow"></div>
-            <h2 class="section-title">
-                <i class="fas fa-life-ring"></i>
-                FinalSuspect 疑难解答
-            </h2>
-            <p class="section-content">遇到安装失败、功能异常或兼容性问题？这里整理了常见问题解答与分步解决方案，快速帮你恢复流畅游戏。</p>
-            <a href="FinalSuspect/FAQ" class="feature-link">
-                查看详情
-                <i class="fas fa-arrow-right"></i>
-            </a>
-        </section>
+            <!-- 六个入口面板 -->
+            <div class="tile-grid">
+                <a class="tile lift" href="FinalSuspect/Introduction" data-reveal data-reveal-delay="0">
+                    <span class="tile__icon"><i class="fas fa-book-open"></i></span>
+                    <span class="tile__title">模组简介</span>
+                    <span class="tile__desc">开发理念、能力范围与团队致谢</span>
+                    <span class="tile__foot"><span>2 篇</span><span class="tile__go">进入 <i
+                                class="fas fa-arrow-right"></i></span></span>
+                </a>
 
-        <section id="options" class="section animate-fadeInUp delay-3">
-            <div class="section-glow"></div>
-            <h2 class="section-title">
-                <i class="fas fa-sliders-h"></i>
-                FinalSuspect 选项
-            </h2>
-            <p class="section-content">超过20项可调节选项完全满足你的个性化需求，打造专属游戏风格。</p>
-            <a href="FinalSuspect/Options/" class="feature-link">
-                查看详情
-                <i class="fas fa-arrow-right"></i>
-            </a>
-        </section>
+                <a class="tile lift" href="FinalSuspect/Options/" data-reveal data-reveal-delay="70">
+                    <span class="tile__icon"><i class="fas fa-sliders"></i></span>
+                    <span class="tile__title">选项</span>
+                    <span class="tile__desc">自动化、显示、性能与防护开关</span>
+                    <span class="tile__foot"><span>17 项</span><span class="tile__go">进入 <i
+                                class="fas fa-arrow-right"></i></span></span>
+                </a>
 
-        <section id="tutorial" class="section animate-fadeInUp delay-4">
-            <div class="section-glow"></div>
-            <h2 class="section-title">
-                <i class="fas fa-book"></i>
-                FinalSuspect 教程
-            </h2>
-            <p class="section-content">详细的图文教程，即使是新手也能轻松完成安装。</p>
-            <a href="FinalSuspect/Guide/" class="feature-link">
-                查看详情
-                <i class="fas fa-arrow-right"></i>
-            </a>
-        </section>
+                <a class="tile lift" href="FinalSuspect/Guide/" data-reveal data-reveal-delay="140">
+                    <span class="tile__icon"><i class="fas fa-graduation-cap"></i></span>
+                    <span class="tile__title">教程</span>
+                    <span class="tile__desc">Steam / Epic 安装、更新与日志导出</span>
+                    <span class="tile__foot"><span>3 篇</span><span class="tile__go">进入 <i
+                                class="fas fa-arrow-right"></i></span></span>
+                </a>
 
-        <section id="features" class="section animate-fadeInUp delay-5">
-            <div class="section-glow"></div>
-            <h2 class="section-title">
-                <i class="fas fa-toolbox"></i>
-                FinalSuspect 功能
-            </h2>
-            <p class="section-content">完美支持原版玩家与模组玩家同局游戏；带来前所未有的游戏体验。</p>
-            <a href="FinalSuspect/Features/" class="feature-link">
-                查看详情
-                <i class="fas fa-chevron-right"></i>
-            </a>
-        </section>
+                <a class="tile lift" href="FinalSuspect/Features/" data-reveal data-reveal-delay="210">
+                    <span class="tile__icon"><i class="fas fa-toolbox"></i></span>
+                    <span class="tile__title">功能</span>
+                    <span class="tile__desc">音乐、资源、标识与主页风格管理</span>
+                    <span class="tile__foot"><span>7 项</span><span class="tile__go">进入 <i
+                                class="fas fa-arrow-right"></i></span></span>
+                </a>
 
-        <section id="keyboard" class="section animate-fadeInUp delay-6">
-            <div class="section-glow"></div>
-            <h2 class="section-title">
-                <i class="fas fa-keyboard"></i>
-                FinalSuspect 快捷键
-            </h2>
-            <p class="section-content">仅适用于MOD端的快捷键，带来更好的操作体验。</p>
-            <a href="FinalSuspect/Keyboard" class="feature-link">
-                查看详情
-                <i class="fas fa-chevron-right"></i>
-            </a>
-        </section>
+                <a class="tile lift" href="FinalSuspect/FAQ" data-reveal data-reveal-delay="280">
+                    <span class="tile__icon"><i class="fas fa-life-ring"></i></span>
+                    <span class="tile__title">疑难解答</span>
+                    <span class="tile__desc">错误代码、连接异常与兼容性排查</span>
+                    <span class="tile__foot"><span>9 组问答</span><span class="tile__go">进入 <i
+                                class="fas fa-arrow-right"></i></span></span>
+                </a>
 
-        <div class="footer-disclaimer">
-            <p><strong>注意：</strong></p>
-            <p>本模组不隶属于 Among Us 或 Innersloth LLC，其包含的内容也未得到 Innersloth LLC 的认可或以其他方式赞助。</p>
-            <p>此处包含的部分材料是Innersloth LLC的财产。</p>
-            <p>© Innersloth LLC</p>
-        </div>
-
-        <div class="footer-meta">
-            <div class="edit-time">
-                <i class="fas fa-clock"></i>
-                <span>最后更新: <time id="lastEditTime" datetime=""></time></span>
+                <a class="tile lift" href="FinalSuspect/Keyboard" data-reveal data-reveal-delay="350">
+                    <span class="tile__icon"><i class="fas fa-keyboard"></i></span>
+                    <span class="tile__title">快捷键</span>
+                    <span class="tile__desc">模组端与房主专用按键一览</span>
+                    <span class="tile__foot"><span>10 组</span><span class="tile__go">进入 <i
+                                class="fas fa-arrow-right"></i></span></span>
+                </a>
             </div>
         </div>
 
-        <div class="footer-copyright">
-            <p>网站设计 ©<span>LezaiYa</span> | FinalSuspect Mod ©<span>Slok</span></p>
-        </div>
-    </div>
-
-    <!-- 公告按钮 -->
-    <div class="changelog-btn">
-        <div class="changelog-main-btn">
-            <i class="fas fa-history"></i>
-        </div>
-        <div class="changelog-options">
-            <div class="changelog-option" data-type="changelog">
-                <i class="fas fa-history"></i>
-                <span class="changelog-label">更新日志</span>
+        <!-- ==============================================================
+             数据条：可信度锚点（数值滚动动画）
+             ============================================================== -->
+        <div class="stat-row" data-group="90">
+            <div class="stat">
+                <div class="stat__num" data-count="20" data-suffix="+">0</div>
+                <div class="stat__label">功能与选项</div>
+            </div>
+            <div class="stat">
+                <div class="stat__num" data-count="6" data-suffix="">0</div>
+                <div class="stat__label">可切换主页背景</div>
+            </div>
+            <div class="stat">
+                <div class="stat__num" data-count="9" data-suffix="">0</div>
+                <div class="stat__label">历史版本记录</div>
+            </div>
+            <div class="stat">
+                <div class="stat__num" data-count="3" data-suffix="">0</div>
+                <div class="stat__label">文档板块</div>
+            </div>
+            <div class="stat">
+                <div class="stat__num" data-count="2" data-suffix="">0</div>
+                <div class="stat__label">支持平台</div>
             </div>
         </div>
-    </div>
 
-    <!-- 赞赏按钮 -->
-    <div class="appreciate-btn">
-        <div class="appreciate-main-btn">
-            <i class="fas fa-heart"></i>
+        <!-- ==============================================================
+             版本条：当前版本 + 最近改动速览
+             ============================================================== -->
+        <div class="home-section" data-reveal>
+            <span class="tag tag--amber"><i class="fas fa-code-branch"></i> 最新版本</span>
+            <span class="home-section__title">最近改动</span>
+            <span class="home-section__line"></span>
         </div>
-        <div class="appreciate-options">
-            <div class="appreciate-option" data-type="wechat">
-                <i class="fab fa-weixin"></i>
-                <span class="appreciate-label">微信支付</span>
+
+        <div class="version-strip" data-reveal>
+            <div class="version-strip__panel scanbar">
+                <div>
+                    <div class="version-strip__ver">
+                        <span id="verNumber">1.3</span>
+                        <small id="verDate">2026-08-15</small>
+                    </div>
+                    <div class="hud-label" style="margin-top:8px">RELEASE BUILD</div>
+                </div>
+                <ul class="version-strip__changes" id="verHighlights">
+                    <li><i class="fas fa-circle"></i><span>正在读取更新日志…</span></li>
+                </ul>
+                <div style="display:grid;gap:10px;justify-items:end">
+                    <a class="btn btn--primary btn--sm" href="FinalSuspect/Changelog">
+                        <i class="fas fa-list-ul"></i> 完整更新日志
+                    </a>
+                    <span class="hud-label hud-label--dim">9 VERSIONS ARCHIVED</span>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- 微信支付模态框 -->
-    <div class="wechat-modal" id="wechat-modal">
-        <div class="modal-content">
-            <button class="modal-close">&times;</button>
-            <div class="modal-icon">
-                <i class="fab fa-weixin"></i>
-            </div>
-            <h3 class="modal-title">微信支付赞赏</h3>
-            <p class="modal-desc">扫描下方二维码支持FinalSuspect，感谢您的慷慨赞助！</p>
-
-            <div class="qrcode-container">
-                <img src="/Resource/images/Appreciate_Slok.jpg" class="Appreciate_Slok">
-            </div>
-
-            <p class="tip">扫码支付后，您的支持将直接送达FinalSuspect的开发人员</p>
+        <!-- ==============================================================
+             文档区块导航（机械分区铭牌）
+             ============================================================== -->
+        <div class="home-section" data-reveal>
+            <span class="tag tag--cyan"><i class="fas fa-diagram-project"></i> 文档索引</span>
+            <span class="home-section__title">按板块浏览</span>
+            <span class="home-section__line"></span>
         </div>
-    </div>
 
-    <button class="back-to-top" aria-label="回到顶部">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 15l-6-6-6 6" />
-        </svg>
-    </button>
+        <div class="bento" style="padding-top:0">
+            <a class="tile lift panel--rivets" href="FinalSuspect/Guide/Installation" data-reveal>
+                <span class="tile__icon"><i class="fas fa-download"></i></span>
+                <span class="tile__title">安装教程</span>
+                <span class="tile__desc">先装对，再玩爽。Steam 与 Epic 两条路径的分步图解。</span>
+                <span class="tile__foot"><span>STEP BY STEP</span><span class="tile__go">阅读 <i
+                            class="fas fa-arrow-right"></i></span></span>
+            </a>
+            <a class="tile lift panel--rivets" href="FinalSuspect/Guide/Update" data-reveal data-reveal-delay="80">
+                <span class="tile__icon"><i class="fas fa-rotate"></i></span>
+                <span class="tile__title">更新模组</span>
+                <span class="tile__desc">新版本推送后如何安全升级，避免存档与配置丢失。</span>
+                <span class="tile__foot"><span>SAFE UPGRADE</span><span class="tile__go">阅读 <i
+                            class="fas fa-arrow-right"></i></span></span>
+            </a>
+            <a class="tile lift panel--rivets" href="FinalSuspect/Guide/OutputLog" data-reveal data-reveal-delay="160">
+                <span class="tile__icon"><i class="fas fa-file-export"></i></span>
+                <span class="tile__title">导出日志</span>
+                <span class="tile__desc">出问题时把日志交给开发者，定位速度提升数倍。</span>
+                <span class="tile__foot"><span>TROUBLESHOOT</span><span class="tile__go">阅读 <i
+                            class="fas fa-arrow-right"></i></span></span>
+            </a>
+        </div>
 
-    <script src='Resource/JS/Appreciate.js'></script>
-    <script src='Resource/JS/SplashIntro.js'></script>
-    <script src='Resource/JS/Load.js'></script>
-    <script src='Resource/JS/Wechat.js'></script>
-    <script src='Resource/JS/main.js'></script>
-    <script src='Resource/JS/BackToTop.js'></script>
-    <script src='Resource/JS/h2.js'></script>
-    <script src='Resource/JS/h3.js'></script>
-    <script src='Resource/JS/Image.js'></script>
-    <script src='Resource/JS/last-modified.js'></script>
-<script src='Resource/JS/Time.js'></script>
+        <!-- ==============================================================
+             机制说明 + 致谢
+             ============================================================== -->
+        <div class="home-section" data-reveal>
+            <span class="tag tag--purple"><i class="fas fa-circle-info"></i> 关于</span>
+            <span class="home-section__title">项目说明</span>
+            <span class="home-section__line"></span>
+        </div>
+
+        <div class="bento" style="padding-top:0">
+            <div class="panel panel--rivets panel--edge" style="grid-column:span 2;padding:var(--s-5)" data-reveal>
+                <div class="panel__head" style="margin:calc(var(--s-5) * -1) calc(var(--s-5) * -1) var(--s-4);border-radius:0">
+                    <span class="panel__title">保留经典，优化体验</span>
+                    <span class="hud-label">ABOUT</span>
+                </div>
+                <div class="prose">
+                    <p>
+                        Final Suspect 是 Among Us 原版的辅助模组，作为核心机制的深度扩展，
+                        通过 20+ 项功能迭代覆盖操作手感、视觉表现与社交互动。
+                        从操作延迟优化到 UI 重制，再到队友行为提示，
+                        它既修复了原版长期存在的体验痛点，也为多人协作注入了新的活力。
+                    </p>
+                    <p>
+                        无论你是刚接触模组的新手，还是追求深度自定义的老玩家，
+                        都能在这里找到属于自己的玩法。
+                    </p>
+                </div>
+                <div class="alert alert--tip" style="margin-top:var(--s-4)">
+                    <span class="alert__icon"><i class="fas fa-circle-info"></i></span>
+                    <div class="alert__body">
+                        <span class="alert__title">开始之前</span>
+                        <p>建议先阅读 <a href="FinalSuspect/Guide/Installation">安装教程</a>，
+                            再按 <a href="FinalSuspect/Options/">选项</a> 逐个调整你需要的功能。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel--rivets" style="padding:var(--s-5)" data-reveal data-reveal-delay="90">
+                <div class="panel__head" style="margin:calc(var(--s-5) * -1) calc(var(--s-5) * -1) var(--s-4);border-radius:0">
+                    <span class="panel__title">开发团队</span>
+                    <span class="hud-label">CREDITS</span>
+                </div>
+                <div class="credits" style="flex-direction:column">
+                    <div class="credit">
+                        <span class="credit__avatar">S</span>
+                        <span>
+                            <span class="credit__name">Slok</span>
+                            <span class="credit__role">MOD DEVELOPER</span>
+                        </span>
+                    </div>
+                    <div class="credit">
+                        <span class="credit__avatar">L</span>
+                        <span>
+                            <span class="credit__name">LezaiYa</span>
+                            <span class="credit__role">WEBSITE DESIGN</span>
+                        </span>
+                    </div>
+                    <div class="credit">
+                        <span class="credit__avatar">K</span>
+                        <span>
+                            <span class="credit__name">KpCam / 小黄117 / AIGE</span>
+                            <span class="credit__role">BACKGROUND ART</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="ticks" style="margin-top:var(--s-4)"></div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- 脚本：版本数据 → 外壳 → 动效 → 启动序列 -->
+    <script src="Resource/JS/versions.js"></script>
+    <script>
+        /* 版本条：读取 versions.js 的最新一条填充 */
+        (function () {
+            var list = window.VERSIONS || [];
+            if (!list.length) return;
+            var v = list[0];
+            var n = document.getElementById('verNumber');
+            var d = document.getElementById('verDate');
+            var h = document.getElementById('verHighlights');
+            if (n) n.textContent = v.version;
+            if (d) d.textContent = v.date;
+            if (h) {
+                h.innerHTML = (v.highlights || []).map(function (t) {
+                    return '<li><i class="fas fa-circle"></i><span>' + t + '</span></li>';
+                }).join('');
+            }
+        })();
+    </script>
+    <script src="Resource/JS/Nav.js"></script>
+    <script src="Resource/JS/fx.js"></script>
+    <script src="Resource/JS/Time.js"></script>
+    <script src="Resource/JS/last-modified.js"></script>
+    <script src="Resource/JS/SplashIntro.js"></script>
+    <script src="Resource/JS/loader.js"></script>
 </body>
 
 </html>

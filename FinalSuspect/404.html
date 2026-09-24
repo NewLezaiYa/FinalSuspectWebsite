@@ -2,37 +2,90 @@
 <html lang="zh-CN">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
-    <title>404</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>404 · 页面未找到</title>
 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;800&family=Poppins:wght@300;400;500;600&family=Share+Tech+Mono&display=swap">
     <link rel="stylesheet" href="../Resource/CSS/cyberpunk.css">
 </head>
 
-<body>
-    <header>
-        <div class="container">
-            <div class="error-shape"></div>
-            <div class="error-shape"></div>
-            <div class="error-shape"></div>
+<body data-shell="full" data-page="404" data-toc="off">
+    <main>
+        <section class="index-hero" style="min-height:52vh;display:grid;place-content:center;text-align:center">
+            <div class="index-hero__bg"></div>
+            <span class="index-hero__kick" style="margin:0 auto var(--s-4)">
+                <i class="fas fa-triangle-exclamation"></i> ERROR / 404
+            </span>
+            <h1 style="font-size:clamp(3rem,14vw,7rem);line-height:1;letter-spacing:.04em"
+                class="glitch" data-text="404">404</h1>
+            <p style="margin:var(--s-4) auto 0;max-width:52ch">
+                坐标越界：你要找的页面不在文档索引里。可能是链接过期，或者地址输错了。
+            </p>
+            <div class="hero__cta" style="margin-top:var(--s-5)">
+                <a class="btn btn--primary btn--lg btn--magnetic" href="../index.html">
+                    <i class="fas fa-house"></i> 返回首页
+                </a>
+                <a class="btn btn--lg btn--magnetic" href="../FinalSuspect/FAQ">
+                    <i class="fas fa-life-ring"></i> 疑难解答
+                </a>
+            </div>
+            <p class="hud-label" style="margin-top:var(--s-5)">
+                <span id="cd">3</span> 秒后自动返回首页
+            </p>
+        </section>
 
-            <div class="error-container">
-                <div class="error-code">404</div>
-            </div>
-            <h2 class="error-text">页面未找到</h2>
-            <div class="error-subtext">
-                您访问的页面已被太空人抓走<br>
-                您将在 3 秒后被重定向到主页
-            </div>
-
-            <div class="footer-copyright">
-                <p>网站设计 ©<span>LezaiYa</span> | FinalSuspect Mod ©<span>Slok</span></p>
-            </div>
+        <div class="home-section">
+            <span class="tag tag--cyan"><i class="fas fa-diagram-project"></i> 也许你要找</span>
+            <span class="home-section__line"></span>
         </div>
-    </header>
-    <script src='../Resource/JS/404.js'></script>
-    <script src='../Resource/JS/h2.js'></script>
+
+        <div class="card-grid" data-group="60">
+            <a class="card" href="../FinalSuspect/Guide/Installation">
+                <span class="card__idx">01</span>
+                <span class="card__icon"><i class="fas fa-download"></i></span>
+                <span class="card__title">安装模组</span>
+                <span class="card__desc">Steam / Epic 双平台分步安装指南。</span>
+                <span class="card__go">前往 <i class="fas fa-arrow-right"></i></span>
+            </a>
+            <a class="card" href="../FinalSuspect/Options/">
+                <span class="card__idx">02</span>
+                <span class="card__icon"><i class="fas fa-sliders"></i></span>
+                <span class="card__title">选项总览</span>
+                <span class="card__desc">14 项可调开关的完整说明。</span>
+                <span class="card__go">前往 <i class="fas fa-arrow-right"></i></span>
+            </a>
+            <a class="card" href="../FinalSuspect/Changelog">
+                <span class="card__idx">03</span>
+                <span class="card__icon"><i class="fas fa-clock-rotate-left"></i></span>
+                <span class="card__title">更新日志</span>
+                <span class="card__desc">按版本倒序的完整改动记录。</span>
+                <span class="card__go">前往 <i class="fas fa-arrow-right"></i></span>
+            </a>
+        </div>
+    </main>
+
+    <script>
+        /* 倒计时：从 3 秒递减，然后回首页 */
+        (function () {
+            var n = 3;
+            var el = document.getElementById('cd');
+            var t = setInterval(function () {
+                n--;
+                if (el) el.textContent = String(Math.max(0, n));
+                if (n <= 0) {
+                    clearInterval(t);
+                    location.replace('../index.html');
+                }
+            }, 1000);
+        })();
+    </script>
+    <script src="../Resource/JS/Nav.js"></script>
+    <script src="../Resource/JS/fx.js"></script>
 </body>
 
 </html>

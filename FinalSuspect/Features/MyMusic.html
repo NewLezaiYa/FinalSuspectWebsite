@@ -3,53 +3,100 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Cache-Control" content="max-age=3600">
-    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
-    <title>我的音乐</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FinalSuspect 功能说明：我的音乐——从资源管理下载模组音乐，或把自选音频放进本地音乐文件夹。">
+    <title>我的音乐 · FinalSuspect</title>
 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;800&family=Poppins:wght@300;400;500;600&family=Share+Tech+Mono&display=swap">
     <link rel="stylesheet" href="../../Resource/CSS/cyberpunk.css">
 </head>
 
-<body>
-    <div class="container">
-        <button class="back-button" onclick="window.history.back()">返回上一页</button>
+<body data-shell="full" data-page="feat-mymusic" data-rail="features">
+    <main>
+        <header class="page-head">
+            <span class="page-head__label hud-label"><i class="fas fa-music"></i> FEATURE · 03</span>
+            <h1 class="page-title">我的音乐</h1>
+            <div class="page-head__meta">
+                <span><i class="fas fa-folder"></i> 功能</span>
+                <span><i class="fas fa-tag"></i> 音频 / 个性化</span>
+                <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
+            </div>
+        </header>
 
-        <h1 id="MyMusic">FinalSuspect<br>我的音乐</h1>
+        <p class="lede">
+            你可以使用模组支持的音乐，也可以放入自己喜爱的音频文件。
+            音乐既可以来自「资源管理」的下载，也可以直接放进本地音乐文件夹。
+        </p>
 
-        <div class="content-section">
-            <div class="text">
-                <p>您可以在<mark>资源管理</mark>中下载本模组支持的音乐或在文件夹
-                <pre><code>/Among Us/Final Suspect_Data/Musics</pre></code>中添加自己喜爱的音频文件，如果音乐本地资源路径不存在则会显示「文件丢失」</p>
+        <div class="facts">
+            <div><span class="k">音乐来源</span><span class="v">「资源管理」下载 或 自行添加</span></div>
+            <div><span class="k">本地目录</span><span class="v">Among Us/Final Suspect_Data/Musics</span></div>
+            <div><span class="k">异常提示</span><span class="v">路径不存在时显示「文件丢失」</span></div>
+            <div><span class="k">作者作品</span><span class="v">Slok（已发布至网易云音乐）</span></div>
+        </div>
+
+        <div class="prose">
+            <h2 class="sec-title" id="source"><span class="sec-title__num">01</span>两种音乐来源</h2>
+            <p>
+                您可以在<a href="ResourceManager">「资源管理」</a>中下载本模组支持的音乐，
+                或在下方路径的文件夹中添加自己喜爱的音频文件。
+            </p>
+            <div class="term">
+                <div class="term__bar">
+                    <span class="term__dots"><i></i><i></i><i></i></span>
+                    <span class="term__path">音乐目录</span>
+                </div>
+                <pre><code>Among Us/Final Suspect_Data/Musics</code></pre>
+            </div>
+            <p>两种方式得到的音频文件都会被模组识别，按自己的喜好选择即可。</p>
+
+            <h2 class="sec-title" id="missing"><span class="sec-title__num">02</span>文件丢失提示</h2>
+            <div class="alert alert--warn">
+                <span class="alert__icon"><i class="fas fa-triangle-exclamation"></i></span>
+                <div class="alert__body">
+                    <span class="alert__title">出现「文件丢失」怎么办</span>
+                    <p>如果音乐本地资源路径不存在，界面则会显示「文件丢失」。请回到上方目录确认音频文件是否放好。</p>
+                </div>
             </div>
 
-            <div class="text">
-                <p>由Slok创作的音乐也已发布至
-                    <a href=" https://y.music.163.com/m/user?id=8039762500" target="_blank" rel="noopener noreferrer">
-                        <i class="fas fa-music"></i>
-                        网易云音乐
-                    </a>，想听的可以去听听哦。
-                </p>
+            <h2 class="sec-title" id="slok"><span class="sec-title__num">03</span>作者的音乐</h2>
+            <p>
+                由 Slok 创作的音乐也已发布至
+                <a href="https://y.music.163.com/m/user?id=8039762500" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-music"></i> 网易云音乐
+                </a>，想听的可以去听听。
+            </p>
+
+            <h2 class="sec-title" id="related"><span class="sec-title__num">04</span>相关页面</h2>
+            <div class="related__grid">
+                <a class="related__card" href="ResourceManager"><i class="fas fa-folder-tree"></i><span>资源管理</span><i
+                        class="fas fa-arrow-right"></i></a>
+                <a class="related__card" href="MainMenuStyleManager"><i class="fas fa-palette"></i><span>切换主页风格</span><i
+                        class="fas fa-arrow-right"></i></a>
+                <a class="related__card" href="../FAQ"><i class="fas fa-life-ring"></i><span>疑难解答</span><i
+                        class="fas fa-arrow-right"></i></a>
             </div>
         </div>
 
-        <div class="footer-meta">
-            <div class="edit-time">
-                <i class="fas fa-clock"></i>
-                <span>最后更新: <time id="lastEditTime" datetime=""></time></span>
-            </div>
+        <div class="pager">
+            <a class="pager__item" href="DumpLog">
+                <small>上一个功能</small>
+                <b>← 输出日志</b>
+            </a>
+            <a class="pager__item pager__item--next" href="NameTagManager">
+                <small>下一个功能</small>
+                <b>名称标识管理 →</b>
+            </a>
         </div>
+    </main>
 
-        <div class="footer-copyright">
-            <p>网站设计 ©<span>LezaiYa</span> | FinalSuspect Mod ©<span>Slok</span></p>
-        </div>
-    </div>
-    <script src='../../Resource/JS/h1.js'></script>
-    <script src='../../Resource/JS/last-modified.js'></script>
-    <script src='../../Resource/JS/Time.js'></script>
+    <script src="../../Resource/JS/Nav.js"></script>
+    <script src="../../Resource/JS/fx.js"></script>
+    <script src="../../Resource/JS/Time.js"></script>
+    <script src="../../Resource/JS/last-modified.js"></script>
 </body>
 
 </html>

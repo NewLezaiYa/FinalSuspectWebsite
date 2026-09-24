@@ -3,50 +3,84 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Cache-Control" content="max-age=3600">
-    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
-    <title>解锁帧数限制</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FinalSuspect 选项说明：解锁帧数限制——解除原版 60FPS 上限，最高支持 165FPS。">
+    <title>解锁帧数限制 · FinalSuspect</title>
 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;800&family=Poppins:wght@300;400;500;600&family=Share+Tech+Mono&display=swap">
     <link rel="stylesheet" href="../../Resource/CSS/cyberpunk.css">
 </head>
 
-<body>
-    <div class="container">
-        <div class="back-button" onclick="window.history.back()">返回上一页</div>
+<body data-shell="full" data-page="opt-unlockfps" data-rail="options">
+    <main>
+        <header class="page-head">
+            <span class="page-head__label hud-label"><i class="fas fa-gauge-high"></i> OPTION · 13</span>
+            <h1 class="page-title">解锁帧数限制</h1>
+            <div class="page-head__meta">
+                <span><i class="fas fa-folder"></i> 选项</span>
+                <span><i class="fas fa-tag"></i> 画面 / 性能</span>
+                <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
+            </div>
+        </header>
 
-        <h1 id="UnlockFPS">FinalSuspect<br>解锁帧数限制</h1>
+        <p class="lede">
+            原版游戏客户端默认将帧率限制在 60FPS，启用此功能后可解除该限制，
+            最高支持 165FPS 的流畅画面表现。
+        </p>
 
-        <div class="text">
-            <p>原版游戏客户端默认将帧率限制在60FPS，启用此功能后可解除该限制，最高支持<mark>165FPS</mark>的流畅画面表现。<br>
-                高帧率模式能显著提升游戏动画的顺滑度和操作响应速度。</p>
+        <div class="facts">
+            <div><span class="k">原版上限</span><span class="v">60FPS</span></div>
+            <div><span class="k">解锁后上限</span><span class="v">165FPS</span></div>
+            <div><span class="k">生效端</span><span class="v">模组端</span></div>
+            <div><span class="k">影响平衡</span><span class="v">不影响</span></div>
         </div>
 
-        <div class="image-grid">
-            <div class="image-wrapper">
-                <p class="text">解锁帧数限制功能示意图：</p>
-                <img src="/Resource/images/UnlockFPS.png" class="guide-img">
+        <div class="prose">
+            <h2 class="sec-title" id="how"><span class="sec-title__num">01</span>功能说明</h2>
+            <p>
+                原版游戏客户端默认将帧率限制在 <strong>60FPS</strong>，启用此功能后可解除该限制，
+                最高支持 <mark>165FPS</mark> 的流畅画面表现。
+            </p>
+            <p>
+                高帧率模式能显著提升游戏动画的顺滑度和操作响应速度。
+            </p>
+
+            <h2 class="sec-title" id="preview"><span class="sec-title__num">02</span>效果示意</h2>
+            <figure class="figure">
+                <img src="../../Resource/images/UnlockFPS.png" alt="解锁帧数限制功能示意图">
+                <figcaption>解锁帧数限制功能示意图</figcaption>
+            </figure>
+
+            <h2 class="sec-title" id="tips"><span class="sec-title__num">03</span>使用提示</h2>
+            <div class="alert alert--tip">
+                <span class="alert__icon"><i class="fas fa-lightbulb"></i></span>
+                <div class="alert__body">
+                    <span class="alert__title">关于性能开销（通用提示）</span>
+                    <p>一般而言，帧率越高，显卡负载也会相应增加，实际表现会因设备配置而异。</p>
+                    <p>如果设备性能有限，可根据自己的实际情况按需开启。</p>
+                </div>
             </div>
         </div>
 
-        <div class="footer-meta">
-            <div class="edit-time">
-                <i class="fas fa-clock"></i>
-                <span>最后更新: <time id="lastEditTime" datetime=""></time></span>
-            </div>
+        <div class="pager">
+            <a class="pager__item" href="SwitchOutfitType">
+                <small>上一个选项</small>
+                <b>← 切换外观形象</b>
+            </a>
+            <a class="pager__item pager__item--next" href="UseModCursor">
+                <small>下一个选项</small>
+                <b>使用模组鼠标光标 →</b>
+            </a>
         </div>
+    </main>
 
-        <div class="footer-copyright">
-            <p>网站设计 ©<span>LezaiYa</span> | FinalSuspect Mod ©<span>Slok</span></p>
-        </div>
-    </div>
-    <script src='../../Resource/JS/h1.js'></script>
-    <script src='../../Resource/JS/Image.js'></script>
-    <script src='../../Resource/JS/last-modified.js'></script>
-    <script src='../../Resource/JS/Time.js'></script>
+    <script src="../../Resource/JS/Nav.js"></script>
+    <script src="../../Resource/JS/fx.js"></script>
+    <script src="../../Resource/JS/Time.js"></script>
+    <script src="../../Resource/JS/last-modified.js"></script>
 </body>
 
 </html>

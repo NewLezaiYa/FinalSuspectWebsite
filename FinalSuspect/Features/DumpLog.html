@@ -3,53 +3,108 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Cache-Control" content="max-age=3600">
-    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
-    <title>输出日志</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FinalSuspect 功能说明：输出日志——一键把 BepInEx 日志复制到专用目录、自动打开文件夹，并在每次启动时清空原日志。">
+    <title>输出日志 · FinalSuspect</title>
 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;800&family=Poppins:wght@300;400;500;600&family=Share+Tech+Mono&display=swap">
     <link rel="stylesheet" href="../../Resource/CSS/cyberpunk.css">
 </head>
 
-<body>
-    <div class="container">
-        <button class="back-button" onclick="window.history.back()">返回上一页</button>
+<body data-shell="full" data-page="feat-dumplog" data-rail="features">
+    <main>
+        <header class="page-head">
+            <span class="page-head__label hud-label"><i class="fas fa-file-code"></i> FEATURE · 02</span>
+            <h1 class="page-title">输出日志</h1>
+            <div class="page-head__meta">
+                <span><i class="fas fa-folder"></i> 功能</span>
+                <span><i class="fas fa-tag"></i> 日志管理 / 问题排查</span>
+                <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
+            </div>
+        </header>
 
-        <h1 id="DumpLog">FinalSuspect<br>输出日志</h1>
+        <p class="lede">
+            该功能提供简单的日志管理方案：一键把日志复制到专用目录、复制完成后自动打开文件夹，
+            原日志则在每次启动 FinalSuspect 时自动清空，不必再手动翻找与清理。
+        </p>
 
-        <div class="text">
-            <p>该功能提供简单的日志管理方案：</p>
-            <ol class="dump-log-steps">
-                <li>一键导出：自动将当前<mark>Among Us\BepInEx</mark>下的日志文件复制到模组指定的专用目录。</li>
-                <li>快速访问：复制完成后立即自动打开目标文件夹窗口，方便查看日志内容。</li>
-                <li>自动清理：原日志文件会在每次启动 Final Suspect 时自动清空，避免占用过多空间。</li>
-            </ol>
+        <div class="facts">
+            <div><span class="k">导出方式</span><span class="v">一键导出</span></div>
+            <div><span class="k">日志来源</span><span class="v">Among Us\BepInEx 下的日志文件</span></div>
+            <div><span class="k">快速访问</span><span class="v">自动打开目标文件夹</span></div>
+            <div><span class="k">原日志处理</span><span class="v">每次启动时自动清空</span></div>
         </div>
 
-        <div class="tip">
-            <p>日志文件夹位于下方路径：</p>
-            <pre><code>%APPDATA%\..\LocalLow\Innersloth\Among Us\FinalSuspect\Logs\Final Suspect-logs</code></pre>
-            <p>你可以按<mark>Win</mark> + <mark>R</mark>打开运行，粘贴这串地址，并确认以手动访问目录。</p>
-        </div>
+        <div class="prose">
+            <h2 class="sec-title" id="how"><span class="sec-title__num">01</span>功能说明</h2>
+            <p>该功能由三个环节组成，触发一次即可完成全部动作：</p>
+            <div class="steps">
+                <div class="step">
+                    <div class="step__body">
+                        <p><strong>一键导出</strong>：自动将当前 <mark>Among Us\BepInEx</mark> 下的日志文件复制到模组指定的专用目录。</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step__body">
+                        <p><strong>快速访问</strong>：复制完成后立即自动打开目标文件夹窗口，方便查看日志内容。</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step__body">
+                        <p><strong>自动清理</strong>：原日志文件会在每次启动 FinalSuspect 时自动清空，避免占用过多空间。</p>
+                    </div>
+                </div>
+            </div>
 
-        <div class="footer-meta">
-            <div class="edit-time">
-                <i class="fas fa-clock"></i>
-                <span>最后更新: <time id="lastEditTime" datetime=""></time></span>
+            <h2 class="sec-title" id="path"><span class="sec-title__num">02</span>日志目录</h2>
+            <div class="alert alert--tip">
+                <span class="alert__icon"><i class="fas fa-folder-open"></i></span>
+                <div class="alert__body">
+                    <span class="alert__title">日志文件夹位于下方路径</span>
+                    <div class="callout-path"><i class="fas fa-location-dot"></i>%APPDATA%\..\LocalLow\Innersloth\Among
+                        Us\FinalSuspect\Logs\Final Suspect-logs</div>
+                    <p>你可以按 <kbd>Win</kbd> + <kbd>R</kbd> 打开运行，粘贴这串地址并确认，以手动访问目录。</p>
+                </div>
+            </div>
+            <p>若想直接确认完整路径，也可以对照下面的终端窗内容：</p>
+            <div class="term">
+                <div class="term__bar">
+                    <span class="term__dots"><i></i><i></i><i></i></span>
+                    <span class="term__path">日志目录</span>
+                </div>
+                <pre><code>%APPDATA%\..\LocalLow\Innersloth\Among Us\FinalSuspect\Logs\Final Suspect-logs</code></pre>
+            </div>
+
+            <h2 class="sec-title" id="related"><span class="sec-title__num">03</span>相关页面</h2>
+            <div class="related__grid">
+                <a class="related__card" href="../Guide/OutputLog"><i class="fas fa-file-export"></i><span>导出日志教程</span><i
+                        class="fas fa-arrow-right"></i></a>
+                <a class="related__card" href="ClearAutoLogs"><i class="fas fa-trash-can"></i><span>清空自动日志</span><i
+                        class="fas fa-arrow-right"></i></a>
+                <a class="related__card" href="../FAQ"><i class="fas fa-life-ring"></i><span>疑难解答</span><i
+                        class="fas fa-arrow-right"></i></a>
             </div>
         </div>
 
-        <div class="footer-copyright">
-            <p>网站设计 ©<span>LezaiYa</span> | FinalSuspect Mod ©<span>Slok</span></p>
+        <div class="pager">
+            <a class="pager__item" href="ClearAutoLogs">
+                <small>上一个功能</small>
+                <b>← 清空自动日志</b>
+            </a>
+            <a class="pager__item pager__item--next" href="MyMusic">
+                <small>下一个功能</small>
+                <b>我的音乐 →</b>
+            </a>
         </div>
-    </div>
-    <script src='../../Resource/JS/Copy.js'></script>
-    <script src='../../Resource/JS/h1.js'></script>
-    <script src='../../Resource/JS/last-modified.js'></script>
-    <script src='../../Resource/JS/Time.js'></script>
+    </main>
+
+    <script src="../../Resource/JS/Nav.js"></script>
+    <script src="../../Resource/JS/fx.js"></script>
+    <script src="../../Resource/JS/Time.js"></script>
+    <script src="../../Resource/JS/last-modified.js"></script>
 </body>
 
 </html>

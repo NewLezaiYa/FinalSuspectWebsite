@@ -3,47 +3,105 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Cache-Control" content="max-age=3600">
-    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
-    <title>禁用原版游戏音乐</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FinalSuspect 选项说明：禁用原版游戏音乐——屏蔽大厅等待音乐，不影响游戏音效，可随时在模组配置菜单调整。">
+    <title>禁用原版游戏音乐 · FinalSuspect</title>
 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;800&family=Poppins:wght@300;400;500;600&family=Share+Tech+Mono&display=swap">
     <link rel="stylesheet" href="../../Resource/CSS/cyberpunk.css">
 </head>
 
-<body>
-    <div class="container">
-        <div class="back-button" onclick="window.history.back()">返回上一页</div>
+<body data-shell="full" data-page="opt-disablevanillasound" data-rail="options">
+    <main>
+        <header class="page-head">
+            <span class="page-head__label hud-label"><i class="fas fa-volume-xmark"></i> OPTION · 04</span>
+            <h1 class="page-title">禁用原版游戏音乐</h1>
+            <div class="page-head__meta">
+                <span><i class="fas fa-folder"></i> 选项</span>
+                <span><i class="fas fa-tag"></i> 音频 / 大厅体验</span>
+                <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
+            </div>
+        </header>
 
-        <h1 id="DisableVanillaSound">FinalSuspect<br>禁用原版游戏音乐</h1>
+        <p class="lede">
+            在 Final Suspect 中，玩家可以屏蔽大厅等待音乐。启用后相关场景将保持静默，
+            适合希望自定义播放器音乐、或需要减少重复音频干扰的玩家。
+        </p>
 
-        <div class="text">
-            在Final Suspect中，我们允许玩家屏蔽大厅等待音乐。<br>
-            启用后，相关场景将保持静默，适合希望自定义播放器音乐或需要减少重复音频干扰的玩家。<br>
-            该设定可通过模组配置菜单随时调整。功能不影响游戏音效。
+        <div class="facts">
+            <div><span class="k">作用对象</span><span class="v">大厅等待音乐</span></div>
+            <div><span class="k">启用后</span><span class="v">相关场景保持静默</span></div>
+            <div><span class="k">调整入口</span><span class="v">模组配置菜单</span></div>
+            <div><span class="k">游戏音效</span><span class="v">不受影响</span></div>
         </div>
 
-        <div class="tip">
-            <p>大厅等待的噪声被归类为<mark>音效</mark>，而非音乐。</p>
-        </div>
+        <div class="prose">
+            <h2 class="sec-title" id="how"><span class="sec-title__num">01</span>功能说明</h2>
+            <p>
+                在 Final Suspect 中，我们允许玩家屏蔽大厅等待音乐。
+                启用后，相关场景将保持静默。
+            </p>
+            <p>
+                这一设定适合希望自定义播放器音乐、或者需要减少重复音频干扰的玩家；
+                该设定可通过模组配置菜单随时调整，功能不影响游戏音效。
+            </p>
 
-        <div class="footer-meta">
-            <div class="edit-time">
-                <i class="fas fa-clock"></i>
-                <span>最后更新: <time id="lastEditTime" datetime=""></time></span>
+            <h2 class="sec-title" id="scene"><span class="sec-title__num">02</span>适合开启的情况</h2>
+            <div class="alert alert--ok">
+                <span class="alert__icon"><i class="fas fa-circle-check"></i></span>
+                <div class="alert__body">
+                    <span class="alert__title">这些玩家会更舒服</span>
+                    <p>习惯自己放歌、用播放器接管大厅氛围的玩家，屏蔽原版大厅音乐后不会出现两段音乐叠在一起的情况。</p>
+                    <p>长时间挂在大厅等待、对重复音频比较敏感的玩家，也可以用它换回一个安静的大厅。</p>
+                </div>
+            </div>
+            <dl class="spec-list">
+                <dt>屏蔽范围</dt>
+                <dd>大厅等待音乐——也就是在大厅等人时循环播放的那段音乐</dd>
+                <dt>调整方式</dt>
+                <dd>通过模组配置菜单随时开启或关闭</dd>
+                <dt>音效影响</dt>
+                <dd>功能不影响游戏音效</dd>
+            </dl>
+
+            <h2 class="sec-title" id="faq"><span class="sec-title__num">03</span>常见疑问</h2>
+            <div class="alert alert--tip">
+                <span class="alert__icon"><i class="fas fa-lightbulb"></i></span>
+                <div class="alert__body">
+                    <span class="alert__title">音乐与音效要分开看</span>
+                    <p>大厅等待的噪声被归类为<mark>音效</mark>，而非音乐。</p>
+                    <p>本选项只处理原版游戏音乐这一层，游戏内的音效依旧正常播放。</p>
+                </div>
+            </div>
+
+            <h2 class="sec-title" id="related"><span class="sec-title__num">04</span>搭配使用</h2>
+            <div class="related__grid">
+                <a class="related__card" href="../Features/MyMusic"><i class="fas fa-music"></i><span>我的音乐</span><i
+                        class="fas fa-arrow-right"></i></a>
+                <a class="related__card" href="FastBoot"><i class="fas fa-bolt"></i><span>快速启动模式</span><i
+                        class="fas fa-arrow-right"></i></a>
             </div>
         </div>
 
-        <div class="footer-copyright">
-            <p>网站设计 ©<span>LezaiYa</span> | FinalSuspect Mod ©<span>Slok</span></p>
+        <div class="pager">
+            <a class="pager__item" href="EnableFAC">
+                <small>上一个选项</small>
+                <b>← 启用反作弊（FAC）</b>
+            </a>
+            <a class="pager__item pager__item--next" href="FastBoot">
+                <small>下一个选项</small>
+                <b>快速启动模式 →</b>
+            </a>
         </div>
-    </div>
-    <script src='../../Resource/JS/h1.js'></script>
-    <script src='../../Resource/JS/last-modified.js'></script>
-    <script src='../../Resource/JS/Time.js'></script>
+    </main>
+
+    <script src="../../Resource/JS/Nav.js"></script>
+    <script src="../../Resource/JS/fx.js"></script>
+    <script src="../../Resource/JS/Time.js"></script>
+    <script src="../../Resource/JS/last-modified.js"></script>
 </body>
 
 </html>

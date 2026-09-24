@@ -3,46 +3,87 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Cache-Control" content="max-age=3600">
-    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
-    <title>离线模式（试验性）</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FinalSuspect 选项说明：离线模式（试验性）——启动后不从远程获取资源，官方不推荐启用。">
+    <title>离线模式（试验性） · FinalSuspect</title>
 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;800&family=Poppins:wght@300;400;500;600&family=Share+Tech+Mono&display=swap">
     <link rel="stylesheet" href="../../Resource/CSS/cyberpunk.css">
 </head>
 
-<body>
-    <div class="container">
-        <div class="back-button" onclick="window.history.back()">返回上一页</div>
+<body data-shell="full" data-page="opt-offlinemode" data-rail="options">
+    <main>
+        <header class="page-head">
+            <span class="page-head__label hud-label"><i class="fas fa-plug-circle-xmark"></i> OPTION · 09</span>
+            <h1 class="page-title">离线模式（试验性）</h1>
+            <div class="page-head__meta">
+                <span><i class="fas fa-folder"></i> 选项</span>
+                <span><i class="fas fa-tag"></i> 资源 / 试验性</span>
+                <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
+            </div>
+        </header>
 
-        <h1 id="OfflineMode">FinalSuspect<br>离线模式（试验性）</h1>
+        <p class="lede">
+            启动离线模式后，Final Suspect 将不再从远程获取资源。
+            该模式目前属于试验性功能，官方并不推荐启用。
+        </p>
 
-        <div class="text">
-            在Final Suspect模组中，当你启动离线模式，将不会从<mark>远程获取资源</mark>。<br>
+        <div class="facts">
+            <div><span class="k">默认状态</span><span class="v">需手动启用</span></div>
+            <div><span class="k">功能性质</span><span class="v">试验性功能</span></div>
+            <div><span class="k">资源来源</span><span class="v">不从远程获取</span></div>
+            <div><span class="k">影响平衡</span><span class="v">不影响</span></div>
         </div>
 
-        <div class="danger">
-            <p>我们<mark>不推荐</mark>你启用离线模式。<br>
-                启用离线模式后您无法获取最新的资源。</p>
-        </div>
+        <div class="prose">
+            <h2 class="sec-title" id="how"><span class="sec-title__num">01</span>功能说明</h2>
+            <p>
+                在 Final Suspect 模组中，当你启动离线模式，将不会从<mark>远程获取资源</mark>。
+            </p>
+            <p>
+                该模式目前仍属于<strong>试验性功能</strong>，请先确认自己清楚下述影响，再决定是否启用。
+            </p>
 
-        <div class="footer-meta">
-            <div class="edit-time">
-                <i class="fas fa-clock"></i>
-                <span>最后更新: <time id="lastEditTime" datetime=""></time></span>
+            <h2 class="sec-title" id="notice"><span class="sec-title__num">02</span>风险提示</h2>
+            <div class="alert alert--danger">
+                <span class="alert__icon"><i class="fas fa-triangle-exclamation"></i></span>
+                <div class="alert__body">
+                    <span class="alert__title">官方不推荐启用</span>
+                    <p>官方<mark>不推荐</mark>启用离线模式；启用离线模式后，您将无法获取最新的资源。</p>
+                    <p>如果仍需要获取最新的资源，请不要启用该模式。</p>
+                </div>
+            </div>
+
+            <h2 class="sec-title" id="related"><span class="sec-title__num">03</span>相关条目</h2>
+            <div class="related__grid">
+                <a class="related__card" href="FastBoot"><i class="fas fa-bolt"></i><span>快速启动模式</span><i
+                        class="fas fa-arrow-right"></i></a>
+                <a class="related__card" href="../Features/ResourceManager"><i class="fas fa-folder-tree"></i><span>资源管理</span><i
+                        class="fas fa-arrow-right"></i></a>
+                <a class="related__card" href="ShowPlayerInfo"><i class="fas fa-id-card"></i><span>展示玩家平台与客户端信息</span><i
+                        class="fas fa-arrow-right"></i></a>
             </div>
         </div>
 
-        <div class="footer-copyright">
-            <p>网站设计 ©<span>LezaiYa</span> | FinalSuspect Mod ©<span>Slok</span></p>
+        <div class="pager">
+            <a class="pager__item" href="KickPlayerWithDenyName">
+                <small>上一个选项</small>
+                <b>← 踢出违规昵称玩家</b>
+            </a>
+            <a class="pager__item pager__item--next" href="ShowPlayerInfo">
+                <small>下一个选项</small>
+                <b>展示玩家平台与客户端信息 →</b>
+            </a>
         </div>
-    </div>
-    <script src='../../Resource/JS/h1.js'></script>
-    <script src='../../Resource/JS/last-modified.js'></script>
-    <script src='../../Resource/JS/Time.js'></script>
+    </main>
+
+    <script src="../../Resource/JS/Nav.js"></script>
+    <script src="../../Resource/JS/fx.js"></script>
+    <script src="../../Resource/JS/Time.js"></script>
+    <script src="../../Resource/JS/last-modified.js"></script>
 </body>
 
 </html>

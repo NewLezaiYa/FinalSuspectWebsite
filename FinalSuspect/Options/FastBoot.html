@@ -3,62 +3,117 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Cache-Control" content="max-age=3600">
-    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
-    <title>快速启动模式</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FinalSuspect 选项说明：快速启动模式——跳过非必要加载环节，启动耗时从约 15 秒缩短到约 5 秒。">
+    <title>快速启动模式 · FinalSuspect</title>
 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;800&family=Poppins:wght@300;400;500;600&family=Share+Tech+Mono&display=swap">
     <link rel="stylesheet" href="../../Resource/CSS/cyberpunk.css">
 </head>
 
-<body>
-    <div class="container">
-        <div class="back-button" onclick="window.history.back()">返回上一页</div>
+<body data-shell="full" data-page="opt-fastboot" data-rail="options">
+    <main>
+        <header class="page-head">
+            <span class="page-head__label hud-label"><i class="fas fa-bolt"></i> OPTION · 05</span>
+            <h1 class="page-title">快速启动模式</h1>
+            <div class="page-head__meta">
+                <span><i class="fas fa-folder"></i> 选项</span>
+                <span><i class="fas fa-tag"></i> 性能 / 加载速度</span>
+                <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
+            </div>
+        </header>
 
-        <h1 id="FastBoot">FinalSuspect<br>快速启动模式</h1>
+        <p class="lede">
+            快速启动模式用于优化游戏加载流程，启用后系统将跳过非必要环节。
+            经实测，常规启动耗时约 15 秒，启用快速启动后仅需 5 秒即可直达主菜单。
+        </p>
 
-        <div class="text">
-            在Final Suspect模组中，我们引入了快速启动模式以优化游戏加载流程。启用该模式后，系统将跳过非必要环节。<br>
-            经实测，常规启动耗时约<strong>15秒</strong>，而启用快速启动后仅需<strong>5秒</strong>即可直达主菜单。该模式特别适合频繁重启游戏的测试场景，玩家可通过设置菜单切换模式。
+        <div class="facts">
+            <div><span class="k">常规启动</span><span class="v">约 15 秒</span></div>
+            <div><span class="k">快速启动</span><span class="v">约 5 秒</span></div>
+            <div><span class="k">切换入口</span><span class="v">设置菜单</span></div>
+            <div><span class="k">适用场景</span><span class="v">频繁重启游戏的测试场景</span></div>
         </div>
 
-        <div class="tip">
-            <p>首次安装或大版本更新时仍需完整加载资源。</p>
-        </div>
+        <div class="prose">
+            <h2 class="sec-title" id="how"><span class="sec-title__num">01</span>功能说明</h2>
+            <p>
+                在 Final Suspect 模组中，我们引入了快速启动模式以优化游戏加载流程。
+                启用该模式后，系统将跳过非必要环节。
+            </p>
+            <p>
+                经实测，常规启动耗时约<strong>15 秒</strong>，而启用快速启动后仅需<strong>5 秒</strong>即可直达主菜单。
+            </p>
+            <p>
+                该模式特别适合频繁重启游戏的测试场景，玩家可通过设置菜单切换模式。
+            </p>
 
-        <div class="image-grid">
-            <div class="image-wrapper">
-                <p class="text">快速启动模式示意图：</p>
-                <img src="/Resource/images/FastBoot.png" class="guide-img">
+            <h2 class="sec-title" id="compare"><span class="sec-title__num">02</span>耗时对比</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>启动方式</th>
+                            <th>实测耗时</th>
+                            <th>说明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>常规启动</td>
+                            <td>约 15 秒</td>
+                            <td>按默认流程完整走完加载环节</td>
+                        </tr>
+                        <tr>
+                            <td>快速启动</td>
+                            <td>约 5 秒</td>
+                            <td>跳过非必要环节，直达主菜单</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 class="sec-title" id="figure"><span class="sec-title__num">03</span>界面示意</h2>
+            <figure class="figure">
+                <img src="../../Resource/images/FastBoot.png" alt="快速启动模式示意图">
+                <figcaption>快速启动模式示意图</figcaption>
+            </figure>
+
+            <h2 class="sec-title" id="notice"><span class="sec-title__num">04</span>注意事项</h2>
+            <div class="alert alert--tip">
+                <span class="alert__icon"><i class="fas fa-lightbulb"></i></span>
+                <div class="alert__body">
+                    <span class="alert__title">首次安装与大版本更新</span>
+                    <p>首次安装或大版本更新时仍需完整加载资源，此时快速启动不会把这段加载省掉。</p>
+                </div>
+            </div>
+            <div class="related__grid">
+                <a class="related__card" href="AutoEndGame"><i class="fas fa-flag-checkered"></i><span>结束时自动返回大厅</span><i
+                        class="fas fa-arrow-right"></i></a>
+                <a class="related__card" href="AutoStartGame"><i class="fas fa-users-cog"></i><span>人满自动开始游戏</span><i
+                        class="fas fa-arrow-right"></i></a>
             </div>
         </div>
 
-        <div class="footer-meta">
-            <div class="edit-time">
-                <i class="fas fa-clock"></i>
-                <span>最后更新: <time id="lastEditTime" datetime=""></time></span>
-            </div>
+        <div class="pager">
+            <a class="pager__item" href="DisableVanillaSound">
+                <small>上一个选项</small>
+                <b>← 禁用原版游戏音乐</b>
+            </a>
+            <a class="pager__item pager__item--next" href="KickPlayerWithAbnormalFriendCode">
+                <small>下一个选项</small>
+                <b>踢出好友代码异常的玩家 →</b>
+            </a>
         </div>
+    </main>
 
-        <div class="footer-copyright">
-            <p>网站设计 ©<span>LezaiYa</span> | FinalSuspect Mod ©<span>Slok</span></p>
-        </div>
-    </div>
-
-    <button class="back-to-top" aria-label="回到顶部">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 15l-6-6-6 6" />
-        </svg>
-    </button>
-    <script src='../../Resource/JS/BackToTop.js'></script>
-    <script src='../../Resource/JS/h1.js'></script>
-    <script src='../../Resource/JS/Image.js'></script>
-    <script src='../../Resource/JS/last-modified.js'></script>
-    <script src='../../Resource/JS/Time.js'></script>
+    <script src="../../Resource/JS/Nav.js"></script>
+    <script src="../../Resource/JS/fx.js"></script>
+    <script src="../../Resource/JS/Time.js"></script>
+    <script src="../../Resource/JS/last-modified.js"></script>
 </body>
 
 </html>

@@ -3,41 +3,104 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Cache-Control" content="max-age=3600">
-    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
-    <title>踢出被封禁玩家</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FinalSuspect 选项说明：踢出被封禁的玩家——检测到玩家处于封禁名单时自动踢出，由房主端执行。">
+    <title>踢出被封禁的玩家 · FinalSuspect</title>
 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;800&family=Poppins:wght@300;400;500;600&family=Share+Tech+Mono&display=swap">
     <link rel="stylesheet" href="../../Resource/CSS/cyberpunk.css">
 </head>
 
-<body>
-    <div class="container">
-        <div class="back-button" onclick="window.history.back()">返回上一页</div>
+<body data-shell="full" data-page="opt-kickbanlist" data-rail="options">
+    <main>
+        <header class="page-head">
+            <span class="page-head__label hud-label"><i class="fas fa-ban"></i> OPTION · 07</span>
+            <h1 class="page-title">踢出被封禁的玩家</h1>
+            <div class="page-head__meta">
+                <span><i class="fas fa-folder"></i> 选项</span>
+                <span><i class="fas fa-tag"></i> 防护 / 房间管理</span>
+                <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
+            </div>
+        </header>
 
-        <h1 id="KickPlayerInBanList">FinalSuspect<br>踢出被封禁的玩家</h1>
+        <p class="lede">
+            当 Final Suspect 检测到玩家处于封禁名单时，将自动踢出该玩家。
+            整个过程由模组自动完成，房主不需要手动处理。
+        </p>
 
-        <div class="text">
-            <p>当Final Suspect检测到玩家处于封禁名单时，将自动踢出该玩家。</p>
+        <div class="facts">
+            <div><span class="k">触发条件</span><span class="v">玩家处于封禁名单</span></div>
+            <div><span class="k">处理动作</span><span class="v">自动踢出该玩家</span></div>
+            <div><span class="k">生效端</span><span class="v">房主</span></div>
+            <div><span class="k">影响平衡</span><span class="v">不影响</span></div>
         </div>
 
-        <div class="footer-meta">
-            <div class="edit-time">
-                <i class="fas fa-clock"></i>
-                <span>最后更新: <time id="lastEditTime" datetime=""></time></span>
+        <div class="prose">
+            <h2 class="sec-title" id="how"><span class="sec-title__num">01</span>功能说明</h2>
+            <p>
+                当 Final Suspect 检测到玩家处于封禁名单时，将自动踢出该玩家。
+            </p>
+            <p>
+                命中名单后的处理是自动的：不需要房主手动确认，也不需要在房间里额外操作。
+            </p>
+
+            <h2 class="sec-title" id="rules"><span class="sec-title__num">02</span>触发与处理</h2>
+            <dl class="spec-list">
+                <dt>检测对象</dt>
+                <dd>玩家是否处于封禁名单之中</dd>
+                <dt>命中条件</dt>
+                <dd>Final Suspect 检测到该玩家处于封禁名单</dd>
+                <dt>处理动作</dt>
+                <dd>自动踢出该玩家</dd>
+                <dt>是否需要手动操作</dt>
+                <dd>不需要，由模组自动完成</dd>
+            </dl>
+            <div class="alert alert--tip">
+                <span class="alert__icon"><i class="fas fa-lightbulb"></i></span>
+                <div class="alert__body">
+                    <span class="alert__title">生效端是房主</span>
+                    <p>该自动踢出在房主端生效：当你是房主时，命中封禁名单的玩家会被自动清理出房间。</p>
+                </div>
+            </div>
+
+            <h2 class="sec-title" id="related"><span class="sec-title__num">03</span>搭配使用</h2>
+            <div class="related__grid">
+                <a class="related__card" href="KickPlayerWithAbnormalFriendCode"><i class="fas fa-user-xmark"></i><span>踢出好友代码异常的玩家</span><i
+                        class="fas fa-arrow-right"></i></a>
+                <a class="related__card" href="KickPlayerWithDenyName"><i class="fas fa-user-slash"></i><span>踢出违规昵称玩家</span><i
+                        class="fas fa-arrow-right"></i></a>
+                <a class="related__card" href="EnableFAC"><i class="fas fa-shield-halved"></i><span>启用反作弊（FAC）</span><i
+                        class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="alert alert--ok">
+                <span class="alert__icon"><i class="fas fa-circle-check"></i></span>
+                <div class="alert__body">
+                    <span class="alert__title">组合效果</span>
+                    <p>封禁名单、好友代码与违规昵称三项检查同时开启，
+                        常见的异常玩家进入房间时就会被自动挡下。</p>
+                </div>
             </div>
         </div>
 
-        <div class="footer-copyright">
-            <p>网站设计 ©<span>LezaiYa</span> | FinalSuspect Mod ©<span>Slok</span></p>
+        <div class="pager">
+            <a class="pager__item" href="KickPlayerWithAbnormalFriendCode">
+                <small>上一个选项</small>
+                <b>← 踢出好友代码异常的玩家</b>
+            </a>
+            <a class="pager__item pager__item--next" href="KickPlayerWithDenyName">
+                <small>下一个选项</small>
+                <b>踢出违规昵称玩家 →</b>
+            </a>
         </div>
-    </div>
-    <script src='../../Resource/JS/h1.js'></script>
-    <script src='../../Resource/JS/last-modified.js'></script>
-    <script src='../../Resource/JS/Time.js'></script>
+    </main>
+
+    <script src="../../Resource/JS/Nav.js"></script>
+    <script src="../../Resource/JS/fx.js"></script>
+    <script src="../../Resource/JS/Time.js"></script>
+    <script src="../../Resource/JS/last-modified.js"></script>
 </body>
 
 </html>

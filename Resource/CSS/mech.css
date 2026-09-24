@@ -1,0 +1,989 @@
+/* ============================================================================
+ * FinalSuspect Website — 10 MECH
+ * 机械感组件库：切角面板 / 铆钉 / 警示斜纹 / 齿轮 / 机加工按钮 /
+ *              终端窗 / HUD 标注 / 刻度条 / 状态灯 / 读数条
+ * 依赖 tokens.css；本文件不定义布局骨架（见 20 shell.css）
+ * ========================================================================== */
+
+/* ============================================================================
+ * 1. 切角几何（机械外壳的核心形状语言）
+ * ========================================================================== */
+.notch {
+  clip-path: polygon(0 0, calc(100% - var(--notch)) 0, 100% var(--notch),
+                     100% 100%, var(--notch) 100%, 0 calc(100% - var(--notch)));
+}
+.notch-lg {
+  clip-path: polygon(0 0, calc(100% - var(--notch-lg)) 0, 100% var(--notch-lg),
+                     100% 100%, var(--notch-lg) 100%, 0 calc(100% - var(--notch-lg)));
+}
+/* 单向切角：只切右上 / 左上 / 右下 / 左下 */
+.notch-tr { clip-path: polygon(0 0, calc(100% - var(--notch)) 0, 100% var(--notch), 100% 100%, 0 100%); }
+.notch-tl { clip-path: polygon(var(--notch) 0, 100% 0, 100% 100%, 0 100%, 0 var(--notch)); }
+.notch-br { clip-path: polygon(0 0, 100% 0, 100% 100%, var(--notch) 100%, 0 calc(100% - var(--notch))); }
+.notch-bl { clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--notch)), calc(100% - var(--notch)) 100%, 0 100%); }
+
+/* ============================================================================
+ * 2. HUD 角标（四角 L 形描边，HUD 取景框）
+ * ========================================================================== */
+.hud-frame { position: relative; }
+.hud-frame::before,
+.hud-frame::after {
+  content: '';
+  position: absolute;
+  width: 14px; height: 14px;
+  border: 2px solid var(--c-cyan);
+  opacity: .55;
+  pointer-events: none;
+  transition: all var(--dur) var(--e-out);
+}
+.hud-frame::before { top: -1px; left: -1px; border-right: 0; border-bottom: 0; }
+.hud-frame::after  { bottom: -1px; right: -1px; border-left: 0; border-top: 0; }
+.hud-frame:hover::before,
+.hud-frame:hover::after { opacity: 1; width: 22px; height: 22px; box-shadow: var(--glow-cyan); }
+
+/* 四角全包围版本（用于大面板） */
+.hud-corners { position: relative; }
+.hud-corners > .hc { position: absolute; width: 16px; height: 16px; border: 2px solid var(--c-cyan); opacity: .5; pointer-events: none; }
+.hud-corners > .hc.tl { top: -1px; left: -1px; border-right: 0; border-bottom: 0; }
+.hud-corners > .hc.tr { top: -1px; right: -1px; border-left: 0; border-bottom: 0; }
+.hud-corners > .hc.bl { bottom: -1px; left: -1px; border-right: 0; border-top: 0; }
+.hud-corners > .hc.br { bottom: -1px; right: -1px; border-left: 0; border-top: 0; }
+
+/* ============================================================================
+ * 3. 机械面板（母组件）
+ * ========================================================================== */
+.panel {
+  position: relative;
+  background: var(--sf-1);
+  background-image: var(--tx-brushed);
+  border: 1px solid var(--ln-2);
+  border-radius: var(--r-sm);
+  box-shadow: var(--sh-1), var(--sf-inset);
+  transition: border-color var(--dur) var(--e-out),
+              box-shadow var(--dur) var(--e-out),
+              transform var(--dur) var(--e-mech);
+}
+/* 四角铆钉 */
+.panel--rivets::before {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  background-image: var(--tx-rivets);
+  background-repeat: no-repeat;
+  pointer-events: none;
+  opacity: .85;
+  z-index: 2;
+}
+/* 顶部机加工高光棱线 */
+.panel--edge::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 12%; right: 12%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 240, 255, .5), transparent);
+  opacity: .6;
+  pointer-events: none;
+}
+.panel:hover {
+  border-color: var(--ln-1);
+  box-shadow: var(--sh-2), var(--glow-cyan), var(--sf-inset);
+}
+/* 面板抬起（悬停位移） */
+.panel--lift:hover { transform: translateY(-4px); }
+
+/* ---- 面板头部（带左侧色条 + 单行标题 + 右侧 HUD 读数） ---- */
+.panel__head {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  padding: var(--s-3) var(--s-4);
+  border-bottom: 1px solid var(--ln-2);
+  background: linear-gradient(180deg, rgba(0, 240, 255, .05), transparent);
+  position: relative;
+}
+.panel__head::before {
+  content: '';
+  width: 3px;
+  align-self: stretch;
+  background: linear-gradient(180deg, var(--c-cyan), var(--c-purple));
+  box-shadow: var(--glow-cyan);
+  flex: none;
+}
+.panel__title {
+  font-family: var(--f-display);
+  font-size: var(--fs-h3);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--t1);
+  flex: 1;
+  min-width: 0;
+}
+.panel__body { padding: var(--s-4); position: relative; z-index: 1; }
+
+/* ============================================================================
+ * 4. 警示斜纹条 / 危险边条
+ * ========================================================================== */
+.hazard {
+  height: 6px;
+  background: var(--tx-hazard);
+  background-size: 200% 100%;
+  animation: hazardRun 3.2s linear infinite;
+  opacity: .8;
+}
+@keyframes hazardRun { 0% { background-position: 0 0; } 100% { background-position: 34px 0; } }
+
+.hazard-edge { position: relative; }
+.hazard-edge::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: var(--tx-hazard);
+  animation: hazardRunY 2.6s linear infinite;
+}
+@keyframes hazardRunY { 0% { background-position: 0 0; } 100% { background-position: 0 34px; } }
+
+/* ============================================================================
+ * 5. 齿轮 / 机械装饰件
+ * ========================================================================== */
+.gear {
+  width: 30px; height: 30px;
+  flex: none;
+  color: var(--c-cyan);
+  opacity: .35;
+  animation: gearSpin 18s linear infinite;
+}
+.gear--rev { animation-direction: reverse; }
+.gear--slow { animation-duration: 30s; }
+.gear--fast { animation-duration: 8s; }
+@keyframes gearSpin { to { transform: rotate(360deg); } }
+
+/* 六角螺帽（纯 CSS，多面体高光） */
+.hexnut {
+  --sz: 20px;
+  width: var(--sz); height: calc(var(--sz) * 1.1);
+  flex: none;
+  background: linear-gradient(140deg, #2b3048, #12141f 55%, #232840);
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  position: relative;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, .7);
+}
+.hexnut::after {
+  content: '';
+  position: absolute;
+  inset: 30%;
+  background: radial-gradient(circle, rgba(0, 240, 255, .55), transparent 70%);
+  border-radius: 50%;
+  animation: hexPulse 3.4s ease-in-out infinite;
+}
+@keyframes hexPulse { 0%, 100% { opacity: .35; } 50% { opacity: 1; } }
+/* 旋转拧紧的螺帽 */
+.hexnut--turn::after { animation: hexPulse 3.4s ease-in-out infinite, gearSpin 6s linear infinite; }
+
+/* ============================================================================
+ * 6. 机加工按钮（机械按键：切角 + 斜纹扫光 + 按压行程）
+ * ========================================================================== */
+.btn {
+  --btn-accent: var(--c-cyan);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-2);
+  padding: 12px 22px;
+  font-family: var(--f-display);
+  font-size: .88rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--t1);
+  background: var(--sf-2);
+  border: 1px solid var(--ln-1);
+  border-radius: var(--r-sm);
+  cursor: pointer;
+  overflow: hidden;
+  isolation: isolate;
+  transition: color var(--dur) var(--e-out),
+              border-color var(--dur) var(--e-out),
+              box-shadow var(--dur) var(--e-out),
+              transform var(--dur-fast) var(--e-mech);
+}
+/* 内部斜纹扫光 */
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 30%, rgba(255, 255, 255, .16) 50%, transparent 70%);
+  transform: translateX(-120%);
+  transition: transform var(--dur-slow) var(--e-out);
+  z-index: -1;
+}
+/* 底部能量条 */
+.btn::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: 0;
+  height: 2px; width: 0;
+  background: linear-gradient(90deg, var(--btn-accent), transparent);
+  transition: width var(--dur-slow) var(--e-mech);
+}
+.btn:hover {
+  color: #fff;
+  border-color: var(--btn-accent);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--btn-accent) 40%, transparent), 0 8px 26px rgba(0, 0, 0, .5);
+  transform: translateY(-2px);
+}
+.btn:hover::before { transform: translateX(120%); }
+.btn:hover::after { width: 100%; }
+.btn:active { transform: translateY(1px) scale(.985); box-shadow: none; }
+
+.btn--primary { --btn-accent: var(--c-cyan); background: linear-gradient(140deg, rgba(0, 240, 255, .2), rgba(0, 120, 160, .12)); }
+.btn--pink    { --btn-accent: var(--c-pink); background: linear-gradient(140deg, rgba(255, 45, 149, .18), rgba(120, 20, 70, .12)); }
+.btn--amber   { --btn-accent: var(--c-amber); background: linear-gradient(140deg, rgba(255, 176, 32, .18), rgba(120, 80, 10, .12)); }
+.btn--ghost   { background: transparent; border-color: var(--ln-3); color: var(--t2); }
+.btn--ghost:hover { color: var(--t1); }
+.btn--lg { padding: 16px 30px; font-size: .95rem; }
+.btn--sm { padding: 8px 14px; font-size: .76rem; }
+.btn--block { width: 100%; }
+
+/* 图标按钮（圆形机加工） */
+.icon-btn {
+  width: 40px; height: 40px;
+  display: grid; place-items: center;
+  background: var(--sf-2);
+  border: 1px solid var(--ln-1);
+  border-radius: var(--r-sm);
+  color: var(--t2);
+  cursor: pointer;
+  transition: all var(--dur) var(--e-out);
+}
+.icon-btn:hover { color: #fff; border-color: var(--c-cyan); box-shadow: var(--glow-cyan); transform: translateY(-2px); }
+
+/* ============================================================================
+ * 7. HUD 标注 / 读数 / 刻度
+ * ========================================================================== */
+.hud-label {
+  font-family: var(--f-mono);
+  font-size: var(--fs-hud);
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--c-cyan);
+  opacity: .85;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.hud-label::before { content: '['; opacity: .5; }
+.hud-label::after  { content: ']'; opacity: .5; }
+.hud-label--amber { color: var(--c-amber); }
+.hud-label--pink  { color: var(--c-pink); }
+.hud-label--dim   { color: var(--t3); }
+
+/* 刻度尺（工程标尺，用于分隔与装饰） */
+.ticks {
+  height: 10px;
+  background-image:
+    repeating-linear-gradient(90deg, var(--ln-1) 0 1px, transparent 1px 10px),
+    repeating-linear-gradient(90deg, rgba(0, 240, 255, .45) 0 1px, transparent 1px 50px);
+  background-size: 100% 5px, 100% 10px;
+  background-position: 0 100%, 0 100%;
+  background-repeat: repeat-x;
+  opacity: .7;
+}
+
+/* 分隔带（带中央菱形 + 双向流动） */
+.divider {
+  position: relative;
+  height: 1px;
+  margin: var(--s-6) 0;
+  background: linear-gradient(90deg, transparent, var(--ln-1) 20%, var(--ln-pink) 50%, var(--ln-1) 80%, transparent);
+}
+.divider::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 0;
+  width: 60px; height: 3px;
+  transform: translateY(-50%);
+  background: linear-gradient(90deg, transparent, var(--c-cyan), transparent);
+  filter: blur(.4px);
+  animation: dividerScan 5s var(--e-in-out) infinite;
+}
+@keyframes dividerScan {
+  0%   { left: -60px; opacity: 0; }
+  15%  { opacity: 1; }
+  85%  { opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+
+/* 扫描条（面板内的持续扫描，机械检测感） */
+.scanbar { position: relative; overflow: hidden; }
+.scanbar::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0;
+  height: 22%;
+  top: -22%;
+  background: linear-gradient(180deg, transparent, rgba(0, 240, 255, .12), transparent);
+  animation: scanSweep 6s var(--e-in-out) infinite;
+  pointer-events: none;
+}
+@keyframes scanSweep {
+  0%   { top: -22%; opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+/* 状态灯 */
+.led {
+  display: inline-block;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  flex: none;
+  background: var(--c-green);
+  box-shadow: 0 0 8px var(--c-green);
+  animation: ledBlink 2.4s ease-in-out infinite;
+}
+.led--amber { background: var(--c-amber); box-shadow: 0 0 8px var(--c-amber); animation-duration: 1.4s; }
+.led--red   { background: var(--c-red);   box-shadow: 0 0 8px var(--c-red);   animation-duration: .9s; }
+.led--cyan  { background: var(--c-cyan);  box-shadow: 0 0 8px var(--c-cyan); }
+.led--off   { background: var(--t4); box-shadow: none; animation: none; }
+@keyframes ledBlink { 0%, 100% { opacity: 1; } 50% { opacity: .28; } }
+
+/* 读数条（机械仪表） */
+.gauge {
+  height: 6px;
+  background: rgba(0, 0, 0, .55);
+  border: 1px solid var(--ln-2);
+  border-radius: var(--r-xs);
+  overflow: hidden;
+  position: relative;
+}
+.gauge__fill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--c-cyan), var(--c-teal));
+  box-shadow: 0 0 10px rgba(0, 240, 255, .6);
+  transition: width 1.2s var(--e-mech);
+  position: relative;
+}
+.gauge__fill::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(90deg, rgba(0, 0, 0, .45) 0 1px, transparent 1px 6px);
+}
+.gauge--pink .gauge__fill { background: linear-gradient(90deg, var(--c-pink), var(--c-purple)); box-shadow: 0 0 10px rgba(255, 45, 149, .6); }
+.gauge--amber .gauge__fill { background: linear-gradient(90deg, var(--c-amber), var(--c-yellow)); box-shadow: 0 0 10px rgba(255, 176, 32, .6); }
+
+/* ============================================================================
+ * 8. 状态卡 / 提示块（danger / warn / tip / ok）—— 机械铭牌风格
+ * ========================================================================== */
+.alert {
+  position: relative;
+  display: flex;
+  gap: var(--s-3);
+  padding: var(--s-4) var(--s-4) var(--s-4) var(--s-5);
+  margin: var(--s-4) 0;
+  background: var(--sf-1);
+  border: 1px solid var(--ln-2);
+  border-left-width: 3px;
+  border-radius: 0 var(--r-sm) var(--r-sm) 0;
+  color: var(--t2);
+  overflow: hidden;
+}
+.alert__icon {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  flex: none;
+  width: 26px;
+  text-align: center;
+}
+.alert__body { flex: 1; min-width: 0; }
+.alert__title {
+  font-family: var(--f-display);
+  font-size: .82rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  display: block;
+}
+.alert p + p { margin-top: var(--s-2); }
+.alert strong { color: inherit; font-weight: 600; }
+
+.alert--danger  { border-left-color: var(--c-red);   background: linear-gradient(100deg, rgba(255, 59, 78, .09), rgba(10, 10, 20, .9) 60%); }
+.alert--danger  .alert__icon, .alert--danger .alert__title { color: var(--c-red); }
+.alert--warn    { border-left-color: var(--c-amber); background: linear-gradient(100deg, rgba(255, 176, 32, .09), rgba(10, 10, 20, .9) 60%); }
+.alert--warn    .alert__icon, .alert--warn .alert__title { color: var(--c-amber); }
+.alert--tip     { border-left-color: var(--c-cyan);  background: linear-gradient(100deg, rgba(0, 240, 255, .08), rgba(10, 10, 20, .9) 60%); }
+.alert--tip     .alert__icon, .alert--tip .alert__title { color: var(--c-cyan); }
+.alert--ok      { border-left-color: var(--c-green); background: linear-gradient(100deg, rgba(0, 255, 136, .08), rgba(10, 10, 20, .9) 60%); }
+.alert--ok      .alert__icon, .alert--ok .alert__title { color: var(--c-green); }
+/* 危险提示：持续扫过的警戒线 */
+.alert--danger::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--c-red), transparent);
+  animation: dividerScan 3.2s linear infinite;
+}
+
+/* 内联标记 */
+mark {
+  background: linear-gradient(90deg, rgba(255, 234, 0, .22), rgba(255, 234, 0, .08));
+  color: var(--c-yellow);
+  padding: .06em .34em;
+  border-radius: var(--r-xs);
+  font-weight: 500;
+}
+
+/* ============================================================================
+ * 9. 终端窗（机械日志/代码块）
+ * ========================================================================== */
+.term {
+  position: relative;
+  background: #05060d;
+  border: 1px solid var(--ln-purple);
+  border-radius: var(--r-sm);
+  margin: var(--s-4) 0;
+  overflow: hidden;
+  box-shadow: var(--sh-1), inset 0 0 60px rgba(0, 0, 0, .6);
+}
+.term__bar {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: 8px 12px;
+  background: linear-gradient(180deg, rgba(40, 44, 70, .8), rgba(14, 16, 30, .9));
+  border-bottom: 1px solid var(--ln-2);
+  font-family: var(--f-mono);
+  font-size: var(--fs-hud);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--t3);
+}
+.term__dots { display: flex; gap: 5px; margin-right: 4px; }
+.term__dots i { width: 9px; height: 9px; border-radius: 50%; background: var(--t4); }
+.term__dots i:nth-child(1) { background: #ff5f57; }
+.term__dots i:nth-child(2) { background: #febc2e; }
+.term__dots i:nth-child(3) { background: #28c840; }
+.term__path { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+pre {
+  padding: var(--s-4);
+  font-family: var(--f-mono);
+  font-size: .92rem;
+  line-height: 1.75;
+  color: #cfe6ef;
+  overflow-x: auto;
+  position: relative;
+}
+pre code { background: none; border: 0; padding: 0; color: inherit; font-size: inherit; }
+:not(pre) > code {
+  font-family: var(--f-mono);
+  font-size: .9em;
+  padding: .12em .4em;
+  background: rgba(0, 0, 0, .5);
+  border: 1px solid var(--ln-pink);
+  border-radius: var(--r-xs);
+  color: #ff9db8;
+}
+kbd {
+  display: inline-block;
+  min-width: 30px;
+  padding: .22em .5em;
+  font-family: var(--f-mono);
+  font-size: .84em;
+  text-align: center;
+  color: var(--c-cyan);
+  background: linear-gradient(180deg, #1a1e33, #0a0c16);
+  border: 1px solid var(--ln-1);
+  border-bottom-width: 3px;
+  border-radius: var(--r-xs);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, .6), inset 0 1px 0 rgba(255, 255, 255, .07);
+  transition: all var(--dur-fast) var(--e-out);
+}
+kbd:hover {
+  transform: translateY(1px);
+  border-bottom-width: 1px;
+  color: #fff;
+  box-shadow: var(--glow-cyan);
+}
+
+/* 复制按钮 */
+.copy-btn {
+  position: absolute;
+  top: 8px; right: 8px;
+  z-index: 3;
+  padding: 5px 11px;
+  font-family: var(--f-mono);
+  font-size: var(--fs-hud);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--c-cyan);
+  background: rgba(10, 14, 26, .92);
+  border: 1px solid var(--ln-1);
+  border-radius: var(--r-xs);
+  cursor: pointer;
+  transition: all var(--dur) var(--e-out);
+}
+.copy-btn:hover { color: #fff; border-color: var(--c-cyan); box-shadow: var(--glow-cyan); }
+.copy-btn.copied { color: var(--c-green); border-color: rgba(0, 255, 136, .5); box-shadow: 0 0 12px rgba(0, 255, 136, .3); }
+
+/* ============================================================================
+ * 10. 徽标 / 标签
+ * ========================================================================== */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  font-family: var(--f-mono);
+  font-size: var(--fs-hud);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  border-radius: var(--r-xs);
+  border: 1px solid;
+  white-space: nowrap;
+}
+.tag--cyan   { color: var(--c-cyan);   border-color: rgba(0, 240, 255, .35);   background: rgba(0, 240, 255, .08); }
+.tag--pink   { color: var(--c-pink);   border-color: rgba(255, 45, 149, .35);  background: rgba(255, 45, 149, .08); }
+.tag--purple { color: var(--c-purple); border-color: rgba(180, 77, 255, .35);  background: rgba(180, 77, 255, .08); }
+.tag--amber  { color: var(--c-amber);  border-color: rgba(255, 176, 32, .35);  background: rgba(255, 176, 32, .08); }
+.tag--green  { color: var(--c-green);  border-color: rgba(0, 255, 136, .35);   background: rgba(0, 255, 136, .08); }
+.tag--red    { color: var(--c-red);    border-color: rgba(255, 59, 78, .35);   background: rgba(255, 59, 78, .08); }
+
+/* 错误码（可点击复制） */
+.error-code {
+  display: inline-block;
+  font-family: var(--f-mono);
+  font-size: .88em;
+  padding: .22em .6em;
+  color: #ff8fa8;
+  background: linear-gradient(150deg, rgba(255, 45, 149, .14), rgba(6, 7, 16, .9));
+  border: 1px solid var(--ln-pink);
+  border-radius: var(--r-xs);
+  cursor: pointer;
+  transition: all var(--dur) var(--e-out);
+  position: relative;
+  overflow: hidden;
+}
+.error-code:hover { color: #fff; transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0, 0, 0, .5), var(--glow-pink); }
+.error-code::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, .25) 50%, transparent 65%);
+  transform: translateX(-120%);
+  transition: transform var(--dur-slow) var(--e-out);
+}
+.error-code:hover::after { transform: translateX(120%); }
+
+/* ============================================================================
+ * 11. 图片卡（图例 / 截图，可点击放大）
+ * ========================================================================== */
+.figure {
+  position: relative;
+  margin: var(--s-5) 0;
+  background: var(--sf-1);
+  border: 1px solid var(--ln-purple);
+  border-radius: var(--r-sm);
+  overflow: hidden;
+  box-shadow: var(--sh-1);
+  transition: all var(--dur) var(--e-out);
+}
+.figure img { width: 100%; transition: transform var(--dur-slow) var(--e-mach, var(--e-mech)); }
+.figure:hover { border-color: var(--ln-1); box-shadow: var(--sh-2), var(--glow-cyan); }
+.figure:hover img { transform: scale(1.03); }
+.figure figcaption {
+  padding: var(--s-3) var(--s-4);
+  font-family: var(--f-mono);
+  font-size: var(--fs-sm);
+  color: var(--t2);
+  border-top: 1px solid var(--ln-2);
+  background: rgba(0, 0, 0, .35);
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+}
+.figure figcaption::before { content: '▸'; color: var(--c-cyan); }
+/* 悬停时四角出现的取景框 */
+.figure::after {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 1px solid transparent;
+  pointer-events: none;
+  transition: border-color var(--dur) var(--e-out);
+  clip-path: polygon(0 0, 26px 0, 26px 1px, 1px 1px, 1px 26px, 0 26px,
+                     0 100%, 26px 100%, 26px calc(100% - 1px), 1px calc(100% - 1px), 1px calc(100% - 26px), 0 calc(100% - 26px),
+                     100% 100%, calc(100% - 26px) 100%, calc(100% - 26px) calc(100% - 1px), calc(100% - 1px) calc(100% - 1px), calc(100% - 1px) calc(100% - 26px), 100% calc(100% - 26px),
+                     100% 0, calc(100% - 26px) 0, calc(100% - 26px) 1px, calc(100% - 1px) 1px, calc(100% - 1px) 26px, 100% 26px);
+}
+.figure:hover::after { border-color: var(--c-cyan); }
+
+/* 图片网格 */
+.grid-figures {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: var(--s-4);
+  margin: var(--s-5) 0;
+}
+
+/* ============================================================================
+ * 12. 键盘表 / 定义列表（机械铭牌表）
+ * ========================================================================== */
+.spec-list {
+  display: grid;
+  grid-template-columns: minmax(150px, max-content) 1fr;
+  gap: 1px;
+  margin: var(--s-4) 0;
+  background: var(--ln-2);
+  border: 1px solid var(--ln-2);
+  border-radius: var(--r-sm);
+  overflow: hidden;
+}
+.spec-list > dt {
+  padding: var(--s-3) var(--s-4);
+  background: rgba(10, 12, 24, .96);
+  font-family: var(--f-mono);
+  color: var(--c-cyan);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.spec-list > dd {
+  padding: var(--s-3) var(--s-4);
+  background: rgba(14, 16, 30, .8);
+  color: var(--t2);
+  display: flex;
+  align-items: center;
+  transition: background var(--dur) var(--e-out), color var(--dur) var(--e-out);
+}
+.spec-list > dt:hover ~ dd,
+.spec-list > dd:hover { background: rgba(0, 240, 255, .06); color: var(--t1); }
+/* 交替行，便于横向扫读 */
+.spec-list > dt:nth-of-type(even),
+.spec-list > dt:nth-of-type(even) + dd { background: rgba(8, 10, 20, .96); }
+
+/* ============================================================================
+ * 13. 表格
+ * ========================================================================== */
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--ln-1);
+  border-radius: var(--r-sm);
+  margin: var(--s-4) 0;
+}
+table { width: 100%; border-collapse: collapse; font-size: .95rem; }
+thead { background: linear-gradient(180deg, rgba(0, 240, 255, .12), rgba(0, 240, 255, .03)); }
+th {
+  padding: var(--s-3) var(--s-4);
+  text-align: left;
+  font-family: var(--f-display);
+  font-size: var(--fs-sm);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--c-cyan);
+  border-bottom: 1px solid var(--ln-1);
+  white-space: nowrap;
+}
+td { padding: var(--s-3) var(--s-4); color: var(--t2); border-bottom: 1px solid var(--ln-3); }
+tbody tr { transition: background var(--dur-fast) var(--e-out); }
+tbody tr:hover { background: rgba(0, 240, 255, .05); }
+tbody tr:hover td { color: var(--t1); }
+tbody tr:last-child td { border-bottom: 0; }
+
+/* ============================================================================
+ * 14. 引用 / 正文文本块
+ * ========================================================================== */
+blockquote {
+  position: relative;
+  padding: var(--s-4) var(--s-5);
+  margin: var(--s-4) 0;
+  background: rgba(180, 77, 255, .06);
+  border-left: 3px solid var(--c-purple);
+  border-radius: 0 var(--r-sm) var(--r-sm) 0;
+  color: var(--t2);
+  font-style: italic;
+}
+blockquote cite { display: block; margin-top: var(--s-2); font-size: var(--fs-sm); color: var(--t3); font-style: normal; }
+
+/* 正文块（.prose 是内页正文容器） */
+.prose > * + * { margin-top: var(--s-4); }
+.prose p { color: var(--t2); }
+.prose strong { color: var(--t1); font-weight: 600; }
+.prose em { color: var(--c-cyan); }
+.prose ul, .prose ol { padding-left: 1.5em; color: var(--t2); }
+.prose li + li { margin-top: var(--s-2); }
+.prose ul li::marker { color: var(--c-pink); }
+.prose ol li::marker { color: var(--c-cyan); font-family: var(--f-mono); }
+
+/* ============================================================================
+ * 15. 步骤（安装教程等流程页）
+ * ========================================================================== */
+.steps { counter-reset: step; display: grid; gap: var(--s-4); margin: var(--s-5) 0; }
+.step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 46px 1fr;
+  gap: var(--s-4);
+  padding: var(--s-4);
+  padding-left: 0;
+  background: var(--sf-1);
+  border: 1px solid var(--ln-2);
+  border-radius: var(--r-sm);
+  transition: all var(--dur) var(--e-out);
+}
+.step::before {
+  counter-increment: step;
+  content: counter(step, decimal-leading-zero);
+  grid-row: 1 / -1;
+  align-self: start;
+  display: grid;
+  place-items: center;
+  width: 46px; height: 46px;
+  margin-left: -1px;
+  font-family: var(--f-display);
+  font-size: 1rem;
+  color: var(--bg-void);
+  background: linear-gradient(150deg, var(--c-cyan), var(--c-teal));
+  clip-path: polygon(0 0, 100% 0, 100% 74%, 74% 100%, 0 100%);
+  box-shadow: var(--glow-cyan);
+}
+.step:hover { border-color: var(--ln-1); transform: translateX(4px); }
+.step__body { grid-column: 2; min-width: 0; }
+.step__body > * + * { margin-top: var(--s-3); }
+
+/* ============================================================================
+ * 16. 页脚
+ * ========================================================================== */
+.site-footer {
+  margin-top: var(--s-8);
+  border-top: 1px solid var(--ln-2);
+  position: relative;
+}
+.site-footer::before {
+  content: '';
+  position: absolute;
+  top: -1px; left: 0;
+  width: 180px; height: 2px;
+  background: linear-gradient(90deg, var(--c-cyan), transparent);
+  box-shadow: var(--glow-cyan);
+}
+.site-footer__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: var(--s-5);
+  padding: var(--s-5) 0;
+}
+.site-footer__col h4 {
+  font-family: var(--f-mono);
+  font-size: var(--fs-hud);
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--c-cyan);
+  margin-bottom: var(--s-3);
+  font-weight: 400;
+}
+.site-footer__col a, .site-footer__col span { display: block; color: var(--t3); font-size: var(--fs-sm); padding: 3px 0; }
+.site-footer__col a:hover { color: var(--c-cyan); padding-left: 5px; }
+.site-footer__note {
+  padding: var(--s-4) 0;
+  border-top: 1px solid var(--ln-3);
+  font-size: var(--fs-xs);
+  color: var(--t4);
+  line-height: 1.8;
+}
+.site-footer__note strong { color: var(--c-amber); }
+.site-footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3) var(--s-5);
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--s-4) 0 var(--s-6);
+  font-size: var(--fs-xs);
+  color: var(--t4);
+  border-top: 1px solid var(--ln-3);
+}
+.site-footer__bottom .name { color: var(--c-cyan); font-weight: 600; }
+
+/* ============================================================================
+ * 18. 手风琴（FAQ 问答）
+ * ========================================================================== */
+.acc {
+  margin: var(--s-3) 0;
+  background: var(--sf-1);
+  border: 1px solid var(--ln-2);
+  border-radius: var(--r-sm);
+  overflow: hidden;
+  transition: border-color var(--dur) var(--e-out), box-shadow var(--dur) var(--e-out);
+}
+.acc[open] { border-color: var(--ln-1); box-shadow: var(--sh-1); }
+.acc > summary {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s-3);
+  padding: var(--s-4) var(--s-5) var(--s-4) var(--s-4);
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--f-display);
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--t1);
+  transition: background var(--dur) var(--e-out), color var(--dur) var(--e-out);
+}
+.acc > summary::-webkit-details-marker { display: none; }
+.acc > summary::before {
+  content: '';
+  width: 3px;
+  align-self: stretch;
+  flex: none;
+  background: linear-gradient(180deg, var(--c-cyan), var(--c-purple));
+  border-radius: 2px;
+  opacity: .55;
+  transition: opacity var(--dur) var(--e-out);
+}
+.acc > summary::after {
+  content: '+';
+  position: absolute;
+  right: var(--s-4);
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--f-mono);
+  font-size: 1.1rem;
+  color: var(--c-cyan);
+  transition: transform var(--dur) var(--e-mech), color var(--dur) var(--e-out);
+}
+.acc[open] > summary::after { content: '−'; transform: translateY(-50%) rotate(180deg); }
+.acc > summary:hover { background: rgba(0, 240, 255, .05); }
+.acc > summary:hover::before { opacity: 1; }
+.acc__q { flex: 1; min-width: 0; padding-right: var(--s-5); }
+.acc__body {
+  padding: 0 var(--s-5) var(--s-4) var(--s-5);
+  border-top: 1px solid var(--ln-3);
+  animation: accIn .34s var(--e-out);
+}
+.acc__body > * + * { margin-top: var(--s-3); }
+@keyframes accIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+/* 错误码问题标题 */
+.acc--err > summary { font-size: .98rem; }
+.acc--err > summary::before { background: linear-gradient(180deg, var(--c-pink), var(--c-red)); }
+.acc--err > summary::after { color: var(--c-pink); }
+
+/* ============================================================================
+ * 19. 图集筛选与卡片网格（模板 C）
+ * ========================================================================== */
+.chips { display: flex; flex-wrap: wrap; gap: var(--s-2); margin: var(--s-4) 0 var(--s-5); }
+.chip {
+  padding: 6px 14px;
+  font-family: var(--f-mono);
+  font-size: var(--fs-hud);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--t3);
+  background: rgba(0, 0, 0, .4);
+  border: 1px solid var(--ln-2);
+  border-radius: var(--r-pill);
+  cursor: pointer;
+  transition: all var(--dur) var(--e-out);
+}
+.chip:hover { color: var(--t1); border-color: var(--ln-1); }
+.chip[aria-pressed='true'] {
+  color: var(--bg-void);
+  background: linear-gradient(120deg, var(--c-cyan), var(--c-teal));
+  border-color: transparent;
+  box-shadow: var(--glow-cyan);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr));
+  gap: var(--s-4);
+}
+.gcard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--sf-1);
+  border: 1px solid var(--ln-2);
+  border-radius: var(--r-sm);
+  overflow: hidden;
+  transition: all var(--dur) var(--e-out);
+}
+.gcard:hover { border-color: var(--ln-1); box-shadow: var(--sh-2), var(--glow-cyan); }
+.gcard.is-hidden { display: none; }
+.gcard__media { position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: #05060c; }
+.gcard__media img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s var(--e-out); cursor: zoom-in; }
+.gcard:hover .gcard__media img { transform: scale(1.06); }
+.gcard__media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 45%, rgba(5, 6, 12, .9));
+  pointer-events: none;
+}
+.gcard__tag { position: absolute; top: var(--s-3); left: var(--s-3); z-index: 2; }
+.gcard__idx {
+  position: absolute;
+  top: var(--s-3); right: var(--s-3);
+  z-index: 2;
+  font-family: var(--f-mono);
+  font-size: var(--fs-hud);
+  letter-spacing: .1em;
+  color: var(--c-cyan);
+  text-shadow: 0 0 10px rgba(0, 0, 0, .9);
+}
+.gcard__body { padding: var(--s-4); display: grid; gap: var(--s-2); }
+.gcard__title { font-family: var(--f-display); font-size: 1.04rem; color: var(--t1); }
+.gcard__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  font-family: var(--f-mono);
+  font-size: var(--fs-hud);
+  color: var(--t3);
+  letter-spacing: .1em;
+}
+.gcard__text { font-size: var(--fs-sm); color: var(--t3); line-height: 1.8; }
+.gcard__text p + p { margin-top: var(--s-2); }
+
+/* ============================================================================
+ * 20. 交互反馈
+ * ========================================================================== */
+/* 点击涟漪（JS 注入 .ripple） */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 240, 255, .45), transparent 70%);
+  transform: scale(0);
+  animation: rippleOut .62s var(--e-out) forwards;
+  pointer-events: none;
+  z-index: 0;
+}
+@keyframes rippleOut { to { transform: scale(2.6); opacity: 0; } }
+
+/* 悬停位移 */
+.lift { transition: transform var(--dur) var(--e-mech), box-shadow var(--dur) var(--e-out); }
+.lift:hover { transform: translateY(-5px); }
+
+/* 3D 倾斜容器（JS 驱动 --rx/--ry） */
+.tilt {
+  transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateZ(0);
+  transform-style: preserve-3d;
+  transition: transform var(--dur-slow) var(--e-out);
+}
+.tilt--reset { transition: transform var(--dur-slow) var(--e-out); }
+/* 倾斜时内部高光跟随 */
+.tilt__glare {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(0, 240, 255, .14), transparent 55%);
+  opacity: 0;
+  transition: opacity var(--dur) var(--e-out);
+  z-index: 3;
+}
+.tilt:hover .tilt__glare { opacity: 1; }

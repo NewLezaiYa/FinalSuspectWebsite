@@ -3,43 +3,109 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Cache-Control" content="max-age=3600">
-    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
-    <title>踢出违规昵称玩家</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FinalSuspect 选项说明：踢出违规昵称玩家——房主端自动踢出使用敏感词等破坏游戏体验昵称的玩家，可手动禁用。">
+    <title>踢出违规昵称玩家 · FinalSuspect</title>
 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;800&family=Poppins:wght@300;400;500;600&family=Share+Tech+Mono&display=swap">
     <link rel="stylesheet" href="../../Resource/CSS/cyberpunk.css">
 </head>
 
-<body>
-    <div class="container">
-        <div class="back-button" onclick="window.history.back()">返回上一页</div>
+<body data-shell="full" data-page="opt-kickdenyname" data-rail="options">
+    <main>
+        <header class="page-head">
+            <span class="page-head__label hud-label"><i class="fas fa-user-slash"></i> OPTION · 08</span>
+            <h1 class="page-title">踢出违规昵称玩家</h1>
+            <div class="page-head__meta">
+                <span><i class="fas fa-folder"></i> 选项</span>
+                <span><i class="fas fa-tag"></i> 防护 / 房间管理</span>
+                <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
+            </div>
+        </header>
 
-        <h1 id="KickPlayerWithDenyName">FinalSuspect<br>踢出使用违规昵称的玩家</h1>
+        <p class="lede">
+            当您是房主时，若 Final Suspect 检测到有人使用了违规昵称（如包含敏感词等破坏游戏体验的名称），
+            系统将自动踢出该玩家。该功能可有效维护房间秩序，避免恶意名称对其他玩家造成干扰。
+        </p>
 
-        <div class="text">
-            <p>当您是房主时，若Final Suspect检测到有人使用了违规昵称（如包含敏感词等<mark>破坏游戏体验</mark>的名称），系统将自动踢出该玩家。
-                该功能可有效维护房间秩序，避免恶意名称对其他玩家造成干扰。
-                您可以在设置手动禁用自动踢出功能。</p>
+        <div class="facts">
+            <div><span class="k">触发条件</span><span class="v">昵称包含敏感词等违规内容</span></div>
+            <div><span class="k">生效端</span><span class="v">房主</span></div>
+            <div><span class="k">处理动作</span><span class="v">自动踢出该玩家</span></div>
+            <div><span class="k">可否关闭</span><span class="v">可在设置手动禁用</span></div>
         </div>
 
-        <div class="footer-meta">
-            <div class="edit-time">
-                <i class="fas fa-clock"></i>
-                <span>最后更新: <time id="lastEditTime" datetime=""></time></span>
+        <div class="prose">
+            <h2 class="sec-title" id="how"><span class="sec-title__num">01</span>功能说明</h2>
+            <p>
+                当您是房主时，若 Final Suspect 检测到有人使用了违规昵称
+                （如包含敏感词等<mark>破坏游戏体验</mark>的名称），系统将自动踢出该玩家。
+            </p>
+            <p>
+                该功能可有效维护房间秩序，避免恶意名称对其他玩家造成干扰。
+            </p>
+
+            <h2 class="sec-title" id="order"><span class="sec-title__num">02</span>维护房间秩序</h2>
+            <ul>
+                <li><strong>面向房主</strong>：该功能在你作为房主时生效，由模组自动完成判断与处理。</li>
+                <li><strong>面向房间</strong>：违规昵称会直接影响同房间的其他玩家，自动踢出可以把这类干扰及时清出房间。</li>
+                <li><strong>可以关闭</strong>：如果你更愿意自行判断昵称是否违规，也可以在设置里手动禁用自动踢出。</li>
+            </ul>
+            <div class="alert alert--ok">
+                <span class="alert__icon"><i class="fas fa-circle-check"></i></span>
+                <div class="alert__body">
+                    <span class="alert__title">省去逐个核对的麻烦</span>
+                    <p>昵称在玩家进入房间时就会显示出来。保持该功能开启，房主不必再逐个检查每个名字是否合规。</p>
+                </div>
+            </div>
+
+            <h2 class="sec-title" id="disable"><span class="sec-title__num">03</span>关闭方式</h2>
+            <div class="alert alert--tip">
+                <span class="alert__icon"><i class="fas fa-lightbulb"></i></span>
+                <div class="alert__body">
+                    <span class="alert__title">可以手动禁用</span>
+                    <p>您可以在设置手动禁用自动踢出功能，关闭后昵称将由房主自行判断与处理。</p>
+                </div>
+            </div>
+
+            <h2 class="sec-title" id="related"><span class="sec-title__num">04</span>搭配使用</h2>
+            <div class="related__grid">
+                <a class="related__card" href="KickPlayerInBanList"><i class="fas fa-ban"></i><span>踢出被封禁的玩家</span><i
+                        class="fas fa-arrow-right"></i></a>
+                <a class="related__card" href="KickPlayerWithAbnormalFriendCode"><i class="fas fa-user-xmark"></i><span>踢出好友代码异常的玩家</span><i
+                        class="fas fa-arrow-right"></i></a>
+                <a class="related__card" href="SpamDenyWord"><i class="fas fa-comment-slash"></i><span>屏蔽违禁词</span><i
+                        class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="alert alert--ok">
+                <span class="alert__icon"><i class="fas fa-circle-check"></i></span>
+                <div class="alert__body">
+                    <span class="alert__title">组合效果</span>
+                    <p>「踢出违规昵称玩家」负责处理名字，「屏蔽违禁词」负责处理聊天内容，
+                        两者一起开启可以同时照顾到昵称与对话两边。</p>
+                </div>
             </div>
         </div>
 
-        <div class="footer-copyright">
-            <p>网站设计 ©<span>LezaiYa</span> | FinalSuspect Mod ©<span>Slok</span></p>
+        <div class="pager">
+            <a class="pager__item" href="KickPlayerInBanList">
+                <small>上一个选项</small>
+                <b>← 踢出被封禁的玩家</b>
+            </a>
+            <a class="pager__item pager__item--next" href="OfflineMode">
+                <small>下一个选项</small>
+                <b>离线模式（试验性） →</b>
+            </a>
         </div>
-    </div>
-    <script src='../../Resource/JS/h1.js'></script>
-    <script src='../../Resource/JS/last-modified.js'></script>
-    <script src='../../Resource/JS/Time.js'></script>
+    </main>
+
+    <script src="../../Resource/JS/Nav.js"></script>
+    <script src="../../Resource/JS/fx.js"></script>
+    <script src="../../Resource/JS/Time.js"></script>
+    <script src="../../Resource/JS/last-modified.js"></script>
 </body>
 
 </html>

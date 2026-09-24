@@ -3,62 +3,80 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Cache-Control" content="max-age=3600">
-    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
-    <title>使用模组鼠标光标</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FinalSuspect 选项说明：使用模组鼠标光标——用模组提供的定制光标替换原版默认鼠标光标。">
+    <title>使用模组鼠标光标 · FinalSuspect</title>
 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;800&family=Poppins:wght@300;400;500;600&family=Share+Tech+Mono&display=swap">
     <link rel="stylesheet" href="../../Resource/CSS/cyberpunk.css">
 </head>
 
-<body>
-    <div class="container">
-        <div class="back-button" onclick="window.history.back()">返回上一页</div>
+<body data-shell="full" data-page="opt-usemodcursor" data-rail="options">
+    <main>
+        <header class="page-head">
+            <span class="page-head__label hud-label"><i class="fas fa-arrow-pointer"></i> OPTION · 14</span>
+            <h1 class="page-title">使用模组鼠标光标</h1>
+            <div class="page-head__meta">
+                <span><i class="fas fa-folder"></i> 选项</span>
+                <span><i class="fas fa-tag"></i> 外观 / 界面</span>
+                <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
+            </div>
+        </header>
 
-        <h1 id="UseModCursor">FinalSuspect<br>使用模组鼠标光标</h1>
+        <p class="lede">
+            启用此功能后，游戏将采用模组提供的定制鼠标光标，
+            替代原版游戏的默认鼠标光标。
+        </p>
 
-        <div class="text">
-            <p>启用此功能后，游戏将采用模组提供的定制鼠标光标，替代原版游戏的默认鼠标光标。</p>
-            <div class="tip">
-                <p><mark>该功能会覆盖你的鼠标光标</mark>。<br>
-                    除非你不喜欢用Windows默认鼠标光标，否则一般而言我们建议是关闭的。
-                </p>
+        <div class="facts">
+            <div><span class="k">作用</span><span class="v">替换游戏内鼠标光标</span></div>
+            <div><span class="k">光标来源</span><span class="v">模组提供的定制光标</span></div>
+            <div><span class="k">生效端</span><span class="v">模组端</span></div>
+            <div><span class="k">影响平衡</span><span class="v">不影响</span></div>
+        </div>
+
+        <div class="prose">
+            <h2 class="sec-title" id="how"><span class="sec-title__num">01</span>功能说明</h2>
+            <p>
+                启用此功能后，游戏将采用模组提供的定制鼠标光标，替代原版游戏的默认鼠标光标。
+            </p>
+
+            <h2 class="sec-title" id="preview"><span class="sec-title__num">02</span>效果示意</h2>
+            <figure class="figure">
+                <img src="../../Resource/images/Cursor.png" alt="模组鼠标光标示意图">
+                <figcaption>模组鼠标光标示意图</figcaption>
+            </figure>
+
+            <h2 class="sec-title" id="tips"><span class="sec-title__num">03</span>使用建议</h2>
+            <div class="alert alert--tip">
+                <span class="alert__icon"><i class="fas fa-lightbulb"></i></span>
+                <div class="alert__body">
+                    <span class="alert__title">开启前请注意</span>
+                    <p><mark>该功能会覆盖你的鼠标光标</mark>。</p>
+                    <p>除非你不喜欢用 Windows 默认鼠标光标，否则一般而言建议关闭。</p>
+                </div>
             </div>
         </div>
 
-        <div class="image-grid">
-            <div class="image-wrapper">
-                <p class="text">模组鼠标光标示意图：</p>
-                <img src="/Resource/images/Cursor.png" class="guide-img">
-            </div>
+        <div class="pager">
+            <a class="pager__item" href="UnlockFPS">
+                <small>上一个选项</small>
+                <b>← 解锁帧数限制</b>
+            </a>
+            <a class="pager__item pager__item--next" href="../Features/">
+                <small>下一个板块</small>
+                <b>功能总览 →</b>
+            </a>
         </div>
+    </main>
 
-        <div class="footer-meta">
-            <div class="edit-time">
-                <i class="fas fa-clock"></i>
-                <span>最后更新: <time id="lastEditTime" datetime=""></time></span>
-            </div>
-        </div>
-
-        <div class="footer-copyright">
-            <p>网站设计 ©<span>LezaiYa</span> | FinalSuspect Mod ©<span>Slok</span></p>
-        </div>
-    </div>
-
-    <button class="back-to-top" aria-label="回到顶部">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 15l-6-6-6 6" />
-        </svg>
-    </button>
-    <script src='../../Resource/JS/BackToTop.js'></script>
-    <script src='../../Resource/JS/h1.js'></script>
-    <script src='../../Resource/JS/Image.js'></script>
-    <script src='../../Resource/JS/last-modified.js'></script>
-    <script src='../../Resource/JS/Time.js'></script>
+    <script src="../../Resource/JS/Nav.js"></script>
+    <script src="../../Resource/JS/fx.js"></script>
+    <script src="../../Resource/JS/Time.js"></script>
+    <script src="../../Resource/JS/last-modified.js"></script>
 </body>
 
 </html>

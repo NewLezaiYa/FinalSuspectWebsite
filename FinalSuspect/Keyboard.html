@@ -3,85 +3,144 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Cache-Control" content="max-age=3600">
-    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
-    <title>快捷键</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FinalSuspect 快捷键一览：更改分辨率、全屏、重载翻译、输出日志、打开游戏目录，以及房主专用的倒计时快捷键。">
+    <title>快捷键 · FinalSuspect</title>
 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;800&family=Poppins:wght@300;400;500;600&family=Share+Tech+Mono&display=swap">
     <link rel="stylesheet" href="../Resource/CSS/cyberpunk.css">
 </head>
 
-<body>
-    <div class="container">
-        <div class="back-button" onclick="window.history.back()">返回上一页</div>
+<body data-shell="full" data-page="keyboard" data-rail="start">
+    <main>
+        <header class="page-head">
+            <span class="page-head__label hud-label"><i class="fas fa-keyboard"></i> REFERENCE · KEYS</span>
+            <h1 class="page-title">快捷键</h1>
+            <div class="page-head__meta">
+                <span><i class="fas fa-folder"></i> 开始</span>
+                <span><i class="fas fa-list"></i> 10 组按键</span>
+                <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
+            </div>
+        </header>
 
-        <h1 id="Keyboard">FinalSuspect 快捷键</h1>
+        <p class="lede">
+            仅适用于模组端的快捷键。前两组为通用操作，其余为房主专用控制。
+            键盘表按「按键 → 作用」排列，方便横向扫读。
+        </p>
 
-        <h2>FinalSuspect 模组端快捷键</h2>
-        <dl>
-            <dt><kbd>F11</kbd>
-            <dd>更改分辨率</dd>
-
-            <dt><kbd>F4</kbd>
-            <dd>更改全屏</dd>
-
-            <dt><kbd>F5</kbd>+<kbd>T</kbd></dt>
-            <dd>重新加载自定义翻译文件</dd>
-
-            <dt><kbd>F5</kbd>+<kbd>X</kbd></dt>
-            <dd>导出自定义翻译文件</dd>
-
-            <dt><kbd>F1</kbd>+<kbd>左Ctrl</kbd>/<kbd>右Ctrl</kbd></dt>
-            <dd>输出日志</dd>
-
-            <dt><kbd>F2</kbd>+<kbd>左Ctrl</kbd>/<kbd>右Ctrl</kbd></dt>
-            <dd>游戏中输出日志</dd>
-
-            <dt><kbd>F10</kbd></dt>
-            <dd>打开游戏目录</dd>
-
-            <dt><kbd>TAB</kbd></dt>
-            <dd>显示/隐藏主页ui</dd>
-        </dl>
-
-        <h2>FinalSuspect 仅限房主快捷键</h2>
-        <div class="warning">
-            <p>该快捷键仅限自己是房主，且是FinalSuspect模组端生效</p>
+        <div class="facts">
+            <div><span class="k">通用快捷键</span><span class="v">8 组</span></div>
+            <div><span class="k">房主专用</span><span class="v">2 组</span></div>
+            <div><span class="k">生效端</span><span class="v">模组端（非原版）</span></div>
+            <div><span class="k">组合键写法</span><span class="v">同时按下</span></div>
         </div>
-        <dl>
-            <dt><kbd>左Shift</kbd>/<kbd>右Shift</kbd></dt>
-            <dd>将大厅房间倒计时修改为0s</dd>
 
-            <dt><kbd>C</kbd></dt>
-            <dd>重置房间倒计时</dd>
-        </dl>
+        <div class="prose">
 
-        <div class="footer-meta">
-            <div class="edit-time">
-                <i class="fas fa-clock"></i>
-                <span>最后更新: <time id="lastEditTime" datetime=""></time></span>
+            <h2 class="sec-title" id="general"><span class="sec-title__num">01</span>模组端快捷键</h2>
+            <p>以下快捷键在 Final Suspect 模组端全局生效。</p>
+
+            <dl class="spec-list">
+                <dt><kbd>F11</kbd></dt>
+                <dd>更改分辨率</dd>
+
+                <dt><kbd>F4</kbd></dt>
+                <dd>更改全屏</dd>
+
+                <dt><kbd>F5</kbd><span>+</span><kbd>T</kbd></dt>
+                <dd>重新加载自定义翻译文件</dd>
+
+                <dt><kbd>F5</kbd><span>+</span><kbd>X</kbd></dt>
+                <dd>导出自定义翻译文件</dd>
+
+                <dt><kbd>F1</kbd><span>+</span><kbd>左Ctrl</kbd><span>/</span><kbd>右Ctrl</kbd></dt>
+                <dd>输出日志</dd>
+
+                <dt><kbd>F2</kbd><span>+</span><kbd>左Ctrl</kbd><span>/</span><kbd>右Ctrl</kbd></dt>
+                <dd>游戏中输出日志</dd>
+
+                <dt><kbd>F10</kbd></dt>
+                <dd>打开游戏目录</dd>
+
+                <dt><kbd>TAB</kbd></dt>
+                <dd>显示 / 隐藏主页 UI</dd>
+            </dl>
+
+            <div class="alert alert--tip">
+                <span class="alert__icon"><i class="fas fa-lightbulb"></i></span>
+                <div class="alert__body">
+                    <span class="alert__title">关于输出日志</span>
+                    <p>按 <kbd>F1</kbd> 输出的日志会落在模组专用目录，
+                        具体位置与手动查找方式见 <a href="Guide/OutputLog">导出日志</a>。</p>
+                </div>
+            </div>
+
+            <h2 class="sec-title" id="host"><span class="sec-title__num">02</span>房主专用快捷键</h2>
+
+            <div class="alert alert--warn">
+                <span class="alert__icon"><i class="fas fa-crown"></i></span>
+                <div class="alert__body">
+                    <span class="alert__title">生效条件</span>
+                    <p>该组快捷键<strong>仅限自己是房主</strong>，且处于 FinalSuspect 模组端时生效。</p>
+                </div>
+            </div>
+
+            <dl class="spec-list">
+                <dt><kbd>左Shift</kbd><span>/</span><kbd>右Shift</kbd></dt>
+                <dd>将大厅房间倒计时修改为 0 秒</dd>
+
+                <dt><kbd>C</kbd></dt>
+                <dd>重置房间倒计时</dd>
+            </dl>
+
+            <h2 class="sec-title" id="combo"><span class="sec-title__num">03</span>与其他功能的搭配</h2>
+            <div class="related__grid">
+                <a class="related__card" href="Options/AutoStartGame"><i class="fas fa-users-cog"></i><span>人满自动开始游戏</span><i
+                        class="fas fa-arrow-right"></i></a>
+                <a class="related__card" href="Features/DumpLog"><i class="fas fa-file-code"></i><span>输出日志功能</span><i
+                        class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="alert alert--ok">
+                <span class="alert__icon"><i class="fas fa-circle-check"></i></span>
+                <div class="alert__body">
+                    <span class="alert__title">房主小技巧</span>
+                    <p>配合「人满自动开始游戏」使用：倒计时由模组自动触发时，仍可用
+                        <kbd>C</kbd> 重置、用 <kbd>Shift</kbd> 直接归零。</p>
+                </div>
             </div>
         </div>
 
-        <div class="footer-copyright">
-            <p>网站设计 ©<span>LezaiYa</span> | FinalSuspect Mod ©<span>Slok</span></p>
+        <div class="related">
+            <div class="related__title"><i class="fas fa-diagram-project"></i> 相关文档</div>
+            <div class="related__grid">
+                <a class="related__card" href="Options/"><i class="fas fa-sliders"></i><span>14 项可调选项</span><i
+                        class="fas fa-arrow-right"></i></a>
+                <a class="related__card" href="FAQ"><i class="fas fa-life-ring"></i><span>疑难解答</span><i
+                        class="fas fa-arrow-right"></i></a>
+                <a class="related__card" href="Introduction"><i class="fas fa-book-open"></i><span>模组简介</span><i
+                        class="fas fa-arrow-right"></i></a>
+            </div>
         </div>
-    </div>
 
-    <button class="back-to-top" aria-label="回到顶部">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 15l-6-6-6 6" />
-        </svg>
-    </button>
-    <script src='../Resource/JS/BackToTop.js'></script>
-    <script src='../Resource/JS/h1.js'></script>
-    <script src='../Resource/JS/h2.js'></script>
-    <script src='../Resource/JS/last-modified.js'></script>
-    <script src='../Resource/JS/Time.js'></script>
+        <div class="pager">
+            <a class="pager__item" href="FAQ">
+                <small>上一篇</small>
+                <b>← 疑难解答</b>
+            </a>
+            <a class="pager__item pager__item--next" href="Changelog">
+                <small>下一篇</small>
+                <b>更新日志 →</b>
+            </a>
+        </div>
+    </main>
+
+    <script src="../Resource/JS/Nav.js"></script>
+    <script src="../Resource/JS/fx.js"></script>
+    <script src="../Resource/JS/Time.js"></script>
+    <script src="../Resource/JS/last-modified.js"></script>
 </body>
 
 </html>

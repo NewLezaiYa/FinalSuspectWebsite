@@ -3,48 +3,110 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Cache-Control" content="max-age=3600">
-    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
-    <title>启用反作弊</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FinalSuspect 选项说明：启用反作弊（FAC）——开启 Final Anti Cheat 后房间恢复防护，官方不推荐禁用。">
+    <title>启用反作弊（FAC） · FinalSuspect</title>
 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;800&family=Poppins:wght@300;400;500;600&family=Share+Tech+Mono&display=swap">
     <link rel="stylesheet" href="../../Resource/CSS/cyberpunk.css">
 </head>
 
-<body>
-    <div class="container">
-        <div class="back-button" onclick="window.history.back()">返回上一页</div>
+<body data-shell="full" data-page="opt-enablefac" data-rail="options">
+    <main>
+        <header class="page-head">
+            <span class="page-head__label hud-label"><i class="fas fa-shield-halved"></i> OPTION · 03</span>
+            <h1 class="page-title">启用反作弊（FAC）</h1>
+            <div class="page-head__meta">
+                <span><i class="fas fa-folder"></i> 选项</span>
+                <span><i class="fas fa-tag"></i> 防护 / 反作弊</span>
+                <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
+            </div>
+        </header>
 
-        <h1 id="EnableFAC">FinalSuspect<br>启用反作弊</h1>
+        <p class="lede">
+            Final Suspect 提供了启用 FAC（Final Anti Cheat）的选项，启用后 FAC 将开始工作。
+            该功能适用于自定义房间或模组测试场景；禁用后房间将失去这层防护，转而依赖玩家自律。
+        </p>
 
-        <div class="text">
-            在Final Suspect模组中，我们提供了启用FAC（Final Anti Cheat）的选项。<br>
-            启用此选项后，<mark>FAC将开始工作</mark>。<br>
-            该功能适用于自定义房间或模组测试场景，禁用后房间将依赖玩家自律。
+        <div class="facts">
+            <div><span class="k">功能全称</span><span class="v">FAC（Final Anti Cheat）</span></div>
+            <div><span class="k">启用后</span><span class="v">FAC 开始工作</span></div>
+            <div><span class="k">禁用后</span><span class="v">房间依赖玩家自律</span></div>
+            <div><span class="k">官方建议</span><span class="v">不推荐禁用</span></div>
         </div>
 
-        <div class="danger">
-            <p>我们<mark>不推荐</mark>你禁用FAC。<br>
-                禁用FAC后您的房间可能会被外挂炸崩。</p>
-        </div>
+        <div class="prose">
+            <h2 class="sec-title" id="how"><span class="sec-title__num">01</span>功能说明</h2>
+            <p>
+                在 Final Suspect 模组中，我们提供了启用 FAC（Final Anti Cheat）的选项。
+                启用此选项后，<mark>FAC 将开始工作</mark>，为房间提供反作弊防护。
+            </p>
+            <p>
+                该功能适用于自定义房间或模组测试场景；禁用后房间将依赖玩家自律。
+                也就是说，房间的安全程度取决于房间里玩家的自觉性。
+            </p>
 
-        <div class="footer-meta">
-            <div class="edit-time">
-                <i class="fas fa-clock"></i>
-                <span>最后更新: <time id="lastEditTime" datetime=""></time></span>
+            <h2 class="sec-title" id="scene"><span class="sec-title__num">02</span>适用场景</h2>
+            <ul>
+                <li><strong>自定义房间</strong>：与熟悉的人一起游玩时，可以按自己的需要决定是否开启防护。</li>
+                <li><strong>模组测试</strong>：在测试模组功能的场景下，可以按需切换 FAC 的开关。</li>
+            </ul>
+            <div class="alert alert--tip">
+                <span class="alert__icon"><i class="fas fa-lightbulb"></i></span>
+                <div class="alert__body">
+                    <span class="alert__title">开关可以随时调整</span>
+                    <p>FAC 的开关是一个选项：你可以先关闭它做测试，测试结束后再把 FAC 重新启用。</p>
+                </div>
+            </div>
+
+            <h2 class="sec-title" id="warning"><span class="sec-title__num">03</span>重要警告</h2>
+            <div class="alert alert--danger">
+                <span class="alert__icon"><i class="fas fa-triangle-exclamation"></i></span>
+                <div class="alert__body">
+                    <span class="alert__title">不推荐禁用 FAC</span>
+                    <p>我们<mark>不推荐</mark>你禁用 FAC。</p>
+                    <p>禁用 FAC 后，你的房间可能会被外挂炸崩。</p>
+                </div>
+            </div>
+
+            <h2 class="sec-title" id="related"><span class="sec-title__num">04</span>相关选项</h2>
+            <div class="related__grid">
+                <a class="related__card" href="KickPlayerInBanList"><i class="fas fa-ban"></i><span>踢出被封禁的玩家</span><i
+                        class="fas fa-arrow-right"></i></a>
+                <a class="related__card" href="KickPlayerWithAbnormalFriendCode"><i class="fas fa-user-xmark"></i><span>踢出好友代码异常的玩家</span><i
+                        class="fas fa-arrow-right"></i></a>
+                <a class="related__card" href="KickPlayerWithDenyName"><i class="fas fa-user-slash"></i><span>踢出违规昵称玩家</span><i
+                        class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="alert alert--ok">
+                <span class="alert__icon"><i class="fas fa-circle-check"></i></span>
+                <div class="alert__body">
+                    <span class="alert__title">组合效果</span>
+                    <p>保持 FAC 启用，并配合三个自动踢出选项，
+                        房间既能挡住作弊者，也能自动清理封禁名单与异常昵称。</p>
+                </div>
             </div>
         </div>
 
-        <div class="footer-copyright">
-            <p>网站设计 ©<span>LezaiYa</span> | FinalSuspect Mod ©<span>Slok</span></p>
+        <div class="pager">
+            <a class="pager__item" href="AutoStartGame">
+                <small>上一个选项</small>
+                <b>← 人满自动开始游戏</b>
+            </a>
+            <a class="pager__item pager__item--next" href="DisableVanillaSound">
+                <small>下一个选项</small>
+                <b>禁用原版游戏音乐 →</b>
+            </a>
         </div>
-    </div>
-    <script src='../../Resource/JS/h1.js'></script>
-    <script src='../../Resource/JS/last-modified.js'></script>
-    <script src='../../Resource/JS/Time.js'></script>
+    </main>
+
+    <script src="../../Resource/JS/Nav.js"></script>
+    <script src="../../Resource/JS/fx.js"></script>
+    <script src="../../Resource/JS/Time.js"></script>
+    <script src="../../Resource/JS/last-modified.js"></script>
 </body>
 
 </html>

@@ -3,65 +3,178 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Cache-Control" content="max-age=3600">
-    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
-    <title>简介</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FinalSuspect 模组简介：保留经典、优化体验的开发理念，20+ 项功能迭代覆盖操作手感、视觉表现与社交互动。">
+    <title>模组简介 · FinalSuspect</title>
 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;800&family=Poppins:wght@300;400;500;600&family=Share+Tech+Mono&display=swap">
     <link rel="stylesheet" href="../Resource/CSS/cyberpunk.css">
 </head>
 
-<body>
-    <div class="container">
-        <div class="back-button" onclick="window.history.back()">返回上一页</div>
+<body data-shell="full" data-page="intro" data-rail="start">
+    <main>
+        <header class="page-head">
+            <span class="page-head__label hud-label"><i class="fas fa-book-open"></i> OVERVIEW · 01</span>
+            <h1 class="page-title">FinalSuspect 简介</h1>
+            <div class="page-head__meta">
+                <span><i class="fas fa-folder"></i> 开始</span>
+                <span><i class="fas fa-code-branch"></i> 1.3 正式版</span>
+                <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
+            </div>
+        </header>
 
-        <h1 id="Introduction">FinalSuspect 简介</h1>
+        <p class="lede">
+            Final Suspect（终极嫌疑）是 Among Us 原版的优质辅助模组，致力于为玩家带来更流畅、更丰富的游戏体验。
+            作为原版核心机制的深度扩展，它坚持「保留经典，优化体验」的开发理念。
+        </p>
 
-        <div class="text">
-            <p>Final Suspect（终极嫌疑）是Among
-                Us原版的优质辅助模组，致力于为玩家带来更流畅、更丰富的游戏体验。作为原版核心机制的深度扩展，我们坚持「保留经典，优化体验」的开发理念，通过20+项功能迭代，全面覆盖操作手感、视觉表现、社交互动等核心场景。
+        <div class="facts">
+            <div><span class="k">功能迭代</span><span class="v">20+ 项</span></div>
+            <div><span class="k">可调选项</span><span class="v">14 项</span></div>
+            <div><span class="k">支持平台</span><span class="v">Steam / Epic</span></div>
+            <div><span class="k">与原版玩家同局</span><span class="v">完全支持</span></div>
+        </div>
+
+        <div class="prose">
+
+            <h2 class="sec-title" id="idea"><span class="sec-title__num">01</span>开发理念</h2>
+            <p>
+                Final Suspect 通过 20+ 项功能迭代，全面覆盖<strong>操作手感</strong>、<strong>视觉表现</strong>、
+                <strong>社交互动</strong>等核心场景。
             </p>
-            <p>从精准的操作延迟优化到沉浸式的UI界面重制，智能的队友行为提示，Final
-                Suspect不仅修复了原版长期存在的体验痛点，更通过创意功能为多人协作注入新的活力。无论是新手玩家的入门引导，还是资深玩家的深度自定义，都能在这款模组中找到专属乐趣。</p>
-        </div>
+            <p>
+                从精准的操作延迟优化到沉浸式的 UI 界面重制，智能的队友行为提示，
+                Final Suspect 不仅修复了原版长期存在的体验痛点，
+                更通过创意功能为多人协作注入新的活力。
+            </p>
+            <p>
+                无论是新手玩家的入门引导，还是资深玩家的深度自定义，
+                都能在这款模组中找到专属乐趣。
+            </p>
 
-        <div class="image-grid">
-            <div class="image-wrapper">
-                <p class="text">Final Suspect游戏背景图：</p>
-                <img src="/Resource/images/LogoWithTeam.png" class="guide-img">
+            <div class="alert alert--ok">
+                <span class="alert__icon"><i class="fas fa-circle-check"></i></span>
+                <div class="alert__body">
+                    <span class="alert__title">保留经典，优化体验</span>
+                    <p>不改变原版胜负逻辑与核心玩法，只解决体验层面的摩擦。</p>
+                </div>
             </div>
-            <div class="image-wrapper">
-                <p class="text">衷心感谢为Final Suspect贡献代码与创意的所有开发者：</p>
-                <img src="https://contrib.rocks/image?repo=Slok7565/FinalSuspect" class="guide-img">
+
+            <h2 class="sec-title" id="scope"><span class="sec-title__num">02</span>能力范围</h2>
+            <div class="facts" style="margin-top:var(--s-4)">
+                <div><span class="k">操作手感</span><span class="v">延迟优化、快速启动、解锁帧率</span></div>
+                <div><span class="k">视觉表现</span><span class="v">UI 重制、6 套主页背景、外观形象</span></div>
+                <div><span class="k">社交互动</span><span class="v">平台信息展示、违禁词过滤、名称标识</span></div>
+                <div><span class="k">房间治理</span><span class="v">反作弊、封禁名单与异常玩家处理</span></div>
+            </div>
+
+            <h2 class="sec-title" id="gallery"><span class="sec-title__num">03</span>视觉一览</h2>
+
+            <figure class="figure">
+                <img src="../Resource/images/LogoWithTeam.png" alt="FinalSuspect 游戏背景图">
+                <figcaption>Final Suspect 游戏背景图（点击可放大）</figcaption>
+            </figure>
+
+            <p>模组内置 6 套可切换的主页背景，均由社区作者绘制：</p>
+            <div class="related__grid">
+                <a class="related__card" href="Features/MainMenuStyleManager"><i class="fas fa-palette"></i><span>查看全部 6 套背景</span><i
+                        class="fas fa-arrow-right"></i></a>
+                <a class="related__card" href="Keyboard"><i class="fas fa-keyboard"></i><span>快捷键一览</span><i
+                        class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <h2 class="sec-title" id="credits"><span class="sec-title__num">04</span>开发团队</h2>
+            <p>衷心感谢为 Final Suspect 贡献代码与创意的所有开发者：</p>
+
+            <div class="credits">
+                <div class="credit">
+                    <span class="credit__avatar">S</span>
+                    <span>
+                        <span class="credit__name">Slok</span>
+                        <span class="credit__role">MOD DEVELOPER</span>
+                    </span>
+                </div>
+                <div class="credit">
+                    <span class="credit__avatar">L</span>
+                    <span>
+                        <span class="credit__name">LezaiYa</span>
+                        <span class="credit__role">WEBSITE DESIGN</span>
+                    </span>
+                </div>
+                <div class="credit">
+                    <span class="credit__avatar">K</span>
+                    <span>
+                        <span class="credit__name">KpCam</span>
+                        <span class="credit__role">BACKGROUND ART</span>
+                    </span>
+                </div>
+                <div class="credit">
+                    <span class="credit__avatar">小</span>
+                    <span>
+                        <span class="credit__name">小黄117</span>
+                        <span class="credit__role">BACKGROUND ART</span>
+                    </span>
+                </div>
+                <div class="credit">
+                    <span class="credit__avatar">A</span>
+                    <span>
+                        <span class="credit__name">AIGE</span>
+                        <span class="credit__role">BACKGROUND ART</span>
+                    </span>
+                </div>
+            </div>
+
+            <figure class="figure" style="margin-top:var(--s-5)">
+                <img src="https://contrib.rocks/image?repo=Slok7565/FinalSuspect" alt="FinalSuspect 贡献者名单">
+                <figcaption>GitHub 贡献者名单（实时更新）</figcaption>
+            </figure>
+
+            <h2 class="sec-title" id="next"><span class="sec-title__num">05</span>接下来</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step__body">
+                        <p>先完成安装，确认游戏能正常启动。</p>
+                        <a class="related__card" href="Guide/Installation"><i class="fas fa-download"></i><span>安装教程</span><i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step__body">
+                        <p>再按需调整选项，把模组调成适合你的样子。</p>
+                        <a class="related__card" href="Options/"><i class="fas fa-sliders"></i><span>14 项可调选项</span><i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step__body">
+                        <p>遇到问题先查疑难解答，仍未解决就导出日志反馈。</p>
+                        <a class="related__card" href="FAQ"><i class="fas fa-life-ring"></i><span>疑难解答</span><i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="footer-meta">
-            <div class="edit-time">
-                <i class="fas fa-clock"></i>
-                <span>最后更新: <time id="lastEditTime" datetime=""></time></span>
+        <div class="related">
+            <div class="related__title"><i class="fas fa-diagram-project"></i> 相关板块</div>
+            <div class="related__grid">
+                <a class="related__card" href="Features/"><i class="fas fa-toolbox"></i><span>7 个功能模块</span><i
+                        class="fas fa-arrow-right"></i></a>
+                <a class="related__card" href="Changelog"><i class="fas fa-clock-rotate-left"></i><span>完整更新日志</span><i
+                        class="fas fa-arrow-right"></i></a>
+                <a class="related__card" href="Guide/"><i class="fas fa-graduation-cap"></i><span>教程总览</span><i
+                        class="fas fa-arrow-right"></i></a>
             </div>
         </div>
+    </main>
 
-        <div class="footer-copyright">
-            <p>网站设计 ©<span>LezaiYa</span> | FinalSuspect Mod ©<span>Slok</span></p>
-        </div>
-    </div>
-
-    <button class="back-to-top" aria-label="回到顶部">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 15l-6-6-6 6" />
-        </svg>
-    </button>
-    <script src='../Resource/JS/BackToTop.js'></script>
-    <script src='../Resource/JS/h1.js'></script>
-    <script src='../Resource/JS/Image.js'></script>
-    <script src='../Resource/JS/last-modified.js'></script>
-    <script src='../Resource/JS/Time.js'></script>
+    <script src="../Resource/JS/Nav.js"></script>
+    <script src="../Resource/JS/fx.js"></script>
+    <script src="../Resource/JS/Time.js"></script>
+    <script src="../Resource/JS/last-modified.js"></script>
 </body>
 
 </html>

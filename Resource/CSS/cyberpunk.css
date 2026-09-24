@@ -1,5 +1,15 @@
-@import 'cyberpunk-base.css';
-@import 'cyberpunk-core.css';
-@import 'cyberpunk-layout.css';
-@import 'cyberpunk-extras.css';
-@import 'cyberpunk-responsive.css';
+@charset "UTF-8";
+/* ============================================================================
+ * FinalSuspect Website — 样式入口
+ * 仅做聚合导入，具体规则见各分册：
+ *   00 tokens.css      设计令牌（颜色/间距/字体/动效曲线）
+ *   10 mech.css        机械感组件库（面板/铆钉/警示纹/齿轮/按钮/HUD）
+ *   20 shell.css       全站外壳（顶栏/导航树/目录/抽屉）+ 主页驾驶舱布局
+ *   30 pages.css       四类页面模板与长文排版
+ *   40 fx.css          动画关键帧与交互特效
+ * ========================================================================== */
+@import url('tokens.css');
+@import url('mech.css');
+@import url('shell.css');
+@import url('pages.css');
+@import url('fx.css');

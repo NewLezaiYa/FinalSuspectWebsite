@@ -3,68 +3,103 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Cache-Control" content="max-age=3600">
-    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
-    <title>教程</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FinalSuspect 教程总览：Steam / Epic 安装、模组更新与日志导出的分步图文指南。">
+    <title>教程 · FinalSuspect</title>
 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;800&family=Poppins:wght@300;400;500;600&family=Share+Tech+Mono&display=swap">
     <link rel="stylesheet" href="../../Resource/CSS/cyberpunk.css">
 </head>
 
-<body>
-    <div class="container">
-        <div class="back-button" onclick="window.history.back()">返回上一页</div>
-        <div class="header">
+<body data-shell="full" data-page="guide" data-rail="guide">
+    <main>
+        <section class="index-hero">
+            <div class="index-hero__bg"></div>
+            <span class="index-hero__kick"><i class="fas fa-graduation-cap"></i> PROCEDURE 01</span>
             <h1>FinalSuspect 教程</h1>
+            <p>从零开始的分步指南：先装对，再玩爽。三篇文档覆盖安装、更新与日志导出，
+                遇到问题时按顺序排查即可。</p>
+        </section>
+
+        <div class="facts">
+            <div><span class="k">文档数量</span><span class="v">3 篇</span></div>
+            <div><span class="k">适用平台</span><span class="v">Steam / Epic</span></div>
+            <div><span class="k">预计耗时</span><span class="v">安装约 5 分钟</span></div>
+            <div><span class="k">前置要求</span><span class="v">已安装 Among Us</span></div>
         </div>
 
-        <div class="btn-group">
-            <button class="jump-btn" onclick="window.location.href='Installation.html'">
-                <div class="jump-btn-glow"></div>
-                <div class="btn-content">
-                    <i class="btn-icon fas fa-download"></i>
-                    <span class="btn-text">安装</span>
-                </div>
-                <i class="btn-arrow fas fa-chevron-right"></i>
-            </button>
-
-            <button class="jump-btn" onclick="window.location.href='OutputLog.html'">
-                <div class="jump-btn-glow"></div>
-                <div class="btn-content">
-                    <i class="btn-icon fas fa-save"></i>
-                    <span class="btn-text">导出日志</span>
-                </div>
-                <i class="btn-arrow fas fa-chevron-right"></i>
-            </button>
-
-            <button class="jump-btn" onclick="window.location.href='Update.html'">
-                <div class="jump-btn-glow"></div>
-                <div class="btn-content">
-                    <i class="btn-icon fas fa-arrow-up"></i>
-                    <span class="btn-text">更新</span>
-                </div>
-                <i class="btn-arrow fas fa-chevron-right"></i>
-            </button>
+        <div class="index-tools">
+            <span class="index-tools__count">按顺序阅读效果最佳 · 共 <b>3</b> 篇</span>
         </div>
 
-        <div class="footer-meta">
-            <div class="edit-time">
-                <i class="fas fa-clock"></i>
-                <span>最后更新: <time id="lastEditTime" datetime=""></time></span>
+        <div class="card-grid" data-group="60">
+
+            <a class="card" href="Installation">
+                <span class="card__idx">01</span>
+                <span class="card__icon"><i class="fas fa-download"></i></span>
+                <span class="card__title">安装模组</span>
+                <span class="card__desc">下载对应平台的模组包，解压到游戏根目录。含默认路径参考与目录结构核对图。</span>
+                <span class="card__go">开始阅读 <i class="fas fa-arrow-right"></i></span>
+            </a>
+
+            <a class="card" href="Update">
+                <span class="card__idx">02</span>
+                <span class="card__icon"><i class="fas fa-rotate"></i></span>
+                <span class="card__title">更新模组</span>
+                <span class="card__desc">内置更新检查的工作原理，以及更新失败时手动替换 dll 的完整流程。</span>
+                <span class="card__go">开始阅读 <i class="fas fa-arrow-right"></i></span>
+            </a>
+
+            <a class="card" href="OutputLog">
+                <span class="card__idx">03</span>
+                <span class="card__icon"><i class="fas fa-file-export"></i></span>
+                <span class="card__title">导出日志</span>
+                <span class="card__desc">出问题时如何拿到日志文件：自动导出与手动查找两种方式。</span>
+                <span class="card__go">开始阅读 <i class="fas fa-arrow-right"></i></span>
+            </a>
+
+        </div>
+
+        <div class="alert alert--tip" style="margin-top:var(--s-6)">
+            <span class="alert__icon"><i class="fas fa-circle-info"></i></span>
+            <div class="alert__body">
+                <span class="alert__title">安装前的两点提醒</span>
+                <p>1. 必须下载与你的游戏平台匹配的模组包，Steam 与 Epic 的包不通用。</p>
+                <p>2. 安装前建议关闭 Among Us 与 Steam / Epic 客户端，避免文件被占用导致覆盖失败。</p>
             </div>
         </div>
 
-        <div class="footer-copyright">
-            <p>网站设计 ©<span>LezaiYa</span> | FinalSuspect Mod ©<span>Slok</span></p>
+        <div class="related">
+            <div class="related__title"><i class="fas fa-diagram-project"></i> 相关板块</div>
+            <div class="related__grid">
+                <a class="related__card" href="../Options/"><i class="fas fa-sliders"></i><span>17 项可调选项</span><i
+                        class="fas fa-arrow-right"></i></a>
+                <a class="related__card" href="../FAQ"><i class="fas fa-life-ring"></i><span>疑难解答</span><i
+                        class="fas fa-arrow-right"></i></a>
+                <a class="related__card" href="../Features/DumpLog"><i class="fas fa-file-code"></i><span>输出日志功能</span><i
+                        class="fas fa-arrow-right"></i></a>
+            </div>
         </div>
-    </div>
-    <script src='../../Resource/JS/index.js'></script>
-    <script src='../../Resource/JS/h1.js'></script>
-    <script src='../../Resource/JS/last-modified.js'></script>
-    <script src='../../Resource/JS/Time.js'></script>
+
+        <div class="pager">
+            <a class="pager__item" href="../Options/">
+                <small>上一篇</small>
+                <b>← 选项总览</b>
+            </a>
+            <a class="pager__item pager__item--next" href="../Guide/Installation">
+                <small>下一篇</small>
+                <b>安装模组 →</b>
+            </a>
+        </div>
+    </main>
+
+    <script src="../../Resource/JS/Nav.js"></script>
+    <script src="../../Resource/JS/fx.js"></script>
+    <script src="../../Resource/JS/Time.js"></script>
+    <script src="../../Resource/JS/last-modified.js"></script>
 </body>
 
 </html>

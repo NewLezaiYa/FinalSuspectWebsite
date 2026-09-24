@@ -3,44 +3,109 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Cache-Control" content="max-age=3600">
-    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
-    <title>人满自动开始游戏</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FinalSuspect 选项说明：人满自动开始游戏——房间人数达到「最大值-1」时启动 10 秒短倒计时，房主可手动取消。">
+    <title>人满自动开始游戏 · FinalSuspect</title>
 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;800&family=Poppins:wght@300;400;500;600&family=Share+Tech+Mono&display=swap">
     <link rel="stylesheet" href="../../Resource/CSS/cyberpunk.css">
 </head>
 
-<body>
-    <div class="container">
-        <div class="back-button" onclick="window.history.back()">返回上一页</div>
+<body data-shell="full" data-page="opt-autostartgame" data-rail="options">
+    <main>
+        <header class="page-head">
+            <span class="page-head__label hud-label"><i class="fas fa-users-cog"></i> OPTION · 02</span>
+            <h1 class="page-title">人满自动开始游戏</h1>
+            <div class="page-head__meta">
+                <span><i class="fas fa-folder"></i> 选项</span>
+                <span><i class="fas fa-tag"></i> 自动化 / 对局流程</span>
+                <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
+            </div>
+        </header>
 
-        <h1 id="AutoStartGame">FinalSuspect<br>人满自动开始游戏</h1>
+        <p class="lede">
+            Final Suspect 优化了自动开始游戏的逻辑，使房间人数接近满员时即可触发倒计时。
+            当人数达到「最大值-1」（即仅差 1 人满员）时，会启动 10 秒的短倒计时，倒计时期间房主可手动取消。
+        </p>
 
-        <div class="text">
-            在Final Suspect模组中，我们优化了自动开始游戏的逻辑，使房间人数接近满员时即可触发倒计时。<br>
-            当房间玩家人数达到<mark>最大值-1</mark>（即仅差1人满员）时，Final Suspect会启动10秒的短倒计时。<br>
-            倒计时期间，房主可手动取消。<br>
-            这一机制既避免了满员后的等待延迟，又防止因最后一名玩家迟迟未加入而影响游戏体验。
+        <div class="facts">
+            <div><span class="k">触发条件</span><span class="v">人数达到「最大值-1」</span></div>
+            <div><span class="k">倒计时时长</span><span class="v">10 秒</span></div>
+            <div><span class="k">取消权限</span><span class="v">房主</span></div>
+            <div><span class="k">影响平衡</span><span class="v">不影响</span></div>
         </div>
 
-        <div class="footer-meta">
-            <div class="edit-time">
-                <i class="fas fa-clock"></i>
-                <span>最后更新: <time id="lastEditTime" datetime=""></time></span>
+        <div class="prose">
+            <h2 class="sec-title" id="how"><span class="sec-title__num">01</span>功能说明</h2>
+            <p>
+                在 Final Suspect 模组中，我们优化了自动开始游戏的逻辑，
+                使房间人数接近满员时即可触发倒计时，而不必等到房间里一个空位都不剩。
+            </p>
+            <p>
+                当房间玩家人数达到<mark>最大值-1</mark>（即仅差 1 人满员）时，
+                Final Suspect 会启动 <strong>10 秒</strong>的短倒计时。
+            </p>
+
+            <h2 class="sec-title" id="rules"><span class="sec-title__num">02</span>触发规则</h2>
+            <dl class="spec-list">
+                <dt>触发阈值</dt>
+                <dd>房间人数达到「最大值-1」，也就是仅差 1 人满员时</dd>
+                <dt>倒计时时长</dt>
+                <dd>10 秒的短倒计时，倒计时结束后自动开始游戏</dd>
+                <dt>取消权限</dt>
+                <dd>倒计时期间，房主可手动取消</dd>
+                <dt>设计目的</dt>
+                <dd>避免满员后的等待延迟，同时防止最后一名玩家迟迟未加入而影响体验</dd>
+            </dl>
+
+            <h2 class="sec-title" id="why"><span class="sec-title__num">03</span>设计目的</h2>
+            <p>
+                这一机制既避免了满员后的等待延迟，又防止因最后一名玩家迟迟未加入而影响游戏体验。
+            </p>
+            <div class="alert alert--tip">
+                <span class="alert__icon"><i class="fas fa-lightbulb"></i></span>
+                <div class="alert__body">
+                    <span class="alert__title">倒计时不是强制开始</span>
+                    <p>如果房间里还差一位你正在等的朋友，房主可以在 10 秒内手动取消这次自动开始。</p>
+                </div>
+            </div>
+
+            <h2 class="sec-title" id="combo"><span class="sec-title__num">04</span>搭配使用</h2>
+            <div class="related__grid">
+                <a class="related__card" href="AutoEndGame"><i class="fas fa-flag-checkered"></i><span>结束时自动返回大厅</span><i
+                        class="fas fa-arrow-right"></i></a>
+                <a class="related__card" href="FastBoot"><i class="fas fa-bolt"></i><span>快速启动模式</span><i
+                        class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="alert alert--ok">
+                <span class="alert__icon"><i class="fas fa-circle-check"></i></span>
+                <div class="alert__body">
+                    <span class="alert__title">组合效果</span>
+                    <p>「人满自动开始游戏」+「结束时自动返回大厅」两项一起开启，
+                        连续对局之间的等待环节会明显变短。</p>
+                </div>
             </div>
         </div>
 
-        <div class="footer-copyright">
-            <p>网站设计 ©<span>LezaiYa</span> | FinalSuspect Mod ©<span>Slok</span></p>
+        <div class="pager">
+            <a class="pager__item" href="./">
+                <small>返回</small>
+                <b>← 选项总览</b>
+            </a>
+            <a class="pager__item pager__item--next" href="EnableFAC">
+                <small>下一个选项</small>
+                <b>启用反作弊（FAC） →</b>
+            </a>
         </div>
-    </div>
-    <script src='../../Resource/JS/h1.js'></script>
-    <script src='../../Resource/JS/last-modified.js'></script>
-    <script src='../../Resource/JS/Time.js'></script>
+    </main>
+
+    <script src="../../Resource/JS/Nav.js"></script>
+    <script src="../../Resource/JS/fx.js"></script>
+    <script src="../../Resource/JS/Time.js"></script>
+    <script src="../../Resource/JS/last-modified.js"></script>
 </body>
 
 </html>
