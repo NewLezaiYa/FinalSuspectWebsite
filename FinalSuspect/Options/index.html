@@ -3,204 +3,190 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
-    <title>选项</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="../../Resource/CSS/index.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Button/Back.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Root.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Footer.css">
-    <link rel="stylesheet" href="../../Resource/CSS/time.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FinalSuspect 可调选项总览：自动化、防护、显示与性能相关开关的完整说明。">
+    <title>选项 · FinalSuspect</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&family=Poppins:wght@400;600&display=swap">
+    <link rel="stylesheet" href="../../Resource/CSS/main.css?v=63da192d">
 </head>
 
-<body>
-    <div class="container">
-        <div class="back-button" onclick="window.history.back()">返回上一页</div>
-        <div class="header">
+<body data-shell="full" data-page="options" data-rail="options">
+    <main>
+        <section class="index-hero">
+            <div class="index-hero__bg"></div>
+            <span class="index-hero__kick"><i class="fas fa-sliders"></i> CONTROL PANEL 02</span>
             <h1>FinalSuspect 选项</h1>
+            <p>14 项可调节开关，覆盖自动化流程、房间防护、信息显示与性能表现。每一项都可以单独启用，
+                按你的玩法自由组合。</p>
+        </section>
+
+        <div class="facts">
+            <div><span class="k">选项总数</span><span class="v">14 项</span></div>
+            <div><span class="k">分类</span><span class="v">自动化 / 防护 / 显示 / 性能</span></div>
+            <div><span class="k">生效范围</span><span class="v">模组端（部分仅房主生效）</span></div>
+            <div><span class="k">配置入口</span><span class="v">游戏内模组设置菜单</span></div>
         </div>
 
-        <div class="btn-group">
-            <button class="jump-btn" onclick="window.location.href='AutoEndGame.html'">
-                <div class="jump-btn-glow"></div>
-                <div class="btn-content">
-                    <i class="btn-icon fas fa-flag-checkered"></i>
-                    <span>结束时自动返回大厅</span>
-                </div>
-                <i class="btn-arrow fas fa-chevron-right"></i>
-            </button>
-
-            <button class="jump-btn" onclick="window.location.href='AutoStartGame.html'">
-                <div class="jump-btn-glow"></div>
-                <div class="btn-content">
-                    <i class="btn-icon fas fa-users-cog"></i>
-                    <span>人满自动开始游戏</span>
-                </div>
-                <i class="btn-arrow fas fa-chevron-right"></i>
-            </button>
-
-            <button class="jump-btn" onclick="window.location.href='EnableFAC.html'">
-                <div class="jump-btn-glow"></div>
-                <div class="btn-content">
-                    <i class="btn-icon fas fa-shield-alt"></i>
-                    <span>启用反作弊</span>
-                </div>
-                <i class="btn-arrow fas fa-chevron-right"></i>
-            </button>
-
-            <button class="jump-btn" onclick="window.location.href='EnableGuardian.html'">
-                <div class="jump-btn-glow"></div>
-                <div class="btn-content">
-                    <i class="btn-icon fas fa-user-shield"></i>
-                    <span>启用客户端守护（试验性）</span>
-                </div>
-                <i class="btn-arrow fas fa-chevron-right"></i>
-            </button>
-
-            <button class="jump-btn" onclick="window.location.href='DisableVanillaSound.html'">
-                <div class="jump-btn-glow"></div>
-                <div class="btn-content">
-                    <i class="btn-icon fas fa-volume-mute"></i>
-                    <span>禁用原版游戏音乐</span>
-                </div>
-                <i class="btn-arrow fas fa-chevron-right"></i>
-            </button>
-
-            <button class="jump-btn" onclick="window.location.href='FastBoot.html'">
-                <div class="jump-btn-glow"></div>
-                <div class="btn-content">
-                    <i class="btn-icon fas fa-bolt"></i>
-                    <span>快速启动模式</span>
-                </div>
-                <i class="btn-arrow fas fa-chevron-right"></i>
-            </button>
-
-            <button class="jump-btn" onclick="window.location.href='GodMode.html'">
-                <div class="jump-btn-glow"></div>
-                <div class="btn-content">
-                    <i class="btn-icon fas fa-crown"></i>
-                    <span>上帝模式</span>
-                </div>
-                <i class="btn-arrow fas fa-chevron-right"></i>
-            </button>
-
-            <button class="jump-btn" onclick="window.location.href='KickPlayerWithAbnormalFriendCode.html'">
-                <div class="jump-btn-glow"></div>
-                <div class="btn-content">
-                    <i class="btn-icon fas fa-user-slash"></i>
-                    <span>踢出好友代码异常的玩家</span>
-                </div>
-                <i class="btn-arrow fas fa-chevron-right"></i>
-            </button>
-
-            <button class="jump-btn" onclick="window.location.href='KickPlayerInBanList.html'">
-                <div class="jump-btn-glow"></div>
-                <div class="btn-content">
-                    <i class="btn-icon fas fa-ban"></i>
-                    <span>踢出被封禁的玩家</span>
-                </div>
-                <i class="btn-arrow fas fa-chevron-right"></i>
-            </button>
-
-            <button class="jump-btn" onclick="window.location.href='KickPlayerWithDenyName.html'">
-                <div class="jump-btn-glow"></div>
-                <div class="btn-content">
-                    <i class="btn-icon fas fa-exclamation-triangle"></i>
-                    <span>踢出使用违规昵称的玩家</span>
-                </div>
-                <i class="btn-arrow fas fa-chevron-right"></i>
-            </button>
-
-            <button class="jump-btn" onclick="window.location.href='NoGameEnd.html'">
-                <div class="jump-btn-glow"></div>
-                <div class="btn-content">
-                    <i class="btn-icon fas fa-flask"></i>
-                    <span>测试模式</span>
-                </div>
-                <i class="btn-arrow fas fa-chevron-right"></i>
-            </button>
-
-            <button class="jump-btn" onclick="window.location.href='OfflineMode.html'">
-                <div class="jump-btn-glow"></div>
-                <div class="btn-content">
-                    <i class="btn-icon fas fa-solid fa-plug"></i>
-                    <span>离线模式（实验性）</span>
-                </div>
-                <i class="btn-arrow fas fa-chevron-right"></i>
-            </button>
-
-            <button class="jump-btn" onclick="window.location.href='ShowPlayerInfo.html'">
-                <div class="jump-btn-glow"></div>
-                <div class="btn-content">
-                    <i class="btn-icon fas fa-info-circle"></i>
-                    <span>展示玩家平台与客户端信息</span>
-                </div>
-                <i class="btn-arrow fas fa-chevron-right"></i>
-            </button>
-
-            <button class="jump-btn" onclick="window.location.href='SpamDenyWord.html'">
-                <div class="jump-btn-glow"></div>
-                <div class="btn-content">
-                    <i class="btn-icon fas fa-comment-slash"></i>
-                    <span>屏蔽违禁词</span>
-                </div>
-                <i class="btn-arrow fas fa-chevron-right"></i>
-            </button>
-
-            <button class="jump-btn" onclick="window.location.href='SwitchOutfitType.html'">
-                <div class="jump-btn-glow"></div>
-                <div class="btn-content">
-                    <i class="btn-icon fas fa-palette"></i>
-                    <span>切换外观形象</span>
-                </div>
-                <i class="btn-arrow fas fa-chevron-right"></i>
-            </button>
-
-            <button class="jump-btn" onclick="window.location.href='UnlockFPS.html'">
-                <div class="jump-btn-glow"></div>
-                <div class="btn-content">
-                    <i class="btn-icon fas fa-infinity"></i>
-                    <span>解锁帧数限制</span>
-                </div>
-                <i class="btn-arrow fas fa-chevron-right"></i>
-            </button>
-
-            <button class="jump-btn" onclick="window.location.href='UseModCursor.html'">
-                <div class="jump-btn-glow"></div>
-                <div class="btn-content">
-                    <i class="btn-icon fas fa-mouse-pointer"></i>
-                    <span>使用模组鼠标光标</span>
-                </div>
-                <i class="btn-arrow fas fa-chevron-right"></i>
-            </button>
-
-            <button class="jump-btn" onclick="window.location.href='VersionCheat.html'">
-                <div class="jump-btn-glow"></div>
-                <div class="btn-content">
-                    <i class="btn-icon fas fa-unlock-alt"></i>
-                    <span>绕过版本同步检查</span>
-                </div>
-                <i class="btn-arrow fas fa-chevron-right"></i>
-            </button>
+        <div class="index-tools">
+            <span class="index-tools__count">共 <b>14</b> 个条目 · 输入关键词可筛选</span>
+            <input type="search" id="cardFilter" placeholder="筛选选项…" aria-label="筛选选项">
         </div>
 
-        <div class="footer-meta">
-            <div class="edit-time">
-                <i class="fas fa-clock"></i>
-                <span>最后更新: <time id="lastEditTime" datetime=""></time></span>
-            </div>
+        <div class="card-grid" id="cardGrid" data-group="45">
+
+            <a class="card" href="AutoEndGame" data-key="结束时自动返回大厅 自动化 对局流程">
+                <span class="card__idx">01</span>
+                <span class="card__icon"><i class="fas fa-flag-checkered"></i></span>
+                <span class="card__title">结束时自动返回大厅</span>
+                <span class="card__desc">对局结束自动跳过结算与复盘，直接回到大厅，连打时更顺手。</span>
+                <span class="card__go">查看说明 <i class="fas fa-arrow-right"></i></span>
+            </a>
+
+            <a class="card" href="AutoStartGame" data-key="人满自动开始游戏 自动化 倒计时 房主">
+                <span class="card__idx">02</span>
+                <span class="card__icon"><i class="fas fa-users-cog"></i></span>
+                <span class="card__title">人满自动开始游戏</span>
+                <span class="card__desc">人数达到最大值减一时启动 10 秒短倒计时，房主可随时取消。</span>
+                <span class="card__go">查看说明 <i class="fas fa-arrow-right"></i></span>
+            </a>
+
+            <a class="card" href="EnableFAC" data-key="启用反作弊 FAC Final Anti Cheat 外挂">
+                <span class="card__idx">03</span>
+                <span class="card__icon"><i class="fas fa-shield-halved"></i></span>
+                <span class="card__title">启用反作弊（FAC）</span>
+                <span class="card__desc">开启 Final Anti Cheat。关闭后房间失去防护，官方不推荐。</span>
+                <span class="card__go">查看说明 <i class="fas fa-arrow-right"></i></span>
+            </a>
+
+            <a class="card" href="DisableVanillaSound" data-key="禁用原版游戏音乐 音效 静音 大厅音乐">
+                <span class="card__idx">04</span>
+                <span class="card__icon"><i class="fas fa-volume-xmark"></i></span>
+                <span class="card__title">禁用原版游戏音乐</span>
+                <span class="card__desc">屏蔽大厅等待音乐，方便搭配自己的播放器，不影响游戏音效。</span>
+                <span class="card__go">查看说明 <i class="fas fa-arrow-right"></i></span>
+            </a>
+
+            <a class="card" href="FastBoot" data-key="快速启动模式 性能 加载 15秒 5秒">
+                <span class="card__idx">05</span>
+                <span class="card__icon"><i class="fas fa-bolt"></i></span>
+                <span class="card__title">快速启动模式</span>
+                <span class="card__desc">跳过非必要加载环节，启动耗时从约 15 秒缩短到约 5 秒。</span>
+                <span class="card__go">查看说明 <i class="fas fa-arrow-right"></i></span>
+            </a>
+
+            <a class="card" href="KickPlayerWithAbnormalFriendCode" data-key="踢出好友代码异常的玩家 防护 好友代码">
+                <span class="card__idx">06</span>
+                <span class="card__icon"><i class="fas fa-user-xmark"></i></span>
+                <span class="card__title">踢出好友代码异常玩家</span>
+                <span class="card__desc">检测好友代码是否异常并自动踢出，同时给出提示。</span>
+                <span class="card__go">查看说明 <i class="fas fa-arrow-right"></i></span>
+            </a>
+
+            <a class="card" href="KickPlayerInBanList" data-key="踢出被封禁的玩家 封禁名单 防护 房主">
+                <span class="card__idx">07</span>
+                <span class="card__icon"><i class="fas fa-ban"></i></span>
+                <span class="card__title">踢出被封禁的玩家</span>
+                <span class="card__desc">检测到玩家处于封禁名单时自动踢出，维护房间环境。</span>
+                <span class="card__go">查看说明 <i class="fas fa-arrow-right"></i></span>
+            </a>
+
+            <a class="card" href="KickPlayerWithDenyName" data-key="踢出使用违规昵称的玩家 防护 敏感词 昵称">
+                <span class="card__idx">08</span>
+                <span class="card__icon"><i class="fas fa-user-slash"></i></span>
+                <span class="card__title">踢出违规昵称玩家</span>
+                <span class="card__desc">房主模式下自动踢出使用敏感词或恶意昵称的玩家，可手动关闭。</span>
+                <span class="card__go">查看说明 <i class="fas fa-arrow-right"></i></span>
+            </a>
+
+            <a class="card" href="OfflineMode" data-key="离线模式 试验性 远程资源">
+                <span class="card__idx">09</span>
+                <span class="card__icon"><i class="fas fa-plug-circle-xmark"></i></span>
+                <span class="card__title">离线模式（试验性）</span>
+                <span class="card__desc">不再从远程获取资源。会造成资源无法更新，不推荐日常使用。</span>
+                <span class="card__go">查看说明 <i class="fas fa-arrow-right"></i></span>
+            </a>
+
+            <a class="card" href="ShowPlayerInfo" data-key="展示玩家平台与客户端信息 显示 好友代码 举报">
+                <span class="card__idx">10</span>
+                <span class="card__icon"><i class="fas fa-id-card"></i></span>
+                <span class="card__title">展示玩家平台与客户端信息</span>
+                <span class="card__desc">大厅中显示各玩家平台与好友代码，便于识别与举报作弊者。</span>
+                <span class="card__go">查看说明 <i class="fas fa-arrow-right"></i></span>
+            </a>
+
+            <a class="card" href="SpamDenyWord" data-key="屏蔽违禁词 聊天 星号 过滤">
+                <span class="card__idx">11</span>
+                <span class="card__icon"><i class="fas fa-comment-slash"></i></span>
+                <span class="card__title">屏蔽违禁词</span>
+                <span class="card__desc">聊天中的违禁词自动替换为星号，保留句子可读性。</span>
+                <span class="card__go">查看说明 <i class="fas fa-arrow-right"></i></span>
+            </a>
+
+            <a class="card" href="SwitchOutfitType" data-key="切换外观形象 装扮 愚人节 牧马 长颈豆">
+                <span class="card__idx">12</span>
+                <span class="card__icon"><i class="fas fa-shirt"></i></span>
+                <span class="card__title">切换外观形象</span>
+                <span class="card__desc">经典豆子、愚人节牧马、愚人节长颈豆三种造型自由切换。</span>
+                <span class="card__go">查看说明 <i class="fas fa-arrow-right"></i></span>
+            </a>
+
+            <a class="card" href="UnlockFPS" data-key="解锁帧数限制 性能 60FPS 165FPS 帧率">
+                <span class="card__idx">13</span>
+                <span class="card__icon"><i class="fas fa-gauge-high"></i></span>
+                <span class="card__title">解锁帧数限制</span>
+                <span class="card__desc">解除原版 60FPS 上限，最高支持 165FPS，动画与操作更顺滑。</span>
+                <span class="card__go">查看说明 <i class="fas fa-arrow-right"></i></span>
+            </a>
+
+            <a class="card" href="UseModCursor" data-key="使用模组鼠标光标 光标 cursor 外观">
+                <span class="card__idx">14</span>
+                <span class="card__icon"><i class="fas fa-arrow-pointer"></i></span>
+                <span class="card__title">使用模组鼠标光标</span>
+                <span class="card__desc">用模组定制光标替换系统光标。不喜欢覆盖系统光标建议关闭。</span>
+                <span class="card__go">查看说明 <i class="fas fa-arrow-right"></i></span>
+            </a>
+
         </div>
 
-        <div class="footer-copyright">
-            <p>网站设计 ©<span>LezaiYa</span> | FinalSuspect Mod ©<span>Slok</span></p>
+
+        <div class="pager">
+            <a class="pager__item pager__item--next" href="../Guide/">
+                <small>下一篇</small>
+                <b>教程总览 →</b>
+            </a>
+            <a class="pager__item" href="../Keyboard">
+                <small>相关</small>
+                <b>← 快捷键列表</b>
+            </a>
         </div>
-    </div>
-    <script src='../../Resource/JS/index.js'></script>
-    <script src='../../Resource/JS/h1.js'></script>
-    <script src='../../Resource/JS/Time.js'></script>
+    </main>
+
+    <script>
+        (function () {
+            var input = document.getElementById('cardFilter');
+            var cards = document.querySelectorAll('#cardGrid .card');
+            if (!input) return;
+            input.addEventListener('input', function () {
+                var q = input.value.trim().toLowerCase();
+                Array.prototype.forEach.call(cards, function (c) {
+                    var hit = !q || (c.dataset.key + ' ' + c.textContent).toLowerCase().indexOf(q) !== -1;
+                    c.classList.toggle('is-hidden', !hit);
+                });
+            });
+        })();
+</script>
+    <script src="../../Resource/JS/language.js?v=63da192d"></script>
+    <script src="../../Resource/JS/versions.js?v=63da192d"></script>
+    <script src="../../Resource/JS/shell.js?v=63da192d"></script>
+    <script src="../../Resource/JS/transition.js?v=63da192d" defer></script>
+    <script src="../../Resource/JS/effects.js?v=63da192d" defer></script>
+    <script src="../../Resource/JS/time.js?v=63da192d" defer></script>
+    <script src="../../Resource/JS/last-modified.js?v=63da192d" defer></script>
 </body>
 
 </html>

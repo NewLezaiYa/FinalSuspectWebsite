@@ -1,0 +1,728 @@
+.sp-bezel {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  animation: spBezelIn .5s var(--e-out) both;
+}
+
+@keyframes spBezelIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.sp-bezel__corner {
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  border: 2px solid rgba(0, 240, 255, .75);
+  animation: spCornerIn .55s var(--e-mech) both;
+}
+
+.sp-bezel__corner--tl {
+  top: 20px;
+  left: 20px;
+  border-right: 0;
+  border-bottom: 0;
+}
+
+.sp-bezel__corner--tr {
+  top: 20px;
+  right: 20px;
+  border-left: 0;
+  border-bottom: 0;
+  animation-delay: .06s;
+}
+
+.sp-bezel__corner--bl {
+  bottom: 20px;
+  left: 20px;
+  border-right: 0;
+  border-top: 0;
+  animation-delay: .12s;
+}
+
+.sp-bezel__corner--br {
+  bottom: 20px;
+  right: 20px;
+  border-left: 0;
+  border-top: 0;
+  animation-delay: .18s;
+}
+
+@keyframes spCornerIn {
+  from {
+    opacity: 0;
+    transform: scale(.6);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.sp-bolt {
+  position: absolute;
+  width: 18px;
+  height: 20px;
+  background: linear-gradient(140deg, #2b3048, #12141f 55%, #232840);
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, .8), 0 0 10px rgba(0, 240, 255, .25);
+  animation: spBoltIn .7s var(--e-mech) both;
+}
+
+.sp-bolt--tl {
+  top: 30px;
+  left: 30px;
+}
+
+.sp-bolt--tr {
+  top: 30px;
+  right: 30px;
+  animation-delay: .08s;
+}
+
+.sp-bolt--bl {
+  bottom: 30px;
+  left: 30px;
+  animation-delay: .16s;
+}
+
+.sp-bolt--br {
+  bottom: 30px;
+  right: 30px;
+  animation-delay: .24s;
+}
+
+@keyframes spBoltIn {
+  from {
+    opacity: 0;
+    transform: rotate(-120deg) scale(.4);
+  }
+
+  to {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+  }
+}
+
+.sp-bezel__rule {
+  position: absolute;
+  left: 80px;
+  right: 80px;
+  height: 10px;
+  opacity: .55;
+  background-image:
+    repeating-linear-gradient(90deg, rgba(0, 240, 255, .55) 0 1px, transparent 1px 12px),
+    repeating-linear-gradient(90deg, rgba(0, 240, 255, .9) 0 1px, transparent 1px 60px);
+  background-size: 100% 6px, 100% 10px;
+  background-position: 0 100%, 0 100%;
+  background-repeat: repeat-x;
+}
+
+.sp-bezel__rule--t {
+  top: 34px;
+}
+
+.sp-bezel__rule--b {
+  bottom: 34px;
+  transform: scaleY(-1);
+}
+
+.sp-bezel__gauge {
+  position: absolute;
+  left: 34px;
+  top: 90px;
+  bottom: 90px;
+  width: 10px;
+  opacity: .5;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(0, 240, 255, .5) 0 1px, transparent 1px 14px),
+    repeating-linear-gradient(0deg, rgba(0, 240, 255, .85) 0 1px, transparent 1px 70px);
+  background-size: 6px 100%, 10px 100%;
+  background-position: 100% 0, 100% 0;
+  background-repeat: repeat-y;
+  animation: spGauge 4s ease-in-out infinite;
+}
+
+@keyframes spGauge {
+
+  0%,
+  100% {
+    opacity: .32;
+  }
+
+  50% {
+    opacity: .62;
+  }
+}
+
+.sp-readout {
+  position: absolute;
+  top: 64px;
+  right: 64px;
+  display: grid;
+  gap: 5px;
+  padding: 10px 12px;
+  min-width: 156px;
+  background: rgba(6, 8, 16, .72);
+  border: 1px solid rgba(0, 240, 255, .22);
+  border-radius: 3px;
+  font-family: var(--f-mono, monospace);
+  font-size: .68rem;
+  letter-spacing: .12em;
+  animation: spReadoutIn .5s var(--e-out) .3s both;
+}
+
+@keyframes spReadoutIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.sp-readout__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.sp-readout__row span {
+  color: rgba(107, 116, 136, .95);
+}
+
+.sp-readout__row b {
+  color: rgba(0, 240, 255, .9);
+  font-weight: 400;
+}
+
+@media (max-width: 900px) {
+  .sp-readout {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .sp-bezel__corner {
+    width: 26px;
+    height: 26px;
+  }
+
+  .sp-bezel__rule,
+  .sp-bezel__gauge {
+    display: none;
+  }
+
+  .sp-bolt {
+    width: 14px;
+    height: 16px;
+  }
+}
+
+#loadingOverlay.splash-overlay {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 45%, #080a16 0%, #030308 70%);
+  z-index: var(--z-splash, 9999);
+  overflow: hidden;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity .7s var(--e-out), visibility .7s;
+}
+
+#loadingOverlay.splash-overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+#loadingOverlay canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+#splashPcbCanvas {
+  z-index: 1;
+}
+
+#splashFxCanvas {
+  z-index: 2;
+}
+
+#splashParticleCanvas {
+  z-index: 6;
+}
+
+.sp-rings {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity .5s var(--e-out), transform .6s var(--e-mech);
+}
+
+.sp-rings--out {
+  opacity: 0;
+  transform: scale(1.06);
+}
+
+.sp-ring {
+  position: absolute;
+  width: calc(180px + var(--i) * 132px);
+  height: calc(180px + var(--i) * 132px);
+  border-radius: 50%;
+  border: 1px dashed rgba(0, 240, 255, .3);
+  border-top-color: rgba(0, 240, 255, .95);
+  border-bottom-color: rgba(255, 45, 149, .6);
+  animation: spRingIn .8s var(--e-mech) both, spRingSpin 6s linear infinite;
+  animation-delay: calc(var(--i) * .1s), 0s;
+}
+
+.sp-ring:nth-child(2) {
+  border-style: solid;
+  border-color: rgba(0, 240, 255, .16);
+  border-right-color: rgba(0, 240, 255, .8);
+  animation-duration: .8s, 9s;
+  animation-direction: normal, reverse;
+}
+
+.sp-ring:nth-child(3) {
+  border-style: dotted;
+  border-color: rgba(180, 77, 255, .35);
+  animation-duration: .8s, 14s;
+}
+
+@keyframes spRingIn {
+  from {
+    transform: scale(.55) rotate(-40deg);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1) rotate(0);
+    opacity: 1;
+  }
+}
+
+@keyframes spRingSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.sp-gear {
+  position: absolute;
+  width: min(280px, 42vw);
+  height: min(280px, 42vw);
+  opacity: 0;
+  animation: spGearIn .8s var(--e-mech) .12s both;
+}
+
+.sp-gear--a {
+  animation: spGearIn .8s var(--e-mech) .12s both, spSpinA 11s linear infinite .9s;
+}
+
+.sp-gear--b {
+  width: min(430px, 66vw);
+  height: min(430px, 66vw);
+  animation: spGearIn .9s var(--e-mech) .22s both, spSpinB 17s linear infinite 1s;
+}
+
+@keyframes spGearIn {
+  from {
+    opacity: 0;
+    transform: scale(.7);
+  }
+
+  to {
+    opacity: .9;
+    transform: scale(1);
+  }
+}
+
+@keyframes spSpinA {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spSpinB {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.sp-core {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #00f0ff;
+  box-shadow: 0 0 18px rgba(0, 240, 255, .9), 0 0 60px rgba(0, 240, 255, .5);
+  animation: spCore 1.1s var(--e-in-out) infinite;
+}
+
+@keyframes spCore {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.7);
+    opacity: .55;
+  }
+}
+
+.sp-logo {
+  --wipe: 0%;
+  --o: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(620px, 80vw);
+  z-index: 5;
+  opacity: var(--o);
+  padding: 26px 30px;
+}
+
+.sp-logo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  clip-path: inset(0 calc(100% - var(--wipe)) 0 0);
+  filter: drop-shadow(0 0 24px rgba(0, 240, 255, .55)) drop-shadow(0 0 60px rgba(255, 45, 149, .3));
+}
+
+.sp-logo__rail {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(0, 240, 255, .9), rgba(255, 45, 149, .8), transparent);
+  box-shadow: 0 0 14px rgba(0, 240, 255, .7);
+}
+
+.sp-logo__rail--t {
+  top: 0;
+}
+
+.sp-logo__rail--b {
+  bottom: 0;
+}
+
+.sp-logo__bolt {
+  position: absolute;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  margin-top: -8px;
+  background: linear-gradient(140deg, #2b3048, #12141f 55%, #232840);
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, .8);
+}
+
+.sp-logo__bolt--l {
+  left: -8px;
+  animation: spBolt 1.1s var(--e-out) .5s both;
+}
+
+.sp-logo__bolt--r {
+  right: -8px;
+  animation: spBolt 1.1s var(--e-out) .6s both;
+}
+
+@keyframes spBolt {
+  0% {
+    transform: rotate(0) scale(0);
+    opacity: 0;
+  }
+
+  60% {
+    transform: rotate(360deg) scale(1.25);
+    opacity: 1;
+  }
+
+  100% {
+    transform: rotate(540deg) scale(1);
+    opacity: 1;
+  }
+}
+
+#splashLog {
+  position: absolute;
+  top: clamp(18px, 5vh, 56px);
+  left: clamp(18px, 4vw, 56px);
+  z-index: 4;
+  display: grid;
+  gap: 3px;
+  font-family: var(--f-mono, monospace);
+  font-size: .76rem;
+  letter-spacing: .08em;
+  max-width: min(52vw, 460px);
+  pointer-events: none;
+}
+
+.sp-log__line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(164, 173, 196, .82);
+  animation: spLogIn .3s var(--e-out) both;
+}
+
+@keyframes spLogIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.sp-log__tag {
+  flex: none;
+  padding: 1px 5px;
+  font-size: .64rem;
+  color: #030308;
+  background: rgba(0, 240, 255, .85);
+  border-radius: 2px;
+}
+
+.sp-log__line--ok .sp-log__tag {
+  background: rgba(0, 255, 136, .9);
+}
+
+.sp-log__line--warn .sp-log__tag {
+  background: rgba(255, 176, 32, .95);
+}
+
+.sp-log__txt {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+#loadText {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(96px, 17vh, 160px);
+  transform: translateX(-50%);
+  z-index: 4;
+  font-family: var(--f-mono, monospace);
+  font-size: .9rem;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: rgba(0, 240, 255, .85);
+  opacity: 0;
+  transition: opacity .4s var(--e-out);
+  text-align: center;
+  white-space: nowrap;
+}
+
+#loadText.is-on {
+  opacity: 1;
+  animation: spTextFlicker 3s steps(1) infinite;
+}
+
+@keyframes spTextFlicker {
+
+  0%,
+  96%,
+  100% {
+    opacity: 1;
+  }
+
+  97% {
+    opacity: .35;
+  }
+
+  98% {
+    opacity: 1;
+  }
+
+  99% {
+    opacity: .6;
+  }
+}
+
+#processText {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(58px, 11vh, 100px);
+  transform: translateX(-50%);
+  z-index: 4;
+  width: min(460px, 76vw);
+  display: grid;
+  gap: 7px;
+  justify-items: center;
+}
+
+.sp-bar {
+  width: 100%;
+  height: 7px;
+  background: rgba(0, 0, 0, .68);
+  border: 1px solid rgba(0, 240, 255, .22);
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+}
+
+.sp-bar i {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #00f0ff, #14e0c8);
+  box-shadow: 0 0 12px rgba(0, 240, 255, .8);
+  transition: width .16s linear;
+}
+
+.sp-bar::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(115deg,
+      rgba(255, 255, 255, .14) 0 5px, transparent 5px 12px);
+  animation: spBarRun .7s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes spBarRun {
+  to {
+    background-position: 24px 0;
+  }
+}
+
+.sp-bar__label {
+  font-family: var(--f-mono, monospace);
+  font-size: .72rem;
+  letter-spacing: .14em;
+  color: rgba(164, 173, 196, .8);
+}
+
+#downloadHint {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(30px, 6vh, 58px);
+  transform: translateX(-50%) translateY(6px);
+  z-index: 4;
+  font-family: var(--f-mono, monospace);
+  font-size: .72rem;
+  letter-spacing: .12em;
+  color: rgba(255, 176, 32, .9);
+  opacity: 0;
+  transition: all .4s var(--e-out);
+  white-space: nowrap;
+}
+
+#downloadHint.is-on {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+#versionText {
+  position: absolute;
+  right: clamp(18px, 4vw, 48px);
+  bottom: clamp(18px, 4vh, 40px);
+  z-index: 4;
+  font-family: var(--f-mono, monospace);
+  font-size: .7rem;
+  letter-spacing: .18em;
+  color: rgba(107, 116, 136, .95);
+  opacity: 0;
+  transition: opacity .5s var(--e-out);
+}
+
+#versionText.is-on {
+  opacity: 1;
+}
+
+#splashTeamLogo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: min(520px, 70vw);
+  z-index: 5;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sp-clamp {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 0;
+  background: linear-gradient(180deg, #05060d, #0a0c18);
+  z-index: 7;
+}
+
+.sp-clamp--t {
+  top: 0;
+  border-bottom: 2px solid rgba(0, 240, 255, .7);
+  box-shadow: 0 0 26px rgba(0, 240, 255, .45);
+}
+
+.sp-clamp--b {
+  bottom: 0;
+  border-top: 2px solid rgba(255, 45, 149, .6);
+  box-shadow: 0 0 26px rgba(255, 45, 149, .35);
+}
+
+#blackPanel {
+  position: absolute;
+  inset: 0;
+  background: #030308;
+  opacity: 0;
+  z-index: 8;
+  pointer-events: none;
+  transition: opacity .3s linear;
+}
+
+@media (max-width: 640px) {
+  #splashLog {
+    font-size: .68rem;
+    max-width: 74vw;
+  }
+
+  .sp-logo {
+    width: 86vw;
+    padding: 16px 18px;
+  }
+
+  #loadText {
+    font-size: .74rem;
+    letter-spacing: .18em;
+  }
+
+  #processText {
+    width: 84vw;
+  }
+
+  #versionText {
+    font-size: .62rem;
+  }
+}

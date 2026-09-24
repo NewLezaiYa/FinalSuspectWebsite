@@ -3,81 +3,142 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
-    <title>更新</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Button/Back.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Button/BackTo.css">
-    <link rel="stylesheet" href="../../Resource/CSS/PromptBox/Tip.css">
-    <link rel="stylesheet" href="../../Resource/CSS/PromptBox/Warning.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Text/Text.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Text/h1.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Text/h2.css">
-    <link rel="stylesheet" href="../../Resource/CSS/PromptBox/container.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Root.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Footer.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Steps/Update.css">
-    <link rel="stylesheet" href="../../Resource/CSS/time.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FinalSuspect 教程：更新模组——内置更新检查的工作方式，以及更新检查失败时手动替换 dll 文件的完整步骤。">
+    <title>更新模组 · FinalSuspect</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&family=Poppins:wght@400;600&display=swap">
+    <link rel="stylesheet" href="../../Resource/CSS/main.css?v=63da192d">
 </head>
 
-<body>
-    <div class="container">
-        <div class="back-button" onclick="window.history.back()">返回上一页</div>
+<body data-shell="full" data-page="update" data-rail="guide">
+    <main>
+        <header class="page-head">
+            <span class="page-head__label hud-label"><i class="fas fa-rotate"></i> PROCEDURE · 02</span>
+            <h1 class="page-title">更新模组</h1>
+            <div class="page-head__meta">
+                <span><i class="fas fa-folder"></i> 教程</span>
+                <span><i class="fas fa-cloud-arrow-down"></i> 自动检查 / 手动替换</span>
+                <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
+            </div>
+        </header>
 
-        <h1 id="Update">FinalSuspect 更新</h1>
-        <h2>自动更新</h2>
-        <div class="text">
-            <p>Final Suspect已于游戏内<mark>内置更新检查</mark>，每次启动将自动检查更新。<br>
+        <p class="lede">
+            Final Suspect 已内置更新检查，正常情况下启动游戏即可完成更新。
+            只有在检查失败或下载出现问题时，才需要按手动流程替换 dll 文件。
+        </p>
+
+        <div class="facts">
+            <div><span class="k">更新方式</span><span class="v">自动 / 手动</span></div>
+            <div><span class="k">检查时机</span><span class="v">每次启动游戏</span></div>
+            <div><span class="k">Release 版</span><span class="v">有更新时要求更新</span></div>
+            <div><span class="k">OpenBeta 版</span><span class="v">不进行更新检查</span></div>
+        </div>
+
+        <div class="prose">
+
+            <h2 class="sec-title" id="auto"><span class="sec-title__num">01</span>自动更新</h2>
+            <p>
+                Final Suspect 已于游戏内<strong>内置更新检查</strong>，每次启动将自动检查更新。
+            </p>
+            <p>
                 在有更新时会要求您更新，否则您无法继续游玩。
             </p>
-            <p>有关更新的详细信息，请查看<a href="../Changelog" target="_blank" rel="noopener noreferrer">版本更新日志</a>。
+            <p>
+                有关更新的详细信息，请查看<a href="../Changelog.html">版本更新日志</a>。
             </p>
-            <div class="tip">
-                <p>Release版本与OpenBeta版本的更新检查逻辑不同：<br>
-                    Release不会要求您更新到OpenBeta版本，而OpenBeta则不会进行更新检查。</p>
+
+            <div class="alert alert--tip">
+                <span class="alert__icon"><i class="fas fa-circle-info"></i></span>
+                <div class="alert__body">
+                    <span class="alert__title">两个渠道的检查逻辑不同</span>
+                    <p><mark>Release</mark> 版本与 <mark>OpenBeta</mark> 版本的更新检查逻辑不同：
+                        Release 不会要求您更新到 OpenBeta 版本，而 OpenBeta 则不会进行更新检查。</p>
+                </div>
+            </div>
+
+            <h2 class="sec-title" id="when"><span class="sec-title__num">02</span>何时需要手动更新</h2>
+
+            <div class="alert alert--warn">
+                <span class="alert__icon"><i class="fas fa-triangle-exclamation"></i></span>
+                <div class="alert__body">
+                    <span class="alert__title">优先选择自动更新</span>
+                    <p>如非必要，我们建议您优先选择自动更新。</p>
+                </div>
+            </div>
+
+            <p>只有在遇上<strong>更新检查失败</strong>或<strong>下载出现问题</strong>时，才需要按下面的四步手动更新。</p>
+
+            <h2 class="sec-title" id="steps"><span class="sec-title__num">03</span>手动更新步骤</h2>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="step__body">
+                        <p>访问 <a href="https://github.com/Slok7565/FinalSuspect/releases" target="_blank"
+                                rel="noopener noreferrer">GitHub Releases</a>，下载最新版本的 dll 文件。</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step__body">
+                        <p>打开 Among Us 根目录，再继续打开 <code>BepInEx\plugins</code> 文件夹。</p>
+                        <div class="callout-path"><i class="fas fa-terminal"></i>Among Us\BepInEx\plugins</div>
+                        <div class="term">
+                            <div class="term__bar">
+                                <span class="term__dots"><i></i><i></i><i></i></span>
+                                <span class="term__path">插件目录</span>
+                            </div>
+                            <pre><code>Among Us\BepInEx\plugins</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step__body">
+                        <p>将下载的 dll 文件替换掉原有的 dll 文件。</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step__body">
+                        <p>至此，更新结束。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="related__grid">
+                <a class="related__card" href="Installation.html"><i class="fas fa-download"></i><span>安装模组</span><i
+                        class="fas fa-arrow-right"></i></a>
+                <a class="related__card" href="OutputLog.html"><i class="fas fa-file-export"></i><span>导出日志</span><i
+                        class="fas fa-arrow-right"></i></a>
+                <a class="related__card" href="../Changelog.html"><i class="fas fa-clock-rotate-left"></i><span>版本更新日志</span><i
+                        class="fas fa-arrow-right"></i></a>
             </div>
         </div>
 
-        <h2>手动更新</h2>
-        <div class="text">
-            <div class="warning">
-                <p>如非必要，我们建议您优先选择自动更新。</p>
-            </div>
-            <p>若遇上更新检查失败/下载出现问题，可按以下步骤手动更新：</p>
-            <ol class="update-steps">
-                <li>访问<a href="https://github.com/Slok7565/FinalSuspect/releases" target="_blank"
-                        rel="noopener noreferrer">GitHub Releases</a>，下载最新版本的dll文件。</li>
-                <li>打开Among Us根目录，再继续打开<mark>BepInEx\plugins</mark>文件夹。</li>
-                <li>将下载的dll文件替换掉原有的dll文件。</li>
-                <li>至此，更新结束。</li>
-            </ol>
+        <div class="pager">
+            <a class="pager__item" href="Installation.html">
+                <small>上一篇</small>
+                <b>← 安装模组</b>
+            </a>
+            <a class="pager__item pager__item--next" href="OutputLog.html">
+                <small>下一篇</small>
+                <b>导出日志 →</b>
+            </a>
         </div>
+    </main>
 
-        <div class="footer-meta">
-            <div class="edit-time">
-                <i class="fas fa-clock"></i>
-                <span>最后更新: <time id="lastEditTime" datetime=""></time></span>
-            </div>
-        </div>
-
-        <div class="footer-copyright">
-            <p>网站设计 ©<span>LezaiYa</span> | FinalSuspect Mod ©<span>Slok</span></p>
-        </div>
-    </div>
-
-    <button class="back-to-top" aria-label="回到顶部">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 15l-6-6-6 6" />
-        </svg>
-    </button>
-    <script src='../../Resource/JS/BackToTop.js'></script>
-    <script src='../../Resource/JS/h1.js'></script>
-    <script src='../../Resource/JS/h2.js'></script>
-    <script src='../../Resource/JS/Time.js'></script>
+    <script src="../../Resource/JS/language.js?v=63da192d"></script>
+    <script src="../../Resource/JS/versions.js?v=63da192d"></script>
+    <script src="../../Resource/JS/shell.js?v=63da192d"></script>
+    <script src="../../Resource/JS/transition.js?v=63da192d" defer></script>
+    <script src="../../Resource/JS/effects.js?v=63da192d" defer></script>
+    <script src="../../Resource/JS/time.js?v=63da192d" defer></script>
+    <script src="../../Resource/JS/last-modified.js?v=63da192d" defer></script>
 </body>
 
 </html>

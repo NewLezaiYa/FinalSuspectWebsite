@@ -3,47 +3,98 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
-    <title>名称标识管理</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Button/Back.css">
-    <link rel="stylesheet" href="../../Resource/CSS/PromptBox/Content.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Text/Text.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Text/h1.css">
-    <link rel="stylesheet" href="../../Resource/CSS/PromptBox/container.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Root.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Footer.css">
-    <link rel="stylesheet" href="../../Resource/CSS/time.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FinalSuspect 功能说明：名称标识管理——为任意玩家添加名称标识，绑定好友代码的玩家加入后自动发放，进入房间后不能编辑标识。">
+    <title>名称标识管理 · FinalSuspect</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&family=Poppins:wght@400;600&display=swap">
+    <link rel="stylesheet" href="../../Resource/CSS/main.css?v=63da192d">
 </head>
 
-<body>
-    <div class="container">
-        <button class="back-button" onclick="window.history.back()">返回上一页</button>
-
-        <h1 id="NameTagManager">FinalSuspect<br>名称标识管理</h1>
-
-        <div class="content-section">
-            <div class="text">
-                <p>该功能可以为任意玩家添加名称标识，标识会在绑定好友代码的玩家加入后自动发放，进入房间后不能编辑标识。</p>
+<body data-shell="full" data-page="feat-nametag" data-rail="features">
+    <main>
+        <header class="page-head">
+            <span class="page-head__label hud-label"><i class="fas fa-tags"></i> FEATURE · 04</span>
+            <h1 class="page-title">名称标识管理</h1>
+            <div class="page-head__meta">
+                <span><i class="fas fa-folder"></i> 功能</span>
+                <span><i class="fas fa-user-tag"></i> 玩家标识</span>
+                <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
             </div>
+        </header>
+
+        <p class="lede">
+            该功能可以为任意玩家添加名称标识。标识会在绑定好友代码的玩家加入后自动发放，
+            但<mark>进入房间后不能编辑标识</mark>，请提前设置好。
+        </p>
+
+        <div class="facts">
+            <div><span class="k">适用对象</span><span class="v">任意玩家</span></div>
+            <div><span class="k">发放条件</span><span class="v">玩家绑定好友代码后加入</span></div>
+            <div><span class="k">发放方式</span><span class="v">自动发放</span></div>
+            <div><span class="k">房间内编辑</span><span class="v">不支持</span></div>
         </div>
 
-        <div class="footer-meta">
-            <div class="edit-time">
-                <i class="fas fa-clock"></i>
-                <span>最后更新: <time id="lastEditTime" datetime=""></time></span>
+        <div class="prose">
+
+            <h2 class="sec-title" id="what"><span class="sec-title__num">01</span>功能说明</h2>
+            <p>
+                该功能可以为<strong>任意玩家</strong>添加名称标识，方便在房间中区分与识别不同的玩家。
+            </p>
+            <p>
+                标识会在<strong>绑定好友代码</strong>的玩家加入后自动发放，无需在每局游戏中重复设置。
+            </p>
+
+            <h2 class="sec-title" id="rules"><span class="sec-title__num">02</span>规则速查</h2>
+            <dl class="spec-list">
+                <dt><i class="fas fa-users"></i> 可添加对象</dt>
+                <dd>任意玩家</dd>
+                <dt><i class="fas fa-id-card"></i> 发放时机</dt>
+                <dd>标识会在绑定好友代码的玩家加入后自动发放</dd>
+                <dt><i class="fas fa-lock"></i> 编辑限制</dt>
+                <dd>进入房间后不能编辑标识</dd>
+            </dl>
+
+            <div class="alert alert--warn">
+                <span class="alert__icon"><i class="fas fa-triangle-exclamation"></i></span>
+                <div class="alert__body">
+                    <span class="alert__title">进入房间后不能编辑</span>
+                    <p>标识在<mark>进入房间后不能编辑</mark>。如需调整，请在进入房间之前完成设置。</p>
+                </div>
             </div>
+
+            <h2 class="sec-title" id="notes"><span class="sec-title__num">03</span>使用提示</h2>
+            <p>
+                标识的发放以<strong>好友代码</strong>为准：玩家绑定好友代码后加入，标识即自动发放，无需逐个手动添加。
+            </p>
+            <p>
+                由于进入房间后无法编辑，建议在开局之前确认好需要添加标识的玩家。
+            </p>
         </div>
 
-        <div class="footer-copyright">
-            <p>网站设计 ©<span>LezaiYa</span> | FinalSuspect Mod ©<span>Slok</span></p>
+        <div class="pager">
+            <a class="pager__item" href="MyMusic.html">
+                <small>上一篇</small>
+                <b>← 我的音乐</b>
+            </a>
+            <a class="pager__item pager__item--next" href="ResourceManager.html">
+                <small>下一篇</small>
+                <b>资源管理 →</b>
+            </a>
         </div>
-    </div>
-    <script src='../../Resource/JS/h1.js'></script>
-    <script src='../../Resource/JS/Time.js'></script>
+    </main>
+
+    <script src="../../Resource/JS/language.js?v=63da192d"></script>
+    <script src="../../Resource/JS/versions.js?v=63da192d"></script>
+    <script src="../../Resource/JS/shell.js?v=63da192d"></script>
+    <script src="../../Resource/JS/transition.js?v=63da192d" defer></script>
+    <script src="../../Resource/JS/effects.js?v=63da192d" defer></script>
+    <script src="../../Resource/JS/time.js?v=63da192d" defer></script>
+    <script src="../../Resource/JS/last-modified.js?v=63da192d" defer></script>
 </body>
 
 </html>

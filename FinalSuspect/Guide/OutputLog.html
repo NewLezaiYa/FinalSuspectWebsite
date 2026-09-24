@@ -3,74 +3,136 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
-    <title>导出日志</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Button/Back.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Button/BackTo.css">
-    <link rel="stylesheet" href="../../Resource/CSS/PromptBox/Tip.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Text/Text.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Text/h1.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Text/h2.css">
-    <link rel="stylesheet" href="../../Resource/CSS/PromptBox/container.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Root.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Footer.css">
-    <link rel="stylesheet" href="../../Resource/CSS/PromptBox/PreCode.css">
-    <link rel="stylesheet" href="../../Resource/CSS/time.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FinalSuspect 教程：导出日志——输出日志目录位置、手动在 BepInEx 中查找 LogOutput.log，以及游戏内快捷键。">
+    <title>导出日志 · FinalSuspect</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&family=Poppins:wght@400;600&display=swap">
+    <link rel="stylesheet" href="../../Resource/CSS/main.css?v=63da192d">
 </head>
 
-<body>
-    <div class="container">
-        <div class="back-button" onclick="window.history.back()">返回上一页</div>
+<body data-shell="full" data-page="outputlog" data-rail="guide">
+    <main>
+        <header class="page-head">
+            <span class="page-head__label hud-label"><i class="fas fa-file-export"></i> PROCEDURE · 03</span>
+            <h1 class="page-title">导出日志</h1>
+            <div class="page-head__meta">
+                <span><i class="fas fa-folder"></i> 教程</span>
+                <span><i class="fas fa-wrench"></i> 问题排查</span>
+                <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
+            </div>
+        </header>
 
-        <h1 id="OutputLog">FinalSuspect<br>导出日志</h1>
+        <p class="lede">
+            遇到报错或功能异常时，日志是定位问题<strong>最快</strong>的线索。
+            本文给出三种拿日志的方式：模组内自动导出、手动进目录查找，以及游戏内的快捷键。
+        </p>
 
-        <h2>自动导出</h2>
-        <div class="text">
-            <p>您可以在Final Suspect功能中选择输出日志，随后Final Suspect将自动打开输出日志所在的文件夹。</p>
-            <p>有关自动导出日志的功能介绍，请查阅<a href="../Features/DumpLog" target="_blank" rel="noopener noreferrer">此篇文档</a>。</p>
+        <div class="facts">
+            <div><span class="k">导出方式</span><span class="v">自动 / 手动</span></div>
+            <div><span class="k">日志文件名</span><span class="v">LogOutput.log</span></div>
+            <div><span class="k">清理时机</span><span class="v">重启后自动清除</span></div>
+            <div><span class="k">游戏内快捷键</span><span class="v"><kbd>F1</kbd> + <kbd>Ctrl</kbd> / <kbd>F2</kbd> + <kbd>Ctrl</kbd></span></div>
         </div>
 
-        <div class="tip">
-            <p>Final Suspect的输出目录位于下方路径：</p>
-            <pre><code>%APPDATA%\..\LocalLow\Innersloth\Among Us\FinalSuspect\Logs\Final Suspect-logs</pre></code>
-            <p>您可以按下<mark>Win</mark> + <mark>R</mark>，并粘贴这串路径来手动打开。</p>
-        </div>
+        <div class="prose">
 
-        <h2>手动查看</h2>
-        <div class="text">
-            <p>如果你无法打开设置页面，你也可以选择手动查看日志。</p>
-            <p>启动Steam，在库页面中选择<mark>Among
-                    Us</mark>，点击右侧的<mark>设置图标</mark>，选择<mark>管理</mark>，随后选择<mark>浏览本地文件</mark>。Steam将打开Among Us根目录。</p>
-            <p>打开<mark>BepInEx</mark>文件夹，其中的<mark>LogOutput.log</mark>便是日志文件。该文件将随着你重新启动Final Suspect自动清除。</p>
-        </div>
+            <h2 class="sec-title" id="auto"><span class="sec-title__num">01</span>自动导出</h2>
+            <p>
+                您可以在 Final Suspect 功能中选择输出日志，随后将自动打开输出日志所在的文件夹。
+            </p>
 
-        <div class="footer-copyright">
-            <p>网站设计 ©<span>LezaiYa</span> | FinalSuspect Mod ©<span>Slok</span></p>
-        </div>
-    </div>
+            <p class="callout-path"><i class="fas fa-terminal"></i>%APPDATA%\..\LocalLow\Innersloth\Among Us\FinalSuspect\Logs\Final Suspect-logs</p>
 
-    <div class="footer-meta">
-            <div class="edit-time">
-                <i class="fas fa-clock"></i>
-                <span>最后更新: <time id="lastEditTime" datetime=""></time></span>
+            <div class="term">
+                <div class="term__bar">
+                    <span class="term__dots"><i></i><i></i><i></i></span>
+                    <span class="term__path">日志输出目录</span>
+                </div>
+                <pre><code>%APPDATA%\..\LocalLow\Innersloth\Among Us\FinalSuspect\Logs\Final Suspect-logs</code></pre>
+            </div>
+
+            <div class="alert alert--tip">
+                <span class="alert__icon"><i class="fas fa-keyboard"></i></span>
+                <div class="alert__body">
+                    <span class="alert__title">手动打开这个目录</span>
+                    <p>按下 <kbd>Win</kbd> + <kbd>R</kbd> 组合键，把上面的目录粘贴进去后回车即可打开。</p>
+                </div>
+            </div>
+
+            <h2 class="sec-title" id="manual"><span class="sec-title__num">02</span>手动查看</h2>
+            <p>如果无法打开设置页面，你也可以手动找到日志文件：</p>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="step__body">
+                        <p>启动 Steam，在库页面中选择 <mark>Among Us</mark>。</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step__body">
+                        <p>点击右侧的 <mark>设置图标</mark> → <mark>管理</mark> → <mark>浏览本地文件</mark>，
+                            Steam 将打开 Among Us 根目录。</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step__body">
+                        <p>打开 <mark>BepInEx</mark> 文件夹，其中的 <mark>LogOutput.log</mark> 便是日志文件。</p>
+                        <div class="term">
+                            <div class="term__bar">
+                                <span class="term__dots"><i></i><i></i><i></i></span>
+                                <span class="term__path">日志文件位置</span>
+                            </div>
+                            <pre><code>Among Us\BepInEx\LogOutput.log</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert alert--warn">
+                <span class="alert__icon"><i class="fas fa-triangle-exclamation"></i></span>
+                <div class="alert__body">
+                    <span class="alert__title">该文件会被自动清除</span>
+                    <p>该文件将随着你重新启动 Final Suspect 自动清除。
+                        如果需要反馈，请<mark>尽早把它复制出来</mark>。</p>
+                </div>
+            </div>
+
+            <h2 class="sec-title" id="hotkey"><span class="sec-title__num">03</span>快捷键提示</h2>
+            <div class="alert alert--tip">
+                <span class="alert__icon"><i class="fas fa-keyboard"></i></span>
+                <div class="alert__body">
+                    <span class="alert__title">游戏内直接输出日志</span>
+                    <p>游戏中可按 <kbd>F1</kbd> + <kbd>Ctrl</kbd> 输出日志，或按 <kbd>F2</kbd> + <kbd>Ctrl</kbd> 输出当前对局日志。</p>
+                </div>
             </div>
         </div>
 
-    <button class="back-to-top" aria-label="回到顶部">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 15l-6-6-6 6" />
-        </svg>
-    </button>
-    <script src='../../Resource/JS/BackToTop.js'></script>
-    <script src='../../Resource/JS/Copy.js'></script>
-    <script src='../../Resource/JS/h1.js'></script>
-    <script src='../../Resource/JS/h2.js'></script>
-    <script src='../../Resource/JS/Time.js'></script>
+        <div class="pager">
+            <a class="pager__item" href="Update.html">
+                <small>上一篇</small>
+                <b>← 更新模组</b>
+            </a>
+            <a class="pager__item pager__item--next" href="../Features/index.html">
+                <small>下一篇</small>
+                <b>功能总览 →</b>
+            </a>
+        </div>
+    </main>
+
+    <script src="../../Resource/JS/language.js?v=63da192d"></script>
+    <script src="../../Resource/JS/versions.js?v=63da192d"></script>
+    <script src="../../Resource/JS/shell.js?v=63da192d"></script>
+    <script src="../../Resource/JS/transition.js?v=63da192d" defer></script>
+    <script src="../../Resource/JS/effects.js?v=63da192d" defer></script>
+    <script src="../../Resource/JS/time.js?v=63da192d" defer></script>
+    <script src="../../Resource/JS/last-modified.js?v=63da192d" defer></script>
 </body>
 
 </html>

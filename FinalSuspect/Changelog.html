@@ -3,1856 +3,235 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
-    <title>版本更新日志</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="../Resource/CSS/Button/Back.css">
-    <link rel="stylesheet" href="../Resource/CSS/Button/BackTo.css">
-    <link rel="stylesheet" href="../Resource/CSS/Text/Text.css">
-    <link rel="stylesheet" href="../Resource/CSS/Text/h1.css">
-    <link rel="stylesheet" href="../Resource/CSS/PromptBox/container.css">
-    <link rel="stylesheet" href="../Resource/CSS/Root.css">
-    <link rel="stylesheet" href="../Resource/CSS/Footer.css">
-    <link rel="stylesheet" href="../Resource/CSS/Announcement/Changelog.css">
-    <link rel="stylesheet" href="../Resource/CSS/Announcement/Version.css">
-    <link rel="stylesheet" href="../Resource/CSS/time.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FinalSuspect 完整更新日志：按版本倒序记录修复、优化、新增、调整与移除的全部改动。">
+    <title>更新日志 · FinalSuspect</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&family=Poppins:wght@400;600&display=swap">
+    <link rel="stylesheet" href="../Resource/CSS/main.css?v=63da192d">
 </head>
 
-<body>
-    <div class="version-nav" id="versionNav">
-        <div class="nav-header">
-            <div class="nav-header-left">
-                <i class="fas fa-list-ol"></i>
-                <span>版本导航</span>
+<body data-shell="full" data-page="changelog" data-rail="logs" data-toc="off">
+    <main>
+        <header class="page-head">
+            <span class="page-head__label hud-label"><i class="fas fa-clock-rotate-left"></i> ARCHIVE · RELEASES</span>
+            <h1 class="page-title">版本更新日志</h1>
+            <div class="page-head__meta">
+                <span><i class="fas fa-folder"></i> 动态</span>
+                <span><i class="fas fa-code-branch"></i> <b id="clVersionCount">—</b> 个版本</span>
+                <span><i class="fas fa-list-check"></i> <b id="clItemCount">—</b> 条改动</span>
+                <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
             </div>
-            <div class="nav-controls">
-                <button class="nav-toggle-btn" id="navToggle" title="折叠/展开">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="nav-hide-btn" id="navHide" title="隐藏导航">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
+        </header>
+
+        <p class="lede">
+            按时间倒序排列的完整改动记录。每个版本标注对应官方游戏版本与 BepInEx 框架版本，
+            改动按「修复 / 优化 / 调整 / 新增 / 移除」分类，便于快速定位你关心的部分。
+        </p>
+
+        <div class="facts">
+            <div><span class="k">最新版本</span><span class="v" id="clLatest">—</span></div>
+            <div><span class="k">收录区间</span><span class="v" id="clRange">—</span></div>
+            <div><span class="k">改动总量</span><span class="v" id="clTotal">—</span></div>
+            <div><span class="k">改动分类</span><span class="v">修复 / 优化 / 调整 / 新增 / 移除</span></div>
         </div>
 
-        <!-- 导航内容。 -->
-        <div class="nav-content">
-            <div class="nav-list">
-                <a href="#v1.3_20251005" class="nav-item active" data-version="1.3_20251005">
-                    <div class="version-header">
-                        <span class="version-number">1.3</span>
-                        <span class="version-type">正式版</span>
-                    </div>
-                    <div class="version-details">
-                        <span class="version-date">2025年10月5日</span>
-                        <span class="update-count">19个更新</span>
-                    </div>
-                </a>
-                <a href="#v1.2_20250815" class="nav-item" data-version="1.2_20250815">
-                    <div class="version-header">
-                        <span class="version-number">1.2</span>
-                        <span class="version-type">正式版</span>
-                    </div>
-                    <div class="version-details">
-                        <span class="version-date">2025年8月15日</span>
-                        <span class="update-count">89个更新</span>
-                    </div>
-                </a>
-                <a href="#v1.1_20250501" class="nav-item" data-version="1.1_20250501">
-                    <div class="version-header">
-                        <span class="version-number">1.1</span>
-                        <span class="version-type">正式版</span>
-                    </div>
-                    <div class="version-details">
-                        <span class="version-date">2025年5月1日</span>
-                        <span class="update-count">6个更新</span>
-                    </div>
-                </a>
-                <a href="#v1.1_20250412" class="nav-item" data-version="1.1_20250412">
-                    <div class="version-header">
-                        <span class="version-number">1.1</span>
-                        <span class="version-type">正式版</span>
-                    </div>
-                    <div class="version-details">
-                        <span class="version-date">2025年4月12日</span>
-                        <span class="update-count">15个更新</span>
-                    </div>
-                </a>
-                <a href="#v1.1_20250216" class="nav-item" data-version="1.1_20250216">
-                    <div class="version-header">
-                        <span class="version-number">1.1</span>
-                        <span class="version-type">正式版</span>
-                    </div>
-                    <div class="version-details">
-                        <span class="version-date">2025年2月16日</span>
-                        <span class="update-count">22个更新</span>
-                    </div>
-                </a>
-                <a href="#v1.0_20250129" class="nav-item" data-version="1.0_20250129">
-                    <div class="version-header">
-                        <span class="version-number">1.0</span>
-                        <span class="version-type">正式版</span>
-                    </div>
-                    <div class="version-details">
-                        <span class="version-date">2025年2月16日</span>
-                        <span class="update-count">100个更新</span>
-                    </div>
-                </a>
-                <a href="#v1.0_20240814" class="nav-item" data-version="1.0_20240814">
-                    <div class="version-header">
-                        <span class="version-number">1.0</span>
-                        <span class="version-type">正式版</span>
-                    </div>
-                    <div class="version-details">
-                        <span class="version-date">2025年2月16日</span>
-                        <span class="update-count">27个更新</span>
-                    </div>
-                </a>
-            </div>
-            <div class="nav-footer">
-                <span class="nav-tip"><i class="fas fa-mouse-pointer"></i> 点击版本快速跳转</span>
-            </div>
-        </div>
-    </div>
 
-    <div class="nav-show-btn" id="navShowBtn" title="显示导航">
-        <i class="fas fa-bars"></i>
-    </div>
 
-    <div class="nav-restore-tip" id="navRestoreTip">
-        <span>导航栏已隐藏</span>
-        <button class="restore-btn" id="restoreNavBtn">恢复显示</button>
-    </div>
 
-    <div class="container">
-        <div class="back-button" onclick="window.history.back()">返回上一页</div>
-
-        <h1 id="changelog">FinalSuspect<br>版本更新日志</h1>
-
-        <!-- 1.3.0 -->
-        <div class="changelog-content">
-            <!-- 版本号 -->
-            <div class="version-badge" id="v1.3_20251005">1.3 正式版 | 日期版本：20251005</div>
-            <div class="text">
-                Starlight为安卓平台带来了模组体验。<br>
-                我们已完成最新版本适配，并全面支持Starlight。<br>
-                尽享手机端Final Suspect的游戏乐趣吧！
-            </div>
-
-            <!-- 版本信息 -->
-            <div class="version-info-grid">
-                <div class="info-card">
-                    <h3>对应官方版本</h3>
-                    <p>Among Us v17.0.0</p>
-                </div>
-                <div class="info-card">
-                    <h3>BepInEx 框架</h3>
-                    <p>v6.0.0-be.738</p>
-                </div>
-                <div class="info-card">
-                    <h3>版本类型 & 构建号</h3>
-                    <p>Release 1</p>
-                </div>
-            </div>
-
-            <!-- 更新统计 -->
-            <div style="text-align: center; margin: 30px 0;">
-                <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 15px;">
-                    <div class="update-counter" style="border-color: #ef4444; color: #ef4444;">
-                        <i class="fas fa-check-circle"></i> 修正: 5
-                    </div>
-                    <div class="update-counter" style="border-color: #10b981; color: #10b981;">
-                        <i class="fas fa-rocket"></i> 优化: 1
-                    </div>
-                    <div class="update-counter" style="border-color: #f59e0b; color: #f59e0b;">
-                        <i class="fas fa-exchange-alt"></i> 更改: 3
-                    </div>
-                    <div class="update-counter" style="border-color: #3b82f6; color: #3b82f6;">
-                        <i class="fas fa-plus-circle"></i> 新增: 9
-                    </div>
-                    <div class="update-counter" style="border-color: #8b5cf6; color: #8b5cf6;">
-                        <i class="fas fa-trash-alt"></i> 删除: 1
-                    </div>
-                </div>
-                <div style="margin-top: 20px; color: #94a3b8; font-size: 1.1rem; font-weight: 600;">
-                    总计: 19 项更新
-                </div>
-            </div>
-
-            <!-- 修正 -->
-            <div class="update-section section-fix" style="animation-delay: 0.1s;">
-                <div class="section-title">
-                    <i class="fas fa-bug"></i>
-                    <span>修正</span>
-                    <span class="update-counter">5 项</span>
-                </div>
-                <div class="update-item">
-                    修复了部分分辨率下出现UI错误的问题
-                </div>
-                <div class="update-item stagger-delay-1">
-                    修复了「人满自动开始游戏」错误多次开始游戏导致游戏崩溃的问题
-                </div>
-                <div class="update-item stagger-delay-2">
-                    修复了预设信息板无法隐藏的问题
-                </div>
-                <div class="update-item stagger-delay-3">
-                    修复了变形者变形后仍显示原本备注及会议标签的问题
-                </div>
-                <div class="update-item stagger-delay-4">
-                    修复了复盘信息错位的问题
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    修复: Slok
-                </div>
-            </div>
-
-            <!-- 优化 -->
-            <div class="update-section section-optimize" style="animation-delay: 0.2s;">
-                <div class="section-title">
-                    <i class="fas fa-rocket"></i>
-                    <span>优化</span>
-                    <span class="update-counter">1 项</span>
-                </div>
-                <div class="update-item">
-                    优化部分代码
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    修复: Slok
-                </div>
-            </div>
-
-            <!-- 更改 -->
-            <div class="update-section section-change" style="animation-delay: 0.3s;">
-                <div class="section-title">
-                    <i class="fas fa-exchange-alt"></i>
-                    <span>更改</span>
-                    <span class="update-counter">3 项</span>
-                </div>
-                <div class="update-item">
-                    修改职业介绍格式
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    制作: Slok, LezaiYa
-                </div>
-                <div class="update-item stagger-delay-1">
-                    适当缩小预设信息板
-                </div>
-                <div class="update-item stagger-delay-2">
-                    将 <a href="https://github.com/NewLezaiYa" style="color: #00c6ff;">LezaiYa</a> 列入<strong>开发者</strong>
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    制作: Slok
-                </div>
-            </div>
-
-            <!-- 新增 -->
-            <div class="update-section section-new" style="animation-delay: 0.4s;">
-                <div class="section-title">
-                    <i class="fas fa-plus-circle"></i>
-                    <span>新增</span>
-                    <span class="update-counter">9 项</span>
-                </div>
-                <div class="update-item">
-                    恢复官网
-                </div>
-                <div class="update-item stagger-delay-1">
-                    增加对 <strong>BanMod</strong> 的RPC检测
-                </div>
-                <div class="update-item stagger-delay-2">
-                    增加对 <strong>VersionCheck</strong> 的RPC检测
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    制作: LezaiYa
-                </div>
-                <div class="update-item stagger-delay-3">
-                    适配 <strong>Starlight</strong> 安装模组启动器
-                </div>
-                <div class="update-item stagger-delay-1">
-                    开始游戏闪屏动画
-                </div>
-                <div class="update-item stagger-delay-2">
-                    按键: 跳过倒计时开始游戏
-                </div>
-                <div class="update-item stagger-delay-3">
-                    按键: 职业介绍
-                </div>
-                <div class="update-item stagger-delay-4">
-                    按键: 显示/隐藏预设信息板
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    制作: Slok
-                </div>
-                <div class="update-item stagger-delay-5">
-                    适配 <strong>Among Us v17.0.0</strong>
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    制作: LezaiYa | 立绘: 小黄117
-                </div>
-            </div>
-
-            <!-- 删除 -->
-            <div class="update-section section-remove" style="animation-delay: 0.5s;">
-                <div class="section-title">
-                    <i class="fas fa-trash-alt"></i>
-                    <span>删除</span>
-                    <span class="update-counter">1 项</span>
-                </div>
-                <div class="update-item removed-item">
-                    暂时删除: 快捷键: 左Shift: 加入上一个加入的房间
-                </div>
-                <div class="update-item removed-item stagger-delay-1">
-                    暂时删除: 快捷键: 右Shift: 加入剪贴板中的房间
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    决定: Slok | 原因: 易误触&无恰当展示空间
-                </div>
-            </div>
-
-            <!-- 贡献者 -->
-            <div class="contributors">
-                <div class="contributor-card" style="animation-delay: 0.6s;">
-                    <span class="contributor-name">小黄117</span>
-                    <a href="https://space.bilibili.com/403301761?spm_id_from=333.337.0.0" class="contributor-link"
-                        target="_blank">
-                        <i class="fab fa-bilibili"></i> B站主页
-                    </a>
-                </div>
-                <div class="contributor-card" style="animation-delay: 0.7s;">
-                    <span class="contributor-name">Zeyan</span>
-                    <a href="https://space.bilibili.com/3493119270062860?spm_id_from=333.1007.0.0"
-                        class="contributor-link" target="_blank">
-                        <i class="fab fa-bilibili"></i> B站主页
-                    </a>
-                </div>
-                <div class="contributor-card" style="animation-delay: 0.8s;">
-                    <span class="contributor-name">白糖咖啡</span>
-                    <a href="https://space.bilibili.com/360363478?spm_id_from=333.337.0.0" class="contributor-link"
-                        target="_blank">
-                        <i class="fab fa-bilibili"></i> B站主页
-                    </a>
-                </div>
-            </div>
+        <div class="chips" id="clChips" role="group" aria-label="按改动类型筛选">
+            <button class="chip" type="button" data-filter="all" aria-pressed="true">全部改动</button>
+            <button class="chip" type="button" data-filter="fix" aria-pressed="false">修复</button>
+            <button class="chip" type="button" data-filter="opt" aria-pressed="false">优化</button>
+            <button class="chip" type="button" data-filter="change" aria-pressed="false">调整</button>
+            <button class="chip" type="button" data-filter="add" aria-pressed="false">新增</button>
+            <button class="chip" type="button" data-filter="remove" aria-pressed="false">移除</button>
+            <button class="chip" type="button" data-filter="reset" aria-pressed="false">重置</button>
         </div>
 
-        <!-- 1.2.0 -->
-        <div class="changelog-content">
-            <!-- 版本号 -->
-            <div class="version-badge" id="v1.2_20250815">1.2.0 正式版 | 日期版本：20250815</div>
-            <div class="text">
-                自 v1.2 正式版起，「Final Suspect 终极嫌疑」的功能开发已正式完成！<br>
-                未来，本模组将主要专注于 Bug 修复与版本适配工作，不再或极少添加新功能。<br>
-                Slok在脱离原制作团队后会将精力聚焦于一个全新的游戏——「EmberVeins 愿烬星迴」！<br>
-                同时，原制作团队也将把精力投入到多个全新项目的开发中，包括一个全新的 Among Us 项目！<br>
-                期待下一次的相遇！
-            </div>
 
-            <!-- 版本信息 -->
-            <div class="version-info-grid">
-                <div class="info-card">
-                    <h3>对应官方版本</h3>
-                    <p>Among Us v16.1.0</p>
-                </div>
-                <div class="info-card">
-                    <h3>BepInEx 框架</h3>
-                    <p>v6.0.0-be.738</p>
-                </div>
-                <div class="info-card">
-                    <h3>版本类型 & 构建号</h3>
-                    <p>Release 2</p>
-                </div>
-            </div>
-
-            <!-- 更新统计 -->
-            <div style="text-align: center; margin: 30px 0;">
-                <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 15px;">
-                    <div class="update-counter" style="border-color: #ef4444; color: #ef4444;">
-                        <i class="fas fa-check-circle"></i> 修正: 23
-                    </div>
-                    <div class="update-counter" style="border-color: #10b981; color: #10b981;">
-                        <i class="fas fa-rocket"></i> 优化: 10
-                    </div>
-                    <div class="update-counter" style="border-color: #f59e0b; color: #f59e0b;">
-                        <i class="fas fa-exchange-alt"></i> 更改: 17
-                    </div>
-                    <div class="update-counter" style="border-color: #3b82f6; color: #3b82f6;">
-                        <i class="fas fa-plus-circle"></i> 新增: 37
-                    </div>
-                    <div class="update-counter" style="border-color: #ec4899; color: #ec4899;">
-                        <i class="fas fa-redo-alt"></i> 重制: 1
-                    </div>
-                    <div class="update-counter" style="border-color: #8b5cf6; color: #8b5cf6;">
-                        <i class="fas fa-trash-alt"></i> 删除: 1
+        <div class="timeline" id="changelogTimeline">
+            <noscript>
+                <div class="alert alert--warn">
+                    <span class="alert__icon"><i class="fas fa-triangle-exclamation"></i></span>
+                    <div class="alert__body">
+                        <span class="alert__title">需要启用 JavaScript</span>
+                        <p>更新日志由结构化数据渲染，请开启 JavaScript 后刷新页面。</p>
                     </div>
                 </div>
-                <div style="margin-top: 20px; color: #94a3b8; font-size: 1.1rem; font-weight: 600;">
-                    总计: 89 项更新
-                </div>
-            </div>
-
-            <!-- 修正 -->
-            <div class="update-section section-fix" style="animation-delay: 0.1s;">
-                <div class="section-title">
-                    <i class="fas fa-bug"></i>
-                    <span>修正</span>
-                    <span class="update-counter">23 项</span>
-                </div>
-                <div class="update-item">
-                    修复了快速启动模式失效的问题
-                </div>
-                <div class="update-item stagger-delay-1">
-                    修复了练习模式数据创建失效的问题
-                </div>
-                <div class="update-item stagger-delay-2">
-                    修复了地图尸体标记错误显示的问题
-                </div>
-                <div class="update-item stagger-delay-3">
-                    修复了地图尸体标记错误颜色的问题
-                </div>
-                <div class="update-item stagger-delay-4">
-                    修复了万圣节地图装扮失效的问题
-                </div>
-                <div class="update-item stagger-delay-5">
-                    修复了更新日志读取失败的问题
-                </div>
-                <div class="update-item stagger-delay-6">
-                    修复了开场动画职业展示着色失效的问题
-                </div>
-                <div class="update-item stagger-delay-7">
-                    修复了加载动画在新版本不工作的问题
-                </div>
-                <div class="update-item stagger-delay-8">
-                    修复了加载屏蔽词时崩溃的问题
-                </div>
-                <div class="update-item stagger-delay-9">
-                    修复了通讯破坏时任务栏错误显示的问题
-                </div>
-                <div class="update-item stagger-delay-10">
-                    修复了大厅搜索信息失效的问题
-                </div>
-                <div class="update-item stagger-delay-11">
-                    修复了Among Us左下角提示信息显示错误的问题
-                </div>
-                <div class="update-item stagger-delay-12">
-                    修复了左下角提示信息中玩家名称无颜色的问题
-                </div>
-                <div class="update-item stagger-delay-13">
-                    修复了按下F1显示职业介绍出现卡顿的问题
-                </div>
-                <div class="update-item stagger-delay-14">
-                    修复了违规名称错误匹配的问题
-                </div>
-                <div class="update-item stagger-delay-15">
-                    修复了会议召开瞬间的击杀被误判为作弊的问题
-                </div>
-                <div class="update-item stagger-delay-16">
-                    修复了客户端击杀时有可能造成反作弊误判的问题
-                </div>
-                <div class="update-item stagger-delay-17">
-                    修复了停止播放的音频文件未能正确释放的问题
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    修复: Slok
-                </div>
-                <div class="update-item stagger-delay-18">
-                    修复了开启「结束时自动返回大厅」时无法使用幽幽鬼影的问题
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    修复: Slok | 反馈: 秦始皇
-                </div>
-                <div class="update-item stagger-delay-19">
-                    修复了开启「结束时自动返回大厅」时无法访问商店的问题
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    修复: Slok | 反馈: QingFeng
-                </div>
-                <div class="update-item stagger-delay-20">
-                    修复了封禁名单不工作的问题
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    修复：LezaiYa | 反馈：警长小蓝
-                </div>
-                <div class="update-item stagger-delay-21">
-                    修复了左Shift和右Shift快捷键无法使用的问题
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    修复: Elinmei
-                </div>
-                <div class="update-item stagger-delay-22">
-                    修复了「愚人节牧马模式」损坏的问题
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    修复: Town Of Host : Enhanced
-                </div>
-            </div>
-
-            <!-- 优化 -->
-            <div class="update-section section-optimize" style="animation-delay: 0.2s;">
-                <div class="section-title">
-                    <i class="fas fa-rocket"></i>
-                    <span>优化</span>
-                    <span class="update-counter">10 项</span>
-                </div>
-                <div class="update-item">
-                    重写启动加载界面以优化代码运行效率
-                </div>
-                <div class="update-item stagger-delay-1">
-                    使用异步方法完成屏蔽词读取以防止进程阻塞
-                </div>
-                <div class="update-item stagger-delay-2">
-                    使用异步方法完成更新检查以防止进程阻塞
-                </div>
-                <div class="update-item stagger-delay-3">
-                    加密屏蔽词以防止远程封禁
-                </div>
-                <div class="update-item stagger-delay-4">
-                    重写违禁词逻辑
-                </div>
-                <div class="update-item stagger-delay-5">
-                    优化反作弊
-                </div>
-                <div class="update-item stagger-delay-6">
-                    全面优化代码运行效率
-                </div>
-                <div class="update-item stagger-delay-7">
-                    全面优化代码格式
-                </div>
-                <div class="update-item stagger-delay-8">
-                    全面优化语言文件格式
-                </div>
-                <div class="update-item stagger-delay-9">
-                    提升「快速启动模式」启动速度
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    修复: Slok
-                </div>
-            </div>
-
-            <!-- 更改 -->
-            <div class="update-section section-change" style="animation-delay: 0.3s;">
-                <div class="section-title">
-                    <i class="fas fa-exchange-alt"></i>
-                    <span>更改</span>
-                    <span class="update-counter">17 项</span>
-                </div>
-                <div class="update-item">
-                    模组公告不再下载至本地，而是在启动游戏时读取
-                </div>
-                <div class="update-item stagger-delay-1">
-                    不再删除冗余模组文件，而是强制终止游戏进程
-                </div>
-                <div class="update-item stagger-delay-2">
-                    在模组公告加载完毕后会弹出公告窗口
-                </div>
-                <div class="update-item stagger-delay-3">
-                    不再强制更改分辨率
-                </div>
-                <div class="update-item stagger-delay-4">
-                    调整技能冷却颜色
-                </div>
-                <div class="update-item stagger-delay-5">
-                    左下角提示信息置于顶层
-                </div>
-                <div class="update-item stagger-delay-6">
-                    不再强制覆盖服务器列表
-                </div>
-                <div class="update-item stagger-delay-7">
-                    不再通过添加文件以阻止语言文件更新
-                </div>
-                <div class="update-item stagger-delay-8">
-                    「踢出未登录的玩家」更改为「踢出好友代码异常的玩家」
-                </div>
-                <div class="update-item stagger-delay-9">
-                    「禁用反作弊」更改为「启用反作弊」
-                </div>
-                <div class="update-item stagger-delay-10">
-                    结算界面复盘信息按钮根据职业颜色改变
-                </div>
-                <div class="update-item stagger-delay-11">
-                    脱离团队 XtremeWave 极致狂澜 并作为Slok的模组
-                </div>
-                <div class="update-item stagger-delay-12">
-                    「我的音乐」信息显示换位
-                </div>
-                <div class="update-item stagger-delay-13">
-                    「我的音乐」切换页码按钮样式修改
-                </div>
-                <div class="update-item stagger-delay-14">
-                    「我的音乐」终止播放按钮样式修改
-                </div>
-                <div class="update-item stagger-delay-15">
-                    「我的音乐」自定义音乐添加方式修改
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    制作: Slok
-                </div>
-                <div class="update-item stagger-delay-16">
-                    允许游戏内使用「切换外观形象」
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    来源: Town Of Host:Enhanced
-                </div>
-            </div>
-
-            <!-- 新增 -->
-            <div class="update-section section-new" style="animation-delay: 0.4s;">
-                <div class="section-title">
-                    <i class="fas fa-plus-circle"></i>
-                    <span>新增</span>
-                    <span class="update-counter">37 项</span>
-                </div>
-                <div class="update-item">
-                    恢复官网
-                </div>
-                <div class="update-item stagger-delay-1">
-                    重要资源下载失败自动退出游戏
-                </div>
-                <div class="update-item stagger-delay-2">
-                    客户端选项: 离线模式（试验性）
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    制作: Slok | 想法: QingFeng
-                </div>
-                <div class="update-item stagger-delay-3">
-                    部分作弊程序或模组识别
-                </div>
-                <div class="update-item stagger-delay-4">
-                    对全部RPC的日志检查以及更多RPC的作弊判断
-                </div>
-                <div class="update-item stagger-delay-5">
-                    适配全分辨率UI
-                </div>
-                <div class="update-item stagger-delay-6">
-                    大厅搜索列表显示房主真实名称
-                </div>
-                <div class="update-item stagger-delay-7">
-                    移除玩家名称结尾的空格避免重复
-                </div>
-                <div class="update-item stagger-delay-8">
-                    将玩家名称中所有空格更改为下划线
-                </div>
-                <div class="update-item stagger-delay-9">
-                    愚人节彩蛋
-                </div>
-                <div class="update-item stagger-delay-10">
-                    任务总进度百分比显示
-                </div>
-                <div class="update-item stagger-delay-11">
-                    为任务进度条重新着色
-                </div>
-                <div class="update-item stagger-delay-12">
-                    启动程序加载界面&主页音乐
-                </div>
-                <div class="update-item stagger-delay-13">
-                    添加github镜像源与方块储存以优化下载速度
-                </div>
-                <div class="update-item stagger-delay-14">
-                    资源包: 主页风格包(含5个主页风格)
-                </div>
-                <div class="update-item stagger-delay-15">
-                    玩家信息显示新增所在位置
-                </div>
-                <div class="update-item stagger-delay-16">
-                    客户端守护(完全防御崩溃程序的作弊程序)
-                </div>
-                <div class="update-item stagger-delay-17">
-                    快捷键: Shift 快速开始游戏时会终止开始音效
-                </div>
-                <div class="update-item stagger-delay-18">
-                    快捷键: F4 全屏
-                </div>
-                <div class="update-item stagger-delay-19">
-                    客户端功能: 切换主页风格
-                </div>
-                <div class="update-item stagger-delay-20">
-                    客户端选项: 启用客户端守护（试验性）
-                </div>
-                <div class="update-item stagger-delay-21">
-                    客户端功能: 资源管理
-                </div>
-                <div class="update-item stagger-delay-22">
-                    客户端功能: 我的音乐 支持显示播放时长
-                </div>
-                <div class="update-item stagger-delay-23">
-                    客户端功能: 我的音乐 支持显示页码总数
-                </div>
-                <div class="update-item stagger-delay-24">
-                    客户端功能: 我的音乐 新增按钮: 切换播放模式(循环播放/顺序播放/随机播放)
-                </div>
-                <div class="update-item stagger-delay-25">
-                    客户端功能: 我的音乐 新增按钮: 暂停/继续播放
-                </div>
-                <div class="update-item stagger-delay-26">
-                    客户端功能: 我的音乐 新增按钮: 上一首
-                </div>
-                <div class="update-item stagger-delay-27">
-                    客户端功能: 我的音乐 新增按钮: 下一首
-                </div>
-                <div class="update-item stagger-delay-28">
-                    客户端功能: 我的音乐 新增支持音乐文件类型: ".flac", ".aif", ".aiff", ".mp3"
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    制作: Slok
-                </div>
-                <div class="update-item stagger-delay-29">
-                    增加对好友代码的检测
-                </div>
-                <div class="update-item stagger-delay-30">
-                    增加对NonalusAntiCheatMenu的RPC检测
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    制作: Nonalus
-                </div>
-                <div class="update-item stagger-delay-31">
-                    增加对BetterAmongUs的RPC检测
-                </div>
-                <div class="update-item stagger-delay-32">
-                    增加对HostGuard的RPC检测
-                </div>
-                <div class="update-item stagger-delay-33">
-                    当目录存在其它模组时，将强制关闭游戏
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    制作: LezaiYa
-                </div>
-                <div class="update-item stagger-delay-34">
-                    游戏内展示预设信息面板
-                </div>
-                <div class="update-item stagger-delay-35">
-                    快捷键: 按下F2调整预设信息面板显示状态
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    制作: Slok, Elinmei
-                </div>
-                <div class="update-item stagger-delay-36">
-                    客户端功能: 名称标识管理
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    制作: Slok | 参考: Town Of Next
-                </div>
-                <div class="update-item stagger-delay-37">
-                    会议标签系统
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    制作: Slok | 想法: Slok, Amongus | 参考: Town Of Next
-                </div>
-            </div>
-
-            <!-- 重制 -->
-            <div class="update-section section-reset" style="animation-delay: 0.5s;">
-                <div class="section-title">
-                    <i class="fas fa-redo-alt"></i>
-                    <span>重制</span>
-                    <span class="update-counter">1 项</span>
-                </div>
-                <div class="update-item">
-                    全面重构FAC以优化反作弊能力
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    制作: Slok
-                </div>
-            </div>
-
-            <!-- 删除 -->
-            <div class="update-section section-remove" style="animation-delay: 0.6s;">
-                <div class="section-title">
-                    <i class="fas fa-trash-alt"></i>
-                    <span>删除</span>
-                    <span class="update-counter">1 项</span>
-                </div>
-                <div class="update-item removed-item">
-                    删除: <mark>客户端功能: 音频管理</mark>
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    决定: Slok | 原因: 由「资源管理」取代
-                </div>
-            </div>
-
-            <!-- 贡献者 -->
-            <div class="contributors">
-                <div class="contributor-card" style="animation-delay: 0.7s;">
-                    <span class="contributor-name">LezaiYa</span>
-                    <a href="https://github.com/NewLezaiYa" class="contributor-link" target="_blank">
-                        <i class="fab fa-github"></i> GITHUB主页
-                    </a>
-                </div>
-                <div class="contributor-card" style="animation-delay: 0.8s;">
-                    <span class="contributor-name">Elinmei</span>
-                    <a href="https://github.com/linmeideli" class="contributor-link" target="_blank">
-                        <i class="fab fa-github"></i> GITHUB主页
-                    </a>
-                </div>
-                <div class="contributor-card" style="animation-delay: 0.9s;">
-                    <span class="contributor-name">Nonalus</span>
-                    <a href="https://github.com/Reborn5537" class="contributor-link" target="_blank">
-                        <i class="fab fa-github"></i> GITHUB主页
-                    </a>
-                </div>
-                <div class="contributor-card" style="animation-delay: 1s;">
-                    <span class="contributor-name">白糖咖啡</span>
-                    <a href="https://space.bilibili.com/360363478?spm_id_from=333.337.0.0" class="contributor-link"
-                        target="_blank">
-                        <i class="fab fa-bilibili"></i> B站主页
-                    </a>
-                </div>
-                <div class="contributor-card" style="animation-delay: 1.1s;">
-                    <span class="contributor-name">FangKuai</span>
-                    <a href="https://github.com/FangkuaiYa" class="contributor-link" target="_blank">
-                        <i class="fab fa-github"></i> GITHUB主页
-                    </a>
-                </div>
-            </div>
+            </noscript>
         </div>
 
-        <!-- 1.1.0 -->
-        <div class="changelog-content">
-            <!-- 版本号 -->
-            <div class="version-badge" id="v1.1_20250501">1.1 正式版 | 日期版本：20250501</div>
-            <div class="text">
-                修复了一些在1.1的下载问题
-            </div>
-
-            <!-- 版本信息 -->
-            <div class="version-info-grid">
-                <div class="info-card">
-                    <h3>对应官方版本</h3>
-                    <p>Among Us v16.0.2</p>
-                </div>
-                <div class="info-card">
-                    <h3>BepInEx 框架</h3>
-                    <p>v6.0.0-be.733</p>
-                </div>
-            </div>
-
-            <!-- 更新统计 -->
-            <div style="text-align: center; margin: 30px 0;">
-                <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 15px;">
-                    <div class="update-counter" style="border-color: #ef4444; color: #ef4444;">
-                        <i class="fas fa-check-circle"></i> 修正: 3
-                    </div>
-                    <div class="update-counter" style="border-color: #10b981; color: #10b981;">
-                        <i class="fas fa-rocket"></i> 优化: 1
-                    </div>
-                    <div class="update-counter" style="border-color: #f59e0b; color: #f59e0b;">
-                        <i class="fas fa-exchange-alt"></i> 更改: 1
-                    </div>
-                    <div class="update-counter" style="border-color: #8b5cf6; color: #8b5cf6;">
-                        <i class="fas fa-trash-alt"></i> 删除: 1
-                    </div>
-                </div>
-                <div style="margin-top: 20px; color: #94a3b8; font-size: 1.1rem; font-weight: 600;">
-                    总计: 6 项更新
-                </div>
-            </div>
-
-            <!-- 修正 -->
-            <div class="update-section section-fix" style="animation-delay: 0.1s;">
-                <div class="section-title">
-                    <i class="fas fa-bug"></i>
-                    <span>修正</span>
-                    <span class="update-counter">3 项</span>
-                </div>
-                <div class="update-item">
-                    修复了资源下载时出现的问题
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    修复: LezaiYa | 反馈: 警长小蓝
-                </div>
-                <div class="update-item stagger-delay-1">
-                    修复了SM缺少检测RPC的问题
-                </div>
-                <div class="update-item stagger-delay-2">
-                    修复了反作弊不检测RPC55的问题
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    修复: LezaiYa
-                </div>
-            </div>
-
-            <!-- 优化 -->
-            <div class="update-section section-optimize" style="animation-delay: 0.2s;">
-                <div class="section-title">
-                    <i class="fas fa-rocket"></i>
-                    <span>优化</span>
-                    <span class="update-counter">1 项</span>
-                </div>
-                <div class="update-item">
-                    优化远程未检测到文件时的框架报错信息
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    制作: LezaiYa
-                </div>
-            </div>
-
-            <!-- 更改 -->
-            <div class="update-section section-change" style="animation-delay: 0.3s;">
-                <div class="section-title">
-                    <i class="fas fa-exchange-alt"></i>
-                    <span>更改</span>
-                    <span class="update-counter">1 项</span>
-                </div>
-                <div class="update-item">
-                    将国内Gitee镜像源改接新的资源镜像源
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    制作: LezaiYa
-                </div>
-            </div>
-
-            <!-- 删除 -->
-            <div class="update-section section-remove" style="animation-delay: 0.4s;">
-                <div class="section-title">
-                    <i class="fas fa-trash-alt"></i>
-                    <span>删除</span>
-                    <span class="update-counter">1 项</span>
-                </div>
-                <div class="update-item removed-item">
-                    删除API检查更新及下载资源
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    决定: QingFeng
-                </div>
-            </div>
-
-            <!-- 贡献者 -->
-            <div class="contributors">
-                <div class="contributor-card" style="animation-delay: 0.5s;">
-                    <span class="contributor-name">QingFeng</span>
-                    <a href="https://github.com/QingFeng-awa" class="contributor-link" target="_blank">
-                        <i class="fab fa-bilibili"></i> GITHUB主页
-                    </a>
-                </div>
-                <div class="contributor-card" style="animation-delay: 0.5s;">
-                    <span class="contributor-name">LezaiYa</span>
-                    <a href="https://github.com/NewLezaiYa" class="contributor-link" target="_blank">
-                        <i class="fab fa-bilibili"></i> GITHUB主页
-                    </a>
-                </div>
+        <div class="alert alert--tip" style="margin-top:var(--s-6)">
+            <span class="alert__icon"><i class="fas fa-lightbulb"></i></span>
+            <div class="alert__body">
+                <span class="alert__title">找不到你关心的改动？</span>
+                <p>用页面顶部的搜索（<kbd>Ctrl</kbd> + <kbd>K</kbd>）可以直接跳转到功能或选项说明，
+                    也可以先去 <a href="FAQ">疑难解答</a> 看看是否是已知问题。</p>
             </div>
         </div>
+    </main>
 
-        <!-- 1.1.0 -->
-        <div class="changelog-content">
-            <!-- 版本号 -->
-            <div class="version-badge" id="v1.1_20250412">1.1 正式版 | 日期版本：20250412</div>
-            <div class="text">
-                修复了一些在1.1出现的BUG以及对新版本的适配
-            </div>
+    <script src="../Resource/JS/changelog-data.js?v=63da192d"></script>
+    <script>
+        (function () {
+            var KIND = {
+                fix: { label: '修复', icon: 'fa-wrench', cls: 'fix' },
+                opt: { label: '优化', icon: 'fa-gauge-high', cls: 'opt' },
+                change: { label: '调整', icon: 'fa-sliders', cls: 'change' },
+                add: { label: '新增', icon: 'fa-plus', cls: 'add' },
+                remove: { label: '移除', icon: 'fa-minus', cls: 'remove' },
+                reset: { label: '重置', icon: 'fa-rotate-left', cls: 'reset' }
+            };
 
-            <!-- 版本信息 -->
-            <div class="version-info-grid">
-                <div class="info-card">
-                    <h3>对应官方版本</h3>
-                    <p>Among Us v16.0.2</p>
-                </div>
-                <div class="info-card">
-                    <h3>BepInEx 框架</h3>
-                    <p>v6.0.0-be.733</p>
-                </div>
-            </div>
+            var data = window.CHANGELOG || [];
+            var host = document.getElementById('changelogTimeline');
+            if (!host || !data.length) return;
 
-            <!-- 更新统计 -->
-            <div style="text-align: center; margin: 30px 0;">
-                <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 15px;">
-                    <div class="update-counter" style="border-color: #ef4444; color: #ef4444;">
-                        <i class="fas fa-check-circle"></i> 修正: 7
-                    </div>
-                    <div class="update-counter" style="border-color: #10b981; color: #10b981;">
-                        <i class="fas fa-rocket"></i> 优化: 1
-                    </div>
-                    <div class="update-counter" style="border-color: #f59e0b; color: #f59e0b;">
-                        <i class="fas fa-exchange-alt"></i> 更改: 2
-                    </div>
-                    <div class="update-counter" style="border-color: #3b82f6; color: #3b82f6;">
-                        <i class="fas fa-plus-circle"></i> 新增: 5
-                    </div>
-                </div>
-                <div style="margin-top: 20px; color: #94a3b8; font-size: 1.1rem; font-weight: 600;">
-                    总计: 15 项更新
-                </div>
-            </div>
+            function tagTone(k) {
+                return ({
+                    fix: 'red', opt: 'cyan', change: 'amber',
+                    add: 'green', remove: 'purple', reset: 'pink'
+                })[k] || 'cyan';
+            }
 
-            <!-- 修正 -->
-            <div class="update-section section-fix" style="animation-delay: 0.1s;">
-                <div class="section-title">
-                    <i class="fas fa-bug"></i>
-                    <span>修正</span>
-                    <span class="update-counter">10 项</span>
-                </div>
-                <div class="update-item">
-                    修复了v1.1_20250216更新日志无法正常下载与加载的问题
-                </div>
-                <div class="update-item stagger-delay-1">
-                    修复了使用简体中文的玩家更新检查内容获取失效的问题
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    修复: LezaiYa | 反馈：QingFeng
-                </div>
-                <div class="update-item stagger-delay-2">
-                    修复了更新公告时间格式错误的问题
-                </div>
-                <div class="update-item stagger-delay-3">
-                    修复了SM和KM使用错误RPC的问题
-                </div>
-                <div class="update-item stagger-delay-4">
-                    修复了会议结束出现空值导致框架报错的问题
-                </div>
-                <div class="update-item stagger-delay-5">
-                    修复了FS每次检测版本框架爆警告的问题
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    修复: LezaiYa
-                </div>
-                <div class="update-item stagger-delay-7">
-                    修复了使用简体中文的玩家无法从远程获取资源的问题
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    修复: Slok | 反馈:Qingfeng
-                </div>
-            </div>
-            <!-- 优化 -->
-            <div class="update-section section-optimize" style="animation-delay: 0.2s;">
-                <div class="section-title">
-                    <i class="fas fa-rocket"></i>
-                    <span>优化</span>
-                    <span class="update-counter">2 项</span>
-                </div>
-                <div class="update-item">
-                    将违禁词存储在远程
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    制作: Slok
-                </div>
-                <div class="update-item">
-                    优化代码结构
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    制作: LezaiYa
-                </div>
-            </div>
+            var esc = function (s) {
+                return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) {
+                    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+                });
+            };
 
-            <!-- 新增 -->
-            <div class="update-section section-new" style="animation-delay: 0.3s;">
-                <div class="section-title">
-                    <i class="fas fa-plus-circle"></i>
-                    <span>新增</span>
-                    <span class="update-counter">5 项</span>
-                </div>
-                <div class="update-item">
-                    在线搜索房间计时器
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    制作: Nonalus
-                </div>
-                <div class="update-item stagger-delay-1">
-                    清空自动日志
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    制作: Slok
-                </div>
-                <div class="update-item stagger-delay-5">
-                    私服显示适配新版本
-                </div>
-                <div class="update-item stagger-delay-5">
-                    对win10用户添加翻译处理
-                </div>
-                <div class="update-item stagger-delay-5">
-                    添加重连2次尝试挂Github下载
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    制作: LezaiYa
-                </div>
-            </div>
+            var totalItems = 0;
+            var html = '';
 
-            <!-- 更改 -->
-            <div class="update-section section-change" style="animation-delay: 0.4s;">
-                <div class="section-title">
-                    <i class="fas fa-exchange-alt"></i>
-                    <span>更改</span>
-                    <span class="update-counter">1 项</span>
-                </div>
-                <div class="update-item">
-                    将国内Gitee镜像源改接新镜像源
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    制作: LezaiYa
-                </div>
-            </div>
+            data.forEach(function (v, vi) {
+                var counts = {};
+                var vTotal = 0;
+                v.groups.forEach(function (g) {
+                    counts[g.kind] = (counts[g.kind] || 0) + g.items.length;
+                    vTotal += g.items.length;
+                });
+                totalItems += vTotal;
 
-            <!-- 贡献者 -->
-            <div class="contributors">
-                <div class="contributor-card" style="animation-delay: 0.5s;">
-                    <span class="contributor-name">Slok</span>
-                    <a href="https://github.com/Slok7565/" class="contributor-link" target="_blank">
-                        <i class="fab fa-bilibili"></i> GITHUB主页
-                    </a>
-                </div>
-                <div class="contributor-card" style="animation-delay: 0.6s;">
-                    <span class="contributor-name">Nonalus</span>
-                    <a href="https://github.com/Reborn5537/" class="contributor-link" target="_blank">
-                        <i class="fab fa-bilibili"></i> GITHUB主页
-                    </a>
-                </div>
-                <div class="contributor-card" style="animation-delay: 0.7s;">
-                    <span class="contributor-name">LezaiYa</span>
-                    <a href="https://github.com/NewLezaiYa" class="contributor-link" target="_blank">
-                        <i class="fab fa-bilibili"></i> GITHUB主页
-                    </a>
-                </div>
-            </div>
-        </div>
+                var stats = Object.keys(counts).map(function (k) {
+                    var meta = KIND[k] || { label: k, cls: 'change' };
+                    return '<span class="tag tag--' + tagTone(k) + '">' + meta.label + ' ' + counts[k] + '</span>';
+                }).join('');
 
-        <!-- 1.1.0 -->
-        <div class="changelog-content">
-            <!-- 版本号 -->
-            <div class="version-badge" id="v1.1_20250216">1.1 正式版 | 日期版本：20250216</div>
-            <div class="text">
-                过一段时间再见了
-            </div>
+                var groupsHtml = v.groups.map(function (g) {
+                    var meta = KIND[g.kind] || { label: g.kind, icon: 'fa-circle', cls: 'change' };
+                    var items = g.items.map(function (t) {
+                        return '<div class="tl-item" data-kind="' + g.kind + '">' + esc(t) + '</div>';
+                    }).join('');
+                    return '' +
+                        '<section class="tl-group" data-kind="' + g.kind + '">' +
+                          '<h4 class="tl-group__title ' + 'c-' + meta.cls + '">' +
+                            '<i class="fas ' + meta.icon + ' bg-' + meta.cls + '"></i>' +
+                            esc(g.title || meta.label) +
+                            '<span class="cnt">' + g.items.length + ' 项</span>' +
+                          '</h4>' +
+                          '<div class="tl-list">' + items + '</div>' +
+                        '</section>';
+                }).join('');
 
-            <!-- 版本信息 -->
-            <div class="version-info-grid">
-                <div class="info-card">
-                    <h3>对应官方版本</h3>
-                    <p>Among Us v2024.10.29</p>
-                </div>
-                <div class="info-card">
-                    <h3>BepInEx 框架</h3>
-                    <p>v6.0.0-be.733</p>
-                </div>
-            </div>
+                html += '' +
+                    '<article class="tl-version" id="' + esc(v.id) + '" data-version="' + esc(v.version) + '">' +
+                      '<header class="tl-version__head">' +
+                        '<span class="tl-version__num">v' + esc(v.version) + '</span>' +
+                        '<span class="tag tag--' + (v.type === '正式版' ? 'green' : 'amber') + '">' + esc(v.type) + '</span>' +
+                        '<span class="tl-version__date"><i class="fas fa-calendar-day"></i> ' + esc(v.date) + '</span>' +
+                        '<span class="tl-version__stats">' + stats + '</span>' +
+                      '</header>' +
+                      groupsHtml +
+                    '</article>';
+            });
 
-            <!-- 更新统计 -->
-            <div style="text-align: center; margin: 30px 0;">
-                <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 15px;">
-                    <div class="update-counter" style="border-color: #ef4444; color: #ef4444;">
-                        <i class="fas fa-check-circle"></i> 修正: 10
-                    </div>
-                    <div class="update-counter" style="border-color: #10b981; color: #10b981;">
-                        <i class="fas fa-rocket"></i> 优化: 1
-                    </div>
-                    <div class="update-counter" style="border-color: #f59e0b; color: #f59e0b;">
-                        <i class="fas fa-exchange-alt"></i> 更改: 1
-                    </div>
-                    <div class="update-counter" style="border-color: #3b82f6; color: #3b82f6;">
-                        <i class="fas fa-plus-circle"></i> 新增: 7
-                    </div>
-                    <div class="update-counter" style="border-color: #ec4899; color: #ec4899;">
-                        <i class="fas fa-redo-alt"></i> 重制: 1
-                    </div>
-                    <div class="update-counter" style="border-color: #8b5cf6; color: #8b5cf6;">
-                        <i class="fas fa-trash-alt"></i> 删除: 2
-                    </div>
-                </div>
-                <div style="margin-top: 20px; color: #94a3b8; font-size: 1.1rem; font-weight: 600;">
-                    总计: 22 项更新
-                </div>
-            </div>
+            host.innerHTML = html;
 
-            <!-- 修正 -->
-            <div class="update-section section-fix" style="animation-delay: 0.1s;">
-                <div class="section-title">
-                    <i class="fas fa-bug"></i>
-                    <span>修正</span>
-                    <span class="update-counter">10 项</span>
-                </div>
-                <div class="update-item">
-                    修复了反作弊踢出玩家失败的问题
-                </div>
-                <div class="update-item stagger-delay-1">
-                    修复了反作弊在禁用时生效的问题
-                </div>
-                <div class="update-item stagger-delay-2">
-                    修复了版本错误的问题
-                </div>
-                <div class="update-item stagger-delay-3">
-                    修复了部分玩家退出时不被标记为断连的问题
-                </div>
-                <div class="update-item stagger-delay-4">
-                    修复了GC报错高频出现的问题
-                </div>
-                <div class="update-item stagger-delay-5">
-                    修复了玩家卡在游戏启动动画“校验资源”的问题
-                </div>
-                <div class="update-item stagger-delay-6">
-                    修复了原版主页音乐音量错误的问题
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    修复: Slok
-                </div>
-                <div class="update-item stagger-delay-7">
-                    修复了模组有时因屏蔽词无法加载的问题
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    修复: Slok | 反馈:ev3lynParker
-                </div>
-                <div class="update-item stagger-delay-8">
-                    修复了切换语言后公告语言不刷新的问题
-                </div>
-                <div class="update-item stagger-delay-9">
-                    修复了切换语言后右下角提示词不刷新的问题
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    修复: Slok | 反馈: Trick_2012
-                </div>
-            </div>
+            var latest = data[0];
+            var oldest = data[data.length - 1];
+            var set = function (id, text) {
+                var n = document.getElementById(id);
+                if (n) n.textContent = text;
+            };
+            set('clVersionCount', data.length);
+            set('clItemCount', totalItems);
+            set('clTotal', totalItems + ' 条');
+            set('clLatest', 'v' + latest.version + ' · ' + latest.date);
+            set('clRange', oldest.date + ' ~ ' + latest.date);
 
-            <!-- 优化 -->
-            <div class="update-section section-optimize" style="animation-delay: 0.2s;">
-                <div class="section-title">
-                    <i class="fas fa-rocket"></i>
-                    <span>优化</span>
-                    <span class="update-counter">1 项</span>
-                </div>
-                <div class="update-item">
-                    优化模组内存占用
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    制作: Slok
-                </div>
-            </div>
+            var current = 0;
 
-            <!-- 新增 -->
-            <div class="update-section section-new" style="animation-delay: 0.3s;">
-                <div class="section-title">
-                    <i class="fas fa-plus-circle"></i>
-                    <span>新增</span>
-                    <span class="update-counter">7 项</span>
-                </div>
-                <div class="update-item">
-                    死亡后非守护天使玩家在地图中可见全部玩家位置以及尸体信息
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    制作: Slok | 想法：Amongus
-                </div>
-                <div class="update-item stagger-delay-1">
-                    模组音乐的音量可以受到游戏音量控制条控制
-                </div>
-                <div class="update-item stagger-delay-2">
-                    根据职业颜色为技能按钮文本着色
-                </div>
-                <div class="update-item stagger-delay-3">
-                    优化冷却文本颜色
-                </div>
-                <div class="update-item stagger-delay-1">
-                    为服务器列表非官方服务器着色
-                </div>
-                <div class="update-item stagger-delay-2">
-                    客户端选项: 快速启动模式
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    制作: Slok
-                </div>
-                <div class="update-item stagger-delay-5">
-                    修正服务器列表的服务器
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    制作: FangKuai
-                </div>
-            </div>
+            function gotoVersion(i) {
+                i = Math.max(0, Math.min(data.length - 1, i));
+                var v = data[i];
+                var el = document.getElementById(v.id);
+                if (!el) return;
+                current = i;
+                window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 132, behavior: 'smooth' });
+                history.replaceState(null, '', '#' + v.id);
+            }
 
-            <!-- 重制 -->
-            <div class="update-section section-reset" style="animation-delay: 0.4s;">
-                <div class="section-title">
-                    <i class="fas fa-redo-alt"></i>
-                    <span>重制</span>
-                    <span class="update-counter">1 项</span>
-                </div>
-                <div class="update-item">
-                    重写了音频播放与解析逻辑
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    制作: Slok
-                </div>
-            </div>
+            document.addEventListener('keydown', function (e) {
+                var tag = (document.activeElement && document.activeElement.tagName) || '';
+                if (/INPUT|TEXTAREA|SELECT/i.test(tag)) return;
+                if (e.altKey && e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    return;
+                }
+                if (e.key === 'j' || e.key === 'J') { e.preventDefault(); gotoVersion(current + 1); }
+                if (e.key === 'k' || e.key === 'K') { e.preventDefault(); gotoVersion(current - 1); }
+            });
 
-            <!-- 更改 -->
-            <div class="update-section section-change" style="animation-delay: 0.5s;">
-                <div class="section-title">
-                    <i class="fas fa-exchange-alt"></i>
-                    <span>更改</span>
-                    <span class="update-counter">1 项</span>
-                </div>
-                <div class="update-item">
-                    游戏不再强制全屏
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    制作: Slok | 想法：Nonalus, Yu
-                </div>
-            </div>
+            if ('IntersectionObserver' in window) {
+                var obs = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (en) {
+                        if (!en.isIntersecting) return;
+                        var i = data.findIndex(function (v) { return v.id === en.target.id; });
+                        if (i !== -1) current = i;
+                    });
+                }, { rootMargin: '-140px 0px -70% 0px', threshold: 0 });
+                host.querySelectorAll('.tl-version').forEach(function (a) { obs.observe(a); });
+            }
 
-            <!-- 删除 -->
-            <div class="update-section section-remove" style="animation-delay: 0.6s;">
-                <div class="section-title">
-                    <i class="fas fa-trash-alt"></i>
-                    <span>删除</span>
-                    <span class="update-counter">2 项</span>
-                </div>
-                <div class="update-item removed-item">
-                    删除: 客户端选项: 启用模组开场动画
-                </div>
-                <div class="update-item removed-item">
-                    删除: 客户端选项: 启用模组地图背景颜色
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    决定: Slok | 原因：功能无意义
-                </div>
-            </div>
+            if (location.hash) {
+                var i0 = data.findIndex(function (v) { return v.id === location.hash.slice(1); });
+                if (i0 !== -1) current = i0;
+            }
 
-            <!-- 贡献者 -->
-            <div class="contributors">
-                <div class="contributor-card" style="animation-delay: 0.7s;">
-                    <span class="contributor-name">Slok</span>
-                    <a href="https://github.com/Slok7565/" class="contributor-link" target="_blank">
-                        <i class="fab fa-bilibili"></i> GITHUB主页
-                    </a>
-                </div>
-                <div class="contributor-card" style="animation-delay: 0.7s;">
-                    <span class="contributor-name">FangKuai</span>
-                    <a href="https://github.com/FangkuaiYa" class="contributor-link" target="_blank">
-                        <i class="fab fa-bilibili"></i> GITHUB主页
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- 1.0.0 -->
-        <div class="changelog-content">
-            <!-- 版本号 -->
-            <div class="version-badge" id="v1.0_20250129">1.0 正式版 | 日期版本：20250129</div>
-            <div class="text">
-                随着时间的推移，北半球的冬天迎来尾声，春意正在各处复苏。
-                眺望米拉的雪景，内心中的回忆是否唤醒？暖流依旧心中流淌。
-                无论嫌疑最终落在谁身，无论真理最后破碎于谁手，
-                在焕然一新的体验中，头脑风暴，留下全新的快乐回忆。
-                玩游戏，开心最重要！！！
-            </div>
-
-            <!-- 版本信息 -->
-            <div class="version-info-grid">
-                <div class="info-card">
-                    <h3>对应官方版本</h3>
-                    <p>Among Us v2024.10.29</p>
-                </div>
-                <div class="info-card">
-                    <h3>BepInEx 框架</h3>
-                    <p>v6.0.0-be.733</p>
-                </div>
-            </div>
-
-            <!-- 更新统计 -->
-            <div style="text-align: center; margin: 30px 0;">
-                <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 15px;">
-                    <div class="update-counter" style="border-color: #ef4444; color: #ef4444;">
-                        <i class="fas fa-check-circle"></i> 修正: 28
-                    </div>
-                    <div class="update-counter" style="border-color: #10b981; color: #10b981;">
-                        <i class="fas fa-rocket"></i> 优化: 9
-                    </div>
-                    <div class="update-counter" style="border-color: #f59e0b; color: #f59e0b;">
-                        <i class="fas fa-exchange-alt"></i> 更改: 16
-                    </div>
-                    <div class="update-counter" style="border-color: #3b82f6; color: #3b82f6;">
-                        <i class="fas fa-plus-circle"></i> 新增: 41
-                    </div>
-                    <div class="update-counter" style="border-color: #ec4899; color: #ec4899;">
-                        <i class="fas fa-redo-alt"></i> 重制: 1
-                    </div>
-                    <div class="update-counter" style="border-color: #8b5cf6; color: #8b5cf6;">
-                        <i class="fas fa-trash-alt"></i> 删除: 5
-                    </div>
-                </div>
-                <div style="margin-top: 20px; color: #94a3b8; font-size: 1.1rem; font-weight: 600;">
-                    总计: 100 项更新
-                </div>
-            </div>
-
-            <!-- 修正 -->
-            <div class="update-section section-fix" style="animation-delay: 0.1s;">
-                <div class="section-title">
-                    <i class="fas fa-bug"></i>
-                    <span>修正</span>
-                    <span class="update-counter">10 项</span>
-                </div>
-                <div class="update-item">
-                    修复了「人满自动开始游戏」无论房间最大人数是多少都只在14人及以上才自动开始的问题
-                </div>
-                <div class="update-item stagger-delay-1">
-                    修复了当客户端是房主时会议后黑屏发生的问题
-                </div>
-                <div class="update-item stagger-delay-2">
-                    修复了练习模式无法进入的问题
-                </div>
-                <div class="update-item stagger-delay-3">
-                    修复了击杀数在游戏中不显示的问题
-                </div>
-                <div class="update-item stagger-delay-4">
-                    修复了捉迷藏伪装者贴图错误的问题
-                </div>
-                <div class="update-item stagger-delay-5">
-                    修复了当自己为房主时，开始游戏上方的房主信息不显示房主名称的问题
-                </div>
-                <div class="update-item stagger-delay-6">
-                    修复了模组玩家只能与房主互认的问题
-                </div>
-                <div class="update-item stagger-delay-7">
-                    修复了召开紧急会议时客户端发送错误的问题
-                </div>
-                <div class="update-item stagger-delay-7">
-                    修复了直播主模式下被屏蔽的房间号直接隐藏的问题
-                </div>
-                <div class="update-item stagger-delay-7">
-                    修复了违禁词检查失效的问题
-                </div>
-                <div class="update-item stagger-delay-7">
-                    修复了官方链接屏蔽警告文本异常的问题
-                </div>
-                <div class="update-item stagger-delay-7">
-                    修复了「结束时自动返回大厅」在线游玩中不生效的问题
-                </div>
-                <div class="update-item stagger-delay-7">
-                    修复了守护天使可以使用千里眼的问题
-                </div>
-                <div class="update-item stagger-delay-7">
-                    修复了聊天弹窗、退出游戏信息不屏蔽违禁词的问题
-                </div>
-                <div class="update-item stagger-delay-7">
-                    修复了公告开头冗余空行的问题
-                </div>
-                <div class="update-item stagger-delay-7">
-                    修复了客户端选项在更改语言后文本错误的问题
-                </div>
-                <div class="update-item stagger-delay-7">
-                    修复了打开好友列表时模组信息仍旧显示的问题
-                </div>
-                <div class="update-item stagger-delay-7">
-                    修复了启动游戏时程序可能未响应的问题
-                </div>
-                <div class="update-item stagger-delay-7">
-                    修复了关闭「禁用原版游戏音乐」时主页音乐不会恢复的问题
-                </div>
-                <div class="update-item stagger-delay-7">
-                    修复了在「我的音乐」模块停止播放会让原版游戏音乐一同被停止的问题
-                </div>
-                <div class="update-item stagger-delay-7">
-                    修复了繁体中文中部分文本翻译错误的问题
-                </div>
-                <div class="update-item stagger-delay-7">
-                    修复了公告语言错误的问题
-                </div>
-                <div class="update-item stagger-delay-7">
-                    修复了FAC无法正确踢出作弊者的问题
-                </div>
-                <div class="update-item stagger-delay-7">
-                    修复了会议中不会正常更新玩家数据显示的问题
-                </div>
-                <div class="update-item stagger-delay-7">
-                    修复了死亡的守护天使查看他人死因可见凶手颜色的问题
-                </div>
-                <div class="update-item stagger-delay-7">
-                    修复了复盘信息文字长度超过背景的问题
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    修复: Slok
-                </div>
-                <div class="update-item stagger-delay-8">
-                    修复了QQ群链接错误的问题
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    修复: Qingfeng
-                </div>
-            </div>
-
-            <!-- 优化 -->
-            <div class="update-section section-optimize" style="animation-delay: 0.2s;">
-                <div class="section-title">
-                    <i class="fas fa-rocket"></i>
-                    <span>优化</span>
-                    <span class="update-counter">9 项</span>
-                </div>
-                <div class="update-item">
-                    重构代码以提升运行效率
-                </div>
-                <div class="update-item">
-                    将几乎全部资源储存于远程以优化文件大小
-                </div>
-                <div class="update-item">
-                    将依赖项储存在远程
-                </div>
-                <div class="update-item">
-                    优化主页模组版本&团队信息样式
-                </div>
-                <div class="update-item">
-                    优化本模组玩家互认
-                </div>
-                <div class="update-item">
-                    全面优化FAC判断
-                </div>
-                <div class="update-item">
-                    优化公告格式
-                </div>
-                <div class="update-item">
-                    更多视觉效果优化
-                </div>
-                <div class="update-item">
-                    优化好友请求透明度
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    制作: Slok
-                </div>
-            </div>
-
-            <!-- 新增 -->
-            <div class="update-section section-new" style="animation-delay: 0.3s;">
-                <div class="section-title">
-                    <i class="fas fa-plus-circle"></i>
-                    <span>新增</span>
-                    <span class="update-counter">41 项</span>
-                </div>
-                <div class="update-item">
-                    按下F1显示职业详情时同时会显示职业立绘
-                </div>
-                <div class="update-item">
-                    将InnerSloth加载动画更改为Final Suspect的立绘轮播加载动画
-                </div>
-                <div class="update-item">
-                    将InnerSloth游戏加载动画改为Final Suspect游戏加载动画
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    制作: Slok，小黄117，KpCam | 参考：The Other Roles Community Edition
-                </div>
-                <div class="update-item stagger-delay-1">
-                    模组公告左侧会显示团队标识
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    制作: Slok | 参考： Yu Ez Tool
-                </div>
-                <div class="update-item stagger-delay-2">
-                    玩家未装载YamlDotNet.dll与YamlDotNet.xml的情况下仍然可以加载翻译
-                </div>
-                <div class="update-item stagger-delay-3">
-                    新增简体中文更新检查失败时关闭加速器的提示
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    制作: Yu
-                </div>
-                <div class="update-item stagger-delay-1">
-                    客户端选项: 展示玩家平台与客户端信息
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    制作: Slok | 想法: 1, KpCam
-                </div>
-                <div class="update-item stagger-delay-2">
-                    7首单曲
-                </div>
-                <div class="update-item stagger-delay-2">
-                    客户端选项: 屏蔽违禁词
-                </div>
-                <div class="update-item stagger-delay-2">
-                    客户端选项: 禁用反作弊
-                </div>
-                <div class="update-item stagger-delay-2">
-                    客户端选项: 使用模组鼠标光标
-                </div>
-                <div class="update-item stagger-delay-2">
-                    设置修改按钮图标颜色与职业匹配
-                </div>
-                <div class="update-item stagger-delay-2">
-                    职业设置预览图标颜色与职业匹配
-                </div>
-                <div class="update-item stagger-delay-2">
-                    职业设置修改底板着色
-                </div>
-                <div class="update-item stagger-delay-2">
-                    职业设置预览底板着色
-                </div>
-                <div class="update-item stagger-delay-2">
-                    游戏设置修改底板着色
-                </div>
-                <div class="update-item stagger-delay-2">
-                    整游戏设置预览底板着色
-                </div>
-                <div class="update-item stagger-delay-2">
-                    聊天背景着色
-                </div>
-                <div class="update-item stagger-delay-2">
-                    违禁词全面屏蔽
-                </div>
-                <div class="update-item stagger-delay-2">
-                    对修改名称作弊的额外检查
-                </div>
-                <div class="update-item stagger-delay-2">
-                    对三秒内多次发送快捷聊天作弊的额外检查
-                </div>
-                <div class="update-item stagger-delay-2">
-                    对大厅穿墙作弊的检查
-                </div>
-                <div class="update-item stagger-delay-2">
-                    练习模式下可以使用千里眼
-                </div>
-                <div class="update-item stagger-delay-2">
-                    首页快捷键: 按下Tab键隐藏UI
-                </div>
-                <div class="update-item stagger-delay-2">
-                    公告栏模组内容介绍
-                </div>
-                <div class="update-item stagger-delay-2">
-                    模组房间中可以无视发送消息间隔
-                </div>
-                <div class="update-item stagger-delay-2">
-                    聊天气泡名前显示信息
-                </div>
-                <div class="update-item stagger-delay-2">
-                    复盘信息显示服务器与房间号
-                </div>
-                <div class="update-item stagger-delay-2">
-                    为贡献者与参与者添加超链接
-                </div>
-                <div class="update-item stagger-delay-2">
-                    追加断连原因显示: 因连接超时离开了游戏
-                </div>
-                <div class="update-item stagger-delay-2">
-                    根据玩家颜色为断连文本着色
-                </div>
-                <div class="update-item stagger-delay-2">
-                    支持全语言模组公告
-                </div>
-                <div class="update-item stagger-delay-2">
-                    将模组数据同步至官方数据以修复当玩家是房主时官方断连数据出错的问题
-                </div>
-                <div class="update-item stagger-delay-2">
-                    适配Among Us版本: v2024.11.26
-                </div>
-                <div class="update-item stagger-delay-2">
-                    更新BepInEx框架版本: v6.0.0-be.733
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    制作: Slok
-                </div>
-                <div class="update-item stagger-delay-5">
-                    在搜索房间的名称中显示房间号
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    制作: Slok | 想法来源：想法来源: Sicko Menu
-                </div>
-                <div class="update-item stagger-delay-2">
-                    反作弊: 对KillNetwork作弊的检查
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    制作: Nonalus
-                </div>
-                <div class="update-item stagger-delay-2">
-                    按下左Shift加入上一个加入的房间
-                </div>
-                <div class="update-item stagger-delay-2">
-                    按下右Shift加入剪贴板中的房间
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    制作: Elinmei | 想法来源: The Other Roles
-                </div>
-                <div class="update-item stagger-delay-2">
-                    模组专属右上角MOD图标
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    制作: Slok, KpCam | 想法来源: Better Among Us
-                </div>
-            </div>
-
-            <!-- 重制 -->
-            <div class="update-section section-reset" style="animation-delay: 0.4s;">
-                <div class="section-title">
-                    <i class="fas fa-redo-alt"></i>
-                    <span>重制</span>
-                    <span class="update-counter">1 项</span>
-                </div>
-                <div class="update-item">
-                    代码全面重构
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    制作: Slok
-                </div>
-            </div>
-
-            <!-- 更改 -->
-            <div class="update-section section-change" style="animation-delay: 0.5s;">
-                <div class="section-title">
-                    <i class="fas fa-exchange-alt"></i>
-                    <span>更改</span>
-                    <span class="update-counter">16 项</span>
-                </div>
-                <div class="update-item">
-                    「音频管理」中不可删除播放中的音乐
-                </div>
-                <div class="update-item">
-                    调整工程师、变形者、幻象师职业颜色
-                </div>
-                <div class="update-item">
-                    允许在大厅和游戏中使用复盘信息
-                </div>
-                <div class="update-item">
-                    死因从在名称后显示更改为在任务数量后显示
-                </div>
-                <div class="update-item">
-                    更改死因为驱逐的判定以防止死因为驱逐时可能不显示死因的问题
-                </div>
-                <div class="update-item">
-                    优化死亡判定
-                </div>
-                <div class="update-item">
-                    为防止对模组的误报，加入+25端口服务器的房间时FAC不生效
-                </div>
-                <div class="update-item">
-                    将「切换原版」归类于客户端功能
-                </div>
-                <div class="update-item">
-                    将「输出日志」归类于客户端功能
-                </div>
-                <div class="update-item">
-                    调整部分客户端按钮颜色
-                </div>
-                <div class="update-item">
-                    修改部分文本以方便引出之后的项目
-                </div>
-                <div class="update-item">
-                    「结束时自动返回大厅」开启时将不再显示"继续"按钮
-                </div>
-                <div class="update-item">
-                    修改客户端选项&功能颜色
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    制作: Slok
-                </div>
-                <div class="update-item">
-                    本项目不再作为Town Of New Epic及其父系的分支，而是作为独立项目
-                </div>
-                <div class="update-item">
-                    EAC更名为FAC
-                </div>
-                <div class="update-item">
-                    修改部分文本用词
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    决定：Slok
-                </div>
-            </div>
-
-            <!-- 删除 -->
-            <div class="update-section section-remove" style="animation-delay: 0.6s;">
-                <div class="section-title">
-                    <i class="fas fa-trash-alt"></i>
-                    <span>删除</span>
-                    <span class="update-counter">5 项</span>
-                </div>
-                <div class="update-item removed-item">
-                    暂时删除: 主页——官方网站按钮
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    原因：网站维护退出制作组
-                </div>
-                <div class="update-item removed-item">
-                    暂时删除: 愚人节地图——骷髅舰(镜像)
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    原因：出现房主卡在驱逐动画的问题
-                </div>
-                <div class="update-item removed-item">
-                    暂时删除: 切换形象——愚人节牧马模式(标记为损坏)
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    原因：出现聊天提醒弹出时客户端崩溃的问题
-                </div>
-                <div class="update-item removed-item">
-                    删除: 仅Final Suspect房间搜索
-                </div>
-                <div class="update-item removed-item">
-                    删除: 踢出与房主Final Suspect版本不同的玩家
-                </div>
-                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px; font-style: italic;">
-                    原因：功能无意义 | 决定：Slok
-                </div>
-            </div>
-
-            <!-- 贡献者 -->
-            <div class="contributors">
-                <div class="contributor-card" style="animation-delay: 0.7s;">
-                    <span class="contributor-name">Slok</span>
-                    <a href="https://github.com/Slok7565/" class="contributor-link" target="_blank">
-                        <i class="fab fa-bilibili"></i> GITHUB主页
-                    </a>
-                </div>
-                <div class="contributor-card" style="animation-delay: 0.8s;">
-                    <span class="contributor-name">Elinmei</span>
-                    <a href="https://github.com/linmeideli/" class="contributor-link" target="_blank">
-                        <i class="fab fa-bilibili"></i> GITHUB主页
-                    </a>
-                </div>
-                <div class="contributor-card" style="animation-delay: 0.9s;">
-                    <span class="contributor-name">小黄117</span>
-                    <a href="https://space.bilibili.com/403301761?spm_id_from=333.337.0.0" class="contributor-link"
-                        target="_blank">
-                        <i class="fab fa-bilibili"></i> B站主页
-                    </a>
-                </div>
-                <div class="contributor-card" style="animation-delay: 1.0s;">
-                    <span class="contributor-name">白糖咖啡</span>
-                    <a href="https://space.bilibili.com/360363478?spm_id_from=333.337.0.0" class="contributor-link"
-                        target="_blank">
-                        <i class="fab fa-bilibili"></i> B站主页
-                    </a>
-                </div>
-                <div class="contributor-card" style="animation-delay: 1.1s;">
-                    <span class="contributor-name">Yu</span>
-                    <a href="https://github.com/Night-GUA/" class="contributor-link" target="_blank">
-                        <i class="fab fa-bilibili"></i> GITHUB主页
-                    </a>
-                </div>
-                <div class="contributor-card" style="animation-delay: 1.2s;">
-                    <span class="contributor-name">Yu</span>
-                    <a href="https://github.com/Night-GUA/" class="contributor-link" target="_blank">
-                        <i class="fab fa-bilibili"></i> GITHUB主页
-                    </a>
-                </div>
-                <div class="contributor-card" style="animation-delay: 1.3s;">
-                    <span class="contributor-name">Qingfeng</span>
-                    <a href="https://github.com/QingFeng-awa/" class="contributor-link" target="_blank">
-                        <i class="fab fa-bilibili"></i> GITHUB主页
-                    </a>
-                </div>
-                <div class="contributor-card" style="animation-delay: 1.4s;">
-                    <span class="contributor-name">Nonalus</span>
-                    <a href="https://github.com/Reborn5537/" class="contributor-link" target="_blank">
-                        <i class="fab fa-bilibili"></i> GITHUB主页
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="footer-meta">
-        <div class="edit-time">
-            <i class="fas fa-clock"></i>
-            <span>最后更新: <time id="lastEditTime" datetime=""></time></span>
-        </div>
-    </div>
-
-    <div class="footer-copyright">
-        <p>网站设计 ©<span>LezaiYa</span> | FinalSuspect Mod ©<span>Slok</span></p>
-    </div>
-
-    <button class="back-to-top" aria-label="回到顶部">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 15l-6-6-6 6" />
-        </svg>
-    </button>
-
-    <script src='../Resource/JS/h1.js'></script>
-    <script src='../Resource/JS/h2.js'></script>
-    <script src='../Resource/JS/Version.js'></script>
-    <script src='../Resource/JS/BackToTop.js'></script>
-    <script src='../Resource/JS/Time.js'></script>
+            var chips = document.querySelectorAll('#clChips .chip');
+            Array.prototype.forEach.call(chips, function (chip) {
+                chip.addEventListener('click', function () {
+                    var f = chip.dataset.filter;
+                    Array.prototype.forEach.call(chips, function (c) {
+                        c.setAttribute('aria-pressed', String(c === chip));
+                    });
+                    Array.prototype.forEach.call(host.querySelectorAll('.tl-group'), function (g) {
+                        g.style.display = (f === 'all' || g.dataset.kind === f) ? '' : 'none';
+                    });
+                    
+                    Array.prototype.forEach.call(host.querySelectorAll('.tl-version'), function (v) {
+                        var visible = Array.prototype.some.call(v.querySelectorAll('.tl-group'), function (g) {
+                            return g.style.display !== 'none';
+                        });
+                        v.style.display = visible ? '' : 'none';
+                    });
+                });
+            });
+        })();
+</script>
+    <script src="../Resource/JS/language.js?v=63da192d"></script>
+    <script src="../Resource/JS/versions.js?v=63da192d"></script>
+    <script src="../Resource/JS/shell.js?v=63da192d"></script>
+    <script src="../Resource/JS/transition.js?v=63da192d" defer></script>
+    <script src="../Resource/JS/effects.js?v=63da192d" defer></script>
+    <script src="../Resource/JS/time.js?v=63da192d" defer></script>
+    <script src="../Resource/JS/last-modified.js?v=63da192d" defer></script>
 </body>
 
 </html>

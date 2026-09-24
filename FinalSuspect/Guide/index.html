@@ -3,69 +3,81 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
-    <title>教程</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="../../Resource/CSS/index.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Button/Back.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Root.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Footer.css">
-    <link rel="stylesheet" href="../../Resource/CSS/time.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FinalSuspect 教程总览：安装、更新与导出日志三篇分步指南，覆盖 Steam / Epic 双平台与常见失败原因。">
+    <title>教程总览 · FinalSuspect</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&family=Poppins:wght@400;600&display=swap">
+    <link rel="stylesheet" href="../../Resource/CSS/main.css?v=63da192d">
 </head>
 
-<body>
-    <div class="container">
-        <div class="back-button" onclick="window.history.back()">返回上一页</div>
-        <div class="header">
+<body data-shell="full" data-page="guide" data-rail="guide">
+    <main>
+        <section class="index-hero">
+            <div class="index-hero__bg"></div>
+            <span class="index-hero__kick"><i class="fas fa-graduation-cap"></i> PROCEDURE</span>
             <h1>FinalSuspect 教程</h1>
+            <p>从下载到上手的三篇分步指南：先装对平台包，再弄懂更新逻辑，出问题时把日志完整交给开发者。</p>
+        </section>
+
+        <div class="facts">
+            <div><span class="k">文档数量</span><span class="v">3 篇</span></div>
+            <div><span class="k">适用平台</span><span class="v">Steam / Epic</span></div>
+            <div><span class="k">阅读顺序</span><span class="v">安装 → 更新 → 导出日志</span></div>
+            <div><span class="k">前置要求</span><span class="v">已安装 Among Us</span></div>
         </div>
 
-        <div class="btn-group">
-            <button class="jump-btn" onclick="window.location.href='Installation.html'">
-                <div class="jump-btn-glow"></div>
-                <div class="btn-content">
-                    <i class="btn-icon fas fa-download"></i>
-                    <span class="btn-text">安装</span>
-                </div>
-                <i class="btn-arrow fas fa-chevron-right"></i>
-            </button>
-
-            <button class="jump-btn" onclick="window.location.href='OutputLog.html'">
-                <div class="jump-btn-glow"></div>
-                <div class="btn-content">
-                    <i class="btn-icon fas fa-save"></i>
-                    <span class="btn-text">导出日志</span>
-                </div>
-                <i class="btn-arrow fas fa-chevron-right"></i>
-            </button>
-
-            <button class="jump-btn" onclick="window.location.href='Update.html'">
-                <div class="jump-btn-glow"></div>
-                <div class="btn-content">
-                    <i class="btn-icon fas fa-arrow-up"></i>
-                    <span class="btn-text">更新</span>
-                </div>
-                <i class="btn-arrow fas fa-chevron-right"></i>
-            </button>
+        <div class="index-tools">
+            <span class="index-tools__count">按顺序阅读效果最佳 · 共 <b>3</b> 篇</span>
         </div>
 
-        <div class="footer-meta">
-            <div class="edit-time">
-                <i class="fas fa-clock"></i>
-                <span>最后更新: <time id="lastEditTime" datetime=""></time></span>
-            </div>
+        <div class="card-grid" data-group="60">
+
+            <a class="card" href="Installation.html">
+                <span class="card__idx">01</span>
+                <span class="card__icon"><i class="fas fa-download"></i></span>
+                <span class="card__title">安装模组</span>
+                <span class="card__desc">下载对应平台的模组包，解压到游戏根目录。含 Steam / Epic 默认路径参考、目录结构核对图与插件路径。</span>
+                <span class="card__go">开始阅读 <i class="fas fa-arrow-right"></i></span>
+            </a>
+
+            <a class="card" href="Update.html">
+                <span class="card__idx">02</span>
+                <span class="card__icon"><i class="fas fa-rotate"></i></span>
+                <span class="card__title">更新模组</span>
+                <span class="card__desc">内置更新检查的工作原理，以及更新检查失败时手动替换 dll 文件的完整流程。</span>
+                <span class="card__go">开始阅读 <i class="fas fa-arrow-right"></i></span>
+            </a>
+
+            <a class="card" href="OutputLog.html">
+                <span class="card__idx">03</span>
+                <span class="card__icon"><i class="fas fa-file-export"></i></span>
+                <span class="card__title">导出日志</span>
+                <span class="card__desc">出问题时如何拿到日志文件：自动导出、手动查看，以及游戏内的两组快捷键。</span>
+                <span class="card__go">开始阅读 <i class="fas fa-arrow-right"></i></span>
+            </a>
+
         </div>
 
-        <div class="footer-copyright">
-            <p>网站设计 ©<span>LezaiYa</span> | FinalSuspect Mod ©<span>Slok</span></p>
+        <div class="pager">
+            <a class="pager__item pager__item--next" href="Installation.html">
+                <small>下一篇</small>
+                <b>安装模组 →</b>
+            </a>
         </div>
-    </div>
-    <script src='../../Resource/JS/index.js'></script>
-    <script src='../../Resource/JS/h1.js'></script>
-    <script src='../../Resource/JS/Time.js'></script>
+    </main>
+
+    <script src="../../Resource/JS/language.js?v=63da192d"></script>
+    <script src="../../Resource/JS/versions.js?v=63da192d"></script>
+    <script src="../../Resource/JS/shell.js?v=63da192d"></script>
+    <script src="../../Resource/JS/transition.js?v=63da192d" defer></script>
+    <script src="../../Resource/JS/effects.js?v=63da192d" defer></script>
+    <script src="../../Resource/JS/time.js?v=63da192d" defer></script>
+    <script src="../../Resource/JS/last-modified.js?v=63da192d" defer></script>
 </body>
 
 </html>

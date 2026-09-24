@@ -3,47 +3,97 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>清空自动日志</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Button/Back.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Text/Text.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Text/h1.css">
-    <link rel="stylesheet" href="../../Resource/CSS/PromptBox/container.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Root.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Footer.css">
-    <link rel="stylesheet" href="../../Resource/CSS/time.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&family=Poppins:wght@400;600&display=swap">
+    <link rel="stylesheet" href="../../Resource/CSS/main.css?v=63da192d">
 </head>
 
-<body>
-    <div class="container">
-        <button class="back-button" onclick="window.history.back()">返回上一页</button>
-
-        <h1 id="ClearAutoLogs">FinalSuspect<br>清空自动日志</h1>
-
-        <div class="text">
-            <p>在模组Town Of Host中，当Among Us关闭时会自动保存一个日志文件。<br>
-                这个功能的初衷是为了遇到意外错误时可以提供相关信息。<br>
-                但该功能在Town Of Host中是默认启用且（除非改代码）无法关闭。</p>
-            <p>因此，我们在Final Suspect中添加了清空自动日志功能，以解决这个问题。</p>
-        </div>
-
-        <div class="footer-meta">
-            <div class="edit-time">
-                <i class="fas fa-clock"></i>
-                <span>最后更新: <time id="lastEditTime" datetime=""></time></span>
+<body data-shell="full" data-page="feat-clearautologs" data-rail="features">
+    <main>
+        <header class="page-head">
+            <span class="page-head__label hud-label"><i class="fas fa-trash-can"></i> FEATURE · 01</span>
+            <h1 class="page-title">清空自动日志</h1>
+            <div class="page-head__meta">
+                <span><i class="fas fa-folder"></i> 功能</span>
+                <span><i class="fas fa-broom"></i> 日志清理</span>
+                <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
             </div>
+        </header>
+
+        <p class="lede">
+            上游模组 Town Of Host 会在 Among Us 关闭时自动保存一个日志文件，且该功能默认启用、
+            除非改代码否则无法关闭。<strong>清空自动日志</strong>就是 Final Suspect 为解决这个问题而加入的功能。
+        </p>
+
+        <div class="facts">
+            <div><span class="k">问题来源</span><span class="v">Town Of Host 关闭游戏时自动保存日志</span></div>
+            <div><span class="k">上游默认状态</span><span class="v">默认启用，无法关闭（除非改代码）</span></div>
+            <div><span class="k">FinalSuspect 的处理</span><span class="v">新增「清空自动日志」功能</span></div>
+            <div><span class="k">是否需手动操作</span><span class="v">无需，由模组自动处理</span></div>
         </div>
 
-        <div class="footer-copyright">
-            <p>网站设计 ©<span>LezaiYa</span> | FinalSuspect Mod ©<span>Slok</span></p>
+        <div class="prose">
+
+            <h2 class="sec-title" id="origin"><span class="sec-title__num">01</span>问题来源</h2>
+            <p>
+                在模组 <strong>Town Of Host</strong> 中，当 Among Us 关闭时会自动保存一个日志文件。
+                这个功能的初衷是为了遇到意外错误时可以提供相关信息。
+            </p>
+            <p>
+                但该功能在 Town Of Host 中是<mark>默认启用</mark>且（除非改代码）<mark>无法关闭</mark>的，
+                因此这些日志文件会不断生成、留在游戏目录里。
+            </p>
+
+            <h2 class="sec-title" id="solution"><span class="sec-title__num">02</span>FinalSuspect 的处理</h2>
+            <p>
+                因此，我们在 Final Suspect 中添加了<strong>清空自动日志</strong>功能，以解决这个问题：
+                自动生成的日志会被清理掉，无需再为此手动进入游戏目录逐个删除。
+            </p>
+
+            <div class="alert alert--tip">
+                <span class="alert__icon"><i class="fas fa-lightbulb"></i></span>
+                <div class="alert__body">
+                    <span class="alert__title">需要留档时先导出</span>
+                    <p>如果遇到了异常、希望把日志保留下来，请先使用「输出日志」把当前日志复制到模组指定的专用目录，
+                        再让自动清理照常工作。导出方式见 <a href="DumpLog.html">输出日志</a>。</p>
+                </div>
+            </div>
+
+            <h2 class="sec-title" id="together"><span class="sec-title__num">03</span>与「输出日志」的配合</h2>
+            <p>
+                两个功能互补：<strong>清空自动日志</strong>负责日常清理，让日志文件不会一直堆积；
+                <strong>输出日志</strong>负责在需要时把当前日志复制到专用目录，并自动打开文件夹方便查看。
+            </p>
+            <p>
+                日常无需任何操作，只有在需要排查问题时执行一次导出即可。
+            </p>
         </div>
-    </div>
-    <script src='../../Resource/JS/h1.js'></script>
-    <script src='../../Resource/JS/Time.js'></script>
+
+        <div class="pager">
+            <a class="pager__item" href="index.html">
+                <small>上一篇</small>
+                <b>← 功能总览</b>
+            </a>
+            <a class="pager__item pager__item--next" href="DumpLog.html">
+                <small>下一篇</small>
+                <b>输出日志 →</b>
+            </a>
+        </div>
+    </main>
+
+    <script src="../../Resource/JS/language.js?v=63da192d"></script>
+    <script src="../../Resource/JS/versions.js?v=63da192d"></script>
+    <script src="../../Resource/JS/shell.js?v=63da192d"></script>
+    <script src="../../Resource/JS/transition.js?v=63da192d" defer></script>
+    <script src="../../Resource/JS/effects.js?v=63da192d" defer></script>
+    <script src="../../Resource/JS/time.js?v=63da192d" defer></script>
+    <script src="../../Resource/JS/last-modified.js?v=63da192d" defer></script>
 </body>
 
 </html>

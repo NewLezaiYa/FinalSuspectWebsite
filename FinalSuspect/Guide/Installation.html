@@ -3,117 +3,192 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
-    <title>安装</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Button/Back.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Button/BackTo.css">
-    <link rel="stylesheet" href="../../Resource/CSS/PromptBox/Tip.css">
-    <link rel="stylesheet" href="../../Resource/CSS/PromptBox/Warning.css">
-    <link rel="stylesheet" href="../../Resource/CSS/PromptBox/Content.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Text/Text.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Text/h1.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Text/h2.css">
-    <link rel="stylesheet" href="../../Resource/CSS/PromptBox/container.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Root.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Footer.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Image.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Steps/Update.css">
-    <link rel="stylesheet" href="../../Resource/CSS/time.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FinalSuspect 安装教程：Steam 与 Epic 双平台的分步图文安装指南，含默认路径参考、插件路径与目录结构核对。">
+    <title>安装模组 · FinalSuspect</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&family=Poppins:wght@400;600&display=swap">
+    <link rel="stylesheet" href="../../Resource/CSS/main.css?v=63da192d">
 </head>
 
-<body>
-    <div class="container">
-        <button class="back-button" onclick="window.history.back()">返回上一页</button>
+<body data-shell="full" data-page="installation" data-rail="guide">
+    <main>
+        <header class="page-head">
+            <span class="page-head__label hud-label"><i class="fas fa-download"></i> PROCEDURE · 01</span>
+            <h1 class="page-title">安装模组</h1>
+            <div class="page-head__meta">
+                <span><i class="fas fa-folder"></i> 教程</span>
+                <span><i class="fas fa-layer-group"></i> Steam / Epic 双平台</span>
+                <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
+            </div>
+        </header>
 
-        <h1 id="Installation">FinalSuspect 安装</h1>
+        <p class="lede">
+            安装本身只有两步：下载<strong>对应平台</strong>的模组包，解压到游戏<strong>根目录</strong>。
+            最常见的失败原因也正是这两点 —— 下错了平台包，或者解压时多套了一层文件夹。
+        </p>
 
-        <section class="content-section">
-            <h2>下载</h2>
-            <div class="text">
-                <p>请通过以下方式获取最新版本安装包：</p>
-                <p>
-                    <a href="https://github.com/Slok7565/FinalSuspect/releases" target="_blank"
-                        rel="noopener noreferrer">
-                        GitHub Releases
-                    </a>
-                </p>
-                <div class="warning">
-                    <p>你必须下载对应平台的模组包版本</p>
+        <div class="facts">
+            <div><span class="k">前置条件</span><span class="v">已安装 Among Us</span></div>
+            <div><span class="k">下载来源</span><span class="v">GitHub Releases</span></div>
+            <div><span class="k">安装位置</span><span class="v">游戏根目录</span></div>
+            <div><span class="k">常见失败原因</span><span class="v">平台包不匹配 / 解压多一层</span></div>
+        </div>
+
+        <div class="prose">
+
+            <h2 class="sec-title" id="download"><span class="sec-title__num">01</span>下载安装包</h2>
+            <p>请通过以下方式获取最新版本安装包：</p>
+
+            <div class="related__grid">
+                <a class="related__card" href="https://github.com/Slok7565/FinalSuspect/releases" target="_blank"
+                    rel="noopener noreferrer">
+                    <i class="fa-brands fa-github"></i><span>GitHub Releases（点击前往）</span><i
+                        class="fas fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+
+            <div class="alert alert--danger">
+                <span class="alert__icon"><i class="fas fa-circle-exclamation"></i></span>
+                <div class="alert__body">
+                    <span class="alert__title">必须下载对应平台的模组包</span>
+                    <p>Steam 版与 Epic 版的模组包<mark>互不通用</mark>。请先确认自己的游戏平台，再下载对应的安装包。</p>
                 </div>
             </div>
-        </section>
 
-        <section class="content-section">
-            <h2>Steam平台安装</h2>
+            <h2 class="sec-title" id="steam"><span class="sec-title__num">02</span>Steam 平台安装</h2>
 
-            <div class="tip">
-                <p><strong>默认安装路径参考：</strong></p>
-                <pre><code>C:\Program Files (x86)\Steam\steamapps\common\Among Us</code></pre>
-                <p>快速打开方法：按下 <mark>Win</mark> + <mark>R</mark> 组合键，输入路径后回车</p>
+            <div class="alert alert--tip">
+                <span class="alert__icon"><i class="fas fa-folder-open"></i></span>
+                <div class="alert__body">
+                    <span class="alert__title">默认安装路径参考</span>
+                    <p class="callout-path" style="margin:var(--s-2) 0 0"><i class="fas fa-terminal"></i>
+                        C:\Program Files (x86)\Steam\steamapps\common\Among Us</p>
+                    <p>快速打开方法：按下 <kbd>Win</kbd> + <kbd>R</kbd> 组合键，输入路径后回车。</p>
+                </div>
             </div>
 
-            <div class="text">
-                <p><strong>操作步骤：</strong></p>
-                <ol>
-                    <li>通过Steam客户端右键点击《Among Us》→ 选择「属性」→ 切换到「本地文件」→ 点击「浏览」打开游戏根目录</li>
-                    <img src="/Resource/images/OpenAmongUsWithSteam.png" class="guide-img">
-                    <li>将下载的Final Suspect压缩包解压到游戏根目录，最终文件结构应包含：</li>
-                </ol>
-                <img src="/Resource/images/SteamUnzip.png" class="guide-img">
+            <div class="steps">
+                <div class="step">
+                    <div class="step__body">
+                        <p>通过 Steam 客户端右键点击《Among Us》→ 选择「属性」→ 切换到「本地文件」→
+                            点击「浏览」打开游戏根目录。</p>
+                        <figure class="figure">
+                            <picture>
+                                <source srcset="../../Resource/images/OpenAmongUsWithSteam.webp" type="image/webp">
+                                <img data-nowebp src="../../Resource/images/OpenAmongUsWithSteam.png"
+                                    alt="通过 Steam 客户端打开《Among Us》本地文件目录" loading="lazy" decoding="async">
+                            </picture>
+                            <figcaption>Steam → 属性 → 本地文件 → 浏览</figcaption>
+                        </figure>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step__body">
+                        <p>将下载的 Final Suspect 压缩包解压到<strong>游戏根目录</strong>，最终文件结构应包含相应内容：</p>
+                        <figure class="figure">
+                            <picture>
+                                <source srcset="../../Resource/images/SteamUnzip.webp" type="image/webp">
+                                <img data-nowebp src="../../Resource/images/SteamUnzip.png" alt="解压完成后的游戏根目录结构"
+                                    loading="lazy" decoding="async">
+                            </picture>
+                            <figcaption>解压完成后的目录结构核对</figcaption>
+                        </figure>
+                        <div class="alert alert--warn">
+                            <span class="alert__icon"><i class="fas fa-triangle-exclamation"></i></span>
+                            <div class="alert__body">
+                                <span class="alert__title">不要多套一层文件夹</span>
+                                <p>解压后请核对目录结构。如果你看到的是
+                                    <code>Among Us\FinalSuspect\BepInEx\</code> 这样的层级，
+                                    说明解压时多套了一层，需要把里面的内容移到游戏根目录。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </section>
 
-        <section class="content-section">
-            <h2>Epic平台安装</h2>
+            <h2 class="sec-title" id="epic"><span class="sec-title__num">03</span>Epic 平台安装</h2>
 
-            <div class="tip">
-                <p><strong>默认安装路径参考：</strong></p>
-                <pre><code>C:\Program Files\Epic Games\AmongUs</pre></code>
-                <p>快速打开方法：通过Epic客户端库中找到《Among Us》→ 点击右侧「⋯」→ 选择「在资源管理器中显示」</p>
+            <div class="alert alert--tip">
+                <span class="alert__icon"><i class="fas fa-folder-open"></i></span>
+                <div class="alert__body">
+                    <span class="alert__title">默认安装路径参考</span>
+                    <p class="callout-path" style="margin:var(--s-2) 0 0"><i class="fas fa-terminal"></i>
+                        C:\Program Files\Epic Games\AmongUs</p>
+                    <p>快速打开方法：通过 Epic 客户端库中找到《Among Us》→ 点击右侧「⋯」→ 选择「在资源管理器中显示」。</p>
+                </div>
             </div>
 
-            <div class="text">
-                <p><strong>操作步骤：</strong></p>
-                <ol>
-                    <li>按照上述方法打开Epic平台游戏根目录</li>
-                    <li>将下载的Final Suspect压缩包解压到游戏根目录，最终文件结构应与Steam平台一致</li>
-                </ol>
-                <pre><code>C:\Program Files\Epic Games\AmongUs\BepInEx\plugins\FinalSuspect.dll</pre></code>
+            <div class="steps">
+                <div class="step">
+                    <div class="step__body">
+                        <p>按照上述方法打开 Epic 平台游戏根目录。</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step__body">
+                        <p>将下载的 Final Suspect 压缩包解压到游戏根目录，最终文件结构应与 Steam 平台一致。</p>
+                        <div class="term">
+                            <div class="term__bar">
+                                <span class="term__dots"><i></i><i></i><i></i></span>
+                                <span class="term__path">Epic 平台插件路径</span>
+                            </div>
+                            <pre><code>C:\Program Files\Epic Games\AmongUs\BepInEx\plugins\FinalSuspect.dll</code></pre>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="warning">
-                <p><strong>Epic平台限制</strong></p>
-                <p>必须安装在Epic官方游戏目录下（非官方路径会导致校验失败）</p>
+            <div class="alert alert--danger">
+                <span class="alert__icon"><i class="fas fa-circle-exclamation"></i></span>
+                <div class="alert__body">
+                    <span class="alert__title">Epic 平台限制</span>
+                    <p>必须安装在 <strong>Epic 官方游戏目录</strong>下。非官方路径会导致校验失败。</p>
+                </div>
             </div>
-        </section>
 
-        <div class="footer-copyright">
-            <p>网站设计 ©<span>LezaiYa</span> | FinalSuspect Mod ©<span>Slok</span></p>
+            <h2 class="sec-title" id="next"><span class="sec-title__num">04</span>装好之后</h2>
+            <p>
+                安装完成后即可启动游戏。如果模组没有正常加载，先按上面的目录结构再核对一遍，
+                然后到疑难解答里对照排查；需要反馈时请一并附上日志文件。
+            </p>
+
+            <div class="related__grid">
+                <a class="related__card" href="../FAQ.html"><i class="fas fa-life-ring"></i><span>安装失败排查</span><i
+                        class="fas fa-arrow-right"></i></a>
+                <a class="related__card" href="OutputLog.html"><i class="fas fa-file-export"></i><span>导出日志</span><i
+                        class="fas fa-arrow-right"></i></a>
+                <a class="related__card" href="Update.html"><i class="fas fa-rotate"></i><span>更新模组</span><i
+                        class="fas fa-arrow-right"></i></a>
+            </div>
         </div>
-    </div>
 
-    <div class="footer-meta">
-            <div class="edit-time">
-                <i class="fas fa-clock"></i>
-                <span>最后更新: <time id="lastEditTime" datetime=""></time></span>
-            </div>
+        <div class="pager">
+            <a class="pager__item" href="index.html">
+                <small>上一篇</small>
+                <b>← 教程总览</b>
+            </a>
+            <a class="pager__item pager__item--next" href="Update.html">
+                <small>下一篇</small>
+                <b>更新模组 →</b>
+            </a>
         </div>
+    </main>
 
-    <button class="back-to-top" aria-label="回到顶部">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 15l-6-6-6 6" />
-        </svg>
-    </button>
-    <script src='../../Resource/JS/BackToTop.js'></script>
-    <script src='../../Resource/JS/h1.js'></script>
-    <script src='../../Resource/JS/h2.js'></script>
-    <script src='../../Resource/JS/Image.js'></script>
-    <script src='../../Resource/JS/Time.js'></script>
+    <script src="../../Resource/JS/language.js?v=63da192d"></script>
+    <script src="../../Resource/JS/versions.js?v=63da192d"></script>
+    <script src="../../Resource/JS/shell.js?v=63da192d"></script>
+    <script src="../../Resource/JS/transition.js?v=63da192d" defer></script>
+    <script src="../../Resource/JS/effects.js?v=63da192d" defer></script>
+    <script src="../../Resource/JS/time.js?v=63da192d" defer></script>
+    <script src="../../Resource/JS/last-modified.js?v=63da192d" defer></script>
 </body>
 
 </html>

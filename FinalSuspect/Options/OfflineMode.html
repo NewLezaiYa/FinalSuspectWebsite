@@ -3,50 +3,95 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
-    <title>离线模式（试验性）</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Button/Back.css">
-    <link rel="stylesheet" href="../../Resource/CSS/PromptBox/Danger.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Text/Text.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Text/h1.css">
-    <link rel="stylesheet" href="../../Resource/CSS/PromptBox/container.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Root.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Footer.css">
-    <link rel="stylesheet" href="../../Resource/CSS/time.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FinalSuspect 选项说明：离线模式（试验性）——启动后将不再从远程获取资源，官方不推荐启用，启用后无法获取最新资源。">
+    <title>离线模式（试验性） · FinalSuspect</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&family=Poppins:wght@400;600&display=swap">
+    <link rel="stylesheet" href="../../Resource/CSS/main.css?v=63da192d">
 </head>
 
-<body>
-    <div class="container">
-        <div class="back-button" onclick="window.history.back()">返回上一页</div>
-
-        <h1 id="OfflineMode">FinalSuspect<br>离线模式（试验性）</h1>
-
-        <div class="text">
-            在Final Suspect模组中，当你启动离线模式，将不会从<mark>远程获取资源</mark>。<br>
-        </div>
-
-        <div class="danger">
-            <p>我们<mark>不推荐</mark>你启用离线模式。<br>
-                启用离线模式后您无法获取最新的资源。</p>
-        </div>
-
-        <div class="footer-meta">
-            <div class="edit-time">
-                <i class="fas fa-clock"></i>
-                <span>最后更新: <time id="lastEditTime" datetime=""></time></span>
+<body data-shell="full" data-page="opt-offlinemode" data-rail="options">
+    <main>
+        <header class="page-head">
+            <span class="page-head__label hud-label"><i class="fas fa-plug-circle-xmark"></i> OPTION · 09</span>
+            <h1 class="page-title">离线模式（试验性）</h1>
+            <div class="page-head__meta">
+                <span><i class="fas fa-folder"></i> 选项</span>
+                <span><i class="fas fa-tag"></i> 资源 / 试验性</span>
+                <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
             </div>
+        </header>
+
+        <p class="lede">
+            在 Final Suspect 中，当你启动离线模式，将不会从<strong>远程获取资源</strong>。
+            该功能目前属于试验性功能，官方并不推荐启用。
+        </p>
+
+        <div class="facts">
+            <div><span class="k">功能性质</span><span class="v">试验性功能</span></div>
+            <div><span class="k">资源来源</span><span class="v">不从远程获取</span></div>
+            <div><span class="k">资源更新</span><span class="v">启用后无法获取最新资源</span></div>
+            <div><span class="k">官方态度</span><span class="v">不推荐启用</span></div>
         </div>
 
-        <div class="footer-copyright">
-            <p>网站设计 ©<span>LezaiYa</span> | FinalSuspect Mod ©<span>Slok</span></p>
+        <div class="prose">
+            <h2 class="sec-title" id="how"><span class="sec-title__num">01</span>功能说明</h2>
+            <p>
+                在 Final Suspect 中，当你启动离线模式，将不会从<strong>远程获取资源</strong>。
+            </p>
+            <p>
+                也就是说，模组运行所需的资源不再走远程获取这条链路；该功能当前属于<strong>试验性功能</strong>，
+                启用前请先确认自己清楚下面提到的影响。
+            </p>
+
+            <h2 class="sec-title" id="notice"><span class="sec-title__num">02</span>风险提示</h2>
+            <div class="alert alert--danger">
+                <span class="alert__icon"><i class="fas fa-triangle-exclamation"></i></span>
+                <div class="alert__body">
+                    <span class="alert__title">官方不推荐启用</span>
+                    <p>官方<strong>不推荐</strong>启用离线模式；启用后您无法获取最新的资源。</p>
+                </div>
+            </div>
+
+            <h2 class="sec-title" id="advice"><span class="sec-title__num">03</span>启用前的确认</h2>
+            <p>
+                离线模式目前由官方标注为试验性功能，且不推荐启用。
+                如果您需要获取最新的资源，请不要启用该模式。
+            </p>
+            <dl class="spec-list">
+                <dt>状态</dt>
+                <dd>试验性功能</dd>
+                <dt>是否推荐</dt>
+                <dd>官方不推荐启用</dd>
+                <dt>主要代价</dt>
+                <dd>启用后无法获取最新资源</dd>
+            </dl>
         </div>
-    </div>
-    <script src='../../Resource/JS/h1.js'></script>
-    <script src='../../Resource/JS/Time.js'></script>
+
+        <div class="pager">
+            <a class="pager__item" href="KickPlayerWithDenyName.html">
+                <small>上一篇</small>
+                <b>← 踢出违规昵称玩家</b>
+            </a>
+            <a class="pager__item pager__item--next" href="ShowPlayerInfo.html">
+                <small>下一篇</small>
+                <b>展示玩家平台与客户端信息 →</b>
+            </a>
+        </div>
+    </main>
+
+    <script src="../../Resource/JS/language.js?v=63da192d"></script>
+    <script src="../../Resource/JS/versions.js?v=63da192d"></script>
+    <script src="../../Resource/JS/shell.js?v=63da192d"></script>
+    <script src="../../Resource/JS/transition.js?v=63da192d" defer></script>
+    <script src="../../Resource/JS/effects.js?v=63da192d" defer></script>
+    <script src="../../Resource/JS/time.js?v=63da192d" defer></script>
+    <script src="../../Resource/JS/last-modified.js?v=63da192d" defer></script>
 </body>
 
 </html>

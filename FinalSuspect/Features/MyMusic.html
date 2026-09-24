@@ -3,58 +3,100 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
-    <title>我的音乐</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Button/Back.css">
-    <link rel="stylesheet" href="../../Resource/CSS/PromptBox/PreCode.css">
-    <link rel="stylesheet" href="../../Resource/CSS/PromptBox/Content.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Text/Text.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Text/h1.css">
-    <link rel="stylesheet" href="../../Resource/CSS/PromptBox/container.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Root.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Footer.css">
-    <link rel="stylesheet" href="../../Resource/CSS/time.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FinalSuspect 功能说明：我的音乐——在「资源管理」下载模组支持的音乐，或把自己的音频放进本地音乐文件夹，路径不存在时显示「文件丢失」。">
+    <title>我的音乐 · FinalSuspect</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&family=Poppins:wght@400;600&display=swap">
+    <link rel="stylesheet" href="../../Resource/CSS/main.css?v=63da192d">
 </head>
 
-<body>
-    <div class="container">
-        <button class="back-button" onclick="window.history.back()">返回上一页</button>
-
-        <h1 id="MyMusic">FinalSuspect<br>我的音乐</h1>
-
-        <div class="content-section">
-            <div class="text">
-                <p>您可以在<mark>资源管理</mark>中下载本模组支持的音乐或在文件夹
-                <pre><code>/Among Us/Final Suspect_Data/Musics</pre></code>中添加自己喜爱的音频文件，如果音乐本地资源路径不存在则会显示「文件丢失」</p>
+<body data-shell="full" data-page="feat-mymusic" data-rail="features">
+    <main>
+        <header class="page-head">
+            <span class="page-head__label hud-label"><i class="fas fa-music"></i> FEATURE · 03</span>
+            <h1 class="page-title">我的音乐</h1>
+            <div class="page-head__meta">
+                <span><i class="fas fa-folder"></i> 功能</span>
+                <span><i class="fas fa-headphones"></i> 音频 / 个性化</span>
+                <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
             </div>
+        </header>
 
-            <div class="text">
-                <p>由Slok创作的音乐也已发布至
-                    <a href=" https://y.music.163.com/m/user?id=8039762500" target="_blank" rel="noopener noreferrer">
-                        <i class="fas fa-music"></i>
-                        网易云音乐
-                    </a>，想听的可以去听听哦。
-                </p>
-            </div>
+        <p class="lede">
+            您可以在「资源管理」中下载本模组支持的音乐，也可以把喜爱的音频文件直接放进本地音乐文件夹。
+            如果音乐本地资源路径不存在，界面则会显示「文件丢失」。
+        </p>
+
+        <div class="facts">
+            <div><span class="k">音乐来源</span><span class="v">「资源管理」下载 或 自行添加</span></div>
+            <div><span class="k">本地目录</span><span class="v">Among Us/Final Suspect_Data/Musics</span></div>
+            <div><span class="k">缺失提示</span><span class="v">路径不存在时显示「文件丢失」</span></div>
+            <div><span class="k">作者作品</span><span class="v">Slok（已发布至网易云音乐）</span></div>
         </div>
 
-        <div class="footer-meta">
-            <div class="edit-time">
-                <i class="fas fa-clock"></i>
-                <span>最后更新: <time id="lastEditTime" datetime=""></time></span>
+        <div class="prose">
+
+            <h2 class="sec-title" id="sources"><span class="sec-title__num">01</span>两种获取方式</h2>
+            <p>
+                您可以在<a href="ResourceManager.html">「资源管理」</a>中下载本模组支持的音乐，
+                或在文件夹 <code>Among Us/Final Suspect_Data/Musics</code> 中添加自己喜爱的音频文件。
+            </p>
+            <p>
+                两种方式得到的音频都会被「我的音乐」识别，按自己的喜好选择即可。
+            </p>
+
+            <h2 class="sec-title" id="local"><span class="sec-title__num">02</span>本地音乐目录</h2>
+            <p>自行添加音频时，请把文件放入下面的目录：</p>
+            <div class="term">
+                <div class="term__bar">
+                    <span class="term__dots"><i></i><i></i><i></i></span>
+                    <span class="term__path">Final Suspect 音乐目录</span>
+                </div>
+                <pre><code>Among Us/Final Suspect_Data/Musics</code></pre>
             </div>
+            <p class="callout-path"><i class="fas fa-folder-open"></i> Among Us/Final Suspect_Data/Musics</p>
+
+            <div class="alert alert--warn">
+                <span class="alert__icon"><i class="fas fa-triangle-exclamation"></i></span>
+                <div class="alert__body">
+                    <span class="alert__title">出现「文件丢失」怎么办</span>
+                    <p>如果音乐本地资源路径不存在，界面则会显示「文件丢失」。
+                        请回到上方目录确认音频文件是否已经放好。</p>
+                </div>
+            </div>
+
+            <h2 class="sec-title" id="netease"><span class="sec-title__num">03</span>作者的音乐</h2>
+            <p>
+                由 <strong>Slok</strong> 创作的音乐也已发布至网易云音乐
+                （<a href="https://y.music.163.com/m/user?id=8039762500" target="_blank"
+                    rel="noopener noreferrer">y.music.163.com/m/user?id=8039762500</a>），想听的可以去听听。
+            </p>
         </div>
 
-        <div class="footer-copyright">
-            <p>网站设计 ©<span>LezaiYa</span> | FinalSuspect Mod ©<span>Slok</span></p>
+        <div class="pager">
+            <a class="pager__item" href="DumpLog.html">
+                <small>上一篇</small>
+                <b>← 输出日志</b>
+            </a>
+            <a class="pager__item pager__item--next" href="NameTagManager.html">
+                <small>下一篇</small>
+                <b>名称标识管理 →</b>
+            </a>
         </div>
-    </div>
-    <script src='../../Resource/JS/h1.js'></script>
-    <script src='../../Resource/JS/Time.js'></script>
+    </main>
+
+    <script src="../../Resource/JS/language.js?v=63da192d"></script>
+    <script src="../../Resource/JS/versions.js?v=63da192d"></script>
+    <script src="../../Resource/JS/shell.js?v=63da192d"></script>
+    <script src="../../Resource/JS/transition.js?v=63da192d" defer></script>
+    <script src="../../Resource/JS/effects.js?v=63da192d" defer></script>
+    <script src="../../Resource/JS/time.js?v=63da192d" defer></script>
+    <script src="../../Resource/JS/last-modified.js?v=63da192d" defer></script>
 </body>
 
 </html>

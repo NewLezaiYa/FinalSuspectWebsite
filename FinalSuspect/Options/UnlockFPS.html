@@ -3,54 +3,106 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
-    <title>解锁帧数限制</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Button/Back.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Text/Text.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Text/h1.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Image.css">
-    <link rel="stylesheet" href="../../Resource/CSS/PromptBox/container.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Root.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Footer.css">
-    <link rel="stylesheet" href="../../Resource/CSS/time.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FinalSuspect 选项说明：解锁帧数限制——解除原版客户端 60FPS 上限，最高支持 165FPS，画面更顺滑、响应更快。">
+    <title>解锁帧数限制 · FinalSuspect</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&family=Poppins:wght@400;600&display=swap">
+    <link rel="stylesheet" href="../../Resource/CSS/main.css?v=63da192d">
 </head>
 
-<body>
-    <div class="container">
-        <div class="back-button" onclick="window.history.back()">返回上一页</div>
-
-        <h1 id="UnlockFPS">FinalSuspect<br>解锁帧数限制</h1>
-
-        <div class="text">
-            <p>原版游戏客户端默认将帧率限制在60FPS，启用此功能后可解除该限制，最高支持<mark>165FPS</mark>的流畅画面表现。<br>
-                高帧率模式能显著提升游戏动画的顺滑度和操作响应速度。</p>
-        </div>
-
-        <div class="image-grid">
-            <div class="image-wrapper">
-                <p class="text">解锁帧数限制功能示意图：</p>
-                <img src="/Resource/images/UnlockFPS.png" class="guide-img">
+<body data-shell="full" data-page="opt-unlockfps" data-rail="options">
+    <main>
+        <header class="page-head">
+            <span class="page-head__label hud-label"><i class="fas fa-gauge-high"></i> OPTION · 13</span>
+            <h1 class="page-title">解锁帧数限制</h1>
+            <div class="page-head__meta">
+                <span><i class="fas fa-folder"></i> 选项</span>
+                <span><i class="fas fa-tag"></i> 画面 / 性能</span>
+                <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
             </div>
+        </header>
+
+        <p class="lede">
+            原版游戏客户端默认将帧率限制在 60FPS，启用此功能后可解除该限制，
+            最高支持 165FPS 的流畅画面表现。
+        </p>
+
+        <div class="facts">
+            <div><span class="k">原版上限</span><span class="v">60FPS</span></div>
+            <div><span class="k">解锁后上限</span><span class="v">165FPS</span></div>
+            <div><span class="k">体验收益</span><span class="v">动画更顺滑、响应更快</span></div>
         </div>
 
-        <div class="footer-meta">
-            <div class="edit-time">
-                <i class="fas fa-clock"></i>
-                <span>最后更新: <time id="lastEditTime" datetime=""></time></span>
+        <div class="prose">
+            <h2 class="sec-title" id="how"><span class="sec-title__num">01</span>功能说明</h2>
+            <p>
+                原版游戏客户端默认将帧率限制在 <strong>60FPS</strong>，启用此功能后可解除该限制，
+                最高支持 <strong>165FPS</strong> 的流畅画面表现。
+            </p>
+            <p>
+                高帧率模式能显著提升游戏动画的顺滑度和操作响应速度。
+            </p>
+
+            <h2 class="sec-title" id="compare"><span class="sec-title__num">02</span>帧率上限对比</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>状态</th>
+                            <th>帧率上限</th>
+                            <th>说明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>原版客户端</td>
+                            <td>60FPS</td>
+                            <td>默认将帧率限制在 60FPS</td>
+                        </tr>
+                        <tr>
+                            <td>启用解锁帧数限制</td>
+                            <td>165FPS</td>
+                            <td>解除限制后最高支持 165FPS</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+
+            <h2 class="sec-title" id="preview"><span class="sec-title__num">03</span>效果示意</h2>
+            <figure class="figure">
+                <picture>
+                    <source srcset="../../Resource/images/UnlockFPS.webp" type="image/webp">
+                    <img data-nowebp src="../../Resource/images/UnlockFPS.png" alt="解锁帧数限制功能示意图" loading="lazy"
+                        decoding="async">
+                </picture>
+                <figcaption>解锁帧数限制功能示意图</figcaption>
+            </figure>
         </div>
 
-        <div class="footer-copyright">
-            <p>网站设计 ©<span>LezaiYa</span> | FinalSuspect Mod ©<span>Slok</span></p>
+        <div class="pager">
+            <a class="pager__item" href="SwitchOutfitType.html">
+                <small>上一篇</small>
+                <b>← 切换外观形象</b>
+            </a>
+            <a class="pager__item pager__item--next" href="UseModCursor.html">
+                <small>下一篇</small>
+                <b>使用模组鼠标光标 →</b>
+            </a>
         </div>
-    </div>
-    <script src='../../Resource/JS/h1.js'></script>
-    <script src='../../Resource/JS/Image.js'></script>
-    <script src='../../Resource/JS/Time.js'></script>
+    </main>
+
+    <script src="../../Resource/JS/language.js?v=63da192d"></script>
+    <script src="../../Resource/JS/versions.js?v=63da192d"></script>
+    <script src="../../Resource/JS/shell.js?v=63da192d"></script>
+    <script src="../../Resource/JS/transition.js?v=63da192d" defer></script>
+    <script src="../../Resource/JS/effects.js?v=63da192d" defer></script>
+    <script src="../../Resource/JS/time.js?v=63da192d" defer></script>
+    <script src="../../Resource/JS/last-modified.js?v=63da192d" defer></script>
 </body>
 
 </html>

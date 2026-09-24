@@ -3,45 +3,103 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
-    <title>结束时自动返回大厅</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Button/Back.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Text/Text.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Text/h1.css">
-    <link rel="stylesheet" href="../../Resource/CSS/PromptBox/container.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Root.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Footer.css">
-    <link rel="stylesheet" href="../../Resource/CSS/time.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FinalSuspect 选项说明：结束时自动返回大厅——对局结束自动跳过结算动画与复盘信息页，直接把玩家送回游戏大厅。">
+    <title>结束时自动返回大厅 · FinalSuspect</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&family=Poppins:wght@400;600&display=swap">
+    <link rel="stylesheet" href="../../Resource/CSS/main.css?v=63da192d">
 </head>
 
-<body>
-    <div class="container">
-        <div class="back-button" onclick="window.history.back()">返回上一页</div>
-
-        <h1 id="AutoEndGame">FinalSuspect<br>结束时自动返回大厅</h1>
-
-        <div class="text">
-            当游戏对局结束时，Final Suspect<mark>结束时自动返回大厅</mark>功能将自动触发，自动跳过结算动画与复盘信息页，直接将玩家跳转返回至游戏大厅界面。<br>
-            该设计通过减少非必要的中转环节，可有效提升玩家在连续对局时的操作流畅度，尤其适用于躲猫猫或练习模式等需要高频次对局的场景。
-        </div>
-
-        <div class="footer-meta">
-            <div class="edit-time">
-                <i class="fas fa-clock"></i>
-                <span>最后更新: <time id="lastEditTime" datetime=""></time></span>
+<body data-shell="full" data-page="opt-autoendgame" data-rail="options">
+    <main>
+        <header class="page-head">
+            <span class="page-head__label hud-label"><i class="fas fa-flag-checkered"></i> OPTION · 01</span>
+            <h1 class="page-title">结束时自动返回大厅</h1>
+            <div class="page-head__meta">
+                <span><i class="fas fa-folder"></i> 选项</span>
+                <span><i class="fas fa-tag"></i> 自动化 / 对局流程</span>
+                <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
             </div>
+        </header>
+
+        <p class="lede">
+            对局结束时自动跳过结算动画与复盘信息页，直接将玩家跳转返回至游戏大厅界面。
+            减少非必要的中转环节，连续对局时操作更流畅。
+        </p>
+
+        <div class="facts">
+            <div><span class="k">默认状态</span><span class="v">可手动开启</span></div>
+            <div><span class="k">生效端</span><span class="v">模组端</span></div>
+            <div><span class="k">影响平衡</span><span class="v">不影响</span></div>
+            <div><span class="k">适用场景</span><span class="v">躲猫猫 / 练习模式 / 连续对局</span></div>
         </div>
 
-        <div class="footer-copyright">
-            <p>网站设计 ©<span>LezaiYa</span> | FinalSuspect Mod ©<span>Slok</span></p>
+        <div class="prose">
+
+            <h2 class="sec-title" id="how"><span class="sec-title__num">01</span>功能说明</h2>
+            <p>
+                当游戏对局结束时，Final Suspect「结束时自动返回大厅」功能将<strong>自动触发</strong>，
+                自动跳过结算动画与复盘信息页，直接将玩家跳转返回至<strong>游戏大厅界面</strong>。
+            </p>
+            <p>
+                该设计通过减少非必要的中转环节，可有效提升玩家在连续对局时的操作流畅度，
+                尤其适用于<mark>躲猫猫</mark>或<mark>练习模式</mark>等需要高频次对局的场景。
+            </p>
+
+            <h2 class="sec-title" id="scene"><span class="sec-title__num">02</span>适用场景</h2>
+            <p>
+                这项改动的收益体现在「一局接一局」的节奏上：结算动画与复盘信息页被跳过之后，
+                从对局结束回到大厅等待的时间被压到最短。
+            </p>
+            <ul>
+                <li><strong>躲猫猫</strong>：单局时间短、回合密度高，跳过中转环节的体感差别最明显。</li>
+                <li><strong>练习模式</strong>：需要反复开局验证玩法或路线时，每次都能省下一段等待。</li>
+                <li><strong>连续对局</strong>：与熟悉的玩家连续开房时不必每局都手动跳过结算。</li>
+            </ul>
+
+            <h2 class="sec-title" id="notice"><span class="sec-title__num">03</span>使用提示</h2>
+            <div class="alert alert--tip">
+                <span class="alert__icon"><i class="fas fa-lightbulb"></i></span>
+                <div class="alert__body">
+                    <span class="alert__title">需要看结算数据时再关掉</span>
+                    <p>该功能可在模组配置菜单中随时开启或关闭。若你需要查看结算动画与复盘信息页（例如整理战绩），
+                        临时关闭即可。</p>
+                </div>
+            </div>
+            <div class="alert alert--ok">
+                <span class="alert__icon"><i class="fas fa-circle-check"></i></span>
+                <div class="alert__body">
+                    <span class="alert__title">组合效果</span>
+                    <p>「结束时自动返回大厅」+「人满自动开始游戏」一起开启，可以把连续对局之间的等待压到最低。</p>
+                </div>
+            </div>
+
         </div>
-    </div>
-    <script src='../../Resource/JS/h1.js'></script>
-    <script src='../../Resource/JS/Time.js'></script>
+
+        <div class="pager">
+            <a class="pager__item" href="./">
+                <small>上一篇</small>
+                <b>← 选项总览</b>
+            </a>
+            <a class="pager__item pager__item--next" href="AutoStartGame">
+                <small>下一篇</small>
+                <b>人满自动开始游戏 →</b>
+            </a>
+        </div>
+    </main>
+
+    <script src="../../Resource/JS/language.js?v=63da192d"></script>
+    <script src="../../Resource/JS/versions.js?v=63da192d"></script>
+    <script src="../../Resource/JS/shell.js?v=63da192d"></script>
+    <script src="../../Resource/JS/transition.js?v=63da192d" defer></script>
+    <script src="../../Resource/JS/effects.js?v=63da192d" defer></script>
+    <script src="../../Resource/JS/time.js?v=63da192d" defer></script>
+    <script src="../../Resource/JS/last-modified.js?v=63da192d" defer></script>
 </body>
 
 </html>
