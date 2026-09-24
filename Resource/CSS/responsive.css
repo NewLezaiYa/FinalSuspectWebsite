@@ -34,6 +34,11 @@
     gap: 6px;
   }
 
+  .theme-switch__btn {
+    width: 40px;
+    height: 40px;
+  }
+
   .rail-scrim {
     background: rgba(2, 3, 8, .8);
     backdrop-filter: none;

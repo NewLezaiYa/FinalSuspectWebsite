@@ -57,6 +57,45 @@
   ];
 
 
+  var THEME_KEY = 'fs.theme';
+  var THEME_META = { dark: '#030308', light: '#eef1f7' };
+
+
+  function applyTheme(name) {
+    var light = name === 'light';
+    if (light) document.documentElement.setAttribute('data-theme', 'light');
+    else document.documentElement.removeAttribute('data-theme');
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', light ? THEME_META.light : THEME_META.dark);
+    return light ? 'light' : 'dark';
+  }
+
+
+  function currentTheme() {
+    try { return localStorage.getItem(THEME_KEY) === 'light' ? 'light' : 'dark'; } catch (e) { return 'dark'; }
+  }
+
+
+  function buildThemeSwitch() {
+    var wrap = el('div', 'theme-switch');
+    var btn = el('button', 'theme-switch__btn');
+    btn.type = 'button';
+    btn.id = 'themeToggle';
+    btn.setAttribute('aria-label', '切换亮色 / 暗色主题');
+    btn.innerHTML = '<i class="fas fa-sun"></i><i class="fas fa-moon"></i>';
+
+    btn.addEventListener('click', function () {
+      var next = currentTheme() === 'light' ? 'dark' : 'light';
+      try { localStorage.setItem(THEME_KEY, next); } catch (e) { }
+      applyTheme(next);
+      document.dispatchEvent(new CustomEvent('theme:change', { detail: { theme: next } }));
+    });
+
+    wrap.appendChild(btn);
+    return wrap;
+  }
+
+
   function el(tag, cls, html) {
     var n = document.createElement(tag);
     if (cls) n.className = cls;
@@ -197,6 +236,7 @@
       '<span class="cmdk-trigger__keys"><kbd>Ctrl</kbd><kbd>K</kbd></span>';
     actions.appendChild(cmdBtn);
 
+    actions.appendChild(buildThemeSwitch());
     actions.appendChild(buildLangSwitch());
 
     inner.appendChild(actions);
@@ -691,6 +731,7 @@
     var mode = document.body.dataset.shell || 'full';
     var cur = findCurrent();
 
+    applyTheme(currentTheme());
     buildTopbar(cur, mode);
     removeLegacyChrome();
     bindGroupReveal();
