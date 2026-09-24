@@ -92,7 +92,7 @@ window.I18N = (function () {
     en.textContent = t('noticeEn');
 
     link.href = ISSUE_URL;
-    link.innerHTML = '<i class="fa-brands fa-github"></i> 去 GitHub 打开 issue';
+    link.innerHTML = '<i class="brand-ico brand-ico--github"></i> 去 GitHub 打开 issue';
     back.textContent = '返回中文';
     if (!back.dataset.bound) {
       back.dataset.bound = '1';

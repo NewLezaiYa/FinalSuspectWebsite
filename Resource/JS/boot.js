@@ -27,10 +27,6 @@
   }
 
 
-  function toUrl(p) {
-    return location.protocol === 'file:' ? p : '/' + p.replace(/^\/+/, '');
-  }
-
   function boot() {
     var overlay = document.getElementById('loadingOverlay');
     if (!overlay || typeof window.SplashIntro === 'undefined') { ready(); return; }
@@ -49,7 +45,7 @@
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { revealNow(); return; }
 
     window.SplashIntro.start({
-      images: IMAGES.map(toUrl),
+      images: IMAGES,
       onComplete: function () { ready(); }
     });
   }

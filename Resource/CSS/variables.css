@@ -48,13 +48,13 @@
   --s-8: 64px;
   --s-9: 96px;
 
-  --f-display: 'Orbitron', 'Poppins', system-ui, sans-serif;
-  --f-body: 'Poppins', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+  --f-display: 'FS Display', 'FS Text', system-ui, sans-serif;
+  --f-body: 'FS Text', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
   --f-mono: 'Consolas', 'SFMono-Regular', 'Menlo', 'DejaVu Sans Mono', monospace;
 
   --fs-h1: clamp(1.9rem, 4.4vw, 2.6rem);
   --fs-h2: clamp(1.3rem, 2.4vw, 1.65rem);
-  --fs-h3: clamp(1.08rem, 1.7rem, 1.25rem);
+  --fs-h3: clamp(1.08rem, 2.1vw, 1.25rem);
   --fs-body: 1.02rem;
   --fs-sm: .88rem;
   --fs-xs: .76rem;
@@ -144,60 +144,33 @@ body {
   color: var(--t1);
   background: var(--bg-void);
   min-height: 100vh;
+  min-height: 100dvh;
   overflow-x: hidden;
   position: relative;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
-:root {
-  --cursor-arrow: url('../images/Cursor-32.png') 5 5, auto;
-  --cursor-arrow-hd: image-set(url('../images/Cursor-32.png') 1x,
-      url('../images/Cursor-64.png') 2x) 5 5, auto;
-}
+@media (hover: hover) and (pointer: fine) {
 
-html,
-body {
-  cursor: url('../images/Cursor-32.png') 5 5, auto;
-}
-
-@supports (cursor: image-set(url('../images/Cursor-32.png') 1x)) {
+  :root {
+    --cursor-arrow: url('../images/Cursor-32.png') 5 5, auto;
+    --cursor-arrow-hd: image-set(url('../images/Cursor-32.png') 1x,
+        url('../images/Cursor-64.png') 2x) 5 5, auto;
+  }
 
   html,
   body {
-    cursor: var(--cursor-arrow-hd);
+    cursor: url('../images/Cursor-32.png') 5 5, auto;
   }
-}
 
-a,
-button,
-summary,
-label,
-select,
-.btn,
-.icon-btn,
-.dock__btn,
-.chip,
-.rail__link,
-.rail__sub,
-.topnav__link,
-.nav-row,
-.card,
-.gcard,
-.toc__link,
-.cmdk__item,
-.lang-switch__btn,
-.lang-switch__item,
-.related__card,
-.pager__item,
-.copy-btn,
-.back-button,
-.error-code,
-.acc>summary {
-  cursor: url('../images/Cursor-32.png') 5 5, auto;
-}
+  @supports (cursor: image-set(url('../images/Cursor-32.png') 1x)) {
 
-@supports (cursor: image-set(url('../images/Cursor-32.png') 1x)) {
+    html,
+    body {
+      cursor: var(--cursor-arrow-hd);
+    }
+  }
 
   a,
   button,
@@ -224,7 +197,38 @@ select,
   .back-button,
   .error-code,
   .acc>summary {
-    cursor: var(--cursor-arrow-hd);
+    cursor: url('../images/Cursor-32.png') 5 5, auto;
+  }
+
+  @supports (cursor: image-set(url('../images/Cursor-32.png') 1x)) {
+
+    a,
+    button,
+    summary,
+    label,
+    select,
+    .btn,
+    .icon-btn,
+    .dock__btn,
+    .chip,
+    .rail__link,
+    .rail__sub,
+    .topnav__link,
+    .nav-row,
+    .card,
+    .gcard,
+    .toc__link,
+    .cmdk__item,
+    .lang-switch__btn,
+    .lang-switch__item,
+    .related__card,
+    .pager__item,
+    .copy-btn,
+    .back-button,
+    .error-code,
+    .acc>summary {
+      cursor: var(--cursor-arrow-hd);
+    }
   }
 }
 

@@ -7,13 +7,15 @@
     <meta name="theme-color" content="#030308">
     <title>FinalSuspect</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&family=Poppins:wght@400;600&display=swap">
-    <link rel="stylesheet" href="Resource/CSS/main.css?v=35d8acc3">
-    <link rel="stylesheet" href="Resource/CSS/splash.css?v=35d8acc3">
+    <link rel="stylesheet" href="Resource/CSS/fonts.css?v=67cba052">
+    <link rel="stylesheet" href="Resource/CSS/icons.css?v=67cba052">
+    <link rel="stylesheet" href="Resource/CSS/variables.css?v=67cba052">
+    <link rel="stylesheet" href="Resource/CSS/components.css?v=67cba052">
+    <link rel="stylesheet" href="Resource/CSS/layout.css?v=67cba052">
+    <link rel="stylesheet" href="Resource/CSS/pages.css?v=67cba052">
+    <link rel="stylesheet" href="Resource/CSS/animations.css?v=67cba052">
+    <link rel="stylesheet" href="Resource/CSS/responsive.css?v=67cba052">
+    <link rel="stylesheet" href="Resource/CSS/splash.css?v=67cba052">
 </head>
 
 <body data-shell="home" data-page="home">
@@ -50,10 +52,14 @@
                 </span>
 
                 <picture>
-                    <source srcset="Resource/images/FinalSuspect-Logo-2.0.webp" type="image/webp">
-                    <img data-nowebp src="Resource/images/FinalSuspect-Logo-2.0.png" alt="FinalSuspect"
+                    <source type="image/webp"
+                        sizes="(max-width: 640px) 64vw, 400px"
+                        srcset="Resource/images/FinalSuspect-Logo-2.0-480.webp 480w, Resource/images/FinalSuspect-Logo-2.0-800.webp 800w, Resource/images/FinalSuspect-Logo-2.0-1200.webp 1200w, Resource/images/FinalSuspect-Logo-2.0.webp 1800w">
+                    <img data-nowebp src="Resource/images/FinalSuspect-Logo-2.0-900.png" alt="FinalSuspect"
                         class="hero__logo" width="1800" height="675" loading="eager" fetchpriority="high"
-                        decoding="async">
+                        decoding="async"
+                        sizes="(max-width: 640px) 64vw, 400px"
+                        srcset="Resource/images/FinalSuspect-Logo-2.0-480.png 480w, Resource/images/FinalSuspect-Logo-2.0-900.png 900w, Resource/images/FinalSuspect-Logo-2.0.png 4000w">
                 </picture>
 
                 <h1 class="hero__title">模组文档</h1>
@@ -147,30 +153,15 @@
         </div>
     </main>
 
-    <script src="Resource/JS/language.js?v=35d8acc3"></script>
-    <script src="Resource/JS/versions.js?v=35d8acc3"></script>
-    <script>
-        (function () {
-            var list = window.VERSIONS || [];
-            var meta = document.getElementById('logMeta');
-            if (meta && list.length) meta.textContent = list.length + ' 个版本 · 最新 ' + list[0].version + ' →';
-
-            document.addEventListener('pointermove', function (e) {
-                var row = e.target.closest ? e.target.closest('.nav-row') : null;
-                if (!row) return;
-                var r = row.getBoundingClientRect();
-                row.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%');
-                row.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%');
-            }, { passive: true });
-        })();
-    </script>
-    <script src="Resource/JS/shell.js?v=35d8acc3"></script>
-    <script src="Resource/JS/transition.js?v=35d8acc3" defer></script>
-    <script src="Resource/JS/effects.js?v=35d8acc3" defer></script>
-    <script src="Resource/JS/time.js?v=35d8acc3" defer></script>
-    <script src="Resource/JS/last-modified.js?v=35d8acc3" defer></script>
-    <script src="Resource/JS/splash.js?v=35d8acc3" defer></script>
-    <script src="Resource/JS/boot.js?v=35d8acc3" defer></script>
+    <script src="Resource/JS/language.js?v=67cba052"></script>
+    <script src="Resource/JS/versions.js?v=67cba052"></script>
+    <script src="Resource/JS/shell.js?v=67cba052"></script>
+    <script src="Resource/JS/transition.js?v=67cba052" defer></script>
+    <script src="Resource/JS/effects.js?v=67cba052" defer></script>
+    <script src="Resource/JS/time.js?v=67cba052" defer></script>
+    <script src="Resource/JS/last-modified.js?v=67cba052" defer></script>
+    <script src="Resource/JS/splash.js?v=67cba052" defer></script>
+    <script src="Resource/JS/boot.js?v=67cba052" defer></script>
 </body>
 
 </html>

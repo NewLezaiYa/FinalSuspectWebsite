@@ -57,13 +57,6 @@
   ];
 
 
-  var EXTERNAL = [
-    { name: 'GitHub 仓库', href: 'https://github.com/Slok7565/FinalSuspect', icon: 'fa-brands fa-github' },
-    { name: '下载最新版', href: 'https://github.com/Slok7565/FinalSuspect/releases', icon: 'fa-download' },
-    { name: '问题反馈', href: 'https://github.com/NewLezaiYa/FinalSuspectWebsite/issues', icon: 'fa-circle-exclamation' }
-  ];
-
-
   function el(tag, cls, html) {
     var n = document.createElement(tag);
     if (cls) n.className = cls;
@@ -631,7 +624,7 @@
     m.id = 'appreciateModal';
     m.innerHTML =
       '<div class="cmdk__panel" style="max-width:400px;text-align:center">' +
-        '<div class="cmdk__head"><i class="fa-brands fa-weixin" style="color:#09bb07"></i>' +
+        '<div class="cmdk__head"><i class="brand-ico brand-ico--wechat" style="color:#09bb07"></i>' +
         '<b style="flex:1;font-family:var(--f-display);letter-spacing:.06em">微信赞赏</b>' +
         '<button class="icon-btn" type="button" id="apprClose" aria-label="关闭" style="width:32px;height:32px"><i class="fas fa-xmark"></i></button></div>' +
         '<div style="padding:var(--s-5)">' +
@@ -707,7 +700,7 @@
       buildCmdk();
       buildAppreciate();
       buildLegal();
-      markReadyWhenLoaded();
+
       document.dispatchEvent(new CustomEvent('shell:ready', { detail: { mode: mode } }));
       return;
     }

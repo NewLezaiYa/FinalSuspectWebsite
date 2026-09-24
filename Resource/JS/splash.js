@@ -2,6 +2,10 @@
 window.SplashIntro = (function () {
   'use strict';
 
+  var LOW_POWER = window.matchMedia('(hover: none) and (pointer: coarse)').matches ||
+    window.innerWidth < 760;
+  var DPR_CAP = LOW_POWER ? 1.25 : 2;
+
   var CFG = {
 
     ringExpand: 0.4,
@@ -17,10 +21,10 @@ window.SplashIntro = (function () {
     diaOut: 0.42,
 
 
-    gridSize: 42,
+    gridSize: LOW_POWER ? 64 : 42,
     scanThickness: 3,
-    maxDebris: 260,
-    ringCount: 2
+    maxDebris: LOW_POWER ? 90 : 260,
+    ringCount: LOW_POWER ? 1 : 2
   };
 
   var COLORS = {
@@ -76,7 +80,7 @@ window.SplashIntro = (function () {
   function GridLayer(canvas) {
     this.c = canvas;
     this.ctx = canvas.getContext('2d');
-    this.dpr = Math.min(2, window.devicePixelRatio || 1);
+    this.dpr = Math.min(DPR_CAP, window.devicePixelRatio || 1);
     this.resize();
     this.offset = 0;
   }
@@ -165,7 +169,7 @@ window.SplashIntro = (function () {
 
     this.grid = new GridLayer(this.pcbCanvas);
     this.fxCtx = this.fxCanvas.getContext('2d');
-    this.dpr = Math.min(2, window.devicePixelRatio || 1);
+    this.dpr = Math.min(DPR_CAP, window.devicePixelRatio || 1);
     this.debris = [];
     this.resize();
     var self = this;
@@ -174,12 +178,12 @@ window.SplashIntro = (function () {
 
   Engine.prototype.resize = function () {
     var w = window.innerWidth, h = window.innerHeight;
+    var dpr = this.dpr;
     this.w = w; this.h = h;
     [this.fxCanvas, this.particleCanvas].forEach(function (c) {
-      c.width = Math.floor(w * Math.min(2, window.devicePixelRatio || 1));
-      c.height = Math.floor(h * Math.min(2, window.devicePixelRatio || 1));
-      c.getContext('2d').setTransform(
-        Math.min(2, window.devicePixelRatio || 1), 0, 0, Math.min(2, window.devicePixelRatio || 1), 0, 0);
+      c.width = Math.floor(w * dpr);
+      c.height = Math.floor(h * dpr);
+      c.getContext('2d').setTransform(dpr, 0, 0, dpr, 0, 0);
     });
     if (this.grid) this.grid.resize();
   };
@@ -455,9 +459,8 @@ window.SplashIntro = (function () {
       this.versionText.textContent = 'FS-DOCS v3.0 · MECHANICAL BUILD';
       this.versionText.classList.add('is-on');
 
-      var logoImg = await loadImage(this.logoImgSrc());
-      if (!logoImg) { onComplete && onComplete(); return; }
 
+      var logoPromise = loadImage(this.logoImgSrc());
 
       var scanDone = false;
       var scanP = animate(CFG.scanSweep, function (t) { scanProgress = easeInOut(t); })
@@ -467,11 +470,14 @@ window.SplashIntro = (function () {
       await scanP;
       void scanDone;
 
-      await this.phaseLogo(logoImg);
-      await this.phaseBoot();
-      await this.phaseResources(images);
-      await this.phaseClamp();
-      await this.phaseDisassemble();
+      var logoImg = await logoPromise;
+      if (logoImg) {
+        await this.phaseLogo(logoImg);
+        await this.phaseBoot();
+        await this.phaseResources(images);
+        await this.phaseClamp();
+        await this.phaseDisassemble();
+      }
 
       if (this.overlay) {
         this.overlay.classList.add('hidden');
@@ -487,9 +493,7 @@ window.SplashIntro = (function () {
 
 
   Engine.prototype.logoImgSrc = function () {
-    return location.protocol === 'file:'
-      ? '../Resource/images/FinalSuspect-Logo-Splash.webp'
-      : '/Resource/images/FinalSuspect-Logo-Splash.webp';
+    return 'Resource/images/FinalSuspect-Logo-Splash.webp';
   };
 
 

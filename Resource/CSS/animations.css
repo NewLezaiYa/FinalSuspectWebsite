@@ -64,40 +64,10 @@ body.is-ready .hero__bg {
   }
 }
 
-.tw {
-  white-space: pre-wrap;
-}
-
-.cursor {
-  display: inline-block;
-  width: 8px;
-  height: 1.05em;
-  margin-left: 2px;
-  background: var(--c-teal);
-  vertical-align: text-bottom;
-  animation: caretBlink .9s steps(1) infinite;
-}
-
-@keyframes caretBlink {
-
-  0%,
-  49% {
+@keyframes revealFailsafe {
+  to {
     opacity: 1;
-  }
-
-  50%,
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes txtScan {
-  0% {
-    background-position: 150% 0;
-  }
-
-  100% {
-    background-position: -150% 0;
+    transform: none;
   }
 }
 
@@ -595,9 +565,4 @@ input:focus-visible,
   outline: 2px solid var(--c-cyan);
   outline-offset: 2px;
   box-shadow: var(--glow-cyan);
-}
-
-.fx-ready .reveal-fallback {
-  opacity: 1 !important;
-  transform: none !important;
 }

@@ -121,7 +121,7 @@
 }
 
 .brand__mark .bm-text {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'FS Display', sans-serif;
   font-size: 11px;
   font-weight: 700;
   fill: #030308;
@@ -611,7 +611,7 @@
 
 .rail__filter::before {
   content: '\f002';
-  font-family: 'Font Awesome 6 Free';
+  font-family: 'FS Icon';
   font-weight: 900;
   position: absolute;
   left: 11px;
@@ -1281,6 +1281,7 @@
   position: absolute;
   left: 0;
   right: 0;
+  top: 0;
   height: 34%;
   background: linear-gradient(180deg, transparent, rgba(0, 240, 255, .05), transparent);
   animation: heroScan 10s var(--e-in-out) infinite;
@@ -1288,11 +1289,11 @@
 
 @keyframes heroScan {
   0% {
-    top: -34%;
+    transform: translateY(-105%);
   }
 
   100% {
-    top: 100%;
+    transform: translateY(300%);
   }
 }
 
@@ -1786,35 +1787,17 @@
 [data-reveal] {
   opacity: 1;
   transform: none;
-  transition: opacity var(--dur-reveal) var(--e-out), transform var(--dur-reveal) var(--e-mech);
 }
 
-html.js-on [data-reveal] {
+
+html.fx-reveal [data-reveal] {
   opacity: 0;
-  transform: translateY(26px);
-  will-change: opacity, transform;
+  transform: translateY(22px);
+  animation: revealFailsafe .35s var(--e-out) 1.9s forwards;
 }
 
-html.js-on [data-reveal].is-in {
-  opacity: 1;
-  transform: none;
-}
-
-html.js-on [data-reveal='left'] {
-  transform: translateX(-32px);
-}
-
-html.js-on [data-reveal='right'] {
-  transform: translateX(32px);
-}
-
-html.js-on [data-reveal='zoom'] {
-  transform: scale(.94);
-}
-
-html.js-on [data-reveal='flip'] {
-  transform: perspective(900px) rotateX(-14deg) translateY(24px);
-  transform-origin: top center;
+html.fx-reveal [data-reveal].is-in {
+  animation: riseIn var(--dur-reveal) var(--e-mech) both;
 }
 
 
@@ -2295,7 +2278,6 @@ html.js-on [data-reveal='flip'] {
   color: var(--t4);
 }
 
-/* 主页：版权条要与上面的入口区（1020px）对齐，而不是铺满整宽 */
 .home ~ .legal-bar {
   max-width: 1020px;
   margin-top: 0;
