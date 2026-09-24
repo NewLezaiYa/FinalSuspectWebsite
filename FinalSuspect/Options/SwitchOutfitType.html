@@ -3,59 +3,108 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
-    <title>切换外观形象</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Button/Back.css">
-    <link rel="stylesheet" href="../../Resource/CSS/PromptBox/Tip.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Text/Text.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Text/h1.css">
-    <link rel="stylesheet" href="../../Resource/CSS/PromptBox/container.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Root.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Footer.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Steps/Outfit.css">
-    <link rel="stylesheet" href="../../Resource/CSS/time.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#030308">
+    <script>try{if(localStorage.getItem('fs.theme')==='light'){document.documentElement.setAttribute('data-theme','light');var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content','#eef1f7')}}catch(e){}</script>
+    <meta name="description" content="FinalSuspect 选项说明：切换外观形象——经典豆子、愚人节牧马、愚人节长颈豆三种太空人形象可在设置菜单中自由切换。">
+    <title>切换外观形象 · FinalSuspect</title>
+
+    <link rel="stylesheet" href="../../Resource/CSS/fonts.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/icons.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/variables.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/components.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/layout.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/pages.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/animations.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/responsive.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/theme.css?v=b8d0de44">
 </head>
 
-<body>
-    <div class="container">
-        <button class="back-button" onclick="window.history.back()">返回上一页</button>
+<body data-shell="full" data-page="opt-switchoutfit" data-rail="options">
+    <main>
+        <header class="page-head">
+            <span class="page-head__label hud-label"><i class="fas fa-shirt"></i> OPTION · 12</span>
+            <h1 class="page-title">切换外观形象</h1>
+            <div class="page-head__meta">
+                <span><i class="fas fa-folder"></i> 选项</span>
+                <span><i class="fas fa-tag"></i> 外观 / 娱乐</span>
+                <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
+            </div>
+        </header>
 
-        <h1 id="SwitchOutfitType">FinalSuspect<br>切换外观形象</h1>
+        <p class="lede">
+            为玩家提供了三种可切换的太空人形象：经典豆子、愚人节牧马与愚人节长颈豆，
+            可在设置菜单中自由切换。
+        </p>
 
-        <div class="text">
-            在Final Suspect中，我们为玩家提供了<mark>三种可切换的太空人形象</mark>，增添更多趣味性和个性化选择：
+        <div class="facts">
+            <div><span class="k">可选形象</span><span class="v">三种</span></div>
+            <div><span class="k">默认形象</span><span class="v">经典豆子模式</span></div>
+            <div><span class="k">切换入口</span><span class="v">设置菜单</span></div>
+            <div><span class="k">影响平衡</span><span class="v">不影响</span></div>
         </div>
 
-        <div class="text">
-            <ol class="outfit-list">
-                <li>经典豆子模式 - 官方默认，还是你最熟悉的太空<mark>豆子</mark>造型。</li>
-                <li>愚人节牧马模式 - 恶搞风格，将角色替换为滑稽的<mark>牧马</mark>形象（参考官方愚人节彩蛋）。</li>
-                <li>愚人节长颈豆模式 - 趣味变体，角色变成脖子超长的<mark>长颈豆</mark>，致敬官方愚人节特殊外观。</li>
-            </ol>
-        </div>
+        <div class="prose">
+            <h2 class="sec-title" id="how"><span class="sec-title__num">01</span>功能说明</h2>
+            <p>
+                该选项为玩家提供了<strong>三种可切换的太空人形象</strong>，切换入口在设置菜单中。
+            </p>
+            <p>
+                不同形象只改变角色的外观表现，不改变任何玩法规则。
+            </p>
 
-        <div class="tip">
-            玩家可在设置菜单中自由切换模式。<br>
-            该功能不影响游戏平衡，仅为娱乐性扩展。
-        </div>
+            <h2 class="sec-title" id="modes"><span class="sec-title__num">02</span>三种形象</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step__body">
+                        <p><strong>经典豆子模式</strong></p>
+                        <p>官方默认，还是你最熟悉的太空<strong>豆子</strong>造型。</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step__body">
+                        <p><strong>愚人节牧马模式</strong></p>
+                        <p>恶搞风格，将角色替换为滑稽的<strong>牧马</strong>形象（参考官方愚人节彩蛋）。</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step__body">
+                        <p><strong>愚人节长颈豆模式</strong></p>
+                        <p>趣味变体，角色变成脖子超长的<strong>长颈豆</strong>，致敬官方愚人节特殊外观。</p>
+                    </div>
+                </div>
+            </div>
 
-        <div class="footer-meta">
-            <div class="edit-time">
-                <i class="fas fa-clock"></i>
-                <span>最后更新: <time id="lastEditTime" datetime=""></time></span>
+            <h2 class="sec-title" id="tips"><span class="sec-title__num">03</span>使用提示</h2>
+            <div class="alert alert--tip">
+                <span class="alert__icon"><i class="fas fa-lightbulb"></i></span>
+                <div class="alert__body">
+                    <span class="alert__title">可自由切换</span>
+                    <p>玩家可在设置菜单中自由切换模式。</p>
+                    <p>该功能不影响游戏平衡，仅为娱乐性扩展。</p>
+                </div>
             </div>
         </div>
 
-        <div class="footer-copyright">
-            <p>网站设计 ©<span>LezaiYa</span> | FinalSuspect Mod ©<span>Slok</span></p>
+        <div class="pager">
+            <a class="pager__item" href="SpamDenyWord.html">
+                <small>上一篇</small>
+                <b>← 屏蔽违禁词</b>
+            </a>
+            <a class="pager__item pager__item--next" href="UnlockFPS.html">
+                <small>下一篇</small>
+                <b>解锁帧数限制 →</b>
+            </a>
         </div>
-    </div>
-    <script src='../../Resource/JS/h1.js'></script>
-    <script src='../../Resource/JS/Time.js'></script>
+    </main>
+
+    <script src="../../Resource/JS/language.js?v=b8d0de44"></script>
+    <script src="../../Resource/JS/versions.js?v=b8d0de44"></script>
+    <script src="../../Resource/JS/shell.js?v=b8d0de44"></script>
+    <script src="../../Resource/JS/transition.js?v=b8d0de44" defer></script>
+    <script src="../../Resource/JS/effects.js?v=b8d0de44" defer></script>
+    <script src="../../Resource/JS/time.js?v=b8d0de44" defer></script>
+    <script src="../../Resource/JS/last-modified.js?v=b8d0de44" defer></script>
 </body>
 
 </html>

@@ -3,68 +3,96 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
-    <title>使用模组鼠标光标</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Button/Back.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Button/BackTo.css">
-    <link rel="stylesheet" href="../../Resource/CSS/PromptBox/tip.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Text/Text.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Text/h1.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Image.css">
-    <link rel="stylesheet" href="../../Resource/CSS/PromptBox/container.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Root.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Footer.css">
-    <link rel="stylesheet" href="../../Resource/CSS/time.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#030308">
+    <script>try{if(localStorage.getItem('fs.theme')==='light'){document.documentElement.setAttribute('data-theme','light');var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content','#eef1f7')}}catch(e){}</script>
+    <meta name="description" content="FinalSuspect 选项说明：使用模组鼠标光标——用模组提供的定制光标替换原版默认鼠标光标，会覆盖系统光标。">
+    <title>使用模组鼠标光标 · FinalSuspect</title>
+
+    <link rel="stylesheet" href="../../Resource/CSS/fonts.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/icons.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/variables.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/components.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/layout.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/pages.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/animations.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/responsive.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/theme.css?v=b8d0de44">
 </head>
 
-<body>
-    <div class="container">
-        <div class="back-button" onclick="window.history.back()">返回上一页</div>
-
-        <h1 id="UseModCursor">FinalSuspect<br>使用模组鼠标光标</h1>
-
-        <div class="text">
-            <p>启用此功能后，游戏将采用模组提供的定制鼠标光标，替代原版游戏的默认鼠标光标。</p>
-            <div class="tip">
-                <p><mark>该功能会覆盖你的鼠标光标</mark>。<br>
-                    除非你不喜欢用Windows默认鼠标光标，否则一般而言我们建议是关闭的。
-                </p>
+<body data-shell="full" data-page="opt-usemodcursor" data-rail="options">
+    <main>
+        <header class="page-head">
+            <span class="page-head__label hud-label"><i class="fas fa-arrow-pointer"></i> OPTION · 14</span>
+            <h1 class="page-title">使用模组鼠标光标</h1>
+            <div class="page-head__meta">
+                <span><i class="fas fa-folder"></i> 选项</span>
+                <span><i class="fas fa-tag"></i> 界面 / 外观</span>
+                <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
             </div>
+        </header>
+
+        <p class="lede">
+            启用此功能后，游戏将采用模组提供的定制鼠标光标，替代原版游戏的默认鼠标光标。
+            除非你不喜欢 Windows 默认鼠标光标，否则一般而言建议关闭。
+        </p>
+
+        <div class="facts">
+            <div><span class="k">替换对象</span><span class="v">原版游戏的默认鼠标光标</span></div>
+            <div><span class="k">光标来源</span><span class="v">模组提供的定制光标</span></div>
+            <div><span class="k">覆盖范围</span><span class="v">会覆盖你的鼠标光标</span></div>
+            <div><span class="k">使用建议</span><span class="v">一般而言建议关闭</span></div>
         </div>
 
-        <div class="image-grid">
-            <div class="image-wrapper">
-                <p class="text">模组鼠标光标示意图：</p>
-                <img src="/Resource/images/Cursor.png" class="guide-img">
+        <div class="prose">
+            <h2 class="sec-title" id="how"><span class="sec-title__num">01</span>功能说明</h2>
+            <p>
+                启用此功能后，游戏将采用模组提供的定制鼠标光标，替代原版游戏的默认鼠标光标。
+            </p>
+            <p>
+                它只影响光标的显示样式，不影响任何游戏内操作与判定。
+            </p>
+
+            <h2 class="sec-title" id="advice"><span class="sec-title__num">02</span>使用建议</h2>
+            <div class="alert alert--tip">
+                <span class="alert__icon"><i class="fas fa-lightbulb"></i></span>
+                <div class="alert__body">
+                    <span class="alert__title">会覆盖你的鼠标光标</span>
+                    <p><strong>该功能会覆盖你的鼠标光标</strong>。</p>
+                    <p>除非你不喜欢用 Windows 默认鼠标光标，否则一般而言建议关闭。</p>
+                </div>
             </div>
+
+            <h2 class="sec-title" id="preview"><span class="sec-title__num">03</span>效果示意</h2>
+            <figure class="figure">
+                <picture>
+                    <source srcset="../../Resource/images/Cursor.webp" type="image/webp">
+                    <img data-nowebp src="../../Resource/images/Cursor.png" alt="模组鼠标光标示意图" loading="lazy"
+                        decoding="async">
+                </picture>
+                <figcaption>模组鼠标光标示意图</figcaption>
+            </figure>
         </div>
 
-        <div class="footer-meta">
-            <div class="edit-time">
-                <i class="fas fa-clock"></i>
-                <span>最后更新: <time id="lastEditTime" datetime=""></time></span>
-            </div>
+        <div class="pager">
+            <a class="pager__item" href="UnlockFPS.html">
+                <small>上一篇</small>
+                <b>← 解锁帧数限制</b>
+            </a>
+            <a class="pager__item pager__item--next" href="../Features/index.html">
+                <small>下一篇</small>
+                <b>功能总览 →</b>
+            </a>
         </div>
+    </main>
 
-        <div class="footer-copyright">
-            <p>网站设计 ©<span>LezaiYa</span> | FinalSuspect Mod ©<span>Slok</span></p>
-        </div>
-    </div>
-
-    <button class="back-to-top" aria-label="回到顶部">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 15l-6-6-6 6" />
-        </svg>
-    </button>
-    <script src='../../Resource/JS/BackToTop.js'></script>
-    <script src='../../Resource/JS/h1.js'></script>
-    <script src='../../Resource/JS/Image.js'></script>
-    <script src='../../Resource/JS/Time.js'></script>
+    <script src="../../Resource/JS/language.js?v=b8d0de44"></script>
+    <script src="../../Resource/JS/versions.js?v=b8d0de44"></script>
+    <script src="../../Resource/JS/shell.js?v=b8d0de44"></script>
+    <script src="../../Resource/JS/transition.js?v=b8d0de44" defer></script>
+    <script src="../../Resource/JS/effects.js?v=b8d0de44" defer></script>
+    <script src="../../Resource/JS/time.js?v=b8d0de44" defer></script>
+    <script src="../../Resource/JS/last-modified.js?v=b8d0de44" defer></script>
 </body>
 
 </html>

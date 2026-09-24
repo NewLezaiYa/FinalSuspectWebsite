@@ -3,44 +3,107 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
-    <title>踢出好友代码异常的玩家</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Button/Back.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Text/Text.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Text/h1.css">
-    <link rel="stylesheet" href="../../Resource/CSS/PromptBox/container.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Root.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Footer.css">
-    <link rel="stylesheet" href="../../Resource/CSS/time.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#030308">
+    <script>try{if(localStorage.getItem('fs.theme')==='light'){document.documentElement.setAttribute('data-theme','light');var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content','#eef1f7')}}catch(e){}</script>
+    <meta name="description" content="FinalSuspect 选项说明：踢出好友代码异常的玩家——启用好友代码检测后，会立即踢出所有好友代码异常的玩家并进行提示。">
+    <title>踢出好友代码异常的玩家 · FinalSuspect</title>
+
+    <link rel="stylesheet" href="../../Resource/CSS/fonts.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/icons.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/variables.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/components.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/layout.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/pages.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/animations.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/responsive.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/theme.css?v=b8d0de44">
 </head>
 
-<body>
-    <div class="container">
-        <div class="back-button" onclick="window.history.back()">返回上一页</div>
-
-        <h1 id="KickPlayerWithAbnormalFriendCode">FinalSuspect<br>踢出好友代码异常的玩家</h1>
-
-        <div class="text">
-            在Final Suspect模组中，我们提供了好友代码检测功能。启用该功能后，Final Suspect会立即踢出所有<mark>好友代码异常</mark>的玩家，并进行提示。
-        </div>
-
-        <div class="footer-meta">
-            <div class="edit-time">
-                <i class="fas fa-clock"></i>
-                <span>最后更新: <time id="lastEditTime" datetime=""></time></span>
+<body data-shell="full" data-page="opt-kickfriendcode" data-rail="options">
+    <main>
+        <header class="page-head">
+            <span class="page-head__label hud-label"><i class="fas fa-user-xmark"></i> OPTION · 06</span>
+            <h1 class="page-title">踢出好友代码异常的玩家</h1>
+            <div class="page-head__meta">
+                <span><i class="fas fa-folder"></i> 选项</span>
+                <span><i class="fas fa-tag"></i> 防护 / 房间管理</span>
+                <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
             </div>
+        </header>
+
+        <p class="lede">
+            提供了好友代码检测功能。启用该功能后，Final Suspect 会立即踢出所有好友代码异常的玩家，
+            并进行提示。
+        </p>
+
+        <div class="facts">
+            <div><span class="k">检测目标</span><span class="v">好友代码</span></div>
+            <div><span class="k">触发方式</span><span class="v">检测到异常后立即处理</span></div>
+            <div><span class="k">处理动作</span><span class="v">踢出该玩家</span></div>
+            <div><span class="k">附加反馈</span><span class="v">进行提示</span></div>
         </div>
 
-        <div class="footer-copyright">
-            <p>网站设计 ©<span>LezaiYa</span> | FinalSuspect Mod ©<span>Slok</span></p>
+        <div class="prose">
+
+            <h2 class="sec-title" id="how"><span class="sec-title__num">01</span>功能说明</h2>
+            <p>
+                Final Suspect 提供了<strong>好友代码检测</strong>功能。
+            </p>
+            <p>
+                启用该功能后，Final Suspect 会立即踢出所有<mark>好友代码异常</mark>的玩家，并进行提示。
+                对于不想逐个核对好友代码的房主来说，这一项可以交给模组自动完成。
+            </p>
+
+            <h2 class="sec-title" id="flow"><span class="sec-title__num">02</span>处理流程</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step__body">
+                        <p><strong>检测</strong>——启用该功能后，Final Suspect 会对玩家进行好友代码检测。</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step__body">
+                        <p><strong>立即踢出</strong>——一旦发现好友代码异常的玩家，就立即将其踢出。</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step__body">
+                        <p><strong>给出提示</strong>——处理的同时进行提示，让房间里的人知道刚刚发生了什么。</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="sec-title" id="tips"><span class="sec-title__num">03</span>使用建议</h2>
+            <div class="alert alert--tip">
+                <span class="alert__icon"><i class="fas fa-lightbulb"></i></span>
+                <div class="alert__body">
+                    <span class="alert__title">什么时候建议开启</span>
+                    <p>如果你的房间对参与者身份比较在意，建议保持该功能开启，让异常好友代码在第一时间被清理掉。</p>
+                </div>
+            </div>
+
         </div>
-    </div>
-    <script src='../../Resource/JS/h1.js'></script>
-    <script src='../../Resource/JS/Time.js'></script>
+
+        <div class="pager">
+            <a class="pager__item" href="FastBoot">
+                <small>上一篇</small>
+                <b>← 快速启动模式</b>
+            </a>
+            <a class="pager__item pager__item--next" href="KickPlayerInBanList">
+                <small>下一篇</small>
+                <b>踢出被封禁的玩家 →</b>
+            </a>
+        </div>
+    </main>
+
+    <script src="../../Resource/JS/language.js?v=b8d0de44"></script>
+    <script src="../../Resource/JS/versions.js?v=b8d0de44"></script>
+    <script src="../../Resource/JS/shell.js?v=b8d0de44"></script>
+    <script src="../../Resource/JS/transition.js?v=b8d0de44" defer></script>
+    <script src="../../Resource/JS/effects.js?v=b8d0de44" defer></script>
+    <script src="../../Resource/JS/time.js?v=b8d0de44" defer></script>
+    <script src="../../Resource/JS/last-modified.js?v=b8d0de44" defer></script>
 </body>
 
 </html>

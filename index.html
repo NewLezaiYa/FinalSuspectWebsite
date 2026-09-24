@@ -3,229 +3,167 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#030308">
+    <script>try{if(localStorage.getItem('fs.theme')==='light'){document.documentElement.setAttribute('data-theme','light');var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content','#eef1f7')}}catch(e){}</script>
     <title>FinalSuspect</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="Resource/CSS/Button/BackTo.css">
-    <link rel="stylesheet" href="Resource/CSS/Main/animate.css">
-    <link rel="stylesheet" href="Resource/CSS/Main/appreciate.css">
-    <link rel="stylesheet" href="Resource/CSS/Main/Changelog-main.css">
-    <link rel="stylesheet" href="Resource/CSS/Footer.css">
-    <link rel="stylesheet" href="Resource/CSS/Main/hero.css">
-    <link rel="stylesheet" href="Resource/CSS/Main/logo.css">
-    <link rel="stylesheet" href="Resource/CSS/Main/Load.css">
-    <link rel="stylesheet" href="Resource/CSS/Main/nav.css">
-    <link rel="stylesheet" href="Resource/CSS/Root.css">
-    <link rel="stylesheet" href="Resource/CSS/Main/wechat.css">
-    <link rel="stylesheet" href="Resource/CSS/Main/Media/480px.css">
-    <link rel="stylesheet" href="Resource/CSS/Main/Media/768px.css">
-    <link rel="stylesheet" href="Resource/CSS/Main/Media/992px.css">
-    <link rel="stylesheet" href="Resource/CSS/PromptBox/container.css">
-    <link rel="stylesheet" href="Resource/CSS/PromptBox/feature.css">
-    <link rel="stylesheet" href="Resource/CSS/PromptBox/header.css">
-    <link rel="stylesheet" href="Resource/CSS/PromptBox/section.css">
-    <link rel="stylesheet" href="Resource/CSS/Image.css">
-    <link rel="stylesheet" href="Resource/CSS/time.css">
+
+    <link rel="stylesheet" href="Resource/CSS/fonts.css?v=b8d0de44">
+    <link rel="stylesheet" href="Resource/CSS/icons.css?v=b8d0de44">
+    <link rel="stylesheet" href="Resource/CSS/variables.css?v=b8d0de44">
+    <link rel="stylesheet" href="Resource/CSS/components.css?v=b8d0de44">
+    <link rel="stylesheet" href="Resource/CSS/layout.css?v=b8d0de44">
+    <link rel="stylesheet" href="Resource/CSS/pages.css?v=b8d0de44">
+    <link rel="stylesheet" href="Resource/CSS/animations.css?v=b8d0de44">
+    <link rel="stylesheet" href="Resource/CSS/responsive.css?v=b8d0de44">
+    <link rel="stylesheet" href="Resource/CSS/theme.css?v=b8d0de44">
+    <link rel="stylesheet" href="Resource/CSS/splash.css?v=b8d0de44">
 </head>
 
-<body>
-    <div id="loadingOverlay" class="loading-overlay">
-        <div class="loading-content">
-            <img src="/Resource/images/FinalSuspect-Logo-2.0.png" alt="FinalSuspect Logo" class="loading-logo">
-            <div class="loading-text">正在加载 FinalSuspect</div>
-            <div class="loading-progress-container">
-                <div class="loading-progress-bar" id="loadingProgressBar"></div>
-            </div>
-            <div class="loading-percentage" id="loadingPercentage">0%</div>
-            <div class="loading-status" id="loadingStatus">初始化中...</div>
-        </div>
+<body data-shell="home" data-page="home">
+
+
+    <div id="loadingOverlay" class="splash-overlay">
+        <canvas id="splashPcbCanvas"></canvas>
+        <canvas id="splashFxCanvas"></canvas>
+        <canvas id="splashParticleCanvas"></canvas>
+        <div id="splashLog"></div>
+        <div id="loadText"></div>
+        <div id="processText"></div>
+        <div id="downloadHint">首次进入需要校验资源，请稍候</div>
+        <div id="versionText"></div>
+        <div id="blackPanel"></div>
     </div>
 
-    <header>
-        <div class="logo" data-text="FinalSuspect">FinalSuspect</div>
-        <nav>
-            <ul>
-                <li><a href="#intro"><i class="fas fa-book-open"></i> 简介</a></li>
-                <li><a href="#faq"><i class="fas fa-life-ring"></i> 疑难解答</a></li>
-                <li><a href="#options"><i class="fas fa-sliders-h"></i> 选项</a></li>
-                <li><a href="#tutorial"><i class="fas fa-book"></i> 教程</a></li>
-                <li><a href="#features"><i class="fas fa-toolbox"></i> 功能</a></li>
-                <li><a href="#keyboard"><i class="fas fa-keyboard"></i> 快捷键</a></li>
-            </ul>
-        </nav>
-    </header>
+    <main class="home">
+        <section class="hero">
+            <div class="hero__bg">
+                <div class="hero__rings"></div>
+                <div class="hero__glow"></div>
+                <div class="hero__scan"></div>
+            </div>
 
-    <!-- 主内容区 -->
-    <div class="container">
-        <section class="hero animate-fadeInUp">
-            <div class="hero-content">
-                <img src="/Resource/images/FinalSuspect-Logo-2.0.png" class="hero-logo" alt="FinalSuspect Logo">
-                <h1 class="hero-name">模组文档</h1>
-                <p class="hero-tagline">The ultimate mod for the original Among Us, redefining your space werewolf
-                    hunting experience</p>
+            <div class="hero__inner">
+                <span class="hero__status">
+                    <i class="led led--cyan"></i>
+                    <span>SYS / FinalSuspect</span>
+                    <span class="hero__status-sep">·</span>
+                    <span>BUILD <b>v3.0</b></span>
+                    <span class="hero__status-sep">·</span>
+                    <span>STATUS <b>ONLINE</b></span>
+                </span>
+
+                <picture>
+                    <source type="image/webp"
+                        sizes="(max-width: 640px) 64vw, 400px"
+                        srcset="Resource/images/FinalSuspect-Logo-2.0-480.webp 480w, Resource/images/FinalSuspect-Logo-2.0-800.webp 800w, Resource/images/FinalSuspect-Logo-2.0-1200.webp 1200w, Resource/images/FinalSuspect-Logo-2.0.webp 1800w">
+                    <img data-nowebp src="Resource/images/FinalSuspect-Logo-2.0-900.png" alt="FinalSuspect"
+                        class="hero__logo" width="1800" height="675" loading="eager" fetchpriority="high"
+                        decoding="async"
+                        sizes="(max-width: 640px) 64vw, 400px"
+                        srcset="Resource/images/FinalSuspect-Logo-2.0-480.png 480w, Resource/images/FinalSuspect-Logo-2.0-900.png 900w, Resource/images/FinalSuspect-Logo-2.0.png 4000w">
+                </picture>
+
+                <h1 class="hero__title">模组文档</h1>
+
+                <p class="hero__desc">
+                    Among Us 的优质辅助模组。保留经典，优化体验 —— 安装教程、选项说明、功能详解与完整更新日志都在这里。
+                </p>
             </div>
         </section>
 
-        <section id="intro" class="section animate-fadeInUp delay-1">
-            <div class="section-glow"></div>
-            <h2 class="section-title">
-                <i class="fas fa-book-open"></i>
-                FinalSuspect 简介
-            </h2>
-            <p class="section-content">在这里可以了解Final Suspect有关详细信息，助你更好理解Final Suspect模组</p>
-            <a href="FinalSuspect/Introduction" class="feature-link">
-                查看详情
-                <i class="fas fa-arrow-right"></i>
-            </a>
-        </section>
+        <div class="home-wrap">
+            <div class="nav-list" data-group="55">
+                <a class="nav-row" href="FinalSuspect/Guide/Installation.html">
+                    <span class="nav-row__shine"></span>
+                    <span class="nav-row__icon"><i class="fas fa-rocket"></i></span>
+                    <span class="nav-row__body">
+                        <span class="nav-row__title">安装与更新</span>
+                        <span class="nav-row__desc">Steam / Epic 双平台安装步骤、版本更新与日志导出</span>
+                    </span>
+                    <span class="nav-row__meta">教程 · 3 篇</span>
+                    <span class="nav-row__go"><i class="fas fa-chevron-right"></i></span>
+                </a>
 
-        <section id="faq" class="section animate-fadeInUp delay-2">
-            <div class="section-glow"></div>
-            <h2 class="section-title">
-                <i class="fas fa-life-ring"></i>
-                FinalSuspect 疑难解答
-            </h2>
-            <p class="section-content">遇到安装失败、功能异常或兼容性问题？这里整理了常见问题解答与分步解决方案，快速帮你恢复流畅游戏。</p>
-            <a href="FinalSuspect/FAQ" class="feature-link">
-                查看详情
-                <i class="fas fa-arrow-right"></i>
-            </a>
-        </section>
+                <a class="nav-row" href="FinalSuspect/Options/index.html">
+                    <span class="nav-row__shine"></span>
+                    <span class="nav-row__icon"><i class="fas fa-sliders"></i></span>
+                    <span class="nav-row__body">
+                        <span class="nav-row__title">选项</span>
+                        <span class="nav-row__desc">自动化、防护、显示与性能，共 14 项可调开关</span>
+                    </span>
+                    <span class="nav-row__meta">14 项</span>
+                    <span class="nav-row__go"><i class="fas fa-chevron-right"></i></span>
+                </a>
 
-        <section id="options" class="section animate-fadeInUp delay-3">
-            <div class="section-glow"></div>
-            <h2 class="section-title">
-                <i class="fas fa-sliders-h"></i>
-                FinalSuspect 选项
-            </h2>
-            <p class="section-content">超过20项可调节选项完全满足你的个性化需求，打造专属游戏风格。</p>
-            <a href="FinalSuspect/Options/" class="feature-link">
-                查看详情
-                <i class="fas fa-arrow-right"></i>
-            </a>
-        </section>
+                <a class="nav-row" href="FinalSuspect/Features/index.html">
+                    <span class="nav-row__shine"></span>
+                    <span class="nav-row__icon"><i class="fas fa-toolbox"></i></span>
+                    <span class="nav-row__body">
+                        <span class="nav-row__title">功能</span>
+                        <span class="nav-row__desc">主页风格、音乐、资源管理与日志处理，共 7 个模块</span>
+                    </span>
+                    <span class="nav-row__meta">7 个</span>
+                    <span class="nav-row__go"><i class="fas fa-chevron-right"></i></span>
+                </a>
 
-        <section id="tutorial" class="section animate-fadeInUp delay-4">
-            <div class="section-glow"></div>
-            <h2 class="section-title">
-                <i class="fas fa-book"></i>
-                FinalSuspect 教程
-            </h2>
-            <p class="section-content">详细的图文教程，即使是新手也能轻松完成安装。</p>
-            <a href="FinalSuspect/Guide/" class="feature-link">
-                查看详情
-                <i class="fas fa-arrow-right"></i>
-            </a>
-        </section>
+                <a class="nav-row" href="FinalSuspect/Introduction.html">
+                    <span class="nav-row__shine"></span>
+                    <span class="nav-row__icon"><i class="fas fa-book-open"></i></span>
+                    <span class="nav-row__body">
+                        <span class="nav-row__title">模组简介</span>
+                        <span class="nav-row__desc">开发理念、能力范围与开发团队</span>
+                    </span>
+                    <span class="nav-row__meta">了解</span>
+                    <span class="nav-row__go"><i class="fas fa-chevron-right"></i></span>
+                </a>
 
-        <section id="features" class="section animate-fadeInUp delay-5">
-            <div class="section-glow"></div>
-            <h2 class="section-title">
-                <i class="fas fa-toolbox"></i>
-                FinalSuspect 功能
-            </h2>
-            <p class="section-content">完美支持原版玩家与模组玩家同局游戏；带来前所未有的游戏体验。</p>
-            <a href="FinalSuspect/Features/" class="feature-link">
-                查看详情
-                <i class="fas fa-chevron-right"></i>
-            </a>
-        </section>
+                <a class="nav-row" href="FinalSuspect/FAQ.html">
+                    <span class="nav-row__shine"></span>
+                    <span class="nav-row__icon"><i class="fas fa-life-ring"></i></span>
+                    <span class="nav-row__body">
+                        <span class="nav-row__title">疑难解答</span>
+                        <span class="nav-row__desc">安装失败、错误代码、连接异常的分步排查</span>
+                    </span>
+                    <span class="nav-row__meta">9 组问答</span>
+                    <span class="nav-row__go"><i class="fas fa-chevron-right"></i></span>
+                </a>
 
-        <section id="keyboard" class="section animate-fadeInUp delay-6">
-            <div class="section-glow"></div>
-            <h2 class="section-title">
-                <i class="fas fa-keyboard"></i>
-                FinalSuspect 快捷键
-            </h2>
-            <p class="section-content">仅适用于MOD端的快捷键，带来更好的操作体验。</p>
-            <a href="FinalSuspect/Keyboard" class="feature-link">
-                查看详情
-                <i class="fas fa-chevron-right"></i>
-            </a>
-        </section>
+                <a class="nav-row" href="FinalSuspect/Keyboard.html">
+                    <span class="nav-row__shine"></span>
+                    <span class="nav-row__icon"><i class="fas fa-keyboard"></i></span>
+                    <span class="nav-row__body">
+                        <span class="nav-row__title">快捷键</span>
+                        <span class="nav-row__desc">模组端通用按键与房主专用按键一览</span>
+                    </span>
+                    <span class="nav-row__meta">10 组</span>
+                    <span class="nav-row__go"><i class="fas fa-chevron-right"></i></span>
+                </a>
 
-        <div class="footer-disclaimer">
-            <p><strong>注意：</strong></p>
-            <p>本模组不隶属于 Among Us 或 Innersloth LLC，其包含的内容也未得到 Innersloth LLC 的认可或以其他方式赞助。</p>
-            <p>此处包含的部分材料是Innersloth LLC的财产。</p>
-            <p>© Innersloth LLC</p>
-        </div>
-
-        <div class="footer-meta">
-            <div class="edit-time">
-                <i class="fas fa-clock"></i>
-                <span>最后更新: <time id="lastEditTime" datetime=""></time></span>
-            </div>
-        </div>
-
-        <div class="footer-copyright">
-            <p>网站设计 ©<span>LezaiYa</span> | FinalSuspect Mod ©<span>Slok</span></p>
-        </div>
-    </div>
-
-    <!-- 公告按钮 -->
-    <div class="changelog-btn">
-        <div class="changelog-main-btn">
-            <i class="fas fa-history"></i>
-        </div>
-        <div class="changelog-options">
-            <div class="changelog-option" data-type="changelog">
-                <i class="fas fa-history"></i>
-                <span class="changelog-label">更新日志</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- 赞赏按钮 -->
-    <div class="appreciate-btn">
-        <div class="appreciate-main-btn">
-            <i class="fas fa-heart"></i>
-        </div>
-        <div class="appreciate-options">
-            <div class="appreciate-option" data-type="wechat">
-                <i class="fab fa-weixin"></i>
-                <span class="appreciate-label">微信支付</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- 微信支付模态框 -->
-    <div class="wechat-modal" id="wechat-modal">
-        <div class="modal-content">
-            <button class="modal-close">&times;</button>
-            <div class="modal-icon">
-                <i class="fab fa-weixin"></i>
-            </div>
-            <h3 class="modal-title">微信支付赞赏</h3>
-            <p class="modal-desc">扫描下方二维码支持FinalSuspect，感谢您的慷慨赞助！</p>
-
-            <div class="qrcode-container">
-                <img src="/Resource/images/Appreciate_Slok.jpg" class="Appreciate_Slok">
+                <a class="nav-row" href="FinalSuspect/Changelog.html">
+                    <span class="nav-row__shine"></span>
+                    <span class="nav-row__icon"><i class="fas fa-clock-rotate-left"></i></span>
+                    <span class="nav-row__body">
+                        <span class="nav-row__title">更新日志</span>
+                        <span class="nav-row__desc">按版本倒序的完整改动记录，含对应官方游戏版本</span>
+                    </span>
+                    <span class="nav-row__meta" id="logMeta">全部版本</span>
+                    <span class="nav-row__go"><i class="fas fa-chevron-right"></i></span>
+                </a>
             </div>
 
-            <p class="tip">扫码支付后，您的支持将直接送达FinalSuspect的开发人员</p>
         </div>
-    </div>
+    </main>
 
-    <button class="back-to-top" aria-label="回到顶部">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 15l-6-6-6 6" />
-        </svg>
-    </button>
-
-    <script src='Resource/JS/Appreciate.js'></script>
-    <script src='Resource/JS/Load.js'></script>
-    <script src='Resource/JS/Wechat.js'></script>
-    <script src='Resource/JS/main.js'></script>
-    <script src='Resource/JS/BackToTop.js'></script>
-    <script src='Resource/JS/h2.js'></script>
-    <script src='Resource/JS/h3.js'></script>
-    <script src='Resource/JS/Image.js'></script>
-    <script src='Resource/JS/Time.js'></script>
+    <script src="Resource/JS/language.js?v=b8d0de44"></script>
+    <script src="Resource/JS/versions.js?v=b8d0de44"></script>
+    <script src="Resource/JS/shell.js?v=b8d0de44"></script>
+    <script src="Resource/JS/transition.js?v=b8d0de44" defer></script>
+    <script src="Resource/JS/effects.js?v=b8d0de44" defer></script>
+    <script src="Resource/JS/time.js?v=b8d0de44" defer></script>
+    <script src="Resource/JS/last-modified.js?v=b8d0de44" defer></script>
+    <script src="Resource/JS/splash.js?v=b8d0de44" defer></script>
+    <script src="Resource/JS/boot.js?v=b8d0de44" defer></script>
 </body>
 
 </html>

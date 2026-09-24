@@ -3,51 +3,106 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
-    <title>资源管理</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Button/Back.css">
-    <link rel="stylesheet" href="../../Resource/CSS/PromptBox/Content.css">
-    <link rel="stylesheet" href="../../Resource/CSS/PromptBox/Tip.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Text/Text.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Text/h1.css">
-    <link rel="stylesheet" href="../../Resource/CSS/PromptBox/container.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Root.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Footer.css">
-    <link rel="stylesheet" href="../../Resource/CSS/time.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#030308">
+    <script>try{if(localStorage.getItem('fs.theme')==='light'){document.documentElement.setAttribute('data-theme','light');var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content','#eef1f7')}}catch(e){}</script>
+    <meta name="description" content="FinalSuspect 功能说明：资源管理——在模组内直接下载本模组的配套资源与扩展资源，列表中开头的文件为预下载资源包。">
+    <title>资源管理 · FinalSuspect</title>
+
+    <link rel="stylesheet" href="../../Resource/CSS/fonts.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/icons.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/variables.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/components.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/layout.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/pages.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/animations.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/responsive.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/theme.css?v=b8d0de44">
 </head>
 
-<body>
-    <div class="container">
-        <button class="back-button" onclick="window.history.back()">返回上一页</button>
+<body data-shell="full" data-page="feat-resourcemanager" data-rail="features">
+    <main>
+        <header class="page-head">
+            <span class="page-head__label hud-label"><i class="fas fa-folder-tree"></i> FEATURE · 05</span>
+            <h1 class="page-title">资源管理</h1>
+            <div class="page-head__meta">
+                <span><i class="fas fa-folder"></i> 功能</span>
+                <span><i class="fas fa-cloud-arrow-down"></i> 资源下载</span>
+                <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
+            </div>
+        </header>
 
-        <h1 id="ResourceManager">FinalSuspect<br>资源管理</h1>
+        <p class="lede">
+            该功能可以在「资源管理」中下载本模组的<strong>配套资源</strong>以及<strong>扩展资源</strong>，
+            免去手动翻找游戏目录的步骤。列表中开头的文件为预下载资源包。
+        </p>
 
-        <div class="content-section">
-            <div class="text">
-                <p>该功能可以在「资源管理」中下载本模组的配套以及扩展资源。</p>
-                <div class="tip">
-                    <p>开头的文件为预下载资源包</p>
+        <div class="facts">
+            <div><span class="k">资源类型</span><span class="v">配套资源与扩展资源</span></div>
+            <div><span class="k">获取方式</span><span class="v">在「资源管理」中下载</span></div>
+            <div><span class="k">列表首项</span><span class="v">预下载资源包</span></div>
+            <div><span class="k">关联功能</span><span class="v">我的音乐（音乐资源）</span></div>
+        </div>
+
+        <div class="prose">
+
+            <h2 class="sec-title" id="what"><span class="sec-title__num">01</span>功能说明</h2>
+            <p>
+                该功能可以在「资源管理」中下载本模组的配套以及扩展资源，所有资源都在模组内直接获取。
+            </p>
+            <p>
+                例如「我的音乐」中可用的音乐资源，即可通过资源管理下载，具体说明见
+                <a href="MyMusic.html">我的音乐</a>。
+            </p>
+
+            <h2 class="sec-title" id="notice"><span class="sec-title__num">02</span>资源列表说明</h2>
+            <div class="alert alert--tip">
+                <span class="alert__icon"><i class="fas fa-circle-info"></i></span>
+                <div class="alert__body">
+                    <span class="alert__title">开头的文件为预下载资源包</span>
+                    <p>列表<strong>开头的文件</strong>为<mark>预下载资源包</mark>，其余条目则是可单独下载的配套与扩展资源。</p>
+                </div>
+            </div>
+
+            <h2 class="sec-title" id="steps"><span class="sec-title__num">03</span>使用步骤</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step__body">
+                        <p>在游戏内打开 Final Suspect 的模组设置菜单，进入「资源管理」。</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step__body">
+                        <p>在列表中查看可下载的资源，注意<strong>开头的文件</strong>是预下载资源包。</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step__body">
+                        <p>选择需要的资源下载，等待下载完成后即可使用。</p>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="footer-meta">
-            <div class="edit-time">
-                <i class="fas fa-clock"></i>
-                <span>最后更新: <time id="lastEditTime" datetime=""></time></span>
-            </div>
+        <div class="pager">
+            <a class="pager__item" href="NameTagManager.html">
+                <small>上一篇</small>
+                <b>← 名称标识管理</b>
+            </a>
+            <a class="pager__item pager__item--next" href="MainMenuStyleManager.html">
+                <small>下一篇</small>
+                <b>切换主页风格 →</b>
+            </a>
         </div>
+    </main>
 
-        <div class="footer-copyright">
-            <p>网站设计 ©<span>LezaiYa</span> | FinalSuspect Mod ©<span>Slok</span></p>
-        </div>
-    </div>
-    <script src='../../Resource/JS/h1.js'></script>
-    <script src='../../Resource/JS/Time.js'></script>
+    <script src="../../Resource/JS/language.js?v=b8d0de44"></script>
+    <script src="../../Resource/JS/versions.js?v=b8d0de44"></script>
+    <script src="../../Resource/JS/shell.js?v=b8d0de44"></script>
+    <script src="../../Resource/JS/transition.js?v=b8d0de44" defer></script>
+    <script src="../../Resource/JS/effects.js?v=b8d0de44" defer></script>
+    <script src="../../Resource/JS/time.js?v=b8d0de44" defer></script>
+    <script src="../../Resource/JS/last-modified.js?v=b8d0de44" defer></script>
 </body>
 
 </html>

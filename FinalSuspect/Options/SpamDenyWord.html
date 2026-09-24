@@ -3,56 +3,111 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
-    <title>屏蔽违禁词</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Button/Back.css">
-    <link rel="stylesheet" href="../../Resource/CSS/PromptBox/tip.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Text/Text.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Text/h1.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Image.css">
-    <link rel="stylesheet" href="../../Resource/CSS/PromptBox/container.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Root.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Footer.css">
-    <link rel="stylesheet" href="../../Resource/CSS/time.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#030308">
+    <script>try{if(localStorage.getItem('fs.theme')==='light'){document.documentElement.setAttribute('data-theme','light');var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content','#eef1f7')}}catch(e){}</script>
+    <meta name="description" content="FinalSuspect 选项说明：屏蔽违禁词——聊天中的违禁词会被自动替换为星号（*），不影响句子其余部分，可在设置中关闭。">
+    <title>屏蔽违禁词 · FinalSuspect</title>
+
+    <link rel="stylesheet" href="../../Resource/CSS/fonts.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/icons.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/variables.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/components.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/layout.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/pages.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/animations.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/responsive.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/theme.css?v=b8d0de44">
 </head>
 
-<body>
-    <div class="container">
-        <div class="back-button" onclick="window.history.back()">返回上一页</div>
+<body data-shell="full" data-page="opt-spamdenyword" data-rail="options">
+    <main>
+        <header class="page-head">
+            <span class="page-head__label hud-label"><i class="fas fa-comment-slash"></i> OPTION · 11</span>
+            <h1 class="page-title">屏蔽违禁词</h1>
+            <div class="page-head__meta">
+                <span><i class="fas fa-folder"></i> 选项</span>
+                <span><i class="fas fa-tag"></i> 聊天 / 内容治理</span>
+                <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
+            </div>
+        </header>
 
-        <h1 id="SpamDenyWord">FinalSuspect<br>屏蔽违禁词</h1>
+        <p class="lede">
+            当 Final Suspect 检测到聊天内容中包含违禁词时，会自动将该词汇替换为星号（*），
+            而不会影响句子的其余部分，在维持聊天可读性的同时减少违规内容传播。
+        </p>
 
-        <div class="text">
-            <p>当Final Suspect检测到聊天内容中包含违禁词（如<mark>侮辱性词汇、广告、敏感信息</mark>等）时，会自动将该词汇替换为星号(*)，而不会影响句子的其余部分。<br>
-                功能能在维持聊天可读性的同时，有效减少违规内容传播。<br>
-                您可以在设置中关闭此功能。</p>
+        <div class="facts">
+            <div><span class="k">生效范围</span><span class="v">聊天内容</span></div>
+            <div><span class="k">处理方式</span><span class="v">违禁词替换为星号（*）</span></div>
+            <div><span class="k">句子其余部分</span><span class="v">不受影响</span></div>
+            <div><span class="k">可否关闭</span><span class="v">可在设置中关闭</span></div>
         </div>
 
-        <div class="image-grid">
-            <div class="image-wrapper">
-                <p class="text">屏蔽违禁词示意图：</p>
-                <img src="/Resource/images/SpamDenyWord.png" class="guide-img">
+        <div class="prose">
+            <h2 class="sec-title" id="how"><span class="sec-title__num">01</span>功能说明</h2>
+            <p>
+                当 Final Suspect 检测到聊天内容中包含违禁词（如<strong>侮辱性词汇、广告、敏感信息</strong>等）时，
+                会自动将该词汇替换为星号（*），而不会影响句子的其余部分。
+            </p>
+            <p>
+                功能能在维持聊天可读性的同时，有效减少违规内容传播。
+            </p>
+
+            <h2 class="sec-title" id="scope"><span class="sec-title__num">02</span>处理范围与方式</h2>
+            <dl class="spec-list">
+                <dt>检测对象</dt>
+                <dd>聊天内容中包含的违禁词</dd>
+                <dt>典型类型</dt>
+                <dd>侮辱性词汇、广告、敏感信息等</dd>
+                <dt>处理方式</dt>
+                <dd>仅将该词汇替换为星号（*）</dd>
+                <dt>句子其余部分</dt>
+                <dd>保持原样，不受影响</dd>
+            </dl>
+            <p>
+                因为只替换命中的词汇本身，句子的其他内容仍然照常显示，聊天记录的可读性得以保留。
+            </p>
+
+            <h2 class="sec-title" id="preview"><span class="sec-title__num">03</span>效果示意</h2>
+            <figure class="figure">
+                <picture>
+                    <source srcset="../../Resource/images/SpamDenyWord.webp" type="image/webp">
+                    <img data-nowebp src="../../Resource/images/SpamDenyWord.png" alt="屏蔽违禁词示意图" loading="lazy"
+                        decoding="async">
+                </picture>
+                <figcaption>屏蔽违禁词示意图</figcaption>
+            </figure>
+
+            <h2 class="sec-title" id="control"><span class="sec-title__num">04</span>开关说明</h2>
+            <div class="alert alert--tip">
+                <span class="alert__icon"><i class="fas fa-lightbulb"></i></span>
+                <div class="alert__body">
+                    <span class="alert__title">可在设置中关闭</span>
+                    <p>您可以在设置中关闭此功能。</p>
+                </div>
             </div>
         </div>
 
-        <div class="footer-meta">
-            <div class="edit-time">
-                <i class="fas fa-clock"></i>
-                <span>最后更新: <time id="lastEditTime" datetime=""></time></span>
-            </div>
+        <div class="pager">
+            <a class="pager__item" href="ShowPlayerInfo.html">
+                <small>上一篇</small>
+                <b>← 展示玩家平台与客户端信息</b>
+            </a>
+            <a class="pager__item pager__item--next" href="SwitchOutfitType.html">
+                <small>下一篇</small>
+                <b>切换外观形象 →</b>
+            </a>
         </div>
+    </main>
 
-        <div class="footer-copyright">
-            <p>网站设计 ©<span>LezaiYa</span> | FinalSuspect Mod ©<span>Slok</span></p>
-        </div>
-    </div>
-    <script src='../../Resource/JS/h1.js'></script>
-    <script src='../../Resource/JS/Image.js'></script>
-    <script src='../../Resource/JS/Time.js'></script>
+    <script src="../../Resource/JS/language.js?v=b8d0de44"></script>
+    <script src="../../Resource/JS/versions.js?v=b8d0de44"></script>
+    <script src="../../Resource/JS/shell.js?v=b8d0de44"></script>
+    <script src="../../Resource/JS/transition.js?v=b8d0de44" defer></script>
+    <script src="../../Resource/JS/effects.js?v=b8d0de44" defer></script>
+    <script src="../../Resource/JS/time.js?v=b8d0de44" defer></script>
+    <script src="../../Resource/JS/last-modified.js?v=b8d0de44" defer></script>
 </body>
 
 </html>

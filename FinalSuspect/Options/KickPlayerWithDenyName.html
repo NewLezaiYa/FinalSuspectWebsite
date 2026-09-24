@@ -3,46 +3,108 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
-    <title>踢出违规昵称玩家</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Button/Back.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Text/Text.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Text/h1.css">
-    <link rel="stylesheet" href="../../Resource/CSS/PromptBox/container.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Root.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Footer.css">
-    <link rel="stylesheet" href="../../Resource/CSS/time.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#030308">
+    <script>try{if(localStorage.getItem('fs.theme')==='light'){document.documentElement.setAttribute('data-theme','light');var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content','#eef1f7')}}catch(e){}</script>
+    <meta name="description" content="FinalSuspect 选项说明：踢出违规昵称玩家——房主端检测到含敏感词等破坏游戏体验的昵称时自动踢出该玩家，可在设置中手动禁用。">
+    <title>踢出违规昵称玩家 · FinalSuspect</title>
+
+    <link rel="stylesheet" href="../../Resource/CSS/fonts.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/icons.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/variables.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/components.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/layout.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/pages.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/animations.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/responsive.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/theme.css?v=b8d0de44">
 </head>
 
-<body>
-    <div class="container">
-        <div class="back-button" onclick="window.history.back()">返回上一页</div>
+<body data-shell="full" data-page="opt-kickdenyname" data-rail="options">
+    <main>
+        <header class="page-head">
+            <span class="page-head__label hud-label"><i class="fas fa-user-slash"></i> OPTION · 08</span>
+            <h1 class="page-title">踢出违规昵称玩家</h1>
+            <div class="page-head__meta">
+                <span><i class="fas fa-folder"></i> 选项</span>
+                <span><i class="fas fa-tag"></i> 防护 / 房间秩序</span>
+                <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
+            </div>
+        </header>
 
-        <h1 id="KickPlayerWithDenyName">FinalSuspect<br>踢出使用违规昵称的玩家</h1>
+        <p class="lede">
+            当您是房主时，若 Final Suspect 检测到有人使用了违规昵称（如包含敏感词等破坏游戏体验的名称），
+            系统将自动踢出该玩家。该功能可有效维护房间秩序，避免恶意名称对其他玩家造成干扰。
+        </p>
 
-        <div class="text">
-            <p>当您是房主时，若Final Suspect检测到有人使用了违规昵称（如包含敏感词等<mark>破坏游戏体验</mark>的名称），系统将自动踢出该玩家。
-                该功能可有效维护房间秩序，避免恶意名称对其他玩家造成干扰。
-                您可以在设置手动禁用自动踢出功能。</p>
+        <div class="facts">
+            <div><span class="k">触发条件</span><span class="v">昵称包含敏感词等违规内容</span></div>
+            <div><span class="k">生效端</span><span class="v">房主</span></div>
+            <div><span class="k">处理动作</span><span class="v">自动踢出该玩家</span></div>
+            <div><span class="k">可否关闭</span><span class="v">可在设置手动禁用</span></div>
         </div>
 
-        <div class="footer-meta">
-            <div class="edit-time">
-                <i class="fas fa-clock"></i>
-                <span>最后更新: <time id="lastEditTime" datetime=""></time></span>
+        <div class="prose">
+            <h2 class="sec-title" id="how"><span class="sec-title__num">01</span>功能说明</h2>
+            <p>
+                当您是房主时，若 Final Suspect 检测到有人使用了违规昵称（如包含敏感词等<strong>破坏游戏体验</strong>的名称），
+                系统将自动踢出该玩家。
+            </p>
+            <p>
+                该功能可有效维护房间秩序，避免恶意名称对其他玩家造成干扰。
+            </p>
+
+            <h2 class="sec-title" id="rules"><span class="sec-title__num">02</span>触发与处理</h2>
+            <dl class="spec-list">
+                <dt>检测对象</dt>
+                <dd>玩家使用的昵称</dd>
+                <dt>命中条件</dt>
+                <dd>昵称包含敏感词等破坏游戏体验的内容</dd>
+                <dt>处理动作</dt>
+                <dd>自动踢出该玩家</dd>
+                <dt>执行方式</dt>
+                <dd>当您是房主时由模组自动完成，无需手动处理</dd>
+            </dl>
+            <div class="alert alert--ok">
+                <span class="alert__icon"><i class="fas fa-shield-halved"></i></span>
+                <div class="alert__body">
+                    <span class="alert__title">维护房间秩序</span>
+                    <p>违规昵称会出现在玩家列表中被房间内所有玩家看到，自动踢出可以避免这类名称继续干扰其他玩家。</p>
+                </div>
+            </div>
+
+            <h2 class="sec-title" id="control"><span class="sec-title__num">03</span>关闭自动踢出</h2>
+            <p>
+                如果您不希望模组自动处理违规昵称，可以在设置中手动禁用自动踢出功能。
+            </p>
+            <div class="alert alert--tip">
+                <span class="alert__icon"><i class="fas fa-lightbulb"></i></span>
+                <div class="alert__body">
+                    <span class="alert__title">禁用后的变化</span>
+                    <p>关闭该功能后，模组不会再对违规昵称执行自动踢出。</p>
+                </div>
             </div>
         </div>
 
-        <div class="footer-copyright">
-            <p>网站设计 ©<span>LezaiYa</span> | FinalSuspect Mod ©<span>Slok</span></p>
+        <div class="pager">
+            <a class="pager__item" href="KickPlayerInBanList.html">
+                <small>上一篇</small>
+                <b>← 踢出被封禁的玩家</b>
+            </a>
+            <a class="pager__item pager__item--next" href="OfflineMode.html">
+                <small>下一篇</small>
+                <b>离线模式（试验性） →</b>
+            </a>
         </div>
-    </div>
-    <script src='../../Resource/JS/h1.js'></script>
-    <script src='../../Resource/JS/Time.js'></script>
+    </main>
+
+    <script src="../../Resource/JS/language.js?v=b8d0de44"></script>
+    <script src="../../Resource/JS/versions.js?v=b8d0de44"></script>
+    <script src="../../Resource/JS/shell.js?v=b8d0de44"></script>
+    <script src="../../Resource/JS/transition.js?v=b8d0de44" defer></script>
+    <script src="../../Resource/JS/effects.js?v=b8d0de44" defer></script>
+    <script src="../../Resource/JS/time.js?v=b8d0de44" defer></script>
+    <script src="../../Resource/JS/last-modified.js?v=b8d0de44" defer></script>
 </body>
 
 </html>

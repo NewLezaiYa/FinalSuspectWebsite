@@ -3,52 +3,122 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
-    <title>切换原版</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Button/Back.css">
-    <link rel="stylesheet" href="../../Resource/CSS/PromptBox/Content.css">
-    <link rel="stylesheet" href="../../Resource/CSS/PromptBox/Warning.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Text/Text.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Text/h1.css">
-    <link rel="stylesheet" href="../../Resource/CSS/PromptBox/container.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Root.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Footer.css">
-    <link rel="stylesheet" href="../../Resource/CSS/time.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#030308">
+    <script>try{if(localStorage.getItem('fs.theme')==='light'){document.documentElement.setAttribute('data-theme','light');var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content','#eef1f7')}}catch(e){}</script>
+    <meta name="description" content="FinalSuspect 功能说明：切换原版——停用模组功能，以原版客户端游玩 Among Us，重启游戏即可恢复模组。">
+    <title>切换原版 · FinalSuspect</title>
+
+    <link rel="stylesheet" href="../../Resource/CSS/fonts.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/icons.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/variables.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/components.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/layout.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/pages.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/animations.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/responsive.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/theme.css?v=b8d0de44">
 </head>
 
-<body>
-    <div class="container">
-        <button class="back-button" onclick="window.history.back()">返回上一页</button>
+<body data-shell="full" data-page="feat-unloadmod" data-rail="features">
+    <main>
+        <header class="page-head">
+            <span class="page-head__label hud-label"><i class="fas fa-toggle-on"></i> FEATURE · 07</span>
+            <h1 class="page-title">切换原版</h1>
+            <div class="page-head__meta">
+                <span><i class="fas fa-folder"></i> 功能</span>
+                <span><i class="fas fa-rotate-left"></i> 重启即可恢复</span>
+                <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
+            </div>
+        </header>
 
-        <h1 id="UnloadMod">FinalSuspect<br>切换原版</h1>
+        <p class="lede">
+            这将卸载 Final Suspect 有关功能，回到原版；您将以<strong>原版客户端</strong>游玩 Among Us。
+            需要恢复模组时，重启游戏即可。
+        </p>
 
-        <div class="content-section">
-            <div class="text">
-                <p>这将卸载Final Suspect有关功能，回到原版。<br>
-                    您将以原版客户端游玩Among Us。</p>
-                <div class="warning">
-                    <p>回到原版后需要重启游戏才能使用Mod</p>
+        <div class="facts">
+            <div><span class="k">作用</span><span class="v">停用模组功能</span></div>
+            <div><span class="k">恢复方式</span><span class="v">重启游戏</span></div>
+            <div><span class="k">是否删除文件</span><span class="v">不删除，仅停用</span></div>
+            <div><span class="k">影响平衡</span><span class="v">不影响</span></div>
+        </div>
+
+        <div class="prose">
+
+            <h2 class="sec-title" id="what"><span class="sec-title__num">01</span>功能说明</h2>
+            <p>
+                启用「切换原版」后，将卸载 Final Suspect 有关功能，回到原版。
+                您将以原版客户端游玩 Among Us。
+            </p>
+            <p>
+                该操作<strong>不会删除</strong>游戏目录中的模组文件，
+                因此重启游戏后即可重新加载 Final Suspect，回到模组环境。
+            </p>
+
+            <div class="alert alert--warn">
+                <span class="alert__icon"><i class="fas fa-triangle-exclamation"></i></span>
+                <div class="alert__body">
+                    <span class="alert__title">需要重启游戏</span>
+                    <p>回到原版后<mark>需要重启游戏</mark>才能使用 Mod。</p>
+                </div>
+            </div>
+
+            <h2 class="sec-title" id="usage"><span class="sec-title__num">02</span>典型用途</h2>
+            <ul>
+                <li>以原版客户端游玩 Among Us，需要一个不含模组功能的纯净环境。</li>
+                <li><strong>排查问题</strong>：确认某个异常是否由模组引起 —— 切回原版后问题若消失，问题大概率出在模组侧，
+                    这时请带上日志反馈。</li>
+            </ul>
+
+            <h2 class="sec-title" id="steps"><span class="sec-title__num">03</span>操作步骤</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step__body">
+                        <p>在游戏内的 Final Suspect 功能中找到「切换原版」。</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step__body">
+                        <p>启用后 Final Suspect 有关功能被卸载，此时您将以原版客户端游玩 Among Us。</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step__body">
+                        <p>需要回到模组环境时，<strong>重启游戏</strong>即可。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert alert--tip">
+                <span class="alert__icon"><i class="fas fa-lightbulb"></i></span>
+                <div class="alert__body">
+                    <span class="alert__title">排查问题时记得留日志</span>
+                    <p>切回原版前，建议先用输出日志功能把日志导出并留存，见
+                        <a href="../Guide/OutputLog.html">导出日志</a>。</p>
                 </div>
             </div>
         </div>
 
-        <div class="footer-meta">
-            <div class="edit-time">
-                <i class="fas fa-clock"></i>
-                <span>最后更新: <time id="lastEditTime" datetime=""></time></span>
-            </div>
+        <div class="pager">
+            <a class="pager__item" href="MainMenuStyleManager.html">
+                <small>上一篇</small>
+                <b>← 切换主页风格</b>
+            </a>
+            <a class="pager__item pager__item--next" href="../Options/index.html">
+                <small>下一篇</small>
+                <b>选项总览 →</b>
+            </a>
         </div>
+    </main>
 
-        <div class="footer-copyright">
-            <p>网站设计 ©<span>LezaiYa</span> | FinalSuspect Mod ©<span>Slok</span></p>
-        </div>
-    </div>
-    <script src='../../Resource/JS/h1.js'></script>
-    <script src='../../Resource/JS/Time.js'></script>
+    <script src="../../Resource/JS/language.js?v=b8d0de44"></script>
+    <script src="../../Resource/JS/versions.js?v=b8d0de44"></script>
+    <script src="../../Resource/JS/shell.js?v=b8d0de44"></script>
+    <script src="../../Resource/JS/transition.js?v=b8d0de44" defer></script>
+    <script src="../../Resource/JS/effects.js?v=b8d0de44" defer></script>
+    <script src="../../Resource/JS/time.js?v=b8d0de44" defer></script>
+    <script src="../../Resource/JS/last-modified.js?v=b8d0de44" defer></script>
 </body>
 
 </html>

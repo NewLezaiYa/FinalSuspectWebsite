@@ -3,105 +3,122 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
-    <title>功能</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="../../Resource/CSS/index.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Button/Back.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Root.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Footer.css">
-    <link rel="stylesheet" href="../../Resource/CSS/time.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#030308">
+    <script>try{if(localStorage.getItem('fs.theme')==='light'){document.documentElement.setAttribute('data-theme','light');var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content','#eef1f7')}}catch(e){}</script>
+    <meta name="description" content="FinalSuspect 功能总览：日志处理、我的音乐、名称标识、资源管理、主页风格与切换原版共 7 个功能模块。">
+    <title>功能总览 · FinalSuspect</title>
+
+    <link rel="stylesheet" href="../../Resource/CSS/fonts.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/icons.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/variables.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/components.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/layout.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/pages.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/animations.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/responsive.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/theme.css?v=b8d0de44">
 </head>
 
-<body>
-    <div class="container">
-        <div class="back-button" onclick="window.history.back()">返回上一页</div>
-        <div class="header">
+<body data-shell="full" data-page="features" data-rail="features">
+    <main>
+        <section class="index-hero">
+            <div class="index-hero__bg"></div>
+            <span class="index-hero__kick"><i class="fas fa-toolbox"></i> FEATURE</span>
             <h1>FinalSuspect 功能</h1>
+            <p>7 个彼此独立的功能模块：日志处理、音乐播放、资源获取、名称标识、主页风格，以及一键切回原版客户端。</p>
+        </section>
+
+        <div class="facts">
+            <div><span class="k">功能数量</span><span class="v">7 个模块</span></div>
+            <div><span class="k">主页风格</span><span class="v">6 套可选背景</span></div>
+            <div><span class="k">影响平衡</span><span class="v">不影响</span></div>
+            <div><span class="k">适用平台</span><span class="v">Steam / Epic</span></div>
         </div>
 
-        <div class="btn-group">
-            <button class="jump-btn" onclick="window.location.href='ClearAutoLogs.html'">
-                <div class="jump-btn-glow"></div>
-                <div class="btn-content">
-                    <i class="btn-icon fas fa-trash-alt"></i>
-                    <span class="btn-text">清空自动日志</span>
-                </div>
-                <i class="btn-arrow fas fa-chevron-right"></i>
-            </button>
-
-            <button class="jump-btn" onclick="window.location.href='DumpLog.html'">
-                <div class="jump-btn-glow"></div>
-                <div class="btn-content">
-                    <i class="btn-icon fas fa-file-code"></i>
-                    <span class="btn-text">输出日志</span>
-                </div>
-                <i class="btn-arrow fas fa-chevron-right"></i>
-            </button>
-
-            <button class="jump-btn" onclick="window.location.href='MainMenuStyleManager.html'">
-                <div class="jump-btn-glow"></div>
-                <div class="btn-content">
-                    <i class="btn-icon fas fa-palette"></i>
-                    <span class="btn-text">切换主页风格</span>
-                </div>
-                <i class="btn-arrow fas fa-chevron-right"></i>
-            </button>
-
-            <button class="jump-btn" onclick="window.location.href='MyMusic.html'">
-                <div class="jump-btn-glow"></div>
-                <div class="btn-content">
-                    <i class="btn-icon fas fa-music"></i>
-                    <span class="btn-text">我的音乐</span>
-                </div>
-                <i class="btn-arrow fas fa-chevron-right"></i>
-            </button>
-
-            <button class="jump-btn" onclick="window.location.href='NameTagManager.html'">
-                <div class="jump-btn-glow"></div>
-                <div class="btn-content">
-                    <i class="btn-icon fas fa-tags"></i>
-                    <span class="btn-text">名称标识管理</span>
-                </div>
-                <i class="btn-arrow fas fa-chevron-right"></i>
-            </button>
-
-            <button class="jump-btn" onclick="window.location.href='ResourceManager.html'">
-                <div class="jump-btn-glow"></div>
-                <div class="btn-content">
-                    <i class="btn-icon fas fa-folder"></i>
-                    <span class="btn-text">资源管理</span>
-                </div>
-                <i class="btn-arrow fas fa-chevron-right"></i>
-            </button>
-
-            <button class="jump-btn" onclick="window.location.href='UnloadMod.html'">
-                <div class="jump-btn-glow"></div>
-                <div class="btn-content">
-                    <i class="btn-icon fas fa-toggle-on"></i>
-                    <span class="btn-text">切换原版</span>
-                </div>
-                <i class="btn-arrow fas fa-chevron-right"></i>
-            </button>
+        <div class="index-tools">
+            <span class="index-tools__count">按功能分区排列 · 共 <b>7</b> 个模块</span>
         </div>
 
-        <div class="footer-meta">
-            <div class="edit-time">
-                <i class="fas fa-clock"></i>
-                <span>最后更新: <time id="lastEditTime" datetime=""></time></span>
-            </div>
+        <div class="card-grid" data-group="45">
+
+            <a class="card" href="ClearAutoLogs.html">
+                <span class="card__idx">01</span>
+                <span class="card__icon"><i class="fas fa-trash-can"></i></span>
+                <span class="card__title">清空自动日志</span>
+                <span class="card__desc">解决上游模组自动生成日志且无法关闭的问题，避免日志持续占用空间。</span>
+                <span class="card__go">查看说明 <i class="fas fa-arrow-right"></i></span>
+            </a>
+
+            <a class="card" href="DumpLog.html">
+                <span class="card__idx">02</span>
+                <span class="card__icon"><i class="fas fa-file-code"></i></span>
+                <span class="card__title">输出日志</span>
+                <span class="card__desc">一键把 BepInEx 日志复制到专用目录，并自动打开所在文件夹。</span>
+                <span class="card__go">查看说明 <i class="fas fa-arrow-right"></i></span>
+            </a>
+
+            <a class="card" href="MyMusic.html">
+                <span class="card__idx">03</span>
+                <span class="card__icon"><i class="fas fa-music"></i></span>
+                <span class="card__title">我的音乐</span>
+                <span class="card__desc">在大厅与菜单播放自定义音频，支持资源下载与本地文件导入。</span>
+                <span class="card__go">查看说明 <i class="fas fa-arrow-right"></i></span>
+            </a>
+
+            <a class="card" href="NameTagManager.html">
+                <span class="card__idx">04</span>
+                <span class="card__icon"><i class="fas fa-tags"></i></span>
+                <span class="card__title">名称标识管理</span>
+                <span class="card__desc">为绑定好友代码的玩家自动发放名称标识，便于区分与管理。</span>
+                <span class="card__go">查看说明 <i class="fas fa-arrow-right"></i></span>
+            </a>
+
+            <a class="card" href="ResourceManager.html">
+                <span class="card__idx">05</span>
+                <span class="card__icon"><i class="fas fa-folder-tree"></i></span>
+                <span class="card__title">资源管理</span>
+                <span class="card__desc">在模组内直接下载配套资源与扩展资源，不必手动翻找文件夹。</span>
+                <span class="card__go">查看说明 <i class="fas fa-arrow-right"></i></span>
+            </a>
+
+            <a class="card" href="MainMenuStyleManager.html">
+                <span class="card__idx">06</span>
+                <span class="card__icon"><i class="fas fa-palette"></i></span>
+                <span class="card__title">切换主页风格</span>
+                <span class="card__desc">6 套可切换的游戏主页背景：经典场景、节日限定与原创设计。</span>
+                <span class="card__go">查看背景 <i class="fas fa-arrow-right"></i></span>
+            </a>
+
+            <a class="card" href="UnloadMod.html">
+                <span class="card__idx">07</span>
+                <span class="card__icon"><i class="fas fa-toggle-on"></i></span>
+                <span class="card__title">切换原版</span>
+                <span class="card__desc">临时以原版客户端启动 Among Us，重启游戏即可恢复模组。</span>
+                <span class="card__go">查看说明 <i class="fas fa-arrow-right"></i></span>
+            </a>
+
         </div>
 
-        <div class="footer-copyright">
-            <p>网站设计 ©<span>LezaiYa</span> | FinalSuspect Mod ©<span>Slok</span></p>
+        <div class="pager">
+            <a class="pager__item" href="../Guide/index.html">
+                <small>上一篇</small>
+                <b>← 教程总览</b>
+            </a>
+            <a class="pager__item pager__item--next" href="ClearAutoLogs.html">
+                <small>下一篇</small>
+                <b>清空自动日志 →</b>
+            </a>
         </div>
-    </div>
-    <script src='../../Resource/JS/index.js'></script>
-    <script src='../../Resource/JS/h1.js'></script>
-    <script src='../../Resource/JS/Time.js'></script>
+    </main>
+
+    <script src="../../Resource/JS/language.js?v=b8d0de44"></script>
+    <script src="../../Resource/JS/versions.js?v=b8d0de44"></script>
+    <script src="../../Resource/JS/shell.js?v=b8d0de44"></script>
+    <script src="../../Resource/JS/transition.js?v=b8d0de44" defer></script>
+    <script src="../../Resource/JS/effects.js?v=b8d0de44" defer></script>
+    <script src="../../Resource/JS/time.js?v=b8d0de44" defer></script>
+    <script src="../../Resource/JS/last-modified.js?v=b8d0de44" defer></script>
 </body>
 
 </html>

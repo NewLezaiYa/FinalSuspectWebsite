@@ -3,47 +3,109 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
-    <title>人满自动开始游戏</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Button/Back.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Text/Text.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Text/h1.css">
-    <link rel="stylesheet" href="../../Resource/CSS/PromptBox/container.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Root.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Footer.css">
-    <link rel="stylesheet" href="../../Resource/CSS/time.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#030308">
+    <script>try{if(localStorage.getItem('fs.theme')==='light'){document.documentElement.setAttribute('data-theme','light');var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content','#eef1f7')}}catch(e){}</script>
+    <meta name="description" content="FinalSuspect 选项说明：人满自动开始游戏——房间人数达到最大值减一时启动 10 秒短倒计时，倒计时期间房主可手动取消。">
+    <title>人满自动开始游戏 · FinalSuspect</title>
+
+    <link rel="stylesheet" href="../../Resource/CSS/fonts.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/icons.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/variables.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/components.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/layout.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/pages.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/animations.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/responsive.css?v=b8d0de44">
+    <link rel="stylesheet" href="../../Resource/CSS/theme.css?v=b8d0de44">
 </head>
 
-<body>
-    <div class="container">
-        <div class="back-button" onclick="window.history.back()">返回上一页</div>
-
-        <h1 id="AutoStartGame">FinalSuspect<br>人满自动开始游戏</h1>
-
-        <div class="text">
-            在Final Suspect模组中，我们优化了自动开始游戏的逻辑，使房间人数接近满员时即可触发倒计时。<br>
-            当房间玩家人数达到<mark>最大值-1</mark>（即仅差1人满员）时，Final Suspect会启动10秒的短倒计时。<br>
-            倒计时期间，房主可手动取消。<br>
-            这一机制既避免了满员后的等待延迟，又防止因最后一名玩家迟迟未加入而影响游戏体验。
-        </div>
-
-        <div class="footer-meta">
-            <div class="edit-time">
-                <i class="fas fa-clock"></i>
-                <span>最后更新: <time id="lastEditTime" datetime=""></time></span>
+<body data-shell="full" data-page="opt-autostartgame" data-rail="options">
+    <main>
+        <header class="page-head">
+            <span class="page-head__label hud-label"><i class="fas fa-users-cog"></i> OPTION · 02</span>
+            <h1 class="page-title">人满自动开始游戏</h1>
+            <div class="page-head__meta">
+                <span><i class="fas fa-folder"></i> 选项</span>
+                <span><i class="fas fa-tag"></i> 自动化 / 对局流程</span>
+                <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
             </div>
+        </header>
+
+        <p class="lede">
+            优化了自动开始游戏的逻辑，使房间人数接近满员时即可触发倒计时：
+            人数达到「最大值 - 1」时启动 10 秒短倒计时，倒计时期间房主可手动取消。
+        </p>
+
+        <div class="facts">
+            <div><span class="k">触发条件</span><span class="v">人数达到最大值 - 1</span></div>
+            <div><span class="k">倒计时时长</span><span class="v">10 秒</span></div>
+            <div><span class="k">可否取消</span><span class="v">倒计时期间房主可手动取消</span></div>
+            <div><span class="k">生效端</span><span class="v">房主</span></div>
         </div>
 
-        <div class="footer-copyright">
-            <p>网站设计 ©<span>LezaiYa</span> | FinalSuspect Mod ©<span>Slok</span></p>
+        <div class="prose">
+
+            <h2 class="sec-title" id="how"><span class="sec-title__num">01</span>功能说明</h2>
+            <p>
+                本功能优化了自动开始游戏的逻辑，使房间人数接近满员时即可触发倒计时，
+                而不必等到房间里一个空位都不剩。
+            </p>
+            <p>
+                当房间玩家人数达到<mark>最大值 - 1</mark>（即仅差 1 人满员）时，
+                会启动 <strong>10 秒</strong>的短倒计时；倒计时期间，房主可手动取消。
+            </p>
+            <p>
+                这一机制既避免了满员后的等待延迟，又防止因最后一名玩家迟迟未加入而影响游戏体验。
+            </p>
+
+            <h2 class="sec-title" id="rules"><span class="sec-title__num">02</span>触发规则</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step__body">
+                        <p>房间人数达到<strong>最大值 - 1</strong>，即仅差 1 人满员时，自动开始逻辑被触发。</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step__body">
+                        <p>系统随即启动一段 <strong>10 秒</strong>的短倒计时，而不是等到真正满员之后才开始等待。</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step__body">
+                        <p>倒计时期间，房主可以<mark>手动取消</mark>；取消后何时开局由房主自行决定。</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="sec-title" id="why"><span class="sec-title__num">03</span>设计目的</h2>
+            <ul>
+                <li><strong>避免满员后的等待延迟</strong>：把倒计时提前到「差 1 人」的阶段，玩家进满时已经接近开局。</li>
+                <li><strong>防止最后一人迟迟未到</strong>：10 秒的短窗口不会让房间长时间卡在等待状态，影响游戏体验。</li>
+                <li><strong>决定权留给房主</strong>：需要等人时随时取消，自动化流程不会夺走房主的控制权。</li>
+            </ul>
+
         </div>
-    </div>
-    <script src='../../Resource/JS/h1.js'></script>
-    <script src='../../Resource/JS/Time.js'></script>
+
+        <div class="pager">
+            <a class="pager__item" href="AutoEndGame">
+                <small>上一篇</small>
+                <b>← 结束时自动返回大厅</b>
+            </a>
+            <a class="pager__item pager__item--next" href="EnableFAC">
+                <small>下一篇</small>
+                <b>启用反作弊（FAC） →</b>
+            </a>
+        </div>
+    </main>
+
+    <script src="../../Resource/JS/language.js?v=b8d0de44"></script>
+    <script src="../../Resource/JS/versions.js?v=b8d0de44"></script>
+    <script src="../../Resource/JS/shell.js?v=b8d0de44"></script>
+    <script src="../../Resource/JS/transition.js?v=b8d0de44" defer></script>
+    <script src="../../Resource/JS/effects.js?v=b8d0de44" defer></script>
+    <script src="../../Resource/JS/time.js?v=b8d0de44" defer></script>
+    <script src="../../Resource/JS/last-modified.js?v=b8d0de44" defer></script>
 </body>
 
 </html>

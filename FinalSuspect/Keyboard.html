@@ -3,115 +3,126 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#030308">
+    <script>try{if(localStorage.getItem('fs.theme')==='light'){document.documentElement.setAttribute('data-theme','light');var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content','#eef1f7')}}catch(e){}</script>
     <title>快捷键</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../Resource/CSS/Button/Back.css">
-    <link rel="stylesheet" href="../Resource/CSS/Button/BackTo.css">
-    <link rel="stylesheet" href="../Resource/CSS/Button/Keyboard.css">
-    <link rel="stylesheet" href="../Resource/CSS/Text/Text.css">
-    <link rel="stylesheet" href="../Resource/CSS/Text/h1.css">
-    <link rel="stylesheet" href="../Resource/CSS/Text/h2.css">
-    <link rel="stylesheet" href="../Resource/CSS/PromptBox/Warning.css">
-    <link rel="stylesheet" href="../Resource/CSS/PromptBox/Danger.css">
-    <link rel="stylesheet" href="../Resource/CSS/PromptBox/container.css">
-    <link rel="stylesheet" href="../Resource/CSS/Root.css">
-    <link rel="stylesheet" href="../Resource/CSS/Footer.css">
-    <link rel="stylesheet" href="../Resource/CSS/time.css">
+
+    <link rel="stylesheet" href="../Resource/CSS/fonts.css?v=b8d0de44">
+    <link rel="stylesheet" href="../Resource/CSS/icons.css?v=b8d0de44">
+    <link rel="stylesheet" href="../Resource/CSS/variables.css?v=b8d0de44">
+    <link rel="stylesheet" href="../Resource/CSS/components.css?v=b8d0de44">
+    <link rel="stylesheet" href="../Resource/CSS/layout.css?v=b8d0de44">
+    <link rel="stylesheet" href="../Resource/CSS/pages.css?v=b8d0de44">
+    <link rel="stylesheet" href="../Resource/CSS/animations.css?v=b8d0de44">
+    <link rel="stylesheet" href="../Resource/CSS/responsive.css?v=b8d0de44">
+    <link rel="stylesheet" href="../Resource/CSS/theme.css?v=b8d0de44">
 </head>
 
-<body>
-    <div class="container">
-        <div class="back-button" onclick="window.history.back()">返回上一页</div>
-
-        <h1 id="Keyboard">FinalSuspect 快捷键</h1>
-
-        <h2>FinalSuspect 模组端快捷键</h2>
-        <dl>
-            <dt><kbd>F11</kbd>
-            <dd>更改分辨率</dd>
-
-            <dt><kbd>F4</kbd>
-            <dd>更改全屏</dd>
-
-            <dt><kbd>F5</kbd>+<kbd>T</kbd></dt>
-            <dd>重新加载自定义翻译文件</dd>
-
-            <dt><kbd>F5</kbd>+<kbd>X</kbd></dt>
-            <dd>导出自定义翻译文件</dd>
-
-            <dt><kbd>F1</kbd>+<kbd>左Ctrl</kbd>/<kbd>右Ctrl</kbd></dt>
-            <dd>输出日志</dd>
-
-            <dt><kbd>F2</kbd>+<kbd>左Ctrl</kbd>/<kbd>右Ctrl</kbd></dt>
-            <dd>游戏中输出日志</dd>
-
-            <dt><kbd>F10</kbd></dt>
-            <dd>打开游戏目录</dd>
-
-            <dt><kbd>TAB</kbd></dt>
-            <dd>显示/隐藏主页ui</dd>
-        </dl>
-
-        <h2>FinalSuspect 仅限房主快捷键</h2>
-        <div class="warning">
-            <p>该快捷键仅限自己是房主，且是FinalSuspect模组端生效</p>
-        </div>
-        <dl>
-            <dt><kbd>左Shift</kbd>/<kbd>右Shift</kbd></dt>
-            <dd>将大厅房间倒计时修改为0s</dd>
-
-            <dt><kbd>C</kbd></dt>
-            <dd>重置房间倒计时</dd>
-        </dl>
-
-        <div class="danger">
-            <p>以下快捷键仅支持构建版本为Debug模式。<br>
-                查看模组公告确认是什么构建版本。</p>
-        </div>
-
-        <dl>
-            <dt><kbd>Shift</kbd>+<kbd>V</kbd>+<kbd>Enter</kbd></dt>
-            <dd>实名投票</dd>
-
-            <dt><kbd>Shift</kbd>+<kbd>D</kbd>+<kbd>Enter</kbd></dt>
-            <dd>打开飞艇所有的门</dd>
-
-            <dt><kbd>Shift</kbd>+<kbd>K</kbd>+<kbd>Enter</kbd></dt>
-            <dd>将击杀CD改为0s</dd>
-
-            <dt><kbd>G</kbd></dt>
-            <dd>测试开场动画</dd>
-
-            <dt><kbd>I</kbd></dt>
-            <dd>获取当前坐标</dd>
-        </dl>
-
-        <div class="footer-meta">
-            <div class="edit-time">
-                <i class="fas fa-clock"></i>
-                <span>最后更新: <time id="lastEditTime" datetime=""></time></span>
+<body data-shell="full" data-page="keyboard" data-rail="start">
+    <main>
+        <header class="page-head">
+            <span class="page-head__label hud-label"><i class="fas fa-keyboard"></i> REFERENCE · KEYS</span>
+            <h1 class="page-title">快捷键</h1>
+            <div class="page-head__meta">
+                <span><i class="fas fa-folder"></i> 开始</span>
+                <span><i class="fas fa-list-check"></i> 10 组按键</span>
+                <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
             </div>
+        </header>
+
+        <p class="lede">
+            全部快捷键都只在 Final Suspect 模组端生效：8 组通用按键负责分辨率、全屏、翻译与日志，
+            另有 2 组房主专用按键用来控制大厅倒计时。
+        </p>
+
+        <div class="facts">
+            <div><span class="k">通用快捷键</span><span class="v">8 组</span></div>
+            <div><span class="k">房主专用</span><span class="v">2 组</span></div>
+            <div><span class="k">生效端</span><span class="v">FinalSuspect 模组端</span></div>
+            <div><span class="k">组合键写法</span><span class="v">加号表示同时按下</span></div>
         </div>
 
-        <div class="footer-copyright">
-            <p>网站设计 ©<span>LezaiYa</span> | FinalSuspect Mod ©<span>Slok</span></p>
-        </div>
-    </div>
+        <div class="prose">
 
-    <button class="back-to-top" aria-label="回到顶部">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 15l-6-6-6 6" />
-        </svg>
-    </button>
-    <script src='../Resource/JS/BackToTop.js'></script>
-    <script src='../Resource/JS/h1.js'></script>
-    <script src='../Resource/JS/h2.js'></script>
-    <script src='../Resource/JS/Time.js'></script>
+            <h2 class="sec-title" id="general"><span class="sec-title__num">01</span>模组端快捷键</h2>
+            <p>这一组按键不区分身份，只要运行的是 Final Suspect 模组端即可使用。</p>
+
+            <dl class="spec-list">
+                <dt><kbd>F11</kbd></dt>
+                <dd>更改分辨率</dd>
+
+                <dt><kbd>F4</kbd></dt>
+                <dd>更改全屏</dd>
+
+                <dt><kbd>F5</kbd><span>+</span><kbd>T</kbd></dt>
+                <dd>重新加载自定义翻译文件</dd>
+
+                <dt><kbd>F5</kbd><span>+</span><kbd>X</kbd></dt>
+                <dd>导出自定义翻译文件</dd>
+
+                <dt><kbd>F1</kbd><span>+</span><kbd>左Ctrl</kbd><span>/</span><kbd>右Ctrl</kbd></dt>
+                <dd>输出日志</dd>
+
+                <dt><kbd>F2</kbd><span>+</span><kbd>左Ctrl</kbd><span>/</span><kbd>右Ctrl</kbd></dt>
+                <dd>游戏中输出日志</dd>
+
+                <dt><kbd>F10</kbd></dt>
+                <dd>打开游戏目录</dd>
+
+                <dt><kbd>TAB</kbd></dt>
+                <dd>显示/隐藏主页 UI</dd>
+            </dl>
+
+            <div class="alert alert--tip">
+                <span class="alert__icon"><i class="fas fa-lightbulb"></i></span>
+                <div class="alert__body">
+                    <span class="alert__title">日志落在哪里</span>
+                    <p>
+                        按 <kbd>F1</kbd> 输出的日志会落在模组专用目录，具体位置见
+                        <a href="Guide/OutputLog.html">导出日志</a>。
+                    </p>
+                </div>
+            </div>
+
+            <h2 class="sec-title" id="host"><span class="sec-title__num">02</span>房主专用快捷键</h2>
+
+            <div class="alert alert--warn">
+                <span class="alert__icon"><i class="fas fa-crown"></i></span>
+                <div class="alert__body">
+                    <span class="alert__title">生效条件</span>
+                    <p>该快捷键仅限自己是房主，且是 FinalSuspect 模组端生效。</p>
+                </div>
+            </div>
+
+            <dl class="spec-list">
+                <dt><kbd>左Shift</kbd><span>/</span><kbd>右Shift</kbd></dt>
+                <dd>将大厅房间倒计时修改为 0s</dd>
+
+                <dt><kbd>C</kbd></dt>
+                <dd>重置房间倒计时</dd>
+            </dl>
+        </div>
+
+        <div class="pager">
+            <a class="pager__item" href="FAQ.html">
+                <small>上一篇</small>
+                <b>← 疑难解答</b>
+            </a>
+            <a class="pager__item pager__item--next" href="Changelog.html">
+                <small>下一篇</small>
+                <b>更新日志 →</b>
+            </a>
+        </div>
+    </main>
+
+    <script src="../Resource/JS/language.js?v=b8d0de44"></script>
+    <script src="../Resource/JS/versions.js?v=b8d0de44"></script>
+    <script src="../Resource/JS/shell.js?v=b8d0de44"></script>
+    <script src="../Resource/JS/transition.js?v=b8d0de44" defer></script>
+    <script src="../Resource/JS/effects.js?v=b8d0de44" defer></script>
+    <script src="../Resource/JS/time.js?v=b8d0de44" defer></script>
+    <script src="../Resource/JS/last-modified.js?v=b8d0de44" defer></script>
 </body>
 
 </html>
