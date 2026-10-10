@@ -13,8 +13,8 @@ window.SplashIntro = (function () {
     gearMesh: 0.4,
     logoAssemble: 0.6,
     logoHold: 0.25,
-    logLines: 3,
-    logLineGap: 95,
+    logLines: LOW_POWER ? 2 : 3,
+    logLineGap: LOW_POWER ? 42 : 95,
     progressDuration: 0.65,
     verifyHold: 0.2,
     clampDown: 0.32,
@@ -173,7 +173,7 @@ window.SplashIntro = (function () {
     this.debris = [];
     this.resize();
     var self = this;
-    window.addEventListener('resize', function () { self.resize(); });
+    window.addEventListener('resize', function () { self.resize(); }, { passive: true });
   }
 
   Engine.prototype.resize = function () {
@@ -273,11 +273,12 @@ window.SplashIntro = (function () {
     line.innerHTML = '<span class="sp-log__tag">' + (tone === 'ok' ? 'OK' : tone === 'warn' ? 'WARN' : 'SYS') + '</span><span class="sp-log__txt"></span>';
     this.logBox.appendChild(line);
     var out = line.querySelector('.sp-log__txt');
+    var per = LOW_POWER ? 4 : 11;
     for (var i = 0; i < text.length; i++) {
       out.textContent += text.charAt(i);
-      await wait(11);
+      await wait(per);
     }
-    await wait(Math.max(0, CFG.logLineGap - text.length * 11));
+    await wait(Math.max(0, CFG.logLineGap - text.length * per));
   };
 
   Engine.prototype.phaseBoot = async function () {
@@ -341,7 +342,7 @@ window.SplashIntro = (function () {
       var pct = ((done / total) * 100).toFixed(1);
       fill.style.width = pct + '%';
       label.textContent = '校验模块 ' + done + ' / ' + total;
-      await wait(downloading ? 90 : 55);
+      await wait(downloading ? (LOW_POWER ? 30 : 90) : (LOW_POWER ? 18 : 55));
     }
     fill.style.width = '100%';
     label.textContent = '全部就绪 ' + total + ' / ' + total;
@@ -449,36 +450,43 @@ window.SplashIntro = (function () {
     }
     requestAnimationFrame(loop);
 
+    // 启动动画总时长上限：超时立即收尾，避免低端机 / 慢网络卡在遮罩上
+    var HARD_LIMIT = LOW_POWER ? 1800 : 3200;
+
     try {
-      this.versionText.textContent = 'FinalSuspectWebsite v3.0';
-      this.versionText.classList.add('is-on');
+      var sequence = async () => {
+        this.versionText.textContent = 'FinalSuspectWebsite v3.0';
+        this.versionText.classList.add('is-on');
 
+        var logoPromise = loadImage(this.logoImgSrc());
 
-      var logoPromise = loadImage(this.logoImgSrc());
+        var scanDone = false;
+        var scanP = animate(CFG.scanSweep, function (t) { scanProgress = easeInOut(t); })
+          .then(function () { scanDone = true; scanProgress = null; });
 
-      var scanDone = false;
-      var scanP = animate(CFG.scanSweep, function (t) { scanProgress = easeInOut(t); })
-        .then(function () { scanDone = true; scanProgress = null; });
+        await this.phaseGears();
+        await scanP;
+        void scanDone;
 
-      await this.phaseGears();
-      await scanP;
-      void scanDone;
+        var logoImg = await logoPromise;
+        if (logoImg) {
+          await this.phaseLogo(logoImg);
+          await this.phaseBoot();
+          await this.phaseResources(images);
+          await this.phaseClamp();
+          await this.phaseDisassemble();
+        }
+      };
 
-      var logoImg = await logoPromise;
-      if (logoImg) {
-        await this.phaseLogo(logoImg);
-        await this.phaseBoot();
-        await this.phaseResources(images);
-        await this.phaseClamp();
-        await this.phaseDisassemble();
-      }
+      await Promise.race([sequence(), wait(HARD_LIMIT)]);
 
       if (this.overlay) {
         this.overlay.classList.add('hidden');
-        setTimeout(function () { self.overlay.style.display = 'none'; }, 700);
+        setTimeout(function () { if (self.overlay) self.overlay.style.display = 'none'; }, 700);
       }
     } finally {
       running = false;
+      if (this.overlay) this.overlay.classList.add('hidden'); // 超时兜底：确保遮罩一定消失
       html.style.overflow = prevHtml;
       body.style.overflow = prevBody;
       onComplete && onComplete();

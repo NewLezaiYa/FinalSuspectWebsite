@@ -539,10 +539,13 @@
     var ring = top.querySelector('.dock__ring-fg');
     var CIRC = 125.6;
     var ticking = false;
+    var max = 1;
+    function measure() { // 缓存可滚动距离，避免每次滚动强制同步布局
+      max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    }
     function update() {
-      var h = document.documentElement.scrollHeight - window.innerHeight;
       var y = window.scrollY || window.pageYOffset || 0;
-      var p = h > 0 ? Math.min(1, y / h) : 0;
+      var p = Math.min(1, y / max);
       if (ring) ring.setAttribute('stroke-dashoffset', String(CIRC * (1 - p)));
       top.classList.toggle('is-on', y > 300);
       ticking = false;
@@ -550,7 +553,9 @@
     window.addEventListener('scroll', function () {
       if (!ticking) { ticking = true; requestAnimationFrame(update); }
     }, { passive: true });
-    window.addEventListener('resize', update);
+    window.addEventListener('resize', function () { measure(); update(); }, { passive: true });
+    window.addEventListener('load', measure, { passive: true });
+    measure();
     update();
 
     top.addEventListener('click', function () {
