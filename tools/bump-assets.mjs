@@ -1,17 +1,3 @@
-#!/usr/bin/env node
-/**
- * bump-assets.mjs
- * 给页面里引用的本地 CSS / JS 加内容版本号（?v=<hash>），彻底绕开浏览器缓存。
- *
- *   href="Resource/CSS/layout.css"      →  href="Resource/CSS/layout.css?v=a1b2c3d4"
- *   src="../../Resource/JS/shell.js"          →  src="../../Resource/JS/shell.js?v=a1b2c3d4"
- *
- * 版本号 = Resource/CSS 与 Resource/JS 下全部文件的「名称 + 大小 + 修改时间」哈希后 8 位，
- * 任何一次样式或脚本改动都会生成新版本号，从而强制浏览器重新拉取。
- *
- * 幂等：重复执行只会替换已有的 ?v=，不会叠加。
- * 用法：node tools/bump-assets.mjs
- */
 import { readdirSync, readFileSync, writeFileSync, statSync } from 'node:fs';
 import { join, basename } from 'node:path';
 import { createHash } from 'node:crypto';
@@ -27,7 +13,6 @@ function walk(dir, out = []) {
   return out;
 }
 
-/* ---- 计算版本号：所有 CSS（含被 @import 的分册）+ 所有 JS ---- */
 const hash = createHash('sha1');
 for (const dir of ['Resource/CSS', 'Resource/JS']) {
   for (const f of readdirSync(join(ROOT, dir)).sort()) {

@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#030308">
     <script>try{if(localStorage.getItem('fs.theme')==='light'){document.documentElement.setAttribute('data-theme','light');var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content','#eef1f7')}}catch(e){}</script>
-    <meta name="description" content="FinalSuspect 功能说明：输出日志——一键把 BepInEx 日志复制到模组指定的专用目录并自动打开文件夹，原日志在每次启动 Final Suspect 时自动清空。">
-    <title>输出日志 · FinalSuspect</title>
+    <title>输出日志</title>
 
     <link rel="stylesheet" href="../../Resource/CSS/fonts.css?v=b8d0de44">
     <link rel="stylesheet" href="../../Resource/CSS/icons.css?v=b8d0de44">
@@ -23,35 +22,22 @@
 <body data-shell="full" data-page="feat-dumplog" data-rail="features">
     <main>
         <header class="page-head">
-            <span class="page-head__label hud-label"><i class="fas fa-file-code"></i> FEATURE · 02</span>
+            <span class="page-head__label hud-label"><i class="fas fa-file-code"></i> FEATURE </span>
             <h1 class="page-title">输出日志</h1>
             <div class="page-head__meta">
                 <span><i class="fas fa-folder"></i> 功能</span>
-                <span><i class="fas fa-file-export"></i> 日志管理</span>
                 <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
             </div>
         </header>
 
-        <p class="lede">
-            提供简单的日志管理方案：一键把 <code>Among Us\BepInEx</code> 下的日志复制到模组指定的专用目录，
-            复制完成后自动打开文件夹，原日志则在每次启动 Final Suspect 时自动清空。
-        </p>
-
-        <div class="facts">
-            <div><span class="k">导出内容</span><span class="v">Among Us\BepInEx 下的日志文件</span></div>
-            <div><span class="k">导出方式</span><span class="v">一键导出</span></div>
-            <div><span class="k">快速访问</span><span class="v">复制完成后自动打开文件夹</span></div>
-            <div><span class="k">原日志处理</span><span class="v">每次启动时自动清空</span></div>
-        </div>
-
         <div class="prose">
 
-            <h2 class="sec-title" id="steps"><span class="sec-title__num">01</span>三步完成导出</h2>
+            <h2 class="sec-title" id="steps">三步完成导出</h2>
             <p>该功能由三个环节组成，触发一次即可完成全部动作：</p>
             <div class="steps">
                 <div class="step">
                     <div class="step__body">
-                        <p><strong>一键导出</strong>：自动将当前 <code>Among Us\BepInEx</code> 下的日志文件复制到模组指定的专用目录。</p>
+                        <p><strong>一键导出</strong>：自动将当前 <code>\Among Us\BepInEx</code> 下的日志文件复制到模组指定目录。</p>
                     </div>
                 </div>
                 <div class="step">
@@ -66,7 +52,7 @@
                 </div>
             </div>
 
-            <h2 class="sec-title" id="path"><span class="sec-title__num">02</span>日志目录</h2>
+            <h2 class="sec-title" id="path">日志目录</h2>
             <p>导出的日志会存放在下面的路径中：</p>
             <p class="callout-path"><i class="fas fa-terminal"></i>
                 %APPDATA%\..\LocalLow\Innersloth\Among Us\FinalSuspect\Logs\Final Suspect-logs</p>

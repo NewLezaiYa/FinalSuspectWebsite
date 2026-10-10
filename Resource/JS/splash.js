@@ -206,9 +206,8 @@ window.SplashIntro = (function () {
       '<span class="sp-bezel__rule sp-bezel__rule--b"></span>' +
 
       '<div class="sp-readout">' +
-        '<div class="sp-readout__row"><span>SYS</span><b>FS-DOCS</b></div>' +
-        '<div class="sp-readout__row"><span>MODE</span><b>MECHANICAL</b></div>' +
-        '<div class="sp-readout__row"><span>BUILD</span><b>v3.0</b></div>' +
+        '<div class="sp-readout__row"><span>SYS</span></div>' +
+        '<div class="sp-readout__row"><span>FinalSuspectWebsite</span><b>v3.0</b></div>' +
       '</div>' +
 
       '<span class="sp-bezel__gauge"></span>';
@@ -456,7 +455,7 @@ window.SplashIntro = (function () {
     requestAnimationFrame(loop);
 
     try {
-      this.versionText.textContent = 'FS-DOCS v3.0 · MECHANICAL BUILD';
+      this.versionText.textContent = 'FinalSuspectWebsite v3.0';
       this.versionText.classList.add('is-on');
 
 

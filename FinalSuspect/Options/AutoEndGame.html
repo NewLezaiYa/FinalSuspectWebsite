@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#030308">
     <script>try{if(localStorage.getItem('fs.theme')==='light'){document.documentElement.setAttribute('data-theme','light');var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content','#eef1f7')}}catch(e){}</script>
-    <meta name="description" content="FinalSuspect 选项说明：结束时自动返回大厅——对局结束自动跳过结算动画与复盘信息页，直接把玩家送回游戏大厅。">
-    <title>结束时自动返回大厅 · FinalSuspect</title>
+    <title>结束时自动返回大厅</title>
 
     <link rel="stylesheet" href="../../Resource/CSS/fonts.css?v=b8d0de44">
     <link rel="stylesheet" href="../../Resource/CSS/icons.css?v=b8d0de44">
@@ -23,66 +22,21 @@
 <body data-shell="full" data-page="opt-autoendgame" data-rail="options">
     <main>
         <header class="page-head">
-            <span class="page-head__label hud-label"><i class="fas fa-flag-checkered"></i> OPTION · 01</span>
+            <span class="page-head__label hud-label"><i class="fas fa-flag-checkered"></i> OPTION </span>
             <h1 class="page-title">结束时自动返回大厅</h1>
             <div class="page-head__meta">
                 <span><i class="fas fa-folder"></i> 选项</span>
-                <span><i class="fas fa-tag"></i> 自动化 / 对局流程</span>
                 <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
             </div>
         </header>
 
-        <p class="lede">
-            对局结束时自动跳过结算动画与复盘信息页，直接将玩家跳转返回至游戏大厅界面。
-            减少非必要的中转环节，连续对局时操作更流畅。
-        </p>
-
-        <div class="facts">
-            <div><span class="k">默认状态</span><span class="v">可手动开启</span></div>
-            <div><span class="k">生效端</span><span class="v">模组端</span></div>
-            <div><span class="k">影响平衡</span><span class="v">不影响</span></div>
-            <div><span class="k">适用场景</span><span class="v">躲猫猫 / 练习模式 / 连续对局</span></div>
-        </div>
-
         <div class="prose">
 
-            <h2 class="sec-title" id="how"><span class="sec-title__num">01</span>功能说明</h2>
+            <h2 class="sec-title" id="how">功能说明</h2>
             <p>
                 当游戏对局结束时，Final Suspect「结束时自动返回大厅」功能将<strong>自动触发</strong>，
                 自动跳过结算动画与复盘信息页，直接将玩家跳转返回至<strong>游戏大厅界面</strong>。
             </p>
-            <p>
-                该设计通过减少非必要的中转环节，可有效提升玩家在连续对局时的操作流畅度，
-                尤其适用于<mark>躲猫猫</mark>或<mark>练习模式</mark>等需要高频次对局的场景。
-            </p>
-
-            <h2 class="sec-title" id="scene"><span class="sec-title__num">02</span>适用场景</h2>
-            <p>
-                这项改动的收益体现在「一局接一局」的节奏上：结算动画与复盘信息页被跳过之后，
-                从对局结束回到大厅等待的时间被压到最短。
-            </p>
-            <ul>
-                <li><strong>躲猫猫</strong>：单局时间短、回合密度高，跳过中转环节的体感差别最明显。</li>
-                <li><strong>练习模式</strong>：需要反复开局验证玩法或路线时，每次都能省下一段等待。</li>
-                <li><strong>连续对局</strong>：与熟悉的玩家连续开房时不必每局都手动跳过结算。</li>
-            </ul>
-
-            <h2 class="sec-title" id="notice"><span class="sec-title__num">03</span>使用提示</h2>
-            <div class="alert alert--tip">
-                <span class="alert__icon"><i class="fas fa-lightbulb"></i></span>
-                <div class="alert__body">
-                    <span class="alert__title">需要看结算数据时再关掉</span>
-                    <p>该功能可在模组配置菜单中随时开启或关闭。若你需要查看结算动画与复盘信息页（例如整理战绩），
-                        临时关闭即可。</p>
-                </div>
-            </div>
-            <div class="alert alert--ok">
-                <span class="alert__icon"><i class="fas fa-circle-check"></i></span>
-                <div class="alert__body">
-                    <span class="alert__title">组合效果</span>
-                    <p>「结束时自动返回大厅」+「人满自动开始游戏」一起开启，可以把连续对局之间的等待压到最低。</p>
-                </div>
-            </div>
 
         </div>
 

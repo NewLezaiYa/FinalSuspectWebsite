@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#030308">
-    <script>try{if(localStorage.getItem('fs.theme')==='light'){document.documentElement.setAttribute('data-theme','light');var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content','#eef1f7')}}catch(e){}</script>
+    <script>try { if (localStorage.getItem('fs.theme') === 'light') { document.documentElement.setAttribute('data-theme', 'light'); var m = document.querySelector('meta[name="theme-color"]'); if (m) m.setAttribute('content', '#eef1f7') } } catch (e) { }</script>
     <title>清空自动日志</title>
 
     <link rel="stylesheet" href="../../Resource/CSS/fonts.css?v=b8d0de44">
@@ -22,30 +22,17 @@
 <body data-shell="full" data-page="feat-clearautologs" data-rail="features">
     <main>
         <header class="page-head">
-            <span class="page-head__label hud-label"><i class="fas fa-trash-can"></i> FEATURE · 01</span>
+            <span class="page-head__label hud-label"><i class="fas fa-trash-can"></i> FEATURE </span>
             <h1 class="page-title">清空自动日志</h1>
             <div class="page-head__meta">
                 <span><i class="fas fa-folder"></i> 功能</span>
-                <span><i class="fas fa-broom"></i> 日志清理</span>
                 <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
             </div>
         </header>
 
-        <p class="lede">
-            上游模组 Town Of Host 会在 Among Us 关闭时自动保存一个日志文件，且该功能默认启用、
-            除非改代码否则无法关闭。<strong>清空自动日志</strong>就是 Final Suspect 为解决这个问题而加入的功能。
-        </p>
-
-        <div class="facts">
-            <div><span class="k">问题来源</span><span class="v">Town Of Host 关闭游戏时自动保存日志</span></div>
-            <div><span class="k">上游默认状态</span><span class="v">默认启用，无法关闭（除非改代码）</span></div>
-            <div><span class="k">FinalSuspect 的处理</span><span class="v">新增「清空自动日志」功能</span></div>
-            <div><span class="k">是否需手动操作</span><span class="v">无需，由模组自动处理</span></div>
-        </div>
-
         <div class="prose">
 
-            <h2 class="sec-title" id="origin"><span class="sec-title__num">01</span>问题来源</h2>
+            <h2 class="sec-title" id="origin">问题来源</h2>
             <p>
                 在模组 <strong>Town Of Host</strong> 中，当 Among Us 关闭时会自动保存一个日志文件。
                 这个功能的初衷是为了遇到意外错误时可以提供相关信息。
@@ -55,9 +42,9 @@
                 因此这些日志文件会不断生成、留在游戏目录里。
             </p>
 
-            <h2 class="sec-title" id="solution"><span class="sec-title__num">02</span>FinalSuspect 的处理</h2>
+            <h2 class="sec-title" id="solution">FinalSuspect 如何处理？</h2>
             <p>
-                因此，我们在 Final Suspect 中添加了<strong>清空自动日志</strong>功能，以解决这个问题：
+                我们在 Final Suspect 中添加了<strong>清空自动日志</strong>功能，以解决这个问题：
                 自动生成的日志会被清理掉，无需再为此手动进入游戏目录逐个删除。
             </p>
 
@@ -65,19 +52,10 @@
                 <span class="alert__icon"><i class="fas fa-lightbulb"></i></span>
                 <div class="alert__body">
                     <span class="alert__title">需要留档时先导出</span>
-                    <p>如果遇到了异常、希望把日志保留下来，请先使用「输出日志」把当前日志复制到模组指定的专用目录，
+                    <p>如果遇到了异常、希望把日志保留下来，请先使用「输出日志」把当前日志复制到模组指定目录，
                         再让自动清理照常工作。导出方式见 <a href="DumpLog.html">输出日志</a>。</p>
                 </div>
             </div>
-
-            <h2 class="sec-title" id="together"><span class="sec-title__num">03</span>与「输出日志」的配合</h2>
-            <p>
-                两个功能互补：<strong>清空自动日志</strong>负责日常清理，让日志文件不会一直堆积；
-                <strong>输出日志</strong>负责在需要时把当前日志复制到专用目录，并自动打开文件夹方便查看。
-            </p>
-            <p>
-                日常无需任何操作，只有在需要排查问题时执行一次导出即可。
-            </p>
         </div>
 
         <div class="pager">

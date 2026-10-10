@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#030308">
     <script>try{if(localStorage.getItem('fs.theme')==='light'){document.documentElement.setAttribute('data-theme','light');var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content','#eef1f7')}}catch(e){}</script>
-    <meta name="description" content="FinalSuspect 选项说明：展示玩家平台与客户端信息——大厅等待时显示所有玩家的所属平台与好友代码，便于查看来源与举报外挂。">
-    <title>展示玩家平台与客户端信息 · FinalSuspect</title>
+    <title>展示玩家平台与客户端信息</title>
 
     <link rel="stylesheet" href="../../Resource/CSS/fonts.css?v=b8d0de44">
     <link rel="stylesheet" href="../../Resource/CSS/icons.css?v=b8d0de44">
@@ -23,38 +22,23 @@
 <body data-shell="full" data-page="opt-showplayerinfo" data-rail="options">
     <main>
         <header class="page-head">
-            <span class="page-head__label hud-label"><i class="fas fa-id-card"></i> OPTION · 10</span>
+            <span class="page-head__label hud-label"><i class="fas fa-id-card"></i> OPTION </span>
             <h1 class="page-title">展示玩家平台与客户端信息</h1>
             <div class="page-head__meta">
                 <span><i class="fas fa-folder"></i> 选项</span>
-                <span><i class="fas fa-tag"></i> 大厅信息 / 反作弊</span>
                 <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
             </div>
         </header>
 
-        <p class="lede">
-            启用该选项后，在大厅等待时，所有玩家的所属平台（如 Steam、Epic 等）及好友代码将会显示在玩家下方，
-            方便查看房间成员的来源平台，也便于举报外挂时提交关键数据。
-        </p>
-
-        <div class="facts">
-            <div><span class="k">生效场景</span><span class="v">大厅等待时</span></div>
-            <div><span class="k">显示位置</span><span class="v">玩家下方</span></div>
-            <div><span class="k">显示内容</span><span class="v">所属平台 · 好友代码</span></div>
-            <div><span class="k">隐私提醒</span><span class="v">直播录制时建议关闭</span></div>
-        </div>
-
         <div class="prose">
-            <h2 class="sec-title" id="how"><span class="sec-title__num">01</span>功能说明</h2>
+            <h2 class="sec-title" id="how">功能说明</h2>
             <p>
                 启用该选项后，在大厅等待时，所有玩家的所属平台（如 <strong>Steam</strong>、<strong>Epic</strong>
                 等）及好友代码将会显示在玩家下方。
-            </p>
-            <p>
-                这不仅方便玩家查看房间成员的来源平台，还能帮助开发团队快速识别潜在的作弊者。
+                Starlight玩家则不显示所属平台
             </p>
 
-            <h2 class="sec-title" id="preview"><span class="sec-title__num">02</span>效果示意</h2>
+            <h2 class="sec-title" id="preview">效果示意</h2>
             <figure class="figure">
                 <picture>
                     <source srcset="../../Resource/images/ShowPlayerInfo.webp" type="image/webp">
@@ -64,26 +48,12 @@
                 <figcaption>展示玩家平台与客户端信息示意图</figcaption>
             </figure>
 
-            <h2 class="sec-title" id="report"><span class="sec-title__num">03</span>举报时的作用</h2>
-            <p>
-                当玩家举报外挂时，好友代码可作为关键数据提交，便于开发组追踪违规账号并进行处理。
-            </p>
-            <dl class="spec-list">
-                <dt>玩家侧</dt>
-                <dd>在大厅即可看到每位玩家来自哪个平台</dd>
-                <dt>举报侧</dt>
-                <dd>好友代码可作为关键数据一并提交</dd>
-                <dt>开发侧</dt>
-                <dd>便于追踪违规账号并进行处理</dd>
-            </dl>
-
-            <h2 class="sec-title" id="privacy"><span class="sec-title__num">04</span>隐私提醒</h2>
+            <h2 class="sec-title" id="privacy">录制提醒</h2>
             <div class="alert alert--warn">
                 <span class="alert__icon"><i class="fas fa-triangle-exclamation"></i></span>
                 <div class="alert__body">
                     <span class="alert__title">直播与录制时建议关闭</span>
                     <p>在进行直播、素材录制等活动时建议<strong>关闭此功能</strong>来保护隐私。</p>
-                    <p>因为好友代码会直接显示在画面上，公开画面中可能会被他人看到。</p>
                 </div>
             </div>
         </div>

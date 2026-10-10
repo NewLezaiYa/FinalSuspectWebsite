@@ -495,9 +495,7 @@ body.is-ready .hero__bg {
   }
 }
 
-.page-head,
-.lede,
-.facts {
+.page-head {
   animation: fadeUpIn .75s var(--e-out) both;
 }
 
@@ -505,13 +503,6 @@ body.is-ready .hero__bg {
   animation-delay: .05s;
 }
 
-.lede {
-  animation-delay: .14s;
-}
-
-.facts {
-  animation-delay: .2s;
-}
 
 @keyframes fadeUpIn {
   from {

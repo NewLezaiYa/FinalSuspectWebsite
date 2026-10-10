@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#030308">
     <script>try{if(localStorage.getItem('fs.theme')==='light'){document.documentElement.setAttribute('data-theme','light');var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content','#eef1f7')}}catch(e){}</script>
-    <meta name="description" content="FinalSuspect 教程：更新模组——内置更新检查的工作方式，以及更新检查失败时手动替换 dll 文件的完整步骤。">
-    <title>更新模组 · FinalSuspect</title>
+    <title>更新模组</title>
 
     <link rel="stylesheet" href="../../Resource/CSS/fonts.css?v=b8d0de44">
     <link rel="stylesheet" href="../../Resource/CSS/icons.css?v=b8d0de44">
@@ -23,30 +22,17 @@
 <body data-shell="full" data-page="update" data-rail="guide">
     <main>
         <header class="page-head">
-            <span class="page-head__label hud-label"><i class="fas fa-rotate"></i> PROCEDURE · 02</span>
+            <span class="page-head__label hud-label"><i class="fas fa-rotate"></i> PROCEDURE </span>
             <h1 class="page-title">更新模组</h1>
             <div class="page-head__meta">
                 <span><i class="fas fa-folder"></i> 教程</span>
-                <span><i class="fas fa-cloud-arrow-down"></i> 自动检查 / 手动替换</span>
                 <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
             </div>
         </header>
 
-        <p class="lede">
-            Final Suspect 已内置更新检查，正常情况下启动游戏即可完成更新。
-            只有在检查失败或下载出现问题时，才需要按手动流程替换 dll 文件。
-        </p>
-
-        <div class="facts">
-            <div><span class="k">更新方式</span><span class="v">自动 / 手动</span></div>
-            <div><span class="k">检查时机</span><span class="v">每次启动游戏</span></div>
-            <div><span class="k">Release 版</span><span class="v">有更新时要求更新</span></div>
-            <div><span class="k">OpenBeta 版</span><span class="v">不进行更新检查</span></div>
-        </div>
-
         <div class="prose">
 
-            <h2 class="sec-title" id="auto"><span class="sec-title__num">01</span>自动更新</h2>
+            <h2 class="sec-title" id="auto">自动更新</h2>
             <p>
                 Final Suspect 已于游戏内<strong>内置更新检查</strong>，每次启动将自动检查更新。
             </p>
@@ -66,52 +52,14 @@
                 </div>
             </div>
 
-            <h2 class="sec-title" id="when"><span class="sec-title__num">02</span>何时需要手动更新</h2>
+            <h2 class="sec-title" id="when">何时需要手动更新</h2>
 
             <div class="alert alert--warn">
                 <span class="alert__icon"><i class="fas fa-triangle-exclamation"></i></span>
                 <div class="alert__body">
                     <span class="alert__title">优先选择自动更新</span>
                     <p>如非必要，我们建议您优先选择自动更新。</p>
-                </div>
-            </div>
-
-            <p>只有在遇上<strong>更新检查失败</strong>或<strong>下载出现问题</strong>时，才需要按下面的四步手动更新。</p>
-
-            <h2 class="sec-title" id="steps"><span class="sec-title__num">03</span>手动更新步骤</h2>
-
-            <div class="steps">
-                <div class="step">
-                    <div class="step__body">
-                        <p>访问 <a href="https://github.com/Slok7565/FinalSuspect/releases" target="_blank"
-                                rel="noopener noreferrer">GitHub Releases</a>，下载最新版本的 dll 文件。</p>
-                    </div>
-                </div>
-
-                <div class="step">
-                    <div class="step__body">
-                        <p>打开 Among Us 根目录，再继续打开 <code>BepInEx\plugins</code> 文件夹。</p>
-                        <div class="callout-path"><i class="fas fa-terminal"></i>Among Us\BepInEx\plugins</div>
-                        <div class="term">
-                            <div class="term__bar">
-                                <span class="term__dots"><i></i><i></i><i></i></span>
-                                <span class="term__path">插件目录</span>
-                            </div>
-                            <pre><code>Among Us\BepInEx\plugins</code></pre>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="step">
-                    <div class="step__body">
-                        <p>将下载的 dll 文件替换掉原有的 dll 文件。</p>
-                    </div>
-                </div>
-
-                <div class="step">
-                    <div class="step__body">
-                        <p>至此，更新结束。</p>
-                    </div>
+                    <p>1.5.0版本需要手动更新，因为Steam端的游戏更新至了64位</p>
                 </div>
             </div>
 

@@ -5,9 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#030308">
-    <script>try{if(localStorage.getItem('fs.theme')==='light'){document.documentElement.setAttribute('data-theme','light');var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content','#eef1f7')}}catch(e){}</script>
-    <meta name="description" content="FinalSuspect 完整更新日志：按版本倒序记录修复、优化、新增、调整与移除的全部改动。">
-    <title>更新日志 · FinalSuspect</title>
+    <script>try { if (localStorage.getItem('fs.theme') === 'light') { document.documentElement.setAttribute('data-theme', 'light'); var m = document.querySelector('meta[name="theme-color"]'); if (m) m.setAttribute('content', '#eef1f7') } } catch (e) { }</script>
+    <title>更新日志</title>
 
     <link rel="stylesheet" href="../Resource/CSS/fonts.css?v=b8d0de44">
     <link rel="stylesheet" href="../Resource/CSS/icons.css?v=b8d0de44">
@@ -23,7 +22,7 @@
 <body data-shell="full" data-page="changelog" data-rail="logs" data-toc="off">
     <main>
         <header class="page-head">
-            <span class="page-head__label hud-label"><i class="fas fa-clock-rotate-left"></i> ARCHIVE · RELEASES</span>
+            <span class="page-head__label hud-label"><i class="fas fa-clock-rotate-left"></i> ARCHIVE RELEASES</span>
             <h1 class="page-title">版本更新日志</h1>
             <div class="page-head__meta">
                 <span><i class="fas fa-folder"></i> 动态</span>
@@ -32,21 +31,6 @@
                 <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
             </div>
         </header>
-
-        <p class="lede">
-            按时间倒序排列的完整改动记录。每个版本标注对应官方游戏版本与 BepInEx 框架版本，
-            改动按「修复 / 优化 / 调整 / 新增 / 移除」分类，便于快速定位你关心的部分。
-        </p>
-
-        <div class="facts">
-            <div><span class="k">最新版本</span><span class="v" id="clLatest">—</span></div>
-            <div><span class="k">收录区间</span><span class="v" id="clRange">—</span></div>
-            <div><span class="k">改动总量</span><span class="v" id="clTotal">—</span></div>
-            <div><span class="k">改动分类</span><span class="v">修复 / 优化 / 调整 / 新增 / 移除</span></div>
-        </div>
-
-
-
 
         <div class="chips" id="clChips" role="group" aria-label="按改动类型筛选">
             <button class="chip" type="button" data-filter="all" aria-pressed="true">全部改动</button>
@@ -134,24 +118,24 @@
                     }).join('');
                     return '' +
                         '<section class="tl-group" data-kind="' + g.kind + '">' +
-                          '<h4 class="tl-group__title ' + 'c-' + meta.cls + '">' +
-                            '<i class="fas ' + meta.icon + ' bg-' + meta.cls + '"></i>' +
-                            esc(g.title || meta.label) +
-                            '<span class="cnt">' + g.items.length + ' 项</span>' +
-                          '</h4>' +
-                          '<div class="tl-list">' + items + '</div>' +
+                        '<h4 class="tl-group__title ' + 'c-' + meta.cls + '">' +
+                        '<i class="fas ' + meta.icon + ' bg-' + meta.cls + '"></i>' +
+                        esc(g.title || meta.label) +
+                        '<span class="cnt">' + g.items.length + ' 项</span>' +
+                        '</h4>' +
+                        '<div class="tl-list">' + items + '</div>' +
                         '</section>';
                 }).join('');
 
                 html += '' +
                     '<article class="tl-version" id="' + esc(v.id) + '" data-version="' + esc(v.version) + '">' +
-                      '<header class="tl-version__head">' +
-                        '<span class="tl-version__num">v' + esc(v.version) + '</span>' +
-                        '<span class="tag tag--' + (v.type === '正式版' ? 'green' : 'amber') + '">' + esc(v.type) + '</span>' +
-                        '<span class="tl-version__date"><i class="fas fa-calendar-day"></i> ' + esc(v.date) + '</span>' +
-                        '<span class="tl-version__stats">' + stats + '</span>' +
-                      '</header>' +
-                      groupsHtml +
+                    '<header class="tl-version__head">' +
+                    '<span class="tl-version__num">v' + esc(v.version) + '</span>' +
+                    '<span class="tag tag--' + (v.type === '正式版' ? 'green' : 'amber') + '">' + esc(v.type) + '</span>' +
+                    '<span class="tl-version__date"><i class="fas fa-calendar-day"></i> ' + esc(v.date) + '</span>' +
+                    '<span class="tl-version__stats">' + stats + '</span>' +
+                    '</header>' +
+                    groupsHtml +
                     '</article>';
             });
 
@@ -219,7 +203,7 @@
                     Array.prototype.forEach.call(host.querySelectorAll('.tl-group'), function (g) {
                         g.style.display = (f === 'all' || g.dataset.kind === f) ? '' : 'none';
                     });
-                    
+
                     Array.prototype.forEach.call(host.querySelectorAll('.tl-version'), function (v) {
                         var visible = Array.prototype.some.call(v.querySelectorAll('.tl-group'), function (g) {
                             return g.style.display !== 'none';
@@ -229,7 +213,7 @@
                 });
             });
         })();
-</script>
+    </script>
     <script src="../Resource/JS/language.js?v=b8d0de44"></script>
     <script src="../Resource/JS/versions.js?v=b8d0de44"></script>
     <script src="../Resource/JS/shell.js?v=b8d0de44"></script>

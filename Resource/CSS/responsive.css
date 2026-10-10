@@ -217,7 +217,6 @@
   .nav-row__desc {
     white-space: normal;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
   }
 
@@ -245,18 +244,6 @@
 
   .index-hero h1 {
     font-size: clamp(1.5rem, 7vw, 2rem);
-  }
-
-  .lede {
-    font-size: .96rem;
-  }
-
-  .facts {
-    margin: var(--s-3) 0 var(--s-5);
-  }
-
-  .facts>div {
-    padding: var(--s-3);
   }
 
   .spec-list {

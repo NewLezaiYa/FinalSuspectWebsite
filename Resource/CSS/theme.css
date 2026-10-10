@@ -248,16 +248,6 @@
 }
 
 
-[data-theme='light'] .lede {
-  background-image: var(--tx-scan),
-    linear-gradient(100deg, rgba(0, 150, 190, .1), rgba(255, 255, 255, .8) 68%);
-  background-color: transparent;
-}
-
-[data-theme='light'] .facts>div {
-  background: linear-gradient(168deg, #ffffff, #f2f6fc);
-}
-
 [data-theme='light'] .index-hero__bg {
   background:
     radial-gradient(ellipse 70% 100% at 0% 0%, rgba(0, 150, 190, .11), transparent 60%),

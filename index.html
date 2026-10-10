@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#030308">
-    <script>try{if(localStorage.getItem('fs.theme')==='light'){document.documentElement.setAttribute('data-theme','light');var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content','#eef1f7')}}catch(e){}</script>
+    <script>try { if (localStorage.getItem('fs.theme') === 'light') { document.documentElement.setAttribute('data-theme', 'light'); var m = document.querySelector('meta[name="theme-color"]'); if (m) m.setAttribute('content', '#eef1f7') } } catch (e) { }</script>
     <title>FinalSuspect</title>
 
     <link rel="stylesheet" href="Resource/CSS/fonts.css?v=b8d0de44">
@@ -45,35 +45,40 @@
 
             <div class="hero__inner">
                 <span class="hero__status">
-                    <i class="led led--cyan"></i>
-                    <span>SYS / FinalSuspect</span>
                     <span class="hero__status-sep">·</span>
-                    <span>BUILD <b>v3.0</b></span>
-                    <span class="hero__status-sep">·</span>
-                    <span>STATUS <b>ONLINE</b></span>
+                    <span>FinalSuspectWebsite <b>v3.0</b></span>
                 </span>
 
                 <picture>
-                    <source type="image/webp"
-                        sizes="(max-width: 640px) 64vw, 400px"
+                    <source type="image/webp" sizes="(max-width: 640px) 64vw, 400px"
                         srcset="Resource/images/FinalSuspect-Logo-2.0-480.webp 480w, Resource/images/FinalSuspect-Logo-2.0-800.webp 800w, Resource/images/FinalSuspect-Logo-2.0-1200.webp 1200w, Resource/images/FinalSuspect-Logo-2.0.webp 1800w">
                     <img data-nowebp src="Resource/images/FinalSuspect-Logo-2.0-900.png" alt="FinalSuspect"
                         class="hero__logo" width="1800" height="675" loading="eager" fetchpriority="high"
-                        decoding="async"
-                        sizes="(max-width: 640px) 64vw, 400px"
+                        decoding="async" sizes="(max-width: 640px) 64vw, 400px"
                         srcset="Resource/images/FinalSuspect-Logo-2.0-480.png 480w, Resource/images/FinalSuspect-Logo-2.0-900.png 900w, Resource/images/FinalSuspect-Logo-2.0.png 4000w">
                 </picture>
 
                 <h1 class="hero__title">模组文档</h1>
 
                 <p class="hero__desc">
-                    Among Us 的优质辅助模组。保留经典，优化体验 —— 安装教程、选项说明、功能详解与完整更新日志都在这里。
+                    The Ultimate Among Us Mod for the Vanilla Experience.
                 </p>
             </div>
         </section>
 
         <div class="home-wrap">
             <div class="nav-list" data-group="55">
+                <a class="nav-row" href="FinalSuspect/Introduction.html">
+                    <span class="nav-row__shine"></span>
+                    <span class="nav-row__icon"><i class="fas fa-book-open"></i></span>
+                    <span class="nav-row__body">
+                        <span class="nav-row__title">模组简介</span>
+                        <span class="nav-row__desc">开发理念与开发团队</span>
+                    </span>
+                    <span class="nav-row__meta">了解</span>
+                    <span class="nav-row__go"><i class="fas fa-chevron-right"></i></span>
+                </a>
+
                 <a class="nav-row" href="FinalSuspect/Guide/Installation.html">
                     <span class="nav-row__shine"></span>
                     <span class="nav-row__icon"><i class="fas fa-rocket"></i></span>
@@ -81,7 +86,7 @@
                         <span class="nav-row__title">安装与更新</span>
                         <span class="nav-row__desc">Steam / Epic 双平台安装步骤、版本更新与日志导出</span>
                     </span>
-                    <span class="nav-row__meta">教程 · 3 篇</span>
+                    <span class="nav-row__meta">了解</span>
                     <span class="nav-row__go"><i class="fas fa-chevron-right"></i></span>
                 </a>
 
@@ -90,9 +95,9 @@
                     <span class="nav-row__icon"><i class="fas fa-sliders"></i></span>
                     <span class="nav-row__body">
                         <span class="nav-row__title">选项</span>
-                        <span class="nav-row__desc">自动化、防护、显示与性能，共 14 项可调开关</span>
+                        <span class="nav-row__desc">反作弊、解锁帧率等共 14 项可调开关</span>
                     </span>
-                    <span class="nav-row__meta">14 项</span>
+                    <span class="nav-row__meta">了解</span>
                     <span class="nav-row__go"><i class="fas fa-chevron-right"></i></span>
                 </a>
 
@@ -101,18 +106,7 @@
                     <span class="nav-row__icon"><i class="fas fa-toolbox"></i></span>
                     <span class="nav-row__body">
                         <span class="nav-row__title">功能</span>
-                        <span class="nav-row__desc">主页风格、音乐、资源管理与日志处理，共 7 个模块</span>
-                    </span>
-                    <span class="nav-row__meta">7 个</span>
-                    <span class="nav-row__go"><i class="fas fa-chevron-right"></i></span>
-                </a>
-
-                <a class="nav-row" href="FinalSuspect/Introduction.html">
-                    <span class="nav-row__shine"></span>
-                    <span class="nav-row__icon"><i class="fas fa-book-open"></i></span>
-                    <span class="nav-row__body">
-                        <span class="nav-row__title">模组简介</span>
-                        <span class="nav-row__desc">开发理念、能力范围与开发团队</span>
+                        <span class="nav-row__desc">主页风格、音乐、资源管理与日志处理，共 7 个板块</span>
                     </span>
                     <span class="nav-row__meta">了解</span>
                     <span class="nav-row__go"><i class="fas fa-chevron-right"></i></span>
@@ -123,9 +117,9 @@
                     <span class="nav-row__icon"><i class="fas fa-life-ring"></i></span>
                     <span class="nav-row__body">
                         <span class="nav-row__title">疑难解答</span>
-                        <span class="nav-row__desc">安装失败、错误代码、连接异常的分步排查</span>
+                        <span class="nav-row__desc">安装失败、错误代码、连接异常等 9 组 Q&A</span>
                     </span>
-                    <span class="nav-row__meta">9 组问答</span>
+                    <span class="nav-row__meta">了解</span>
                     <span class="nav-row__go"><i class="fas fa-chevron-right"></i></span>
                 </a>
 
@@ -136,7 +130,7 @@
                         <span class="nav-row__title">快捷键</span>
                         <span class="nav-row__desc">模组端通用按键与房主专用按键一览</span>
                     </span>
-                    <span class="nav-row__meta">10 组</span>
+                    <span class="nav-row__meta">了解</span>
                     <span class="nav-row__go"><i class="fas fa-chevron-right"></i></span>
                 </a>
 
@@ -147,7 +141,7 @@
                         <span class="nav-row__title">更新日志</span>
                         <span class="nav-row__desc">按版本倒序的完整改动记录，含对应官方游戏版本</span>
                     </span>
-                    <span class="nav-row__meta" id="logMeta">全部版本</span>
+                    <span class="nav-row__meta" id="logMeta">了解</span>
                     <span class="nav-row__go"><i class="fas fa-chevron-right"></i></span>
                 </a>
             </div>
