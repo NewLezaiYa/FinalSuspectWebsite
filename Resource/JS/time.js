@@ -25,27 +25,39 @@
       key = m ? m[1] : key.split('/').filter(Boolean).slice(-1)[0];
     }
     key = key.replace(/^\/+/, '').replace(/\/+$/, '');
-    if (!key) return 'index.html';
-    if (/\.html?$/i.test(key)) return key;
-    return key + '/index.html'; // 目录形式的 URL
+    return key || 'index.html'; // 不带扩展名时由 lookup 逐个尝试候选键
   }
 
+
+  // 候选键：无扩展名 URL（如 /FinalSuspect/Changelog）可能是 xxx.html，也可能是目录 xxx/index.html
+  function candidates(key) {
+    if (/\.html?$/i.test(key)) return [key];
+    return [key + '.html', key + '/index.html', key];
+  }
 
   function lookup(key) {
     var map = window.LAST_MODIFIED;
     if (!map) return null;
-    if (map[key]) return map[key];
 
-    var lower = key.toLowerCase();
     var keys = Object.keys(map);
-    var i, k;
+    var cand = candidates(key);
+    var c, i, k, lower;
 
-    for (i = 0; i < keys.length; i++) { // 精确匹配（忽略大小写）
-      if (keys[i].toLowerCase() === lower) return map[keys[i]];
+    for (c = 0; c < cand.length; c++) { // 精确匹配
+      if (map[cand[c]]) return map[cand[c]];
     }
-    for (i = 0; i < keys.length; i++) { // 后缀匹配：只有文件名 / 路径前缀不一致时兜底
-      k = keys[i].toLowerCase();
-      if (k.slice(-lower.length - 1) === '/' + lower) return map[keys[i]];
+    for (c = 0; c < cand.length; c++) { // 忽略大小写
+      lower = cand[c].toLowerCase();
+      for (i = 0; i < keys.length; i++) {
+        if (keys[i].toLowerCase() === lower) return map[keys[i]];
+      }
+    }
+    for (c = 0; c < cand.length; c++) { // 路径后缀匹配：站点根路径不一致时兜底
+      lower = cand[c].toLowerCase();
+      for (i = 0; i < keys.length; i++) {
+        k = keys[i].toLowerCase();
+        if (k.slice(-lower.length - 1) === '/' + lower) return map[keys[i]];
+      }
     }
     return null;
   }
