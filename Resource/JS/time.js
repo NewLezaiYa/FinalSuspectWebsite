@@ -53,8 +53,16 @@
   function render() {
     var nodes = document.querySelectorAll('[data-last-modified], #lastEditTime');
     if (!nodes.length) return;
-    var val = lookup(pageKey());
-    if (!val) return; // 查不到就保持空，不写入当前时间，避免显示错误的时间
+    var key = pageKey();
+    var val = lookup(key);
+    if (!val) {
+      if (window.console && console.warn) {
+        console.warn('[time] 未匹配到更新时间 · key=' + key +
+          ' · LAST_MODIFIED=' + (window.LAST_MODIFIED ? '已加载' : '未加载') +
+          ' · pathname=' + location.pathname);
+      }
+      return;
+    }
     Array.prototype.forEach.call(nodes, function (n) {
       if (!n.textContent.trim() || n.hasAttribute('data-last-modified')) {
         n.textContent = val;
@@ -63,9 +71,8 @@
     });
   }
 
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', render);
-  else render();
-
+  render();
+  document.addEventListener('DOMContentLoaded', render);
   document.addEventListener('shell:ready', function () { setTimeout(render, 0); });
   window.addEventListener('load', function () { setTimeout(render, 120); }); // 等 last-modified.js 就绪
 })();
