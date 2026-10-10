@@ -389,6 +389,46 @@
 }
 
 
+/* ===== 低配设备自动降级（由 shell.js 依据硬件信息给 <html> 加 data-lowfx） ===== */
+/* 无限循环动画与 backdrop-filter 是常驻 CPU / GPU 占用的主要来源。
+   这里只停止"无限重复"：动画仍按原时长播完最后一轮后停在终点，
+   过渡效果保留，因此不会有跳变，但持续开销归零。 */
+
+html[data-lowfx] *,
+html[data-lowfx] *::before,
+html[data-lowfx] *::after {
+  animation-iteration-count: 1 !important;
+}
+
+html[data-lowfx] body::before {
+  animation: none !important;
+}
+
+html[data-lowfx] .topbar {
+  background: rgba(4, 6, 13, .97) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+html[data-lowfx] .hero__glow {
+  filter: none !important;
+}
+
+html[data-lowfx] .dock__btn,
+html[data-lowfx] .cmdk,
+html[data-lowfx] .rail-scrim,
+html[data-lowfx] .lang-switch__menu,
+html[data-lowfx] .hero__status {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+html[data-lowfx] .dock__pulse,
+html[data-lowfx] .dock__ring-fg {
+  display: none !important;
+}
+
+
 @media (hover: none) and (pointer: coarse) {
 
   a,

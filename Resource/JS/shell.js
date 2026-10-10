@@ -2,6 +2,16 @@
 (function () {
   'use strict';
 
+  // 低配设备自动降级：关掉无限循环动画与毛玻璃，显著降低常驻 CPU / GPU 占用
+  // 手动覆盖：localStorage['fs.lowfx'] = '1' 强制开启 / '0' 强制关闭
+  (function applyLowFx() {
+    var saved = null;
+    try { saved = localStorage.getItem('fs.lowfx'); } catch (e) {  }
+    var auto = ((navigator.hardwareConcurrency || 8) <= 4) || ((navigator.deviceMemory || 8) <= 4);
+    var low = saved === '1' ? true : (saved === '0' ? false : auto);
+    if (low) document.documentElement.setAttribute('data-lowfx', '1');
+  })();
+
   var IS_FILE = location.protocol === 'file:';
 
 

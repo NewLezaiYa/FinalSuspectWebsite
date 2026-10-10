@@ -255,20 +255,12 @@ body::before {
     radial-gradient(ellipse 60% 40% at 6% 30%, rgba(79, 141, 255, .06), transparent 60%),
     radial-gradient(ellipse 55% 45% at 96% 62%, rgba(180, 77, 255, .05), transparent 60%),
     radial-gradient(ellipse 120% 60% at 50% 112%, rgba(255, 45, 149, .035), transparent 65%);
-  animation: ambPulse 16s ease-in-out infinite;
+  opacity: .9;
 }
 
-@keyframes ambPulse {
-
-  0%,
-  100% {
-    opacity: .8;
-  }
-
-  50% {
-    opacity: 1;
-  }
-}
+/* 注：原为 ambPulse 16s 无限透明度呼吸。该层位于 .topbar 的 backdrop-filter 之后，
+   只要它每帧变化，Chrome 就会每帧重算一次全宽高斯模糊（GPU 占用主要来源）。
+   静止后背景只在滚动时重算，视觉差异极小。 */
 
 body::after {
   content: '';
