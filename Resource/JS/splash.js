@@ -205,11 +205,6 @@ window.SplashIntro = (function () {
       '<span class="sp-bezel__rule sp-bezel__rule--t"></span>' +
       '<span class="sp-bezel__rule sp-bezel__rule--b"></span>' +
 
-      '<div class="sp-readout">' +
-        '<div class="sp-readout__row"><span>SYS</span></div>' +
-        '<div class="sp-readout__row"><span>FinalSuspectWebsite</span><b>v3.0</b></div>' +
-      '</div>' +
-
       '<span class="sp-bezel__gauge"></span>';
     this.overlay.appendChild(bezel);
     this.bezel = bezel;
