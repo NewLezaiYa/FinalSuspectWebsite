@@ -3,44 +3,64 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#030308">
+    <script>try{if(localStorage.getItem('fs.theme')==='light'){document.documentElement.setAttribute('data-theme','light');var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content','#eef1f7')}}catch(e){}</script>
     <title>踢出好友代码异常的玩家</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Button/Back.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Text/Text.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Text/h1.css">
-    <link rel="stylesheet" href="../../Resource/CSS/PromptBox/container.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Root.css">
-    <link rel="stylesheet" href="../../Resource/CSS/Footer.css">
-    <link rel="stylesheet" href="../../Resource/CSS/time.css">
+
+    <link rel="stylesheet" href="../../Resource/CSS/fonts.css?v=2df7cd96">
+    <link rel="stylesheet" href="../../Resource/CSS/icons.css?v=2df7cd96">
+    <link rel="stylesheet" href="../../Resource/CSS/variables.css?v=2df7cd96">
+    <link rel="stylesheet" href="../../Resource/CSS/components.css?v=2df7cd96">
+    <link rel="stylesheet" href="../../Resource/CSS/layout.css?v=2df7cd96">
+    <link rel="stylesheet" href="../../Resource/CSS/pages.css?v=2df7cd96">
+    <link rel="stylesheet" href="../../Resource/CSS/animations.css?v=2df7cd96">
+    <link rel="stylesheet" href="../../Resource/CSS/responsive.css?v=2df7cd96">
+    <link rel="stylesheet" href="../../Resource/CSS/theme.css?v=2df7cd96">
 </head>
 
-<body>
-    <div class="container">
-        <div class="back-button" onclick="window.history.back()">返回上一页</div>
-
-        <h1 id="KickPlayerWithAbnormalFriendCode">FinalSuspect<br>踢出好友代码异常的玩家</h1>
-
-        <div class="text">
-            在Final Suspect模组中，我们提供了好友代码检测功能。启用该功能后，Final Suspect会立即踢出所有<mark>好友代码异常</mark>的玩家，并进行提示。
-        </div>
-
-        <div class="footer-meta">
-            <div class="edit-time">
-                <i class="fas fa-clock"></i>
-                <span>最后更新: <time id="lastEditTime" datetime=""></time></span>
+<body data-shell="full" data-page="opt-kickfriendcode" data-rail="options">
+    <main>
+        <header class="page-head">
+            <span class="page-head__label hud-label"><i class="fas fa-user-xmark"></i> OPTION </span>
+            <h1 class="page-title">踢出好友代码异常的玩家</h1>
+            <div class="page-head__meta">
+                <span><i class="fas fa-folder"></i> 选项</span>
+                <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
             </div>
+        </header>
+
+        <div class="prose">
+
+            <h2 class="sec-title" id="how">功能说明</h2>
+            <p>
+                Final Suspect 提供了<strong>好友代码检测</strong>功能。
+            </p>
+            <p>
+                启用该功能后，Final Suspect 会立即踢出所有<mark>好友代码异常</mark>的玩家，并进行提示。
+            </p>
+
         </div>
 
-        <div class="footer-copyright">
-            <p>网站设计 ©<span>LezaiYa</span> | FinalSuspect Mod ©<span>Slok</span></p>
+        <div class="pager">
+            <a class="pager__item" href="FastBoot">
+                <small>上一篇</small>
+                <b>← 快速启动模式</b>
+            </a>
+            <a class="pager__item pager__item--next" href="KickPlayerInBanList">
+                <small>下一篇</small>
+                <b>踢出被封禁的玩家 →</b>
+            </a>
         </div>
-    </div>
-    <script src='../../Resource/JS/h1.js'></script>
-    <script src='../../Resource/JS/Time.js'></script>
+    </main>
+
+    <script src="../../Resource/JS/language.js?v=2df7cd96" defer></script>
+    <script src="../../Resource/JS/versions.js?v=2df7cd96" defer></script>
+    <script src="../../Resource/JS/shell.js?v=2df7cd96" defer></script>
+    <script src="../../Resource/JS/transition.js?v=2df7cd96" defer></script>
+    <script src="../../Resource/JS/effects.js?v=2df7cd96" defer></script>
+    <script src="../../Resource/JS/last-modified.js?v=2df7cd96" defer></script>
+    <script src="../../Resource/JS/time.js?v=2df7cd96" defer></script>
 </body>
 
 </html>
