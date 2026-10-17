@@ -1,3 +1,6 @@
+/*
+ * 把 LAST_MODIFIED 表里的时间写回页面上的「更新于」节点
+ */
 (function () {
   'use strict';
 

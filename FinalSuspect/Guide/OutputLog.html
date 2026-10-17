@@ -6,39 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#030308">
     <script>try { if (localStorage.getItem('fs.theme') === 'light') { document.documentElement.setAttribute('data-theme', 'light'); var m = document.querySelector('meta[name="theme-color"]'); if (m) m.setAttribute('content', '#eef1f7') } } catch (e) { }</script>
-    <title>导出日志</title>
+    <title data-i18n="p.title">导出日志</title>
 
-    <link rel="stylesheet" href="../../Resource/CSS/fonts.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/icons.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/variables.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/components.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/layout.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/pages.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/animations.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/responsive.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/theme.css?v=ad8e71eb">
+    <link rel="stylesheet" href="../../Resource/CSS/fonts.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/icons.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/variables.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/components.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/layout.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/pages.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/animations.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/responsive.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/theme.css?v=3e933278">
 </head>
 
 <body data-shell="full" data-page="outputlog" data-rail="guide">
     <main>
         <header class="page-head">
-            <h1 class="page-title">导出日志</h1>
+            <h1 class="page-title" data-i18n="p.title">导出日志</h1>
             <div class="page-head__meta">
-                <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
+                <span><i class="fas fa-clock"></i> <span data-i18n="ui.updated">更新于</span> <time data-last-modified datetime=""></time></span>
             </div>
         </header>
 
         <div class="prose">
 
-            <h2 class="sec-title" id="auto">自动导出</h2>
-            <p>
+            <h2 class="sec-title" id="auto" data-i18n="p.auto">自动导出</h2>
+            <p data-i18n="p.autoBody">
                 您可以在 Final Suspect 功能中选择输出日志，随后将自动打开输出日志所在的文件夹。
             </p>
 
             <div class="term">
                 <div class="term__bar">
                     <span class="term__dots"><i></i><i></i><i></i></span>
-                    <span class="term__path">日志输出目录</span>
+                    <span class="term__path" data-i18n="p.autoPathLabel">日志输出目录</span>
                 </div>
                 <pre><code>%APPDATA%\..\LocalLow\Innersloth\Among Us\FinalSuspect\Logs\Final Suspect-logs</code></pre>
             </div>
@@ -46,35 +46,35 @@
             <div class="alert alert--tip">
                 <span class="alert__icon"><i class="fas fa-keyboard"></i></span>
                 <div class="alert__body">
-                    <span class="alert__title">手动打开这个目录</span>
-                    <p>按下 <kbd>Win</kbd> + <kbd>R</kbd> 组合键，把上面的目录粘贴进去后回车即可打开。</p>
+                    <span class="alert__title" data-i18n="p.manualAlertTitle">手动打开这个目录</span>
+                    <p data-i18n-html="p.manualAlertBody">按下 <kbd>Win</kbd> + <kbd>R</kbd> 组合键，把上面的目录粘贴进去后回车即可打开。</p>
                 </div>
             </div>
 
-            <h2 class="sec-title" id="manual">手动查看</h2>
-            <p>如果无法打开设置页面，你也可以手动找到日志文件：</p>
+            <h2 class="sec-title" id="manual" data-i18n="p.manual">手动查看</h2>
+            <p data-i18n="p.manualBody">如果无法打开设置页面，你也可以手动找到日志文件：</p>
 
             <div class="steps">
                 <div class="step">
                     <div class="step__body">
-                        <p>启动 Steam，在库页面中选择 <mark>Among Us</mark>。</p>
+                        <p data-i18n-html="p.manualStep1">启动 Steam，在库页面中选择 <mark>Among Us</mark>。</p>
                     </div>
                 </div>
 
                 <div class="step">
                     <div class="step__body">
-                        <p>点击右侧的 <mark>设置图标</mark> → <mark>管理</mark> → <mark>浏览本地文件</mark>，
+                        <p data-i18n-html="p.manualStep2">点击右侧的 <mark>设置图标</mark> → <mark>管理</mark> → <mark>浏览本地文件</mark>，
                             Steam 将打开 Among Us 根目录。</p>
                     </div>
                 </div>
 
                 <div class="step">
                     <div class="step__body">
-                        <p>打开 <mark>BepInEx</mark> 文件夹，其中的 <mark>LogOutput.log</mark> 便是日志文件。</p>
+                        <p data-i18n-html="p.manualStep3">打开 <mark>BepInEx</mark> 文件夹，其中的 <mark>LogOutput.log</mark> 便是日志文件。</p>
                         <div class="term">
                             <div class="term__bar">
                                 <span class="term__dots"><i></i><i></i><i></i></span>
-                                <span class="term__path">日志文件位置</span>
+                                <span class="term__path" data-i18n="p.manualPathLabel">日志文件位置</span>
                             </div>
                             <pre><code>Among Us\BepInEx\LogOutput.log</code></pre>
                         </div>
@@ -85,41 +85,41 @@
             <div class="alert alert--warn">
                 <span class="alert__icon"><i class="fas fa-triangle-exclamation"></i></span>
                 <div class="alert__body">
-                    <span class="alert__title">该文件会被自动清除</span>
-                    <p>该文件将随着你重新启动 Final Suspect 自动清除。
+                    <span class="alert__title" data-i18n="p.warnTitle">该文件会被自动清除</span>
+                    <p data-i18n-html="p.warnBody">该文件将随着你重新启动 Final Suspect 自动清除。
                         如果需要反馈，请<mark>尽早把它复制出来</mark>。</p>
                 </div>
             </div>
 
-            <h2 class="sec-title" id="hotkey">快捷键</h2>
+            <h2 class="sec-title" id="hotkey" data-i18n="p.hotkey">快捷键</h2>
             <div class="alert alert--tip">
                 <span class="alert__icon"><i class="fas fa-keyboard"></i></span>
                 <div class="alert__body">
-                    <span class="alert__title">游戏内直接输出日志</span>
-                    <p>游戏中可按 <kbd>F1</kbd> + <kbd>Ctrl</kbd> 输出日志，或按 <kbd>F2</kbd> + <kbd>Ctrl</kbd> 输出当前对局日志。</p>
+                    <span class="alert__title" data-i18n="p.hotkeyTitle">游戏内直接输出日志</span>
+                    <p data-i18n-html="p.hotkeyBody">游戏中可按 <kbd>F1</kbd> + <kbd>Ctrl</kbd> 输出日志，或按 <kbd>F2</kbd> + <kbd>Ctrl</kbd> 输出当前对局日志。</p>
                 </div>
             </div>
         </div>
 
         <div class="pager">
             <a class="pager__item" href="Update.html">
-                <small>上一篇</small>
-                <b>← 更新模组</b>
+                <small data-i18n="ui.prev">上一篇</small>
+                <b>← <span data-i18n="p.pagerPrev">更新模组</span></b>
             </a>
             <a class="pager__item pager__item--next" href="../Options/index.html">
-                <small>下一篇</small>
-                <b>选项总览 →</b>
+                <small data-i18n="ui.next">下一篇</small>
+                <b><span data-i18n="p.pagerNext">选项总览</span> →</b>
             </a>
         </div>
     </main>
 
-    <script src="../../Resource/JS/language.js?v=ad8e71eb" defer></script>
-    <script src="../../Resource/JS/versions.js?v=ad8e71eb" defer></script>
-    <script src="../../Resource/JS/shell.js?v=ad8e71eb" defer></script>
-    <script src="../../Resource/JS/transition.js?v=ad8e71eb" defer></script>
-    <script src="../../Resource/JS/effects.js?v=ad8e71eb" defer></script>
-    <script src="../../Resource/JS/last-modified.js?v=ad8e71eb" defer></script>
-    <script src="../../Resource/JS/time.js?v=ad8e71eb" defer></script>
+    <script src="../../Resource/JS/language.js?v=3e933278" defer></script>
+    <script src="../../Resource/JS/changelog-source.js?v=3e933278" defer></script>
+    <script src="../../Resource/JS/shell.js?v=3e933278" defer></script>
+    <script src="../../Resource/JS/transition.js?v=3e933278" defer></script>
+    <script src="../../Resource/JS/effects.js?v=3e933278" defer></script>
+    <script src="../../Resource/JS/last-modified.js?v=3e933278" defer></script>
+    <script src="../../Resource/JS/time.js?v=3e933278" defer></script>
 </body>
 
 </html>

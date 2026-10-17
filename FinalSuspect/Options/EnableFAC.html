@@ -6,66 +6,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#030308">
     <script>try { if (localStorage.getItem('fs.theme') === 'light') { document.documentElement.setAttribute('data-theme', 'light'); var m = document.querySelector('meta[name="theme-color"]'); if (m) m.setAttribute('content', '#eef1f7') } } catch (e) { }</script>
-    <title>启用反作弊（FAC）</title>
+    <title data-i18n="p.title">启用反作弊（FAC）</title>
 
-    <link rel="stylesheet" href="../../Resource/CSS/fonts.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/icons.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/variables.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/components.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/layout.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/pages.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/animations.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/responsive.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/theme.css?v=ad8e71eb">
+    <link rel="stylesheet" href="../../Resource/CSS/fonts.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/icons.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/variables.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/components.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/layout.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/pages.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/animations.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/responsive.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/theme.css?v=3e933278">
 </head>
 
 <body data-shell="full" data-page="opt-enablefac" data-rail="options">
     <main>
         <header class="page-head">
-            <h1 class="page-title">启用反作弊（FAC）</h1>
+            <h1 class="page-title" data-i18n="p.title">启用反作弊（FAC）</h1>
             <div class="page-head__meta">
-                <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
+                <span><i class="fas fa-clock"></i> <span data-i18n="ui.updated">更新于</span> <time data-last-modified datetime=""></time></span>
             </div>
         </header>
 
         <div class="prose">
 
-            <h2 class="sec-title" id="how">功能说明</h2>
-            <p>
+            <h2 class="sec-title" id="how" data-i18n="p.how">功能说明</h2>
+            <p data-i18n-html="p.howBody">
                 Final Suspect 提供了启用 FAC（Final Anti Cheat）的选项。
                 启用后 <mark>FAC 将开始工作</mark>，为房间提供反作弊防护。
             </p>
 
-            <h2 class="sec-title" id="warning">警告</h2>
+            <h2 class="sec-title" id="warning" data-i18n="p.warning">警告</h2>
             <div class="alert alert--danger">
                 <span class="alert__icon"><i class="fas fa-triangle-exclamation"></i></span>
                 <div class="alert__body">
-                    <span class="alert__title">官方不推荐禁用 FAC</span>
-                    <p>我们<mark>不推荐</mark>你禁用 FAC。</p>
-                    <p>禁用 FAC 后，你的房间可能会被<strong>外挂炸崩</strong>。</p>
+                    <span class="alert__title" data-i18n="p.warningTitle">官方不推荐禁用 FAC</span>
+                    <p data-i18n-html="p.warningBody">我们<mark>不推荐</mark>你禁用 FAC。</p>
+                    <p data-i18n-html="p.warningBody2">禁用 FAC 后，你的房间可能会被<strong>外挂炸崩</strong>。</p>
                 </div>
             </div>
         </div>
 
         <div class="pager">
             <a class="pager__item" href="AutoRecreateRoom">
-                <small>上一篇</small>
-                <b>← 掉线后自动新建房间</b>
+                <small data-i18n="ui.prev">上一篇</small>
+                <b>← <span data-i18n="p.pagerPrev">掉线后自动新建房间</span></b>
             </a>
             <a class="pager__item pager__item--next" href="DisableVanillaSound">
-                <small>下一篇</small>
-                <b>禁用原版游戏音乐 →</b>
+                <small data-i18n="ui.next">下一篇</small>
+                <b><span data-i18n="p.pagerNext">禁用原版游戏音乐</span> →</b>
             </a>
         </div>
     </main>
 
-    <script src="../../Resource/JS/language.js?v=ad8e71eb" defer></script>
-    <script src="../../Resource/JS/versions.js?v=ad8e71eb" defer></script>
-    <script src="../../Resource/JS/shell.js?v=ad8e71eb" defer></script>
-    <script src="../../Resource/JS/transition.js?v=ad8e71eb" defer></script>
-    <script src="../../Resource/JS/effects.js?v=ad8e71eb" defer></script>
-    <script src="../../Resource/JS/last-modified.js?v=ad8e71eb" defer></script>
-    <script src="../../Resource/JS/time.js?v=ad8e71eb" defer></script>
+    <script src="../../Resource/JS/language.js?v=3e933278" defer></script>
+    <script src="../../Resource/JS/changelog-source.js?v=3e933278" defer></script>
+    <script src="../../Resource/JS/shell.js?v=3e933278" defer></script>
+    <script src="../../Resource/JS/transition.js?v=3e933278" defer></script>
+    <script src="../../Resource/JS/effects.js?v=3e933278" defer></script>
+    <script src="../../Resource/JS/last-modified.js?v=3e933278" defer></script>
+    <script src="../../Resource/JS/time.js?v=3e933278" defer></script>
 </body>
 
 </html>

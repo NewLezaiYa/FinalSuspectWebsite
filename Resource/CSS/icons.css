@@ -1,3 +1,7 @@
+/*
+ * 图标字体：Font Awesome 子集（.fas + .fa-xxx:before）
+ */
+
 @font-face {
     font-family: "FS Icon";
     font-style: normal;
@@ -52,10 +56,6 @@
     content: "\f518"
 }
 
-.fa-broom:before {
-    content: "\f51a"
-}
-
 .fa-bug:before {
     content: "\f188"
 }
@@ -94,10 +94,6 @@
 
 .fa-clock-rotate-left:before {
     content: "\f1da"
-}
-
-.fa-cloud-arrow-down:before {
-    content: "\f0ed"
 }
 
 .fa-code-branch:before {
@@ -152,10 +148,6 @@
     content: "\f19d"
 }
 
-.fa-headphones:before {
-    content: "\f025"
-}
-
 .fa-heart:before {
     content: "\f004"
 }
@@ -166,10 +158,6 @@
 
 .fa-id-card:before {
     content: "\f2c2"
-}
-
-.fa-images:before {
-    content: "\f302"
 }
 
 .fa-keyboard:before {
@@ -198,10 +186,6 @@
 
 .fa-list-ul:before {
     content: "\f0ca"
-}
-
-.fa-lock:before {
-    content: "\f023"
 }
 
 .fa-magnifying-glass:before {
@@ -294,10 +278,6 @@
 
 .fa-user-slash:before {
     content: "\f506"
-}
-
-.fa-user-tag:before {
-    content: "\f507"
 }
 
 .fa-user-xmark:before {

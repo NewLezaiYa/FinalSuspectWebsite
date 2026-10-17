@@ -6,179 +6,179 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#030308">
     <script>try{if(localStorage.getItem('fs.theme')==='light'){document.documentElement.setAttribute('data-theme','light');var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content','#eef1f7')}}catch(e){}</script>
-    <title>切换主页风格</title>
+    <title data-i18n="p.title">切换主页风格</title>
 
-    <link rel="stylesheet" href="../../Resource/CSS/fonts.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/icons.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/variables.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/components.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/layout.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/pages.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/animations.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/responsive.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/theme.css?v=ad8e71eb">
+    <link rel="stylesheet" href="../../Resource/CSS/fonts.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/icons.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/variables.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/components.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/layout.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/pages.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/animations.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/responsive.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/theme.css?v=3e933278">
 </head>
 
 <body data-shell="full" data-page="feat-mainmenustyle" data-rail="features">
     <main>
         <header class="page-head">
-            <h1 class="page-title">切换主页风格</h1>
+            <h1 class="page-title" data-i18n="p.title">切换主页风格</h1>
             <div class="page-head__meta">
-                <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
+                <span><i class="fas fa-clock"></i> <span data-i18n="ui.updated">更新于</span> <time data-last-modified datetime=""></time></span>
             </div>
         </header>
 
         <div class="prose">
-            <h2 class="sec-title" id="gallery">背景一览</h2>
+            <h2 class="sec-title" id="gallery" data-i18n="p.gallery">背景一览</h2>
 
-            <div class="chips" id="bgChips" role="group" aria-label="按类型筛选背景">
-                <button class="chip" type="button" data-filter="all" aria-pressed="true">全部</button>
-                <button class="chip" type="button" data-filter="classic" aria-pressed="false">经典</button>
-                <button class="chip" type="button" data-filter="festival" aria-pressed="false">节日限定</button>
-                <button class="chip" type="button" data-filter="original" aria-pressed="false">原创设计</button>
+            <div class="chips" id="bgChips" role="group" aria-label="按类型筛选背景" data-i18n-aria-label="p.filterLabel">
+                <button class="chip" type="button" data-filter="all" aria-pressed="true" data-i18n="p.filterAll">全部</button>
+                <button class="chip" type="button" data-filter="classic" aria-pressed="false" data-i18n="p.filterClassic">经典</button>
+                <button class="chip" type="button" data-filter="festival" aria-pressed="false" data-i18n="p.filterFestival">节日限定</button>
+                <button class="chip" type="button" data-filter="original" aria-pressed="false" data-i18n="p.filterOriginal">原创设计</button>
             </div>
 
             <div class="gallery" id="bgGallery" data-group="80">
 
                 <article class="gcard" data-cat="classic">
                     <div class="gcard__media" data-zoom>
-                        <span class="gcard__tag tag tag--cyan">经典</span>
+                        <span class="gcard__tag tag tag--cyan" data-i18n="p.filterClassic">经典</span>
                         <span class="gcard__idx">01</span>
                         <picture>
                             <source srcset="../../Resource/images/FinalSuspect-BG-MiraHQ.webp" type="image/webp">
-                            <img width="1920" height="1080" data-nowebp src="../../Resource/images/FinalSuspect-BG-MiraHQ.png" alt="逐光寻晓 背景"
+                            <img width="1920" height="1080" data-nowebp src="../../Resource/images/FinalSuspect-BG-MiraHQ.png" alt="逐光寻晓 背景" data-i18n-alt="p.bgMiraAlt"
                                 loading="lazy" decoding="async">
                         </picture>
                     </div>
                     <div class="gcard__body">
-                        <h3 class="gcard__title">逐光寻晓</h3>
-                        <div class="gcard__meta"><i class="fas fa-user-pen"></i> FS 经典背景 & 作者：KpCam</div>
+                        <h3 class="gcard__title" data-i18n="p.bgMiraTitle">逐光寻晓</h3>
+                        <div class="gcard__meta" data-i18n-html="p.bgMiraMeta"><i class="fas fa-user-pen"></i> FS 经典背景 & 作者：KpCam</div>
                         <div class="gcard__text">
-                            <p>随着时间的推移，北半球的冬天迎来尾声，春意正在各处复苏。</p>
-                            <p>眺望米拉的雪景，内心中的回忆是否唤醒？暖流依旧心中流淌。</p>
-                            <p>无论嫌疑最终落在谁身，无论真理最后破碎于谁手，在焕然一新的体验中，头脑风暴，留下全新的快乐回忆。</p>
+                            <p data-i18n="p.bgMiraText1">随着时间的推移，北半球的冬天迎来尾声，春意正在各处复苏。</p>
+                            <p data-i18n="p.bgMiraText2">眺望米拉的雪景，内心中的回忆是否唤醒？暖流依旧心中流淌。</p>
+                            <p data-i18n="p.bgMiraText3">无论嫌疑最终落在谁身，无论真理最后破碎于谁手，在焕然一新的体验中，头脑风暴，留下全新的快乐回忆。</p>
                         </div>
                     </div>
                 </article>
 
                 <article class="gcard" data-cat="classic">
                     <div class="gcard__media" data-zoom>
-                        <span class="gcard__tag tag tag--cyan">经典</span>
+                        <span class="gcard__tag tag tag--cyan" data-i18n="p.filterClassic">经典</span>
                         <span class="gcard__idx">02</span>
                         <picture>
                             <source srcset="../../Resource/images/FinalSuspect-BG-Security-Preview.webp" type="image/webp">
-                            <img width="1920" height="1080" data-nowebp src="../../Resource/images/FinalSuspect-BG-Security-Preview.png" alt="赤心炽爱 背景"
+                            <img width="1920" height="1080" data-nowebp src="../../Resource/images/FinalSuspect-BG-Security-Preview.png" alt="赤心炽爱 背景" data-i18n-alt="p.bgSecurityAlt"
                                 loading="lazy" decoding="async">
                         </picture>
                     </div>
                     <div class="gcard__body">
-                        <h3 class="gcard__title">赤心炽爱</h3>
-                        <div class="gcard__meta"><i class="fas fa-user-pen"></i> TONEX 经典背景 & 作者：KpCam </div>
+                        <h3 class="gcard__title" data-i18n="p.bgSecurityTitle">赤心炽爱</h3>
+                        <div class="gcard__meta" data-i18n-html="p.bgSecurityMeta"><i class="fas fa-user-pen"></i> TONEX 经典背景 & 作者：KpCam </div>
                         <div class="gcard__text">
-                            <p>我们不会就此跌下、不会就此放弃、不会让玩家失望、更不会停止进步。</p>
-                            <p>若有人冷眼相待，我们会证明给所有人看！伴着热爱，我们再次起航。</p>
+                            <p data-i18n="p.bgSecurityText1">我们不会就此跌下、不会就此放弃、不会让玩家失望、更不会停止进步。</p>
+                            <p data-i18n="p.bgSecurityText2">若有人冷眼相待，我们会证明给所有人看！伴着热爱，我们再次起航。</p>
                         </div>
                     </div>
                 </article>
 
                 <article class="gcard" data-cat="festival">
                     <div class="gcard__media" data-zoom>
-                        <span class="gcard__tag tag tag--amber">节日限定</span>
+                        <span class="gcard__tag tag tag--amber" data-i18n="p.filterFestival">节日限定</span>
                         <span class="gcard__idx">03</span>
                         <picture>
                             <source srcset="../../Resource/images/FinalSuspect-BG-NewYear-Preview.webp" type="image/webp">
-                            <img width="1920" height="1080" data-nowebp src="../../Resource/images/FinalSuspect-BG-NewYear-Preview.png" alt="祉缘谐乐 背景"
+                            <img width="1920" height="1080" data-nowebp src="../../Resource/images/FinalSuspect-BG-NewYear-Preview.png" alt="祉缘谐乐 背景" data-i18n-alt="p.bgNewYearAlt"
                                 loading="lazy" decoding="async">
                         </picture>
                     </div>
                     <div class="gcard__body">
-                        <h3 class="gcard__title">祉缘谐乐</h3>
-                        <div class="gcard__meta"><i class="fas fa-user-pen"></i> 新春特别节目 & 作者：小黄117 </div>
+                        <h3 class="gcard__title" data-i18n="p.bgNewYearTitle">祉缘谐乐</h3>
+                        <div class="gcard__meta" data-i18n-html="p.bgNewYearMeta"><i class="fas fa-user-pen"></i> 新春特别节目 & 作者：小黄117 </div>
                         <div class="gcard__text">
-                            <p>祉，祝予福 缘，织于心，谐，连与情 乐，安喻人</p>
-                            <p>挚缘，创谐乐 致远，谐得乐，至元，皆怀乐 只愿，人皆乐</p>
-                            <p>愿每个人在新的一年都能寻得自己的道路，带着我们的祝福，勇往直前，追寻属于自己的人生吧！</p>
+                            <p data-i18n="p.bgNewYearText1">祉，祝予福 缘，织于心，谐，连与情 乐，安喻人</p>
+                            <p data-i18n="p.bgNewYearText2">挚缘，创谐乐 致远，谐得乐，至元，皆怀乐 只愿，人皆乐</p>
+                            <p data-i18n="p.bgNewYearText3">愿每个人在新的一年都能寻得自己的道路，带着我们的祝福，勇往直前，追寻属于自己的人生吧！</p>
                         </div>
                     </div>
                 </article>
 
                 <article class="gcard" data-cat="festival">
                     <div class="gcard__media" data-zoom>
-                        <span class="gcard__tag tag tag--amber">节日限定</span>
+                        <span class="gcard__tag tag tag--amber" data-i18n="p.filterFestival">节日限定</span>
                         <span class="gcard__idx">04</span>
                         <picture>
                             <source srcset="../../Resource/images/FinalSuspect-BG-MiraStudio-Preview.webp" type="image/webp">
-                            <img width="1920" height="1080" data-nowebp src="../../Resource/images/FinalSuspect-BG-MiraStudio-Preview.png" alt="极致演播厅 背景"
+                            <img width="1920" height="1080" data-nowebp src="../../Resource/images/FinalSuspect-BG-MiraStudio-Preview.png" alt="极致演播厅 背景" data-i18n-alt="p.bgMiraStudioAlt"
                                 loading="lazy" decoding="async">
                         </picture>
                     </div>
                     <div class="gcard__body">
-                        <h3 class="gcard__title">极致演播厅</h3>
-                        <div class="gcard__meta"><i class="fas fa-user-pen"></i> 新春特别节目 & 作者：小黄117 </div>
+                        <h3 class="gcard__title" data-i18n="p.bgMiraStudioTitle">极致演播厅</h3>
+                        <div class="gcard__meta" data-i18n-html="p.bgMiraStudioMeta"><i class="fas fa-user-pen"></i> 新春特别节目 & 作者：小黄117 </div>
                         <div class="gcard__text">
-                            <p>——花开似浪，温柔如风，愿大家心海如风，事事如意</p>
-                            <p>——春风浩荡，浪涌千里，愿大家勇立潮头，蒸蒸日上</p>
-                            <p>——欢迎来到 XtremeWave 极致狂澜——新春特别节目！</p>
+                            <p data-i18n="p.bgMiraStudioText1">——花开似浪，温柔如风，愿大家心海如风，事事如意</p>
+                            <p data-i18n="p.bgMiraStudioText2">——春风浩荡，浪涌千里，愿大家勇立潮头，蒸蒸日上</p>
+                            <p data-i18n="p.bgMiraStudioText3">——欢迎来到 XtremeWave 极致狂澜——新春特别节目！</p>
                         </div>
                     </div>
                 </article>
 
                 <article class="gcard" data-cat="original">
                     <div class="gcard__media" data-zoom>
-                        <span class="gcard__tag tag tag--purple">原创设计</span>
+                        <span class="gcard__tag tag tag--purple" data-i18n="p.filterOriginal">原创设计</span>
                         <span class="gcard__idx">05</span>
                         <picture>
                             <source srcset="../../Resource/images/FinalSuspect-BG-XtremeWave-Preview.webp" type="image/webp">
                             <img width="1920" height="1080" data-nowebp src="../../Resource/images/FinalSuspect-BG-XtremeWave-Preview.png"
-                                alt="XtremeWave 极致狂澜 背景" loading="lazy" decoding="async">
+                                alt="XtremeWave 极致狂澜 背景" data-i18n-alt="p.bgXtremeWaveAlt" loading="lazy" decoding="async">
                         </picture>
                     </div>
                     <div class="gcard__body">
-                        <h3 class="gcard__title">XtremeWave 极致狂澜</h3>
-                        <div class="gcard__meta"><i class="fas fa-user-pen"></i> 原创设计 & 作者：Slok </div>
+                        <h3 class="gcard__title" data-i18n="p.bgXtremeWaveTitle">XtremeWave 极致狂澜</h3>
+                        <div class="gcard__meta" data-i18n-html="p.bgXtremeWaveMeta"><i class="fas fa-user-pen"></i> 原创设计 & 作者：Slok </div>
                         <div class="gcard__text">
-                            <p>「极行致远，梦领狂澜！」</p>
+                            <p data-i18n="p.bgXtremeWaveText1">「极行致远，梦领狂澜！」</p>
                         </div>
                     </div>
                 </article>
 
                 <article class="gcard" data-cat="classic">
                     <div class="gcard__media" data-zoom>
-                        <span class="gcard__tag tag tag--cyan">经典</span>
+                        <span class="gcard__tag tag tag--cyan" data-i18n="p.filterClassic">经典</span>
                         <span class="gcard__idx">06</span>
                         <picture>
                             <source srcset="../../Resource/images/FinalSuspect-BG-EmergencyMeeting-Preview.webp"
                                 type="image/webp">
                             <img width="1920" height="1080" data-nowebp src="../../Resource/images/FinalSuspect-BG-EmergencyMeeting-Preview.png"
-                                alt="紧急会议 背景" loading="lazy" decoding="async">
+                                alt="紧急会议 背景" data-i18n-alt="p.bgEmergencyAlt" loading="lazy" decoding="async">
                         </picture>
                     </div>
                     <div class="gcard__body">
-                        <h3 class="gcard__title">紧急会议！</h3>
-                        <div class="gcard__meta"><i class="fas fa-user-pen"></i> TORE 经典背景 & 作者：AIGE </div>
+                        <h3 class="gcard__title" data-i18n="p.bgEmergencyTitle">紧急会议！</h3>
+                        <div class="gcard__meta" data-i18n-html="p.bgEmergencyMeta"><i class="fas fa-user-pen"></i> TORE 经典背景 & 作者：AIGE </div>
                         <div class="gcard__text">
-                            <p>「谁是内鬼！？」</p>
+                            <p data-i18n="p.bgEmergencyText1">「谁是内鬼！？」</p>
                         </div>
                     </div>
                 </article>
 
             </div>
 
-            <h2 class="sec-title" id="usage">如何切换</h2>
+            <h2 class="sec-title" id="usage" data-i18n="p.usage">如何切换</h2>
             <div class="steps">
                 <div class="step">
                     <div class="step__body">
-                        <p>启动游戏，进入 Final Suspect 的<strong>模组设置菜单</strong>。</p>
+                        <p data-i18n-html="p.usageItem1">启动游戏，进入 Final Suspect 的<strong>模组设置菜单</strong>。</p>
                     </div>
                 </div>
                 <div class="step">
                     <div class="step__body">
-                        <p>找到「切换主页风格」入口，从 6 套背景中挑选你喜欢的一套。</p>
+                        <p data-i18n="p.usageItem2">找到「切换主页风格」入口，从 6 套背景中挑选你喜欢的一套。</p>
                     </div>
                 </div>
                 <div class="step">
                     <div class="step__body">
-                        <p>返回主菜单即可看到效果，之后随时可以再次切换成其他背景。</p>
+                        <p data-i18n="p.usageItem3">返回主菜单即可看到效果，之后随时可以再次切换成其他背景。</p>
                     </div>
                 </div>
             </div>
@@ -186,20 +186,20 @@
             <div class="alert alert--ok">
                 <span class="alert__icon"><i class="fas fa-circle-check"></i></span>
                 <div class="alert__body">
-                    <span class="alert__title">不影响游戏平衡</span>
-                    <p>切换主页风格功能不影响游戏平衡，所有玩家均可自由选择喜欢的背景。</p>
+                    <span class="alert__title" data-i18n="p.okTitle">不影响游戏平衡</span>
+                    <p data-i18n="p.okBody">切换主页风格功能不影响游戏平衡，所有玩家均可自由选择喜欢的背景。</p>
                 </div>
             </div>
         </div>
 
         <div class="pager">
             <a class="pager__item" href="DumpLog.html">
-                <small>上一篇</small>
-                <b>← 输出日志</b>
+                <small data-i18n="ui.prev">上一篇</small>
+                <b>← <span data-i18n="p.pagerPrev">输出日志</span></b>
             </a>
             <a class="pager__item pager__item--next" href="MyMusic.html">
-                <small>下一篇</small>
-                <b>我的音乐 →</b>
+                <small data-i18n="ui.next">下一篇</small>
+                <b><span data-i18n="p.pagerNext">我的音乐</span> →</b>
             </a>
         </div>
     </main>
@@ -219,13 +219,13 @@
             });
         })();
     </script>
-    <script src="../../Resource/JS/language.js?v=ad8e71eb" defer></script>
-    <script src="../../Resource/JS/versions.js?v=ad8e71eb" defer></script>
-    <script src="../../Resource/JS/shell.js?v=ad8e71eb" defer></script>
-    <script src="../../Resource/JS/transition.js?v=ad8e71eb" defer></script>
-    <script src="../../Resource/JS/effects.js?v=ad8e71eb" defer></script>
-    <script src="../../Resource/JS/last-modified.js?v=ad8e71eb" defer></script>
-    <script src="../../Resource/JS/time.js?v=ad8e71eb" defer></script>
+    <script src="../../Resource/JS/language.js?v=3e933278" defer></script>
+    <script src="../../Resource/JS/changelog-source.js?v=3e933278" defer></script>
+    <script src="../../Resource/JS/shell.js?v=3e933278" defer></script>
+    <script src="../../Resource/JS/transition.js?v=3e933278" defer></script>
+    <script src="../../Resource/JS/effects.js?v=3e933278" defer></script>
+    <script src="../../Resource/JS/last-modified.js?v=3e933278" defer></script>
+    <script src="../../Resource/JS/time.js?v=3e933278" defer></script>
 </body>
 
 </html>

@@ -1,3 +1,6 @@
+/*
+ * 站点框架：根据 body[data-shell] 生成顶栏、侧栏、面包屑、目录、页脚、搜索与弹窗
+ */
 
 (function () {
   'use strict';
@@ -12,56 +15,55 @@
     if (low) document.documentElement.setAttribute('data-lowfx', '1');
   })();
 
-  var IS_FILE = location.protocol === 'file:';
 
-
-  var SITE = [
+  /* 站点结构：名称与描述全部来自 Resource/lang/<locale>.json 的 nav.* */
+  var SITE_NAV = [
     {
-      id: 'start', name: '开始', icon: 'fa-flag-checkered', top: true, items: [
-        { id: 'intro', name: '模组简介', href: 'FinalSuspect/Introduction.html', icon: 'fa-book-open', desc: 'Final Suspect 是什么、理念与开发团队' },
-        { id: 'faq', name: '疑难解答', href: 'FinalSuspect/FAQ.html', icon: 'fa-life-ring', desc: '安装失败、报错代码、连接异常的分步排查' },
-        { id: 'keyboard', name: '快捷键', href: 'FinalSuspect/Keyboard.html', icon: 'fa-keyboard', desc: '模组端与房主专用快捷键一览' }
+      id: 'start', icon: 'fa-flag-checkered', top: true, items: [
+        { id: 'intro', href: 'FinalSuspect/Introduction.html', icon: 'fa-book-open' },
+        { id: 'faq', href: 'FinalSuspect/FAQ.html', icon: 'fa-life-ring' },
+        { id: 'keyboard', href: 'FinalSuspect/Keyboard.html', icon: 'fa-keyboard' }
       ]
     },
     {
-      id: 'guide', name: '教程', icon: 'fa-graduation-cap', href: 'FinalSuspect/Guide/index.html', items: [
-        { id: 'installation', name: '安装', href: 'FinalSuspect/Guide/Installation.html', icon: 'fa-download', desc: 'Steam / Epic 双平台安装步骤' },
-        { id: 'update', name: '更新', href: 'FinalSuspect/Guide/Update.html', icon: 'fa-rotate', desc: '手动更新与版本升级流程' },
-        { id: 'outputlog', name: '导出日志', href: 'FinalSuspect/Guide/OutputLog.html', icon: 'fa-file-export', desc: '出问题时如何导出日志给开发者' }
+      id: 'guide', icon: 'fa-graduation-cap', href: 'FinalSuspect/Guide/index.html', items: [
+        { id: 'installation', href: 'FinalSuspect/Guide/Installation.html', icon: 'fa-download' },
+        { id: 'update', href: 'FinalSuspect/Guide/Update.html', icon: 'fa-rotate' },
+        { id: 'outputlog', href: 'FinalSuspect/Guide/OutputLog.html', icon: 'fa-file-export' }
       ]
     },
     {
-      id: 'options', name: '选项', icon: 'fa-sliders', href: 'FinalSuspect/Options/index.html', items: [
-        { id: 'opt-autoendgame', name: '结束时自动返回大厅', href: 'FinalSuspect/Options/AutoEndGame.html', icon: 'fa-flag-checkered', desc: '对局结束自动跳过结算回到大厅' },
-        { id: 'opt-autostartgame', name: '人满自动开始游戏', href: 'FinalSuspect/Options/AutoStartGame.html', icon: 'fa-users-cog', desc: '差一人满员即启动 10 秒倒计时' },
-        { id: 'opt-enablefac', name: '启用反作弊 FAC', href: 'FinalSuspect/Options/EnableFAC.html', icon: 'fa-shield-halved', desc: '开启 Final Anti Cheat 房间防护' },
-        { id: 'opt-disablevanillasound', name: '禁用原版游戏音乐', href: 'FinalSuspect/Options/DisableVanillaSound.html', icon: 'fa-volume-xmark', desc: '屏蔽大厅等待音乐' },
-        { id: 'opt-fastboot', name: '快速启动模式', href: 'FinalSuspect/Options/FastBoot.html', icon: 'fa-bolt', desc: '启动耗时约 15 秒缩短到 5 秒' },
-        { id: 'opt-kickfriendcode', name: '踢出好友代码异常玩家', href: 'FinalSuspect/Options/KickPlayerWithAbnormalFriendCode.html', icon: 'fa-user-xmark', desc: '自动检测异常好友代码' },
-        { id: 'opt-kickbanlist', name: '踢出被封禁的玩家', href: 'FinalSuspect/Options/KickPlayerInBanList.html', icon: 'fa-ban', desc: '命中封禁名单自动踢出' },
-        { id: 'opt-kickdenyname', name: '踢出违规昵称玩家', href: 'FinalSuspect/Options/KickPlayerWithDenyName.html', icon: 'fa-user-slash', desc: '敏感词与恶意昵称自动处理' },
-        { id: 'opt-offlinemode', name: '离线模式（试验性）', href: 'FinalSuspect/Options/OfflineMode.html', icon: 'fa-plug-circle-xmark', desc: '不从远程获取资源' },
-        { id: 'opt-showplayerinfo', name: '展示玩家平台与客户端信息', href: 'FinalSuspect/Options/ShowPlayerInfo.html', icon: 'fa-id-card', desc: '大厅显示平台与好友代码' },
-        { id: 'opt-spamdenyword', name: '屏蔽违禁词', href: 'FinalSuspect/Options/SpamDenyWord.html', icon: 'fa-comment-slash', desc: '聊天违禁词替换为星号' },
-        { id: 'opt-switchoutfit', name: '切换外观形象', href: 'FinalSuspect/Options/SwitchOutfitType.html', icon: 'fa-shirt', desc: '经典豆子 / 牧马 / 长颈豆' },
-        { id: 'opt-unlockfps', name: '解锁帧数限制', href: 'FinalSuspect/Options/UnlockFPS.html', icon: 'fa-gauge-high', desc: '解除 60FPS 上限，最高 165FPS' },
-        { id: 'opt-usemodcursor', name: '使用模组鼠标光标', href: 'FinalSuspect/Options/UseModCursor.html', icon: 'fa-arrow-pointer', desc: '用模组定制光标替换系统光标' }
+      id: 'options', icon: 'fa-sliders', href: 'FinalSuspect/Options/index.html', items: [
+        { id: 'opt-autoendgame', href: 'FinalSuspect/Options/AutoEndGame.html', icon: 'fa-flag-checkered' },
+        { id: 'opt-autostartgame', href: 'FinalSuspect/Options/AutoStartGame.html', icon: 'fa-users-cog' },
+        { id: 'opt-enablefac', href: 'FinalSuspect/Options/EnableFAC.html', icon: 'fa-shield-halved' },
+        { id: 'opt-disablevanillasound', href: 'FinalSuspect/Options/DisableVanillaSound.html', icon: 'fa-volume-xmark' },
+        { id: 'opt-fastboot', href: 'FinalSuspect/Options/FastBoot.html', icon: 'fa-bolt' },
+        { id: 'opt-kickfriendcode', href: 'FinalSuspect/Options/KickPlayerWithAbnormalFriendCode.html', icon: 'fa-user-xmark' },
+        { id: 'opt-kickbanlist', href: 'FinalSuspect/Options/KickPlayerInBanList.html', icon: 'fa-ban' },
+        { id: 'opt-kickdenyname', href: 'FinalSuspect/Options/KickPlayerWithDenyName.html', icon: 'fa-user-slash' },
+        { id: 'opt-offlinemode', href: 'FinalSuspect/Options/OfflineMode.html', icon: 'fa-plug-circle-xmark' },
+        { id: 'opt-showplayerinfo', href: 'FinalSuspect/Options/ShowPlayerInfo.html', icon: 'fa-id-card' },
+        { id: 'opt-spamdenyword', href: 'FinalSuspect/Options/SpamDenyWord.html', icon: 'fa-comment-slash' },
+        { id: 'opt-switchoutfit', href: 'FinalSuspect/Options/SwitchOutfitType.html', icon: 'fa-shirt' },
+        { id: 'opt-unlockfps', href: 'FinalSuspect/Options/UnlockFPS.html', icon: 'fa-gauge-high' },
+        { id: 'opt-usemodcursor', href: 'FinalSuspect/Options/UseModCursor.html', icon: 'fa-arrow-pointer' }
       ]
     },
     {
-      id: 'features', name: '功能', icon: 'fa-toolbox', href: 'FinalSuspect/Features/index.html', items: [
-        { id: 'feat-clearautologs', name: '清空自动日志', href: 'FinalSuspect/Features/ClearAutoLogs.html', icon: 'fa-trash-can', desc: '一键清理累积的自动日志文件' },
-        { id: 'feat-dumplog', name: '输出日志', href: 'FinalSuspect/Features/DumpLog.html', icon: 'fa-file-code', desc: '把当前运行日志导出为文件' },
-        { id: 'feat-mainmenustyle', name: '切换主页风格', href: 'FinalSuspect/Features/MainMenuStyleManager.html', icon: 'fa-palette', desc: '6 套可切换的游戏主页背景' },
-        { id: 'feat-mymusic', name: '我的音乐', href: 'FinalSuspect/Features/MyMusic.html', icon: 'fa-music', desc: '自定义大厅与菜单背景音乐' },
-        { id: 'feat-nametag', name: '名称标识管理', href: 'FinalSuspect/Features/NameTagManager.html', icon: 'fa-tags', desc: '管理玩家名称标识显示规则' },
-        { id: 'feat-resourcemanager', name: '资源管理', href: 'FinalSuspect/Features/ResourceManager.html', icon: 'fa-folder-tree', desc: '查看与管理模组资源文件' },
-        { id: 'feat-unloadmod', name: '切换原版', href: 'FinalSuspect/Features/UnloadMod.html', icon: 'fa-toggle-on', desc: '临时以原版客户端启动游戏' }
+      id: 'features', icon: 'fa-toolbox', href: 'FinalSuspect/Features/index.html', items: [
+        { id: 'feat-clearautologs', href: 'FinalSuspect/Features/ClearAutoLogs.html', icon: 'fa-trash-can' },
+        { id: 'feat-dumplog', href: 'FinalSuspect/Features/DumpLog.html', icon: 'fa-file-code' },
+        { id: 'feat-mainmenustyle', href: 'FinalSuspect/Features/MainMenuStyleManager.html', icon: 'fa-palette' },
+        { id: 'feat-mymusic', href: 'FinalSuspect/Features/MyMusic.html', icon: 'fa-music' },
+        { id: 'feat-nametag', href: 'FinalSuspect/Features/NameTagManager.html', icon: 'fa-tags' },
+        { id: 'feat-resourcemanager', href: 'FinalSuspect/Features/ResourceManager.html', icon: 'fa-folder-tree' },
+        { id: 'feat-unloadmod', href: 'FinalSuspect/Features/UnloadMod.html', icon: 'fa-toggle-on' }
       ]
     },
     {
-      id: 'logs', name: '更新日志', icon: 'fa-code-branch', items: [
-        { id: 'changelog', name: '全部版本', href: 'FinalSuspect/Changelog.html', icon: 'fa-clock-rotate-left', desc: '按版本倒序的完整改动记录' }
+      id: 'logs', icon: 'fa-code-branch', items: [
+        { id: 'changelog', href: 'FinalSuspect/Changelog.html', icon: 'fa-clock-rotate-left' }
       ]
     }
   ];
@@ -91,7 +93,7 @@
     var btn = el('button', 'theme-switch__btn');
     btn.type = 'button';
     btn.id = 'themeToggle';
-    btn.setAttribute('aria-label', '切换亮色 / 暗色主题');
+    bindAttr(btn, 'aria-label', 'ui.themeToggle');
     btn.innerHTML = '<i class="fas fa-sun"></i><i class="fas fa-moon"></i>';
 
     btn.addEventListener('click', function () {
@@ -118,6 +120,37 @@
     });
   }
 
+
+  /* ---- 国际化辅助：文案统一来自 Resource/lang/<locale>.json ---- */
+  function t(key, params, fallback) {
+    if (window.I18N && window.I18N.t) {
+      var value = window.I18N.t(key, params, fallback);
+      if (value) return value;
+    }
+    return fallback || '';
+  }
+
+  function navName(id) { return t('nav.pages.' + id + '.name'); }
+  function navDesc(id) { return t('nav.pages.' + id + '.desc'); }
+  function groupName(id) { return t('nav.groups.' + id + '.name'); }
+
+  /* 写入文案的同时登记 data-i18n，切换语言时由 I18N.apply() 统一刷新 */
+  function bindText(node, key, params) {
+    if (!node || !key) return node;
+    node.setAttribute('data-i18n', key);
+    var value = t(key, params);
+    if (value) node.textContent = value;
+    return node;
+  }
+
+  function bindAttr(node, attr, key) {
+    if (!node || !key) return node;
+    node.setAttribute('data-i18n-' + attr, key);
+    var value = t(key);
+    if (value) node.setAttribute(attr, value);
+    return node;
+  }
+
   function normPath(p) {
     p = String(p || '').replace(/\\/g, '/');
     p = p.replace(/^.*?\/FinalSuspectWebsite\//i, '');
@@ -128,18 +161,26 @@
 
   function findCurrent() {
     var here = normPath(location.pathname);
-    for (var g = 0; g < SITE.length; g++) {
-      var items = SITE[g].items || [];
+    for (var g = 0; g < SITE_NAV.length; g++) {
+      var items = SITE_NAV[g].items || [];
       for (var i = 0; i < items.length; i++) {
         if (normPath(items[i].href) === here || (items[i].id === document.body.dataset.page)) {
-          return { group: SITE[g], item: items[i] };
+          return { group: SITE_NAV[g], item: items[i] };
         }
       }
     }
 
-    for (var g2 = 0; g2 < SITE.length; g2++) {
-      if (SITE[g2].href && normPath(SITE[g2].href) === here) {
-        return { group: SITE[g2], item: { id: SITE[g2].id + '-index', name: SITE[g2].name + '总览', href: SITE[g2].href }, isIndex: true };
+    for (var g2 = 0; g2 < SITE_NAV.length; g2++) {
+      if (SITE_NAV[g2].href && normPath(SITE_NAV[g2].href) === here) {
+        return {
+          group: SITE_NAV[g2],
+          item: {
+            id: SITE_NAV[g2].id + '-index',
+            name: groupName(SITE_NAV[g2].id) + t('ui.overviewSuffix'),
+            href: SITE_NAV[g2].href
+          },
+          isIndex: true
+        };
       }
     }
     return null;
@@ -160,11 +201,6 @@
   }
 
 
-  function asset(p) {
-    return href(p);
-  }
-
-
   function buildTopbar(cur, mode) {
     var bar = el('header', 'topbar');
     bar.id = 'topbar';
@@ -179,7 +215,7 @@
 
     var brand = el('a', 'brand');
     brand.href = href('index.html');
-    brand.setAttribute('aria-label', 'FinalSuspect 文档首页');
+    bindAttr(brand, 'aria-label', 'ui.brandHome');
 
     brand.innerHTML =
       '<span class="brand__mark">' +
@@ -204,25 +240,28 @@
 
 
     var nav = el('nav', 'topnav');
-    nav.setAttribute('aria-label', '主导航');
+    bindAttr(nav, 'aria-label', 'ui.mainNav');
 
-    var homeLink = el('a', 'topnav__link', '首页');
+    var homeLink = el('a', 'topnav__link');
+    bindText(homeLink, 'ui.home');
     homeLink.href = href('index.html');
     if (mode === 'home') homeLink.setAttribute('aria-current', 'page');
     nav.appendChild(homeLink);
 
-    SITE.forEach(function (g) {
+    SITE_NAV.forEach(function (g) {
       if (g.id === 'logs') return;
       var target = g.href || (g.items && g.items[0] && g.items[0].href);
       if (!target) return;
-      var a = el('a', 'topnav__link', esc(g.name));
+      var a = el('a', 'topnav__link');
+      bindText(a, 'nav.groups.' + g.id + '.name');
       a.href = href(target);
       if (cur && cur.group && cur.group.id === g.id) a.setAttribute('aria-current', 'page');
       nav.appendChild(a);
     });
 
 
-    var logLink = el('a', 'topnav__link topnav__link--accent', '更新日志');
+    var logLink = el('a', 'topnav__link topnav__link--accent');
+    bindText(logLink, 'nav.groups.logs.name');
     logLink.href = href('FinalSuspect/Changelog.html');
     if (cur && cur.group && cur.group.id === 'logs') logLink.setAttribute('aria-current', 'page');
     nav.appendChild(logLink);
@@ -235,14 +274,15 @@
     var hamburger = el('button', 'icon-btn hamburger', '<i class="fas fa-bars"></i>');
     hamburger.type = 'button';
     hamburger.id = 'railToggle';
-    hamburger.setAttribute('aria-label', '打开导航');
+    bindAttr(hamburger, 'aria-label', 'ui.openNav');
     hamburger.setAttribute('aria-expanded', 'false');
     actions.appendChild(hamburger);
 
     var cmdBtn = el('button', 'cmdk-trigger');
     cmdBtn.type = 'button';
     cmdBtn.id = 'cmdkTrigger';
-    cmdBtn.innerHTML = '<i class="fas fa-magnifying-glass"></i><span>搜索文档 / SEARCH</span>' +
+    cmdBtn.innerHTML = '<i class="fas fa-magnifying-glass"></i>' +
+      '<span data-i18n="ui.searchTrigger"></span>' +
       '<span class="cmdk-trigger__keys"><kbd>Ctrl</kbd><kbd>K</kbd></span>';
     actions.appendChild(cmdBtn);
 
@@ -258,35 +298,36 @@
 
   function buildLangSwitch() {
     var wrap = el('div', 'lang-switch');
-    var cur = (window.I18N && window.I18N.get()) || 'zh';
+    var cur = (window.I18N && window.I18N.get()) || 'zh-CN';
+    var locales = (window.I18N && window.I18N.list) ? window.I18N.list() : [{ code: 'zh-CN', short: '中', name: '简体中文' }];
 
     var btn = el('button', 'lang-switch__btn');
     btn.type = 'button';
     btn.setAttribute('data-lang-toggle', '');
     btn.setAttribute('aria-haspopup', 'true');
     btn.setAttribute('aria-expanded', 'false');
-    btn.setAttribute('title', '切换语言');
+    bindAttr(btn, 'title', 'ui.languageToggle');
     btn.innerHTML =
       '<i class="fas fa-language"></i>' +
-      '<span class="lang-switch__cur" data-lang-current>' + (cur === 'en' ? 'EN' : '中') + '</span>' +
+      '<span class="lang-switch__cur" data-lang-current></span>' +
       '<i class="fas fa-chevron-down lang-switch__caret"></i>';
 
     var menu = el('div', 'lang-switch__menu');
     menu.setAttribute('role', 'menu');
-    ['zh', 'en'].forEach(function (code) {
-      var label = (window.I18N && window.I18N.label(code)) || (code === 'en' ? 'English' : '中文');
-      var item = el('button', 'lang-switch__item' + (code === cur ? ' is-active' : ''));
+    locales.forEach(function (loc) {
+      var label = (window.I18N && window.I18N.label(loc.code)) || loc.name;
+      var item = el('button', 'lang-switch__item' + (loc.code === cur ? ' is-active' : ''));
       item.type = 'button';
       item.setAttribute('role', 'menuitemradio');
-      item.setAttribute('data-lang-option', code);
-      item.setAttribute('aria-checked', code === cur ? 'true' : 'false');
+      item.setAttribute('data-lang-option', loc.code);
+      item.setAttribute('aria-checked', loc.code === cur ? 'true' : 'false');
       item.innerHTML =
         '<span class="lang-switch__dot"></span>' +
         '<span>' + esc(label) + '</span>' +
-        '<span class="lang-switch__code">' + code.toUpperCase() + '</span>';
+        '<span class="lang-switch__code">' + esc(loc.code.toUpperCase()) + '</span>';
       item.addEventListener('click', function (e) {
         e.stopPropagation();
-        if (window.I18N) window.I18N.set(code);
+        if (window.I18N) window.I18N.set(loc.code);
         close();
       });
       menu.appendChild(item);
@@ -323,8 +364,8 @@
     var input = el('input');
     input.type = 'search';
     input.id = 'railFilter';
-    input.placeholder = '筛选页面…';
-    input.setAttribute('aria-label', '筛选导航项');
+    bindAttr(input, 'placeholder', 'ui.railFilter');
+    bindAttr(input, 'aria-label', 'ui.railFilterLabel');
     filter.appendChild(input);
     rail.appendChild(filter);
 
@@ -333,7 +374,7 @@
 
 
     var topItems = [];
-    SITE.forEach(function (g) {
+    SITE_NAV.forEach(function (g) {
       if (g.top && g.items) topItems = topItems.concat(g.items);
     });
     if (topItems.length) {
@@ -342,15 +383,16 @@
         var a = el('a', 'rail__link rail__link--top');
         a.href = href(it.href);
         a.dataset.id = it.id;
-        a.dataset.search = (it.name + ' ' + (it.desc || '')).toLowerCase();
-        a.innerHTML = '<i class="fas ' + esc(it.icon || 'fa-file') + '"></i><span>' + esc(it.name) + '</span>';
+        a.setAttribute('data-desc', navDesc(it.id));
+        a.innerHTML = '<i class="fas ' + esc(it.icon || 'fa-file') + '"></i><span></span>';
+        bindText(a.querySelector('span'), 'nav.pages.' + it.id + '.name');
         if (cur && cur.item && cur.item.id === it.id) a.setAttribute('aria-current', 'page');
         topBox.appendChild(a);
       });
       rail.appendChild(topBox);
     }
 
-    SITE.forEach(function (g) {
+    SITE_NAV.forEach(function (g) {
       if (g.top) return;
       var group = el('div', 'rail__group');
       group.dataset.open = (openId === g.id) ? 'true' : 'false';
@@ -361,9 +403,10 @@
       else head.type = 'button';
       head.innerHTML =
         '<i class="fas ' + esc(g.icon || 'fa-folder') + '"></i>' +
-        '<span>' + esc(g.name) + '</span>' +
+        '<span></span>' +
         (g.items ? '<span class="rail__count">' + g.items.length + '</span>' : '') +
         (g.items ? '<i class="fas fa-chevron-down caret"></i>' : '');
+      bindText(head.querySelector('span'), 'nav.groups.' + g.id + '.name');
       if (!isLink) {
         head.setAttribute('aria-expanded', group.dataset.open === 'true' ? 'true' : 'false');
         head.addEventListener('click', function () {
@@ -380,21 +423,19 @@
           var a = el('a', 'rail__link');
           a.href = href(it.href);
           a.dataset.id = it.id;
-          a.dataset.search = (it.name + ' ' + (it.desc || '')).toLowerCase();
-          a.innerHTML = '<span>' + esc(it.name) + '</span>';
+          a.setAttribute('data-desc', navDesc(it.id));
+          a.innerHTML = '<span></span>';
+          bindText(a.querySelector('span'), 'nav.pages.' + it.id + '.name');
           if (cur && cur.item && cur.item.id === it.id) a.setAttribute('aria-current', 'page');
           list.appendChild(a);
         });
 
-        if (g.id === 'logs' && window.VERSIONS && window.VERSIONS.length) {
-          window.VERSIONS.forEach(function (v) {
+        if (g.id === 'logs' && window.ChangelogSource) {
+          window.ChangelogSource.list().forEach(function (v) {
             var sub = el('a', 'rail__sub');
             sub.href = href('FinalSuspect/Changelog.html') + '#' + v.id;
-            var total = v.totals
-              ? Object.keys(v.totals).reduce(function (s, k) { return s + v.totals[k]; }, 0)
-              : (v.highlights || []).length;
-            sub.innerHTML = '<span>v' + esc(v.version) + '</span><b>' + esc(v.date) + '</b>' +
-              '<span style="margin-left:auto">' + total + '</span>';
+            sub.innerHTML = '<span>v' + esc(v.version) + '</span>' +
+              '<b style="margin-left:auto">' + esc(v.date) + '</b>';
             list.appendChild(sub);
           });
         }
@@ -415,18 +456,20 @@
       var q = input.value.trim().toLowerCase();
       filter.classList.toggle('is-empty', false);
       var anyVisible = false;
-      SITE.forEach(function (g) {
+      SITE_NAV.forEach(function (g) {
         var group = rail.querySelector('.rail__group[data-group="' + g.id + '"]');
         if (!group) return;
         var links = group.querySelectorAll('.rail__link');
         var groupHit = !q;
         links.forEach(function (a) {
-          var hit = !q || a.dataset.search.indexOf(q) !== -1;
+          var hay = ((a.textContent || '') + ' ' + (a.getAttribute('data-desc') || '')).toLowerCase();
+          var hit = !q || hay.indexOf(q) !== -1;
           a.classList.toggle('rail__link--hidden', !hit);
           if (hit) groupHit = true;
         });
 
-        if (q && g.name.toLowerCase().indexOf(q) !== -1) {
+        var headLabel = group.querySelector('.rail__group-title span');
+        if (q && headLabel && headLabel.textContent.toLowerCase().indexOf(q) !== -1) {
           groupHit = true;
           links.forEach(function (a) { a.classList.remove('rail__link--hidden'); });
         }
@@ -445,16 +488,17 @@
 
   function buildCrumbs(cur) {
     var nav = el('nav', 'crumbs');
-    nav.setAttribute('aria-label', '面包屑');
-    var html = '<a href="' + href('index.html') + '"><i class="fas fa-house"></i> 首页</a>';
+    bindAttr(nav, 'aria-label', 'ui.breadcrumb');
+    var html = '<a href="' + href('index.html') + '"><i class="fas fa-house"></i> <span data-i18n="ui.home"></span></a>';
     if (cur && cur.group) {
+      var groupKey = 'nav.groups.' + cur.group.id + '.name';
       if (cur.group.href) {
-        html += '<span class="crumbs__sep">▸</span><a href="' + href(cur.group.href) + '">' + esc(cur.group.name) + '</a>';
+        html += '<span class="crumbs__sep">▸</span><a href="' + href(cur.group.href) + '"><span data-i18n="' + groupKey + '"></span></a>';
       } else {
-        html += '<span class="crumbs__sep">▸</span><span>' + esc(cur.group.name) + '</span>';
+        html += '<span class="crumbs__sep">▸</span><span data-i18n="' + groupKey + '"></span>';
       }
       if (cur.item && !cur.isIndex) {
-        html += '<span class="crumbs__sep">▸</span><span aria-current="page">' + esc(cur.item.name) + '</span>';
+        html += '<span class="crumbs__sep">▸</span><span aria-current="page" data-i18n="nav.pages.' + esc(cur.item.id) + '.name"></span>';
       }
     }
     nav.innerHTML = html;
@@ -469,7 +513,7 @@
 
     var aside = el('aside', 'shell__toc');
     var toc = el('nav', 'toc');
-    toc.setAttribute('aria-label', '本页目录');
+    bindAttr(toc, 'aria-label', 'ui.tocLabel');
     var list = el('div', 'toc__list');
 
     heads.forEach(function (h, i) {
@@ -482,7 +526,7 @@
       list.appendChild(a);
     });
 
-    toc.innerHTML = '<div class="toc__title"><i class="fas fa-list-ul"></i> 本页目录 / INDEX</div>';
+    toc.innerHTML = '<div class="toc__title"><i class="fas fa-list-ul"></i> <span data-i18n="ui.tocTitle"></span></div>';
     toc.appendChild(list);
 
 
@@ -491,6 +535,15 @@
 
 
     var links = list.querySelectorAll('.toc__link');
+
+    /* 切换语言后，标题文字变了，目录项跟着刷新 */
+    document.addEventListener('i18n:change', function () {
+      links.forEach(function (l) {
+        var h = document.getElementById(l.dataset.target);
+        if (h) l.textContent = h.textContent.trim().replace(/^\d+\s*/, '');
+      });
+    });
+
     var obs = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
         if (!en.isIntersecting) return;
@@ -506,10 +559,8 @@
   function buildLegal() {
     var bar = el('footer', 'legal-bar');
     bar.innerHTML =
-      '<span class="legal-bar__copy">网站设计 ©<b>LezaiYa</b> & FinalSuspect Mod ©<b>Slok</b>' +
-      ' · <a href="https://github.com/Slok7565/FinalSuspect" target="_blank" rel="noopener noreferrer">GitHub</a>' +
-      ' · AGPL-3.0</span>' +
-      '<span class="legal-bar__note">本模组不隶属于 Among Us 或 Innersloth LLC，部分材料为 Innersloth LLC 的财产。 © Innersloth LLC</span>'
+      '<span class="legal-bar__copy" data-i18n-html="ui.legalCopy"></span>' +
+      '<span class="legal-bar__note" data-i18n-html="ui.legalNote"></span>';
 
     var anchor = document.querySelector('.shell') || document.querySelector('main');
     if (anchor && anchor.parentNode) anchor.parentNode.insertBefore(bar, anchor.nextSibling);
@@ -518,13 +569,13 @@
   }
 
 
-  function buildActions() {
+  function buildDock() {
     var dock = el('div', 'dock');
 
 
     var top = el('button', 'dock__btn dock__btn--top');
     top.type = 'button';
-    top.setAttribute('aria-label', '回到顶部');
+    bindAttr(top, 'aria-label', 'ui.backToTop');
     top.innerHTML =
       '<svg class="dock__ring" viewBox="0 0 44 44" aria-hidden="true">' +
       '<circle class="dock__ring-bg" cx="22" cy="22" r="20" fill="none" stroke-width="2"/>' +
@@ -538,7 +589,7 @@
     var love = el('button', 'dock__btn dock__btn--love');
     love.type = 'button';
     love.id = 'openAppreciate';
-    love.setAttribute('aria-label', '赞赏支持');
+    bindAttr(love, 'aria-label', 'ui.appreciate');
     love.innerHTML = '<i class="fas fa-heart"></i><span class="dock__pulse"></span>';
     dock.appendChild(love);
 
@@ -578,10 +629,11 @@
     var wrap = el('div', 'cmdk');
     wrap.id = 'cmdk';
     wrap.innerHTML =
-      '<div class="cmdk__panel" role="dialog" aria-modal="true" aria-label="搜索文档">' +
+      '<div class="cmdk__panel" role="dialog" aria-modal="true" data-i18n-aria-label="ui.searchTitle">' +
       '<div class="cmdk__head">' +
       '<i class="fas fa-magnifying-glass"></i>' +
-      '<input class="cmdk__input" id="cmdkInput" type="text" placeholder="搜索页面、选项、功能…" autocomplete="off">' +
+      '<input class="cmdk__input" id="cmdkInput" type="text" autocomplete="off"' +
+      ' data-i18n-placeholder="ui.searchPlaceholder" data-i18n-aria-label="ui.searchTitle">' +
       '<kbd>ESC</kbd>' +
       '</div>' +
       '<div class="cmdk__list" id="cmdkList"></div>' +
@@ -590,26 +642,42 @@
 
     var input = wrap.querySelector('#cmdkInput');
     var list = wrap.querySelector('#cmdkList');
-    var flat = [];
-    SITE.forEach(function (g) {
-      (g.items || []).forEach(function (it) {
-        flat.push({ group: g.name, name: it.name, href: it.href, icon: it.icon, desc: it.desc || '' });
+
+    function flatItems() {
+      var flat = [];
+      SITE_NAV.forEach(function (g) {
+        (g.items || []).forEach(function (it) {
+          flat.push({
+            group: groupName(g.id),
+            name: navName(it.id),
+            href: it.href,
+            icon: it.icon,
+            desc: navDesc(it.id)
+          });
+        });
       });
-    });
-    flat.push({ group: '首页', name: '主页', href: 'index.html', icon: 'fa-house', desc: '网站首页与快速入口' });
+      flat.push({
+        group: t('ui.cmdkHomeGroup'),
+        name: t('ui.cmdkHomeName'),
+        href: 'index.html',
+        icon: 'fa-house',
+        desc: t('ui.cmdkHomeDesc')
+      });
+      return flat;
+    }
 
     var activeIdx = 0;
     var shown = [];
 
     function render(q) {
       q = (q || '').trim().toLowerCase();
-      shown = flat.filter(function (it) {
+      shown = flatItems().filter(function (it) {
         if (!q) return true;
         return (it.name + ' ' + it.desc + ' ' + it.group).toLowerCase().indexOf(q) !== -1;
       }).slice(0, 40);
       activeIdx = 0;
       if (!shown.length) {
-        list.innerHTML = '<div class="cmdk__empty">没有匹配的页面</div>';
+        list.innerHTML = '<div class="cmdk__empty" data-i18n="ui.searchEmpty">' + esc(t('ui.searchEmpty')) + '</div>';
         return;
       }
       var html = '';
@@ -668,6 +736,10 @@
     var trigger = document.getElementById('cmdkTrigger');
     if (trigger) trigger.addEventListener('click', open);
 
+    document.addEventListener('i18n:change', function () {
+      if (wrap.classList.contains('is-open')) render(input.value);
+    });
+
     return wrap;
   }
 
@@ -678,14 +750,14 @@
     m.innerHTML =
       '<div class="cmdk__panel" style="max-width:400px;text-align:center">' +
       '<div class="cmdk__head"><i class="brand-ico brand-ico--wechat" style="color:#09bb07"></i>' +
-      '<b style="flex:1;font-family:var(--f-display);letter-spacing:.06em">微信赞赏</b>' +
-      '<button class="icon-btn" type="button" id="apprClose" aria-label="关闭" style="width:32px;height:32px"><i class="fas fa-xmark"></i></button></div>' +
+      '<b style="flex:1;font-family:var(--f-display);letter-spacing:.06em" data-i18n="ui.appreciateTitle"></b>' +
+      '<button class="icon-btn" type="button" id="apprClose" data-i18n-aria-label="ui.close" style="width:32px;height:32px"><i class="fas fa-xmark"></i></button></div>' +
       '<div style="padding:var(--s-5)">' +
-      '<p style="color:var(--t2);font-size:var(--fs-sm);margin-bottom:var(--s-4)">扫描二维码支持 FinalSuspect，感谢您的慷慨赞助！</p>' +
+      '<p style="color:var(--t2);font-size:var(--fs-sm);margin-bottom:var(--s-4)" data-i18n="ui.appreciateDesc"></p>' +
       '<div style="background:#fff;padding:10px;border-radius:8px;display:inline-block">' +
-      '<img src="' + asset('Resource/images/Appreciate_Slok.webp') + '" alt="微信赞赏二维码" width="200" height="200" loading="lazy" decoding="async" style="width:200px;height:200px">' +
+      '<img src="' + href('Resource/images/Appreciate_Slok.webp') + '" data-i18n-alt="ui.appreciateAlt" width="200" height="200" loading="lazy" decoding="async" style="width:200px;height:200px">' +
       '</div>' +
-      '<p style="color:var(--t4);font-size:var(--fs-xs);margin-top:var(--s-4)">扫码支付后，您的支持将直接送达开发人员</p>' +
+      '<p style="color:var(--t4);font-size:var(--fs-xs);margin-top:var(--s-4)" data-i18n="ui.appreciateNote"></p>' +
       '</div>' +
       '</div>';
     document.body.appendChild(m);
@@ -740,20 +812,26 @@
   }
 
 
+  function refreshI18n() {
+    if (window.I18N && window.I18N.apply) window.I18N.apply();
+  }
+
+
   function init() {
     var mode = document.body.dataset.shell || 'full';
     var cur = findCurrent();
 
     applyTheme(currentTheme());
     buildTopbar(cur, mode);
-    removeLegacyChrome();
+    refreshI18n();
     bindGroupReveal();
-    buildActions();
+    buildDock();
 
     if (mode === 'home') {
       buildCmdk();
       buildAppreciate();
       buildLegal();
+      refreshI18n();
 
       document.dispatchEvent(new CustomEvent('shell:ready', { detail: { mode: mode } }));
       return;
@@ -795,17 +873,10 @@
     buildLegal();
     buildCmdk();
     buildAppreciate();
+    refreshI18n();
     markReadyWhenLoaded();
 
     document.dispatchEvent(new CustomEvent('shell:ready', { detail: { mode: mode, current: cur } }));
-  }
-
-
-  function removeLegacyChrome() {
-    ['.changelog-btn', '.appreciate-btn', '.back-button', '.back-to-top',
-      '.wechat-modal', '#loadingOverlay .loading-content'].forEach(function (sel) {
-        document.querySelectorAll(sel).forEach(function (n) { n.remove(); });
-      });
   }
 
 
@@ -819,6 +890,22 @@
     else window.addEventListener('load', go, { once: true });
   }
 
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
-  else init();
+  /* 等语言文件加载完成后再搭骨架，避免导航/按钮出现中英闪跳 */
+  function boot() {
+    var go = function () {
+      try {
+        init();
+      } catch (err) {
+        if (window.console && console.error) console.error('[shell] 初始化失败', err);
+      }
+    };
+    if (window.I18N && window.I18N.ready && typeof window.I18N.ready.then === 'function') {
+      window.I18N.ready.then(go, go);
+      return;
+    }
+    go();
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
+  else boot();
 })();

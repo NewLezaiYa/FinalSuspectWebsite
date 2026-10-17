@@ -1,3 +1,7 @@
+/*
+ * 动画与关键帧：入场揭晓 / 扫描线 / 页面切换
+ */
+
 @keyframes riseIn {
   from {
     opacity: 0;
@@ -30,24 +34,8 @@ body.is-ready .hero__cta>*:nth-child(2) {
   animation: riseIn .7s var(--e-mech) .44s backwards;
 }
 
-body.is-ready .hero__specs {
-  animation: riseIn .7s var(--e-mech) .54s backwards;
-}
-
-body.is-ready .home-section {
-  animation: riseIn .7s var(--e-mech) .10s backwards;
-}
-
 body.is-ready .nav-list {
   animation: riseIn .7s var(--e-mech) .18s backwards;
-}
-
-body.is-ready .stat-row {
-  animation: riseIn .7s var(--e-mech) .26s backwards;
-}
-
-body.is-ready .version-bar {
-  animation: riseIn .7s var(--e-mech) .34s backwards;
 }
 
 body.is-ready .hero__bg {
@@ -145,89 +133,6 @@ body.is-ready .hero__bg {
   }
 }
 
-.char-in {
-  display: inline-block;
-  opacity: 0;
-  transform: translateY(.4em) rotateX(-40deg);
-  animation: charIn .6s var(--e-mech) forwards;
-}
-
-@keyframes charIn {
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-@keyframes piston {
-
-  0%,
-  100% {
-    transform: translateX(0);
-  }
-
-  50% {
-    transform: translateX(14px);
-  }
-}
-
-@keyframes sway {
-
-  0%,
-  100% {
-    transform: rotate(-2deg);
-  }
-
-  50% {
-    transform: rotate(2deg);
-  }
-}
-
-@keyframes machineShake {
-  0% {
-    transform: translate(0, 0);
-  }
-
-  20% {
-    transform: translate(-1.5px, 1px);
-  }
-
-  40% {
-    transform: translate(1.5px, -1px);
-  }
-
-  60% {
-    transform: translate(-1px, -1.5px);
-  }
-
-  80% {
-    transform: translate(1px, 1.5px);
-  }
-
-  100% {
-    transform: translate(0, 0);
-  }
-}
-
-.shake-once {
-  animation: machineShake .34s var(--e-out) 1;
-}
-
-
-@keyframes assemble {
-  from {
-    clip-path: inset(0 100% 0 0);
-  }
-
-  to {
-    clip-path: inset(0 0 0 0);
-  }
-}
-
-.assemble {
-  animation: assemble .8s var(--e-mech) both;
-}
-
 .read-progress {
   position: fixed;
   top: 0;
@@ -238,44 +143,6 @@ body.is-ready .hero__bg {
   background: linear-gradient(90deg, var(--c-cyan), var(--c-pink), var(--c-purple));
   box-shadow: 0 0 10px rgba(0, 240, 255, .7);
   transition: width .1s linear;
-}
-
-.pulse-glow {
-  animation: glowPulse 3.4s ease-in-out infinite;
-}
-
-@keyframes glowPulse {
-
-  0%,
-  100% {
-    box-shadow: 0 0 8px rgba(0, 240, 255, .25);
-  }
-
-  50% {
-    box-shadow: 0 0 22px rgba(0, 240, 255, .55);
-  }
-}
-
-.float-y {
-  animation: floatY 5s var(--e-in-out) infinite;
-}
-
-@keyframes floatY {
-
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-8px);
-  }
-}
-
-@keyframes dashFlow {
-  to {
-    stroke-dashoffset: -24;
-  }
 }
 
 .draw path,
@@ -291,24 +158,6 @@ body.is-ready .hero__bg {
 @keyframes drawIn {
   to {
     stroke-dashoffset: 0;
-  }
-}
-
-.blip {
-  animation: blip 1.4s var(--e-out) infinite;
-}
-
-@keyframes blip {
-
-  0%,
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-
-  50% {
-    transform: scale(1.5);
-    opacity: .4;
   }
 }
 
@@ -444,57 +293,6 @@ body.is-ready .hero__bg {
   }
 }
 
-.page-wipe.is-run {
-  opacity: 1;
-  visibility: visible;
-}
-
-.page-wipe.is-run i {
-  animation: wipeDown .52s var(--e-mech) forwards;
-}
-
-.page-wipe.is-run i:nth-child(1) {
-  animation-delay: 0s;
-}
-
-.page-wipe.is-run i:nth-child(2) {
-  animation-delay: .03s;
-}
-
-.page-wipe.is-run i:nth-child(3) {
-  animation-delay: .06s;
-}
-
-.page-wipe.is-run i:nth-child(4) {
-  animation-delay: .09s;
-}
-
-.page-wipe.is-run i:nth-child(5) {
-  animation-delay: .12s;
-}
-
-.page-wipe.is-run i:nth-child(6) {
-  animation-delay: .15s;
-}
-
-.page-wipe.is-run i:nth-child(7) {
-  animation-delay: .18s;
-}
-
-.page-wipe.is-run i:nth-child(8) {
-  animation-delay: .21s;
-}
-
-@keyframes wipeDown {
-  from {
-    transform: scaleY(0);
-  }
-
-  to {
-    transform: scaleY(1);
-  }
-}
-
 .page-head {
   animation: fadeUpIn .75s var(--e-out) both;
 }
@@ -502,7 +300,6 @@ body.is-ready .hero__bg {
 .page-head {
   animation-delay: .05s;
 }
-
 
 @keyframes fadeUpIn {
   from {

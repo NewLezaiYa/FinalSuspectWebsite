@@ -6,42 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#030308">
     <script>try { if (localStorage.getItem('fs.theme') === 'light') { document.documentElement.setAttribute('data-theme', 'light'); var m = document.querySelector('meta[name="theme-color"]'); if (m) m.setAttribute('content', '#eef1f7') } } catch (e) { }</script>
-    <title>清空自动日志</title>
+    <title data-i18n="p.title">清空自动日志</title>
 
-    <link rel="stylesheet" href="../../Resource/CSS/fonts.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/icons.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/variables.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/components.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/layout.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/pages.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/animations.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/responsive.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/theme.css?v=ad8e71eb">
+    <link rel="stylesheet" href="../../Resource/CSS/fonts.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/icons.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/variables.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/components.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/layout.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/pages.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/animations.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/responsive.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/theme.css?v=3e933278">
 </head>
 
 <body data-shell="full" data-page="feat-clearautologs" data-rail="features">
     <main>
         <header class="page-head">
-            <h1 class="page-title">清空自动日志</h1>
+            <h1 class="page-title" data-i18n="p.title">清空自动日志</h1>
             <div class="page-head__meta">
-                <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
+                <span><i class="fas fa-clock"></i> <span data-i18n="ui.updated">更新于</span> <time data-last-modified datetime=""></time></span>
             </div>
         </header>
 
         <div class="prose">
 
-            <h2 class="sec-title" id="origin">问题来源</h2>
-            <p>
+            <h2 class="sec-title" id="origin" data-i18n="p.origin">问题来源</h2>
+            <p data-i18n-html="p.originBody">
                 在模组 <strong>Town Of Host</strong> 中，当 Among Us 关闭时会自动保存一个日志文件。
                 这个功能的初衷是为了遇到意外错误时可以提供相关信息。
             </p>
-            <p>
+            <p data-i18n-html="p.originBody2">
                 但该功能在 Town Of Host 中是<mark>默认启用</mark>且（除非改代码）<mark>无法关闭</mark>的，
                 因此这些日志文件会不断生成、留在游戏目录里。
             </p>
 
-            <h2 class="sec-title" id="solution">FinalSuspect 如何处理？</h2>
-            <p>
+            <h2 class="sec-title" id="solution" data-i18n="p.solution">FinalSuspect 如何处理？</h2>
+            <p data-i18n-html="p.solutionBody">
                 我们在 Final Suspect 中添加了<strong>清空自动日志</strong>功能，以解决这个问题：
                 自动生成的日志会被清理掉，无需再为此手动进入游戏目录逐个删除。
             </p>
@@ -49,8 +49,8 @@
             <div class="alert alert--tip">
                 <span class="alert__icon"><i class="fas fa-lightbulb"></i></span>
                 <div class="alert__body">
-                    <span class="alert__title">需要留档时先导出</span>
-                    <p>如果遇到了异常、希望把日志保留下来，请先使用「输出日志」把当前日志复制到模组指定目录，
+                    <span class="alert__title" data-i18n="p.tipTitle">需要留档时先导出</span>
+                    <p data-i18n-html="p.tipBody">如果遇到了异常、希望把日志保留下来，请先使用「输出日志」把当前日志复制到模组指定目录，
                         再让自动清理照常工作。导出方式见 <a href="DumpLog.html">输出日志</a>。</p>
                 </div>
             </div>
@@ -58,23 +58,23 @@
 
         <div class="pager">
             <a class="pager__item" href="index.html">
-                <small>上一篇</small>
-                <b>← 功能总览</b>
+                <small data-i18n="ui.prev">上一篇</small>
+                <b>← <span data-i18n="p.pagerPrev">功能总览</span></b>
             </a>
             <a class="pager__item pager__item--next" href="DumpLog.html">
-                <small>下一篇</small>
-                <b>输出日志 →</b>
+                <small data-i18n="ui.next">下一篇</small>
+                <b><span data-i18n="p.pagerNext">输出日志</span> →</b>
             </a>
         </div>
     </main>
 
-    <script src="../../Resource/JS/language.js?v=ad8e71eb" defer></script>
-    <script src="../../Resource/JS/versions.js?v=ad8e71eb" defer></script>
-    <script src="../../Resource/JS/shell.js?v=ad8e71eb" defer></script>
-    <script src="../../Resource/JS/transition.js?v=ad8e71eb" defer></script>
-    <script src="../../Resource/JS/effects.js?v=ad8e71eb" defer></script>
-    <script src="../../Resource/JS/last-modified.js?v=ad8e71eb" defer></script>
-    <script src="../../Resource/JS/time.js?v=ad8e71eb" defer></script>
+    <script src="../../Resource/JS/language.js?v=3e933278" defer></script>
+    <script src="../../Resource/JS/changelog-source.js?v=3e933278" defer></script>
+    <script src="../../Resource/JS/shell.js?v=3e933278" defer></script>
+    <script src="../../Resource/JS/transition.js?v=3e933278" defer></script>
+    <script src="../../Resource/JS/effects.js?v=3e933278" defer></script>
+    <script src="../../Resource/JS/last-modified.js?v=3e933278" defer></script>
+    <script src="../../Resource/JS/time.js?v=3e933278" defer></script>
 </body>
 
 </html>

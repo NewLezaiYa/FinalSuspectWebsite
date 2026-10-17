@@ -1,3 +1,7 @@
+/*
+ * 首页开场动画（SplashIntro）样式
+ */
+
 .sp-bezel {
   position: absolute;
   inset: 0;
@@ -160,57 +164,6 @@
 
   50% {
     opacity: .62;
-  }
-}
-
-.sp-readout {
-  position: absolute;
-  top: 64px;
-  right: 64px;
-  display: grid;
-  gap: 5px;
-  padding: 10px 12px;
-  min-width: 156px;
-  background: rgba(6, 8, 16, .72);
-  border: 1px solid rgba(0, 240, 255, .22);
-  border-radius: 3px;
-  font-family: var(--f-mono, monospace);
-  font-size: .68rem;
-  letter-spacing: .12em;
-  animation: spReadoutIn .5s var(--e-out) .3s both;
-}
-
-@keyframes spReadoutIn {
-  from {
-    opacity: 0;
-    transform: translateY(-8px);
-  }
-
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-.sp-readout__row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px;
-}
-
-.sp-readout__row span {
-  color: rgba(107, 116, 136, .95);
-}
-
-.sp-readout__row b {
-  color: rgba(0, 240, 255, .9);
-  font-weight: 400;
-}
-
-@media (max-width: 900px) {
-  .sp-readout {
-    display: none;
   }
 }
 
@@ -658,17 +611,6 @@
 
 #versionText.is-on {
   opacity: 1;
-}
-
-#splashTeamLogo {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: min(520px, 70vw);
-  z-index: 5;
-  opacity: 0;
-  pointer-events: none;
 }
 
 .sp-clamp {

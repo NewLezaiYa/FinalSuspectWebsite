@@ -6,144 +6,144 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#030308">
     <script>try{if(localStorage.getItem('fs.theme')==='light'){document.documentElement.setAttribute('data-theme','light');var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content','#eef1f7')}}catch(e){}</script>
-    <title>选项</title>
+    <title data-i18n="p.title">选项</title>
 
-    <link rel="stylesheet" href="../../Resource/CSS/fonts.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/icons.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/variables.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/components.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/layout.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/pages.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/animations.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/responsive.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/theme.css?v=ad8e71eb">
+    <link rel="stylesheet" href="../../Resource/CSS/fonts.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/icons.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/variables.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/components.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/layout.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/pages.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/animations.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/responsive.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/theme.css?v=3e933278">
 </head>
 
 <body data-shell="full" data-page="options" data-rail="options">
     <main>
         <section class="index-hero">
             <div class="index-hero__bg"></div>
-            <h1>FinalSuspect 选项</h1>
-            <p>15 项可调节开关，覆盖自动化流程、房间防护、信息显示与性能表现。每一项都可以单独启用，
+            <h1 data-i18n="p.heroTitle">FinalSuspect 选项</h1>
+            <p data-i18n="p.heroDesc">15 项可调节开关，覆盖自动化流程、房间防护、信息显示与性能表现。每一项都可以单独启用，
                 按你的玩法自由组合。</p>
         </section>
 
             <a class="card" href="AutoEndGame">
                 <span class="card__icon"><i class="fas fa-flag-checkered"></i></span>
-                <span class="card__title">结束时自动返回大厅</span>
-                <span class="card__desc">对局结束自动跳过结算与复盘，直接回到大厅，连打时更顺手。</span>
-                <span class="card__go">查看说明 <i class="fas fa-arrow-right"></i></span>
+                <span class="card__title" data-i18n="p.autoEndGameTitle">结束时自动返回大厅</span>
+                <span class="card__desc" data-i18n="p.autoEndGameDesc">对局结束自动跳过结算与复盘，直接回到大厅，连打时更顺手。</span>
+                <span class="card__go" data-i18n-html="p.autoEndGameGo">查看说明 <i class="fas fa-arrow-right"></i></span>
             </a>
 
             <a class="card" href="AutoStartGame">
                 <span class="card__icon"><i class="fas fa-users-cog"></i></span>
-                <span class="card__title">人满自动开始游戏</span>
-                <span class="card__desc">人数达到最大值减一时启动 10 秒短倒计时，房主可随时取消。</span>
-                <span class="card__go">查看说明 <i class="fas fa-arrow-right"></i></span>
+                <span class="card__title" data-i18n="p.autoStartGameTitle">人满自动开始游戏</span>
+                <span class="card__desc" data-i18n="p.autoStartGameDesc">人数达到最大值减一时启动 10 秒短倒计时，房主可随时取消。</span>
+                <span class="card__go" data-i18n-html="p.autoStartGameGo">查看说明 <i class="fas fa-arrow-right"></i></span>
             </a>
 
             <a class="card" href="AutoRecreateRoom">
                 <span class="card__icon"><i class="fas fa-house-circle-plus"></i></span>
-                <span class="card__title">掉线后自动新建房间</span>
-                <span class="card__desc">当触发意外掉线，即可无需手动点击而自动创建房间。</span>
-                <span class="card__go">查看说明 <i class="fas fa-arrow-right"></i></span>
+                <span class="card__title" data-i18n="p.autoRecreateRoomTitle">掉线后自动新建房间</span>
+                <span class="card__desc" data-i18n="p.autoRecreateRoomDesc">当触发意外掉线，即可无需手动点击而自动创建房间。</span>
+                <span class="card__go" data-i18n-html="p.autoRecreateRoomGo">查看说明 <i class="fas fa-arrow-right"></i></span>
             </a>
 
             <a class="card" href="EnableFAC">
                 <span class="card__icon"><i class="fas fa-shield-halved"></i></span>
-                <span class="card__title">启用反作弊（FAC）</span>
-                <span class="card__desc">开启 Final Anti Cheat。关闭后房间失去防护，官方不推荐。</span>
-                <span class="card__go">查看说明 <i class="fas fa-arrow-right"></i></span>
+                <span class="card__title" data-i18n="p.enableFacTitle">启用反作弊（FAC）</span>
+                <span class="card__desc" data-i18n="p.enableFacDesc">开启 Final Anti Cheat。关闭后房间失去防护，官方不推荐。</span>
+                <span class="card__go" data-i18n-html="p.enableFacGo">查看说明 <i class="fas fa-arrow-right"></i></span>
             </a>
 
             <a class="card" href="DisableVanillaSound">
                 <span class="card__icon"><i class="fas fa-volume-xmark"></i></span>
-                <span class="card__title">禁用原版游戏音乐</span>
-                <span class="card__desc">屏蔽大厅等待音乐，方便搭配自己的播放器，不影响游戏音效。</span>
-                <span class="card__go">查看说明 <i class="fas fa-arrow-right"></i></span>
+                <span class="card__title" data-i18n="p.disableVanillaSoundTitle">禁用原版游戏音乐</span>
+                <span class="card__desc" data-i18n="p.disableVanillaSoundDesc">屏蔽大厅等待音乐，方便搭配自己的播放器，不影响游戏音效。</span>
+                <span class="card__go" data-i18n-html="p.disableVanillaSoundGo">查看说明 <i class="fas fa-arrow-right"></i></span>
             </a>
 
             <a class="card" href="FastBoot">
                 <span class="card__icon"><i class="fas fa-bolt"></i></span>
-                <span class="card__title">快速启动模式</span>
-                <span class="card__desc">跳过非必要加载环节，启动耗时从约 15 秒缩短到约 5 秒。</span>
-                <span class="card__go">查看说明 <i class="fas fa-arrow-right"></i></span>
+                <span class="card__title" data-i18n="p.fastBootTitle">快速启动模式</span>
+                <span class="card__desc" data-i18n="p.fastBootDesc">跳过非必要加载环节，启动耗时从约 15 秒缩短到约 5 秒。</span>
+                <span class="card__go" data-i18n-html="p.fastBootGo">查看说明 <i class="fas fa-arrow-right"></i></span>
             </a>
 
             <a class="card" href="KickPlayerWithAbnormalFriendCode">
                 <span class="card__icon"><i class="fas fa-user-xmark"></i></span>
-                <span class="card__title">踢出好友代码异常玩家</span>
-                <span class="card__desc">检测好友代码是否异常并自动踢出，同时给出提示。</span>
-                <span class="card__go">查看说明 <i class="fas fa-arrow-right"></i></span>
+                <span class="card__title" data-i18n="p.kickAbnormalFriendCodeTitle">踢出好友代码异常玩家</span>
+                <span class="card__desc" data-i18n="p.kickAbnormalFriendCodeDesc">检测好友代码是否异常并自动踢出，同时给出提示。</span>
+                <span class="card__go" data-i18n-html="p.kickAbnormalFriendCodeGo">查看说明 <i class="fas fa-arrow-right"></i></span>
             </a>
 
             <a class="card" href="KickPlayerInBanList">
                 <span class="card__icon"><i class="fas fa-ban"></i></span>
-                <span class="card__title">踢出被封禁的玩家</span>
-                <span class="card__desc">检测到玩家处于封禁名单时自动踢出，维护房间环境。</span>
-                <span class="card__go">查看说明 <i class="fas fa-arrow-right"></i></span>
+                <span class="card__title" data-i18n="p.kickBanListTitle">踢出被封禁的玩家</span>
+                <span class="card__desc" data-i18n="p.kickBanListDesc">检测到玩家处于封禁名单时自动踢出，维护房间环境。</span>
+                <span class="card__go" data-i18n-html="p.kickBanListGo">查看说明 <i class="fas fa-arrow-right"></i></span>
             </a>
 
             <a class="card" href="KickPlayerWithDenyName">
                 <span class="card__icon"><i class="fas fa-user-slash"></i></span>
-                <span class="card__title">踢出违规昵称玩家</span>
-                <span class="card__desc">房主模式下自动踢出使用敏感词或恶意昵称的玩家，可手动关闭。</span>
-                <span class="card__go">查看说明 <i class="fas fa-arrow-right"></i></span>
+                <span class="card__title" data-i18n="p.kickDenyNameTitle">踢出违规昵称玩家</span>
+                <span class="card__desc" data-i18n="p.kickDenyNameDesc">房主模式下自动踢出使用敏感词或恶意昵称的玩家，可手动关闭。</span>
+                <span class="card__go" data-i18n-html="p.kickDenyNameGo">查看说明 <i class="fas fa-arrow-right"></i></span>
             </a>
 
             <a class="card" href="OfflineMode">
                 <span class="card__icon"><i class="fas fa-plug-circle-xmark"></i></span>
-                <span class="card__title">离线模式（试验性）</span>
-                <span class="card__desc">不再从远程获取资源。会造成资源无法更新，不推荐日常使用。</span>
-                <span class="card__go">查看说明 <i class="fas fa-arrow-right"></i></span>
+                <span class="card__title" data-i18n="p.offlineModeTitle">离线模式（试验性）</span>
+                <span class="card__desc" data-i18n="p.offlineModeDesc">不再从远程获取资源。会造成资源无法更新，不推荐日常使用。</span>
+                <span class="card__go" data-i18n-html="p.offlineModeGo">查看说明 <i class="fas fa-arrow-right"></i></span>
             </a>
 
             <a class="card" href="ShowPlayerInfo">
                 <span class="card__icon"><i class="fas fa-id-card"></i></span>
-                <span class="card__title">展示玩家平台与客户端信息</span>
-                <span class="card__desc">大厅中显示各玩家平台与好友代码，便于识别与举报作弊者。</span>
-                <span class="card__go">查看说明 <i class="fas fa-arrow-right"></i></span>
+                <span class="card__title" data-i18n="p.showPlayerInfoTitle">展示玩家平台与客户端信息</span>
+                <span class="card__desc" data-i18n="p.showPlayerInfoDesc">大厅中显示各玩家平台与好友代码，便于识别与举报作弊者。</span>
+                <span class="card__go" data-i18n-html="p.showPlayerInfoGo">查看说明 <i class="fas fa-arrow-right"></i></span>
             </a>
 
             <a class="card" href="SpamDenyWord">
                 <span class="card__icon"><i class="fas fa-comment-slash"></i></span>
-                <span class="card__title">屏蔽违禁词</span>
-                <span class="card__desc">聊天中的违禁词自动替换为星号，保留句子可读性。</span>
-                <span class="card__go">查看说明 <i class="fas fa-arrow-right"></i></span>
+                <span class="card__title" data-i18n="p.spamDenyWordTitle">屏蔽违禁词</span>
+                <span class="card__desc" data-i18n="p.spamDenyWordDesc">聊天中的违禁词自动替换为星号，保留句子可读性。</span>
+                <span class="card__go" data-i18n-html="p.spamDenyWordGo">查看说明 <i class="fas fa-arrow-right"></i></span>
             </a>
 
             <a class="card" href="SwitchOutfitType">
                 <span class="card__icon"><i class="fas fa-shirt"></i></span>
-                <span class="card__title">切换外观形象</span>
-                <span class="card__desc">经典豆子、愚人节牧马、愚人节长颈豆三种造型自由切换。</span>
-                <span class="card__go">查看说明 <i class="fas fa-arrow-right"></i></span>
+                <span class="card__title" data-i18n="p.switchOutfitTitle">切换外观形象</span>
+                <span class="card__desc" data-i18n="p.switchOutfitDesc">经典豆子、愚人节牧马、愚人节长颈豆三种造型自由切换。</span>
+                <span class="card__go" data-i18n-html="p.switchOutfitGo">查看说明 <i class="fas fa-arrow-right"></i></span>
             </a>
 
             <a class="card" href="UnlockFPS">
                 <span class="card__icon"><i class="fas fa-gauge-high"></i></span>
-                <span class="card__title">解锁帧数限制</span>
-                <span class="card__desc">解除原版 60FPS 上限，最高支持 165FPS，动画与操作更顺滑。</span>
-                <span class="card__go">查看说明 <i class="fas fa-arrow-right"></i></span>
+                <span class="card__title" data-i18n="p.unlockFpsTitle">解锁帧数限制</span>
+                <span class="card__desc" data-i18n="p.unlockFpsDesc">解除原版 60FPS 上限，最高支持 165FPS，动画与操作更顺滑。</span>
+                <span class="card__go" data-i18n-html="p.unlockFpsGo">查看说明 <i class="fas fa-arrow-right"></i></span>
             </a>
 
             <a class="card" href="UseModCursor">
                 <span class="card__icon"><i class="fas fa-arrow-pointer"></i></span>
-                <span class="card__title">使用模组鼠标光标</span>
-                <span class="card__desc">用模组定制光标替换系统光标。不喜欢覆盖系统光标建议关闭。</span>
-                <span class="card__go">查看说明 <i class="fas fa-arrow-right"></i></span>
+                <span class="card__title" data-i18n="p.useModCursorTitle">使用模组鼠标光标</span>
+                <span class="card__desc" data-i18n="p.useModCursorDesc">用模组定制光标替换系统光标。不喜欢覆盖系统光标建议关闭。</span>
+                <span class="card__go" data-i18n-html="p.useModCursorGo">查看说明 <i class="fas fa-arrow-right"></i></span>
             </a>
 
         </div>
 
 
-        <div class="pager">pager__item
+        <div class="pager">
             <a class="pager__item" href="../Guide/OutputLog.html">
-                <small>上一篇</small>
-                <b>← 教程总览</b>
+                <small data-i18n="ui.prev">上一篇</small>
+                <b>← <span data-i18n="p.pagerPrev">教程总览</span></b>
             </a>
             <a class="pager__item pager__item--next" href="AutoEndGame.html">
-                <small>下一篇</small>
-                <b>结束时自动返回大厅 →</b>
+                <small data-i18n="ui.next">下一篇</small>
+                <b><span data-i18n="p.pagerNext">结束时自动返回大厅</span> →</b>
             </a>
         </div>
     </main>
@@ -162,13 +162,13 @@
             });
         })();
 </script>
-    <script src="../../Resource/JS/language.js?v=ad8e71eb" defer></script>
-    <script src="../../Resource/JS/versions.js?v=ad8e71eb" defer></script>
-    <script src="../../Resource/JS/shell.js?v=ad8e71eb" defer></script>
-    <script src="../../Resource/JS/transition.js?v=ad8e71eb" defer></script>
-    <script src="../../Resource/JS/effects.js?v=ad8e71eb" defer></script>
-    <script src="../../Resource/JS/last-modified.js?v=ad8e71eb" defer></script>
-    <script src="../../Resource/JS/time.js?v=ad8e71eb" defer></script>
+    <script src="../../Resource/JS/language.js?v=3e933278" defer></script>
+    <script src="../../Resource/JS/changelog-source.js?v=3e933278" defer></script>
+    <script src="../../Resource/JS/shell.js?v=3e933278" defer></script>
+    <script src="../../Resource/JS/transition.js?v=3e933278" defer></script>
+    <script src="../../Resource/JS/effects.js?v=3e933278" defer></script>
+    <script src="../../Resource/JS/last-modified.js?v=3e933278" defer></script>
+    <script src="../../Resource/JS/time.js?v=3e933278" defer></script>
 </body>
 
 </html>

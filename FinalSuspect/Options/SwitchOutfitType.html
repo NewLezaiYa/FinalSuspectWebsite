@@ -6,89 +6,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#030308">
     <script>try{if(localStorage.getItem('fs.theme')==='light'){document.documentElement.setAttribute('data-theme','light');var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content','#eef1f7')}}catch(e){}</script>
-    <title>切换外观形象</title>
+    <title data-i18n="p.title">切换外观形象</title>
 
-    <link rel="stylesheet" href="../../Resource/CSS/fonts.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/icons.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/variables.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/components.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/layout.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/pages.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/animations.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/responsive.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/theme.css?v=ad8e71eb">
+    <link rel="stylesheet" href="../../Resource/CSS/fonts.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/icons.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/variables.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/components.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/layout.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/pages.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/animations.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/responsive.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/theme.css?v=3e933278">
 </head>
 
 <body data-shell="full" data-page="opt-switchoutfit" data-rail="options">
     <main>
         <header class="page-head">
-            <h1 class="page-title">切换外观形象</h1>
+            <h1 class="page-title" data-i18n="p.title">切换外观形象</h1>
             <div class="page-head__meta">
-                <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
+                <span><i class="fas fa-clock"></i> <span data-i18n="ui.updated">更新于</span> <time data-last-modified datetime=""></time></span>
             </div>
         </header>
 
         <div class="prose">
-            <h2 class="sec-title" id="how">功能说明</h2>
-            <p>
+            <h2 class="sec-title" id="how" data-i18n="p.how">功能说明</h2>
+            <p data-i18n-html="p.howBody">
                 该选项为玩家提供了<strong>三种可切换的太空人形象</strong>，切换入口在设置菜单中。
             </p>
-            <p>
+            <p data-i18n="p.howBody2">
                 不同形象只改变角色的外观表现，不改变任何玩法规则。
             </p>
 
-            <h2 class="sec-title" id="modes">三种形象</h2>
+            <h2 class="sec-title" id="modes" data-i18n="p.modes">三种形象</h2>
             <div class="steps">
                 <div class="step">
                     <div class="step__body">
-                        <p><strong>经典豆子模式</strong></p>
-                        <p>官方默认，还是你最熟悉的太空<strong>豆子</strong>造型。</p>
+                        <p data-i18n-html="p.modesItem1Title"><strong>经典豆子模式</strong></p>
+                        <p data-i18n-html="p.modesItem1Body">官方默认，还是你最熟悉的太空<strong>豆子</strong>造型。</p>
                     </div>
                 </div>
                 <div class="step">
                     <div class="step__body">
-                        <p><strong>愚人节牧马模式</strong></p>
-                        <p>恶搞风格，将角色替换为滑稽的<strong>牧马</strong>形象（参考官方愚人节彩蛋）。</p>
+                        <p data-i18n-html="p.modesItem2Title"><strong>愚人节牧马模式</strong></p>
+                        <p data-i18n-html="p.modesItem2Body">恶搞风格，将角色替换为滑稽的<strong>牧马</strong>形象（参考官方愚人节彩蛋）。</p>
                     </div>
                 </div>
                 <div class="step">
                     <div class="step__body">
-                        <p><strong>愚人节长颈豆模式</strong></p>
-                        <p>趣味变体，角色变成脖子超长的<strong>长颈豆</strong>，致敬官方愚人节特殊外观。</p>
+                        <p data-i18n-html="p.modesItem3Title"><strong>愚人节长颈豆模式</strong></p>
+                        <p data-i18n-html="p.modesItem3Body">趣味变体，角色变成脖子超长的<strong>长颈豆</strong>，致敬官方愚人节特殊外观。</p>
                     </div>
                 </div>
             </div>
 
-            <h2 class="sec-title" id="tips">提示</h2>
+            <h2 class="sec-title" id="tips" data-i18n="p.tips">提示</h2>
             <div class="alert alert--tip">
                 <span class="alert__icon"><i class="fas fa-lightbulb"></i></span>
                 <div class="alert__body">
-                    <span class="alert__title">可自由切换</span>
-                    <p>玩家可在设置菜单中自由切换模式。</p>
-                    <p>该功能不影响游戏平衡，仅为娱乐性扩展。</p>
+                    <span class="alert__title" data-i18n="p.tipsTitle">可自由切换</span>
+                    <p data-i18n="p.tipsBody">玩家可在设置菜单中自由切换模式。</p>
+                    <p data-i18n="p.tipsBody2">该功能不影响游戏平衡，仅为娱乐性扩展。</p>
                 </div>
             </div>
         </div>
 
         <div class="pager">
             <a class="pager__item" href="SpamDenyWord.html">
-                <small>上一篇</small>
-                <b>← 屏蔽违禁词</b>
+                <small data-i18n="ui.prev">上一篇</small>
+                <b>← <span data-i18n="p.pagerPrev">屏蔽违禁词</span></b>
             </a>
             <a class="pager__item pager__item--next" href="UnlockFPS.html">
-                <small>下一篇</small>
-                <b>解锁帧数限制 →</b>
+                <small data-i18n="ui.next">下一篇</small>
+                <b><span data-i18n="p.pagerNext">解锁帧数限制</span> →</b>
             </a>
         </div>
     </main>
 
-    <script src="../../Resource/JS/language.js?v=ad8e71eb" defer></script>
-    <script src="../../Resource/JS/versions.js?v=ad8e71eb" defer></script>
-    <script src="../../Resource/JS/shell.js?v=ad8e71eb" defer></script>
-    <script src="../../Resource/JS/transition.js?v=ad8e71eb" defer></script>
-    <script src="../../Resource/JS/effects.js?v=ad8e71eb" defer></script>
-    <script src="../../Resource/JS/last-modified.js?v=ad8e71eb" defer></script>
-    <script src="../../Resource/JS/time.js?v=ad8e71eb" defer></script>
+    <script src="../../Resource/JS/language.js?v=3e933278" defer></script>
+    <script src="../../Resource/JS/changelog-source.js?v=3e933278" defer></script>
+    <script src="../../Resource/JS/shell.js?v=3e933278" defer></script>
+    <script src="../../Resource/JS/transition.js?v=3e933278" defer></script>
+    <script src="../../Resource/JS/effects.js?v=3e933278" defer></script>
+    <script src="../../Resource/JS/last-modified.js?v=3e933278" defer></script>
+    <script src="../../Resource/JS/time.js?v=3e933278" defer></script>
 </body>
 
 </html>

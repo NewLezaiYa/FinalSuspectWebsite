@@ -6,18 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#030308">
     <script>try { if (localStorage.getItem('fs.theme') === 'light') { document.documentElement.setAttribute('data-theme', 'light'); var m = document.querySelector('meta[name="theme-color"]'); if (m) m.setAttribute('content', '#eef1f7') } } catch (e) { }</script>
-    <title>FinalSuspect</title>
+    <title data-i18n="p.title">FinalSuspect</title>
 
-    <link rel="stylesheet" href="Resource/CSS/fonts.css?v=ad8e71eb">
-    <link rel="stylesheet" href="Resource/CSS/icons.css?v=ad8e71eb">
-    <link rel="stylesheet" href="Resource/CSS/variables.css?v=ad8e71eb">
-    <link rel="stylesheet" href="Resource/CSS/components.css?v=ad8e71eb">
-    <link rel="stylesheet" href="Resource/CSS/layout.css?v=ad8e71eb">
-    <link rel="stylesheet" href="Resource/CSS/pages.css?v=ad8e71eb">
-    <link rel="stylesheet" href="Resource/CSS/animations.css?v=ad8e71eb">
-    <link rel="stylesheet" href="Resource/CSS/responsive.css?v=ad8e71eb">
-    <link rel="stylesheet" href="Resource/CSS/theme.css?v=ad8e71eb">
-    <link rel="stylesheet" href="Resource/CSS/splash.css?v=ad8e71eb">
+    <link rel="stylesheet" href="Resource/CSS/fonts.css?v=3e933278">
+    <link rel="stylesheet" href="Resource/CSS/icons.css?v=3e933278">
+    <link rel="stylesheet" href="Resource/CSS/variables.css?v=3e933278">
+    <link rel="stylesheet" href="Resource/CSS/components.css?v=3e933278">
+    <link rel="stylesheet" href="Resource/CSS/layout.css?v=3e933278">
+    <link rel="stylesheet" href="Resource/CSS/pages.css?v=3e933278">
+    <link rel="stylesheet" href="Resource/CSS/animations.css?v=3e933278">
+    <link rel="stylesheet" href="Resource/CSS/responsive.css?v=3e933278">
+    <link rel="stylesheet" href="Resource/CSS/theme.css?v=3e933278">
+    <link rel="stylesheet" href="Resource/CSS/splash.css?v=3e933278">
 </head>
 
 <body data-shell="home" data-page="home">
@@ -30,7 +30,7 @@
         <div id="splashLog"></div>
         <div id="loadText"></div>
         <div id="processText"></div>
-        <div id="downloadHint">首次进入需要校验资源，请稍候</div>
+        <div id="downloadHint" data-i18n="splash.hint">首次进入需要校验资源，请稍候</div>
         <div id="versionText"></div>
         <div id="blackPanel"></div>
     </div>
@@ -53,11 +53,9 @@
                         srcset="Resource/images/FinalSuspect-Logo-2.0-480.png 480w, Resource/images/FinalSuspect-Logo-2.0-900.png 900w, Resource/images/FinalSuspect-Logo-2.0.png 4000w">
                 </picture>
 
-                <h1 class="hero__title">模组文档</h1>
+                <h1 class="hero__title" data-i18n="p.heroTitle">模组文档</h1>
 
-                <p class="hero__desc">
-                    The Ultimate Among Us Mod for the Vanilla Experience.
-                </p>
+                <p class="hero__desc" data-i18n="p.heroDesc">The Ultimate Among Us Mod for the Vanilla Experience.</p>
             </div>
         </section>
 
@@ -67,10 +65,10 @@
                     <span class="nav-row__shine"></span>
                     <span class="nav-row__icon"><i class="fas fa-book-open"></i></span>
                     <span class="nav-row__body">
-                        <span class="nav-row__title">模组简介</span>
-                        <span class="nav-row__desc">开发理念与开发团队</span>
+                        <span class="nav-row__title" data-i18n="p.row1Title">模组简介</span>
+                        <span class="nav-row__desc" data-i18n="p.row1Desc">开发理念与开发团队</span>
                     </span>
-                    <span class="nav-row__meta">了解</span>
+                    <span class="nav-row__meta" data-i18n="ui.learnMore">了解</span>
                     <span class="nav-row__go"><i class="fas fa-chevron-right"></i></span>
                 </a>
 
@@ -78,10 +76,10 @@
                     <span class="nav-row__shine"></span>
                     <span class="nav-row__icon"><i class="fas fa-rocket"></i></span>
                     <span class="nav-row__body">
-                        <span class="nav-row__title">安装与更新</span>
-                        <span class="nav-row__desc">Steam / Epic 双平台安装步骤、版本更新与日志导出</span>
+                        <span class="nav-row__title" data-i18n="p.row2Title">安装与更新</span>
+                        <span class="nav-row__desc" data-i18n="p.row2Desc">Steam / Epic 双平台安装步骤、版本更新与日志导出</span>
                     </span>
-                    <span class="nav-row__meta">了解</span>
+                    <span class="nav-row__meta" data-i18n="ui.learnMore">了解</span>
                     <span class="nav-row__go"><i class="fas fa-chevron-right"></i></span>
                 </a>
 
@@ -89,10 +87,10 @@
                     <span class="nav-row__shine"></span>
                     <span class="nav-row__icon"><i class="fas fa-sliders"></i></span>
                     <span class="nav-row__body">
-                        <span class="nav-row__title">选项</span>
-                        <span class="nav-row__desc">反作弊、解锁帧率等共 14 项可调开关</span>
+                        <span class="nav-row__title" data-i18n="p.row3Title">选项</span>
+                        <span class="nav-row__desc" data-i18n="p.row3Desc">反作弊、解锁帧率等共 14 项可调开关</span>
                     </span>
-                    <span class="nav-row__meta">了解</span>
+                    <span class="nav-row__meta" data-i18n="ui.learnMore">了解</span>
                     <span class="nav-row__go"><i class="fas fa-chevron-right"></i></span>
                 </a>
 
@@ -100,10 +98,10 @@
                     <span class="nav-row__shine"></span>
                     <span class="nav-row__icon"><i class="fas fa-toolbox"></i></span>
                     <span class="nav-row__body">
-                        <span class="nav-row__title">功能</span>
-                        <span class="nav-row__desc">主页风格、音乐、资源管理与日志处理，共 7 个板块</span>
+                        <span class="nav-row__title" data-i18n="p.row4Title">功能</span>
+                        <span class="nav-row__desc" data-i18n="p.row4Desc">主页风格、音乐、资源管理与日志处理，共 7 个板块</span>
                     </span>
-                    <span class="nav-row__meta">了解</span>
+                    <span class="nav-row__meta" data-i18n="ui.learnMore">了解</span>
                     <span class="nav-row__go"><i class="fas fa-chevron-right"></i></span>
                 </a>
 
@@ -111,10 +109,10 @@
                     <span class="nav-row__shine"></span>
                     <span class="nav-row__icon"><i class="fas fa-life-ring"></i></span>
                     <span class="nav-row__body">
-                        <span class="nav-row__title">疑难解答</span>
-                        <span class="nav-row__desc">安装失败、错误代码、连接异常等 9 组 Q&A</span>
+                        <span class="nav-row__title" data-i18n="p.row5Title">疑难解答</span>
+                        <span class="nav-row__desc" data-i18n="p.row5Desc">安装失败、错误代码、连接异常等 9 组 Q&A</span>
                     </span>
-                    <span class="nav-row__meta">了解</span>
+                    <span class="nav-row__meta" data-i18n="ui.learnMore">了解</span>
                     <span class="nav-row__go"><i class="fas fa-chevron-right"></i></span>
                 </a>
 
@@ -122,10 +120,10 @@
                     <span class="nav-row__shine"></span>
                     <span class="nav-row__icon"><i class="fas fa-keyboard"></i></span>
                     <span class="nav-row__body">
-                        <span class="nav-row__title">快捷键</span>
-                        <span class="nav-row__desc">模组端通用按键与房主专用按键一览</span>
+                        <span class="nav-row__title" data-i18n="p.row6Title">快捷键</span>
+                        <span class="nav-row__desc" data-i18n="p.row6Desc">模组端通用按键与房主专用按键一览</span>
                     </span>
-                    <span class="nav-row__meta">了解</span>
+                    <span class="nav-row__meta" data-i18n="ui.learnMore">了解</span>
                     <span class="nav-row__go"><i class="fas fa-chevron-right"></i></span>
                 </a>
 
@@ -133,8 +131,8 @@
                     <span class="nav-row__shine"></span>
                     <span class="nav-row__icon"><i class="fas fa-clock-rotate-left"></i></span>
                     <span class="nav-row__body">
-                        <span class="nav-row__title">更新日志</span>
-                        <span class="nav-row__desc">按版本倒序的完整改动记录，含对应官方游戏版本</span>
+                        <span class="nav-row__title" data-i18n="p.row7Title">更新日志</span>
+                        <span class="nav-row__desc" data-i18n="p.row7Desc">按版本倒序的完整改动记录，含对应官方游戏版本</span>
                     </span>
                     <span class="nav-row__meta" id="logMeta">了解</span>
                     <span class="nav-row__go"><i class="fas fa-chevron-right"></i></span>
@@ -144,15 +142,15 @@
         </div>
     </main>
 
-    <script src="Resource/JS/language.js?v=ad8e71eb" defer></script>
-    <script src="Resource/JS/versions.js?v=ad8e71eb" defer></script>
-    <script src="Resource/JS/shell.js?v=ad8e71eb" defer></script>
-    <script src="Resource/JS/transition.js?v=ad8e71eb" defer></script>
-    <script src="Resource/JS/effects.js?v=ad8e71eb" defer></script>
-    <script src="Resource/JS/last-modified.js?v=ad8e71eb" defer></script>
-    <script src="Resource/JS/time.js?v=ad8e71eb" defer></script>
-    <script src="Resource/JS/splash.js?v=ad8e71eb" defer></script>
-    <script src="Resource/JS/boot.js?v=ad8e71eb" defer></script>
+    <script src="Resource/JS/language.js?v=3e933278" defer></script>
+    <script src="Resource/JS/changelog-source.js?v=3e933278" defer></script>
+    <script src="Resource/JS/shell.js?v=3e933278" defer></script>
+    <script src="Resource/JS/transition.js?v=3e933278" defer></script>
+    <script src="Resource/JS/effects.js?v=3e933278" defer></script>
+    <script src="Resource/JS/last-modified.js?v=3e933278" defer></script>
+    <script src="Resource/JS/time.js?v=3e933278" defer></script>
+    <script src="Resource/JS/splash.js?v=3e933278" defer></script>
+    <script src="Resource/JS/boot.js?v=3e933278" defer></script>
 </body>
 
 </html>
