@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#030308">
-    <script>try{if(localStorage.getItem('fs.theme')==='light'){document.documentElement.setAttribute('data-theme','light');var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content','#eef1f7')}}catch(e){}</script>
+    <script>try { if (localStorage.getItem('fs.theme') === 'light') { document.documentElement.setAttribute('data-theme', 'light'); var m = document.querySelector('meta[name="theme-color"]'); if (m) m.setAttribute('content', '#eef1f7') } } catch (e) { }</script>
     <title>疑难解答</title>
 
     <link rel="stylesheet" href="../Resource/CSS/fonts.css?v=2df7cd96">
@@ -22,7 +22,6 @@
 <body data-shell="full" data-page="faq" data-rail="start">
     <main>
         <header class="page-head">
-            <span class="page-head__label hud-label"><i class="fas fa-life-ring"></i> FAQ </span>
             <h1 class="page-title">疑难解答</h1>
             <div class="page-head__meta">
                 <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
@@ -68,7 +67,8 @@
             <h2 class="sec-title" id="errors">错误代码</h2>
 
             <details class="acc acc--err">
-                <summary><span class="acc__q">错误代码 <span class="error-code">ErrSteamWorksAuthFail</span></span></summary>
+                <summary><span class="acc__q">错误代码 <span class="error-code">ErrSteamWorksAuthFail</span></span>
+                </summary>
                 <div class="acc__body">
                     <p>请<mark>启动 Steam 后再打开 Among Us</mark>。</p>
                     <p>如果您将 Final Suspect 安装在了官方目录，可以直接通过 Steam 来打开 Among Us。</p>
@@ -114,13 +114,6 @@
                     <p>请检查你的网络。</p>
                     <div class="alert alert--warn">
                         <span class="alert__icon"><i class="fas fa-bug"></i></span>
-                        <div class="alert__body">
-                            <span class="alert__title">已知问题</span>
-                            <p>
-                                在 1.1_20250501 及其后续的 2 个 OpenBeta 版本中，<mark>无法连接服务器实际上是一个 Bug</mark>，
-                                该问题会在后续的 OpenBeta 版本中修复。
-                            </p>
-                        </div>
                     </div>
                 </div>
             </details>
@@ -145,9 +138,9 @@
                 <div class="step">
                     <div class="step__body">
                         <p>到 GitHub 提交 issue，把日志与复现步骤一起附上。</p>
-                        <a class="related__card" href="https://github.com/Slok7565/FinalSuspect/issues"
-                            target="_blank" rel="noopener noreferrer"><i class="brand-ico brand-ico--github"></i><span>提交 issue（新窗口）</span><i
-                                class="fas fa-arrow-right"></i></a>
+                        <a class="related__card" href="https://github.com/Slok7565/FinalSuspect/issues" target="_blank"
+                            rel="noopener noreferrer"><i class="brand-ico brand-ico--github"></i><span>提交
+                                issue（新窗口）</span><i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
