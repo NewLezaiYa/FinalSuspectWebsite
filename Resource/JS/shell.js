@@ -6,7 +6,7 @@
   // 手动覆盖：localStorage['fs.lowfx'] = '1' 强制开启 / '0' 强制关闭
   (function applyLowFx() {
     var saved = null;
-    try { saved = localStorage.getItem('fs.lowfx'); } catch (e) {  }
+    try { saved = localStorage.getItem('fs.lowfx'); } catch (e) { }
     var auto = ((navigator.hardwareConcurrency || 8) <= 4) || ((navigator.deviceMemory || 8) <= 4);
     var low = saved === '1' ? true : (saved === '0' ? false : auto);
     if (low) document.documentElement.setAttribute('data-lowfx', '1');
@@ -183,21 +183,21 @@
 
     brand.innerHTML =
       '<span class="brand__mark">' +
-        '<svg viewBox="0 0 40 40" aria-hidden="true">' +
-          '<defs>' +
-            '<linearGradient id="bmGrad" x1="0" y1="0" x2="1" y2="1">' +
-              '<stop offset="0%" stop-color="#00f0ff"/>' +
-              '<stop offset="55%" stop-color="#14e0c8"/>' +
-              '<stop offset="100%" stop-color="#b44dff"/>' +
-            '</linearGradient>' +
-          '</defs>' +
-          '<circle class="bm-ring" cx="20" cy="20" r="18.5" fill="none" stroke="rgba(0,240,255,.5)"' +
-            ' stroke-width="1" stroke-dasharray="4 5"/>' +
-          '<circle class="bm-ring bm-ring--rev" cx="20" cy="20" r="15" fill="none" stroke="rgba(255,45,149,.35)"' +
-            ' stroke-width=".8" stroke-dasharray="2 7"/>' +
-          '<path class="bm-hex" d="M20 4 L33 11.5 L33 28.5 L20 36 L7 28.5 L7 11.5 Z"/>' +
-          '<text class="bm-text" x="20" y="24.5" text-anchor="middle">FS</text>' +
-        '</svg>' +
+      '<svg viewBox="0 0 40 40" aria-hidden="true">' +
+      '<defs>' +
+      '<linearGradient id="bmGrad" x1="0" y1="0" x2="1" y2="1">' +
+      '<stop offset="0%" stop-color="#00f0ff"/>' +
+      '<stop offset="55%" stop-color="#14e0c8"/>' +
+      '<stop offset="100%" stop-color="#b44dff"/>' +
+      '</linearGradient>' +
+      '</defs>' +
+      '<circle class="bm-ring" cx="20" cy="20" r="18.5" fill="none" stroke="rgba(0,240,255,.5)"' +
+      ' stroke-width="1" stroke-dasharray="4 5"/>' +
+      '<circle class="bm-ring bm-ring--rev" cx="20" cy="20" r="15" fill="none" stroke="rgba(255,45,149,.35)"' +
+      ' stroke-width=".8" stroke-dasharray="2 7"/>' +
+      '<path class="bm-hex" d="M20 4 L33 11.5 L33 28.5 L20 36 L7 28.5 L7 11.5 Z"/>' +
+      '<text class="bm-text" x="20" y="24.5" text-anchor="middle">FS</text>' +
+      '</svg>' +
       '</span>' +
       '<span class="brand__text">FinalSuspect</span>';
     inner.appendChild(brand);
@@ -506,12 +506,10 @@
   function buildLegal() {
     var bar = el('footer', 'legal-bar');
     bar.innerHTML =
-      '<span class="legal-bar__copy">网站设计 ©<b>LezaiYa</b> · FinalSuspect Mod ©<b>Slok</b>' +
-        ' · <a href="https://github.com/Slok7565/FinalSuspect" target="_blank" rel="noopener noreferrer">GitHub</a>' +
-        ' · AGPL-3.0</span>' +
-      '<span class="legal-bar__note">本模组不隶属于 Among Us 或 Innersloth LLC，' +
-        '部分材料为 Innersloth LLC 的财产。 © Innersloth LLC</span>' +
-      '<span class="legal-bar__time">最后更新 / LAST UPDATE <time id="lastEditTime" data-last-modified datetime=""></time></span>';
+      '<span class="legal-bar__copy">网站设计 ©<b>LezaiYa</b> & FinalSuspect Mod ©<b>Slok</b>' +
+      ' · <a href="https://github.com/Slok7565/FinalSuspect" target="_blank" rel="noopener noreferrer">GitHub</a>' +
+      ' · AGPL-3.0</span>' +
+      '<span class="legal-bar__note">本模组不隶属于 Among Us 或 Innersloth LLC，部分材料为 Innersloth LLC 的财产。 © Innersloth LLC</span>'
 
     var anchor = document.querySelector('.shell') || document.querySelector('main');
     if (anchor && anchor.parentNode) anchor.parentNode.insertBefore(bar, anchor.nextSibling);
@@ -529,9 +527,9 @@
     top.setAttribute('aria-label', '回到顶部');
     top.innerHTML =
       '<svg class="dock__ring" viewBox="0 0 44 44" aria-hidden="true">' +
-        '<circle class="dock__ring-bg" cx="22" cy="22" r="20" fill="none" stroke-width="2"/>' +
-        '<circle class="dock__ring-fg" cx="22" cy="22" r="20" fill="none" stroke-width="2"' +
-          ' stroke-dasharray="125.6" stroke-dashoffset="125.6"/>' +
+      '<circle class="dock__ring-bg" cx="22" cy="22" r="20" fill="none" stroke-width="2"/>' +
+      '<circle class="dock__ring-fg" cx="22" cy="22" r="20" fill="none" stroke-width="2"' +
+      ' stroke-dasharray="125.6" stroke-dashoffset="125.6"/>' +
       '</svg>' +
       '<i class="fas fa-arrow-up"></i>';
     dock.appendChild(top);
@@ -581,12 +579,12 @@
     wrap.id = 'cmdk';
     wrap.innerHTML =
       '<div class="cmdk__panel" role="dialog" aria-modal="true" aria-label="搜索文档">' +
-        '<div class="cmdk__head">' +
-          '<i class="fas fa-magnifying-glass"></i>' +
-          '<input class="cmdk__input" id="cmdkInput" type="text" placeholder="搜索页面、选项、功能…" autocomplete="off">' +
-          '<kbd>ESC</kbd>' +
-        '</div>' +
-        '<div class="cmdk__list" id="cmdkList"></div>' +
+      '<div class="cmdk__head">' +
+      '<i class="fas fa-magnifying-glass"></i>' +
+      '<input class="cmdk__input" id="cmdkInput" type="text" placeholder="搜索页面、选项、功能…" autocomplete="off">' +
+      '<kbd>ESC</kbd>' +
+      '</div>' +
+      '<div class="cmdk__list" id="cmdkList"></div>' +
       '</div>';
     document.body.appendChild(wrap);
 
@@ -679,16 +677,16 @@
     m.id = 'appreciateModal';
     m.innerHTML =
       '<div class="cmdk__panel" style="max-width:400px;text-align:center">' +
-        '<div class="cmdk__head"><i class="brand-ico brand-ico--wechat" style="color:#09bb07"></i>' +
-        '<b style="flex:1;font-family:var(--f-display);letter-spacing:.06em">微信赞赏</b>' +
-        '<button class="icon-btn" type="button" id="apprClose" aria-label="关闭" style="width:32px;height:32px"><i class="fas fa-xmark"></i></button></div>' +
-        '<div style="padding:var(--s-5)">' +
-          '<p style="color:var(--t2);font-size:var(--fs-sm);margin-bottom:var(--s-4)">扫描二维码支持 FinalSuspect，感谢您的慷慨赞助！</p>' +
-          '<div style="background:#fff;padding:10px;border-radius:8px;display:inline-block">' +
-            '<img src="' + asset('Resource/images/Appreciate_Slok.webp') + '" alt="微信赞赏二维码" width="200" height="200" loading="lazy" decoding="async" style="width:200px;height:200px">' +
-          '</div>' +
-          '<p style="color:var(--t4);font-size:var(--fs-xs);margin-top:var(--s-4)">扫码支付后，您的支持将直接送达开发人员</p>' +
-        '</div>' +
+      '<div class="cmdk__head"><i class="brand-ico brand-ico--wechat" style="color:#09bb07"></i>' +
+      '<b style="flex:1;font-family:var(--f-display);letter-spacing:.06em">微信赞赏</b>' +
+      '<button class="icon-btn" type="button" id="apprClose" aria-label="关闭" style="width:32px;height:32px"><i class="fas fa-xmark"></i></button></div>' +
+      '<div style="padding:var(--s-5)">' +
+      '<p style="color:var(--t2);font-size:var(--fs-sm);margin-bottom:var(--s-4)">扫描二维码支持 FinalSuspect，感谢您的慷慨赞助！</p>' +
+      '<div style="background:#fff;padding:10px;border-radius:8px;display:inline-block">' +
+      '<img src="' + asset('Resource/images/Appreciate_Slok.webp') + '" alt="微信赞赏二维码" width="200" height="200" loading="lazy" decoding="async" style="width:200px;height:200px">' +
+      '</div>' +
+      '<p style="color:var(--t4);font-size:var(--fs-xs);margin-top:var(--s-4)">扫码支付后，您的支持将直接送达开发人员</p>' +
+      '</div>' +
       '</div>';
     document.body.appendChild(m);
     function close() { m.classList.remove('is-open'); }
@@ -805,9 +803,9 @@
 
   function removeLegacyChrome() {
     ['.changelog-btn', '.appreciate-btn', '.back-button', '.back-to-top',
-     '.wechat-modal', '#loadingOverlay .loading-content'].forEach(function (sel) {
-      document.querySelectorAll(sel).forEach(function (n) { n.remove(); });
-    });
+      '.wechat-modal', '#loadingOverlay .loading-content'].forEach(function (sel) {
+        document.querySelectorAll(sel).forEach(function (n) { n.remove(); });
+      });
   }
 
 

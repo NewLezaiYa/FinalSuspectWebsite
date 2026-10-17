@@ -1,4 +1,3 @@
-
 (function () {
   'use strict';
 
@@ -39,7 +38,7 @@
     var last = 0;
     try { last = parseInt(sessionStorage.getItem(SESSION_KEY) || '0', 10); } catch (e) { last = 0; }
     if (last && Date.now() - last < WINDOW_MS) { revealNow(); return; }
-    try { sessionStorage.setItem(SESSION_KEY, String(Date.now())); } catch (e) {  }
+    try { sessionStorage.setItem(SESSION_KEY, String(Date.now())); } catch (e) { }
 
 
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { revealNow(); return; }

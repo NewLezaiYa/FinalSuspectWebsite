@@ -1,4 +1,3 @@
-
 (function () {
   'use strict';
 
@@ -27,13 +26,13 @@
     host.innerHTML =
       '<div class="pt__panels">' + panels + '</div>' +
       '<div class="pt__core">' +
-        '<svg viewBox="0 0 100 100">' +
-          '<circle class="pt__ring" cx="50" cy="50" r="38" fill="none"' +
-            ' stroke="rgba(0,240,255,.7)" stroke-width="2" stroke-dasharray="10 7"/>' +
-          '<circle class="pt__ring pt__ring--rev" cx="50" cy="50" r="26" fill="none"' +
-            ' stroke="rgba(255,45,149,.5)" stroke-width="1.5" stroke-dasharray="4 9"/>' +
-        '</svg>' +
-        '<span class="pt__label">LOADING</span>' +
+      '<svg viewBox="0 0 100 100">' +
+      '<circle class="pt__ring" cx="50" cy="50" r="38" fill="none"' +
+      ' stroke="rgba(0,240,255,.7)" stroke-width="2" stroke-dasharray="10 7"/>' +
+      '<circle class="pt__ring pt__ring--rev" cx="50" cy="50" r="26" fill="none"' +
+      ' stroke="rgba(255,45,149,.5)" stroke-width="1.5" stroke-dasharray="4 9"/>' +
+      '</svg>' +
+      '<span class="pt__label">LOADING</span>' +
       '</div>' +
       '<span class="pt__scan"></span>';
     document.body.appendChild(host);

@@ -1,4 +1,3 @@
-
 (function () {
   'use strict';
 
@@ -118,8 +117,8 @@
     box.style.placeItems = 'center';
     box.innerHTML =
       '<div style="position:relative;max-width:94vw;max-height:92vh">' +
-        '<img alt="" style="max-width:94vw;max-height:88vh;border:1px solid var(--ln-1);border-radius:var(--r-sm);box-shadow:0 40px 100px rgba(0,0,0,.85)">' +
-        '<button class="icon-btn" type="button" aria-label="关闭" style="position:absolute;top:-14px;right:-14px;border-radius:50%"><i class="fas fa-xmark"></i></button>' +
+      '<img alt="" style="max-width:94vw;max-height:88vh;border:1px solid var(--ln-1);border-radius:var(--r-sm);box-shadow:0 40px 100px rgba(0,0,0,.85)">' +
+      '<button class="icon-btn" type="button" aria-label="关闭" style="position:absolute;top:-14px;right:-14px;border-radius:50%"><i class="fas fa-xmark"></i></button>' +
       '</div>';
     document.body.appendChild(box);
 

@@ -1,8 +1,6 @@
 (function () {
   'use strict';
 
-  // 站点根目录：由本脚本自身的 URL 推导（.../Resource/JS/time.js -> 上两级）
-  // 这样无论部署在域名根目录、/FinalSuspectWebsite/ 子路径，还是本地 file:// 都能正确定位
   var SITE_ROOT = (function () {
     var el = document.currentScript;
     var src = (el && el.getAttribute('src')) ||
@@ -21,15 +19,14 @@
     var key = p;
     if (SITE_ROOT && key.indexOf(SITE_ROOT) === 0) key = key.slice(SITE_ROOT.length);
     else {
-      var m = key.match(/FinalSuspectWebsite\/(.*)$/i); // 兜底：拿不到脚本 URL 时的旧逻辑
+      var m = key.match(/FinalSuspectWebsite\/(.*)$/i);
       key = m ? m[1] : key.split('/').filter(Boolean).slice(-1)[0];
     }
     key = key.replace(/^\/+/, '').replace(/\/+$/, '');
-    return key || 'index.html'; // 不带扩展名时由 lookup 逐个尝试候选键
+    return key || 'index.html';
   }
 
 
-  // 候选键：无扩展名 URL（如 /FinalSuspect/Changelog）可能是 xxx.html，也可能是目录 xxx/index.html
   function candidates(key) {
     if (/\.html?$/i.test(key)) return [key];
     return [key + '.html', key + '/index.html', key];
@@ -43,16 +40,16 @@
     var cand = candidates(key);
     var c, i, k, lower;
 
-    for (c = 0; c < cand.length; c++) { // 精确匹配
+    for (c = 0; c < cand.length; c++) {
       if (map[cand[c]]) return map[cand[c]];
     }
-    for (c = 0; c < cand.length; c++) { // 忽略大小写
+    for (c = 0; c < cand.length; c++) {
       lower = cand[c].toLowerCase();
       for (i = 0; i < keys.length; i++) {
         if (keys[i].toLowerCase() === lower) return map[keys[i]];
       }
     }
-    for (c = 0; c < cand.length; c++) { // 路径后缀匹配：站点根路径不一致时兜底
+    for (c = 0; c < cand.length; c++) {
       lower = cand[c].toLowerCase();
       for (i = 0; i < keys.length; i++) {
         k = keys[i].toLowerCase();
@@ -86,5 +83,5 @@
   render();
   document.addEventListener('DOMContentLoaded', render);
   document.addEventListener('shell:ready', function () { setTimeout(render, 0); });
-  window.addEventListener('load', function () { setTimeout(render, 120); }); // 等 last-modified.js 就绪
+  window.addEventListener('load', function () { setTimeout(render, 120); });
 })();

@@ -221,12 +221,12 @@ window.SplashIntro = (function () {
     }
     html +=
       '<svg class="sp-gear sp-gear--a" viewBox="0 0 100 100" aria-hidden="true">' +
-        '<path d="M50 6 L58 6 L61 18 A33 33 0 0 1 71 23 L82 16 L88 22 L81 33 A33 33 0 0 1 86 43 L98 46 L98 54 L86 57 A33 33 0 0 1 81 67 L88 78 L82 84 L71 77 A33 33 0 0 1 61 82 L58 94 L50 94 L47 82 A33 33 0 0 1 37 77 L26 84 L20 78 L27 67 A33 33 0 0 1 22 57 L10 54 L10 46 L22 43 A33 33 0 0 1 27 33 L20 22 L26 16 L37 23 A33 33 0 0 1 47 18 Z" fill="none" stroke="rgba(0,240,255,.75)" stroke-width="2.5"/>' +
-        '<circle cx="50" cy="50" r="14" fill="none" stroke="rgba(0,240,255,.5)" stroke-width="2"/>' +
+      '<path d="M50 6 L58 6 L61 18 A33 33 0 0 1 71 23 L82 16 L88 22 L81 33 A33 33 0 0 1 86 43 L98 46 L98 54 L86 57 A33 33 0 0 1 81 67 L88 78 L82 84 L71 77 A33 33 0 0 1 61 82 L58 94 L50 94 L47 82 A33 33 0 0 1 37 77 L26 84 L20 78 L27 67 A33 33 0 0 1 22 57 L10 54 L10 46 L22 43 A33 33 0 0 1 27 33 L20 22 L26 16 L37 23 A33 33 0 0 1 47 18 Z" fill="none" stroke="rgba(0,240,255,.75)" stroke-width="2.5"/>' +
+      '<circle cx="50" cy="50" r="14" fill="none" stroke="rgba(0,240,255,.5)" stroke-width="2"/>' +
       '</svg>' +
       '<svg class="sp-gear sp-gear--b" viewBox="0 0 100 100" aria-hidden="true">' +
-        '<circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,45,149,.5)" stroke-width="2" stroke-dasharray="10 8"/>' +
-        '<circle cx="50" cy="50" r="26" fill="none" stroke="rgba(255,45,149,.35)" stroke-width="2"/>' +
+      '<circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,45,149,.5)" stroke-width="2" stroke-dasharray="10 8"/>' +
+      '<circle cx="50" cy="50" r="26" fill="none" stroke="rgba(255,45,149,.35)" stroke-width="2"/>' +
       '</svg>' +
       '<div class="sp-core"></div>';
     host.innerHTML = html;
@@ -450,12 +450,10 @@ window.SplashIntro = (function () {
     }
     requestAnimationFrame(loop);
 
-    // 启动动画总时长上限：超时立即收尾，避免低端机 / 慢网络卡在遮罩上
     var HARD_LIMIT = LOW_POWER ? 1800 : 3200;
 
     try {
       var sequence = async () => {
-        this.versionText.textContent = 'FinalSuspectWebsite v3.0';
         this.versionText.classList.add('is-on');
 
         var logoPromise = loadImage(this.logoImgSrc());

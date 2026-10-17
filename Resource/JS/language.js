@@ -52,7 +52,7 @@ window.I18N = (function () {
   function set(next) {
     if (next !== 'zh' && next !== 'en') return;
     lang = next;
-    try { localStorage.setItem(KEY, next); } catch (e) {  }
+    try { localStorage.setItem(KEY, next); } catch (e) { }
     render();
   }
 
@@ -67,13 +67,13 @@ window.I18N = (function () {
       box.innerHTML =
         '<span class="lang-notice__icon"><i class="fas fa-language"></i></span>' +
         '<div class="lang-notice__body">' +
-          '<strong class="lang-notice__title"></strong>' +
-          '<p class="lang-notice__text"></p>' +
-          '<p class="lang-notice__text lang-notice__text--en"></p>' +
-          '<div class="lang-notice__actions">' +
-            '<a class="lang-notice__link" target="_blank" rel="noopener noreferrer"></a>' +
-            '<button class="lang-notice__back" type="button"></button>' +
-          '</div>' +
+        '<strong class="lang-notice__title"></strong>' +
+        '<p class="lang-notice__text"></p>' +
+        '<p class="lang-notice__text lang-notice__text--en"></p>' +
+        '<div class="lang-notice__actions">' +
+        '<a class="lang-notice__link" target="_blank" rel="noopener noreferrer"></a>' +
+        '<button class="lang-notice__back" type="button"></button>' +
+        '</div>' +
         '</div>';
       var anchor = document.body.querySelector('.shell') || document.body.querySelector('main');
       if (anchor && anchor.parentNode) anchor.parentNode.insertBefore(box, anchor);

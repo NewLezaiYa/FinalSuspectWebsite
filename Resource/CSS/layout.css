@@ -2203,13 +2203,14 @@ html.fx-reveal [data-reveal].is-in {
   color: var(--t4);
 }
 
-.home ~ .legal-bar {
+.home~.legal-bar {
   max-width: 1020px;
   margin-top: 0;
   padding: var(--s-4) var(--s-5) var(--s-7);
 }
+
 @media (max-width: 720px) {
-  .home ~ .legal-bar {
+  .home~.legal-bar {
     padding: var(--s-4) var(--s-4) var(--s-6);
   }
 }

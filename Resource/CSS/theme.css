@@ -217,8 +217,7 @@
 }
 
 [data-theme='light'] .hero__logo {
-  filter: invert(1) hue-rotate(180deg) saturate(1.2) contrast(1.05)
-    drop-shadow(0 6px 16px rgba(16, 26, 46, .18));
+  filter: invert(1) hue-rotate(180deg) saturate(1.2) contrast(1.05) drop-shadow(0 6px 16px rgba(16, 26, 46, .18));
 }
 
 [data-theme='light'] .hero__status {
