@@ -1,3 +1,7 @@
+/*
+ * 设计令牌（CSS 变量）：颜色 / 间距 / 字体 / 圆角 / 层级 / 纹理
+ */
+
 :root {
 
   --bg-void: #010206;
@@ -5,11 +9,6 @@
 
   --sf-1: linear-gradient(168deg, rgba(26, 32, 56, .92) 0%, rgba(8, 11, 22, .97) 100%);
   --sf-2: linear-gradient(168deg, rgba(34, 41, 70, .95) 0%, rgba(11, 14, 28, .98) 100%);
-  --sf-glass: rgba(10, 14, 28, .62);
-  --sf-inset:
-    inset 0 1px 0 rgba(255, 255, 255, .07),
-    inset 0 -1px 0 rgba(0, 0, 0, .5),
-    inset 0 0 40px rgba(0, 240, 255, .02);
 
   --c-cyan: #00f0ff;
   --c-ice: #8df6ff;
@@ -36,8 +35,6 @@
   --r-sm: 7px;
   --r-md: 11px;
   --r-pill: 999px;
-  --notch: 14px;
-  --notch-lg: 22px;
 
   --s-2: 8px;
   --s-3: 12px;
@@ -45,7 +42,7 @@
   --s-5: 24px;
   --s-6: 32px;
   --s-7: 48px;
-  --s-8: 64px;
+
   --s-9: 96px;
 
   --f-display: 'FS Display', 'FS Text', system-ui, sans-serif;
@@ -81,21 +78,8 @@
     repeating-linear-gradient(90deg, rgba(255, 255, 255, .022) 0 1px, transparent 1px 3px),
     repeating-linear-gradient(0deg, rgba(0, 0, 0, .16) 0 1px, transparent 1px 4px);
 
-  --tx-grid:
-    linear-gradient(rgba(0, 240, 255, .04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 240, 255, .04) 1px, transparent 1px);
-
   --tx-scan: repeating-linear-gradient(0deg,
       rgba(255, 255, 255, .022) 0 1px, transparent 1px 3px);
-
-  --tx-hazard: repeating-linear-gradient(45deg,
-      rgba(255, 176, 32, .5) 0 6px, transparent 6px 12px);
-
-  --tx-rivets:
-    radial-gradient(circle at 7px 7px, rgba(180, 200, 230, .5) 0 1.4px, rgba(0, 0, 0, .5) 1.4px 2.6px, transparent 2.6px),
-    radial-gradient(circle at calc(100% - 7px) 7px, rgba(180, 200, 230, .5) 0 1.4px, rgba(0, 0, 0, .5) 1.4px 2.6px, transparent 2.6px),
-    radial-gradient(circle at 7px calc(100% - 7px), rgba(180, 200, 230, .5) 0 1.4px, rgba(0, 0, 0, .5) 1.4px 2.6px, transparent 2.6px),
-    radial-gradient(circle at calc(100% - 7px) calc(100% - 7px), rgba(180, 200, 230, .5) 0 1.4px, rgba(0, 0, 0, .5) 1.4px 2.6px, transparent 2.6px);
 
   --grad-title: linear-gradient(100deg, #ffffff 0%, var(--c-ice) 42%, #7fb6ff 72%, #c9a6ff 100%);
 
@@ -154,7 +138,7 @@ body {
 @media (hover: hover) and (pointer: fine) {
 
   :root {
-    --cursor-arrow: url('../images/Cursor-32.png') 5 5, auto;
+
     --cursor-arrow-hd: image-set(url('../images/Cursor-32.png') 1x,
         url('../images/Cursor-64.png') 2x) 5 5, auto;
   }
@@ -194,7 +178,6 @@ body {
   .related__card,
   .pager__item,
   .copy-btn,
-  .back-button,
   .error-code,
   .acc>summary {
     cursor: url('../images/Cursor-32.png') 5 5, auto;
@@ -224,7 +207,6 @@ body {
     .related__card,
     .pager__item,
     .copy-btn,
-    .back-button,
     .error-code,
     .acc>summary {
       cursor: var(--cursor-arrow-hd);
@@ -239,8 +221,7 @@ textarea,
 }
 
 :disabled,
-[aria-disabled='true'],
-.not-allowed {
+[aria-disabled='true'] {
   cursor: not-allowed;
 }
 
@@ -306,9 +287,7 @@ pre,
 .nav-row__meta,
 .rail__count,
 .toc__title,
-.term__bar,
-.vnav__keys,
-.stat__label {
+.term__bar {
   font-family: var(--f-mono);
   letter-spacing: var(--ls-hud);
 }

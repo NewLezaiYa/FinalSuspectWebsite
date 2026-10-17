@@ -1,6 +1,17 @@
+/*
+ * 开场动画引擎（window.SplashIntro）：PCB 背景、粒子、日志流与资源校验进度
+ */
 
 window.SplashIntro = (function () {
   'use strict';
+
+  function t(key, params) {
+    if (window.I18N && window.I18N.t) {
+      var value = window.I18N.t(key, params);
+      if (value) return value;
+    }
+    return '';
+  }
 
   var LOW_POWER = window.matchMedia('(hover: none) and (pointer: coarse)').matches ||
     window.innerWidth < 760;
@@ -37,7 +48,6 @@ window.SplashIntro = (function () {
 
   var wait = function (ms) { return new Promise(function (r) { setTimeout(r, ms); }); };
   var clamp01 = function (t) { return t < 0 ? 0 : t > 1 ? 1 : t; };
-  var lerp = function (a, b, t) { return a + (b - a) * t; };
   var easeOut = function (t) { t = clamp01(t); return 1 - Math.pow(1 - t, 3); };
   var easeInOut = function (t) { t = clamp01(t); return t * t * (3 - 2 * t); };
   var rgba = function (c, a) { return 'rgba(' + c + ',' + (a == null ? 1 : a) + ')'; };
@@ -332,7 +342,7 @@ window.SplashIntro = (function () {
 
       var target = Math.min(96, easeOut(t) * 96);
       fill.style.width = target.toFixed(1) + '%';
-      label.textContent = '校验模块 ' + Math.round((target / 100) * total) + ' / ' + total;
+      label.textContent = t('splash.verify', { done: Math.round((target / 100) * total), total: total });
       void dt;
     });
 
@@ -341,11 +351,11 @@ window.SplashIntro = (function () {
       done++;
       var pct = ((done / total) * 100).toFixed(1);
       fill.style.width = pct + '%';
-      label.textContent = '校验模块 ' + done + ' / ' + total;
+      label.textContent = t('splash.verify', { done: done, total: total });
       await wait(downloading ? (LOW_POWER ? 30 : 90) : (LOW_POWER ? 18 : 55));
     }
     fill.style.width = '100%';
-    label.textContent = '全部就绪 ' + total + ' / ' + total;
+    label.textContent = t('splash.ready', { done: total, total: total });
     self.setHint(false);
 
     await this.pushLog('SYSTEM READY', 'ok');

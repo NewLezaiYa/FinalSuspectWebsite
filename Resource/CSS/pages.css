@@ -1,24 +1,6 @@
-.related {
-  margin-top: var(--s-7);
-  padding-top: var(--s-5);
-  border-top: 1px solid var(--ln-2);
-}
-
-.related__title {
-  display: flex;
-  align-items: center;
-  gap: var(--s-2);
-  font-family: var(--f-mono);
-  font-size: var(--fs-hud);
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  color: var(--t3);
-  margin-bottom: var(--s-4);
-}
-
-.related__title i {
-  color: var(--c-cyan);
-}
+/*
+ * 页面级样式：首页英雄区 / 卡片网格 / 更新日志时间线 / 相关页导航
+ */
 
 .related__grid {
   display: grid;
@@ -53,7 +35,6 @@
 .related__card span {
   flex: 1;
 }
-
 
 .pager {
   display: grid;
@@ -93,7 +74,6 @@
 .pager__item--next {
   text-align: right;
 }
-
 
 .index-hero {
   position: relative;
@@ -146,7 +126,6 @@
   max-width: 62ch;
 }
 
-
 .index-tools {
   display: flex;
   flex-wrap: wrap;
@@ -187,7 +166,6 @@
   border-color: var(--c-cyan);
   box-shadow: 0 0 0 3px rgba(0, 240, 255, .1);
 }
-
 
 .card-grid {
   display: grid;
@@ -230,7 +208,6 @@
   border-color: var(--ln-1);
   box-shadow: var(--sh-2), var(--glow-cyan);
 }
-
 
 .card__icon {
   width: 40px;
@@ -285,7 +262,6 @@
 .card.is-hidden {
   display: none;
 }
-
 
 .chips {
   display: flex;
@@ -411,11 +387,6 @@
   margin-top: var(--s-2);
 }
 
-.gcard:hover .gcard__reveal {
-  max-height: 340px;
-}
-
-
 .timeline {
   position: relative;
   padding-left: var(--s-5);
@@ -430,6 +401,37 @@
   width: 2px;
   background: linear-gradient(180deg, var(--c-cyan), var(--c-purple), transparent);
   box-shadow: var(--glow-cyan);
+}
+/* 读取 ModNews 期间的占位与失败详情 */
+.tl-loading {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: var(--s-5);
+  color: var(--t3);
+  font-family: var(--f-mono);
+  font-size: var(--fs-sm);
+  border: 1px dashed var(--ln-2);
+  border-radius: var(--r-sm);
+}
+
+.tl-loading i {
+  color: var(--c-cyan);
+  animation: tl-spin 1.1s linear infinite;
+}
+
+@keyframes tl-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.tl-error {
+  margin-top: var(--s-2);
+  color: var(--t4);
+  font-family: var(--f-mono);
+  font-size: var(--fs-hud);
+  word-break: break-all;
 }
 
 .tl-version {
@@ -448,7 +450,6 @@
   border-color: var(--ln-1);
   box-shadow: var(--sh-2);
 }
-
 
 .tl-version::before {
   content: '';
@@ -499,7 +500,94 @@
   flex-wrap: wrap;
   gap: var(--s-2);
 }
+/* 来自 md 的版本摘要、对应版本与参与者信息 */
+.tl-version__lead {
+  margin: 0 0 var(--s-3);
+  color: var(--t2);
+  font-size: var(--fs-sm);
+  line-height: 1.9;
+}
 
+.tl-version__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+  margin-bottom: var(--s-3);
+}
+
+.tl-version__meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 9px;
+  color: var(--t3);
+  background: rgba(127, 127, 127, .08);
+  border: 1px solid var(--ln-2);
+  border-radius: var(--r-xs);
+  font-family: var(--f-mono);
+  font-size: var(--fs-hud);
+}
+
+.tl-version__meta span i {
+  color: var(--c-cyan);
+  font-size: .74em;
+  opacity: .85;
+}
+
+.tl-people {
+  display: grid;
+  gap: var(--s-2);
+  margin-bottom: var(--s-3);
+}
+
+.tl-people__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-2);
+  font-size: var(--fs-sm);
+}
+
+.tl-people__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--t3);
+  font-family: var(--f-mono);
+  font-size: var(--fs-hud);
+  letter-spacing: .08em;
+}
+
+.tl-people__label i {
+  color: var(--c-purple);
+}
+
+.tl-people__item {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 5px;
+  padding: 2px 8px;
+  color: var(--t2);
+  background: rgba(127, 127, 127, .07);
+  border-radius: var(--r-xs);
+}
+
+.tl-people__item a {
+  color: var(--c-cyan);
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(0, 240, 255, .45);
+}
+
+.tl-people__item a:hover {
+  color: var(--t1);
+}
+
+.tl-people__note {
+  color: var(--t4);
+  font-family: var(--f-mono);
+  font-size: var(--fs-hud);
+  font-style: normal;
+}
 
 .tl-group {
   margin-top: var(--s-4);
@@ -566,7 +654,82 @@
   color: var(--t1);
   transform: translateX(4px);
 }
+/* 条目正文与 md 行内语法的呈现 */
+.tl-item__body {
+  flex: 1 1 auto;
+  min-width: 0;
+}
 
+.tl-item__note {
+  margin-left: 8px;
+  color: var(--t4);
+  font-family: var(--f-mono);
+  font-size: var(--fs-hud);
+  font-style: normal;
+}
+
+.tl-item strong {
+  color: var(--t1);
+  font-weight: 600;
+}
+
+.tl-item del {
+  color: var(--t4);
+  text-decoration-color: rgba(255, 92, 108, .7);
+}
+
+.tl-item a {
+  color: var(--c-cyan);
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(0, 240, 255, .45);
+}
+
+.tl-item a:hover {
+  color: var(--t1);
+}
+
+.tl-item code {
+  padding: 1px 5px;
+  color: var(--c-teal);
+  background: rgba(0, 0, 0, .35);
+  border-radius: var(--r-xs);
+  font-family: var(--f-mono);
+  font-size: .92em;
+}
+
+/* md 里的「未完内容」：不算本次改动，单独弱化展示 */
+.tl-pending {
+  margin-top: var(--s-4);
+  padding: var(--s-3) var(--s-4);
+  background: rgba(255, 176, 32, .035);
+  border: 1px dashed var(--ln-2);
+  border-radius: var(--r-xs);
+}
+
+.tl-pending__title {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--c-amber);
+  font-family: var(--f-display);
+  font-size: .86rem;
+  letter-spacing: .04em;
+}
+
+.tl-pending ul {
+  margin: var(--s-2) 0 0;
+  padding-left: 1.1em;
+}
+
+.tl-pending li {
+  color: var(--t3);
+  font-size: var(--fs-sm);
+  line-height: 1.8;
+}
+
+.tl-pending li::marker {
+  color: var(--c-amber);
+}
 
 .c-fix {
   color: #ff5c6c;
@@ -632,6 +795,18 @@
   background: rgba(192, 132, 252, .14);
   color: #c084fc;
 }
+.c-reset {
+  color: #f472b6;
+}
+
+.b-reset {
+  border-left-color: #f472b6 !important;
+}
+
+.bg-reset {
+  background: rgba(244, 114, 182, .14);
+  color: #f472b6;
+}
 
 .c-balance {
   color: #2dd4bf;
@@ -645,7 +820,6 @@
   background: rgba(45, 212, 191, .14);
   color: #2dd4bf;
 }
-
 
 .callout-path {
   display: flex;
@@ -668,7 +842,6 @@
   color: var(--t3);
   flex: none;
 }
-
 
 .credits {
   display: flex;

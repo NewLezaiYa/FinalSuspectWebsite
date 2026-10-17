@@ -1,0 +1,766 @@
+{
+  "meta": {
+    "locale": "zh-CN",
+    "name": "简体中文",
+    "short": "中"
+  },
+  "ui": {
+    "siteName": "FinalSuspect",
+    "brandHome": "FinalSuspect 文档首页",
+    "mainNav": "主导航",
+    "home": "首页",
+    "changelog": {
+      "filterLabel": "按改动类型筛选",
+      "filterAll": "全部改动",
+      "kindFix": "修复",
+      "kindOpt": "优化",
+      "kindChange": "调整",
+      "kindAdd": "新增",
+      "kindRemove": "移除",
+      "kindReset": "重置",
+      "countVersions": "{count} 个版本",
+      "countItems": "{count} 条改动",
+      "versionsSuffix": "个版本",
+      "itemsSuffix": "条改动",
+      "itemsCount": "{count} 项",
+      "loading": "正在读取 ModNews 中的更新日志…",
+      "pendingTitle": "未完内容",
+      "teamLabel": "团队参与者",
+      "contributorsLabel": "贡献者",
+      "assemblyPrefix": "程序集",
+      "errorTitle": "更新日志读取失败",
+      "errorFileHint": "当前页面是用 <code>file://</code> 直接打开的，浏览器会阻止读取本地 Markdown 文件。请用本地静态服务器（例如 <code>npx serve</code> 或 VS Code 的 Live Server）访问本站。",
+      "errorHttpHint": "请确认 <code>Resource/ModNews/</code> 下的 Markdown 文件可以正常访问，然后刷新页面。",
+      "missingTitle": "部分更新日志读取失败",
+      "missingBody": "以下文件没能读取，页面只显示了其余的版本：{files}",
+      "moduleMissing": "没有加载到 Resource/JS/changelog-source.js，无法读取 ModNews 中的更新日志。",
+      "noFiles": "Resource/ModNews 中没有可用的更新日志文件。",
+      "jsOffTitle": "需要启用 JavaScript",
+      "jsOffBody": "更新日志由 <code>Resource/ModNews</code> 里的 Markdown 文件渲染，请开启 JavaScript 后刷新页面。",
+      "tipTitle": "找不到你关心的改动？",
+      "tipBody": "用页面顶部的搜索（<kbd>Ctrl</kbd> + <kbd>K</kbd>）可以直接跳转到功能或选项说明，也可以先去 <a href=\"FAQ\">疑难解答</a> 看看是否是已知问题。"
+    },
+    "openNav": "打开导航",
+    "searchTrigger": "搜索文档 / SEARCH",
+    "searchTitle": "搜索文档",
+    "searchPlaceholder": "搜索页面、选项、功能…",
+    "searchEmpty": "没有匹配的页面",
+    "railFilter": "筛选页面…",
+    "railFilterLabel": "筛选导航项",
+    "railNoMatch": "无匹配项",
+    "breadcrumb": "面包屑",
+    "tocTitle": "本页目录 / INDEX",
+    "tocLabel": "本页目录",
+    "themeToggle": "切换亮色 / 暗色主题",
+    "languageToggle": "切换语言",
+    "langNoticeTitle": "该页面暂时无英文翻译",
+    "langNoticeBody": "如果你愿意贡献翻译，请去 GitHub 打开 issue，申请为网站添加英文。",
+    "langNoticeIssue": "去 GitHub 打开 issue",
+    "langNoticeBack": "返回中文",
+    "backToTop": "回到顶部",
+    "appreciate": "赞赏支持",
+    "appreciateTitle": "微信赞赏",
+    "appreciateDesc": "扫描二维码支持 FinalSuspect，感谢您的慷慨赞助！",
+    "appreciateAlt": "微信赞赏二维码",
+    "appreciateNote": "扫码支付后，您的支持将直接送达开发人员",
+    "close": "关闭",
+    "copy": "复制",
+    "copied": "已复制",
+    "copyErrorCode": "点击复制错误代码",
+    "updated": "更新于",
+    "prev": "上一篇",
+    "next": "下一篇",
+    "learnMore": "了解",
+    "overviewSuffix": "总览",
+    "cmdkHomeGroup": "首页",
+    "cmdkHomeName": "主页",
+    "cmdkHomeDesc": "网站首页与快速入口",
+    "legalCopy": "网站设计 ©<b>LezaiYa</b> & FinalSuspect Mod ©<b>Slok</b> · <a href=\"https://github.com/Slok7565/FinalSuspect\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub</a> · AGPL-3.0",
+    "legalNote": "本模组不隶属于 Among Us 或 Innersloth LLC，部分材料为 Innersloth LLC 的财产。 © Innersloth LLC",
+    "versionsMeta": "{count} 个版本 · 最新 {version} →"
+  },
+  "nav": {
+    "groups": {
+      "start": {
+        "name": "开始"
+      },
+      "guide": {
+        "name": "教程"
+      },
+      "options": {
+        "name": "选项"
+      },
+      "features": {
+        "name": "功能"
+      },
+      "logs": {
+        "name": "更新日志"
+      }
+    },
+    "pages": {
+      "intro": {
+        "name": "模组简介",
+        "desc": "Final Suspect 是什么、理念与开发团队"
+      },
+      "faq": {
+        "name": "疑难解答",
+        "desc": "安装失败、报错代码、连接异常的分步排查"
+      },
+      "keyboard": {
+        "name": "快捷键",
+        "desc": "模组端与房主专用快捷键一览"
+      },
+      "installation": {
+        "name": "安装",
+        "desc": "Steam / Epic 双平台安装步骤"
+      },
+      "update": {
+        "name": "更新",
+        "desc": "手动更新与版本升级流程"
+      },
+      "outputlog": {
+        "name": "导出日志",
+        "desc": "出问题时如何导出日志给开发者"
+      },
+      "opt-autoendgame": {
+        "name": "结束时自动返回大厅",
+        "desc": "对局结束自动跳过结算回到大厅"
+      },
+      "opt-autostartgame": {
+        "name": "人满自动开始游戏",
+        "desc": "差一人满员即启动 10 秒倒计时"
+      },
+      "opt-enablefac": {
+        "name": "启用反作弊 FAC",
+        "desc": "开启 Final Anti Cheat 房间防护"
+      },
+      "opt-disablevanillasound": {
+        "name": "禁用原版游戏音乐",
+        "desc": "屏蔽大厅等待音乐"
+      },
+      "opt-fastboot": {
+        "name": "快速启动模式",
+        "desc": "启动耗时约 15 秒缩短到 5 秒"
+      },
+      "opt-kickfriendcode": {
+        "name": "踢出好友代码异常玩家",
+        "desc": "自动检测异常好友代码"
+      },
+      "opt-kickbanlist": {
+        "name": "踢出被封禁的玩家",
+        "desc": "命中封禁名单自动踢出"
+      },
+      "opt-kickdenyname": {
+        "name": "踢出违规昵称玩家",
+        "desc": "敏感词与恶意昵称自动处理"
+      },
+      "opt-offlinemode": {
+        "name": "离线模式（试验性）",
+        "desc": "不从远程获取资源"
+      },
+      "opt-showplayerinfo": {
+        "name": "展示玩家平台与客户端信息",
+        "desc": "大厅显示平台与好友代码"
+      },
+      "opt-spamdenyword": {
+        "name": "屏蔽违禁词",
+        "desc": "聊天违禁词替换为星号"
+      },
+      "opt-switchoutfit": {
+        "name": "切换外观形象",
+        "desc": "经典豆子 / 牧马 / 长颈豆"
+      },
+      "opt-unlockfps": {
+        "name": "解锁帧数限制",
+        "desc": "解除 60FPS 上限，最高 165FPS"
+      },
+      "opt-usemodcursor": {
+        "name": "使用模组鼠标光标",
+        "desc": "用模组定制光标替换系统光标"
+      },
+      "feat-clearautologs": {
+        "name": "清空自动日志",
+        "desc": "一键清理累积的自动日志文件"
+      },
+      "feat-dumplog": {
+        "name": "输出日志",
+        "desc": "把当前运行日志导出为文件"
+      },
+      "feat-mainmenustyle": {
+        "name": "切换主页风格",
+        "desc": "6 套可切换的游戏主页背景"
+      },
+      "feat-mymusic": {
+        "name": "我的音乐",
+        "desc": "自定义大厅与菜单背景音乐"
+      },
+      "feat-nametag": {
+        "name": "名称标识管理",
+        "desc": "管理玩家名称标识显示规则"
+      },
+      "feat-resourcemanager": {
+        "name": "资源管理",
+        "desc": "查看与管理模组资源文件"
+      },
+      "feat-unloadmod": {
+        "name": "切换原版",
+        "desc": "临时以原版客户端启动游戏"
+      },
+      "changelog": {
+        "name": "全部版本",
+        "desc": "按版本倒序的完整改动记录"
+      }
+    }
+  },
+  "css": {
+    "noMatch": "无匹配项"
+  },
+  "splash": {
+    "hint": "首次进入需要校验资源，请稍候",
+    "verify": "校验模块 {done} / {total}",
+    "ready": "全部就绪 {done} / {total}"
+  },
+  "page": {
+    "404": {
+      "title": "404",
+      "lead": "坐标越界：你要找的页面不在文档索引里。可能是链接过期，或者地址输错了。",
+      "backHome": "返回首页",
+      "faq": "疑难解答",
+      "redirect": "秒后自动返回首页"
+    },
+    "changelog": {
+      "title": "版本更新日志",
+      "docTitle": "更新日志"
+    },
+    "faq": {
+      "title": "疑难解答",
+      "compat": "兼容性",
+      "compatQ1": "Final Suspect 兼容其它模组吗？",
+      "compatBody1": "<mark>不考虑、不适配、不兼容</mark>。",
+      "compatBody2": "请不要把 Final Suspect 与其它模组混装在同一份游戏目录中，否则出现问题将很难定位。",
+      "compatQ2": "老版本 Final Suspect 对新版本 Among Us 的兼容性？",
+      "compatBody3": "<mark>无法保证</mark>新版兼容性，即使其是 Final Suspect 的最新版本。",
+      "compatBody4": "但我们相信，等到有人在中国发明推广了时空穿梭技术后，我们就可以在 Innersloth 推送新版 Among Us 前就适配了。",
+      "install": "安装",
+      "installQ1": "最新版本没有安装包，我该如何安装？",
+      "installBody1": "您可以下载上一个版本的安装包，随后按照正常方式安装 Final Suspect。",
+      "installBody2": "随后 Final Suspect 应该会要求你更新，照流程更新即可。",
+      "installBody3": "如果没有提示（可能是因为 OpenBeta），您可以根据更新教程手动更新，见 <a href=\"Guide/Update.html\">更新教程</a>。",
+      "errors": "错误代码",
+      "errorsQ1": "错误代码 <span class=\"error-code\">ErrSteamWorksAuthFail</span>",
+      "errorsBody1": "请<mark>启动 Steam 后再打开 Among Us</mark>。",
+      "errorsBody2": "如果您将 Final Suspect 安装在了官方目录，可以直接通过 Steam 来打开 Among Us。",
+      "errorsQ2": "错误代码 <span class=\"error-code\">ErrFriendCodeFail</span>",
+      "errorsBody3": "从服务器获取好友代码失败。",
+      "errorsBody4": "请<mark>重启 Among Us</mark> 以重试登录。",
+      "errorsQ3": "错误代码 <span class=\"error-code\">NoConnectionError</span>",
+      "errorsBody5": "网络问题。",
+      "errorsBody6": "请<mark>重启 Among Us</mark> 以重试登录。",
+      "errorsQ4": "无错误代码提示，但提示「登录需要一点时间」",
+      "errorsBody7": "网络问题。",
+      "errorsBody8": "请<mark>重启 Among Us 并确认你是否挂了加速器</mark>。",
+      "errorsAlertTitle": "可能需要代理",
+      "errorsAlertBody": "部分情况可能需要挂代理（VPN）。",
+      "server": "服务器连接",
+      "serverQ1": "无法连接到 Final Suspect 服务器",
+      "serverBody1": "请检查你的网络。",
+      "next": "还是没有解决？",
+      "nextBody": "按下面的顺序准备信息，开发者定位问题的速度会快很多：",
+      "nextStep1": "先在游戏内输出日志，拿到本次运行的完整日志文件。 具体按键与日志位置见 <a href=\"Guide/OutputLog.html\">导出日志</a>。",
+      "nextStep2": "确认你的<strong>模组版本</strong>与<strong>游戏版本</strong>，以及出现问题时的具体操作步骤。",
+      "nextStep3": "到 GitHub 提交 issue，把日志与复现步骤一起附上。",
+      "nextStep3Link": "提交 issue（新窗口）",
+      "pagerPrev": "FinalSuspect 简介",
+      "pagerNext": "快捷键"
+    },
+    "feat-clearautologs": {
+      "title": "清空自动日志",
+      "origin": "问题来源",
+      "originBody": "在模组 <strong>Town Of Host</strong> 中，当 Among Us 关闭时会自动保存一个日志文件。 这个功能的初衷是为了遇到意外错误时可以提供相关信息。",
+      "originBody2": "但该功能在 Town Of Host 中是<mark>默认启用</mark>且（除非改代码）<mark>无法关闭</mark>的， 因此这些日志文件会不断生成、留在游戏目录里。",
+      "solution": "FinalSuspect 如何处理？",
+      "solutionBody": "我们在 Final Suspect 中添加了<strong>清空自动日志</strong>功能，以解决这个问题： 自动生成的日志会被清理掉，无需再为此手动进入游戏目录逐个删除。",
+      "tipTitle": "需要留档时先导出",
+      "tipBody": "如果遇到了异常、希望把日志保留下来，请先使用「输出日志」把当前日志复制到模组指定目录， 再让自动清理照常工作。导出方式见 <a href=\"DumpLog.html\">输出日志</a>。",
+      "pagerPrev": "功能总览",
+      "pagerNext": "输出日志"
+    },
+    "feat-dumplog": {
+      "title": "输出日志",
+      "steps": "三步完成导出",
+      "stepsBody": "该功能由三个环节组成，触发一次即可完成全部动作：",
+      "stepsItem1": "<strong>一键导出</strong>：自动将当前 <code>\\Among Us\\BepInEx</code> 下的日志文件复制到模组指定目录。",
+      "stepsItem2": "<strong>快速访问</strong>：复制完成后立即自动打开目标文件夹窗口，方便查看日志内容。",
+      "stepsItem3": "<strong>自动清理</strong>：原日志文件会在每次启动 Final Suspect 时自动清空，避免占用过多空间。",
+      "path": "日志目录",
+      "pathBody": "导出的日志会存放在下面的路径中：",
+      "pathLabel": "Final Suspect 日志目录",
+      "pathBody2": "按 <kbd>Win</kbd> + <kbd>R</kbd> 打开「运行」窗口，把这串地址粘贴进去并确认，即可手动访问该目录。",
+      "tipTitle": "反馈问题前请先导出",
+      "tipBody": "原日志会在每次启动 Final Suspect 时被自动清空，因此请<mark>先执行一次输出日志</mark>留档， 再把导出的日志文件一并附上，便于定位问题。",
+      "pagerPrev": "清空自动日志",
+      "pagerNext": "切换主页风格"
+    },
+    "features": {
+      "title": "功能总览",
+      "heroTitle": "FinalSuspect 功能",
+      "heroLead": "7 个彼此独立的功能模块：日志处理、音乐播放、资源获取、名称标识、主页风格，以及一键切回原版客户端。",
+      "cardClearTitle": "清空自动日志",
+      "cardClearDesc": "解决上游模组自动生成日志且无法关闭的问题，避免日志持续占用空间。",
+      "cardGo": "查看说明 <i class=\"fas fa-arrow-right\"></i>",
+      "cardDumpTitle": "输出日志",
+      "cardDumpDesc": "一键把 BepInEx 日志复制到专用目录，并自动打开所在文件夹。",
+      "cardMusicTitle": "我的音乐",
+      "cardMusicDesc": "在大厅与菜单播放自定义音频，支持资源下载与本地文件导入。",
+      "cardNameTagTitle": "名称标识管理",
+      "cardNameTagDesc": "为绑定好友代码的玩家自动发放名称标识，便于区分与管理。",
+      "cardResourceTitle": "资源管理",
+      "cardResourceDesc": "在模组内直接下载配套资源与扩展资源，不必手动翻找文件夹。",
+      "cardStyleTitle": "切换主页风格",
+      "cardStyleDesc": "6 套可切换的游戏主页背景：经典场景、节日限定与原创设计。",
+      "cardGoBg": "查看背景 <i class=\"fas fa-arrow-right\"></i>",
+      "cardUnloadTitle": "切换原版",
+      "cardUnloadDesc": "临时以原版客户端启动 Among Us，重启游戏即可恢复模组。",
+      "pagerPrev": "使用模组鼠标光标",
+      "pagerNext": "清空自动日志"
+    },
+    "feat-mainmenustyle": {
+      "title": "切换主页风格",
+      "gallery": "背景一览",
+      "filterLabel": "按类型筛选背景",
+      "filterAll": "全部",
+      "filterClassic": "经典",
+      "filterFestival": "节日限定",
+      "filterOriginal": "原创设计",
+      "bgMiraAlt": "逐光寻晓 背景",
+      "bgMiraTitle": "逐光寻晓",
+      "bgMiraMeta": "<i class=\"fas fa-user-pen\"></i> FS 经典背景 & 作者：KpCam",
+      "bgMiraText1": "随着时间的推移，北半球的冬天迎来尾声，春意正在各处复苏。",
+      "bgMiraText2": "眺望米拉的雪景，内心中的回忆是否唤醒？暖流依旧心中流淌。",
+      "bgMiraText3": "无论嫌疑最终落在谁身，无论真理最后破碎于谁手，在焕然一新的体验中，头脑风暴，留下全新的快乐回忆。",
+      "bgSecurityAlt": "赤心炽爱 背景",
+      "bgSecurityTitle": "赤心炽爱",
+      "bgSecurityMeta": "<i class=\"fas fa-user-pen\"></i> TONEX 经典背景 & 作者：KpCam",
+      "bgSecurityText1": "我们不会就此跌下、不会就此放弃、不会让玩家失望、更不会停止进步。",
+      "bgSecurityText2": "若有人冷眼相待，我们会证明给所有人看！伴着热爱，我们再次起航。",
+      "bgNewYearAlt": "祉缘谐乐 背景",
+      "bgNewYearTitle": "祉缘谐乐",
+      "bgNewYearMeta": "<i class=\"fas fa-user-pen\"></i> 新春特别节目 & 作者：小黄117",
+      "bgNewYearText1": "祉，祝予福 缘，织于心，谐，连与情 乐，安喻人",
+      "bgNewYearText2": "挚缘，创谐乐 致远，谐得乐，至元，皆怀乐 只愿，人皆乐",
+      "bgNewYearText3": "愿每个人在新的一年都能寻得自己的道路，带着我们的祝福，勇往直前，追寻属于自己的人生吧！",
+      "bgMiraStudioAlt": "极致演播厅 背景",
+      "bgMiraStudioTitle": "极致演播厅",
+      "bgMiraStudioMeta": "<i class=\"fas fa-user-pen\"></i> 新春特别节目 & 作者：小黄117",
+      "bgMiraStudioText1": "——花开似浪，温柔如风，愿大家心海如风，事事如意",
+      "bgMiraStudioText2": "——春风浩荡，浪涌千里，愿大家勇立潮头，蒸蒸日上",
+      "bgMiraStudioText3": "——欢迎来到 XtremeWave 极致狂澜——新春特别节目！",
+      "bgXtremeWaveAlt": "XtremeWave 极致狂澜 背景",
+      "bgXtremeWaveTitle": "XtremeWave 极致狂澜",
+      "bgXtremeWaveMeta": "<i class=\"fas fa-user-pen\"></i> 原创设计 & 作者：Slok",
+      "bgXtremeWaveText1": "「极行致远，梦领狂澜！」",
+      "bgEmergencyAlt": "紧急会议 背景",
+      "bgEmergencyTitle": "紧急会议！",
+      "bgEmergencyMeta": "<i class=\"fas fa-user-pen\"></i> TORE 经典背景 & 作者：AIGE",
+      "bgEmergencyText1": "「谁是内鬼！？」",
+      "usage": "如何切换",
+      "usageItem1": "启动游戏，进入 Final Suspect 的<strong>模组设置菜单</strong>。",
+      "usageItem2": "找到「切换主页风格」入口，从 6 套背景中挑选你喜欢的一套。",
+      "usageItem3": "返回主菜单即可看到效果，之后随时可以再次切换成其他背景。",
+      "okTitle": "不影响游戏平衡",
+      "okBody": "切换主页风格功能不影响游戏平衡，所有玩家均可自由选择喜欢的背景。",
+      "pagerPrev": "输出日志",
+      "pagerNext": "我的音乐"
+    },
+    "feat-mymusic": {
+      "title": "我的音乐",
+      "sources": "获取方式",
+      "sourcesBody": "您可以在<a href=\"ResourceManager.html\">「资源管理」</a>中下载本模组支持的音乐， 或在文件夹 <code>Among Us/Final Suspect_Data/Musics</code> 中添加自己喜爱的音频文件。",
+      "sourcesBody2": "两种方式得到的音频都会被「我的音乐」识别，按自己的喜好选择即可。",
+      "local": "本地音乐目录",
+      "localBody": "自行添加音频时，请把文件放入下面的目录：",
+      "localLabel": "Final Suspect 音乐目录",
+      "warnTitle": "出现「文件丢失」怎么办",
+      "warnBody": "如果音乐本地资源路径不存在，界面则会显示「文件丢失」。 请回到上方目录确认音频文件是否已经放好。",
+      "netease": "作者的音乐",
+      "neteaseBody": "由 <strong>Slok</strong> 创作的音乐也已发布至网易云音乐 （<a href=\"https://y.music.163.com/m/user?id=8039762500\" target=\"_blank\" rel=\"noopener noreferrer\">y.music.163.com/m/user?id=8039762500</a>），想听的可以去听听。",
+      "pagerPrev": "切换主页风格",
+      "pagerNext": "名称标识管理"
+    },
+    "feat-nametag": {
+      "title": "名称标识管理",
+      "what": "功能说明",
+      "whatBody": "该功能可以为<strong>任意玩家</strong>添加名称标识，方便在房间中区分与识别不同的玩家。",
+      "whatBody2": "标识会在<strong>绑定好友代码</strong>的玩家加入后自动发放，无需在每局游戏中重复设置。",
+      "alertTitle": "进入房间后不能编辑",
+      "alertBody": "标识在<mark>进入房间后不能编辑</mark>。如需调整，请在进入房间之前完成设置。",
+      "pagerPrev": "我的音乐",
+      "pagerNext": "资源管理"
+    },
+    "feat-resourcemanager": {
+      "title": "资源管理",
+      "what": "功能说明",
+      "whatBody": "该功能可以在「资源管理」中下载本模组的配套以及扩展资源，所有资源都在模组内直接获取。",
+      "whatBody2": "例如「我的音乐」中可用的音乐资源，即可通过资源管理下载，具体说明见 <a href=\"MyMusic.html\">我的音乐</a>。",
+      "notice": "资源列表",
+      "noticeAlertTitle": "开头的文件为预下载资源包",
+      "noticeAlertBody": "列表<strong>开头的文件</strong>为<mark>预下载资源包</mark>，其余条目则是可单独下载的配套与扩展资源。",
+      "pagerPrev": "名称标识管理",
+      "pagerNext": "切换原版"
+    },
+    "feat-unloadmod": {
+      "title": "切换原版",
+      "what": "功能说明",
+      "whatBody": "启用「切换原版」后，将卸载 Final Suspect 有关功能，回到原版。 您将以原版客户端游玩 Among Us。",
+      "whatBody2": "该操作<strong>不会删除</strong>游戏目录中的模组文件， 因此重启游戏后即可重新加载 Final Suspect，回到模组环境。",
+      "pagerPrev": "资源管理",
+      "pagerNext": "更新日志"
+    },
+    "guide": {
+      "title": "教程总览",
+      "heroTitle": "FinalSuspect 教程",
+      "heroDesc": "从下载到上手的三篇分步指南：先装对平台包，再弄懂更新逻辑，出问题时把日志完整交给开发者。",
+      "toolsCount": "按顺序阅读效果最佳",
+      "card1Title": "安装模组",
+      "card1Desc": "下载对应平台的模组包，解压到游戏根目录。含 Steam / Epic 默认路径参考、目录结构核对图与插件路径。",
+      "cardGo": "开始阅读 <i class=\"fas fa-arrow-right\"></i>",
+      "card2Title": "更新模组",
+      "card2Desc": "内置更新检查的工作原理，以及更新检查失败时手动替换 dll 文件的完整流程。",
+      "card3Title": "导出日志",
+      "card3Desc": "出问题时如何拿到日志文件：自动导出、手动查看，以及游戏内的两组快捷键。",
+      "pagerNext": "安装模组"
+    },
+    "installation": {
+      "title": "安装模组",
+      "download": "下载安装包",
+      "downloadBody": "请通过以下方式获取最新版本安装包：",
+      "downloadCard": "GitHub Releases（点击前往）",
+      "steam": "Steam 平台安装",
+      "steamAlertTitle": "默认安装路径参考",
+      "steamAlertBody": "快速打开方法：按下 <kbd>Win</kbd> + <kbd>R</kbd> 组合键，输入路径后回车。",
+      "steamStep1Body": "通过 Steam 客户端右键点击《Among Us》→ 选择「属性」→ 切换到「本地文件」→ 点击「浏览」打开游戏根目录。",
+      "steamStep1Alt": "通过 Steam 客户端打开《Among Us》本地文件目录",
+      "steamStep1Caption": "Steam → 属性 → 本地文件 → 浏览",
+      "steamStep2Body": "将下载的 Final Suspect 压缩包解压到<strong>游戏根目录</strong>，最终文件结构应包含相应内容：",
+      "steamStep2Alt": "解压完成后的游戏根目录结构",
+      "steamStep2Caption": "解压完成后的目录结构核对",
+      "steamAlert2Title": "不要多套一层文件夹",
+      "steamAlert2Body": "解压后请核对目录结构。如果你看到的是 <code>Among Us\\FinalSuspect\\BepInEx\\</code> 这样的层级， 说明解压时多套了一层，需要把里面的内容移到游戏根目录。",
+      "epic": "Epic 平台安装",
+      "epicAlertTitle": "默认安装路径参考",
+      "epicAlertBody": "快速打开方法：通过 Epic 客户端库中找到《Among Us》→ 点击右侧「⋯」→ 选择「在资源管理器中显示」。",
+      "epicStep1Body": "按照上述方法打开 Epic 平台游戏根目录。",
+      "epicStep2Body": "将下载的 Final Suspect 压缩包解压到游戏根目录。",
+      "epicTermPath": "Epic 平台路径",
+      "epicAlert2Title": "Epic 平台限制",
+      "epicAlert2Body": "必须安装在 <strong>Epic 官方游戏目录</strong>下。非官方路径会导致校验失败。",
+      "pagerPrev": "教程总览",
+      "pagerNext": "更新模组"
+    },
+    "outputlog": {
+      "title": "导出日志",
+      "auto": "自动导出",
+      "autoBody": "您可以在 Final Suspect 功能中选择输出日志，随后将自动打开输出日志所在的文件夹。",
+      "autoPathLabel": "日志输出目录",
+      "manualAlertTitle": "手动打开这个目录",
+      "manualAlertBody": "按下 <kbd>Win</kbd> + <kbd>R</kbd> 组合键，把上面的目录粘贴进去后回车即可打开。",
+      "manual": "手动查看",
+      "manualBody": "如果无法打开设置页面，你也可以手动找到日志文件：",
+      "manualStep1": "启动 Steam，在库页面中选择 <mark>Among Us</mark>。",
+      "manualStep2": "点击右侧的 <mark>设置图标</mark> → <mark>管理</mark> → <mark>浏览本地文件</mark>， Steam 将打开 Among Us 根目录。",
+      "manualStep3": "打开 <mark>BepInEx</mark> 文件夹，其中的 <mark>LogOutput.log</mark> 便是日志文件。",
+      "manualPathLabel": "日志文件位置",
+      "warnTitle": "该文件会被自动清除",
+      "warnBody": "该文件将随着你重新启动 Final Suspect 自动清除。 如果需要反馈，请<mark>尽早把它复制出来</mark>。",
+      "hotkey": "快捷键",
+      "hotkeyTitle": "游戏内直接输出日志",
+      "hotkeyBody": "游戏中可按 <kbd>F1</kbd> + <kbd>Ctrl</kbd> 输出日志，或按 <kbd>F2</kbd> + <kbd>Ctrl</kbd> 输出当前对局日志。",
+      "pagerPrev": "更新模组",
+      "pagerNext": "选项总览"
+    },
+    "update": {
+      "title": "更新模组",
+      "auto": "自动更新",
+      "autoBody1": "Final Suspect 已于游戏内<strong>内置更新检查</strong>，每次启动将自动检查更新。",
+      "autoBody2": "在有更新时会要求您更新，否则您无法继续游玩。",
+      "autoBody3": "有关更新的详细信息，请查看<a href=\"../Changelog.html\">版本更新日志</a>。",
+      "autoAlertTitle": "两个渠道的检查逻辑不同",
+      "autoAlertBody": "<mark>Release</mark> 版本与 <mark>OpenBeta</mark> 版本的更新检查逻辑不同： Release 不会要求您更新到 OpenBeta 版本，而 OpenBeta 则不会进行更新检查。",
+      "when": "何时需要手动更新",
+      "whenAlertTitle": "优先选择自动更新",
+      "whenAlertBody1": "如非必要，我们建议您优先选择自动更新。",
+      "whenAlertBody2": "1.5.0版本需要手动更新，因为Steam端的游戏更新至了64位。",
+      "pagerPrev": "安装模组",
+      "pagerNext": "导出日志"
+    },
+    "intro": {
+      "docTitle": "简介",
+      "title": "FinalSuspect 简介",
+      "philosophy": "开发理念",
+      "philosophyBody1": "Final Suspect（终极嫌疑）是 Among Us 原版的优质辅助模组，致力于为玩家带来更流畅、更丰富的游戏体验。 作为原版核心机制的深度扩展，我们坚持「保留经典，优化体验」的开发理念，通过 20+ 项功能迭代， 全面覆盖操作手感、视觉表现、社交互动等核心场景。",
+      "philosophyBody2": "从精准的操作延迟优化到沉浸式的 UI 界面重制， Final Suspect 修复了原版长期存在的体验痛点。",
+      "gallery": "游戏背景图",
+      "galleryAlt": "FinalSuspect 游戏背景图",
+      "galleryCaption": "Final Suspect 游戏背景图（点击可放大）",
+      "galleryBody": "图上只是模组内置主页背景中的一套。Final Suspect 一共提供 <strong>6 套可切换的主页背景</strong>， 可以按心情随时换一套：",
+      "galleryCard": "主页风格管理（6 套背景）",
+      "credits": "开发团队",
+      "creditsBody": "衷心感谢为 Final Suspect 贡献代码与创意的所有开发者。",
+      "contributorsAlt": "FinalSuspect 贡献者名单",
+      "contributorsCaption": "GitHub 贡献者名单",
+      "pagerNext": "疑难解答"
+    },
+    "keyboard": {
+      "title": "快捷键",
+      "general": "模组端快捷键",
+      "generalBody": "这一组按键不区分身份，只要运行的是 Final Suspect 模组端即可使用。",
+      "generalKey1": "更改分辨率",
+      "generalKey2": "更改全屏",
+      "generalKey3": "重新加载自定义翻译文件",
+      "generalKey4": "导出自定义翻译文件",
+      "generalKey5": "输出日志",
+      "generalKey6": "游戏中输出日志",
+      "generalKey7": "打开游戏目录",
+      "generalKey8": "显示/隐藏主页 UI",
+      "host": "房主专用快捷键",
+      "hostAlertTitle": "生效条件",
+      "hostAlertBody": "该快捷键仅限自己是房主，且是 FinalSuspect 模组端生效。",
+      "hostKey1": "将大厅房间倒计时修改为 0s",
+      "hostKey2": "重置房间倒计时",
+      "pagerPrev": "疑难解答",
+      "pagerNext": "教程总览"
+    },
+    "opt-autoendgame": {
+      "title": "结束时自动返回大厅",
+      "how": "功能说明",
+      "howBody": "当游戏对局结束时，Final Suspect「结束时自动返回大厅」功能将<strong>自动触发</strong>， 自动跳过结算动画与复盘信息页，直接将玩家跳转返回至<strong>游戏大厅界面</strong>。",
+      "pagerPrev": "选项总览",
+      "pagerNext": "人满自动开始游戏"
+    },
+    "opt-autorecreateroom": {
+      "title": "掉线后自动新建房间",
+      "how": "功能说明",
+      "howBody": "当触发<strong>网络异常</strong>、<strong>服务器侧掉线</strong>、<strong>切到后台导致的掉线</strong>、<strong>大厅长时间无操作被踢出</strong>， 将根据游戏模式，自动创建对应游戏模式的新房间游戏大厅界面。",
+      "pagerPrev": "人满自动开始游戏",
+      "pagerNext": "启用反作弊（FAC）"
+    },
+    "opt-autostartgame": {
+      "title": "人满自动开始游戏",
+      "how": "功能说明",
+      "howBody": "本功能优化了自动开始游戏的逻辑，使房间人数接近满员时即可触发倒计时， 而不必等到房间里一个空位都不剩。",
+      "howBody2": "当房间玩家人数达到<mark>最大值 - 1</mark>（即仅差 1 人满员）时， 会启动 <strong>10 秒</strong>的短倒计时；倒计时期间，房主可手动取消。",
+      "pagerPrev": "结束时自动返回大厅",
+      "pagerNext": "掉线后自动新建房间"
+    },
+    "opt-disablevanillasound": {
+      "title": "禁用原版游戏音乐",
+      "how": "功能说明",
+      "howBody": "该选项允许玩家屏蔽<strong>大厅等待音乐</strong>。启用后相关场景将保持静默， 大厅里不会再循环播放原版的那段音乐。",
+      "howBody2": "这一设定适合希望自定义播放器音乐、或需要减少重复音频干扰的玩家； 该设定可通过<mark>模组配置菜单</mark>随时调整，功能不影响游戏音效。",
+      "pagerPrev": "启用反作弊（FAC）",
+      "pagerNext": "快速启动模式"
+    },
+    "opt-enablefac": {
+      "title": "启用反作弊（FAC）",
+      "how": "功能说明",
+      "howBody": "Final Suspect 提供了启用 FAC（Final Anti Cheat）的选项。 启用后 <mark>FAC 将开始工作</mark>，为房间提供反作弊防护。",
+      "warning": "警告",
+      "warningTitle": "官方不推荐禁用 FAC",
+      "warningBody": "我们<mark>不推荐</mark>你禁用 FAC。",
+      "warningBody2": "禁用 FAC 后，你的房间可能会被<strong>外挂炸崩</strong>。",
+      "pagerPrev": "掉线后自动新建房间",
+      "pagerNext": "禁用原版游戏音乐"
+    },
+    "opt-fastboot": {
+      "title": "快速启动模式",
+      "how": "功能说明",
+      "howBody": "快速启动模式用于优化游戏加载流程，启用后系统将<strong>跳过非必要环节</strong>。",
+      "howBody2": "经实测，常规启动耗时约 <strong>15 秒</strong>，启用快速启动后仅需 <mark>5 秒</mark>即可直达主菜单。",
+      "figure": "快速启动模式示意图",
+      "figureAlt": "快速启动模式示意图",
+      "figureCaption": "快速启动模式示意图",
+      "notice": "注意",
+      "noticeTitle": "首次安装与大版本更新",
+      "noticeBody": "首次安装或大版本更新时仍需完整加载资源，这一段加载无法被快速启动省掉。",
+      "pagerPrev": "禁用原版游戏音乐",
+      "pagerNext": "踢出好友代码异常的玩家"
+    },
+    "options": {
+      "title": "选项",
+      "heroTitle": "FinalSuspect 选项",
+      "heroDesc": "15 项可调节开关，覆盖自动化流程、房间防护、信息显示与性能表现。每一项都可以单独启用， 按你的玩法自由组合。",
+      "autoEndGameTitle": "结束时自动返回大厅",
+      "autoEndGameDesc": "对局结束自动跳过结算与复盘，直接回到大厅，连打时更顺手。",
+      "autoEndGameGo": "查看说明 <i class=\"fas fa-arrow-right\"></i>",
+      "autoStartGameTitle": "人满自动开始游戏",
+      "autoStartGameDesc": "人数达到最大值减一时启动 10 秒短倒计时，房主可随时取消。",
+      "autoStartGameGo": "查看说明 <i class=\"fas fa-arrow-right\"></i>",
+      "autoRecreateRoomTitle": "掉线后自动新建房间",
+      "autoRecreateRoomDesc": "当触发意外掉线，即可无需手动点击而自动创建房间。",
+      "autoRecreateRoomGo": "查看说明 <i class=\"fas fa-arrow-right\"></i>",
+      "enableFacTitle": "启用反作弊（FAC）",
+      "enableFacDesc": "开启 Final Anti Cheat。关闭后房间失去防护，官方不推荐。",
+      "enableFacGo": "查看说明 <i class=\"fas fa-arrow-right\"></i>",
+      "disableVanillaSoundTitle": "禁用原版游戏音乐",
+      "disableVanillaSoundDesc": "屏蔽大厅等待音乐，方便搭配自己的播放器，不影响游戏音效。",
+      "disableVanillaSoundGo": "查看说明 <i class=\"fas fa-arrow-right\"></i>",
+      "fastBootTitle": "快速启动模式",
+      "fastBootDesc": "跳过非必要加载环节，启动耗时从约 15 秒缩短到约 5 秒。",
+      "fastBootGo": "查看说明 <i class=\"fas fa-arrow-right\"></i>",
+      "kickAbnormalFriendCodeTitle": "踢出好友代码异常玩家",
+      "kickAbnormalFriendCodeDesc": "检测好友代码是否异常并自动踢出，同时给出提示。",
+      "kickAbnormalFriendCodeGo": "查看说明 <i class=\"fas fa-arrow-right\"></i>",
+      "kickBanListTitle": "踢出被封禁的玩家",
+      "kickBanListDesc": "检测到玩家处于封禁名单时自动踢出，维护房间环境。",
+      "kickBanListGo": "查看说明 <i class=\"fas fa-arrow-right\"></i>",
+      "kickDenyNameTitle": "踢出违规昵称玩家",
+      "kickDenyNameDesc": "房主模式下自动踢出使用敏感词或恶意昵称的玩家，可手动关闭。",
+      "kickDenyNameGo": "查看说明 <i class=\"fas fa-arrow-right\"></i>",
+      "offlineModeTitle": "离线模式（试验性）",
+      "offlineModeDesc": "不再从远程获取资源。会造成资源无法更新，不推荐日常使用。",
+      "offlineModeGo": "查看说明 <i class=\"fas fa-arrow-right\"></i>",
+      "showPlayerInfoTitle": "展示玩家平台与客户端信息",
+      "showPlayerInfoDesc": "大厅中显示各玩家平台与好友代码，便于识别与举报作弊者。",
+      "showPlayerInfoGo": "查看说明 <i class=\"fas fa-arrow-right\"></i>",
+      "spamDenyWordTitle": "屏蔽违禁词",
+      "spamDenyWordDesc": "聊天中的违禁词自动替换为星号，保留句子可读性。",
+      "spamDenyWordGo": "查看说明 <i class=\"fas fa-arrow-right\"></i>",
+      "switchOutfitTitle": "切换外观形象",
+      "switchOutfitDesc": "经典豆子、愚人节牧马、愚人节长颈豆三种造型自由切换。",
+      "switchOutfitGo": "查看说明 <i class=\"fas fa-arrow-right\"></i>",
+      "unlockFpsTitle": "解锁帧数限制",
+      "unlockFpsDesc": "解除原版 60FPS 上限，最高支持 165FPS，动画与操作更顺滑。",
+      "unlockFpsGo": "查看说明 <i class=\"fas fa-arrow-right\"></i>",
+      "useModCursorTitle": "使用模组鼠标光标",
+      "useModCursorDesc": "用模组定制光标替换系统光标。不喜欢覆盖系统光标建议关闭。",
+      "useModCursorGo": "查看说明 <i class=\"fas fa-arrow-right\"></i>",
+      "pagerPrev": "教程总览",
+      "pagerNext": "结束时自动返回大厅"
+    },
+    "opt-kickbanlist": {
+      "title": "踢出被封禁的玩家",
+      "how": "功能说明",
+      "howBody": "当 Final Suspect 检测到玩家处于<strong>封禁名单</strong>时，将自动踢出该玩家。",
+      "howBody2": "命中名单后的处理是<mark>自动</mark>的：不需要房主手动确认，也不需要在房间里额外操作。",
+      "pagerPrev": "踢出好友代码异常的玩家",
+      "pagerNext": "踢出违规昵称玩家"
+    },
+    "opt-kickfriendcode": {
+      "title": "踢出好友代码异常的玩家",
+      "how": "功能说明",
+      "howBody": "Final Suspect 提供了<strong>好友代码检测</strong>功能。",
+      "howBody2": "启用该功能后，Final Suspect 会立即踢出所有<mark>好友代码异常</mark>的玩家，并进行提示。",
+      "pagerPrev": "快速启动模式",
+      "pagerNext": "踢出被封禁的玩家"
+    },
+    "opt-kickdenyname": {
+      "title": "踢出违规昵称玩家",
+      "how": "功能说明",
+      "howBody": "当您是房主时，若 Final Suspect 检测到有人使用了违规昵称（如包含敏感词等<strong>破坏游戏体验</strong>的名称）， 系统将自动踢出该玩家。",
+      "howBody2": "该功能可有效维护房间秩序，避免恶意名称对其他玩家造成干扰。",
+      "pagerPrev": "踢出被封禁的玩家",
+      "pagerNext": "离线模式（试验性）"
+    },
+    "opt-offlinemode": {
+      "title": "离线模式（试验性）",
+      "how": "功能说明",
+      "howBody": "在 Final Suspect 中，当你启动离线模式，将不会从<strong>远程获取资源</strong>。",
+      "howBody2": "也就是说，模组运行所需的资源不再走远程获取这条链路；该功能当前属于<strong>试验性功能</strong>",
+      "notice": "风险提醒",
+      "noticeTitle": "不推荐启用",
+      "noticeBody": "<strong>不推荐</strong>启用离线模式；启用后您无法获取最新的资源。",
+      "pagerPrev": "踢出违规昵称玩家",
+      "pagerNext": "展示玩家平台与客户端信息"
+    },
+    "opt-showplayerinfo": {
+      "title": "展示玩家平台与客户端信息",
+      "how": "功能说明",
+      "howBody": "启用该选项后，在大厅等待时，所有玩家的所属平台（如 <strong>Steam</strong>、<strong>Epic</strong> 等）及好友代码将会显示在玩家下方。 Starlight玩家则不显示所属平台。",
+      "preview": "效果示意",
+      "previewAlt": "展示玩家平台与客户端信息示意图",
+      "previewCaption": "展示玩家平台与客户端信息示意图",
+      "privacy": "录制提醒",
+      "privacyTitle": "直播与录制时建议关闭",
+      "privacyBody": "在进行直播、素材录制等活动时建议<strong>关闭此功能</strong>来保护隐私。",
+      "pagerPrev": "离线模式（试验性）",
+      "pagerNext": "屏蔽违禁词"
+    },
+    "opt-spamdenyword": {
+      "title": "屏蔽违禁词",
+      "how": "功能说明",
+      "howBody": "当 Final Suspect 检测到聊天内容中包含违禁词（如<strong>侮辱性词汇、广告、敏感信息</strong>等）时， 会自动将该词汇替换为星号（*），而不会影响句子的其余部分。",
+      "preview": "效果示意",
+      "previewAlt": "屏蔽违禁词示意图",
+      "previewCaption": "屏蔽违禁词示意图",
+      "pagerPrev": "展示玩家平台与客户端信息",
+      "pagerNext": "切换外观形象"
+    },
+    "opt-switchoutfit": {
+      "title": "切换外观形象",
+      "how": "功能说明",
+      "howBody": "该选项为玩家提供了<strong>三种可切换的太空人形象</strong>，切换入口在设置菜单中。",
+      "howBody2": "不同形象只改变角色的外观表现，不改变任何玩法规则。",
+      "modes": "三种形象",
+      "modesItem1Title": "<strong>经典豆子模式</strong>",
+      "modesItem1Body": "官方默认，还是你最熟悉的太空<strong>豆子</strong>造型。",
+      "modesItem2Title": "<strong>愚人节牧马模式</strong>",
+      "modesItem2Body": "恶搞风格，将角色替换为滑稽的<strong>牧马</strong>形象（参考官方愚人节彩蛋）。",
+      "modesItem3Title": "<strong>愚人节长颈豆模式</strong>",
+      "modesItem3Body": "趣味变体，角色变成脖子超长的<strong>长颈豆</strong>，致敬官方愚人节特殊外观。",
+      "tips": "提示",
+      "tipsTitle": "可自由切换",
+      "tipsBody": "玩家可在设置菜单中自由切换模式。",
+      "tipsBody2": "该功能不影响游戏平衡，仅为娱乐性扩展。",
+      "pagerPrev": "屏蔽违禁词",
+      "pagerNext": "解锁帧数限制"
+    },
+    "opt-unlockfps": {
+      "title": "解锁帧数限制",
+      "how": "功能说明",
+      "howBody": "原版游戏客户端默认将帧率限制在 <strong>60FPS</strong>，启用此功能后可解除该限制， 最高支持 <strong>165FPS</strong> 的流畅画面表现。",
+      "howBody2": "高帧率模式能显著提升游戏动画的顺滑度和操作响应速度。",
+      "preview": "效果示意",
+      "previewAlt": "解锁帧数限制功能示意图",
+      "previewCaption": "解锁帧数限制功能示意图",
+      "notice": "注意",
+      "noticeTitle": "针对Android端Starlight的「解锁帧数限制」功能",
+      "noticeBody": "Android端Starlight在手机厂商里是没有白名单优化机制的，所以会被限制在一个很怂的调度策略。<br> 而解锁165帧会让CPU工作压力暴涨，温度上来触发手机温控，开始对CPU锁频，然后帧率暴降。<br> 所以FinalSuspect仅对<strong>骁龙8至尊版</strong>，<strong>天玑9300</strong>及以上旗舰手机开放解锁165帧的选项。",
+      "pagerPrev": "切换外观形象",
+      "pagerNext": "使用模组鼠标光标"
+    },
+    "opt-usemodcursor": {
+      "title": "使用模组鼠标光标",
+      "how": "功能说明",
+      "howBody": "启用此功能后，游戏将采用模组提供的定制鼠标光标，替代原版游戏的默认鼠标光标。",
+      "howBody2": "它只影响光标的显示样式，不影响任何游戏内操作与判定。",
+      "advice": "提醒",
+      "adviceTitle": "会覆盖你的鼠标光标",
+      "adviceBody": "<strong>该功能会覆盖你的鼠标光标</strong>。",
+      "adviceBody2": "除非你不喜欢用 Windows 默认鼠标光标，否则一般而言建议关闭。",
+      "preview": "效果示意",
+      "previewAlt": "模组鼠标光标示意图",
+      "previewCaption": "模组鼠标光标示意图",
+      "pagerPrev": "解锁帧数限制",
+      "pagerNext": "功能总览"
+    },
+    "home": {
+      "title": "FinalSuspect",
+      "heroTitle": "模组文档",
+      "heroDesc": "The Ultimate Among Us Mod for the Vanilla Experience.",
+      "row1Title": "模组简介",
+      "row1Desc": "开发理念与开发团队",
+      "row2Title": "安装与更新",
+      "row2Desc": "Steam / Epic 双平台安装步骤、版本更新与日志导出",
+      "row3Title": "选项",
+      "row3Desc": "反作弊、解锁帧率等共 14 项可调开关",
+      "row4Title": "功能",
+      "row4Desc": "主页风格、音乐、资源管理与日志处理，共 7 个板块",
+      "row5Title": "疑难解答",
+      "row5Desc": "安装失败、错误代码、连接异常等 9 组 Q&A",
+      "row6Title": "快捷键",
+      "row6Desc": "模组端通用按键与房主专用按键一览",
+      "row7Title": "更新日志",
+      "row7Desc": "按版本倒序的完整改动记录，含对应官方游戏版本"
+    }
+  }
+}

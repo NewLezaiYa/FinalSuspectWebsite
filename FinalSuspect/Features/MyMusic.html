@@ -6,45 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#030308">
     <script>try { if (localStorage.getItem('fs.theme') === 'light') { document.documentElement.setAttribute('data-theme', 'light'); var m = document.querySelector('meta[name="theme-color"]'); if (m) m.setAttribute('content', '#eef1f7') } } catch (e) { }</script>
-    <title>我的音乐</title>
+    <title data-i18n="p.title">我的音乐</title>
 
-    <link rel="stylesheet" href="../../Resource/CSS/fonts.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/icons.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/variables.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/components.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/layout.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/pages.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/animations.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/responsive.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/theme.css?v=ad8e71eb">
+    <link rel="stylesheet" href="../../Resource/CSS/fonts.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/icons.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/variables.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/components.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/layout.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/pages.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/animations.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/responsive.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/theme.css?v=3e933278">
 </head>
 
 <body data-shell="full" data-page="feat-mymusic" data-rail="features">
     <main>
         <header class="page-head">
-            <h1 class="page-title">我的音乐</h1>
+            <h1 class="page-title" data-i18n="p.title">我的音乐</h1>
             <div class="page-head__meta">
-                <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
+                <span><i class="fas fa-clock"></i> <span data-i18n="ui.updated">更新于</span> <time data-last-modified datetime=""></time></span>
             </div>
         </header>
 
         <div class="prose">
 
-            <h2 class="sec-title" id="sources">获取方式</h2>
-            <p>
+            <h2 class="sec-title" id="sources" data-i18n="p.sources">获取方式</h2>
+            <p data-i18n-html="p.sourcesBody">
                 您可以在<a href="ResourceManager.html">「资源管理」</a>中下载本模组支持的音乐，
                 或在文件夹 <code>Among Us/Final Suspect_Data/Musics</code> 中添加自己喜爱的音频文件。
             </p>
-            <p>
+            <p data-i18n="p.sourcesBody2">
                 两种方式得到的音频都会被「我的音乐」识别，按自己的喜好选择即可。
             </p>
 
-            <h2 class="sec-title" id="local">本地音乐目录</h2>
-            <p>自行添加音频时，请把文件放入下面的目录：</p>
+            <h2 class="sec-title" id="local" data-i18n="p.local">本地音乐目录</h2>
+            <p data-i18n="p.localBody">自行添加音频时，请把文件放入下面的目录：</p>
             <div class="term">
                 <div class="term__bar">
                     <span class="term__dots"><i></i><i></i><i></i></span>
-                    <span class="term__path">Final Suspect 音乐目录</span>
+                    <span class="term__path" data-i18n="p.localLabel">Final Suspect 音乐目录</span>
                 </div>
                 <pre><code>Among Us/Final Suspect_Data/Musics</code></pre>
             </div>
@@ -52,14 +52,14 @@
             <div class="alert alert--warn">
                 <span class="alert__icon"><i class="fas fa-triangle-exclamation"></i></span>
                 <div class="alert__body">
-                    <span class="alert__title">出现「文件丢失」怎么办</span>
-                    <p>如果音乐本地资源路径不存在，界面则会显示「文件丢失」。
+                    <span class="alert__title" data-i18n="p.warnTitle">出现「文件丢失」怎么办</span>
+                    <p data-i18n="p.warnBody">如果音乐本地资源路径不存在，界面则会显示「文件丢失」。
                         请回到上方目录确认音频文件是否已经放好。</p>
                 </div>
             </div>
 
-            <h2 class="sec-title" id="netease">作者的音乐</h2>
-            <p>
+            <h2 class="sec-title" id="netease" data-i18n="p.netease">作者的音乐</h2>
+            <p data-i18n-html="p.neteaseBody">
                 由 <strong>Slok</strong> 创作的音乐也已发布至网易云音乐
                 （<a href="https://y.music.163.com/m/user?id=8039762500" target="_blank"
                     rel="noopener noreferrer">y.music.163.com/m/user?id=8039762500</a>），想听的可以去听听。
@@ -68,23 +68,23 @@
 
         <div class="pager">
             <a class="pager__item" href="MainMenuStyleManager.html">
-                <small>上一篇</small>
-                <b>← 切换主页风格</b>
+                <small data-i18n="ui.prev">上一篇</small>
+                <b>← <span data-i18n="p.pagerPrev">切换主页风格</span></b>
             </a>
             <a class="pager__item pager__item--next" href="NameTagManager.html">
-                <small>下一篇</small>
-                <b>名称标识管理 →</b>
+                <small data-i18n="ui.next">下一篇</small>
+                <b><span data-i18n="p.pagerNext">名称标识管理</span> →</b>
             </a>
         </div>
     </main>
 
-    <script src="../../Resource/JS/language.js?v=ad8e71eb" defer></script>
-    <script src="../../Resource/JS/versions.js?v=ad8e71eb" defer></script>
-    <script src="../../Resource/JS/shell.js?v=ad8e71eb" defer></script>
-    <script src="../../Resource/JS/transition.js?v=ad8e71eb" defer></script>
-    <script src="../../Resource/JS/effects.js?v=ad8e71eb" defer></script>
-    <script src="../../Resource/JS/last-modified.js?v=ad8e71eb" defer></script>
-    <script src="../../Resource/JS/time.js?v=ad8e71eb" defer></script>
+    <script src="../../Resource/JS/language.js?v=3e933278" defer></script>
+    <script src="../../Resource/JS/changelog-source.js?v=3e933278" defer></script>
+    <script src="../../Resource/JS/shell.js?v=3e933278" defer></script>
+    <script src="../../Resource/JS/transition.js?v=3e933278" defer></script>
+    <script src="../../Resource/JS/effects.js?v=3e933278" defer></script>
+    <script src="../../Resource/JS/last-modified.js?v=3e933278" defer></script>
+    <script src="../../Resource/JS/time.js?v=3e933278" defer></script>
 </body>
 
 </html>

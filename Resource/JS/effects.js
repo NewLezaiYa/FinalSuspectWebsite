@@ -1,3 +1,6 @@
+/*
+ * 通用交互：入场揭示 / 水波纹 / 阅读进度 / 图片灯箱 / 复制按钮 / 首页版本信息
+ */
 (function () {
   'use strict';
 
@@ -108,6 +111,15 @@
   }
 
 
+  function t(key, params, fallback) {
+    if (window.I18N && window.I18N.t) {
+      var value = window.I18N.t(key, params, fallback);
+      if (value) return value;
+    }
+    return fallback || '';
+  }
+
+
   function initLightbox() {
     var imgs = $$('[data-zoom] img, .figure img');
     if (!imgs.length) return;
@@ -118,7 +130,7 @@
     box.innerHTML =
       '<div style="position:relative;max-width:94vw;max-height:92vh">' +
       '<img alt="" style="max-width:94vw;max-height:88vh;border:1px solid var(--ln-1);border-radius:var(--r-sm);box-shadow:0 40px 100px rgba(0,0,0,.85)">' +
-      '<button class="icon-btn" type="button" aria-label="关闭" style="position:absolute;top:-14px;right:-14px;border-radius:50%"><i class="fas fa-xmark"></i></button>' +
+      '<button class="icon-btn" type="button" data-i18n-aria-label="ui.close" style="position:absolute;top:-14px;right:-14px;border-radius:50%"><i class="fas fa-xmark"></i></button>' +
       '</div>';
     document.body.appendChild(box);
 
@@ -143,7 +155,7 @@
     var done = function () {
       if (!btn) return;
       var old = btn.textContent;
-      btn.textContent = okLabel || '已复制';
+      btn.textContent = okLabel || t('ui.copied');
       btn.classList.add('copied');
       setTimeout(function () { btn.textContent = idleLabel || old; btn.classList.remove('copied'); }, 1600);
     };
@@ -169,21 +181,25 @@
       var btn = document.createElement('button');
       btn.className = 'copy-btn';
       btn.type = 'button';
-      btn.textContent = '复制';
+      btn.textContent = t('ui.copy');
+      btn.setAttribute('data-i18n', 'ui.copy');
       btn.addEventListener('click', function () {
         var code = pre.querySelector('code');
-        copyText(code ? code.textContent : pre.textContent, btn, '已复制', '复制');
+        copyText(code ? code.textContent : pre.textContent, btn, t('ui.copied'), t('ui.copy'));
       });
       if (getComputedStyle(pre).position === 'static') pre.style.position = 'relative';
       pre.appendChild(btn);
     });
 
     $$('.error-code').forEach(function (n) {
-      n.title = '点击复制错误代码';
+      if (n.dataset.copyBound) return;
+      n.dataset.copyBound = '1';
+      n.title = t('ui.copyErrorCode');
+      n.setAttribute('data-i18n-title', 'ui.copyErrorCode');
       n.addEventListener('click', function () {
         var old = n.textContent;
         copyText(old, null);
-        n.textContent = '已复制!';
+        n.textContent = t('ui.copied') + '!';
         n.style.color = 'var(--c-green)';
         setTimeout(function () { n.textContent = old; n.style.color = ''; }, 1400);
       });
@@ -193,9 +209,10 @@
 
   function initHomeMeta() {
     if (document.body.dataset.shell !== 'home') return;
-    var list = window.VERSIONS || [];
+    var src = window.ChangelogSource;
+    var list = src ? src.list() : [];
     var meta = document.getElementById('logMeta');
-    if (meta && list.length) meta.textContent = list.length + ' 个版本 · 最新 ' + list[0].version + ' →';
+    if (meta && list.length) meta.textContent = t('ui.versionsMeta', { count: list.length, version: list[0].version });
   }
 
 
@@ -210,6 +227,20 @@
     document.documentElement.classList.add('fx-ready');
   }
 
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
-  else boot();
+  document.addEventListener('i18n:change', function () {
+    initHomeMeta();
+    /* data-i18n-html 会重建节点，重新绑定复制/错误代码的交互 */
+    initCopy();
+  });
+
+  function start() {
+    if (window.I18N && window.I18N.ready && typeof window.I18N.ready.then === 'function') {
+      window.I18N.ready.then(boot, boot);
+      return;
+    }
+    boot();
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
+  else start();
 })();

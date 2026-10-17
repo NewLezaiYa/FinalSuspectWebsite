@@ -6,86 +6,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#030308">
     <script>try { if (localStorage.getItem('fs.theme') === 'light') { document.documentElement.setAttribute('data-theme', 'light'); var m = document.querySelector('meta[name="theme-color"]'); if (m) m.setAttribute('content', '#eef1f7') } } catch (e) { }</script>
-    <title>安装模组</title>
+    <title data-i18n="p.title">安装模组</title>
 
-    <link rel="stylesheet" href="../../Resource/CSS/fonts.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/icons.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/variables.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/components.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/layout.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/pages.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/animations.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/responsive.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/theme.css?v=ad8e71eb">
+    <link rel="stylesheet" href="../../Resource/CSS/fonts.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/icons.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/variables.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/components.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/layout.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/pages.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/animations.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/responsive.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/theme.css?v=3e933278">
 </head>
 
 <body data-shell="full" data-page="installation" data-rail="guide">
     <main>
         <header class="page-head">
-            <h1 class="page-title">安装模组</h1>
+            <h1 class="page-title" data-i18n="p.title">安装模组</h1>
             <div class="page-head__meta">
-                <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
+                <span><i class="fas fa-clock"></i> <span data-i18n="ui.updated">更新于</span> <time data-last-modified datetime=""></time></span>
             </div>
         </header>
 
         <div class="prose">
 
-            <h2 class="sec-title" id="download">下载安装包</h2>
-            <p>请通过以下方式获取最新版本安装包：</p>
+            <h2 class="sec-title" id="download" data-i18n="p.download">下载安装包</h2>
+            <p data-i18n="p.downloadBody">请通过以下方式获取最新版本安装包：</p>
 
             <div class="related__grid">
                 <a class="related__card" href="https://github.com/Slok7565/FinalSuspect/releases" target="_blank"
                     rel="noopener noreferrer">
-                    <i class="brand-ico brand-ico--github"></i><span>GitHub Releases（点击前往）</span><i
+                    <i class="brand-ico brand-ico--github"></i><span data-i18n="p.downloadCard">GitHub Releases（点击前往）</span><i
                         class="fas fa-arrow-up-right-from-square"></i>
                 </a>
             </div>
 
-            <h2 class="sec-title" id="steam">Steam 平台安装</h2>
+            <h2 class="sec-title" id="steam" data-i18n="p.steam">Steam 平台安装</h2>
 
             <div class="alert alert--tip">
                 <span class="alert__icon"><i class="fas fa-folder-open"></i></span>
                 <div class="alert__body">
-                    <span class="alert__title">默认安装路径参考</span>
+                    <span class="alert__title" data-i18n="p.steamAlertTitle">默认安装路径参考</span>
                     <p class="callout-path" style="margin:var(--s-2) 0 0"><i class="fas fa-terminal"></i>
                         C:\Program Files (x86)\Steam\steamapps\common\Among Us</p>
-                    <p>快速打开方法：按下 <kbd>Win</kbd> + <kbd>R</kbd> 组合键，输入路径后回车。</p>
+                    <p data-i18n-html="p.steamAlertBody">快速打开方法：按下 <kbd>Win</kbd> + <kbd>R</kbd> 组合键，输入路径后回车。</p>
                 </div>
             </div>
 
             <div class="steps">
                 <div class="step">
                     <div class="step__body">
-                        <p>通过 Steam 客户端右键点击《Among Us》→ 选择「属性」→ 切换到「本地文件」→
+                        <p data-i18n="p.steamStep1Body">通过 Steam 客户端右键点击《Among Us》→ 选择「属性」→ 切换到「本地文件」→
                             点击「浏览」打开游戏根目录。</p>
                         <figure class="figure">
                             <picture>
                                 <source srcset="../../Resource/images/OpenAmongUsWithSteam.webp" type="image/webp">
                                 <img width="1920" height="1030" data-nowebp
                                     src="../../Resource/images/OpenAmongUsWithSteam.png"
-                                    alt="通过 Steam 客户端打开《Among Us》本地文件目录" loading="lazy" decoding="async">
+                                    alt="通过 Steam 客户端打开《Among Us》本地文件目录" data-i18n-alt="p.steamStep1Alt" loading="lazy" decoding="async">
                             </picture>
-                            <figcaption>Steam → 属性 → 本地文件 → 浏览</figcaption>
+                            <figcaption data-i18n="p.steamStep1Caption">Steam → 属性 → 本地文件 → 浏览</figcaption>
                         </figure>
                     </div>
                 </div>
 
                 <div class="step">
                     <div class="step__body">
-                        <p>将下载的 Final Suspect 压缩包解压到<strong>游戏根目录</strong>，最终文件结构应包含相应内容：</p>
+                        <p data-i18n-html="p.steamStep2Body">将下载的 Final Suspect 压缩包解压到<strong>游戏根目录</strong>，最终文件结构应包含相应内容：</p>
                         <figure class="figure">
                             <picture>
                                 <source srcset="../../Resource/images/SteamUnzip.webp" type="image/webp">
                                 <img width="774" height="447" data-nowebp src="../../Resource/images/SteamUnzip.png"
-                                    alt="解压完成后的游戏根目录结构" loading="lazy" decoding="async">
+                                    alt="解压完成后的游戏根目录结构" data-i18n-alt="p.steamStep2Alt" loading="lazy" decoding="async">
                             </picture>
-                            <figcaption>解压完成后的目录结构核对</figcaption>
+                            <figcaption data-i18n="p.steamStep2Caption">解压完成后的目录结构核对</figcaption>
                         </figure>
                         <div class="alert alert--warn">
                             <span class="alert__icon"><i class="fas fa-triangle-exclamation"></i></span>
                             <div class="alert__body">
-                                <span class="alert__title">不要多套一层文件夹</span>
-                                <p>解压后请核对目录结构。如果你看到的是
+                                <span class="alert__title" data-i18n="p.steamAlert2Title">不要多套一层文件夹</span>
+                                <p data-i18n-html="p.steamAlert2Body">解压后请核对目录结构。如果你看到的是
                                     <code>Among Us\FinalSuspect\BepInEx\</code> 这样的层级，
                                     说明解压时多套了一层，需要把里面的内容移到游戏根目录。
                                 </p>
@@ -95,32 +95,32 @@
                 </div>
             </div>
 
-            <h2 class="sec-title" id="epic">Epic 平台安装</h2>
+            <h2 class="sec-title" id="epic" data-i18n="p.epic">Epic 平台安装</h2>
 
             <div class="alert alert--tip">
                 <span class="alert__icon"><i class="fas fa-folder-open"></i></span>
                 <div class="alert__body">
-                    <span class="alert__title">默认安装路径参考</span>
+                    <span class="alert__title" data-i18n="p.epicAlertTitle">默认安装路径参考</span>
                     <p class="callout-path" style="margin:var(--s-2) 0 0"><i class="fas fa-terminal"></i>
                         C:\Program Files\Epic Games\AmongUs</p>
-                    <p>快速打开方法：通过 Epic 客户端库中找到《Among Us》→ 点击右侧「⋯」→ 选择「在资源管理器中显示」。</p>
+                    <p data-i18n="p.epicAlertBody">快速打开方法：通过 Epic 客户端库中找到《Among Us》→ 点击右侧「⋯」→ 选择「在资源管理器中显示」。</p>
                 </div>
             </div>
 
             <div class="steps">
                 <div class="step">
                     <div class="step__body">
-                        <p>按照上述方法打开 Epic 平台游戏根目录。</p>
+                        <p data-i18n="p.epicStep1Body">按照上述方法打开 Epic 平台游戏根目录。</p>
                     </div>
                 </div>
 
                 <div class="step">
                     <div class="step__body">
-                        <p>将下载的 Final Suspect 压缩包解压到游戏根目录。</p>
+                        <p data-i18n="p.epicStep2Body">将下载的 Final Suspect 压缩包解压到游戏根目录。</p>
                         <div class="term">
                             <div class="term__bar">
                                 <span class="term__dots"><i></i><i></i><i></i></span>
-                                <span class="term__path">Epic 平台路径</span>
+                                <span class="term__path" data-i18n="p.epicTermPath">Epic 平台路径</span>
                             </div>
                             <pre><code>C:\Program Files\Epic Games\AmongUs\BepInEx\plugins\FinalSuspect.dll</code></pre>
                         </div>
@@ -131,31 +131,31 @@
             <div class="alert alert--danger">
                 <span class="alert__icon"><i class="fas fa-circle-exclamation"></i></span>
                 <div class="alert__body">
-                    <span class="alert__title">Epic 平台限制</span>
-                    <p>必须安装在 <strong>Epic 官方游戏目录</strong>下。非官方路径会导致校验失败。</p>
+                    <span class="alert__title" data-i18n="p.epicAlert2Title">Epic 平台限制</span>
+                    <p data-i18n-html="p.epicAlert2Body">必须安装在 <strong>Epic 官方游戏目录</strong>下。非官方路径会导致校验失败。</p>
                 </div>
             </div>
         </div>
 
         <div class="pager">
             <a class="pager__item" href="index.html">
-                <small>上一篇</small>
-                <b>← 教程总览</b>
+                <small data-i18n="ui.prev">上一篇</small>
+                <b>← <span data-i18n="p.pagerPrev">教程总览</span></b>
             </a>
             <a class="pager__item pager__item--next" href="Update.html">
-                <small>下一篇</small>
-                <b>更新模组 →</b>
+                <small data-i18n="ui.next">下一篇</small>
+                <b><span data-i18n="p.pagerNext">更新模组</span> →</b>
             </a>
         </div>
     </main>
 
-    <script src="../../Resource/JS/language.js?v=ad8e71eb" defer></script>
-    <script src="../../Resource/JS/versions.js?v=ad8e71eb" defer></script>
-    <script src="../../Resource/JS/shell.js?v=ad8e71eb" defer></script>
-    <script src="../../Resource/JS/transition.js?v=ad8e71eb" defer></script>
-    <script src="../../Resource/JS/effects.js?v=ad8e71eb" defer></script>
-    <script src="../../Resource/JS/last-modified.js?v=ad8e71eb" defer></script>
-    <script src="../../Resource/JS/time.js?v=ad8e71eb" defer></script>
+    <script src="../../Resource/JS/language.js?v=3e933278" defer></script>
+    <script src="../../Resource/JS/changelog-source.js?v=3e933278" defer></script>
+    <script src="../../Resource/JS/shell.js?v=3e933278" defer></script>
+    <script src="../../Resource/JS/transition.js?v=3e933278" defer></script>
+    <script src="../../Resource/JS/effects.js?v=3e933278" defer></script>
+    <script src="../../Resource/JS/last-modified.js?v=3e933278" defer></script>
+    <script src="../../Resource/JS/time.js?v=3e933278" defer></script>
 </body>
 
 </html>

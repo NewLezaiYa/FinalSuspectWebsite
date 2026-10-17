@@ -1,3 +1,6 @@
+/*
+ * 首页加载入口：判断是否需要播放开场动画，结束后让页面进入就绪态
+ */
 (function () {
   'use strict';
 
@@ -49,6 +52,15 @@
     });
   }
 
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
-  else boot();
+  /* 等语言文件就绪后再播放开场动画，保证进度文案有翻译可用 */
+  function start() {
+    if (window.I18N && window.I18N.ready && typeof window.I18N.ready.then === 'function') {
+      window.I18N.ready.then(boot, boot);
+      return;
+    }
+    boot();
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
+  else start();
 })();

@@ -2,140 +2,140 @@
   "version": 1,
   "files": {
     "FinalSuspect/404.html": {
-      "hash": "9e748d5dbb43642e",
-      "time": "2026-10-18 06:39"
+      "hash": "120dbc1a0e89e6e7",
+      "time": "2026-10-18 07:11"
     },
     "FinalSuspect/Changelog.html": {
-      "hash": "f7335ae961e67db8",
-      "time": "2026-10-18 06:39"
+      "hash": "99d237323670e4cc",
+      "time": "2026-10-18 07:18"
     },
     "FinalSuspect/FAQ.html": {
-      "hash": "87d321381e34cc70",
-      "time": "2026-10-18 06:39"
+      "hash": "3aaeb769d1caa140",
+      "time": "2026-10-18 07:16"
     },
     "FinalSuspect/Features/ClearAutoLogs.html": {
-      "hash": "53d470a8e0077e50",
-      "time": "2026-10-18 06:39"
+      "hash": "513e6abd49a1be3b",
+      "time": "2026-10-18 07:14"
     },
     "FinalSuspect/Features/DumpLog.html": {
-      "hash": "3eb52ce2c213d897",
-      "time": "2026-10-18 06:39"
+      "hash": "8968742cc5c439ea",
+      "time": "2026-10-18 07:14"
     },
     "FinalSuspect/Features/MainMenuStyleManager.html": {
-      "hash": "0faaed3958db5beb",
-      "time": "2026-10-18 06:39"
+      "hash": "d62f79c13d87c97d",
+      "time": "2026-10-18 07:14"
     },
     "FinalSuspect/Features/MyMusic.html": {
-      "hash": "ed7680b0b1533195",
-      "time": "2026-10-18 06:39"
+      "hash": "ca64e5b7c85f763a",
+      "time": "2026-10-18 07:14"
     },
     "FinalSuspect/Features/NameTagManager.html": {
-      "hash": "3278ea168e2c984b",
-      "time": "2026-10-18 06:39"
+      "hash": "c1bcdc4c9f779d71",
+      "time": "2026-10-18 07:14"
     },
     "FinalSuspect/Features/ResourceManager.html": {
-      "hash": "57288f480cfd2d66",
-      "time": "2026-10-18 06:39"
+      "hash": "0824a30ad306d1d3",
+      "time": "2026-10-18 07:14"
     },
     "FinalSuspect/Features/UnloadMod.html": {
-      "hash": "6911dc40fad6910c",
-      "time": "2026-10-18 06:39"
+      "hash": "a01dab22f799b930",
+      "time": "2026-10-18 07:14"
     },
     "FinalSuspect/Features/index.html": {
-      "hash": "9e0f5e628090637d",
-      "time": "2026-10-18 06:39"
+      "hash": "559b49fb1dde8f2c",
+      "time": "2026-10-18 07:14"
     },
     "FinalSuspect/Guide/Installation.html": {
-      "hash": "5dd0e6ea3b950415",
-      "time": "2026-10-18 06:39"
+      "hash": "202d403d7cd3a34a",
+      "time": "2026-10-18 07:16"
     },
     "FinalSuspect/Guide/OutputLog.html": {
-      "hash": "a1d26b913f43df22",
-      "time": "2026-10-18 06:39"
+      "hash": "8b8597ca81e9a59c",
+      "time": "2026-10-18 07:14"
     },
     "FinalSuspect/Guide/Update.html": {
-      "hash": "1a0b7512ca9c028b",
-      "time": "2026-10-18 06:39"
+      "hash": "fff172c5b5c8098e",
+      "time": "2026-10-18 07:16"
     },
     "FinalSuspect/Guide/index.html": {
-      "hash": "d7b6b9b19cd20749",
-      "time": "2026-10-18 06:39"
+      "hash": "9051aee7f0f79c7c",
+      "time": "2026-10-18 07:16"
     },
     "FinalSuspect/Introduction.html": {
-      "hash": "1c7435875ff8d8ca",
-      "time": "2026-10-18 06:39"
+      "hash": "fb1ceb703022399a",
+      "time": "2026-10-18 07:17"
     },
     "FinalSuspect/Keyboard.html": {
-      "hash": "8652d5fd003af441",
-      "time": "2026-10-18 06:39"
+      "hash": "8bacf7bea7140795",
+      "time": "2026-10-18 07:16"
     },
     "FinalSuspect/Options/AutoEndGame.html": {
-      "hash": "dae6042e8e4d98c6",
-      "time": "2026-10-18 06:39"
+      "hash": "de81c115f68d4077",
+      "time": "2026-10-18 07:14"
     },
     "FinalSuspect/Options/AutoRecreateRoom.html": {
-      "hash": "72c9ed28faa6f44b",
-      "time": "2026-10-18 06:39"
+      "hash": "97474250ac63f544",
+      "time": "2026-10-18 07:14"
     },
     "FinalSuspect/Options/AutoStartGame.html": {
-      "hash": "f72612b5cf01fb2c",
-      "time": "2026-10-18 06:39"
+      "hash": "3e60207676dbaa84",
+      "time": "2026-10-18 07:14"
     },
     "FinalSuspect/Options/DisableVanillaSound.html": {
-      "hash": "02f96c1254c9e1cc",
-      "time": "2026-10-18 06:39"
+      "hash": "9f5319be21e3a58c",
+      "time": "2026-10-18 07:14"
     },
     "FinalSuspect/Options/EnableFAC.html": {
-      "hash": "208099bee1b2b1a6",
-      "time": "2026-10-18 06:39"
+      "hash": "d654088f5027d359",
+      "time": "2026-10-18 07:14"
     },
     "FinalSuspect/Options/FastBoot.html": {
-      "hash": "268f936c9604887c",
-      "time": "2026-10-18 06:39"
+      "hash": "094941a8fadfceb6",
+      "time": "2026-10-18 07:14"
     },
     "FinalSuspect/Options/KickPlayerInBanList.html": {
-      "hash": "b9acf81d30684d95",
-      "time": "2026-10-18 06:39"
+      "hash": "c8d36ea132528f80",
+      "time": "2026-10-18 07:14"
     },
     "FinalSuspect/Options/KickPlayerWithAbnormalFriendCode.html": {
-      "hash": "7f5b0dac3343cdf3",
-      "time": "2026-10-18 06:39"
+      "hash": "ccabde3536159c15",
+      "time": "2026-10-18 07:14"
     },
     "FinalSuspect/Options/KickPlayerWithDenyName.html": {
-      "hash": "b00b152b3991261f",
-      "time": "2026-10-18 06:39"
+      "hash": "d4de91797b510a19",
+      "time": "2026-10-18 07:13"
     },
     "FinalSuspect/Options/OfflineMode.html": {
-      "hash": "56233347e4d2dcb7",
-      "time": "2026-10-18 06:39"
+      "hash": "c7d93b6d2702c970",
+      "time": "2026-10-18 07:13"
     },
     "FinalSuspect/Options/ShowPlayerInfo.html": {
-      "hash": "a2671764630c089c",
-      "time": "2026-10-18 06:39"
+      "hash": "9c17851e2cd6eea2",
+      "time": "2026-10-18 07:13"
     },
     "FinalSuspect/Options/SpamDenyWord.html": {
-      "hash": "350586b7da648646",
-      "time": "2026-10-18 06:39"
+      "hash": "93156e8192e60561",
+      "time": "2026-10-18 07:13"
     },
     "FinalSuspect/Options/SwitchOutfitType.html": {
-      "hash": "13dd1e2a4f7046c3",
-      "time": "2026-10-18 06:39"
+      "hash": "451c4888c347d351",
+      "time": "2026-10-18 07:13"
     },
     "FinalSuspect/Options/UnlockFPS.html": {
-      "hash": "8a8cf7da75ec72d5",
-      "time": "2026-10-18 06:39"
+      "hash": "1001b16883cfae32",
+      "time": "2026-10-18 07:14"
     },
     "FinalSuspect/Options/UseModCursor.html": {
-      "hash": "5bdbdffa828e08f0",
-      "time": "2026-10-18 06:39"
+      "hash": "f2e541777cdb9b7f",
+      "time": "2026-10-18 07:14"
     },
     "FinalSuspect/Options/index.html": {
-      "hash": "19cc3fafe491ef6e",
-      "time": "2026-10-18 06:39"
+      "hash": "cfab2f2c07746b55",
+      "time": "2026-10-18 07:19"
     },
     "index.html": {
-      "hash": "3647b8d74a64443d",
-      "time": "2026-10-11 02:01"
+      "hash": "f462b5e99163dac0",
+      "time": "2026-10-18 07:14"
     }
   }
 }

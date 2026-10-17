@@ -1,3 +1,7 @@
+/*
+ * 本地字体：@font-face 声明（woff2 子集）
+ */
+
 @font-face {
     font-family: "FS Display";
     font-style: normal;

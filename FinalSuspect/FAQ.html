@@ -6,125 +6,125 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#030308">
     <script>try { if (localStorage.getItem('fs.theme') === 'light') { document.documentElement.setAttribute('data-theme', 'light'); var m = document.querySelector('meta[name="theme-color"]'); if (m) m.setAttribute('content', '#eef1f7') } } catch (e) { }</script>
-    <title>疑难解答</title>
+    <title data-i18n="p.title">疑难解答</title>
 
-    <link rel="stylesheet" href="../Resource/CSS/fonts.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../Resource/CSS/icons.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../Resource/CSS/variables.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../Resource/CSS/components.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../Resource/CSS/layout.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../Resource/CSS/pages.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../Resource/CSS/animations.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../Resource/CSS/responsive.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../Resource/CSS/theme.css?v=ad8e71eb">
+    <link rel="stylesheet" href="../Resource/CSS/fonts.css?v=3e933278">
+    <link rel="stylesheet" href="../Resource/CSS/icons.css?v=3e933278">
+    <link rel="stylesheet" href="../Resource/CSS/variables.css?v=3e933278">
+    <link rel="stylesheet" href="../Resource/CSS/components.css?v=3e933278">
+    <link rel="stylesheet" href="../Resource/CSS/layout.css?v=3e933278">
+    <link rel="stylesheet" href="../Resource/CSS/pages.css?v=3e933278">
+    <link rel="stylesheet" href="../Resource/CSS/animations.css?v=3e933278">
+    <link rel="stylesheet" href="../Resource/CSS/responsive.css?v=3e933278">
+    <link rel="stylesheet" href="../Resource/CSS/theme.css?v=3e933278">
 </head>
 
 <body data-shell="full" data-page="faq" data-rail="start">
     <main>
         <header class="page-head">
-            <h1 class="page-title">疑难解答</h1>
+            <h1 class="page-title" data-i18n="p.title">疑难解答</h1>
             <div class="page-head__meta">
-                <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
+                <span><i class="fas fa-clock"></i> <span data-i18n="ui.updated">更新于</span> <time data-last-modified datetime=""></time></span>
             </div>
         </header>
 
         <div class="prose">
 
-            <h2 class="sec-title" id="compat">兼容性</h2>
+            <h2 class="sec-title" id="compat" data-i18n="p.compat">兼容性</h2>
 
             <details class="acc" open>
-                <summary><span class="acc__q">Final Suspect 兼容其它模组吗？</span></summary>
+                <summary><span class="acc__q" data-i18n="p.compatQ1">Final Suspect 兼容其它模组吗？</span></summary>
                 <div class="acc__body">
-                    <p><mark>不考虑、不适配、不兼容</mark>。</p>
-                    <p>请不要把 Final Suspect 与其它模组混装在同一份游戏目录中，否则出现问题将很难定位。</p>
+                    <p data-i18n-html="p.compatBody1"><mark>不考虑、不适配、不兼容</mark>。</p>
+                    <p data-i18n="p.compatBody2">请不要把 Final Suspect 与其它模组混装在同一份游戏目录中，否则出现问题将很难定位。</p>
                 </div>
             </details>
 
             <details class="acc">
-                <summary><span class="acc__q">老版本 Final Suspect 对新版本 Among Us 的兼容性？</span></summary>
+                <summary><span class="acc__q" data-i18n="p.compatQ2">老版本 Final Suspect 对新版本 Among Us 的兼容性？</span></summary>
                 <div class="acc__body">
-                    <p><mark>无法保证</mark>新版兼容性，即使其是 Final Suspect 的最新版本。</p>
-                    <p>
+                    <p data-i18n-html="p.compatBody3"><mark>无法保证</mark>新版兼容性，即使其是 Final Suspect 的最新版本。</p>
+                    <p data-i18n="p.compatBody4">
                         但我们相信，等到有人在中国发明推广了时空穿梭技术后，我们就可以在 Innersloth 推送新版 Among Us 前就适配了。
                     </p>
                 </div>
             </details>
 
-            <h2 class="sec-title" id="install">安装</h2>
+            <h2 class="sec-title" id="install" data-i18n="p.install">安装</h2>
 
             <details class="acc">
-                <summary><span class="acc__q">最新版本没有安装包，我该如何安装？</span></summary>
+                <summary><span class="acc__q" data-i18n="p.installQ1">最新版本没有安装包，我该如何安装？</span></summary>
                 <div class="acc__body">
-                    <p>您可以下载上一个版本的安装包，随后按照正常方式安装 Final Suspect。</p>
-                    <p>随后 Final Suspect 应该会要求你更新，照流程更新即可。</p>
-                    <p>
+                    <p data-i18n="p.installBody1">您可以下载上一个版本的安装包，随后按照正常方式安装 Final Suspect。</p>
+                    <p data-i18n="p.installBody2">随后 Final Suspect 应该会要求你更新，照流程更新即可。</p>
+                    <p data-i18n-html="p.installBody3">
                         如果没有提示（可能是因为 OpenBeta），您可以根据更新教程手动更新，见
                         <a href="Guide/Update.html">更新教程</a>。
                     </p>
                 </div>
             </details>
 
-            <h2 class="sec-title" id="errors">错误代码</h2>
+            <h2 class="sec-title" id="errors" data-i18n="p.errors">错误代码</h2>
 
             <details class="acc acc--err">
-                <summary><span class="acc__q">错误代码 <span class="error-code">ErrSteamWorksAuthFail</span></span>
+                <summary><span class="acc__q" data-i18n-html="p.errorsQ1">错误代码 <span class="error-code">ErrSteamWorksAuthFail</span></span>
                 </summary>
                 <div class="acc__body">
-                    <p>请<mark>启动 Steam 后再打开 Among Us</mark>。</p>
-                    <p>如果您将 Final Suspect 安装在了官方目录，可以直接通过 Steam 来打开 Among Us。</p>
+                    <p data-i18n-html="p.errorsBody1">请<mark>启动 Steam 后再打开 Among Us</mark>。</p>
+                    <p data-i18n="p.errorsBody2">如果您将 Final Suspect 安装在了官方目录，可以直接通过 Steam 来打开 Among Us。</p>
                 </div>
             </details>
 
             <details class="acc acc--err">
-                <summary><span class="acc__q">错误代码 <span class="error-code">ErrFriendCodeFail</span></span></summary>
+                <summary><span class="acc__q" data-i18n-html="p.errorsQ2">错误代码 <span class="error-code">ErrFriendCodeFail</span></span></summary>
                 <div class="acc__body">
-                    <p>从服务器获取好友代码失败。</p>
-                    <p>请<mark>重启 Among Us</mark> 以重试登录。</p>
+                    <p data-i18n="p.errorsBody3">从服务器获取好友代码失败。</p>
+                    <p data-i18n-html="p.errorsBody4">请<mark>重启 Among Us</mark> 以重试登录。</p>
                 </div>
             </details>
 
             <details class="acc acc--err">
-                <summary><span class="acc__q">错误代码 <span class="error-code">NoConnectionError</span></span></summary>
+                <summary><span class="acc__q" data-i18n-html="p.errorsQ3">错误代码 <span class="error-code">NoConnectionError</span></span></summary>
                 <div class="acc__body">
-                    <p>网络问题。</p>
-                    <p>请<mark>重启 Among Us</mark> 以重试登录。</p>
+                    <p data-i18n="p.errorsBody5">网络问题。</p>
+                    <p data-i18n-html="p.errorsBody6">请<mark>重启 Among Us</mark> 以重试登录。</p>
                 </div>
             </details>
 
             <details class="acc acc--err">
-                <summary><span class="acc__q">无错误代码提示，但提示「登录需要一点时间」</span></summary>
+                <summary><span class="acc__q" data-i18n="p.errorsQ4">无错误代码提示，但提示「登录需要一点时间」</span></summary>
                 <div class="acc__body">
-                    <p>网络问题。</p>
-                    <p>请<mark>重启 Among Us 并确认你是否挂了加速器</mark>。</p>
+                    <p data-i18n="p.errorsBody7">网络问题。</p>
+                    <p data-i18n-html="p.errorsBody8">请<mark>重启 Among Us 并确认你是否挂了加速器</mark>。</p>
                     <div class="alert alert--warn">
                         <span class="alert__icon"><i class="fas fa-triangle-exclamation"></i></span>
                         <div class="alert__body">
-                            <span class="alert__title">可能需要代理</span>
-                            <p>部分情况可能需要挂代理（VPN）。</p>
+                            <span class="alert__title" data-i18n="p.errorsAlertTitle">可能需要代理</span>
+                            <p data-i18n="p.errorsAlertBody">部分情况可能需要挂代理（VPN）。</p>
                         </div>
                     </div>
                 </div>
             </details>
 
-            <h2 class="sec-title" id="server">服务器连接</h2>
+            <h2 class="sec-title" id="server" data-i18n="p.server">服务器连接</h2>
 
             <details class="acc">
-                <summary><span class="acc__q">无法连接到 Final Suspect 服务器</span></summary>
+                <summary><span class="acc__q" data-i18n="p.serverQ1">无法连接到 Final Suspect 服务器</span></summary>
                 <div class="acc__body">
-                    <p>请检查你的网络。</p>
+                    <p data-i18n="p.serverBody1">请检查你的网络。</p>
                     <div class="alert alert--warn">
                         <span class="alert__icon"><i class="fas fa-bug"></i></span>
                     </div>
                 </div>
             </details>
 
-            <h2 class="sec-title" id="next">还是没有解决？</h2>
-            <p>按下面的顺序准备信息，开发者定位问题的速度会快很多：</p>
+            <h2 class="sec-title" id="next" data-i18n="p.next">还是没有解决？</h2>
+            <p data-i18n="p.nextBody">按下面的顺序准备信息，开发者定位问题的速度会快很多：</p>
 
             <div class="steps">
                 <div class="step">
                     <div class="step__body">
-                        <p>
+                        <p data-i18n-html="p.nextStep1">
                             先在游戏内输出日志，拿到本次运行的完整日志文件。
                             具体按键与日志位置见 <a href="Guide/OutputLog.html">导出日志</a>。
                         </p>
@@ -132,14 +132,14 @@
                 </div>
                 <div class="step">
                     <div class="step__body">
-                        <p>确认你的<strong>模组版本</strong>与<strong>游戏版本</strong>，以及出现问题时的具体操作步骤。</p>
+                        <p data-i18n-html="p.nextStep2">确认你的<strong>模组版本</strong>与<strong>游戏版本</strong>，以及出现问题时的具体操作步骤。</p>
                     </div>
                 </div>
                 <div class="step">
                     <div class="step__body">
-                        <p>到 GitHub 提交 issue，把日志与复现步骤一起附上。</p>
+                        <p data-i18n="p.nextStep3">到 GitHub 提交 issue，把日志与复现步骤一起附上。</p>
                         <a class="related__card" href="https://github.com/Slok7565/FinalSuspect/issues" target="_blank"
-                            rel="noopener noreferrer"><i class="brand-ico brand-ico--github"></i><span>提交
+                            rel="noopener noreferrer"><i class="brand-ico brand-ico--github"></i><span data-i18n="p.nextStep3Link">提交
                                 issue（新窗口）</span><i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -148,23 +148,23 @@
 
         <div class="pager">
             <a class="pager__item" href="Introduction.html">
-                <small>上一篇</small>
-                <b>← FinalSuspect 简介</b>
+                <small data-i18n="ui.prev">上一篇</small>
+                <b>← <span data-i18n="p.pagerPrev">FinalSuspect 简介</span></b>
             </a>
             <a class="pager__item pager__item--next" href="Keyboard.html">
-                <small>下一篇</small>
-                <b>快捷键 →</b>
+                <small data-i18n="ui.next">下一篇</small>
+                <b><span data-i18n="p.pagerNext">快捷键</span> →</b>
             </a>
         </div>
     </main>
 
-    <script src="../Resource/JS/language.js?v=ad8e71eb" defer></script>
-    <script src="../Resource/JS/versions.js?v=ad8e71eb" defer></script>
-    <script src="../Resource/JS/shell.js?v=ad8e71eb" defer></script>
-    <script src="../Resource/JS/transition.js?v=ad8e71eb" defer></script>
-    <script src="../Resource/JS/effects.js?v=ad8e71eb" defer></script>
-    <script src="../Resource/JS/last-modified.js?v=ad8e71eb" defer></script>
-    <script src="../Resource/JS/time.js?v=ad8e71eb" defer></script>
+    <script src="../Resource/JS/language.js?v=3e933278" defer></script>
+    <script src="../Resource/JS/changelog-source.js?v=3e933278" defer></script>
+    <script src="../Resource/JS/shell.js?v=3e933278" defer></script>
+    <script src="../Resource/JS/transition.js?v=3e933278" defer></script>
+    <script src="../Resource/JS/effects.js?v=3e933278" defer></script>
+    <script src="../Resource/JS/last-modified.js?v=3e933278" defer></script>
+    <script src="../Resource/JS/time.js?v=3e933278" defer></script>
 </body>
 
 </html>

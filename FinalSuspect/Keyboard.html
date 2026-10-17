@@ -6,97 +6,97 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#030308">
     <script>try { if (localStorage.getItem('fs.theme') === 'light') { document.documentElement.setAttribute('data-theme', 'light'); var m = document.querySelector('meta[name="theme-color"]'); if (m) m.setAttribute('content', '#eef1f7') } } catch (e) { }</script>
-    <title>快捷键</title>
+    <title data-i18n="p.title">快捷键</title>
 
-    <link rel="stylesheet" href="../Resource/CSS/fonts.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../Resource/CSS/icons.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../Resource/CSS/variables.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../Resource/CSS/components.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../Resource/CSS/layout.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../Resource/CSS/pages.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../Resource/CSS/animations.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../Resource/CSS/responsive.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../Resource/CSS/theme.css?v=ad8e71eb">
+    <link rel="stylesheet" href="../Resource/CSS/fonts.css?v=3e933278">
+    <link rel="stylesheet" href="../Resource/CSS/icons.css?v=3e933278">
+    <link rel="stylesheet" href="../Resource/CSS/variables.css?v=3e933278">
+    <link rel="stylesheet" href="../Resource/CSS/components.css?v=3e933278">
+    <link rel="stylesheet" href="../Resource/CSS/layout.css?v=3e933278">
+    <link rel="stylesheet" href="../Resource/CSS/pages.css?v=3e933278">
+    <link rel="stylesheet" href="../Resource/CSS/animations.css?v=3e933278">
+    <link rel="stylesheet" href="../Resource/CSS/responsive.css?v=3e933278">
+    <link rel="stylesheet" href="../Resource/CSS/theme.css?v=3e933278">
 </head>
 
 <body data-shell="full" data-page="keyboard" data-rail="start">
     <main>
         <header class="page-head">
-            <h1 class="page-title">快捷键</h1>
+            <h1 class="page-title" data-i18n="p.title">快捷键</h1>
             <div class="page-head__meta">
-                <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
+                <span><i class="fas fa-clock"></i> <span data-i18n="ui.updated">更新于</span> <time data-last-modified datetime=""></time></span>
             </div>
         </header>
 
         <div class="prose">
 
-            <h2 class="sec-title" id="general">模组端快捷键</h2>
-            <p>这一组按键不区分身份，只要运行的是 Final Suspect 模组端即可使用。</p>
+            <h2 class="sec-title" id="general" data-i18n="p.general">模组端快捷键</h2>
+            <p data-i18n="p.generalBody">这一组按键不区分身份，只要运行的是 Final Suspect 模组端即可使用。</p>
 
             <dl class="spec-list">
                 <dt><kbd>F11</kbd></dt>
-                <dd>更改分辨率</dd>
+                <dd data-i18n="p.generalKey1">更改分辨率</dd>
 
                 <dt><kbd>F4</kbd></dt>
-                <dd>更改全屏</dd>
+                <dd data-i18n="p.generalKey2">更改全屏</dd>
 
                 <dt><kbd>F5</kbd><span>+</span><kbd>T</kbd></dt>
-                <dd>重新加载自定义翻译文件</dd>
+                <dd data-i18n="p.generalKey3">重新加载自定义翻译文件</dd>
 
                 <dt><kbd>F5</kbd><span>+</span><kbd>X</kbd></dt>
-                <dd>导出自定义翻译文件</dd>
+                <dd data-i18n="p.generalKey4">导出自定义翻译文件</dd>
 
                 <dt><kbd>F1</kbd><span>+</span><kbd>左Ctrl</kbd><span>/</span><kbd>右Ctrl</kbd></dt>
-                <dd>输出日志</dd>
+                <dd data-i18n="p.generalKey5">输出日志</dd>
 
                 <dt><kbd>F2</kbd><span>+</span><kbd>左Ctrl</kbd><span>/</span><kbd>右Ctrl</kbd></dt>
-                <dd>游戏中输出日志</dd>
+                <dd data-i18n="p.generalKey6">游戏中输出日志</dd>
 
                 <dt><kbd>F10</kbd></dt>
-                <dd>打开游戏目录</dd>
+                <dd data-i18n="p.generalKey7">打开游戏目录</dd>
 
                 <dt><kbd>TAB</kbd></dt>
-                <dd>显示/隐藏主页 UI</dd>
+                <dd data-i18n="p.generalKey8">显示/隐藏主页 UI</dd>
             </dl>
 
-            <h2 class="sec-title" id="host">房主专用快捷键</h2>
+            <h2 class="sec-title" id="host" data-i18n="p.host">房主专用快捷键</h2>
 
             <div class="alert alert--warn">
                 <span class="alert__icon"><i class="fas fa-crown"></i></span>
                 <div class="alert__body">
-                    <span class="alert__title">生效条件</span>
-                    <p>该快捷键仅限自己是房主，且是 FinalSuspect 模组端生效。</p>
+                    <span class="alert__title" data-i18n="p.hostAlertTitle">生效条件</span>
+                    <p data-i18n="p.hostAlertBody">该快捷键仅限自己是房主，且是 FinalSuspect 模组端生效。</p>
                 </div>
             </div>
 
             <dl class="spec-list">
                 <dt><kbd>左Shift</kbd><span>/</span><kbd>右Shift</kbd></dt>
-                <dd>将大厅房间倒计时修改为 0s</dd>
+                <dd data-i18n="p.hostKey1">将大厅房间倒计时修改为 0s</dd>
 
                 <dt><kbd>C</kbd></dt>
-                <dd>重置房间倒计时</dd>
+                <dd data-i18n="p.hostKey2">重置房间倒计时</dd>
             </dl>
         </div>
 
         <div class="pager">
             <a class="pager__item" href="FAQ.html">
-                <small>上一篇</small>
-                <b>← 疑难解答</b>
+                <small data-i18n="ui.prev">上一篇</small>
+                <b>← <span data-i18n="p.pagerPrev">疑难解答</span></b>
             </a>
             <a class="pager__item pager__item--next" href="Guide/index.html">
-                <small>下一篇</small>
-                <b>教程总览 →</b>
+                <small data-i18n="ui.next">下一篇</small>
+                <b><span data-i18n="p.pagerNext">教程总览</span> →</b>
             </a>
         </div>
     </main>
 
-    <script src="../Resource/JS/language.js?v=ad8e71eb" defer></script>
-    <script src="../Resource/JS/versions.js?v=ad8e71eb" defer></script>
-    <script src="../Resource/JS/shell.js?v=ad8e71eb" defer></script>
-    <script src="../Resource/JS/transition.js?v=ad8e71eb" defer></script>
-    <script src="../Resource/JS/effects.js?v=ad8e71eb" defer></script>
-    <script src="../Resource/JS/last-modified.js?v=ad8e71eb" defer></script>
-    <script src="../Resource/JS/time.js?v=ad8e71eb" defer></script>
+    <script src="../Resource/JS/language.js?v=3e933278" defer></script>
+    <script src="../Resource/JS/changelog-source.js?v=3e933278" defer></script>
+    <script src="../Resource/JS/shell.js?v=3e933278" defer></script>
+    <script src="../Resource/JS/transition.js?v=3e933278" defer></script>
+    <script src="../Resource/JS/effects.js?v=3e933278" defer></script>
+    <script src="../Resource/JS/last-modified.js?v=3e933278" defer></script>
+    <script src="../Resource/JS/time.js?v=3e933278" defer></script>
 </body>
 
 </html>

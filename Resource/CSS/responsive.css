@@ -1,7 +1,10 @@
+/*
+ * 响应式断点与低配设备降级
+ */
+
 .legal-bar {
   padding-right: calc(var(--s-6) + 66px);
 }
-
 
 @media (max-width: 1279px) {
 
@@ -10,7 +13,6 @@
     padding-right: var(--s-5);
   }
 }
-
 
 @media (max-width: 1023px) {
 
@@ -46,8 +48,7 @@
   }
 
   .shell,
-  .shell--no-toc,
-  .shell--no-rail {
+  .shell--no-toc {
     grid-template-columns: minmax(0, 1fr);
     grid-template-areas: 'main';
     gap: 0;
@@ -108,7 +109,6 @@
   }
 }
 
-
 @media (max-width: 900px) {
 
   body::before {
@@ -147,7 +147,6 @@
     opacity: 0;
   }
 }
-
 
 @media (max-width: 720px) {
 
@@ -188,12 +187,7 @@
     max-width: 100%;
   }
 
-  .hero__status {
-    gap: 8px;
-    margin-bottom: var(--s-4);
-    padding: 6px 12px;
-    font-size: .62rem;
-  }
+  
 
   .hero__logo {
     width: min(330px, 74vw);
@@ -264,9 +258,7 @@
     padding-bottom: var(--s-3);
   }
 
-  .related {
-    margin-top: var(--s-6);
-  }
+  
 
   .callout-path {
     word-break: break-all;
@@ -311,7 +303,6 @@
     padding: var(--s-4);
   }
 
-  .term__body,
   pre {
     font-size: .8rem;
   }
@@ -321,7 +312,6 @@
     font-size: 1rem;
   }
 }
-
 
 @media (max-width: 640px) {
 
@@ -350,7 +340,6 @@
   }
 }
 
-
 @media (max-width: 400px) {
 
   .brand {
@@ -362,7 +351,6 @@
     max-width: 6em;
   }
 }
-
 
 @media (max-height: 460px) and (orientation: landscape) {
 
@@ -387,7 +375,6 @@
 .legal-bar {
   contain: layout paint;
 }
-
 
 /* ===== 低配设备自动降级（由 shell.js 依据硬件信息给 <html> 加 data-lowfx） ===== */
 /* 无限循环动画与 backdrop-filter 是常驻 CPU / GPU 占用的主要来源。
@@ -417,8 +404,7 @@ html[data-lowfx] .hero__glow {
 html[data-lowfx] .dock__btn,
 html[data-lowfx] .cmdk,
 html[data-lowfx] .rail-scrim,
-html[data-lowfx] .lang-switch__menu,
-html[data-lowfx] .hero__status {
+html[data-lowfx] .lang-switch__menu {
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
 }
@@ -427,7 +413,6 @@ html[data-lowfx] .dock__pulse,
 html[data-lowfx] .dock__ring-fg {
   display: none !important;
 }
-
 
 @media (hover: none) and (pointer: coarse) {
 

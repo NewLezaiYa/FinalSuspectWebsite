@@ -6,71 +6,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#030308">
     <script>try { if (localStorage.getItem('fs.theme') === 'light') { document.documentElement.setAttribute('data-theme', 'light'); var m = document.querySelector('meta[name="theme-color"]'); if (m) m.setAttribute('content', '#eef1f7') } } catch (e) { }</script>
-    <title>教程总览</title>
+    <title data-i18n="p.title">教程总览</title>
 
-    <link rel="stylesheet" href="../../Resource/CSS/fonts.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/icons.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/variables.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/components.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/layout.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/pages.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/animations.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/responsive.css?v=ad8e71eb">
-    <link rel="stylesheet" href="../../Resource/CSS/theme.css?v=ad8e71eb">
+    <link rel="stylesheet" href="../../Resource/CSS/fonts.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/icons.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/variables.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/components.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/layout.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/pages.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/animations.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/responsive.css?v=3e933278">
+    <link rel="stylesheet" href="../../Resource/CSS/theme.css?v=3e933278">
 </head>
 
 <body data-shell="full" data-page="guide" data-rail="guide">
     <main>
         <section class="index-hero">
             <div class="index-hero__bg"></div>
-            <h1>FinalSuspect 教程</h1>
-            <p>从下载到上手的三篇分步指南：先装对平台包，再弄懂更新逻辑，出问题时把日志完整交给开发者。</p>
+            <h1 data-i18n="p.heroTitle">FinalSuspect 教程</h1>
+            <p data-i18n="p.heroDesc">从下载到上手的三篇分步指南：先装对平台包，再弄懂更新逻辑，出问题时把日志完整交给开发者。</p>
         </section>
 
         <div class="index-tools">
-            <span class="index-tools__count">按顺序阅读效果最佳</span>
+            <span class="index-tools__count" data-i18n="p.toolsCount">按顺序阅读效果最佳</span>
         </div>
 
         <div class="card-grid" data-group="60">
 
             <a class="card" href="Installation.html">
                 <span class="card__icon"><i class="fas fa-download"></i></span>
-                <span class="card__title">安装模组</span>
-                <span class="card__desc">下载对应平台的模组包，解压到游戏根目录。含 Steam / Epic 默认路径参考、目录结构核对图与插件路径。</span>
-                <span class="card__go">开始阅读 <i class="fas fa-arrow-right"></i></span>
+                <span class="card__title" data-i18n="p.card1Title">安装模组</span>
+                <span class="card__desc" data-i18n="p.card1Desc">下载对应平台的模组包，解压到游戏根目录。含 Steam / Epic 默认路径参考、目录结构核对图与插件路径。</span>
+                <span class="card__go" data-i18n-html="p.cardGo">开始阅读 <i class="fas fa-arrow-right"></i></span>
             </a>
 
             <a class="card" href="Update.html">
                 <span class="card__icon"><i class="fas fa-rotate"></i></span>
-                <span class="card__title">更新模组</span>
-                <span class="card__desc">内置更新检查的工作原理，以及更新检查失败时手动替换 dll 文件的完整流程。</span>
-                <span class="card__go">开始阅读 <i class="fas fa-arrow-right"></i></span>
+                <span class="card__title" data-i18n="p.card2Title">更新模组</span>
+                <span class="card__desc" data-i18n="p.card2Desc">内置更新检查的工作原理，以及更新检查失败时手动替换 dll 文件的完整流程。</span>
+                <span class="card__go" data-i18n-html="p.cardGo">开始阅读 <i class="fas fa-arrow-right"></i></span>
             </a>
 
             <a class="card" href="OutputLog.html">
                 <span class="card__icon"><i class="fas fa-file-export"></i></span>
-                <span class="card__title">导出日志</span>
-                <span class="card__desc">出问题时如何拿到日志文件：自动导出、手动查看，以及游戏内的两组快捷键。</span>
-                <span class="card__go">开始阅读 <i class="fas fa-arrow-right"></i></span>
+                <span class="card__title" data-i18n="p.card3Title">导出日志</span>
+                <span class="card__desc" data-i18n="p.card3Desc">出问题时如何拿到日志文件：自动导出、手动查看，以及游戏内的两组快捷键。</span>
+                <span class="card__go" data-i18n-html="p.cardGo">开始阅读 <i class="fas fa-arrow-right"></i></span>
             </a>
 
         </div>
 
         <div class="pager">
             <a class="pager__item pager__item--next" href="Installation.html">
-                <small>下一篇</small>
-                <b>安装模组 →</b>
+                <small data-i18n="ui.next">下一篇</small>
+                <b><span data-i18n="p.pagerNext">安装模组</span> →</b>
             </a>
         </div>
     </main>
 
-    <script src="../../Resource/JS/language.js?v=ad8e71eb" defer></script>
-    <script src="../../Resource/JS/versions.js?v=ad8e71eb" defer></script>
-    <script src="../../Resource/JS/shell.js?v=ad8e71eb" defer></script>
-    <script src="../../Resource/JS/transition.js?v=ad8e71eb" defer></script>
-    <script src="../../Resource/JS/effects.js?v=ad8e71eb" defer></script>
-    <script src="../../Resource/JS/last-modified.js?v=ad8e71eb" defer></script>
-    <script src="../../Resource/JS/time.js?v=ad8e71eb" defer></script>
+    <script src="../../Resource/JS/language.js?v=3e933278" defer></script>
+    <script src="../../Resource/JS/changelog-source.js?v=3e933278" defer></script>
+    <script src="../../Resource/JS/shell.js?v=3e933278" defer></script>
+    <script src="../../Resource/JS/transition.js?v=3e933278" defer></script>
+    <script src="../../Resource/JS/effects.js?v=3e933278" defer></script>
+    <script src="../../Resource/JS/last-modified.js?v=3e933278" defer></script>
+    <script src="../../Resource/JS/time.js?v=3e933278" defer></script>
 </body>
 
 </html>
