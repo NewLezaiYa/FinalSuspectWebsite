@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#030308">
+    <script>try { if (localStorage.getItem('fs.theme') === 'light') { document.documentElement.setAttribute('data-theme', 'light'); var m = document.querySelector('meta[name="theme-color"]'); if (m) m.setAttribute('content', '#eef1f7') } } catch (e) { }</script>
+    <title>掉线后自动新建房间</title>
+
+    <link rel="stylesheet" href="../../Resource/CSS/fonts.css?v=2df7cd96">
+    <link rel="stylesheet" href="../../Resource/CSS/icons.css?v=2df7cd96">
+    <link rel="stylesheet" href="../../Resource/CSS/variables.css?v=2df7cd96">
+    <link rel="stylesheet" href="../../Resource/CSS/components.css?v=2df7cd96">
+    <link rel="stylesheet" href="../../Resource/CSS/layout.css?v=2df7cd96">
+    <link rel="stylesheet" href="../../Resource/CSS/pages.css?v=2df7cd96">
+    <link rel="stylesheet" href="../../Resource/CSS/animations.css?v=2df7cd96">
+    <link rel="stylesheet" href="../../Resource/CSS/responsive.css?v=2df7cd96">
+    <link rel="stylesheet" href="../../Resource/CSS/theme.css?v=2df7cd96">
+</head>
+
+<body data-shell="full" data-page="opt-autorecreateroom" data-rail="options">
+    <main>
+        <header class="page-head">
+            <h1 class="page-title">掉线后自动新建房间</h1>
+            <div class="page-head__meta">
+                <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
+            </div>
+        </header>
+
+        <div class="prose">
+
+            <h2 class="sec-title" id="how">功能说明</h2>
+            <p>
+                当触发<strong>网络异常</strong>、<strong>服务器侧掉线</strong>、<strong>切到后台导致的掉线</strong>、<strong>大厅长时间无操作被踢出</strong>，
+                将根据游戏模式，自动创建对应游戏模式的新房间游戏大厅界面。
+            </p>
+
+        </div>
+
+        <div class="pager">
+            <a class="pager__item" href="AutoStartGame">
+                <small>上一篇</small>
+                <b>← 人满自动开始游戏</b>
+            </a>
+            <a class="pager__item pager__item--next" href="EnableFAC">
+                <small>下一篇</small>
+                <b>启用反作弊（FAC） →</b>
+            </a>
+        </div>
+    </main>
+
+    <script src="../../Resource/JS/language.js?v=2df7cd96" defer></script>
+    <script src="../../Resource/JS/versions.js?v=2df7cd96" defer></script>
+    <script src="../../Resource/JS/shell.js?v=2df7cd96" defer></script>
+    <script src="../../Resource/JS/transition.js?v=2df7cd96" defer></script>
+    <script src="../../Resource/JS/effects.js?v=2df7cd96" defer></script>
+    <script src="../../Resource/JS/last-modified.js?v=2df7cd96" defer></script>
+    <script src="../../Resource/JS/time.js?v=2df7cd96" defer></script>
+</body>
+
+</html>

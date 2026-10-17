@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#030308">
-    <script>try{if(localStorage.getItem('fs.theme')==='light'){document.documentElement.setAttribute('data-theme','light');var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content','#eef1f7')}}catch(e){}</script>
+    <script>try { if (localStorage.getItem('fs.theme') === 'light') { document.documentElement.setAttribute('data-theme', 'light'); var m = document.querySelector('meta[name="theme-color"]'); if (m) m.setAttribute('content', '#eef1f7') } } catch (e) { }</script>
     <title>输出日志</title>
 
     <link rel="stylesheet" href="../../Resource/CSS/fonts.css?v=2df7cd96">
@@ -22,10 +22,8 @@
 <body data-shell="full" data-page="feat-dumplog" data-rail="features">
     <main>
         <header class="page-head">
-            <span class="page-head__label hud-label"><i class="fas fa-file-code"></i> FEATURE </span>
             <h1 class="page-title">输出日志</h1>
             <div class="page-head__meta">
-                <span><i class="fas fa-folder"></i> 功能</span>
                 <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
             </div>
         </header>
@@ -54,11 +52,6 @@
 
             <h2 class="sec-title" id="path">日志目录</h2>
             <p>导出的日志会存放在下面的路径中：</p>
-            <p class="callout-path"><i class="fas fa-terminal"></i>
-                %APPDATA%\..\LocalLow\Innersloth\Among Us\FinalSuspect\Logs\Final Suspect-logs</p>
-            <p>
-                按 <kbd>Win</kbd> + <kbd>R</kbd> 打开「运行」窗口，把这串地址粘贴进去并确认，即可手动访问该目录。
-            </p>
 
             <div class="term">
                 <div class="term__bar">
@@ -67,6 +60,9 @@
                 </div>
                 <pre><code>%APPDATA%\..\LocalLow\Innersloth\Among Us\FinalSuspect\Logs\Final Suspect-logs</code></pre>
             </div>
+            <p>
+                按 <kbd>Win</kbd> + <kbd>R</kbd> 打开「运行」窗口，把这串地址粘贴进去并确认，即可手动访问该目录。
+            </p>
 
             <div class="alert alert--tip">
                 <span class="alert__icon"><i class="fas fa-circle-info"></i></span>
@@ -83,9 +79,9 @@
                 <small>上一篇</small>
                 <b>← 清空自动日志</b>
             </a>
-            <a class="pager__item pager__item--next" href="MyMusic.html">
+            <a class="pager__item pager__item--next" href="MainMenuStyleManager.html">
                 <small>下一篇</small>
-                <b>我的音乐 →</b>
+                <b>切换主页风格 →</b>
             </a>
         </div>
     </main>

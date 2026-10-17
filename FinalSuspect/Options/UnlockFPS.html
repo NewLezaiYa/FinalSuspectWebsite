@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#030308">
-    <script>try{if(localStorage.getItem('fs.theme')==='light'){document.documentElement.setAttribute('data-theme','light');var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content','#eef1f7')}}catch(e){}</script>
+    <script>try { if (localStorage.getItem('fs.theme') === 'light') { document.documentElement.setAttribute('data-theme', 'light'); var m = document.querySelector('meta[name="theme-color"]'); if (m) m.setAttribute('content', '#eef1f7') } } catch (e) { }</script>
     <title>解锁帧数限制</title>
 
     <link rel="stylesheet" href="../../Resource/CSS/fonts.css?v=2df7cd96">
@@ -22,16 +22,14 @@
 <body data-shell="full" data-page="opt-unlockfps" data-rail="options">
     <main>
         <header class="page-head">
-            <span class="page-head__label hud-label"><i class="fas fa-gauge-high"></i> OPTION </span>
             <h1 class="page-title">解锁帧数限制</h1>
             <div class="page-head__meta">
-                <span><i class="fas fa-folder"></i> 选项</span>
                 <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
             </div>
         </header>
 
         <div class="prose">
-            <h2 class="sec-title" id="how"><span class="sec-title__num">01</span>功能说明</h2>
+            <h2 class="sec-title" id="how">功能说明</h2>
             <p>
                 原版游戏客户端默认将帧率限制在 <strong>60FPS</strong>，启用此功能后可解除该限制，
                 最高支持 <strong>165FPS</strong> 的流畅画面表现。
@@ -44,11 +42,25 @@
             <figure class="figure">
                 <picture>
                     <source srcset="../../Resource/images/UnlockFPS.webp" type="image/webp">
-                    <img width="386" height="125" data-nowebp src="../../Resource/images/UnlockFPS.png" alt="解锁帧数限制功能示意图" loading="lazy"
-                        decoding="async">
+                    <img width="386" height="125" data-nowebp src="../../Resource/images/UnlockFPS.png"
+                        alt="解锁帧数限制功能示意图" loading="lazy" decoding="async">
                 </picture>
                 <figcaption>解锁帧数限制功能示意图</figcaption>
             </figure>
+
+            <h2 class="sec-title" id="notice">注意</h2>
+            <div class="alert alert--tip">
+                <span class="alert__icon"><i class="fas fa-lightbulb"></i></span>
+                <div class="alert__body">
+                    <span class="alert__title">针对Android端Starlight的「解锁帧数限制」功能</span>
+                    <p>
+                        Android端Starlight在手机厂商里是没有白名单优化机制的，所以会被限制在一个很怂的调度策略。<br>
+                        而解锁165帧会让CPU工作压力暴涨，温度上来触发手机温控，开始对CPU锁频，然后帧率暴降。<br>
+
+                        所以FinalSuspect仅对<strong>骁龙8至尊版</strong>，<strong>天玑9300</strong>及以上旗舰手机开放解锁165帧的选项。
+                    </p>
+                </div>
+            </div>
         </div>
 
         <div class="pager">
