@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#030308">
-    <script>try{if(localStorage.getItem('fs.theme')==='light'){document.documentElement.setAttribute('data-theme','light');var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content','#eef1f7')}}catch(e){}</script>
+    <script>try { if (localStorage.getItem('fs.theme') === 'light') { document.documentElement.setAttribute('data-theme', 'light'); var m = document.querySelector('meta[name="theme-color"]'); if (m) m.setAttribute('content', '#eef1f7') } } catch (e) { }</script>
     <title>安装模组</title>
 
     <link rel="stylesheet" href="../../Resource/CSS/fonts.css?v=2df7cd96">
@@ -22,10 +22,8 @@
 <body data-shell="full" data-page="installation" data-rail="guide">
     <main>
         <header class="page-head">
-            <span class="page-head__label hud-label"><i class="fas fa-download"></i> PROCEDURE </span>
             <h1 class="page-title">安装模组</h1>
             <div class="page-head__meta">
-                <span><i class="fas fa-folder"></i> 教程</span>
                 <span><i class="fas fa-clock"></i> 更新于 <time data-last-modified datetime=""></time></span>
             </div>
         </header>
@@ -41,14 +39,6 @@
                     <i class="brand-ico brand-ico--github"></i><span>GitHub Releases（点击前往）</span><i
                         class="fas fa-arrow-up-right-from-square"></i>
                 </a>
-            </div>
-
-            <div class="alert alert--danger">
-                <span class="alert__icon"><i class="fas fa-circle-exclamation"></i></span>
-                <div class="alert__body">
-                    <span class="alert__title">必须下载对应平台的模组包</span>
-                    <p>Steam 版与 Epic 版的模组包<mark>互不通用</mark>。请先确认自己的游戏平台，再下载对应的安装包。</p>
-                </div>
             </div>
 
             <h2 class="sec-title" id="steam">Steam 平台安装</h2>
@@ -71,7 +61,8 @@
                         <figure class="figure">
                             <picture>
                                 <source srcset="../../Resource/images/OpenAmongUsWithSteam.webp" type="image/webp">
-                                <img width="1920" height="1030" data-nowebp src="../../Resource/images/OpenAmongUsWithSteam.png"
+                                <img width="1920" height="1030" data-nowebp
+                                    src="../../Resource/images/OpenAmongUsWithSteam.png"
                                     alt="通过 Steam 客户端打开《Among Us》本地文件目录" loading="lazy" decoding="async">
                             </picture>
                             <figcaption>Steam → 属性 → 本地文件 → 浏览</figcaption>
@@ -85,8 +76,8 @@
                         <figure class="figure">
                             <picture>
                                 <source srcset="../../Resource/images/SteamUnzip.webp" type="image/webp">
-                                <img width="774" height="447" data-nowebp src="../../Resource/images/SteamUnzip.png" alt="解压完成后的游戏根目录结构"
-                                    loading="lazy" decoding="async">
+                                <img width="774" height="447" data-nowebp src="../../Resource/images/SteamUnzip.png"
+                                    alt="解压完成后的游戏根目录结构" loading="lazy" decoding="async">
                             </picture>
                             <figcaption>解压完成后的目录结构核对</figcaption>
                         </figure>
@@ -125,11 +116,11 @@
 
                 <div class="step">
                     <div class="step__body">
-                        <p>将下载的 Final Suspect 压缩包解压到游戏根目录，最终文件结构应与 Steam 平台一致。</p>
+                        <p>将下载的 Final Suspect 压缩包解压到游戏根目录。</p>
                         <div class="term">
                             <div class="term__bar">
                                 <span class="term__dots"><i></i><i></i><i></i></span>
-                                <span class="term__path">Epic 平台插件路径</span>
+                                <span class="term__path">Epic 平台路径</span>
                             </div>
                             <pre><code>C:\Program Files\Epic Games\AmongUs\BepInEx\plugins\FinalSuspect.dll</code></pre>
                         </div>
